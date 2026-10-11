@@ -1,0 +1,105 @@
+export type QuestionType = 'mcq' | 'fill';
+
+export type TopicId = string;
+
+export interface MicroTopicInfo {
+  id: string;
+  name: string;
+  shortName: string;
+  chapterId: string;
+  description: string;
+  questionCount?: number;
+}
+
+export interface ChapterInfo {
+  id: string;
+  name: string;
+  shortName: string;
+  description: string;
+  color: string;
+  topics: MicroTopicInfo[];
+}
+
+export interface TopicInfo {
+  id: string;
+  name: string;
+  shortName: string;
+  description: string;
+  color: string;
+  iconName?: string;
+}
+
+export interface Question {
+  id: number;
+  type: QuestionType; // 'mcq' for 4-choices, 'fill' for short answer
+  chapterId?: string;
+  chapterName?: string;
+  topicId: string;
+  topicName: string;
+  content: string; // Markdown with LaTeX $...$ or $$...$$
+  options?: {
+    key: 'A' | 'B' | 'C' | 'D';
+    content: string;
+  }[];
+  correctAnswer: string; // 'A'|'B'|'C'|'D' or number e.g. "2.5", "-4"
+  acceptableAnswers?: string[]; // Alternative inputs e.g. ["2.5", "5/2", "2,5"]
+  detailedSolution: string; // LaTeX-rich step-by-step explanation
+  socraticHint: string; // Intuitive hint guiding student's critical thinking
+  difficulty: 'Nhận biết' | 'Thông hiểu' | 'Vận dụng' | 'Vận dụng cao';
+  examSets?: string[]; // IDs of exam sets this question belongs to
+}
+
+export interface ExamSet {
+  id: string;
+  title: string;
+  subtitle: string;
+  timeMinutes: number;
+  questionCount: number;
+  mcqCount: number;
+  fillCount: number;
+  badge: string;
+  description: string;
+  questionIds: number[];
+}
+
+export interface UserAnswer {
+  questionId: number;
+  value: string;
+  isFlagged: boolean;
+  timeSpentSeconds?: number;
+}
+
+export interface ExamReport {
+  studentName: string;
+  studentEmail: string;
+  teacherEmail?: string;
+  examSetTitle: string;
+  completedAt: string;
+  totalTimeSpentSeconds: number;
+  totalScore: number;
+  maxScore: number;
+  mcqScore: number;
+  mcqTotal: number;
+  fillScore: number;
+  fillTotal: number;
+  topicBreakdown: {
+    topicId: TopicId;
+    topicName: string;
+    correctCount: number;
+    totalCount: number;
+    percentage: number;
+  }[];
+  weakestTopic: {
+    topicId: TopicId;
+    topicName: string;
+    percentage: number;
+  };
+  answers: {
+    questionId: number;
+    userAnswer: string;
+    correctAnswer: string;
+    isCorrect: boolean;
+    topicName: string;
+    type: QuestionType;
+  }[];
+}
