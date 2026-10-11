@@ -2,113 +2,223 @@ import { Question } from '../../../types/exam';
 
 export const ungDungDienTichTheTichQuestions: Question[] = [
   {
-    id: 13,
-    type: 'mcq',
-    chapterId: 'chuong_3_nguyen_ham_tich_phan',
-    chapterName: 'Chương 3: Nguyên hàm & Tích phân',
-    topicId: 'ung_dung_dien_tich_the_tich',
-    topicName: 'Ứng dụng tích phân tính diện tích & thể tích',
-    content: 'Thể tích khối tròn xoay tạo bởi hình phẳng giới hạn bởi $y = \\sqrt{x}$, $y = 0$, $x = 4$ khi quay quanh trục hoành $Ox$ là:',
-    options: [
-      { key: 'A', content: '$8\\pi$' },
-      { key: 'B', content: '$4\\pi$' },
-      { key: 'C', content: '$16\\pi$' },
-      { key: 'D', content: '$\\frac{32}{3}\\pi$' },
+    "id": 13,
+    "type": "mcq",
+    "chapterId": "chuong_3_nguyen_ham_tich_phan",
+    "chapterName": "Chương 3: Nguyên hàm & Tích phân",
+    "topicId": "ung_dung_dien_tich_the_tich",
+    "topicName": "Ứng dụng tích phân tính diện tích & thể tích",
+    "content": "Thể tích khối tròn xoay tạo bởi hình phẳng giới hạn bởi $y = \\sqrt{x}$, $y = 0$, $x = 4$ khi quay quanh trục hoành $Ox$ là:",
+    "options": [
+      {
+        "key": "A",
+        "content": "$8\\pi$"
+      },
+      {
+        "key": "B",
+        "content": "$4\\pi$"
+      },
+      {
+        "key": "C",
+        "content": "$16\\pi$"
+      },
+      {
+        "key": "D",
+        "content": "$\\frac{32}{3}\\pi$"
+      }
     ],
-    correctAnswer: 'A',
-    detailedSolution: 'Công thức thể tích khối tròn xoay:\n$$V = \\pi \\int_0^4 y^2 dx = \\pi \\int_0^4 x \\, dx = \\pi \\left[ \\frac{x^2}{2} \\right]_0^4 = \\pi \\frac{16}{2} = 8\\pi$$.',
-    socraticHint: 'Thể tích khi quay quanh $Ox$ là $V = \\pi \\int_a^b [f(x)]^2 dx$.',
-    difficulty: 'Nhận biết',
-    examSets: ['de_01_chuan'],
+    "correctAnswer": "A",
+    "detailedSolution": "Công thức thể tích khối tròn xoay:\n$$V = \\pi \\int_0^4 y^2 dx = \\pi \\int_0^4 x \\, dx = \\pi \\left[ \\frac{x^2}{2} \\right]_0^4 = \\pi \\frac{16}{2} = 8\\pi$$.",
+    "socraticHint": "Thể tích khi quay quanh $Ox$ là $V = \\pi \\int_a^b [f(x)]^2 dx$.",
+    "difficulty": "Nhận biết",
+    "examSets": [
+      "de_01_chuan"
+    ]
   },
   {
-    id: 41,
-    type: 'fill',
-    chapterId: 'chuong_3_nguyen_ham_tich_phan',
-    chapterName: 'Chương 3: Nguyên hàm & Tích phân',
-    topicId: 'ung_dung_dien_tich_the_tich',
-    topicName: 'Ứng dụng tích phân tính diện tích & thể tích',
-    content: 'Tứ diện $OABC$ có $OA, OB, OC$ đôi một vuông góc tại $O$. Biết $OA = 3, OB = 4, OC = 5$. Thể tích khối tứ diện bằng bao nhiêu?',
-    correctAnswer: '10',
-    acceptableAnswers: ['10', '10.0'],
-    detailedSolution: 'Thể tích tứ diện vuông có 3 cạnh đôi một vuông góc: $V = \\frac{1}{6} OA \\cdot OB \\cdot OC = \\frac{1}{6}(3 \\times 4 \\times 5) = 10$.',
-    socraticHint: 'Công thức tính thể tích góc tam diện vuông $V = \\frac{1}{6}abc$.',
-    difficulty: 'Nhận biết',
-    examSets: ['de_01_chuan'],
-  },
-  {
-    id: 90,
-    type: 'fill',
-    chapterId: 'chuong_3_nguyen_ham_tich_phan',
-    chapterName: 'Chương 3: Nguyên hàm & Tích phân',
-    topicId: 'ung_dung_dien_tich_the_tich',
-    topicName: 'Ứng dụng tích phân tính diện tích & thể tích',
-    content: 'Tính giá trị của tích phân $I = \\int_0^2 3x^2 dx$.',
-    correctAnswer: '8',
-    acceptableAnswers: ['8', '8.0'],
-    detailedSolution: '$I = [x^3]_0^2 = 2^3 - 0 = 8$.',
-    socraticHint: 'Nguyên hàm cơ bản của $3x^2$.',
-    difficulty: 'Nhận biết',
-    examSets: ['de_02_thuc_chien'],
-  },
-  {
-    id: 112,
-    type: 'mcq',
-    chapterId: 'chuong_3_nguyen_ham_tich_phan',
-    chapterName: 'Chương 3: Nguyên hàm & Tích phân',
-    topicId: 'ung_dung_dien_tich_the_tich',
-    topicName: 'Ứng dụng tích phân tính diện tích & thể tích',
-    content: 'Diện tích hình phẳng giới hạn bởi đồ thị hàm số $y = x^2$ và đường thẳng $y = 2x$ bằng:',
-    options: [
-      { key: 'A', content: '$\\frac{4}{3}$' },
-      { key: 'B', content: '$\\frac{2}{3}$' },
-      { key: 'C', content: '$\\frac{8}{3}$' },
-      { key: 'D', content: '$2$' },
+    "id": 60,
+    "type": "mcq",
+    "chapterId": "chuong_3_nguyen_ham_tich_phan",
+    "chapterName": "Chương 3: Nguyên hàm & Tích phân",
+    "topicId": "ung_dung_dien_tich_the_tich",
+    "topicName": "Ứng dụng tích phân tính diện tích & thể tích",
+    "content": "Diện tích hình phẳng giới hạn bởi parabol $y = x^2$ và đường thẳng $y = 2x$ bằng:",
+    "options": [
+      {
+        "key": "A",
+        "content": "$4/3$"
+      },
+      {
+        "key": "B",
+        "content": "$2/3$"
+      },
+      {
+        "key": "C",
+        "content": "$2$"
+      },
+      {
+        "key": "D",
+        "content": "$8/3$"
+      }
     ],
-    correctAnswer: 'A',
-    detailedSolution: 'Phương trình hoành độ giao điểm: $x^2 = 2x \\iff x^2 - 2x = 0 \\iff x = 0$ hoặc $x = 2$.\nDiện tích hình phẳng:\n$$S = \\int_0^2 |2x - x^2| dx = \\int_0^2 (2x - x^2) dx = l\\left[ x^2 - \\frac{x^3}{3} \\right]_0^2 = 4 - \\frac{8}{3} = \\frac{4}{3}$$.',
-    socraticHint: 'Tìm hoành độ giao điểm rồi tính tích phân hiệu hai hàm số $S = \\int_a^b |f(x) - g(x)| dx$.',
-    difficulty: 'Thông hiểu',
-    examSets: ['de_03_moi'],
+    "correctAnswer": "A",
+    "detailedSolution": "Hoành độ giao điểm: $x^2 = 2x \\iff x = 0$ hoặc $x = 2$.\nDiện tích: $S = \\int_0^2 (2x - x^2) dx = [x^2 - x^3/3]_0^2 = 4 - 8/3 = 4/3$.",
+    "socraticHint": "Tìm giao điểm rồi tính tích phân trị tuyệt đối hiệu hai hàm số.",
+    "difficulty": "Thông hiểu",
+    "examSets": [
+      "de_02_thuc_chien"
+    ]
   },
   {
-    id: 113,
-    type: 'mcq',
-    chapterId: 'chuong_3_nguyen_ham_tich_phan',
-    chapterName: 'Chương 3: Nguyên hàm & Tích phân',
-    topicId: 'ung_dung_dien_tich_the_tich',
-    topicName: 'Ứng dụng tích phân tính diện tích & thể tích',
-    content: 'Thể tích khối tròn xoay tạo thành khi quay hình phẳng giới hạn bởi đồ thị $y = \\sqrt{x}$, trục hoành và hai đường thẳng $x = 0, x = 4$ quanh trục $Ox$ bằng:',
-    options: [
-      { key: 'A', content: '$8pi$' },
-      { key: 'B', content: '$16pi$' },
-      { key: 'C', content: '$4pi$' },
-      { key: 'D', content: '$\\frac{16pi}{3}$' },
+    "id": 112,
+    "type": "mcq",
+    "chapterId": "chuong_3_nguyen_ham_tich_phan",
+    "chapterName": "Chương 3: Nguyên hàm & Tích phân",
+    "topicId": "ung_dung_dien_tich_the_tich",
+    "topicName": "Ứng dụng tích phân tính diện tích & thể tích",
+    "content": "Diện tích hình phẳng giới hạn bởi đồ thị hàm số $y = x^2$ và đường thẳng $y = 2x$ bằng:",
+    "options": [
+      {
+        "key": "A",
+        "content": "$\\frac{4}{3}$"
+      },
+      {
+        "key": "B",
+        "content": "$\\frac{2}{3}$"
+      },
+      {
+        "key": "C",
+        "content": "$\\frac{8}{3}$"
+      },
+      {
+        "key": "D",
+        "content": "$2$"
+      }
     ],
-    correctAnswer: 'A',
-    detailedSolution: 'Áp dụng công thức thể tích khối tròn xoay quay quanh trục $Ox$:\n$$V = \\pi \\int_0^4 [y(x)]^2 dx = \\pi \\int_0^4 (\\sqrt{x})^2 dx = \\pi \\int_0^4 x dx = \\pi l\\left[ \\frac{x^2}{2} \\right]_0^4 = \\pi \\cdot \\frac{16}{2} = 8pi$$.',
-    socraticHint: 'Công thức thể tích tròn xoay quanh trục hoành: $V = \\pi \\int_a^b [f(x)]^2 dx$.',
-    difficulty: 'Nhận biết',
-    examSets: ['de_03_moi'],
+    "correctAnswer": "A",
+    "detailedSolution": "Phương trình hoành độ giao điểm: $x^2 = 2x \\iff x^2 - 2x = 0 \\iff x = 0$ hoặc $x = 2$.\nDiện tích hình phẳng:\n$$S = \\int_0^2 |2x - x^2| dx = \\int_0^2 (2x - x^2) dx = l\\left[ x^2 - \\frac{x^3}{3} \\right]_0^2 = 4 - \\frac{8}{3} = \\frac{4}{3}$$.",
+    "socraticHint": "Tìm hoành độ giao điểm rồi tính tích phân hiệu hai hàm số $S = \\int_a^b |f(x) - g(x)| dx$.",
+    "difficulty": "Thông hiểu",
+    "examSets": [
+      "de_03_moi"
+    ]
   },
   {
-    id: 162,
-    type: 'mcq',
-    chapterId: 'chuong_3_nguyen_ham_tich_phan',
-    chapterName: 'Chương 3: Nguyên hàm & Tích phân',
-    topicId: 'ung_dung_dien_tich_the_tich',
-    topicName: 'Ứng dụng tích phân tính diện tích & thể tích',
-    content: 'Diện tích hình phẳng giới hạn bởi parabol $y = 4 - x^2$ và trục hoành $Ox$ bằng:',
-    options: [
-      { key: 'A', content: '$\\frac{32}{3}$' },
-      { key: 'B', content: '$\\frac{16}{3}$' },
-      { key: 'C', content: '$8$' },
-      { key: 'D', content: '$\\frac{64}{3}$' },
+    "id": 113,
+    "type": "mcq",
+    "chapterId": "chuong_3_nguyen_ham_tich_phan",
+    "chapterName": "Chương 3: Nguyên hàm & Tích phân",
+    "topicId": "ung_dung_dien_tich_the_tich",
+    "topicName": "Ứng dụng tích phân tính diện tích & thể tích",
+    "content": "Thể tích khối tròn xoay tạo thành khi quay hình phẳng giới hạn bởi đồ thị $y = \\sqrt{x}$, trục hoành và hai đường thẳng $x = 0, x = 4$ quanh trục $Ox$ bằng:",
+    "options": [
+      {
+        "key": "A",
+        "content": "$8pi$"
+      },
+      {
+        "key": "B",
+        "content": "$16pi$"
+      },
+      {
+        "key": "C",
+        "content": "$4pi$"
+      },
+      {
+        "key": "D",
+        "content": "$\\frac{16pi}{3}$"
+      }
     ],
-    correctAnswer: 'A',
-    detailedSolution: 'Giao điểm với trục hoành: $4 - x^2 = 0 \\iff x = \\pm 2$.\nDiện tích hình phẳng:\n$$S = \\int_{-2}^2 (4 - x^2) dx = 2 \\int_0^2 (4 - x^2) dx = 2 l\\left[ 4x - \\frac{x^3}{3} \\right]_0^2 = 2l\\left(8 - \\frac{8}{3}\\right) = 2 \\cdot \\frac{16}{3} = \\frac{32}{3}$$.',
-    socraticHint: 'Tính tích phân hàm số chẵn trên đoạn đối xứng $[-2; 2]$ bằng cách nhân đôi tích phân trên $[0; 2]$.',
-    difficulty: 'Nhận biết',
-    examSets: ['de_04_nang_cao'],
+    "correctAnswer": "A",
+    "detailedSolution": "Áp dụng công thức thể tích khối tròn xoay quay quanh trục $Ox$:\n$$V = \\pi \\int_0^4 [y(x)]^2 dx = \\pi \\int_0^4 (\\sqrt{x})^2 dx = \\pi \\int_0^4 x dx = \\pi l\\left[ \\frac{x^2}{2} \\right]_0^4 = \\pi \\cdot \\frac{16}{2} = 8pi$$.",
+    "socraticHint": "Công thức thể tích tròn xoay quanh trục hoành: $V = \\pi \\int_a^b [f(x)]^2 dx$.",
+    "difficulty": "Nhận biết",
+    "examSets": [
+      "de_03_moi"
+    ]
   },
+  {
+    "id": 162,
+    "type": "mcq",
+    "chapterId": "chuong_3_nguyen_ham_tich_phan",
+    "chapterName": "Chương 3: Nguyên hàm & Tích phân",
+    "topicId": "ung_dung_dien_tich_the_tich",
+    "topicName": "Ứng dụng tích phân tính diện tích & thể tích",
+    "content": "Diện tích hình phẳng giới hạn bởi parabol $y = 4 - x^2$ và trục hoành $Ox$ bằng:",
+    "options": [
+      {
+        "key": "A",
+        "content": "$\\frac{32}{3}$"
+      },
+      {
+        "key": "B",
+        "content": "$\\frac{16}{3}$"
+      },
+      {
+        "key": "C",
+        "content": "$8$"
+      },
+      {
+        "key": "D",
+        "content": "$\\frac{64}{3}$"
+      }
+    ],
+    "correctAnswer": "A",
+    "detailedSolution": "Giao điểm với trục hoành: $4 - x^2 = 0 \\iff x = \\pm 2$.\nDiện tích hình phẳng:\n$$S = \\int_{-2}^2 (4 - x^2) dx = 2 \\int_0^2 (4 - x^2) dx = 2 l\\left[ 4x - \\frac{x^3}{3} \\right]_0^2 = 2l\\left(8 - \\frac{8}{3}\\right) = 2 \\cdot \\frac{16}{3} = \\frac{32}{3}$$.",
+    "socraticHint": "Tính tích phân hàm số chẵn trên đoạn đối xứng $[-2; 2]$ bằng cách nhân đôi tích phân trên $[0; 2]$.",
+    "difficulty": "Nhận biết",
+    "examSets": [
+      "de_04_nang_cao"
+    ]
+  },
+  {
+    "id": 264,
+    "type": "fill",
+    "topicId": "ung_dung_dien_tich_the_tich",
+    "content": "Một mảnh vườn hình chữ nhật $ABCD$ có chiều rộng $6\\text{ m}$, chiều dài $10\\text{ m}$. Người ta thiết kế một bồn hoa hình parabol có đỉnh trùng với trung điểm cạnh trên và đi qua hai đỉnh cạnh dưới để trồng cỏ, phần diện tích còn lại được lát đá. Biết chi phí lát đá là $300.000$ đồng/$\\text{m}^2$. Tính tổng chi phí lát đá của mảnh vườn? (Đơn vị: triệu đồng).",
+    "correctAnswer": "6",
+    "detailedSolution": "Tổng diện tích mảnh vườn hình chữ nhật: $S_{ABCD} = 6 \\times 10 = 60\\text{ m}^2$.\nPhần trồng cỏ có dạng parabol giới hạn bởi đáy chiều dài $10\\text{ m}$ và chiều cao $6\\text{ m}$.\nTheo công thức diện tích parabol Archimedes: $S_{\\text{cỏ}} = \\frac{2}{3} \\cdot \\text{đáy} \\cdot \\text{chiều cao} = \\frac{2}{3} \\times 10 \\times 6 = 40\\text{ m}^2$.\nDiện tích phần lát đá còn lại: $S_{\\text{đá}} = S_{ABCD} - S_{\\text{cỏ}} = 60 - 40 = 20\\text{ m}^2$.\nChi phí lát đá: $20\\text{ m}^2 \\times 300.000\\text{ đ/m}^2 = 6.000.000\\text{ đồng} = 6\\text{ triệu đồng}$.",
+    "socraticHint": "Diện tích phần giới hạn bởi parabol và dây cung bằng hai phần ba tích của đáy và chiều cao parabol.",
+    "difficulty": "Vận dụng",
+    "examSets": [
+      "de_07_hsa36"
+    ],
+    "topicName": "Ứng dụng tích phân tính diện tích & thể tích",
+    "chapterId": "chuong_3_nguyen_ham_tich_phan",
+    "chapterName": "Chương 3: Nguyên hàm & Tích phân"
+  },
+  {
+    "id": 265,
+    "type": "mcq",
+    "topicId": "ung_dung_dien_tich_the_tich",
+    "content": "Thể tích khối tròn xoay tạo thành khi quay hình phẳng $(H)$ giới hạn bởi đồ thị hàm số $y = f(x)$, trục hoành $y = 0$ và hai đường thẳng $x = a, x = b$ ($a < b$) quanh trục hoành là:",
+    "options": [
+      {
+        "key": "A",
+        "content": "$\\int_a^b f(x) dx$"
+      },
+      {
+        "key": "B",
+        "content": "$\\int_a^b [f(x)]^2 dx$"
+      },
+      {
+        "key": "C",
+        "content": "$\\pi \\int_a^b |f(x)| dx$"
+      },
+      {
+        "key": "D",
+        "content": "$\\pi \\int_a^b [f(x)]^2 dx$"
+      }
+    ],
+    "correctAnswer": "D",
+    "detailedSolution": "Theo công thức tính thể tích khối tròn xoay chuẩn SGK Giải tích 12:\nThể tích khối tròn xoay sinh ra khi quay hình thang cong quanh trục hoành $Ox$ là:\n$$V = \\pi \\int_a^b [f(x)]^2 dx$$",
+    "socraticHint": "Mỗi lát cắt thẳng góc trục $Ox$ là một hình tròn có bán kính $R = |f(x)|$ nên diện tích là $S(x) = \\pi [f(x)]^2$.",
+    "difficulty": "Nhận biết",
+    "examSets": [
+      "de_07_hsa36"
+    ],
+    "topicName": "Ứng dụng tích phân tính diện tích & thể tích",
+    "chapterId": "chuong_3_nguyen_ham_tich_phan",
+    "chapterName": "Chương 3: Nguyên hàm & Tích phân"
+  }
 ];

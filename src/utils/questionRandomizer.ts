@@ -68,8 +68,23 @@ export function randomizeQuestionOptions(q: Question): Question {
 }
 
 /**
+ * Detects whether a math question contains parameter m (or parameter k/a).
+ * Questions without parameters are foundational and will be prioritized first.
+ */
+export function hasParameterM(q: Question): boolean {
+  const content = q.content || '';
+  if (/tham\s+số/i.test(content)) return true;
+  if (/\b(tìm|chứa|tồn tại)\s+(\$)?m\b/i.test(content)) return true;
+  if (/giá\s+trị\s+(thực|nguyên|của)?\s*(\$)?m\b/i.test(content)) return true;
+  if (/(\$|\b)(m\s*[xX]|[xX]\s*m|m\^2|[a-z0-9]\s*\+\s*m|[a-z0-9]\s*-\s*m|\bm\s*\\in)\b/.test(content)) return true;
+  if (/\$m\$/i.test(content)) return true;
+  return false;
+}
+
+/**
  * Sorts questions strictly from easy to hard (Nhận biết -> Thông hiểu -> Vận dụng -> Vận dụng cao),
- * while randomly shuffling questions within each difficulty tier,
+ * prioritizing questions WITHOUT parameter m first within each tier,
+ * while randomly shuffling questions within each sub-tier,
  * and randomizing MCQ answer choices (A, B, C, D).
  */
 export function randomizeAndSortQuestions(questions: Question[]): Question[] {
@@ -90,12 +105,21 @@ export function randomizeAndSortQuestions(questions: Question[]): Question[] {
     else tier4.push(randomizedQ);
   }
 
-  // Shuffle within each tier and concatenate in strict ascending order
+  // Helper to split a tier into:
+  // 1. Foundational questions (NO parameter m) -> shuffled
+  // 2. Advanced questions (WITH parameter m) -> shuffled
+  const sortTierWithParamMOrder = (tierQuestions: Question[]): Question[] => {
+    const nonParam = tierQuestions.filter((q) => !hasParameterM(q));
+    const withParam = tierQuestions.filter((q) => hasParameterM(q));
+    return [...shuffleArray(nonParam), ...shuffleArray(withParam)];
+  };
+
+  // Concatenate in strict ascending order of difficulty and parameter complexity
   return [
-    ...shuffleArray(tier1),
-    ...shuffleArray(tier2),
-    ...shuffleArray(tier3),
-    ...shuffleArray(tier4),
+    ...sortTierWithParamMOrder(tier1),
+    ...sortTierWithParamMOrder(tier2),
+    ...sortTierWithParamMOrder(tier3),
+    ...sortTierWithParamMOrder(tier4),
   ];
 }
 

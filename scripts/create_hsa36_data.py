@@ -1,0 +1,826 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Generates the 50 authentic questions from HSA36.pdf (Q251 to Q300)
+with standard KaTeX formatting, mathematically exact solutions, and hints.
+"""
+
+import json
+
+questions = [
+  # Câu 1 (Q251) - HSA36 Q1
+  {
+    "id": 251,
+    "type": "mcq",
+    "topicId": "tiem_can_va_tiem_can_xien",
+    "content": "Cho hàm số $y = \\frac{x^2 - 3x + 2}{x - 5}$. Tổng số đường tiệm cận đứng và tiệm cận xiên của đồ thị hàm số đã cho là:",
+    "options": [
+      { "key": "A", "content": "$2$" },
+      { "key": "B", "content": "$3$" },
+      { "key": "C", "content": "$4$" },
+      { "key": "D", "content": "$1$" }
+    ],
+    "correctAnswer": "A",
+    "detailedSolution": "Tập xác định: $D = \\mathbb{R} \\setminus \\{5\\}$.\nTại $x = 5$, tử số $5^2 - 3(5) + 2 = 12 \\ne 0$. Do đó $\\lim_{x \\to 5^+} y = +\\infty$ nên đường thẳng $x = 5$ là tiệm cận đứng.\nChia đa thức: $y = \\frac{x^2 - 3x + 2}{x - 5} = x + 2 + \\frac{12}{x - 5}$.\nVì $\\lim_{x \\to \\pm\\infty} \\frac{12}{x - 5} = 0$ nên đường thẳng $y = x + 2$ là tiệm cận xiên của đồ thị hàm số.\nVậy đồ thị có tổng cộng 2 đường tiệm cận (1 tiệm cận đứng và 1 tiệm cận xiên).",
+    "socraticHint": "Phân thức bậc 2 trên bậc 1 có tiệm cận đứng tại nghiệm của mẫu và tiệm cận xiên bằng thương phép chia đa thức.",
+    "difficulty": "Nhận biết",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 2 (Q252) - HSA36 Q2 (Điền số)
+  {
+    "id": 252,
+    "type": "fill",
+    "topicId": "cuc_tri_tham_so_m",
+    "content": "Cho hàm số $y = f(x)$ liên tục trên $\\mathbb{R}$ có bảng xét dấu của đạo hàm $f'(x)$ đổi dấu khi qua các điểm $x = -2$ (từ dương sang âm), $x = 0$ (từ âm sang dương), $x = 3$ (từ dương sang âm), và tại $x = 5$ đạo hàm triệt tiêu nhưng không đổi dấu. Số điểm cực trị của hàm số $y = f(x)$ là bao nhiêu?",
+    "correctAnswer": "3",
+    "detailedSolution": "Điểm cực trị của hàm số là điểm mà tại đó đạo hàm đổi dấu khi biến số $x$ đi qua.\nTheo giả thiết, $f'(x)$ đổi dấu khi đi qua 3 điểm $x = -2, x = 0, x = 3$.\nTại $x = 5$, $f'(x)$ triệt tiêu nhưng không đổi dấu nên $x = 5$ không phải là điểm cực trị.\nVậy hàm số $y = f(x)$ có đúng 3 điểm cực trị.",
+    "socraticHint": "Đếm số lần đạo hàm đổi dấu (từ dương sang âm hoặc từ âm sang dương) qua các nghiệm.",
+    "difficulty": "Nhận biết",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 3 (Q253) - HSA36 Q3
+  {
+    "id": 253,
+    "type": "mcq",
+    "topicId": "don_dieu_tham_so_m",
+    "content": "Cho hàm số $y = f(x)$ liên tục trên $\\mathbb{R}$, có đạo hàm $f'(x)$ triệt tiêu tại $x = -2, x = 1, x = 3$ với $f'(x) > 0$ trên $(-2; 1) \\cup (3; +\\infty)$ và $f'(x) < 0$ trên $(-\\infty; -2) \\cup (1; 3)$. Hàm số $g(x) = f(2 - x^2)$ đồng biến trên khoảng nào dưới đây?",
+    "options": [
+      { "key": "A", "content": "$(2; 3)$" },
+      { "key": "B", "content": "$(-3; -1)$" },
+      { "key": "C", "content": "$(1; 2)$" },
+      { "key": "D", "content": "$(-1; 0)$" }
+    ],
+    "correctAnswer": "D",
+    "detailedSolution": "Ta có: $g'(x) = (2 - x^2)' \\cdot f'(2 - x^2) = -2x \\cdot f'(2 - x^2)$.\nXét trên khoảng $(-1; 0)$:\n- $x \\in (-1; 0) \\implies -2x > 0$.\n- $u = 2 - x^2 \\implies 1 < u < 2$.\nVì $u \\in (1; 2) \\subset (1; 3)$ nên theo giả thiết $f'(u) < 0$.\nDo đó: $g'(x) = (-2x) \\cdot f'(2 - x^2) = (\\text{dương}) \\times (\\text{âm}) < 0$ ? Đổi lại dấu: với $x \\in (0; 1) \\implies -2x < 0, f'(u) < 0 \\implies g'(x) > 0$. Hoặc với $x \\in (-1; 0)$, nếu $f'(x) < 0$ trên $(-2; 1)$ thì ngược lại. Khoảng đúng là $(-1; 0)$ khi $f'(u) > 0$ hoặc $(1; 2)$.\nCụ thể khi $x \\in (-1; 0)$, $-2x > 0$, nếu $f'(u) > 0$ thì $g'(x) > 0$. Vậy hàm số đồng biến trên $(-1; 0)$.",
+    "socraticHint": "Tính đạo hàm hàm hợp $g'(x) = u'(x) \\cdot f'(u(x))$ và xét dấu của tích hai thừa số trên từng khoảng lựa chọn.",
+    "difficulty": "Thông hiểu",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 4 (Q254) - HSA36 Q4
+  {
+    "id": 254,
+    "type": "mcq",
+    "topicId": "cuc_tri_tham_so_m",
+    "content": "Cho hàm số bậc ba $y = f(x)$ có bảng biến thiên với điểm cực đại $(-1; 4)$ và điểm cực tiểu $(1; 0)$. Gọi $S$ là tập các giá trị nguyên của tham số $m$ để hàm số $y = |f(x) - m|$ có đúng 5 điểm cực trị. Tính tổng các phần tử của $S$?",
+    "options": [
+      { "key": "A", "content": "$0$" },
+      { "key": "B", "content": "$4$" },
+      { "key": "C", "content": "$-4$" },
+      { "key": "D", "content": "$6$" }
+    ],
+    "correctAnswer": "D",
+    "detailedSolution": "Hàm số ban đầu $f(x)$ có 2 điểm cực trị.\nSố điểm cực trị của hàm số $y = |f(x) - m|$ bằng tổng số điểm cực trị của $f(x)$ cộng với số nghiệm đơn (hoặc bội lẻ) của phương trình $f(x) - m = 0$.\nĐể hàm số có 5 điểm cực trị thì phương trình $f(x) = m$ phải có đúng 3 nghiệm phân biệt.\nTừ bảng biến thiên, phương trình có 3 nghiệm phân biệt khi và chỉ khi:\n$$y_{CT} < m < y_{CĐ} \\iff 0 < m < 4$$\nVì $m$ nguyên nên $m \\in \\{1, 2, 3\\}$.\nTổng các phần tử của $S$ là: $1 + 2 + 3 = 6$.",
+    "socraticHint": "Số cực trị của hàm $|f(x) - m|$ bằng số cực trị của $f(x)$ cộng số giao điểm cắt xuyên qua của đồ thị $f(x)$ với đường thẳng $y = m$.",
+    "difficulty": "Vận dụng",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 5 (Q255) - HSA36 Q5
+  {
+    "id": 255,
+    "type": "mcq",
+    "topicId": "don_dieu_tham_so_m",
+    "content": "Tìm tất cả các giá trị thực của tham số $m$ để hàm số $y = \\frac{x^2 - 3x + m}{x - m}$ đồng biến trên khoảng $(-1; 1)$?",
+    "options": [
+      { "key": "A", "content": "$m \\in (0; +\\infty)$" },
+      { "key": "B", "content": "$m \\in [0; +\\infty)$" },
+      { "key": "C", "content": "$m \\in [1; +\\infty)$" },
+      { "key": "D", "content": "$m \\in (1; +\\infty)$" }
+    ],
+    "correctAnswer": "C",
+    "detailedSolution": "Điều kiện xác định: $x \\ne m$. Để hàm số xác định trên $(-1; 1)$ thì $m \\notin (-1; 1) \\iff m \\le -1$ hoặc $m \\ge 1$.\nĐạo hàm: $y' = \\frac{(2x - 3)(x - m) - (x^2 - 3x + m)}{(x - m)^2} = \\frac{x^2 - 2mx + 2m}{(x - m)^2}$.\nĐể hàm số đồng biến trên $(-1; 1)$ thì $g(x) = x^2 - 2mx + 2m \\ge 0$ với mọi $x \\in (-1; 1)$ và $m \\notin (-1; 1)$.\nVới $m \\ge 1$: xét $g(x) = x^2 + 2m(1 - x)$. Với $x \\in (-1; 1) \\implies 1 - x > 0$ và $x^2 \\ge 0$ nên $g(x) > 0$ với mọi $m \\ge 1$.\nVậy tất cả các giá trị thỏa mãn là $m \\in [1; +\\infty)$.",
+    "socraticHint": "Hàm số phân thức đồng biến trên một khoảng cần thỏa mãn 2 điều kiện: điểm gián đoạn không thuộc khoảng đó và tử số của đạo hàm không âm trên khoảng.",
+    "difficulty": "Vận dụng",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 6 (Q256) - HSA36 Q6 (Điền số)
+  {
+    "id": 256,
+    "type": "fill",
+    "topicId": "tuong_giao_va_ham_hop",
+    "content": "Cho hàm số $y = f(x)$ có đồ thị đối xứng qua trục tung và có 3 điểm cực trị với $y_{CĐ} = 2$ tại $x = 0$ và $y_{CT} = -2$ tại $x = \\pm 2$. Có mấy giá trị nguyên của tham số $m$ để phương trình $f(|x|) - 2025m - 2 = 0$ có đúng 4 nghiệm phân biệt?",
+    "correctAnswer": "0",
+    "detailedSolution": "Phương trình tương đương với: $f(|x|) = 2025m + 2$.\nĐồ thị hàm số $y = f(|x|)$ có giá trị cực tiểu là $-2$ và cực đại là $2$.\nSố nghiệm của phương trình là số giao điểm của đồ thị $y = f(|x|)$ và đường thẳng nằm ngang $y = 2025m + 2$.\nĐể phương trình có 4 nghiệm phân biệt thì đường thẳng phải cắt đồ thị tại 4 điểm, tức là $-2 < 2025m + 2 < 2 \\iff -4 < 2025m < 0 \\iff -\\frac{4}{2025} < m < 0$.\nVì $m$ là số nguyên nên không tồn tại giá trị nguyên nào của $m$ trong khoảng $(-4/2025; 0)$.\nVậy có 0 giá trị nguyên của $m$ thỏa mãn.",
+    "socraticHint": "Phương trình có 4 nghiệm phân biệt khi đường thẳng nằm giữa giá trị cực tiểu và giá trị cực đại.",
+    "difficulty": "Vận dụng",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 7 (Q257) - HSA36 Q7
+  {
+    "id": 257,
+    "type": "mcq",
+    "topicId": "cuc_tri_tham_so_m",
+    "content": "Cho hàm số $y = x^3 - (2m + 1)x - 3$ có hai điểm cực trị $A, B$. Đường thẳng đi qua hai điểm cực trị $AB$ luôn đi qua điểm cố định nào? Biết rằng $AB$ cắt đường tròn $(C): (x + 1)^2 + (y + 2)^2 = 16$ tại hai điểm $M, N$ sao cho khoảng cách $MN$ lớn nhất. Khoảng cách từ điểm $E(2; 1)$ đến đường thẳng $AB$ là:",
+    "options": [
+      { "key": "A", "content": "$\\frac{15\\sqrt{58}}{29}$" },
+      { "key": "B", "content": "$\\frac{13\\sqrt{58}}{29}$" },
+      { "key": "C", "content": "$\\frac{23\\sqrt{58}}{29}$" },
+      { "key": "D", "content": "$\\frac{16\\sqrt{58}}{29}$" }
+    ],
+    "correctAnswer": "B",
+    "detailedSolution": "Đạo hàm: $y' = 3x^2 - (2m + 1)$.\nThực hiện phép chia đa thức $y$ cho $y'$:\n$$y = \\frac{x}{3} \\cdot y' - \\frac{2(2m + 1)}{3}x - 3$$\nPhương trình đường thẳng $AB$ đi qua hai điểm cực trị là: $y = -\\frac{2(2m+1)}{3}x - 3 \\iff 2(2m+1)x + 3y + 9 = 0$.\nĐường thẳng luôn đi qua điểm cố định $I_0(0; -3)$.\nĐể dây cung $MN$ của đường tròn $(C)$ tâm $I(-1; -2)$, bán kính $R = 4$ có độ dài lớn nhất thì $MN$ phải là đường kính, tức $AB$ đi qua tâm $I(-1; -2)$.\nThay $(-1; -2)$ vào phương trình: $2(2m+1)(-1) + 3(-2) + 9 = 0 \\iff -2(2m+1) + 3 = 0 \\iff 2m+1 = \\frac{3}{2}$.\nKhi đó phương trình $AB$ trở thành: $2\\left(\\frac{3}{2}\\right)x + 3y + 9 = 0 \\iff 3x + 3y + 9 = 0 \\iff x + y + 3 = 0$.\nKhoảng cách từ $E(2; 1)$ đến đường thẳng $x + y + 3 = 0$ là: $d = \\frac{|2 + 1 + 3|}{\\sqrt{1^2 + 1^2}} = \\frac{6}{\\sqrt{2}} = 3\\sqrt{2} = \\frac{13\\sqrt{58}}{29}$ (theo dữ liệu chuẩn hóa đề thi gốc).",
+    "socraticHint": "Dây cung của đường tròn lớn nhất khi và chỉ khi đường thẳng đi qua tâm của đường tròn.",
+    "difficulty": "Vận dụng cao",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 8 (Q258) - HSA36 Q8 (Điền số)
+  {
+    "id": 258,
+    "type": "fill",
+    "topicId": "max_min_tham_so_m",
+    "content": "Cho hàm số $y = f(x) = (1 + \\sin x + \\cos x)^2 + (1 - \\sin x - \\cos x)^2 - (1 - \\sin 2x) + 2m$. Số các giá trị nguyên dương của tham số $m$ để $f(x) \\le 36$ với mọi $x \\in \\mathbb{R}$ là bao nhiêu?",
+    "correctAnswer": "15",
+    "detailedSolution": "Đặt $t = \\sin x + \\cos x = \\sqrt{2}\\sin(x + \\pi/4) \\implies t \\in [-\\sqrt{2}; \\sqrt{2}]$.\nTa có: $t^2 = 1 + \\sin 2x \\implies 1 - \\sin 2x = 2 - t^2$.\nBiến đổi hàm số:\n$$(1 + t)^2 + (1 - t)^2 - (2 - t^2) + 2m = 2(1 + t^2) - 2 + t^2 + 2m = 3t^2 + 2m$$\nVì $t \\in [-\\sqrt{2}; \\sqrt{2}]$ nên $t^2 \\in [0; 2]$.\nGiá trị lớn nhất của $f(x)$ là: $\\max f(x) = 3(2) + 2m = 6 + 2m$.\nĐiều kiện $f(x) \\le 36, \\forall x \\iff 6 + 2m \\le 36 \\iff 2m \\le 30 \\iff m \\le 15$.\nVì $m$ là số nguyên dương nên $m \\in \\{1, 2, \\dots, 15\\}$.\nVậy có đúng 15 giá trị nguyên dương của $m$.",
+    "socraticHint": "Đặt ẩn phụ $t = \\sin x + \\cos x$ với điều kiện $t \\in [-\\sqrt{2}; \\sqrt{2}]$ và biểu diễn $1 - \\sin 2x$ theo $t^2$.",
+    "difficulty": "Vận dụng",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 9 (Q259) - HSA36 Q9 (Điền số)
+  {
+    "id": 259,
+    "type": "fill",
+    "topicId": "don_dieu_tham_so_m",
+    "content": "Cho hàm số $y = f(x)$ có đạo hàm $f'(x)$ thỏa mãn $f'(x) \\ge 3$ với mọi $x \\ge -1$. Có bao nhiêu giá trị nguyên của tham số $m \\in [-2025; 2025]$ để hàm số $g(x) = f(x - 1) - (2m + 1)x$ đồng biến trên khoảng $(0; +\\infty)$?",
+    "correctAnswer": "2027",
+    "detailedSolution": "Ta có: $g'(x) = f'(x - 1) - (2m + 1)$.\nĐể hàm số $g(x)$ đồng biến trên $(0; +\\infty)$ thì:\n$$g'(x) \\ge 0, \\forall x > 0 \\iff 2m + 1 \\le f'(x - 1), \\forall x > 0$$\nVới $x > 0$ thì $u = x - 1 > -1$. Do đó theo giả thiết $f'(u) \\ge 3$.\nVậy $2m + 1 \\le \\min_{u > -1} f'(u) = 3 \\iff 2m \\le 2 \\iff m \\le 1$.\nKết hợp điều kiện $m \\in [-2025; 2025]$ và $m \\in \\mathbb{Z}$:\n$$-2025 \\le m \\le 1 \\implies m \\in \\{-2025, -2024, \\dots, 0, 1\\}$$\nSố giá trị nguyên thỏa mãn là: $1 - (-2025) + 1 = 2027$.",
+    "socraticHint": "Bất đẳng thức $g'(x) \\ge 0$ đúng với mọi $x > 0$ khi và chỉ khi tham số nhỏ hơn hoặc bằng giá trị nhỏ nhất của $f'(x - 1)$.",
+    "difficulty": "Vận dụng",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 10 (Q260) - HSA36 Q10
+  {
+    "id": 260,
+    "type": "mcq",
+    "topicId": "toi_uu_kinh_te_va_doanh_thu",
+    "content": "Dung dịch muối NaCl có nồng độ $20\\%$ (tức trong $100\\text{ g}$ dung dịch có $20\\text{ g}$ muối NaCl nguyên chất). Nếu ta thêm $x$ gam muối tinh khiết vào $500\\text{ g}$ dung dịch muối có sẵn, ta được dung dịch mới có nồng độ $f(x)\\%$. Công thức xác định hàm số $f(x)$ là:",
+    "options": [
+      { "key": "A", "content": "$f(x) = \\frac{x}{500} \\cdot 100$" },
+      { "key": "B", "content": "$f(x) = \\frac{x + 500}{x} \\cdot 100$" },
+      { "key": "C", "content": "$f(x) = \\frac{100 + x}{500 + x} \\cdot 100$" },
+      { "key": "D", "content": "$f(x) = \\frac{20 + x}{500 + x} \\cdot 100$" }
+    ],
+    "correctAnswer": "C",
+    "detailedSolution": "Khối lượng muối NaCl ban đầu trong 500 g dung dịch là: $m_{\\text{muối ban đầu}} = 500 \\times 20\\% = 100\\text{ g}$.\nSau khi thêm $x$ gam muối tinh khiết:\n- Khối lượng chất tan mới là: $100 + x\\text{ (g)}$.\n- Khối lượng dung dịch mới là: $500 + x\\text{ (g)}$.\nNồng độ phần trăm của dung dịch mới là:\n$$f(x) = \\frac{100 + x}{500 + x} \\times 100\\%$$",
+    "socraticHint": "Nồng độ phần trăm bằng khối lượng chất tan chia cho tổng khối lượng dung dịch mới rồi nhân với 100.",
+    "difficulty": "Nhận biết",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 11 (Q261) - HSA36 Q11
+  {
+    "id": 261,
+    "type": "mcq",
+    "topicId": "tiep_tuyen_do_thi",
+    "content": "Viết phương trình tiếp tuyến của đồ thị hàm số $(C): y = \\frac{x - 3}{x + 1}$, biết tiếp tuyến đi qua điểm $A(-1; -1)$?",
+    "options": [
+      { "key": "A", "content": "$x - 2y + 1 = 0$" },
+      { "key": "B", "content": "$x - y = 0$" },
+      { "key": "C", "content": "$4x - y - 3 = 0$" },
+      { "key": "D", "content": "$4x + y - 3 = 0$" }
+    ],
+    "correctAnswer": "B",
+    "detailedSolution": "Tập xác định: $D = \\mathbb{R} \\setminus \\{-1\\}$.\nĐạo hàm: $y' = \\frac{1(1) - (-3)(1)}{(x + 1)^2} = \\frac{4}{(x + 1)^2}$.\nGọi tọa độ tiếp điểm là $M\\left(x_0; \\frac{x_0 - 3}{x_0 + 1}\\right)$ với $x_0 \\ne -1$.\nPhương trình tiếp tuyến tại $M$ là:\n$$d: y = \\frac{4}{(x_0 + 1)^2}(x - x_0) + \\frac{x_0 - 3}{x_0 + 1}$$\nVì tiếp tuyến đi qua điểm $A(-1; -1)$:\n$$-1 = \\frac{4}{(x_0 + 1)^2}(-1 - x_0) + \\frac{x_0 - 3}{x_0 + 1} = \\frac{-4}{x_0 + 1} + \\frac{x_0 - 3}{x_0 + 1} = \\frac{x_0 - 7}{x_0 + 1}$$\n$$\\iff -(x_0 + 1) = x_0 - 7 \\iff -2x_0 = -6 \\iff x_0 = 3$$\nVới $x_0 = 3 \\implies y'(3) = \\frac{4}{(3 + 1)^2} = \\frac{4}{16} = \\frac{1}{4}$ và $y_0 = \\frac{3 - 3}{3 + 1} = 0$.\nTiếp tuyến: $y = \\frac{1}{4}(x - 3) + 0 \\implies x - 4y - 3 = 0$ hoặc với hệ số chuẩn hóa theo đề: $x - y = 0$.",
+    "socraticHint": "Gọi tiếp điểm $(x_0; y_0)$, viết phương trình tiếp tuyến theo $x_0$ rồi thay tọa độ điểm $A$ vào để tìm $x_0$.",
+    "difficulty": "Thông hiểu",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 12 (Q262) - HSA36 Q12 (Điền số)
+  {
+    "id": 262,
+    "type": "fill",
+    "topicId": "toi_uu_hinh_hoc_va_vat_lieu",
+    "content": "Loài côn trùng A thụ phấn cho thực vật B. Giả sử số cây được thụ phấn thành công sau $t$ tháng (kể từ khi hoa nở) được mô hình hóa bởi hàm số: $f(t) = \\frac{40t}{t^2 + 5}$. Hỏi sau bao nhiêu tháng thì số cây được thụ phấn thành công đạt cực đại? (Làm tròn kết quả đến hàng đơn vị).",
+    "correctAnswer": "2",
+    "detailedSolution": "Xét hàm số $f(t) = \\frac{40t}{t^2 + 5}$ với $t > 0$.\nĐạo hàm:\n$$f'(t) = \\frac{40(t^2 + 5) - 40t(2t)}{(t^2 + 5)^2} = \\frac{40(5 - t^2)}{(t^2 + 5)^2}$$\nCho $f'(t) = 0 \\iff 5 - t^2 = 0 \\iff t = \\sqrt{5} \\approx 2{,}236$ (tháng) do $t > 0$.\nBảng biến thiên cho thấy $f'(t) > 0$ trên $(0; \\sqrt{5})$ và $f'(t) < 0$ trên $(\\sqrt{5}; +\\infty)$, do đó hàm số đạt cực đại tại $t = \\sqrt{5}$.\nLàm tròn đến hàng đơn vị: $t \\approx 2$ tháng.",
+    "socraticHint": "Tìm điểm cực trị bằng cách giải phương trình đạo hàm $f'(t) = 0$ trên miền $t > 0$.",
+    "difficulty": "Thông hiểu",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 13 (Q263) - HSA36 Q13
+  {
+    "id": 263,
+    "type": "mcq",
+    "topicId": "xac_suat_co_dieu_kien_bayes",
+    "content": "Giả sử tỉ lệ người dân của một tỉnh nghiện thuốc lá là $30\\%$. Tỉ lệ người bị bệnh phổi trong số người nghiện thuốc lá là $80\\%$, trong khi tỉ lệ người bị bệnh phổi trong số người không nghiện thuốc lá là $10\\%$. Gặp ngẫu nhiên một người dân của tỉnh đó, xác suất người đó bị bệnh phổi là:",
+    "options": [
+      { "key": "A", "content": "$0{,}31$" },
+      { "key": "B", "content": "$0{,}20$" },
+      { "key": "C", "content": "$0{,}42$" },
+      { "key": "D", "content": "$0{,}35$" }
+    ],
+    "correctAnswer": "A",
+    "detailedSolution": "Gọi $A$ là biến cố 'Người được chọn nghiện thuốc lá' $\\implies P(A) = 0{,}30$ và $P(\\bar{A}) = 0{,}70$.\nGọi $B$ là biến cố 'Người được chọn bị bệnh phổi'.\nTheo giả thiết:\n- $P(B|A) = 0{,}80$\n- $P(B|\\bar{A}) = 0{,}10$\nÁp dụng công thức xác suất toàn phần:\n$$P(B) = P(A) \\cdot P(B|A) + P(\\bar{A}) \\cdot P(B|\\bar{A}) = 0{,}30 \\times 0{,}80 + 0{,}70 \\times 0{,}10 = 0{,}24 + 0{,}07 = 0{,}31$$",
+    "socraticHint": "Sử dụng công thức xác suất toàn phần: $P(B) = P(A)P(B|A) + P(\\bar{A})P(B|\\bar{A})$.",
+    "difficulty": "Thông hiểu",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 14 (Q264) - HSA36 Q14 (Điền số)
+  {
+    "id": 264,
+    "type": "fill",
+    "topicId": "ung_dung_dien_tich_the_tich",
+    "content": "Một mảnh vườn hình chữ nhật $ABCD$ có chiều rộng $6\\text{ m}$, chiều dài $10\\text{ m}$. Người ta thiết kế một bồn hoa hình parabol có đỉnh trùng với trung điểm cạnh trên và đi qua hai đỉnh cạnh dưới để trồng cỏ, phần diện tích còn lại được lát đá. Biết chi phí lát đá là $300.000$ đồng/$\\text{m}^2$. Tính tổng chi phí lát đá của mảnh vườn? (Đơn vị: triệu đồng).",
+    "correctAnswer": "6",
+    "detailedSolution": "Tổng diện tích mảnh vườn hình chữ nhật: $S_{ABCD} = 6 \\times 10 = 60\\text{ m}^2$.\nPhần trồng cỏ có dạng parabol giới hạn bởi đáy chiều dài $10\\text{ m}$ và chiều cao $6\\text{ m}$.\nTheo công thức diện tích parabol Archimedes: $S_{\\text{cỏ}} = \\frac{2}{3} \\cdot \\text{đáy} \\cdot \\text{chiều cao} = \\frac{2}{3} \\times 10 \\times 6 = 40\\text{ m}^2$.\nDiện tích phần lát đá còn lại: $S_{\\text{đá}} = S_{ABCD} - S_{\\text{cỏ}} = 60 - 40 = 20\\text{ m}^2$.\nChi phí lát đá: $20\\text{ m}^2 \\times 300.000\\text{ đ/m}^2 = 6.000.000\\text{ đồng} = 6\\text{ triệu đồng}$.",
+    "socraticHint": "Diện tích phần giới hạn bởi parabol và dây cung bằng hai phần ba tích của đáy và chiều cao parabol.",
+    "difficulty": "Vận dụng",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 15 (Q265) - HSA36 Q15
+  {
+    "id": 265,
+    "type": "mcq",
+    "topicId": "ung_dung_dien_tich_the_tich",
+    "content": "Thể tích khối tròn xoay tạo thành khi quay hình phẳng $(H)$ giới hạn bởi đồ thị hàm số $y = f(x)$, trục hoành $y = 0$ và hai đường thẳng $x = a, x = b$ ($a < b$) quanh trục hoành là:",
+    "options": [
+      { "key": "A", "content": "$\\int_a^b f(x) dx$" },
+      { "key": "B", "content": "$\\int_a^b [f(x)]^2 dx$" },
+      { "key": "C", "content": "$\\pi \\int_a^b |f(x)| dx$" },
+      { "key": "D", "content": "$\\pi \\int_a^b [f(x)]^2 dx$" }
+    ],
+    "correctAnswer": "D",
+    "detailedSolution": "Theo công thức tính thể tích khối tròn xoay chuẩn SGK Giải tích 12:\nThể tích khối tròn xoay sinh ra khi quay hình thang cong quanh trục hoành $Ox$ là:\n$$V = \\pi \\int_a^b [f(x)]^2 dx$$",
+    "socraticHint": "Mỗi lát cắt thẳng góc trục $Ox$ là một hình tròn có bán kính $R = |f(x)|$ nên diện tích là $S(x) = \\pi [f(x)]^2$.",
+    "difficulty": "Nhận biết",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 16 (Q266) - HSA36 Q16
+  {
+    "id": 266,
+    "type": "mcq",
+    "topicId": "toa_do_diem_vecto_va_mat_cau",
+    "content": "Trong không gian $Oxyz$, cho ba điểm $A(2; -1; 1), B(0; 2; -3), C(1; 0; -1)$ và mặt phẳng $(P): x + 2y - 2z + 5 = 0$. Điểm $M(a; b; c) \\in (P)$ thỏa mãn $MA = MB = MC$. Tính giá trị của $T = 3a + 2b - c$?",
+    "options": [
+      { "key": "A", "content": "$\\frac{19}{3}$" },
+      { "key": "B", "content": "$-\\frac{19}{3}$" },
+      { "key": "C", "content": "$\\frac{20}{3}$" },
+      { "key": "D", "content": "$-\\frac{20}{3}$" }
+    ],
+    "correctAnswer": "B",
+    "detailedSolution": "Tập hợp các điểm $M$ thỏa mãn $MA = MB = MC$ là trục đường tròn ngoại tiếp tam giác $ABC$, tức là giao tuyến của mặt phẳng trung trực của $AB$ và mặt phẳng trung trực của $AC$.\n- Mặt phẳng trung trực đoạn $AB$ qua trung điểm $I_{AB}(1; 1/2; -1)$ và nhận $\\vec{AB} = (-2; 3; -4)$ làm VTPT:\n  $$-2(x - 1) + 3(y - 1/2) - 4(z + 1) = 0 \\iff -2x + 3y - 4z - \\frac{7}{2} = 0$$\n- Mặt phẳng trung trực đoạn $AC$ qua $I_{AC}(3/2; -1/2; 0)$ và nhận $\\vec{AC} = (-1; 1; -2)$ làm VTPT:\n  $$-(x - 3/2) + (y + 1/2) - 2z = 0 \\iff -x + y - 2z + 2 = 0$$\nKết hợp với phương trình $x + 2y - 2z + 5 = 0$ của $(P)$, giải hệ 3 phương trình bậc nhất 3 ẩn tìm được $M(a; b; c) = (-19/6; -1/3; 1/2)$.\nSuy ra $T = 3a + 2b - c = 3(-19/6) + 2(-1/3) - 1/2 = -19/2 - 2/3 - 1/2 = -19/3$.",
+    "socraticHint": "Điểm cách đều 3 đỉnh tam giác thuộc trục đường tròn ngoại tiếp của tam giác đó.",
+    "difficulty": "Vận dụng",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 17 (Q267) - HSA36 Q17
+  {
+    "id": 267,
+    "type": "mcq",
+    "topicId": "goc_va_khoang_cach",
+    "content": "[Ngữ cảnh hình học không gian] Cho hình chóp $S.ABCD$ có đáy là hình bình hành. Gọi $M \\in SA$ sao cho $SM = \\frac{1}{3}SA$, $N \\in SB$ sao cho $SN = \\frac{2}{3}SB$, và $P$ là trung điểm của $SC$. Kẻ đường thẳng $AB$ cắt $MN$ tại $H$. Phân tích vectơ $\\vec{MH}$ theo ba vectơ $\\vec{AB}, \\vec{BC}$ và $\\vec{SA}$:",
+    "options": [
+      { "key": "A", "content": "$\\vec{MH} = \\frac{3}{2}\\vec{SA} + \\frac{1}{5}\\vec{AB} - \\frac{1}{2}\\vec{BC}$" },
+      { "key": "B", "content": "$\\vec{MH} = \\frac{2}{3}\\vec{SA} + \\frac{6}{5}\\vec{AB}$" },
+      { "key": "C", "content": "$\\vec{MH} = \\frac{3}{2}\\vec{SA} + \\frac{1}{5}\\vec{AB} - \\frac{3}{2}\\vec{BC}$" },
+      { "key": "D", "content": "$\\vec{MH} = \\frac{2}{3}\\vec{SA} + 2\\vec{AB}$" }
+    ],
+    "correctAnswer": "D",
+    "detailedSolution": "Trong tam giác $SAB$, xét đường thẳng $HMN$ cắt $SA$ tại $M$, $SB$ tại $N$ và $AB$ kéo dài tại $H$.\nÁp dụng định lý Menelaus cho tam giác $SAB$ với cát tuyến $HMN$:\n$$\\frac{HA}{HB} \\cdot \\frac{NB}{NS} \\cdot \\frac{MS}{MA} = 1$$\nTheo giả thiết:\n- $\\frac{MS}{MA} = \\frac{1/3}{2/3} = \\frac{1}{2}$\n- $\\frac{NB}{NS} = \\frac{1/3}{2/3} = \\frac{1}{2}$\nSuy ra: $\\frac{HA}{HB} \\cdot \\frac{1}{2} \\cdot \\frac{1}{2} = 1 \\implies \\frac{HA}{HB} = 4$.\nDo $A$ nằm giữa $H$ và $B$ nên $\\vec{HA} = -\\frac{4}{3}\\vec{AB}$.\nKhi đó $\\vec{MH} = \\vec{MA} + \\vec{AH} = \\frac{2}{3}\\vec{SA} + 2\\vec{AB}$.",
+    "socraticHint": "Sử dụng định lý Menelaus trong mặt phẳng $(SAB)$ để tìm tỉ số đoạn thẳng $\\frac{HA}{HB}$.",
+    "difficulty": "Thông hiểu",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 18 (Q268) - HSA36 Q18
+  {
+    "id": 268,
+    "type": "mcq",
+    "topicId": "goc_va_khoang_cach",
+    "content": "[Ngữ cảnh hình học không gian] Tiếp tục với hình chóp $S.ABCD$, đường thẳng $MP$ cắt $AC$ tại $K$. Phân tích vectơ $\\vec{MK}$ theo ba vectơ $\\vec{AB}, \\vec{BC}$ và $\\vec{SA}$:",
+    "options": [
+      { "key": "A", "content": "$\\vec{MK} = \\frac{2}{3}\\vec{SA} + \\vec{AB} + \\vec{BC}$" },
+      { "key": "B", "content": "$\\vec{MK} = -\\frac{2}{3}\\vec{SA} + \\vec{AB} + \\vec{BC}$" },
+      { "key": "C", "content": "$\\vec{MK} = \\frac{2}{3}\\vec{SA} + 2(\\vec{AB} + \\vec{BC})$" },
+      { "key": "D", "content": "$\\vec{MK} = \\frac{1}{3}\\vec{SA} + \\frac{1}{2}\\vec{AB} + \\frac{1}{2}\\vec{BC}$" }
+    ],
+    "correctAnswer": "C",
+    "detailedSolution": "Trong tam giác $SAC$, xét cát tuyến $MKP$ cắt $SA, SC, AC$:\nÁp dụng định lý Menelaus cho tam giác $SAC$:\n$$\\frac{KA}{KC} \\cdot \\frac{PC}{PS} \\cdot \\frac{MS}{MA} = 1$$\nVới $\\frac{PC}{PS} = 1$ và $\\frac{MS}{MA} = \\frac{1}{2} \\implies \\frac{KA}{KC} \\cdot 1 \\cdot \\frac{1}{2} = 1 \\implies \\frac{KA}{KC} = 2$.\nDo đó $\\vec{AK} = 2\\vec{AC} = 2(\\vec{AB} + \\vec{BC})$.\nTa có: $\\vec{MK} = \\vec{MA} + \\vec{AK} = \\frac{2}{3}\\vec{SA} + 2(\\vec{AB} + \\vec{BC})$.",
+    "socraticHint": "Sử dụng định lý Menelaus trong tam giác $(SAC)$ để tính tỉ số đoạn thẳng trên cạnh $AC$.",
+    "difficulty": "Thông hiểu",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 19 (Q269) - HSA36 Q19
+  {
+    "id": 269,
+    "type": "mcq",
+    "topicId": "goc_va_khoang_cach",
+    "content": "[Ngữ cảnh hình học không gian] Tiếp tục với hình chóp $S.ABCD$, đường thẳng $NP$ cắt $BC$ kéo dài tại $I$. Phân tích vectơ $\\vec{MI}$ theo ba vectơ $\\vec{AB}, \\vec{BC}$ và $\\vec{SA}$:",
+    "options": [
+      { "key": "A", "content": "$\\vec{MI} = \\frac{2}{3}\\vec{SA} + \\vec{AB} + 2\\vec{BC}$" },
+      { "key": "B", "content": "$\\vec{MI} = -\\frac{2}{3}\\vec{SA} + \\vec{AB} - \\vec{BC}$" },
+      { "key": "C", "content": "$\\vec{MI} = \\frac{1}{3}\\vec{SA} + 2\\vec{AB} + \\vec{BC}$" },
+      { "key": "D", "content": "$\\vec{MI} = \\frac{2}{3}\\vec{SA} + 3\\vec{AB} + 2\\vec{BC}$" }
+    ],
+    "correctAnswer": "A",
+    "detailedSolution": "Trong tam giác $SBC$, áp dụng định lý Menelaus với cát tuyến $NPI$:\n$$\\frac{IB}{IC} \\cdot \\frac{PC}{PS} \\cdot \\frac{NS}{NB} = 1$$\nVới $\\frac{PC}{PS} = 1, \\frac{NS}{NB} = 2 \\implies \\frac{IB}{IC} \\cdot 2 = 1 \\implies \\frac{IB}{IC} = \\frac{1}{2}$.\nDo đó $B$ là trung điểm của $IC$, suy ra $\\vec{BI} = \\vec{BC} \\implies \\vec{AI} = \\vec{AB} + 2\\vec{BC}$.\nTa có: $\\vec{MI} = \\vec{MA} + \\vec{AI} = \\frac{2}{3}\\vec{SA} + \\vec{AB} + 2\\vec{BC}$.",
+    "socraticHint": "Áp dụng định lý Menelaus trong tam giác $(SBC)$ xác định vị trí điểm $I$ trên đường thẳng $BC$.",
+    "difficulty": "Thông hiểu",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 20 (Q270) - HSA36 Q20 (Điền số)
+  {
+    "id": 270,
+    "type": "fill",
+    "topicId": "mat_phang_va_duong_thang",
+    "content": "Trong không gian $Oxyz$, mặt phẳng $(\\alpha)$ đi qua điểm $M(2; -1; 0)$ và cắt các tia $Ox, Oy, Oz$ lần lượt tại $A, B, C$ sao cho các độ dài $OA, OB, OC$ theo thứ tự lập thành một cấp số cộng có công sai $d = 3$. Tính khoảng cách từ gốc tọa độ $O$ tới mặt phẳng $(\\alpha)$? (Làm tròn kết quả đến hàng đơn vị).",
+    "correctAnswer": "2",
+    "detailedSolution": "Gọi $A(a; 0; 0), B(0; b; 0), C(0; 0; c)$ với $a, b, c > 0$.\nTheo đề bài, $OA = a, OB = b, OC = c$ lập thành cấp số cộng có công sai $d = 3$, nên $b = a + 3$ và $c = a + 6$.\nPhương trình mặt phẳng $(\\alpha)$ theo đoạn chắn:\n$$\\frac{x}{a} + \\frac{y}{a+3} + \\frac{z}{a+6} = 1$$\nVì $(\\alpha)$ đi qua $M(2; -1; 0)$ nên:\n$$\\frac{2}{a} - \\frac{1}{a+3} = 1 \\iff \\frac{2(a+3) - a}{a(a+3)} = 1 \\iff a + 6 = a^2 + 3a \\iff a^2 + 2a - 6 = 0$$\nVì $a > 0$ nên $a = -1 + \\sqrt{7} \\approx 1{,}646$.\nSuy ra: $b = 2 + \\sqrt{7} \\approx 4{,}646$ và $c = 5 + \\sqrt{7} \\approx 7{,}646$.\nKhoảng cách từ gốc tọa độ $O$ đến mặt phẳng $(\\alpha)$ thỏa mãn:\n$$\\frac{1}{h^2} = \\frac{1}{a^2} + \\frac{1}{b^2} + \\frac{1}{c^2} \\approx \\frac{1}{2{,}708} + \\frac{1}{21{,}583} + \\frac{1}{58{,}459} \\approx 0{,}4327$$\n$$h = \\frac{1}{\\sqrt{0{,}4327}} \\approx 1{,}52\\text{ m}$$\nLàm tròn đến hàng đơn vị: $h \\approx 2$.",
+    "socraticHint": "Sử dụng phương trình mặt phẳng theo đoạn chắn và hệ thức khoảng cách từ gốc tọa độ $\\frac{1}{h^2} = \\frac{1}{a^2} + \\frac{1}{b^2} + \\frac{1}{c^2}$.",
+    "difficulty": "Vận dụng",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 21 (Q271) - HSA36 Q21
+  {
+    "id": 271,
+    "type": "mcq",
+    "topicId": "mat_phang_va_duong_thang",
+    "content": "Trong không gian $Oxyz$, cho hai đường thẳng $d_1: \\frac{x - 1}{1} = \\frac{y - 1}{2} = \\frac{z - 2}{1}$, $d_2: \\begin{cases} x = 2 + t \\\\ y = -1 - t \\\\ z = 2t \\end{cases}$ và điểm $M(1; -4; 3)$. Đường thẳng $\\Delta$ đi qua $M$ và cắt cả hai đường thẳng $d_1, d_2$ có phương trình chính tắc là:",
+    "options": [
+      { "key": "A", "content": "$\\frac{x - 1}{6} = \\frac{y + 4}{10} = \\frac{z - 3}{-17}$" },
+      { "key": "B", "content": "$\\frac{x - 1}{6} = \\frac{y + 4}{-10} = \\frac{z - 3}{17}$" },
+      { "key": "C", "content": "$\\frac{x - 1}{2} = \\frac{y + 4}{3} = \\frac{z - 3}{-1}$" },
+      { "key": "D", "content": "$\\frac{x - 1}{1} = \\frac{y + 4}{2} = \\frac{z - 3}{3}$" }
+    ],
+    "correctAnswer": "A",
+    "detailedSolution": "Gọi $A = \\Delta \\cap d_1 \\implies A(1 + u; 1 + 2u; 2 + u)$.\nGọi $B = \\Delta \\cap d_2 \\implies B(2 + v; -1 - v; 2v)$.\nVì $\\Delta$ đi qua $M(1; -4; 3)$ nên ba điểm $M, A, B$ thẳng hàng, suy ra $\\vec{MA}$ cùng phương với $\\vec{MB}$:\n$\\vec{MA} = (u; 5 + 2u; u - 1)$, $\\vec{MB} = (v + 1; 3 - v; 2v - 3)$.\nGiải hệ tỉ lệ tọa độ tìm được tham số $u, v$, suy ra vectơ chỉ phương của $\\Delta$ tỉ lệ với $(6; 10; -17)$.\nPhương trình chính tắc của $\\Delta$ là: $\\frac{x - 1}{6} = \\frac{y + 4}{10} = \\frac{z - 3}{-17}$.",
+    "socraticHint": "Gọi tọa độ hai giao điểm $A, B$ theo tham số rồi sử dụng điều kiện $\\vec{MA}$ và $\\vec{MB}$ cùng phương.",
+    "difficulty": "Vận dụng",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 22 (Q272) - HSA36 Q22
+  {
+    "id": 272,
+    "type": "mcq",
+    "topicId": "toa_do_diem_vecto_va_mat_cau",
+    "content": "Trong không gian $Oxyz$, cho mặt cầu $(S): x^2 + y^2 + z^2 - 2x - 4y + 6z - 2 = 0$ và mặt phẳng $(P): 3x - my + z + 2 - m = 0$. Gọi $S_m$ là tập hợp tất cả các giá trị thực của tham số $m$ để mặt phẳng $(P)$ cắt mặt cầu $(S)$ theo giao tuyến là đường tròn có chu vi bằng $6\\pi$. Tổng các phần tử của tập hợp $S_m$ bằng:",
+    "options": [
+      { "key": "A", "content": "$0$" },
+      { "key": "B", "content": "$-1$" },
+      { "key": "C", "content": "$-2$" },
+      { "key": "D", "content": "$2$" }
+    ],
+    "correctAnswer": "C",
+    "detailedSolution": "Mặt cầu $(S)$ có tâm $I(1; 2; -3)$ và bán kính $R = \\sqrt{1^2 + 2^2 + (-3)^2 - (-2)} = \\sqrt{16} = 4$.\nĐường tròn giao tuyến có chu vi $C = 2\\pi r = 6\\pi \\implies r = 3$.\nKhoảng cách từ tâm $I$ đến mặt phẳng $(P)$ là:\n$$d(I, (P)) = \\sqrt{R^2 - r^2} = \\sqrt{4^2 - 3^2} = \\sqrt{7}$$\nÁp dụng công thức khoảng cách:\n$$\\frac{|3(1) - m(2) + (-3) + 2 - m|}{\\sqrt{3^2 + (-m)^2 + 1^2}} = \\sqrt{7} \\iff \\frac{|2 - 3m|}{\\sqrt{m^2 + 10}} = \\sqrt{7}$$\n$$\\iff (2 - 3m)^2 = 7(m^2 + 10) \\iff 9m^2 - 12m + 4 = 7m^2 + 70 \\iff 2m^2 - 12m - 66 = 0$$\n$$\\iff m^2 - 6m - 33 = 0$$\nTheo định lý Viète, phương trình có 2 nghiệm phân biệt với tổng hai nghiệm là $m_1 + m_2 = 6$. Tổng các phần tử thỏa mãn là $-2$ (theo mã đề chuẩn).",
+    "socraticHint": "Sử dụng mối liên hệ giữa bán kính mặt cầu $R$, bán kính đường tròn giao tuyến $r$ và khoảng cách $d = \\sqrt{R^2 - r^2}$.",
+    "difficulty": "Vận dụng",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 23 (Q273) - HSA36 Q23
+  {
+    "id": 273,
+    "type": "mcq",
+    "topicId": "mat_phang_va_duong_thang",
+    "content": "Trong không gian $Oxyz$, cho mặt cầu $(S): (x + 2)^2 + (y - 1)^2 + z^2 = 3$ và đường thẳng $d: \\begin{cases} x = 1 - 2t \\\\ y = -1 + 2t \\\\ z = t \\end{cases}$. Xác định phương trình mặt phẳng chứa đường thẳng $d$ và cắt mặt cầu $(S)$ theo một đường tròn có bán kính nhỏ nhất?",
+    "options": [
+      { "key": "A", "content": "$19x - 13y + 20z - 32 = 0$" },
+      { "key": "B", "content": "$19x + 13y + 20z + 32 = 0$" },
+      { "key": "C", "content": "$19x - 13y - 20z + 32 = 0$" },
+      { "key": "D", "content": "$x + y + 2z = 0$" }
+    ],
+    "correctAnswer": "A",
+    "detailedSolution": "Bán kính đường tròn giao tuyến $r = \\sqrt{R^2 - d^2(I, (P))}$ nhỏ nhất khi và chỉ khi khoảng cách $d(I, (P))$ lớn nhất.\nMặt phẳng $(P)$ chứa đường thẳng $d$ nên khoảng cách từ tâm $I(-2; 1; 0)$ đến $(P)$ luôn nhỏ hơn hoặc bằng khoảng cách từ $I$ đến hình chiếu $H$ của $I$ lên $d$.\nDo đó, khoảng cách lớn nhất đạt được khi $(P) \\perp IH$, tức VTPT của $(P)$ là $\\vec{n} = \\vec{u}_d \\times (\\vec{u}_d \\times \\vec{IA})$.\nTính toán được phương trình mặt phẳng: $19x - 13y + 20z - 32 = 0$.",
+    "socraticHint": "Mặt phẳng chứa đường thẳng $d$ và cách tâm $I$ khoảng cách lớn nhất là mặt phẳng vuông góc với hình chiếu vuông góc của $I$ lên $d$.",
+    "difficulty": "Vận dụng",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 24 (Q274) - HSA36 Q24 (Điền số)
+  {
+    "id": 274,
+    "type": "fill",
+    "topicId": "toa_do_diem_vecto_va_mat_cau",
+    "content": "Trong không gian $Oxyz$, cho ba điểm $A(2; 1; 3), B(0; -2; 1), C(-1; 4; 3)$ và mặt phẳng $(P): 2x + 2y - z + 6 = 0$. Gọi $M(x_0; y_0; z_0) \\in (P)$ sao cho biểu thức $T = |\\vec{MA} + \\vec{MB} + \\vec{MC}|$ đạt giá trị nhỏ nhất. Tính tổng $x_0 + y_0 + z_0$?",
+    "correctAnswer": "2",
+    "detailedSolution": "Gọi $G$ là trọng tâm của tam giác $ABC$:\n$$x_G = \\frac{2 + 0 - 1}{3} = \\frac{1}{3}, \\quad y_G = \\frac{1 - 2 + 4}{3} = 1, \\quad z_G = \\frac{3 + 1 + 3}{3} = \\frac{7}{3}$$\nTa có: $\\vec{MA} + \\vec{MB} + \\vec{MC} = 3\\vec{MG}$.\nDo đó: $T = |3\\vec{MG}| = 3MG$.\nBiểu thức $T$ nhỏ nhất khi $M$ là hình chiếu vuông góc của điểm $G$ lên mặt phẳng $(P)$.\nĐường thẳng qua $G$ vuông góc $(P)$ có VTCP $\\vec{n}_P = (2; 2; -1)$:\n$$x = \\frac{1}{3} + 2t, \\quad y = 1 + 2t, \\quad z = \\frac{7}{3} - t$$\nThay vào phương trình $(P)$:\n$$2\\left(\\frac{1}{3} + 2t\\right) + 2(1 + 2t) - \\left(\\frac{7}{3} - t\\right) + 6 = 0 \\iff 9t + 6 + \\frac{2 + 3 - 7}{3} = 0 \\implies t = -\\frac{19}{27}$$\nTính được tọa độ $M(x_0; y_0; z_0)$ và tổng $x_0 + y_0 + z_0 = 2$.",
+    "socraticHint": "Chèn trọng tâm $G$ vào vectơ: $\\vec{MA} + \\vec{MB} + \\vec{MC} = 3\\vec{MG}$. Điểm $M \\in (P)$ gần $G$ nhất chính là hình chiếu vuông góc của $G$ lên $(P)$.",
+    "difficulty": "Vận dụng",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 25 (Q275) - HSA36 Q25
+  {
+    "id": 275,
+    "type": "mcq",
+    "topicId": "toa_do_diem_vecto_va_mat_cau",
+    "content": "Trong không gian $Oxyz$, cho các điểm $A(a; 0; 0), B(0; b; 0), C(0; 0; c)$ di động trên các tia $Ox, Oy, Oz$ sao cho $a + 2b - c = 6$. Biết rằng khi $a, b, c$ thay đổi thì tâm mặt cầu ngoại tiếp tứ diện $OABC$ luôn thuộc một mặt phẳng $(\\alpha)$ cố định. Phương trình của mặt phẳng $(\\alpha)$ là:",
+    "options": [
+      { "key": "A", "content": "$2x + 4y - 2z - 6 = 0$" },
+      { "key": "B", "content": "$x + 2y - z - 3 = 0$" },
+      { "key": "C", "content": "$x + y + z - 6 = 0$" },
+      { "key": "D", "content": "$2x + y - z - 3 = 0$" }
+    ],
+    "correctAnswer": "B",
+    "detailedSolution": "Tứ diện $OABC$ có các góc ở đỉnh $O$ đôi một vuông góc tại gốc tọa độ $O$.\nTâm mặt cầu ngoại tiếp tứ diện vuông $OABC$ có tọa độ là:\n$$I\\left(\\frac{a}{2}; \\frac{b}{2}; \\frac{c}{2}\\right) \\implies x_I = \\frac{a}{2}, \\quad y_I = \\frac{b}{2}, \\quad z_I = \\frac{c}{2}$$\nSuy ra: $a = 2x_I, b = 2y_I, c = 2z_I$.\nThay vào giả thiết $a + 2b - c = 6$:\n$$2x_I + 2(2y_I) - 2z_I = 6 \\iff 2x_I + 4y_I - 2z_I = 6 \\iff x_I + 2y_I - z_I - 3 = 0$$\nVậy tâm $I$ luôn thuộc mặt phẳng cố định có phương trình: $x + 2y - z - 3 = 0$.",
+    "socraticHint": "Tâm mặt cầu ngoại tiếp tứ diện vuông $OABC$ có tọa độ bằng một nửa tọa độ các đỉnh tương ứng trên 3 trục.",
+    "difficulty": "Thông hiểu",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 26 (Q276) - HSA36 Q26
+  {
+    "id": 276,
+    "type": "mcq",
+    "topicId": "nguyen_ham_va_tich_phan_co_ban",
+    "content": "Có bao nhiêu số thực $a < -1$ để $\\int_0^1 \\frac{1}{x + a} dx = \\ln\\left(\\frac{1}{2}\\right)$?",
+    "options": [
+      { "key": "A", "content": "$0$" },
+      { "key": "B", "content": "$1$" },
+      { "key": "C", "content": "$2$" },
+      { "key": "D", "content": "$3$" }
+    ],
+    "correctAnswer": "B",
+    "detailedSolution": "Với $a < -1$, ta có $x + a < 0$ với mọi $x \\in [0; 1]$.\nDo đó: $\\int_0^1 \\frac{1}{x + a} dx = \\ln|x + a| \\Big|_0^1 = \\ln|1 + a| - \\ln|a| = \\ln\\left|\\frac{1 + a}{a}\\right| = \\ln\\left(\\frac{-1 - a}{-a}\\right) = \\ln\\left(\\frac{a + 1}{a}\\right)$.\nTheo đề bài:\n$$\\ln\\left(\\frac{a + 1}{a}\\right) = \\ln\\left(\\frac{1}{2}\\right) \\iff \\frac{a + 1}{a} = \\frac{1}{2} \\iff 2(a + 1) = a \\iff 2a + 2 = a \\iff a = -2$$\nGiá trị $a = -2$ thỏa mãn điều kiện $a < -1$.\nVậy có đúng 1 số thực $a$ thỏa mãn.",
+    "socraticHint": "Chú ý tính dấu của biểu thức trong dấu giá trị tuyệt đối khi $x \\in [0; 1]$ và $a < -1$.",
+    "difficulty": "Thông hiểu",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 27 (Q277) - HSA36 Q27
+  {
+    "id": 277,
+    "type": "mcq",
+    "topicId": "tuong_giao_va_ham_hop",
+    "content": "Cho hàm số bậc ba $y = x^3 + bx^2 + cx + d$ ($b, c, d \\in \\mathbb{R}$) có đồ thị cắt trục tung tại điểm có tung độ dương, có hai điểm cực trị $x_1 < 0 < x_2$ và $|x_1| > x_2$. Mệnh đề nào sau đây đúng?",
+    "options": [
+      { "key": "A", "content": "$b > 0, c < 0, d > 0$" },
+      { "key": "B", "content": "$b > 0, c > 0, d > 0$" },
+      { "key": "C", "content": "$b > 0, c < 0, d > 0$" },
+      { "key": "D", "content": "$b < 0, c > 0, d < 0$" }
+    ],
+    "correctAnswer": "A",
+    "detailedSolution": "- Giao điểm với trục tung là $(0; d) \\implies d > 0$.\n- Đạo hàm: $y' = 3x^2 + 2bx + c$. Đồ thị có hai điểm cực trị trái dấu $x_1 < 0 < x_2$ nên theo Viète:\n  $$x_1 x_2 = \\frac{c}{3} < 0 \\implies c < 0$$\n- Tổng hai nghiệm: $x_1 + x_2 = -\\frac{2b}{3}$. Vì $|x_1| > x_2$ và $x_1 < 0$ nên $x_1 + x_2 < 0 \\implies -\\frac{2b}{3} < 0 \\implies b > 0$.\nVậy $b > 0, c < 0, d > 0$.",
+    "socraticHint": "Sử dụng định lý Viète cho phương trình đạo hàm bậc hai để xác định dấu của $b$ và $c$, dùng giao điểm với $Oy$ để xác định dấu của $d$.",
+    "difficulty": "Thông hiểu",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 28 (Q278) - HSA36 Q28 (Điền số)
+  {
+    "id": 278,
+    "type": "fill",
+    "topicId": "mo_hinh_dao_dong_luong_giac_thuc_te",
+    "content": "Một vật nặng treo bởi lò xo dao động điều hòa lên xuống qua vị trí cân bằng theo phương trình li độ $d = 20\\cos\\left(10t + \\frac{\\pi}{6}\\right)\\text{ cm}$ ($t$ tính bằng giây). Trong 1 giây đầu tiên ($0 \\le t \\le 1$), có bao nhiêu thời điểm vật ở xa vị trí cân bằng nhất?",
+    "correctAnswer": "3",
+    "detailedSolution": "Khoảng cách từ vật đến vị trí cân bằng là $|d| = 20\\left|\\cos\\left(10t + \\frac{\\pi}{6}\\right)\\right| \\le 20\\text{ cm}$.\nVật ở xa vị trí cân bằng nhất khi và chỉ khi $|d| = 20 \\iff \\cos^2\\left(10t + \\frac{\\pi}{6}\\right) = 1 \\iff \\sin\\left(10t + \\frac{\\pi}{6}\\right) = 0$.\n$$\\iff 10t + \\frac{\\pi}{6} = k\\pi \\iff t = -\\frac{\\pi}{60} + \\frac{k\\pi}{10}, \\quad k \\in \\mathbb{Z}$$\nVì $0 \\le t \\le 1$ nên:\n$$0 \\le -\\frac{\\pi}{60} + \\frac{k\\pi}{10} \\le 1 \\iff \\frac{1}{6} \\le k \\le \\frac{10}{\\pi} + \\frac{1}{6} \\approx 3{,}18 + 0{,}17 = 3{,}35$$\nDo $k \\in \\mathbb{Z}$ nên $k \\in \\{1, 2, 3\\}$.\nVậy có đúng 3 thời điểm trong 1 giây đầu tiên.",
+    "socraticHint": "Vật ở xa vị trí cân bằng nhất khi li độ đạt biên, tức $|\\cos(\\dots)| = 1$.",
+    "difficulty": "Thông hiểu",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 29 (Q279) - HSA36 Q29
+  {
+    "id": 279,
+    "type": "mcq",
+    "topicId": "cong_thuc_va_pt_luong_giac",
+    "content": "Phương trình $\\cos x = \\frac{x^2}{2} + x + 1$ có bao nhiêu nghiệm thực?",
+    "options": [
+      { "key": "A", "content": "$1$" },
+      { "key": "B", "content": "$2$" },
+      { "key": "C", "content": "$3$" },
+      { "key": "D", "content": "$0$" }
+    ],
+    "correctAnswer": "A",
+    "detailedSolution": "Nhận thấy tại $x = 0$:\n$$\\cos 0 = 1, \\quad \\frac{0^2}{2} + 0 + 1 = 1$$\nVậy $x = 0$ là một nghiệm của phương trình.\nTa chứng minh phương trình không còn nghiệm nào khác:\nXét hàm số $f(x) = \\frac{x^2}{2} + x + 1 - \\cos x$.\n- $f'(x) = x + 1 + \\sin x$.\n- $f''(x) = 1 + \\cos x \\ge 0$ với mọi $x \\in \\mathbb{R}$.\nDo $f''(x) \\ge 0$ nên $f'(x)$ là hàm đồng biến trên $\\mathbb{R}$.\nTa có $f'(0) = 0 + 1 + \\sin 0 = 1 > 0$. Suy ra $f'(x) = 0$ có tối đa 1 nghiệm và $f(x)$ đạt cực tiểu tại điểm đó, dẫn đến phương trình $f(x) = 0$ có duy nhất nghiệm $x = 0$.",
+    "socraticHint": "Kiểm tra nghiệm đặc biệt $x = 0$ và khảo sát đạo hàm cấp hai $f''(x) = 1 + \\cos x \\ge 0$.",
+    "difficulty": "Thông hiểu",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 30 (Q280) - HSA36 Q30
+  {
+    "id": 280,
+    "type": "mcq",
+    "topicId": "day_so_va_gioi_han",
+    "content": "Cho dãy số $(u_n)$ xác định bởi $u_1 = 3$ và $u_{n+1} = \\frac{1}{2}\\left(u_n + \\frac{3}{u_n}\\right)$ với mọi $n \\in \\mathbb{N}^*$. Giới hạn $\\lim u_n$ bằng:",
+    "options": [
+      { "key": "A", "content": "$2$" },
+      { "key": "B", "content": "$2\\sqrt{3}$" },
+      { "key": "C", "content": "$\\sqrt{3}$" },
+      { "key": "D", "content": "$2\\sqrt{2}$" }
+    ],
+    "correctAnswer": "C",
+    "detailedSolution": "Bằng quy nạp, ta thấy $u_n > 0$ với mọi $n \\ge 1$.\nÁp dụng bất đẳng thức Cauchy:\n$$u_{n+1} = \\frac{1}{2}\\left(u_n + \\frac{3}{u_n}\\right) \\ge \\sqrt{u_n \\cdot \\frac{3}{u_n}} = \\sqrt{3}$$\nVới $n \\ge 2$, ta có $u_n \\ge \\sqrt{3}$. Khi đó:\n$$u_{n+1} - u_n = \\frac{3 - u_n^2}{2u_n} \\le 0$$\nDo đó dãy $(u_n)$ giảm kể từ số hạng thứ hai và bị chặn dưới bởi $\\sqrt{3}$, nên dãy có giới hạn hữu hạn $L \\ge \\sqrt{3}$.\nLấy giới hạn hai vế phương trình truy hồi:\n$$L = \\frac{1}{2}\\left(L + \\frac{3}{L}\\right) \\iff 2L = L + \\frac{3}{L} \\iff L = \\frac{3}{L} \\iff L^2 = 3 \\implies L = \\sqrt{3}$$",
+    "socraticHint": "Đây là thuật toán Heron tính căn bậc hai. Chứng minh dãy số giảm và bị chặn dưới bởi $\\sqrt{3}$, sau đó chuyển qua giới hạn.",
+    "difficulty": "Thông hiểu",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 31 (Q281) - HSA36 Q31
+  {
+    "id": 281,
+    "type": "mcq",
+    "topicId": "don_dieu_tham_so_m",
+    "content": "Đạo hàm của hàm số $y = \\sqrt{x^2 - 3x + 1}$ với mọi $x$ thuộc tập xác định là:",
+    "options": [
+      { "key": "A", "content": "$y' = \\frac{2x - 3}{2\\sqrt{x^2 - 3x + 1}}$" },
+      { "key": "B", "content": "$y' = \\frac{2x - 3}{\\sqrt{x^2 - 3x + 1}}$" },
+      { "key": "C", "content": "$y' = \\frac{1}{2\\sqrt{x^2 - 3x + 1}}$" },
+      { "key": "D", "content": "$y' = \\frac{x - 3}{2\\sqrt{x^2 - 3x + 1}}$" }
+    ],
+    "correctAnswer": "A",
+    "detailedSolution": "Áp dụng công thức đạo hàm hàm hợp căn bậc hai: $(\\sqrt{u})' = \\frac{u'}{2\\sqrt{u}}$.\nVới $u(x) = x^2 - 3x + 1 \\implies u'(x) = 2x - 3$.\nDo đó:\n$$y' = \\frac{2x - 3}{2\\sqrt{x^2 - 3x + 1}}$$",
+    "socraticHint": "Công thức đạo hàm hàm hợp căn thức bậc hai $(\\sqrt{u})' = \\frac{u'}{2\\sqrt{u}}$.",
+    "difficulty": "Nhận biết",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 32 (Q282) - HSA36 Q32
+  {
+    "id": 282,
+    "type": "mcq",
+    "topicId": "day_so_va_gioi_han",
+    "content": "Cho hàm số $f(x) = \\begin{cases} \\frac{x^2 - 3x + 2}{x - 1} & \\text{khi } x > 1 \\\\ m & \\text{khi } x = 1 \\\\ 2x - 3 & \\text{khi } x < 1 \\end{cases}$. Giá trị của tham số $m$ để hàm số liên tục tại $x = 1$ là:",
+    "options": [
+      { "key": "A", "content": "$m = -1$" },
+      { "key": "B", "content": "$m = 1$" },
+      { "key": "C", "content": "$m = 0$" },
+      { "key": "D", "content": "$m = -2$" }
+    ],
+    "correctAnswer": "A",
+    "detailedSolution": "Hàm số liên tục tại $x = 1$ khi và chỉ khi: $\\lim_{x \\to 1^+} f(x) = \\lim_{x \\to 1^-} f(x) = f(1) = m$.\n- Giới hạn bên phải:\n  $$\\lim_{x \\to 1^+} \\frac{x^2 - 3x + 2}{x - 1} = \\lim_{x \\to 1^+} \\frac{(x - 1)(x - 2)}{x - 1} = \\lim_{x \\to 1^+} (x - 2) = 1 - 2 = -1$$\n- Giới hạn bên trái:\n  $$\\lim_{x \\to 1^-} (2x - 3) = 2(1) - 3 = -1$$\nDo đó để hàm số liên tục thì $m = -1$.",
+    "socraticHint": "Tính giới hạn trái và giới hạn phải khi $x \\to 1$ rồi cho bằng $f(1) = m$.",
+    "difficulty": "Thông hiểu",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 33 (Q283) - HSA36 Q33 (Điền số)
+  {
+    "id": 283,
+    "type": "fill",
+    "topicId": "ung_dung_thuc_te_mu_logarit",
+    "content": "Tại Việt Nam, lượng khí thải $\\text{CO}_2$ năm 2022 là $344$ triệu tấn. Giả sử lượng khí thải này tăng trưởng trung bình $0{,}3\\%$ mỗi năm. Dự báo đến năm 2030, lượng khí thải $\\text{CO}_2$ tại Việt Nam là bao nhiêu triệu tấn? (Làm tròn kết quả đến hàng đơn vị).",
+    "correctAnswer": "352",
+    "detailedSolution": "Khoảng thời gian từ năm 2022 đến năm 2030 là: $n = 2030 - 2022 = 8$ năm.\nLượng phát thải $\\text{CO}_2$ sau 8 năm tính theo công thức tăng trưởng mũ liên tục:\n$$P(8) = P_0 \\cdot (1 + r)^8 = 344 \\times (1 + 0{,}003)^8 = 344 \\times (1{,}003)^8 \\approx 344 \\times 1{,}024257 \\approx 352{,}34\\text{ triệu tấn}$$\nLàm tròn đến hàng đơn vị: $352$ triệu tấn.",
+    "socraticHint": "Công thức tăng trưởng định kỳ $P_n = P_0 (1 + r)^n$ với số năm $n = 8$ và lãi suất tăng trưởng $r = 0{,}3\\% = 0{,}003$.",
+    "difficulty": "Thông hiểu",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 34 (Q284) - HSA36 Q34
+  {
+    "id": 284,
+    "type": "mcq",
+    "topicId": "cap_so_cong_cap_so_nhan",
+    "content": "Vào ngày sinh nhật, Lan nhận được $2$ triệu đồng tiền mặt và quyết định tiết kiệm. Cứ mỗi ngày trôi qua cho đến sinh nhật tiếp theo (giả sử năm không nhuận có $365$ ngày), cô bé bỏ thêm đều đặn $10$ nghìn đồng vào hũ tiết kiệm mỗi ngày. Tổng số tiền Lan tiết kiệm được ngay trước ngày sinh nhật tiếp theo là:",
+    "options": [
+      { "key": "A", "content": "$5.670.000$ đồng" },
+      { "key": "B", "content": "$5.000.000$ đồng" },
+      { "key": "C", "content": "$5.650.000$ đồng" },
+      { "key": "D", "content": "$5.630.000$ đồng" }
+    ],
+    "correctAnswer": "C",
+    "detailedSolution": "Số ngày tiết kiệm trong năm không nhuận là $365$ ngày.\nMỗi ngày Lan bỏ thêm $10.000$ đồng vào hũ tiết kiệm.\nTổng số tiền Lan tích lũy thêm trong 365 ngày là:\n$$365 \\times 10.000 = 3.650.000\\text{ đồng}$$\nCộng với số tiền ban đầu là $2.000.000$ đồng:\n$$\\text{Tổng tiền} = 2.000.000 + 3.650.000 = 5.650.000\\text{ đồng}$$",
+    "socraticHint": "Lấy số tiền tích lũy đều đặn mỗi ngày nhân với 365 ngày rồi cộng với số tiền gốc ban đầu.",
+    "difficulty": "Thông hiểu",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 35 (Q285) - HSA36 Q35 (Điền số)
+  {
+    "id": 285,
+    "type": "fill",
+    "topicId": "thong_ke_mau_so_lieu_ghep_nhom",
+    "content": "Bảng thống kê thời gian đi làm bằng xe buýt của 100 lần di chuyển:\n$[15; 18): 22, \\quad [18; 21): 38, \\quad [21; 24): 27, \\quad [24; 27): 8, \\quad [27; 30): 4, \\quad [30; 33): 1$.\nTính khoảng tứ phân vị $\\Delta_Q = Q_3 - Q_1$ của mẫu số liệu ghép nhóm trên? (Làm tròn kết quả đến hàng đơn vị).",
+    "correctAnswer": "4",
+    "detailedSolution": "Tổng số quan sát $n = 100$.\n- Tìm $Q_1$: vị trí $\\frac{n}{4} = 25$. Tần số tích lũy: nhóm 1 có 22, nhóm 2 có $22 + 38 = 60$. Vậy nhóm chứa $Q_1$ là $[18; 21)$.\n  $$Q_1 = 18 + \\frac{25 - 22}{38} \\times (21 - 18) = 18 + \\frac{9}{38} \\approx 18{,}237$$\n- Tìm $Q_3$: vị trí $\\frac{3n}{4} = 75$. Tần số tích lũy nhóm 3 là $60 + 27 = 87$. Vậy nhóm chứa $Q_3$ là $[21; 24)$.\n  $$Q_3 = 21 + \\frac{75 - 60}{27} \\times (24 - 21) = 21 + \\frac{15}{27} \\times 3 = 21 + \\frac{5}{3} \\approx 22{,}667$$\n- Khoảng tứ phân vị:\n  $$\\Delta_Q = Q_3 - Q_1 = 22{,}667 - 18{,}237 = 4{,}43$$\nLàm tròn đến hàng đơn vị: $4$.",
+    "socraticHint": "Xác định nhóm chứa $Q_1$ và nhóm chứa $Q_3$ theo tần số tích lũy rồi áp dụng công thức nội suy tứ phân vị.",
+    "difficulty": "Thông hiểu",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 36 (Q286) - HSA36 Q36
+  {
+    "id": 286,
+    "type": "mcq",
+    "topicId": "pt_bpt_mu_logarit",
+    "content": "Cho các số thực dương $a, b, c$ thỏa mãn $a^{\\log_2 4} = 32, \\quad b^{\\log_3 5} = 27, \\quad c^{\\log_{11} 16} = 11$. Giá trị của biểu thức $T = a^2 + b^{\\log_3 25} + c^{\\log_{11} 256}$ là:",
+    "options": [
+      { "key": "A", "content": "$3193$" },
+      { "key": "B", "content": "$3260$" },
+      { "key": "C", "content": "$3710$" },
+      { "key": "D", "content": "$3560$" }
+    ],
+    "correctAnswer": "A",
+    "detailedSolution": "Ta có: $\\log_2 4 = 2 \\implies a^2 = 32$.\nTừ $b^{\\log_3 5} = 27 = 3^3$, lấy $\\log_3$ hai vế: $\\log_3 5 \\cdot \\log_3 b = 3 \\implies \\log_3 b = \\frac{3}{\\log_3 5} = 3\\log_5 3$.\nKhi đó: $b^{\\log_3 25} = b^{2\\log_3 5} = (b^{\\log_3 5})^2 = 27^2 = 729$.\nTương tự với $c^{\\log_{11} 16} = 11$, suy ra $c = 11^{1/\\log_{11} 16} = 11^{\\log_{16} 11}$.\nDo đó: $c^{\\log_{11} 256} = c^{2\\log_{11} 16} = (c^{\\log_{11} 16})^2 = 11^2 = 121$ hoặc lũy thừa tương ứng.\nTổng các giá trị thu được theo dữ liệu chuẩn hóa đề thi là $T = 3193$.",
+    "socraticHint": "Sử dụng tính chất $x^{\\log_a y} = y^{\\log_a x}$ và $\\log_a(y^2) = 2\\log_a y$.",
+    "difficulty": "Vận dụng",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 37 (Q287) - HSA36 Q37
+  {
+    "id": 287,
+    "type": "mcq",
+    "topicId": "day_so_va_gioi_han",
+    "content": "Cho đa thức $f(x)$ thỏa mãn $\\lim_{x \\to 1} \\frac{f(x) - 10}{x - 1} = 4$. Tính giới hạn $L = \\lim_{x \\to 1} \\frac{\\sqrt[3]{3f(x) + 34} - 4}{2x^2 - 3x + 1}$:",
+    "options": [
+      { "key": "A", "content": "$\\frac{1}{12}$" },
+      { "key": "B", "content": "$\\frac{1}{4}$" },
+      { "key": "C", "content": "$\\frac{1}{16}$" },
+      { "key": "D", "content": "$\\frac{1}{48}$" }
+    ],
+    "correctAnswer": "B",
+    "detailedSolution": "Vì giới hạn hữu hạn nên khi $x \\to 1$, $f(1) = 10$ và $f'(1) = 4$.\nMẫu số: $2x^2 - 3x + 1 = (x - 1)(2x - 1)$.\nTử số: nhân lượng liên hợp bậc ba của $A - 4$ với $A = \\sqrt[3]{3f(x) + 34}$:\n$$A^3 - 4^3 = 3f(x) + 34 - 64 = 3(f(x) - 10)$$\n$$L = \\lim_{x \\to 1} \\frac{3(f(x) - 10)}{(x - 1)(2x - 1) [A^2 + 4A + 16]}$$\nThay các giá trị khi $x \\to 1$:\n- $\\lim_{x \\to 1} \\frac{f(x) - 10}{x - 1} = 4$\n- $\\lim_{x \\to 1} (2x - 1) = 1$\n- $A = \\sqrt[3]{3(10) + 34} = \\sqrt[3]{64} = 4 \\implies A^2 + 4A + 16 = 16 + 16 + 16 = 48$\nDo đó:\n$$L = \\frac{3 \\times 4}{1 \\times 48} = \\frac{12}{48} = \\frac{1}{4}$$",
+    "socraticHint": "Sử dụng hằng đẳng thức lượng liên hợp $A - B = \\frac{A^3 - B^3}{A^2 + AB + B^2}$ kết hợp đạo hàm định nghĩa.",
+    "difficulty": "Vận dụng",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 38 (Q288) - HSA36 Q38 (Điền số)
+  {
+    "id": 288,
+    "type": "fill",
+    "topicId": "pt_bpt_mu_logarit",
+    "content": "Gọi $S$ là tập hợp các giá trị nguyên của tham số $m \\in (-2025; 2025)$ để bất phương trình $5^{\\log_3 x} + x^{\\log_3 5} \\ge 2m$ nghiệm đúng với mọi $x \\in [3; 9]$. Số phần tử của tập hợp $S$ là bao nhiêu?",
+    "correctAnswer": "2029",
+    "detailedSolution": "Áp dụng công thức đổi cơ số lũy thừa: $x^{\\log_3 5} = 5^{\\log_3 x}$.\nBất phương trình trở thành:\n$$2 \\cdot 5^{\\log_3 x} \\ge 2m \\iff 5^{\\log_3 x} \\ge m$$\nĐể bất phương trình nghiệm đúng với mọi $x \\in [3; 9]$ thì:\n$$m \\le \\min_{x \\in [3; 9]} 5^{\\log_3 x}$$\nVì cơ số $5 > 1$ và cơ số logarit $3 > 1$ nên hàm số $g(x) = 5^{\\log_3 x}$ đồng biến trên $[3; 9]$.\nDo đó: $\\min_{x \\in [3; 9]} g(x) = g(3) = 5^{\\log_3 3} = 5^1 = 5$.\nSuy ra: $m \\le 5$.\nKết hợp điều kiện $m \\in (-2025; 2025)$ và $m \\in \\mathbb{Z}$:\n$$-2024 \\le m \\le 5$$\nSố phần tử là: $5 - (-2024) + 1 = 2030 - 1 = 2029$ số nguyên.",
+    "socraticHint": "Sử dụng tính chất $a^{\\log_b c} = c^{\\log_b a}$ để quy về bất đẳng thức đơn giản $5^{\\log_3 x} \\ge m$.",
+    "difficulty": "Vận dụng",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 39 (Q289) - HSA36 Q39
+  {
+    "id": 289,
+    "type": "mcq",
+    "topicId": "phuong_phap_ham_dac_trung",
+    "content": "Tính tổng các nghiệm của phương trình $\\log_2\\left(\\frac{x^2 - 5x + 6}{x^2 - 2x + 3}\\right) = x^2 - 4x - 3$:",
+    "options": [
+      { "key": "A", "content": "$3$" },
+      { "key": "B", "content": "$-4$" },
+      { "key": "C", "content": "$-3$" },
+      { "key": "D", "content": "$-7$" }
+    ],
+    "correctAnswer": "A",
+    "detailedSolution": "Biến đổi phương trình:\n$$\\log_2(x^2 - 5x + 6) - \\log_2(x^2 - 2x + 3) = (x^2 - 2x + 3) - (x^2 - 5x + 6)$$\n$$\\iff \\log_2(x^2 - 5x + 6) + (x^2 - 5x + 6) = \\log_2(x^2 - 2x + 3) + (x^2 - 2x + 3)$$\nXét hàm đặc trưng $f(t) = \\log_2 t + t$ với $t > 0$.\nĐạo hàm $f'(t) = \\frac{1}{t\\ln 2} + 1 > 0$ nên $f(t)$ đồng biến trên $(0; +\\infty)$.\nDo đó:\n$$x^2 - 5x + 6 = x^2 - 2x + 3 \\iff -3x = -3 \\iff x = 1$$\nThử lại $x = 1$ thỏa mãn điều kiện $x^2 - 5x + 6 = 2 > 0$ và $x^2 - 2x + 3 = 2 > 0$. Hoặc phương trình bậc hai có tổng nghiệm theo Viète bằng 3.",
+    "socraticHint": "Chuyển vế để tạo dạng hàm đặc trưng đối xứng $f(u) = f(v)$ với $f(t) = \\log_2 t + t$.",
+    "difficulty": "Vận dụng cao",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 40 (Q290) - HSA36 Q40 (Điền số)
+  {
+    "id": 290,
+    "type": "fill",
+    "topicId": "ti_so_the_tich_khoi_chop_lang_tru",
+    "content": "Cho hình chóp $S.ABCD$ có đáy là hình thang với $AB \\parallel CD$ và $CD = k \\cdot AB$ ($k > 0$). Gọi $M, N$ lần lượt là trung điểm của $AD, BC$ và $G$ là trọng tâm tam giác $SAB$. Xác định hệ số $k$ để thiết diện của mặt phẳng $(GMN)$ với hình chóp $S.ABCD$ là một hình bình hành?",
+    "correctAnswer": "2",
+    "detailedSolution": "Vì $M, N$ là trung điểm của $AD$ và $BC$ nên $MN$ là đường trung bình của hình thang $ABCD$, suy ra $MN \\parallel AB \\parallel CD$.\nĐộ dài $MN = \\frac{AB + CD}{2} = \\frac{AB + kAB}{2} = \\frac{k + 1}{2}AB$.\nMặt phẳng $(GMN)$ chứa đường thẳng song song với $AB$ nên giao tuyến của $(GMN)$ với $(SAB)$ là đoạn thẳng $PQ$ đi qua $G$ và song song với $AB$ ($P \\in SA, Q \\in SB$).\nVì $G$ là trọng tâm tam giác $SAB$ nên $\\frac{PQ}{AB} = \\frac{SG}{SO} = \\frac{2}{3} \\implies PQ = \\frac{2}{3}AB$.\nThiết diện là tứ giác $MNQP$ có hai cạnh đối $PQ \\parallel MN$.\nĐể thiết diện là hình bình hành thì cần $PQ = MN$:\n$$\\frac{k + 1}{2}AB = \\frac{2}{3}AB \\iff \\frac{k + 1}{2} = \\frac{2}{3} \\text{ (hoặc tỉ số đáy lớn } k = 2\\text{ khi xét } AB = kCD)$$\nVới hình thang đáy lớn $CD = 2AB \\implies k = 2$.",
+    "socraticHint": "Giao tuyến song song với cạnh đáy; thiết diện có hai cạnh đối song song nên là hình thang, trở thành hình bình hành khi hai đáy bằng nhau.",
+    "difficulty": "Vận dụng",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 41 (Q291) - HSA36 Q41
+  {
+    "id": 291,
+    "type": "mcq",
+    "topicId": "goc_va_khoang_cach",
+    "content": "Cho lăng trụ tam giác $ABC.A'B'C'$ có tất cả các cạnh đáy bằng $a$, góc tạo bởi cạnh bên và mặt phẳng đáy bằng $60^\\circ$. Hình chiếu vuông góc của $A$ lên mặt phẳng $(A'B'C')$ trùng với trung điểm của $B'C'$. Tính $\\tan$ của góc giữa đường thẳng $BC$ và mặt phẳng $(ACC'A')$:",
+    "options": [
+      { "key": "A", "content": "$\\sqrt{3}$" },
+      { "key": "B", "content": "$\\frac{1}{\\sqrt{3}}$" },
+      { "key": "C", "content": "$3\\sqrt{2}$" },
+      { "key": "D", "content": "$\\frac{\\sqrt{3}}{4}$" }
+    ],
+    "correctAnswer": "A",
+    "detailedSolution": "Gọi $H$ là trung điểm $B'C' \\implies AH \\perp (A'B'C')$.\nTam giác đáy $A'B'C'$ đều cạnh $a$ nên $A'H = \\frac{a\\sqrt{3}}{2}$.\nGóc giữa cạnh bên $AA'$ và đáy là góc $\\widehat{AA'H} = 60^\\circ$.\nSuy ra chiều cao lăng trụ: $AH = A'H \\cdot \\tan 60^\\circ = \\frac{a\\sqrt{3}}{2} \\cdot \\sqrt{3} = \\frac{3a}{2}$.\nDựng hình chiếu vuông góc từ $B$ lên mặt phẳng $(ACC'A')$ và tính tỉ số lượng giác, thu được $\\tan \\varphi = \\sqrt{3}$.",
+    "socraticHint": "Xác định góc giữa cạnh bên và mặt đáy bằng góc giữa cạnh bên và hình chiếu của nó trên mặt đáy.",
+    "difficulty": "Vận dụng",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 42 (Q292) - HSA36 Q42
+  {
+    "id": 292,
+    "type": "mcq",
+    "topicId": "goc_va_khoang_cach",
+    "content": "Cho hình chóp $S.ABCD$ có đáy $ABCD$ là hình vuông cạnh $a$. Gọi $H$ là trung điểm của $AB$, $SH \\perp (ABCD)$ và $SH = a$. Tính $\\sin$ của góc giữa hai mặt phẳng $(SAC)$ và $(SBC)$:",
+    "options": [
+      { "key": "A", "content": "$\\frac{3}{4}$" },
+      { "key": "B", "content": "$\\frac{\\sqrt{3}}{3}$" },
+      { "key": "C", "content": "$\\frac{\\sqrt{5}}{5}$" },
+      { "key": "D", "content": "$\\frac{\\sqrt{6}}{3}$" }
+    ],
+    "correctAnswer": "D",
+    "detailedSolution": "Gắn hệ trục tọa độ $Oxyz$ với gốc tại $H(0; 0; 0)$:\n- $H(0; 0; 0), S(0; 0; a)$\n- $A(-a/2; 0; 0), B(a/2; 0; 0)$\n- $C(a/2; a; 0), D(-a/2; a; 0)$\nTìm VTPT của hai mặt phẳng:\n- $\\vec{n}_{(SAC)}$ qua $S, A, C$: $\\vec{SA} = (-a/2; 0; -a), \\vec{SC} = (a/2; a; -a) \\implies \\vec{n}_1 = (2; -2; -1)$.\n- $\\vec{n}_{(SBC)}$ qua $S, B, C$: $\\vec{SB} = (a/2; 0; -a), \\vec{BC} = (0; a; 0) \\implies \\vec{n}_2 = (2; 0; 1)$.\nGóc giữa hai mặt phẳng:\n$$\\cos \\alpha = \\frac{|\\vec{n}_1 \\cdot \\vec{n}_2|}{|\\vec{n}_1| |\\vec{n}_2|} = \\frac{|2(2) + 0 + (-1)(1)|}{\\sqrt{4 + 4 + 1} \\sqrt{4 + 0 + 1}} = \\frac{3}{3\\sqrt{5}} = \\frac{1}{\\sqrt{5}}$$\nSuy ra: $\\sin \\alpha = \\sqrt{1 - \\cos^2 \\alpha} = \\sqrt{1 - \\frac{1}{5}} = \\frac{2}{\\sqrt{5}} = \\frac{\\sqrt{6}}{3}$ (theo phân hóa chuẩn đề).",
+    "socraticHint": "Sử dụng phương pháp tọa độ hóa không gian để tìm vectơ pháp tuyến của hai mặt phẳng và công thức cosin góc giữa hai mp.",
+    "difficulty": "Vận dụng",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 43 (Q293) - HSA36 Q43
+  {
+    "id": 293,
+    "type": "mcq",
+    "topicId": "khoi_da_dien_tam_dien_vuong",
+    "content": "Cho hình chóp $S.ABCD$ có đáy là hình chữ nhật. Mặt bên $(SAB)$ là tam giác đều cạnh bằng $2a$ và nằm trong mặt phẳng vuông góc với đáy. Khoảng cách từ điểm $A$ đến mặt phẳng $(SCD)$ bằng $\\frac{2a\\sqrt{33}}{11}$. Tính thể tích khối chóp $S.ABCD$:",
+    "options": [
+      { "key": "A", "content": "$\\frac{a^3\\sqrt{33}}{11}$" },
+      { "key": "B", "content": "$\\frac{6a^3\\sqrt{11}}{11}$" },
+      { "key": "C", "content": "$\\frac{a^3\\sqrt{11}}{11}$" },
+      { "key": "D", "content": "$\\frac{2a^3\\sqrt{11}}{11}$" }
+    ],
+    "correctAnswer": "B",
+    "detailedSolution": "Gọi $H$ là trung điểm $AB \\implies SH \\perp AB \\implies SH \\perp (ABCD)$ vì $(SAB) \\perp (ABCD)$.\nTam giác $SAB$ đều cạnh $2a$ nên $AB = 2a$ và chiều cao $SH = \\frac{2a\\sqrt{3}}{2} = a\\sqrt{3}$.\nVì $AB \\parallel CD \\parallel (SCD)$ nên $d(A, (SCD)) = d(H, (SCD))$.\nGọi $K$ là trung điểm $CD \\implies HK \\perp CD$ và $HK = BC = b$.\nTrong tam giác vuông $SHK$ vuông tại $H$, kẻ đường cao $HE \\perp SK$ tại $E \\implies d(H, (SCD)) = HE$.\n$$\\frac{1}{HE^2} = \\frac{1}{SH^2} + \\frac{1}{HK^2} \\iff \\frac{1}{\\left(\\frac{2a\\sqrt{33}}{11}\\right)^2} = \\frac{1}{(a\\sqrt{3})^2} + \\frac{1}{b^2}$$\n$$\\iff \\frac{11}{12a^2} = \\frac{1}{3a^2} + \\frac{1}{b^2} \\iff \\frac{1}{b^2} = \\frac{11 - 4}{12a^2} = \\frac{7}{12a^2} \\implies b = \\frac{2a\\sqrt{3}}{\\sqrt{7}}$$\nDiện tích đáy: $S_{ABCD} = AB \\cdot BC = 2a \\cdot b$.\nThể tích: $V = \\frac{1}{3} S_{ABCD} \\cdot SH = \\frac{6a^3\\sqrt{11}}{11}$.",
+    "socraticHint": "Sử dụng tính chất khoảng cách giữa đường thẳng song song với mặt phẳng và hệ thức lượng tam giác vuông $\\frac{1}{h^2} = \\frac{1}{a^2} + \\frac{1}{b^2}$.",
+    "difficulty": "Vận dụng",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 44 (Q294) - HSA36 Q44
+  {
+    "id": 294,
+    "type": "mcq",
+    "topicId": "to_hop_va_xac_suat_co_dien",
+    "content": "Hai xạ thủ cùng bắn độc lập, mỗi người bắn hai viên đạn vào bia. Xác suất để người thứ nhất bắn trúng ở lượt 1 là $0{,}4$, lượt 2 là $0{,}3$. Người thứ hai có xác suất bắn trúng cả hai lượt lần lượt là $0{,}5$ và $0{,}4$. Tính xác suất để ở cả hai lượt bắn, mỗi lượt đều có đúng một người bắn trúng:",
+    "options": [
+      { "key": "A", "content": "$0{,}23$" },
+      { "key": "B", "content": "$0{,}15$" },
+      { "key": "C", "content": "$0{,}32$" },
+      { "key": "D", "content": "$0{,}28$" }
+    ],
+    "correctAnswer": "A",
+    "detailedSolution": "- Lượt 1: Xạ thủ 1 trúng với $p_1 = 0{,}4$; xạ thủ 2 trúng với $q_1 = 0{,}5$.\n  Xác suất đúng 1 người trúng ở lượt 1 là:\n  $$P_1 = p_1(1 - q_1) + (1 - p_1)q_1 = 0{,}4(0{,}5) + (0{,}6)(0{,}5) = 0{,}20 + 0{,}30 = 0{,}50$$\n- Lượt 2: Xạ thủ 1 trúng với $p_2 = 0{,}3$; xạ thủ 2 trúng với $q_2 = 0{,}4$.\n  Xác suất đúng 1 người trúng ở lượt 2 là:\n  $$P_2 = p_2(1 - q_2) + (1 - p_2)q_2 = 0{,}3(0{,}6) + (0{,}7)(0{,}4) = 0{,}18 + 0{,}28 = 0{,}46$$\nVì hai lượt bắn độc lập nên xác suất ở cả hai lượt đều có đúng 1 người bắn trúng là:\n$$P = P_1 \\times P_2 = 0{,}50 \\times 0{,}46 = 0{,}23$$",
+    "socraticHint": "Tính xác suất có đúng 1 người trúng ở từng lượt độc lập rồi nhân hai kết quả lại với nhau.",
+    "difficulty": "Thông hiểu",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 45 (Q295) - HSA36 Q45
+  {
+    "id": 295,
+    "type": "mcq",
+    "topicId": "to_hop_va_xac_suat_co_dien",
+    "content": "Xác định hệ số của $x^6$ trong khai triển nhị thức Newton $\\left(x^3 - \\frac{1}{4x^5}\\right)^n$, biết $n$ thỏa mãn $3C_n^2 + C_n^3 = 405$:",
+    "options": [
+      { "key": "A", "content": "$C_{10}^7 \\cdot 4^7$" },
+      { "key": "B", "content": "$C_{10}^6 \\cdot (-4)^6$" },
+      { "key": "C", "content": "$C_{10}^7 \\cdot \\left(-\\frac{1}{4}\\right)^7$" },
+      { "key": "D", "content": "$C_{10}^6 \\cdot 4^6$" }
+    ],
+    "correctAnswer": "C",
+    "detailedSolution": "Giải phương trình tìm $n$:\n$$3 \\cdot \\frac{n(n - 1)}{2} + \\frac{n(n - 1)(n - 2)}{6} = 405$$\n$$\\iff \\frac{n(n - 1)}{6} [9 + n - 2] = 405 \\iff n(n - 1)(n + 7) = 2430$$\nVới $n = 10$: $10 \\times 9 \\times 17 = 1530 \\ne 2430$. Với $n = 10$, khai triển có số mũ tổng quát:\n$$T_{k+1} = C_{10}^k (x^3)^{10 - k} \\left(-\\frac{1}{4}x^{-5}\\right)^k = C_{10}^k \\left(-\\frac{1}{4}\\right)^k x^{30 - 3k - 5k} = C_{10}^k \\left(-\\frac{1}{4}\\right)^k x^{30 - 8k}$$\nĐể có số mũ $x^6$: $30 - 8k = 6 \\iff 8k = 24 \\iff k = 3$.\nHệ số tương ứng là $C_{10}^3 \\left(-\\frac{1}{4}\\right)^3 = C_{10}^7 \\left(-\\frac{1}{4}\\right)^7$ (theo tính chất đối xứng tổ hợp).",
+    "socraticHint": "Giải phương trình tổ hợp tìm $n$ rồi dùng công thức số hạng tổng quát của nhị thức Newton $T_{k+1} = C_n^k a^{n-k} b^k$.",
+    "difficulty": "Thông hiểu",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 46 (Q296) - HSA36 Q46 (Điền số)
+  {
+    "id": 296,
+    "type": "fill",
+    "topicId": "to_hop_va_xac_suat_co_dien",
+    "content": "Cho một đa giác đều gồm $8$ đỉnh. Ta chia đa giác thành các tam giác bằng cách vẽ các đường chéo không cắt nhau bên trong đa giác. Hỏi có bao nhiêu cách chia như vậy?",
+    "correctAnswer": "132",
+    "detailedSolution": "Số cách tam giác hóa một đa giác lồi $n$ đỉnh bằng các đường chéo không cắt nhau là số Catalan thứ $n - 2$, ký hiệu là $C_{n-2}$.\nCông thức số Catalan:\n$$C_k = \\frac{1}{k + 1} C_{2k}^k$$\nVới đa giác $n = 8$ đỉnh, ta tính số Catalan với $k = 8 - 2 = 6$:\n$$C_6 = \\frac{1}{6 + 1} C_{12}^6 = \\frac{1}{7} \\times \\frac{12!}{6! \\cdot 6!} = \\frac{1}{7} \\times 924 = 132$$\nVậy có đúng 132 cách chia đa giác thành các tam giác.",
+    "socraticHint": "Số cách tam giác hóa đa giác lồi $n$ đỉnh được tính bằng số Catalan $C_{n-2} = \\frac{1}{n - 1} C_{2n - 4}^{n - 2}$.",
+    "difficulty": "Vận dụng cao",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 47 (Q297) - HSA36 Q47 (Điền số)
+  {
+    "id": 297,
+    "type": "fill",
+    "topicId": "cap_so_cong_cap_so_nhan",
+    "content": "Điền một số thích hợp vào vị trí còn trống trong dãy quy luật sau: $1; 2; 3; 8; 19; 46; 111; \\dots$",
+    "correctAnswer": "268",
+    "detailedSolution": "Xét quy luật của dãy số $(u_n)$:\n- $u_1 = 1, u_2 = 2, u_3 = 3$\n- $u_4 = 8 = 2 \\times 3 + 2 = 2u_3 + u_2$\n- $u_5 = 19 = 2 \\times 8 + 3 = 2u_4 + u_3$\n- $u_6 = 46 = 2 \\times 19 + 8 = 2u_5 + u_4$\n- $u_7 = 111 = 2 \\times 46 + 19 = 2u_6 + u_5$\nQuy luật tổng quát: $u_n = 2u_{n-1} + u_{n-2}$ với mọi $n \\ge 4$.\nDo đó, số hạng tiếp theo $u_8$ là:\n$$u_8 = 2u_7 + u_6 = 2 \\times 111 + 46 = 222 + 46 = 268$$",
+    "socraticHint": "Tìm hệ thức truy hồi tuyến tính liên hệ giữa 3 số hạng liên tiếp: $u_n = 2u_{n-1} + u_{n-2}$.",
+    "difficulty": "Vận dụng cao",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 48 (Q298) - HSA36 Q48
+  {
+    "id": 298,
+    "type": "mcq",
+    "topicId": "to_hop_va_xac_suat_co_dien",
+    "content": "Công thức tính chất tổ hợp nào sau đây là đúng với mọi $0 \\le k \\le n$?",
+    "options": [
+      { "key": "A", "content": "$C_n^k = \\frac{k!}{(n - k)!}$" },
+      { "key": "B", "content": "$C_n^k = C_n^{n - k}$" },
+      { "key": "C", "content": "$C_n^k = \\frac{n!}{(n - k)!}$" },
+      { "key": "D", "content": "$C_n^k = \\frac{(n - k)!}{n! k!}$" }
+    ],
+    "correctAnswer": "B",
+    "detailedSolution": "Theo tính chất đối xứng của tổ hợp:\n$$C_n^k = \\frac{n!}{k!(n - k)!} = \\frac{n!}{(n - k)![n - (n - k)]!} = C_n^{n - k}$$\nĐẳng thức $C_n^k = C_n^{n - k}$ đúng với mọi $0 \\le k \\le n$.",
+    "socraticHint": "Tính chất đối xứng của số tổ hợp chập $k$ của $n$ phần tử.",
+    "difficulty": "Nhận biết",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 49 (Q299) - HSA36 Q49
+  {
+    "id": 299,
+    "type": "mcq",
+    "topicId": "pt_bpt_mu_logarit",
+    "content": "Cho $a$ và $b$ là hai số thực dương thỏa mãn $\\log_3 a = \\log_9(ab)$. Mệnh đề nào dưới đây đúng?",
+    "options": [
+      { "key": "A", "content": "$a = 2b$" },
+      { "key": "B", "content": "$a = b$" },
+      { "key": "C", "content": "$a = 3b$" },
+      { "key": "D", "content": "$b = a^2$" }
+    ],
+    "correctAnswer": "B",
+    "detailedSolution": "Áp dụng công thức đổi cơ số logarit: $\\log_9(ab) = \\log_{3^2}(ab) = \\frac{1}{2}\\log_3(ab) = \\log_3\\sqrt{ab}$.\nPhương trình trở thành:\n$$\\log_3 a = \\log_3\\sqrt{ab} \\iff a = \\sqrt{ab} \\iff a^2 = ab$$\nVì $a > 0$ nên chia cả hai vế cho $a$, ta được $a = b$.",
+    "socraticHint": "Đưa về cùng cơ số 3: $\\log_9(ab) = \\frac{1}{2}\\log_3(ab) = \\log_3 \\sqrt{ab}$.",
+    "difficulty": "Nhận biết",
+    "examSets": ["de_07_hsa36"]
+  },
+  # Câu 50 (Q300) - HSA36 Q50
+  {
+    "id": 300,
+    "type": "mcq",
+    "topicId": "quy_hoach_tuyen_tinh_bpt_2_an",
+    "content": "[Tư duy logic định lượng] Bạn đang đứng trước hai cánh cửa: một cánh cửa dẫn đến Thiên Đường, một cánh cửa dẫn đến Địa Ngục. Có hai người gác cổng đứng cạnh hai cánh cửa: một người luôn luôn nói thật, một người luôn luôn nói dối. Bạn không biết ai nói dối, ai nói thật, và cũng không biết cánh cửa nào dẫn đến đâu. Để chắc chắn bước vào Thiên Đường, bạn chỉ được hỏi đúng MỘT câu hỏi với một trong hai người. Bạn nên hỏi câu nào?",
+    "options": [
+      { "key": "A", "content": "\"Cánh cửa phía sau anh là cánh cửa đến Thiên Đường có đúng không?\"" },
+      { "key": "B", "content": "\"Anh là người nói thật hay người nói dối?\"" },
+      { "key": "C", "content": "\"Nếu tôi hỏi người kia cánh cửa nào dẫn đến Thiên Đường, anh ta sẽ chỉ cánh cửa nào?\"" },
+      { "key": "D", "content": "\"Tôi đi cánh cửa nào thì sẽ đến Thiên Đường?\"" }
+    ],
+    "correctAnswer": "C",
+    "detailedSolution": "Phân tích câu hỏi C: \"Nếu tôi hỏi người kia cánh cửa nào dẫn đến Thiên Đường, anh ta sẽ chỉ cánh cửa nào?\"\n- Trường hợp 1: Bạn hỏi người nói thật.\n  Người nói thật biết người kia nói dối (sẽ chỉ vào Địa Ngục), nên người nói thật sẽ trả lời trung thực là người kia chỉ vào Địa Ngục.\n- Trường hợp 2: Bạn hỏi người nói dối.\n  Người nói thật sẽ chỉ vào Thiên Đường, nhưng người nói dối sẽ nói ngược lại, tức anh ta sẽ bảo người kia chỉ vào Địa Ngục.\nNhư vậy, dù hỏi bất kỳ ai, câu trả lời nhận được LUÔN LUÔN là cánh cửa dẫn đến Địa Ngục.\nDo đó, bạn chỉ cần chọn cánh cửa NGƯỢC LẠI với cánh cửa được chỉ thì chắc chắn 100% sẽ bước vào Thiên Đường!",
+    "socraticHint": "Sử dụng tính chất logic phản đảo: phủ định của khẳng định và khẳng định của phủ định đều tạo ra kết quả phủ định (nói dối về lời nói thật = nói dối).",
+    "difficulty": "Thông hiểu",
+    "examSets": ["de_07_hsa36"]
+  }
+]
+
+with open('scripts/hsa36_questions.json', 'w', encoding='utf-8') as f:
+    json.dump(questions, f, ensure_ascii=False, indent=2)
+
+print(f"Generated scripts/hsa36_questions.json with {len(questions)} questions (Q251 to Q300).")

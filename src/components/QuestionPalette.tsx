@@ -1,5 +1,5 @@
-import React from 'react';
-import { Flag, CheckCircle2, X } from 'lucide-react';
+import React, { useState } from 'react';
+import { Flag, CheckCircle2, X, Filter } from 'lucide-react';
 import { Question, UserAnswer } from '../types/exam';
 
 interface QuestionPaletteProps {
@@ -11,6 +11,8 @@ interface QuestionPaletteProps {
   onCloseSidebar?: () => void;
 }
 
+export type PaletteFilter = 'all' | 'unanswered' | 'answered' | 'flagged';
+
 export const QuestionPalette: React.FC<QuestionPaletteProps> = ({
   questions,
   currentQuestionIndex,
@@ -19,6 +21,7 @@ export const QuestionPalette: React.FC<QuestionPaletteProps> = ({
   className = '',
   onCloseSidebar,
 }) => {
+  const [activeFilter, setActiveFilter] = useState<PaletteFilter>('all');
   const totalQuestions = questions.length;
   let answeredCount = 0;
   let flaggedCount = 0;
@@ -33,20 +36,35 @@ export const QuestionPalette: React.FC<QuestionPaletteProps> = ({
     }
   });
 
+  const unansweredCount = totalQuestions - answeredCount;
+  const progressPercent = totalQuestions > 0 ? Math.round((answeredCount / totalQuestions) * 100) : 0;
+
+  // Filter helper
+  const matchesFilter = (q: Question) => {
+    const ans = userAnswers[q.id];
+    const isAnswered = ans && ans.value && ans.value.trim() !== '';
+    const isFlagged = ans?.isFlagged;
+
+    if (activeFilter === 'answered') return isAnswered;
+    if (activeFilter === 'unanswered') return !isAnswered;
+    if (activeFilter === 'flagged') return isFlagged;
+    return true; // 'all'
+  };
+
   const mcqQuestions = questions.filter((q) => q.type === 'mcq');
   const fillQuestions = questions.filter((q) => q.type === 'fill');
 
   return (
     <div className={`flex flex-col h-full bg-white dark:bg-[#101014] select-none ${className}`}>
       {/* Sidebar Header */}
-      <div className="p-4 border-b border-slate-200 dark:border-zinc-800 bg-slate-50/70 dark:bg-zinc-900/60">
+      <div className="p-4 border-b border-slate-200 dark:border-zinc-800 bg-slate-50/70 dark:bg-zinc-900/60 space-y-3">
         <div className="flex items-center justify-between gap-2">
           <div>
             <h3 className="text-xs font-bold uppercase tracking-wider text-slate-800 dark:text-zinc-200">
-              Bảng 50 Câu Hỏi
+              Bảng {totalQuestions} Câu Hỏi
             </h3>
             <p className="text-xs text-slate-500 dark:text-zinc-400 mt-0.5">
-              Đã làm <span className="font-mono font-bold text-emerald-600 dark:text-emerald-400">{answeredCount}</span>/{totalQuestions} câu
+              Đã làm <span className="font-mono font-bold text-emerald-600 dark:text-emerald-400">{answeredCount}</span>/{totalQuestions} câu ({progressPercent}%)
             </p>
           </div>
 
@@ -72,8 +90,64 @@ export const QuestionPalette: React.FC<QuestionPaletteProps> = ({
           </div>
         </div>
 
+        {/* Progress Bar */}
+        <div className="w-full bg-slate-200 dark:bg-zinc-800 h-1.5 rounded-full overflow-hidden">
+          <div
+            className="bg-emerald-500 h-full rounded-full transition-all duration-300"
+            style={{ width: `${progressPercent}%` }}
+          />
+        </div>
+
+        {/* Filter Tabs */}
+        <div className="grid grid-cols-4 gap-1 p-0.5 bg-slate-200/60 dark:bg-zinc-800/60 rounded-lg text-[11px] font-medium">
+          <button
+            type="button"
+            onClick={() => setActiveFilter('all')}
+            className={`py-1 rounded-md transition text-center cursor-pointer ${
+              activeFilter === 'all'
+                ? 'bg-white dark:bg-zinc-900 text-slate-900 dark:text-white font-bold shadow-xs'
+                : 'text-slate-600 dark:text-zinc-400 hover:text-slate-900'
+            }`}
+          >
+            Tất cả ({totalQuestions})
+          </button>
+          <button
+            type="button"
+            onClick={() => setActiveFilter('unanswered')}
+            className={`py-1 rounded-md transition text-center cursor-pointer ${
+              activeFilter === 'unanswered'
+                ? 'bg-rose-500 text-white font-bold shadow-xs'
+                : 'text-slate-600 dark:text-zinc-400 hover:text-rose-600'
+            }`}
+          >
+            Chưa ({unansweredCount})
+          </button>
+          <button
+            type="button"
+            onClick={() => setActiveFilter('answered')}
+            className={`py-1 rounded-md transition text-center cursor-pointer ${
+              activeFilter === 'answered'
+                ? 'bg-emerald-500 text-white font-bold shadow-xs'
+                : 'text-slate-600 dark:text-zinc-400 hover:text-emerald-600'
+            }`}
+          >
+            Đã làm ({answeredCount})
+          </button>
+          <button
+            type="button"
+            onClick={() => setActiveFilter('flagged')}
+            className={`py-1 rounded-md transition text-center cursor-pointer ${
+              activeFilter === 'flagged'
+                ? 'bg-amber-500 text-white font-bold shadow-xs'
+                : 'text-slate-600 dark:text-zinc-400 hover:text-amber-600'
+            }`}
+          >
+            Cờ ({flaggedCount})
+          </button>
+        </div>
+
         {/* Status Legend */}
-        <div className="grid grid-cols-2 gap-1.5 pt-3 mt-3 border-t border-slate-200/80 dark:border-zinc-800/80 text-[11px] text-slate-600 dark:text-zinc-400 font-medium">
+        <div className="grid grid-cols-2 gap-1.5 pt-2 border-t border-slate-200/80 dark:border-zinc-800/80 text-[11px] text-slate-600 dark:text-zinc-400 font-medium">
           <div className="flex items-center gap-1.5">
             <span className="w-2.5 h-2.5 rounded-sm bg-emerald-500 shrink-0" />
             <span>Đã làm</span>
@@ -109,6 +183,7 @@ export const QuestionPalette: React.FC<QuestionPaletteProps> = ({
                 const isAnswered = ans && ans.value && ans.value.trim() !== '';
                 const isFlagged = ans?.isFlagged;
                 const isCurrent = idx === currentQuestionIndex;
+                const isFilteredOut = !matchesFilter(q);
 
                 let btnClass = 'bg-slate-50 dark:bg-zinc-900 border-slate-200 dark:border-zinc-800 text-slate-700 dark:text-zinc-400 hover:border-slate-400 dark:hover:border-zinc-600';
 
@@ -126,17 +201,21 @@ export const QuestionPalette: React.FC<QuestionPaletteProps> = ({
                   btnClass += ' ring-2 ring-sky-500 ring-offset-1 dark:ring-offset-zinc-950 border-sky-500 font-extrabold';
                 }
 
+                if (isFilteredOut) {
+                  btnClass += ' opacity-25 grayscale hover:opacity-100 transition-opacity';
+                }
+
                 return (
                   <button
                     key={q.id}
                     type="button"
                     onClick={() => onSelectQuestion(idx)}
                     className={`relative h-9 rounded-lg text-xs font-mono transition-all flex items-center justify-center border cursor-pointer active:scale-95 ${btnClass}`}
-                    title={`Câu ${idx + 1}: ${q.topicName}`}
+                    title={`Câu ${idx + 1}: ${q.topicName} ${isAnswered ? `[Đã chọn: ${ans?.value}]` : '[Chưa làm]'}`}
                   >
                     <span>{idx + 1}</span>
                     {isFlagged && !isAnswered && (
-                      <span className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-amber-500" />
+                      <span className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-amber-500 ring-1 ring-white dark:ring-zinc-900" />
                     )}
                   </button>
                 );
@@ -159,6 +238,7 @@ export const QuestionPalette: React.FC<QuestionPaletteProps> = ({
                 const isAnswered = ans && ans.value && ans.value.trim() !== '';
                 const isFlagged = ans?.isFlagged;
                 const isCurrent = idx === currentQuestionIndex;
+                const isFilteredOut = !matchesFilter(q);
 
                 let btnClass = 'bg-slate-50 dark:bg-zinc-900 border-slate-200 dark:border-zinc-800 text-slate-700 dark:text-zinc-400 hover:border-slate-400 dark:hover:border-zinc-600';
 
@@ -176,17 +256,21 @@ export const QuestionPalette: React.FC<QuestionPaletteProps> = ({
                   btnClass += ' ring-2 ring-sky-500 ring-offset-1 dark:ring-offset-zinc-950 border-sky-500 font-extrabold';
                 }
 
+                if (isFilteredOut) {
+                  btnClass += ' opacity-25 grayscale hover:opacity-100 transition-opacity';
+                }
+
                 return (
                   <button
                     key={q.id}
                     type="button"
                     onClick={() => onSelectQuestion(idx)}
                     className={`relative h-9 rounded-lg text-xs font-mono transition-all flex items-center justify-center border cursor-pointer active:scale-95 ${btnClass}`}
-                    title={`Câu ${idx + 1}: Điền đáp số`}
+                    title={`Câu ${idx + 1}: Điền đáp số ${isAnswered ? `[Đã điền: ${ans?.value}]` : '[Chưa làm]'}`}
                   >
                     <span>{idx + 1}</span>
                     {isFlagged && !isAnswered && (
-                      <span className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-amber-500" />
+                      <span className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-amber-500 ring-1 ring-white dark:ring-zinc-900" />
                     )}
                   </button>
                 );
