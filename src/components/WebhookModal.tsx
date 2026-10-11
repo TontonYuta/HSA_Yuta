@@ -26,9 +26,11 @@ export const WebhookModal: React.FC<WebhookModalProps> = ({
   teacherEmail = '',
   onSaveTeacherEmail,
 }) => {
+  const DEFAULT_OFFICIAL_URL =
+    'https://script.google.com/macros/s/AKfycbydbnEnhDyyS4zkTvZhm6P2kRLLznrpIVSmwSt0YJBa4n3YJLKdNQ4k_zgzHyDox6Rmiw/exec';
   const [activeTab, setActiveTab] = useState<'config' | 'code' | 'guide'>('config');
-  const [localUrl, setLocalUrl] = useState(webhookUrl);
-  const [localTeacherEmail, setLocalTeacherEmail] = useState(teacherEmail);
+  const [localUrl, setLocalUrl] = useState(webhookUrl || DEFAULT_OFFICIAL_URL);
+  const [localTeacherEmail, setLocalTeacherEmail] = useState(teacherEmail || 'huyhoang6altt@gmail.com');
   const [localStudentEmail, setLocalStudentEmail] = useState(studentEmail);
   const [localStudentName, setLocalStudentName] = useState(studentName);
   const [copiedCode, setCopiedCode] = useState(false);

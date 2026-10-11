@@ -60,6 +60,10 @@ export default function App() {
   const [examReport, setExamReport] = useState<ExamReport | null>(null);
 
   // User Profile & Webhook Settings
+  const DEFAULT_GAS_WEBHOOK_URL =
+    'https://script.google.com/macros/s/AKfycbydbnEnhDyyS4zkTvZhm6P2kRLLznrpIVSmwSt0YJBa4n3YJLKdNQ4k_zgzHyDox6Rmiw/exec';
+  const DEFAULT_TEACHER_EMAIL = 'huyhoang6altt@gmail.com';
+
   const [studentName, setStudentName] = useState<string>(() => {
     return localStorage.getItem('hsa_student_name') || 'Học sinh HSA';
   });
@@ -67,10 +71,10 @@ export default function App() {
     return localStorage.getItem('hsa_student_email') || '';
   });
   const [teacherEmail, setTeacherEmail] = useState<string>(() => {
-    return localStorage.getItem('hsa_teacher_email') || '';
+    return localStorage.getItem('hsa_teacher_email') || DEFAULT_TEACHER_EMAIL;
   });
   const [webhookUrl, setWebhookUrl] = useState<string>(() => {
-    return localStorage.getItem('hsa_webhook_url') || '';
+    return localStorage.getItem('hsa_webhook_url') || DEFAULT_GAS_WEBHOOK_URL;
   });
 
   // Teacher GAS Guide Modal state (Hidden, only via footer question mark)
