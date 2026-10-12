@@ -189,12 +189,81 @@ export default function App() {
     } else {
       setExamReport(null);
       setCurrentMode('intro');
+      if (typeof window !== 'undefined') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
     }
   };
 
   const answeredCount = Object.values(userAnswers).filter(
     (a) => a.value && a.value.trim() !== ''
   ).length;
+
+  // Render main screen content with absolute fallback to ExamIntro
+  const renderMainContent = () => {
+    if (isExamActive && currentMode === 'exam') {
+      return (
+        <ExamSimulation
+          questions={activeQuestions}
+          currentExamSet={currentExamSet}
+          currentQuestionIndex={currentQuestionIndex}
+          userAnswers={userAnswers}
+          onSelectQuestion={(idx) => setCurrentQuestionIndex(idx)}
+          onAnswerQuestion={handleAnswerQuestion}
+          onToggleFlag={handleToggleFlag}
+          onSubmitExam={handleSubmitExam}
+          isConfirmSubmitOpen={isConfirmSubmitOpen}
+          setIsConfirmSubmitOpen={setIsConfirmSubmitOpen}
+          isSidebarOpen={isSidebarOpen}
+          setIsSidebarOpen={setIsSidebarOpen}
+        />
+      );
+    }
+
+    if (currentMode === 'results' && examReport) {
+      return (
+        <ExamResults
+          report={examReport}
+          questions={activeQuestions}
+          webhookUrl={webhookUrl}
+          onRetakeExam={() => handleStartExam(selectedExamSetId)}
+          onPracticeWeakestTopic={(tId) => handleSelectTopicPractice(tId)}
+          onGoHome={handleGoHome}
+        />
+      );
+    }
+
+    if (currentMode === 'practice') {
+      return (
+        <TopicPractice
+          questions={HSA_QUESTIONS_DATABASE}
+          initialTopicId={practiceTopic}
+          onBackToExam={handleGoHome}
+        />
+      );
+    }
+
+    if (currentMode === 'bank') {
+      return (
+        <QuestionBankView
+          questions={HSA_QUESTIONS_DATABASE}
+          onStartExam={() => handleStartExam()}
+        />
+      );
+    }
+
+    // Bulletproof Fallback: Always render ExamIntro! Never leaves <main> empty
+    return (
+      <ExamIntro
+        onStartExam={(setId) => handleStartExam(setId)}
+        onSelectTopicPractice={handleSelectTopicPractice}
+        studentName={studentName}
+        setStudentName={setStudentName}
+        selectedExamSetId={selectedExamSetId}
+        setSelectedExamSetId={setSelectedExamSetId}
+      />
+    );
+  };
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-[#09090b] text-slate-900 dark:text-[#f4f4f5] flex flex-col font-sans transition-colors duration-200">
@@ -217,6 +286,7 @@ export default function App() {
               setCurrentMode('exam');
             }
           } else {
+            setExamReport(null);
             setCurrentMode(mode);
           }
         }}
@@ -243,58 +313,7 @@ export default function App() {
 
       {/* Main Container - Fullscreen CBT in exam mode, Padded in other modes */}
       <main className={isExamActive ? 'flex-1 overflow-hidden' : 'flex-1 px-4 sm:px-6 pt-6'}>
-        {(currentMode === 'intro' || (!isExamActive && currentMode !== 'practice' && currentMode !== 'bank' && currentMode !== 'results')) && (
-          <ExamIntro
-            onStartExam={(setId) => handleStartExam(setId)}
-            onSelectTopicPractice={handleSelectTopicPractice}
-            studentName={studentName}
-            setStudentName={setStudentName}
-            selectedExamSetId={selectedExamSetId}
-            setSelectedExamSetId={setSelectedExamSetId}
-          />
-        )}
-
-        {currentMode === 'exam' && isExamActive && (
-          <ExamSimulation
-            questions={activeQuestions}
-            currentExamSet={currentExamSet}
-            currentQuestionIndex={currentQuestionIndex}
-            userAnswers={userAnswers}
-            onSelectQuestion={(idx) => setCurrentQuestionIndex(idx)}
-            onAnswerQuestion={handleAnswerQuestion}
-            onToggleFlag={handleToggleFlag}
-            onSubmitExam={handleSubmitExam}
-            isConfirmSubmitOpen={isConfirmSubmitOpen}
-            setIsConfirmSubmitOpen={setIsConfirmSubmitOpen}
-            isSidebarOpen={isSidebarOpen}
-            setIsSidebarOpen={setIsSidebarOpen}
-          />
-        )}
-
-        {currentMode === 'results' && examReport && (
-          <ExamResults
-            report={examReport}
-            questions={activeQuestions}
-            webhookUrl={webhookUrl}
-            onRetakeExam={() => handleStartExam(selectedExamSetId)}
-            onPracticeWeakestTopic={(tId) => handleSelectTopicPractice(tId)}
-          />
-        )}
-
-        {currentMode === 'practice' && (
-          <TopicPractice
-            questions={HSA_QUESTIONS_DATABASE}
-            initialTopicId={practiceTopic}
-            onBackToExam={() => setCurrentMode('intro')}
-          />
-        )}
-
-        {currentMode === 'bank' && (
-          <QuestionBankView
-            questions={HSA_QUESTIONS_DATABASE}
-            onStartExam={() => handleStartExam()}
-          />
-        )}
+        {renderMainContent()}
       </main>
 
       {/* Footer - Only shown when NOT inside active CBT exam */}

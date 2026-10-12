@@ -326,7 +326,7 @@ export const tiemCanQuestions: Question[] = [
     "options": [
       {
         "key": "A",
-        "content": "$m < 4$ và $m \ne 3$"
+        "content": "$m < 4$ và $m \\ne 3$"
       },
       {
         "key": "B",
@@ -338,11 +338,11 @@ export const tiemCanQuestions: Question[] = [
       },
       {
         "key": "D",
-        "content": "$m \\le 4$ và $m \ne 3$"
+        "content": "$m \\le 4$ và $m \\ne 3$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Đồ thị có đúng 2 đường tiệm cận đứng khi và chỉ khi phương trình mẫu $g(x) = x^2 - 4x + m = 0$ có 2 nghiệm phân biệt khác 1 (nghiệm của tử):\n- Điều kiện 2 nghiệm phân biệt: $\\Delta' = (-2)^2 - m = 4 - m > 0 \\iff m < 4$.\n- Điều kiện nghiệm khác 1: $g(1) = 1^2 - 4(1) + m = m - 3 \ne 0 \\iff m \ne 3$.\nKết hợp lại ta được: $m < 4$ và $m \ne 3$.",
+    "detailedSolution": "Đồ thị có đúng 2 đường tiệm cận đứng khi và chỉ khi phương trình mẫu $g(x) = x^2 - 4x + m = 0$ có 2 nghiệm phân biệt khác 1 (nghiệm của tử):\n- Điều kiện 2 nghiệm phân biệt: $\\Delta' = (-2)^2 - m = 4 - m > 0 \\iff m < 4$.\n- Điều kiện nghiệm khác 1: $g(1) = 1^2 - 4(1) + m = m - 3 \\ne 0 \\iff m \\ne 3$.\nKết hợp lại ta được: $m < 4$ và $m \\ne 3$.",
     "socraticHint": "Mẫu số phải có hai nghiệm phân biệt và không bị triệt tiêu bởi nghiệm của tử số.",
     "difficulty": "Thông hiểu",
     "examSets": [

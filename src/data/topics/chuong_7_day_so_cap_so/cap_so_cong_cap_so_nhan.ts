@@ -418,7 +418,7 @@ export const capSoCongNhanQuestions: Question[] = [
       }
     ],
     "correctAnswer": "C",
-    "detailedSolution": "Số ngày tiết kiệm trong năm không nhuận là $365$ ngày.\nMỗi ngày Lan bỏ thêm $10.000$ đồng vào hũ tiết kiệm.\nTổng số tiền Lan tích lũy thêm trong 365 ngày là:\n$$365 \\times 10.000 = 3.650.000\\text{ đồng}$$\nCộng với số tiền ban đầu là $2.000.000$ đồng:\n$$\\text{Tổng tiền} = 2.000.000 + 3.650.000 = 5.650.000\\text{ đồng}$$",
+    "detailedSolution": "Số ngày tiết kiệm trong năm không nhuận là $365$ ngày.\nMỗi ngày Lan bỏ thêm $10.000$ đồng vào hũ tiết kiệm.\nTổng số tiền Lan tích lũy thêm trong 365 ngày là:\n$$365 \\times 10.000 = 3.650.000\(đồng)$$\nCộng với số tiền ban đầu là $2.000.000$ đồng:\n$$\T = 2.000.000 + 3.650.000 = 5.650.000\(đồng)$$",
     "socraticHint": "Lấy số tiền tích lũy đều đặn mỗi ngày nhân với 365 ngày rồi cộng với số tiền gốc ban đầu.",
     "difficulty": "Thông hiểu",
     "examSets": [

@@ -82,7 +82,7 @@ export const doiBienTungPhanQuestions: Question[] = [
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Áp dụng phương pháp tích phân từng phần:\nĐặt $\\begin{cases} u = x \\implies du = dx \\\\ dv = \\cos x dx \\implies v = \\sin x \\end{cases}$\nTa có:\n$$I = [x \\sin x]_0^{\\pi/2} - \\int_0^{\\pi/2} \\sin x dx = l\\left(\\frac{\\pi}{2} \\sin\\frac{\\pi}{2} - 0\\right) - [-\\cos x]_0^{\\pi/2}$$\n$$= \\frac{\\pi}{2} - (0 - (-1)) = \\frac{\\pi}{2} - 1$$.",
+    "detailedSolution": "Áp dụng phương pháp tích phân từng phần:\nĐặt $\\begin{cases} u = x \\implies du = dx \\\\ dv = \\cos x dx \\implies v = \\sin x \\end{cases}$\nTa có:\n$$I = [x \\sin x]_0^{\\pi/2} - \\int_0^{\\pi/2} \\sin x dx = \\left(\\frac{\\pi}{2} \\sin\\frac{\\pi}{2} - 0\\right) - [-\\cos x]_0^{\\pi/2}$$\n$$= \\frac{\\pi}{2} - (0 - (-1)) = \\frac{\\pi}{2} - 1$$.",
     "socraticHint": "Tích phân hàm đa thức nhân lượng giác dùng phương pháp từng phần: đặt $u = x, dv = \\cos x dx$.",
     "difficulty": "Thông hiểu",
     "examSets": [

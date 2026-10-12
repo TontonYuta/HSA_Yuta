@@ -11,7 +11,8 @@ import {
   ArrowRight,
   ChevronDown,
   ChevronUp,
-  Award
+  Award,
+  Home
 } from 'lucide-react';
 import { ExamReport, Question, TopicId } from '../types/exam';
 import { MathRenderer } from './MathRenderer';
@@ -23,6 +24,7 @@ interface ExamResultsProps {
   webhookUrl?: string;
   onRetakeExam: () => void;
   onPracticeWeakestTopic: (topicId: TopicId) => void;
+  onGoHome?: () => void;
 }
 
 export const ExamResults: React.FC<ExamResultsProps> = ({
@@ -31,6 +33,7 @@ export const ExamResults: React.FC<ExamResultsProps> = ({
   webhookUrl,
   onRetakeExam,
   onPracticeWeakestTopic,
+  onGoHome,
 }) => {
   const [filterType, setFilterType] = useState<'all' | 'incorrect' | 'correct' | 'fill'>('all');
   const [copiedSummary, setCopiedSummary] = useState(false);
@@ -109,6 +112,17 @@ export const ExamResults: React.FC<ExamResultsProps> = ({
 
           {/* Action buttons */}
           <div className="flex flex-wrap items-center gap-2.5">
+            {onGoHome && (
+              <button
+                type="button"
+                onClick={onGoHome}
+                className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 hover:bg-slate-200 dark:hover:bg-zinc-700 text-slate-700 dark:text-zinc-300 text-xs font-semibold transition inline-flex items-center gap-1.5 cursor-pointer shadow-xs"
+              >
+                <Home className="w-3.5 h-3.5" />
+                <span>Về trang chủ</span>
+              </button>
+            )}
+
             <button
               type="button"
               onClick={handleCopySummary}

@@ -130,7 +130,7 @@ export const ungDungDienTichTheTichQuestions: Question[] = [
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Áp dụng công thức thể tích khối tròn xoay quay quanh trục $Ox$:\n$$V = \\pi \\int_0^4 [y(x)]^2 dx = \\pi \\int_0^4 (\\sqrt{x})^2 dx = \\pi \\int_0^4 x dx = \\pi l\\left[ \\frac{x^2}{2} \\right]_0^4 = \\pi \\cdot \\frac{16}{2} = 8\\pi$$.",
+    "detailedSolution": "Áp dụng công thức thể tích khối tròn xoay quay quanh trục $Ox$:\n$$V = \\pi \\int_0^4 [y(x)]^2 dx = \\pi \\int_0^4 (\\sqrt{x})^2 dx = \\pi \\int_0^4 x dx = \\pi \\left[ \\frac{x^2}{2} \\right]_0^4 = \\pi \\cdot \\frac{16}{2} = 8\\pi$$.",
     "socraticHint": "Công thức thể tích tròn xoay quanh trục hoành: $V = \\pi \\int_a^b [f(x)]^2 dx$.",
     "difficulty": "Nhận biết",
     "examSets": [
@@ -177,7 +177,7 @@ export const ungDungDienTichTheTichQuestions: Question[] = [
     "topicId": "ung_dung_dien_tich_the_tich",
     "content": "Một mảnh vườn hình chữ nhật $ABCD$ có chiều rộng $6\\text{ m}$, chiều dài $10\\text{ m}$. Người ta thiết kế một bồn hoa hình parabol có đỉnh trùng với trung điểm cạnh trên và đi qua hai đỉnh cạnh dưới để trồng cỏ, phần diện tích còn lại được lát đá. Biết chi phí lát đá là $300.000$ đồng/$\\text{m}^2$. Tính tổng chi phí lát đá của mảnh vườn? (Đơn vị: triệu đồng).",
     "correctAnswer": "6",
-    "detailedSolution": "Tổng diện tích mảnh vườn hình chữ nhật: $S_{ABCD} = 6 \\times 10 = 60\\text{ m}^2$.\nPhần trồng cỏ có dạng parabol giới hạn bởi đáy chiều dài $10\\text{ m}$ và chiều cao $6\\text{ m}$.\nTheo công thức diện tích parabol Archimedes: $S_{\\text{cỏ}} = \\frac{2}{3} \\cdot \\text{đáy} \\cdot \\text{chiều cao} = \\frac{2}{3} \\times 10 \\times 6 = 40\\text{ m}^2$.\nDiện tích phần lát đá còn lại: $S_{\\text{đá}} = S_{ABCD} - S_{\\text{cỏ}} = 60 - 40 = 20\\text{ m}^2$.\nChi phí lát đá: $20\\text{ m}^2 \\times 300.000\\text{ đ/m}^2 = 6.000.000\\text{ đồng} = 6\\text{ triệu đồng}$.",
+    "detailedSolution": "Tổng diện tích mảnh vườn hình chữ nhật: $S_{ABCD} = 6 \\times 10 = 60\\text{ m}^2$.\nPhần trồng cỏ có dạng parabol giới hạn bởi đáy chiều dài $10\\text{ m}$ và chiều cao $6\\text{ m}$.\nTheo công thức diện tích parabol Archimedes: $S_{\\text{co}} = \\frac{2}{3} \\cdot \a \\cdot \h = \\frac{2}{3} \\times 10 \\times 6 = 40\\text{ m}^2$.\nDiện tích phần lát đá còn lại: $S_{\\text{da}} = S_{ABCD} - S_{\\text{co}} = 60 - 40 = 20\\text{ m}^2$.\nChi phí lát đá: $20\\text{ m}^2 \\times 300.000\\text{ đ/m}^2 = 6.000.000\(đồng) = 6\(triệu đồng)$.",
     "socraticHint": "Diện tích phần giới hạn bởi parabol và dây cung bằng hai phần ba tích của đáy và chiều cao parabol.",
     "difficulty": "Vận dụng",
     "examSets": [

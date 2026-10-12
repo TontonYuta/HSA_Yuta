@@ -77,7 +77,7 @@ export const daySoGioiHanQuestions: Question[] = [
     "chapterName": "Chương 7: Dãy số, Cấp số cộng & Cấp số nhân",
     "topicId": "day_so_va_gioi_han",
     "topicName": "Dãy số & Giới hạn dãy số",
-    "content": "Giới hạn $\\lim \\frac{3n^2 - 2n + 5}{2n^2 + n - 1}$ bằng:",
+    "content": "Giới hạn $\\lim\\limits_{n \\to +\\infty} \\frac{3n^2 - 2n + 5}{2n^2 + n - 1}$ bằng:",
     "options": [
       {
         "key": "A",
@@ -97,7 +97,7 @@ export const daySoGioiHanQuestions: Question[] = [
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Chia cả tử và mẫu cho $n^2$ bậc cao nhất:\n$$\\lim \\frac{3n^2 - 2n + 5}{2n^2 + n - 1} = \\lim \\frac{3 - \\frac{2}{n} + \\frac{5}{n^2}}{2 + \\frac{1}{n} - \\frac{1}{n^2}} = \\frac{3 - 0 + 0}{2 + 0 - 0} = \\frac{3}{2}$$.",
+    "detailedSolution": "Chia cả tử và mẫu cho $n^2$ bậc cao nhất:\n$$\\lim\\limits_{n \\to +\\infty} \\frac{3n^2 - 2n + 5}{2n^2 + n - 1} = \\lim \\frac{3 - \\frac{2}{n} + \\frac{5}{n^2}}{2 + \\frac{1}{n} - \\frac{1}{n^2}} = \\frac{3 - 0 + 0}{2 + 0 - 0} = \\frac{3}{2}$$.",
     "socraticHint": "Giới hạn tỉ số hai đa thức cùng bậc bằng tỉ số hai hệ số của bậc cao nhất.",
     "difficulty": "Nhận biết",
     "examSets": [
@@ -131,7 +131,7 @@ export const daySoGioiHanQuestions: Question[] = [
     "id": 280,
     "type": "mcq",
     "topicId": "day_so_va_gioi_han",
-    "content": "Cho dãy số $(u_n)$ xác định bởi $u_1 = 3$ và $u_{n+1} = \\frac{1}{2}\\left(u_n + \\frac{3}{u_n}\\right)$ với mọi $n \\\\in \\mathbb{N}^*$. Giới hạn $\\lim u_n$ bằng:",
+    "content": "Cho dãy số $(u_n)$ xác định bởi $u_1 = 3$ và $u_{n+1} = \\frac{1}{2}\\left(u_n + \\frac{3}{u_n}\\right)$ với mọi $n \\\\in \\mathbb{N}^*$. Giới hạn $\\lim\\limits_{n \\to +\\infty} u_n$ bằng:",
     "options": [
       {
         "key": "A",

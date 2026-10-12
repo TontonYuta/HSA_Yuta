@@ -117,7 +117,7 @@ export const khoiDaDienTamDienVuongQuestions: Question[] = [
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Thể tích lăng trụ: $V = S_{\\text{đáy}} \\cdot h = 6 \\times 5 = 30\\text{ cm}^3$.",
+    "detailedSolution": "Thể tích lăng trụ: $V = S_{\a} \\cdot h = 6 \\times 5 = 30\\text{ cm}^3$.",
     "socraticHint": "Thể tích hình lăng trụ $V = Bh$.",
     "difficulty": "Nhận biết",
     "examSets": [
@@ -259,7 +259,7 @@ export const khoiDaDienTamDienVuongQuestions: Question[] = [
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Đáy $ABCD$ là hình vuông cạnh $a \\implies S_{\\text{đáy}} = a^2$.\nĐường chéo $AC = a\\sqrt{2} \\implies OA = \\frac{a\\sqrt{2}}{2}$.\nChiều cao của khối chóp:\n$$SO = \\sqrt{SA^2 - OA^2} = \\sqrt{(a\\sqrt{2})^2 - l\\left(\\frac{a\\sqrt{2}}{2}\\right)^2} = \\sqrt{2a^2 - \\frac{a^2}{2}} = \\sqrt{\\frac{3a^2}{2}} = \\frac{a\\sqrt{6}}{2}$$\nThể tích khối chóp:\n$$V = \\frac{1}{3} S_{\\text{đáy}} \\cdot SO = \\frac{1}{3} a^2 \\cdot \\frac{a\\sqrt{6}}{2} = \\frac{a^3\\sqrt{6}}{6}$$.",
+    "detailedSolution": "Đáy $ABCD$ là hình vuông cạnh $a \\implies S_{\a} = a^2$.\nĐường chéo $AC = a\\sqrt{2} \\implies OA = \\frac{a\\sqrt{2}}{2}$.\nChiều cao của khối chóp:\n$$SO = \\sqrt{SA^2 - OA^2} = \\sqrt{(a\\sqrt{2})^2 - l\\left(\\frac{a\\sqrt{2}}{2}\\right)^2} = \\sqrt{2a^2 - \\frac{a^2}{2}} = \\sqrt{\\frac{3a^2}{2}} = \\frac{a\\sqrt{6}}{2}$$\nThể tích khối chóp:\n$$V = \\frac{1}{3} S_{\a} \\cdot SO = \\frac{1}{3} a^2 \\cdot \\frac{a\\sqrt{6}}{2} = \\frac{a^3\\sqrt{6}}{6}$$.",
     "socraticHint": "Tính nửa đường chéo đáy $OA$, dùng định lý Pytago tìm chiều cao $SO = \\sqrt{SA^2 - OA^2}$.",
     "difficulty": "Thông hiểu",
     "examSets": [
