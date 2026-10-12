@@ -218,11 +218,24 @@ export const TopicPractice: React.FC<TopicPracticeProps> = ({
     const q = catalogSearch.trim().toLowerCase();
     if (!q) return list;
 
-    return list.filter(c => 
-      c.name.toLowerCase().includes(q) ||
-      c.description.toLowerCase().includes(q) ||
-      c.topics.some(t => t.name.toLowerCase().includes(q) || t.description.toLowerCase().includes(q))
-    );
+    return list
+      .map((c) => {
+        const chapterMatches =
+          c.name.toLowerCase().includes(q) || c.description.toLowerCase().includes(q);
+        const matchingTopics = c.topics.filter(
+          (t) =>
+            chapterMatches ||
+            t.name.toLowerCase().includes(q) ||
+            t.description.toLowerCase().includes(q) ||
+            t.shortName.toLowerCase().includes(q)
+        );
+        if (matchingTopics.length === 0 && !chapterMatches) return null;
+        return {
+          ...c,
+          topics: matchingTopics.length > 0 ? matchingTopics : c.topics,
+        };
+      })
+      .filter((c): c is ChapterInfo => c !== null);
   }, [catalogFilter, catalogSearch]);
 
   const handleReshuffle = () => {
