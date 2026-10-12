@@ -111,7 +111,7 @@ export const ExamResults: React.FC<ExamResultsProps> = ({
               </p>
               <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 text-[11px] font-medium text-emerald-700 dark:text-emerald-300">
                 <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
-                <span>Đã tự động gửi kết quả về email giáo viên: <strong className="font-mono">huyhoang6altt@gmail.com</strong></span>
+                <span>Đã ghi nhận và lưu kết quả bài thi</span>
               </div>
             </div>
           </div>

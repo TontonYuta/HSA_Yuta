@@ -290,50 +290,39 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
           )}
         </div>
 
-        {/* 4. Bottom Footer: Teacher Info & Theme Toggle */}
-        <div className="p-3 border-t border-slate-200 dark:border-zinc-800/80 bg-slate-50/50 dark:bg-zinc-900/40 shrink-0 space-y-2">
-          {!isCollapsed && (
-            <div className="p-2 rounded-xl bg-white dark:bg-zinc-900/80 border border-slate-200/60 dark:border-zinc-800/60 text-[10px] text-slate-500 dark:text-zinc-400 space-y-1">
-              <div className="flex items-center justify-between">
-                <span className="flex items-center gap-1 font-bold text-slate-700 dark:text-zinc-300">
-                  <ShieldCheck className="w-3 h-3 text-sky-500" />
-                  <span>Email Giáo Viên</span>
-                </span>
-                {onOpenWebhookModal && (
-                  <button
-                    type="button"
-                    onClick={onOpenWebhookModal}
-                    className="text-[9px] text-sky-600 dark:text-sky-400 hover:underline cursor-pointer"
-                  >
-                    Webhook
-                  </button>
-                )}
-              </div>
-              <div className="font-mono text-slate-600 dark:text-zinc-300 truncate">
-                huyhoang6altt@gmail.com
-              </div>
-            </div>
-          )}
-
+        {/* 4. Bottom Footer: Theme Toggle & Settings */}
+        <div className="p-3 border-t border-slate-200 dark:border-zinc-800/80 bg-slate-50/50 dark:bg-zinc-900/40 shrink-0 flex items-center gap-2">
           {/* Quick Theme Toggle */}
           <button
             type="button"
             onClick={onToggleTheme}
-            className="w-full py-1.5 px-2 rounded-lg border border-slate-200 dark:border-zinc-800 text-xs font-semibold text-slate-600 dark:text-zinc-400 hover:bg-white dark:hover:bg-zinc-800 hover:text-slate-900 dark:hover:text-zinc-200 transition flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
+            className="flex-1 py-1.5 px-2 rounded-lg border border-slate-200 dark:border-zinc-800 text-xs font-semibold text-slate-600 dark:text-zinc-400 hover:bg-white dark:hover:bg-zinc-800 hover:text-slate-900 dark:hover:text-zinc-200 transition flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
             title="Chuyển chế độ sáng / tối"
           >
             {theme === 'dark' ? (
               <>
                 <Sun className="w-3.5 h-3.5 text-amber-500" />
-                {!isCollapsed && <span>Chế độ sáng</span>}
+                {!isCollapsed && <span>Giao diện sáng</span>}
               </>
             ) : (
               <>
                 <Moon className="w-3.5 h-3.5 text-indigo-500" />
-                {!isCollapsed && <span>Chế độ tối</span>}
+                {!isCollapsed && <span>Giao diện tối</span>}
               </>
             )}
           </button>
+
+          {/* Optional Subtle Webhook Settings Button */}
+          {onOpenWebhookModal && !isCollapsed && (
+            <button
+              type="button"
+              onClick={onOpenWebhookModal}
+              className="p-1.5 rounded-lg border border-slate-200 dark:border-zinc-800 text-slate-400 hover:text-slate-700 dark:hover:text-zinc-200 hover:bg-white dark:hover:bg-zinc-800 transition cursor-pointer"
+              title="Cài đặt kết nối hệ thống (Webhook)"
+            >
+              <ShieldCheck className="w-3.5 h-3.5 text-sky-500" />
+            </button>
+          )}
         </div>
       </>
     );

@@ -428,13 +428,13 @@ export default function App() {
         />
 
         {/* Main View Area */}
-        <main className={(isExamActive || currentMode === 'practice') ? 'flex-1 overflow-hidden' : 'flex-1 px-3 sm:px-6 pt-4 sm:pt-6 pb-20 md:pb-6'}>
+        <main className={(isExamActive || currentMode === 'practice') ? 'flex-1 overflow-hidden' : 'flex-1 px-3 sm:px-6 pt-4 sm:pt-6 pb-8 sm:pb-12'}>
           {renderMainContent()}
         </main>
 
         {/* Footer */}
         {!isExamActive && currentMode !== 'practice' && (
-          <footer className="border-t border-slate-200 dark:border-zinc-800 bg-white dark:bg-[#09090b] py-5 mb-14 md:mb-0 text-xs text-slate-500 dark:text-zinc-500 transition-colors">
+          <footer className="border-t border-slate-200 dark:border-zinc-800 bg-white dark:bg-[#09090b] py-6 text-xs text-slate-500 dark:text-zinc-500 transition-colors">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-3">
               <div className="flex items-center gap-2.5">
                 <img src="/avt.png" alt="TontonYuta" className="w-5 h-5 rounded-full object-cover ring-1 ring-sky-500/40" />

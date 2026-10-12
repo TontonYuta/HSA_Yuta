@@ -33,7 +33,7 @@ export const TrafficBadge: React.FC<TrafficBadgeProps> = ({ webhookUrl, isExamAc
   return (
     <aside 
       aria-label="Thống kê truy cập"
-      className="fixed bottom-16 md:bottom-3 right-3 z-30 select-none font-sans"
+      className="fixed bottom-3 right-3 z-30 select-none font-sans"
     >
       {/* Popover Details Window */}
       {isOpen && (

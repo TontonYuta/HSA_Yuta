@@ -76,7 +76,7 @@ export const StudentNameModal: React.FC<StudentNameModalProps> = ({
 
         <p className="text-xs text-slate-600 dark:text-zinc-400 mb-5 leading-relaxed">
           {isFirstVisit
-            ? 'Vui lòng nhập họ và tên của bạn để hệ thống lưu hồ sơ bài làm và gửi kết quả tới giáo viên.'
+            ? 'Vui lòng nhập họ và tên của bạn để bắt đầu luyện tập và lưu hồ sơ bài làm.'
             : 'Thông tin học sinh đính kèm trong các bài thi và báo cáo kết quả.'}
         </p>
 
@@ -122,31 +122,7 @@ export const StudentNameModal: React.FC<StudentNameModalProps> = ({
             </div>
           </div>
 
-          {/* Student Email input */}
-          <div>
-            <label className="block text-xs font-bold text-slate-700 dark:text-zinc-300 mb-1">
-              Email học sinh <span className="text-slate-400 font-normal">(nhận bản sao kết quả)</span>
-            </label>
-            <div className="relative">
-              <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="hocsinh@gmail.com"
-                className="w-full pl-9 pr-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 text-xs sm:text-sm text-slate-900 dark:text-zinc-100 placeholder:text-slate-400 dark:placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-sky-500 transition shadow-xs"
-              />
-            </div>
-          </div>
 
-          {/* Notice: Auto send to teacher */}
-          <div className="p-2.5 rounded-xl bg-sky-50 dark:bg-sky-950/40 border border-sky-200/60 dark:border-sky-800/60 flex items-start gap-2 text-[11px] text-sky-800 dark:text-sky-300">
-            <ShieldCheck className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" />
-            <div className="leading-tight">
-              Email Giáo viên nhận kết quả:{' '}
-              <strong className="font-semibold text-slate-900 dark:text-white underline">{teacherEmail}</strong>
-            </div>
-          </div>
 
           {/* Submit button */}
           <button

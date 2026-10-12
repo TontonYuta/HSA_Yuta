@@ -102,47 +102,18 @@ export const Navbar: React.FC<NavbarProps> = ({
             {examTimerSlot}
           </div>
         ) : (
-          /* When in Standard Mode: Desktop Navigation Tabs */
-          <nav className="hidden md:flex items-center gap-1 text-xs font-medium text-slate-600 dark:text-zinc-400">
-            <button
-              type="button"
-              onClick={() => onSelectMode('practice')}
-              className={`px-3 py-1.5 rounded-lg transition inline-flex items-center gap-1.5 cursor-pointer ${
-                currentMode === 'practice'
-                  ? 'bg-slate-100 dark:bg-zinc-800/80 text-sky-600 dark:text-sky-400 font-semibold'
-                  : 'hover:text-slate-900 dark:hover:text-zinc-100 hover:bg-slate-50 dark:hover:bg-zinc-900'
-              }`}
-            >
-              <BookOpen className="w-3.5 h-3.5" />
-              <span>30 Chuyên Đề</span>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => onSelectMode('exam')}
-              className={`px-3 py-1.5 rounded-lg transition inline-flex items-center gap-1.5 cursor-pointer ${
-                currentMode === 'exam'
-                  ? 'bg-slate-100 dark:bg-zinc-800/80 text-sky-600 dark:text-sky-400 font-semibold'
-                  : 'hover:text-slate-900 dark:hover:text-zinc-100 hover:bg-slate-50 dark:hover:bg-zinc-900'
-              }`}
-            >
-              <CheckSquare className="w-3.5 h-3.5" />
-              <span>Thi Thử 75 Phút</span>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => onSelectMode('bank')}
-              className={`px-3 py-1.5 rounded-lg transition inline-flex items-center gap-1.5 cursor-pointer ${
-                currentMode === 'bank'
-                  ? 'bg-slate-100 dark:bg-zinc-800/80 text-sky-600 dark:text-sky-400 font-semibold'
-                  : 'hover:text-slate-900 dark:hover:text-zinc-100 hover:bg-slate-50 dark:hover:bg-zinc-900'
-              }`}
-            >
-              <Search className="w-3.5 h-3.5" />
-              <span>Ngân Hàng Câu Hỏi</span>
-            </button>
-          </nav>
+          /* Clean Section Breadcrumb Indicator (No duplicate navigation tabs) */
+          <div className="hidden sm:flex items-center gap-2 text-xs text-slate-500 dark:text-zinc-400">
+            <span className="text-slate-400 dark:text-zinc-500">HSA</span>
+            <span className="text-slate-300 dark:text-zinc-700">/</span>
+            <span className="font-semibold text-slate-800 dark:text-zinc-200">
+              {currentMode === 'practice'
+                ? '30 Chuyên Đề Trọng Tâm'
+                : currentMode === 'bank'
+                ? 'Ngân Hàng 515 Câu Hỏi'
+                : 'Thi Thử 75 Phút Chuẩn ĐHQGHN'}
+            </span>
+          </div>
         )}
 
         {/* Right Zone: CBT Actions / Theme */}
@@ -195,11 +166,11 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <button
                   type="button"
                   onClick={onEditStudentName}
-                  className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold text-slate-700 dark:text-zinc-300 bg-slate-100 hover:bg-slate-200 dark:bg-zinc-800/80 dark:hover:bg-zinc-700 rounded-lg border border-slate-200/80 dark:border-zinc-700 transition cursor-pointer"
+                  className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold text-slate-700 dark:text-zinc-300 bg-slate-100 hover:bg-slate-200 dark:bg-zinc-800/80 dark:hover:bg-zinc-700 rounded-lg border border-slate-200/80 dark:border-zinc-700 transition cursor-pointer"
                   title="Chỉnh sửa thông tin học sinh"
                 >
                   <User className="w-3.5 h-3.5 text-sky-500" />
-                  <span className="max-w-[110px] truncate">{studentName}</span>
+                  <span className="max-w-[100px] sm:max-w-[130px] truncate">{studentName}</span>
                 </button>
               )}
 
@@ -217,79 +188,10 @@ export const Navbar: React.FC<NavbarProps> = ({
                   <Moon className="w-3.5 h-3.5 text-slate-700" />
                 )}
               </button>
-
-              {/* Vào phòng thi button */}
-              <button
-                type="button"
-                onClick={onStartExam}
-                className="px-3 sm:px-3.5 py-1.5 text-xs font-semibold text-white bg-slate-900 hover:bg-slate-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white rounded-lg transition whitespace-nowrap shrink-0 inline-flex items-center gap-1.5 cursor-pointer shadow-sm"
-              >
-                <Play className="w-3 h-3 fill-current" />
-                <span className="hidden xs:inline">Vào thi ngay</span>
-                <span className="xs:hidden">Thi ngay</span>
-              </button>
             </>
           )}
         </div>
       </div>
-
-      {/* Mobile Bottom Navigation Bar (Shown on Mobile screens when NOT in active exam CBT) */}
-      {!isExamInProgress && (
-        <nav
-          className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 dark:bg-[#09090b]/95 backdrop-blur-md border-t border-slate-200 dark:border-zinc-800 px-2 py-1.5 pb-[max(0.5rem,env(safe-area-inset-bottom))] flex items-center justify-around shadow-lg transition-colors select-none"
-          aria-label="Mobile Navigation"
-        >
-          {onToggleMobileSidebar && (
-            <button
-              type="button"
-              onClick={onToggleMobileSidebar}
-              className="flex flex-col items-center justify-center py-1 px-2 rounded-xl transition text-[11px] font-semibold text-slate-500 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-100 cursor-pointer active:scale-95"
-            >
-              <Menu className="w-4 h-4 mb-0.5 text-sky-500" />
-              <span>Mục Lục</span>
-            </button>
-          )}
-
-          <button
-            type="button"
-            onClick={() => onSelectMode('practice')}
-            className={`flex flex-col items-center justify-center py-1 px-2.5 rounded-xl transition text-[11px] font-semibold cursor-pointer active:scale-95 ${
-              currentMode === 'practice'
-                ? 'text-sky-600 dark:text-sky-400 bg-sky-50 dark:bg-sky-950/50'
-                : 'text-slate-500 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-100'
-            }`}
-          >
-            <BookOpen className="w-4 h-4 mb-0.5" />
-            <span>30 Chuyên Đề</span>
-          </button>
-
-          <button
-            type="button"
-            onClick={() => onSelectMode('exam')}
-            className={`flex flex-col items-center justify-center py-1 px-2.5 rounded-xl transition text-[11px] font-semibold cursor-pointer active:scale-95 ${
-              currentMode === 'exam'
-                ? 'text-sky-600 dark:text-sky-400 bg-sky-50 dark:bg-sky-950/50'
-                : 'text-slate-500 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-100'
-            }`}
-          >
-            <CheckSquare className="w-4 h-4 mb-0.5" />
-            <span>Thi Thử</span>
-          </button>
-
-          <button
-            type="button"
-            onClick={() => onSelectMode('bank')}
-            className={`flex flex-col items-center justify-center py-1 px-2.5 rounded-xl transition text-[11px] font-semibold cursor-pointer active:scale-95 ${
-              currentMode === 'bank'
-                ? 'text-sky-600 dark:text-sky-400 bg-sky-50 dark:bg-sky-950/50'
-                : 'text-slate-500 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-100'
-            }`}
-          >
-            <Search className="w-4 h-4 mb-0.5" />
-            <span>Ngân Hàng</span>
-          </button>
-        </nav>
-      )}
     </header>
   );
 };
