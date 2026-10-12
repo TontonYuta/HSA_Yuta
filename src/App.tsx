@@ -5,13 +5,11 @@ import { ExamSimulation } from './components/ExamSimulation';
 import { ExamResults } from './components/ExamResults';
 import { TopicPractice } from './components/TopicPractice';
 import { QuestionBankView } from './components/QuestionBankView';
-import { WebhookModal } from './components/WebhookModal';
 import { ExamTimer } from './components/ExamTimer';
 import { HSA_QUESTIONS_DATABASE, HSA_EXAM_SETS } from './data/topics/index';
 import { UserAnswer, ExamReport, TopicId } from './types/exam';
 import { generateExamReport } from './utils/scoring';
 import { prepareExamQuestions } from './utils/questionRandomizer';
-import { HelpCircle } from 'lucide-react';
 
 export default function App() {
   // Theme state: dark or light mode
@@ -54,7 +52,9 @@ export default function App() {
   const [timeSpentSeconds, setTimeSpentSeconds] = useState<number>(0);
   const examStartTimeRef = useRef<number>(Date.now());
   const [isConfirmSubmitOpen, setIsConfirmSubmitOpen] = useState<boolean>(false);
-  const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(() => {
+    return typeof window !== 'undefined' ? window.innerWidth >= 768 : true;
+  });
 
   // Result report state
   const [examReport, setExamReport] = useState<ExamReport | null>(null);
@@ -76,9 +76,6 @@ export default function App() {
   const [webhookUrl, setWebhookUrl] = useState<string>(() => {
     return localStorage.getItem('hsa_webhook_url') || DEFAULT_GAS_WEBHOOK_URL;
   });
-
-  // Teacher GAS Guide Modal state (Hidden, only via footer question mark)
-  const [isGasGuideOpen, setIsGasGuideOpen] = useState<boolean>(false);
 
   // Save changes to localStorage
   useEffect(() => {
@@ -114,7 +111,7 @@ export default function App() {
     setTimeSpentSeconds(0);
     examStartTimeRef.current = Date.now();
     setIsExamActive(true);
-    setIsSidebarOpen(true);
+    setIsSidebarOpen(typeof window !== 'undefined' ? window.innerWidth >= 768 : true);
     setCurrentMode('exam');
   };
 
@@ -185,6 +182,15 @@ export default function App() {
     }
   };
 
+  // Safe Home Navigation (Prevents white-screen bug)
+  const handleGoHome = () => {
+    if (isExamActive) {
+      handleExitExam();
+    } else {
+      setCurrentMode('intro');
+    }
+  };
+
   const answeredCount = Object.values(userAnswers).filter(
     (a) => a.value && a.value.trim() !== ''
   ).length;
@@ -196,13 +202,18 @@ export default function App() {
         currentMode={
           currentMode === 'intro' || currentMode === 'results' ? 'exam' : currentMode
         }
+        onHomeClick={handleGoHome}
         onSelectMode={(mode) => {
           if (isExamActive && mode !== 'exam') {
             handleExitExam();
             return;
           }
-          if (mode === 'exam' && !isExamActive && !examReport) {
-            setCurrentMode('intro');
+          if (mode === 'exam') {
+            if (!isExamActive) {
+              setCurrentMode('intro');
+            } else {
+              setCurrentMode('exam');
+            }
           } else {
             setCurrentMode(mode);
           }
@@ -230,7 +241,7 @@ export default function App() {
 
       {/* Main Container - Fullscreen CBT in exam mode, Padded in other modes */}
       <main className={isExamActive ? 'flex-1 overflow-hidden' : 'flex-1 px-4 sm:px-6 pt-6'}>
-        {currentMode === 'intro' && (
+        {(currentMode === 'intro' || (currentMode === 'exam' && !isExamActive)) && (
           <ExamIntro
             onStartExam={(setId) => handleStartExam(setId)}
             onSelectTopicPractice={handleSelectTopicPractice}
@@ -284,20 +295,6 @@ export default function App() {
         )}
       </main>
 
-      {/* Hidden Teacher Guide / Webhook Modal (Only accessible via footer question mark) */}
-      <WebhookModal
-        isOpen={isGasGuideOpen}
-        onClose={() => setIsGasGuideOpen(false)}
-        webhookUrl={webhookUrl}
-        onSaveWebhookUrl={setWebhookUrl}
-        studentEmail={studentEmail}
-        onSaveStudentEmail={setStudentEmail}
-        studentName={studentName}
-        onSaveStudentName={setStudentName}
-        teacherEmail={teacherEmail}
-        onSaveTeacherEmail={setTeacherEmail}
-      />
-
       {/* Footer - Only shown when NOT inside active CBT exam */}
       {!isExamActive && (
         <footer className="border-t border-slate-200 dark:border-zinc-800 bg-white dark:bg-[#09090b] py-5 text-xs text-slate-500 dark:text-zinc-500 transition-colors">
@@ -310,17 +307,10 @@ export default function App() {
               <span>Hệ Thống Luyện Thi ĐGNL ĐHQGHN (Toán Học & Tư Duy Định Lượng)</span>
             </div>
 
-            <div className="flex items-center gap-4 text-[11px]">
-              <span>Chuẩn chương trình mới GDPT 2018</span>
-              <button
-                type="button"
-                onClick={() => setIsGasGuideOpen(true)}
-                className="hover:text-slate-800 dark:hover:text-zinc-300 transition flex items-center gap-1 cursor-pointer"
-                title="Hướng dẫn kết nối Google Sheets & Google Apps Script cho giáo viên/quản trị viên"
-              >
-                <HelpCircle className="w-3.5 h-3.5" />
-                <span>Hướng dẫn Google Sheets (Giáo viên)</span>
-              </button>
+            <div className="flex items-center gap-3 text-[11px] text-slate-400 dark:text-zinc-500">
+              <span>Chuẩn đề thi ĐGNL HSA ĐHQGHN</span>
+              <span>·</span>
+              <span>Cấu trúc 50 câu (35 Trắc nghiệm + 15 Điền số)</span>
             </div>
           </div>
         </footer>

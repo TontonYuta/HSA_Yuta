@@ -39,13 +39,26 @@ export const MathRenderer: React.FC<MathRendererProps> = ({ content, className =
       }
 
       try {
-        // Automatically repair any accidental JS escape sequences and escape standalone % signs
-        const sanitizedMath = mathCode.trim()
+        // Automatically repair any accidental JS escape sequences, lim, to, and escape standalone % signs
+        let sanitizedMath = mathCode.trim()
           .replace(/\x0crac/g, '\\frac')
           .replace(/\x08egin/g, '\\begin')
           .replace(/\x08ar/g, '\\bar')
           .replace(/\x09imes/g, '\\times')
           .replace(/\x09ext/g, '\\text')
+          .replace(/\x09heta/g, '\\theta')
+          .replace(/\x09au/g, '\\tau')
+          .replace(/\x09o\b/g, '\\to')
+          .replace(/(?<!\\)lim_\{/g, '\\lim\\limits_{')
+          .replace(/\\lim_\{/g, '\\lim\\limits_{')
+          .replace(/\b([xt])\s+o\s+([+\-]?\\?(?:infty|pminfty|\d+))/g, '$1 \\to $2')
+          .replace(/pminfty/g, '\\pm\\infty')
+          .replace(/\\pm\s*infty/g, '\\pm\\infty')
+          .replace(/(?<!\\)pm\\infty/g, '\\pm\\infty')
+          .replace(/(?<!\\)mathbb\{/g, '\\mathbb{')
+          .replace(/([0-9a-zA-Z\^]+)sqrt\{/g, '$1\\sqrt{')
+          .replace(/(?<!\\)sqrt\{/g, '\\sqrt{')
+          .replace(/(?<!\\)frac\{/g, '\\frac{')
           .replace(/(?<!\\)%/g, '\\%');
 
         const html = katex.renderToString(sanitizedMath, {

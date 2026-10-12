@@ -483,20 +483,22 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({
             type="button"
             onClick={handlePrev}
             disabled={currentQuestionIndex === 0}
-            className="px-4 py-2.5 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 text-slate-700 dark:text-zinc-300 hover:bg-slate-100 dark:hover:bg-zinc-800 text-xs sm:text-sm font-semibold transition disabled:opacity-30 inline-flex items-center gap-1.5 cursor-pointer shadow-xs"
+            className="px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 text-slate-700 dark:text-zinc-300 hover:bg-slate-100 dark:hover:bg-zinc-800 text-xs sm:text-sm font-semibold transition disabled:opacity-30 inline-flex items-center gap-1 sm:gap-1.5 cursor-pointer shadow-xs"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span>Câu trước</span>
+            <span className="hidden sm:inline">Câu trước</span>
+            <span className="sm:hidden">Trước</span>
           </button>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
             {currentValue && (
               <button
                 type="button"
                 onClick={() => onAnswerQuestion(currentQ.id, '')}
-                className="px-3 py-1.5 text-xs text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 transition cursor-pointer font-medium"
+                className="px-2 sm:px-3 py-1.5 text-[11px] sm:text-xs text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 transition cursor-pointer font-medium"
               >
-                Xóa lựa chọn
+                <span className="hidden sm:inline">Xóa lựa chọn</span>
+                <span className="sm:hidden">Bỏ chọn</span>
               </button>
             )}
 
@@ -504,16 +506,17 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({
               <button
                 type="button"
                 onClick={handleNext}
-                className="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white text-white text-xs sm:text-sm font-semibold shadow-sm transition inline-flex items-center gap-1.5 cursor-pointer"
+                className="px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white text-white text-xs sm:text-sm font-semibold shadow-sm transition inline-flex items-center gap-1 sm:gap-1.5 cursor-pointer"
               >
-                <span>Câu tiếp theo</span>
+                <span className="hidden sm:inline">Câu tiếp theo</span>
+                <span className="sm:hidden">Tiếp theo</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             ) : (
               <button
                 type="button"
                 onClick={() => setIsConfirmSubmitOpen(true)}
-                className="px-5 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white text-xs sm:text-sm font-semibold shadow-md transition inline-flex items-center gap-1.5 cursor-pointer"
+                className="px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white text-xs sm:text-sm font-semibold shadow-md transition inline-flex items-center gap-1 sm:gap-1.5 cursor-pointer"
               >
                 <span>Nộp bài thi</span>
                 <Check className="w-4 h-4" />

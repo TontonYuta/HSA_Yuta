@@ -199,7 +199,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Cho hàm số $f(x)$ liên tục trên $\\mathbb{R}$, có đồ thị hàm số $f'(x)$ thỏa mãn: $f'(x) \\le 0$ với mọi $x \\le 2$ (tiếp xúc trục hoành tại $x = -1$, cắt trục hoành tại $x = 2$) và $f'(x) > 0$ với mọi $x > 2$. Gọi $S$ là tập hợp các giá trị nguyên của tham số $m$ thuộc đoạn $[-5; 5]$ để hàm số $y = f(x^2 - 2mx + m^2 + 1)$ nghịch biến trên khoảng $\\left(0; \\frac{1}{2}\\right)$. Tính tổng giá trị các phần tử của $S$.",
+    "content": "Cho hàm số $f(x)$ liên tục trên $\\mathbb{R}$ có bảng xét dấu của đạo hàm $f'(x)$ như sau:\n$\\begin{array}{|c|ccccccc|}\n\\hline\nx & -\\infty & & -1 & & 2 & & +\\infty \\\\\n\\hline\nf'(x) & & - & 0 & - & 0 & + & \\\\\n\\hline\n\\end{array}$\n(Đạo hàm $f'(x) \\le 0$ với mọi $x \\le 2$, tiếp xúc trục hoành tại $x = -1$ và đổi dấu tại $x = 2$). Gọi $S$ là tập hợp các giá trị nguyên của tham số $m$ thuộc đoạn $[-5; 5]$ để hàm số $y = f(x^2 - 2mx + m^2 + 1)$ nghịch biến trên khoảng $\\left(0; \\frac{1}{2}\\right)$. Tính tổng giá trị các phần tử của $S$.",
     "options": [],
     "correctAnswer": "14",
     "acceptableAnswers": [
@@ -217,7 +217,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "id": 253,
     "type": "mcq",
     "topicId": "don_dieu_tham_so_m",
-    "content": "Cho hàm số $y = f(x)$ liên tục trên $\\mathbb{R}$, có đạo hàm $f'(x)$ triệt tiêu tại $x = -2, x = 1, x = 3$ với $f'(x) > 0$ trên $(-2; 1) \\cup (3; +\\infty)$ và $f'(x) < 0$ trên $(-\\infty; -2) \\cup (1; 3)$. Hàm số $g(x) = f(2 - x^2)$ đồng biến trên khoảng nào dưới đây?",
+    "content": "Cho hàm số $y = f(x)$ liên tục trên $\\mathbb{R}$ có bảng xét dấu của đạo hàm $f'(x)$ như sau:\n$\\begin{array}{|c|ccccccccc|}\n\\hline\nx & -\\infty & & -2 & & 1 & & 3 & & +\\infty \\\\\n\\hline\nf'(x) & & - & 0 & + & 0 & - & 0 & + & \\\\\n\\hline\n\\end{array}$\nHàm số $g(x) = f(2 - x^2)$ đồng biến trên khoảng nào dưới đây?",
     "options": [
       {
         "key": "A",

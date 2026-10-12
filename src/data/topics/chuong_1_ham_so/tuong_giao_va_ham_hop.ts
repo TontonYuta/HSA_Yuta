@@ -42,7 +42,7 @@ export const tuongGiaoHamHopQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "tuong_giao_va_ham_hop",
     "topicName": "Tương giao đồ thị & Số nghiệm hàm hợp",
-    "content": "Cho hàm số bậc ba $y = f(x)$ có bảng biến thiên: hàm số đạt cực đại tại $x = -1$ với $f(-1) = 2$ và đạt cực tiểu tại $x = 1$ với $f(1) = -2$. Số nghiệm thực phân biệt của phương trình $f(f(x)) = 0$ là:",
+    "content": "Cho hàm số bậc ba $y = f(x)$ có bảng biến thiên như sau:\n$\\begin{array}{|c|ccccccc|}\n\\hline\nx & -\\infty & & -1 & & 1 & & +\\infty \\\\\n\\hline\nf'(x) & & + & 0 & - & 0 & + & \\\\\n\\hline\n& & & 2 & & & & +\\infty \\\\\nf(x) & & \\nearrow & & \\searrow & & \\nearrow & \\\\\n& -\\infty & & & & -2 & & \\\\\n\\hline\n\\end{array}$\nSố nghiệm thực phân biệt của phương trình $f(f(x)) = 0$ là:",
     "options": [
       {
         "key": "A",
@@ -76,7 +76,7 @@ export const tuongGiaoHamHopQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "tuong_giao_va_ham_hop",
     "topicName": "Tương giao đồ thị & Số nghiệm hàm hợp",
-    "content": "Cho hàm số $y = f(x)$ liên tục trên $mathbb{R}$ và có bảng biến thiên: hàm số đồng biến từ $-\\infty$ lên cực đại tại $(-1; 4)$, nghịch biến xuống cực tiểu tại $(2; -1)$, rồi đồng biến lên $+\\infty$. Số nghiệm thực của phương trình $2f(x) - 5 = 0$ là:",
+    "content": "Cho hàm số $y = f(x)$ liên tục trên $\\mathbb{R}$ có bảng biến thiên như sau:\n$\\begin{array}{|c|ccccccc|}\n\\hline\nx & -\\infty & & -1 & & 2 & & +\\infty \\\\\n\\hline\nf'(x) & & + & 0 & - & 0 & + & \\\\\n\\hline\n& & & 4 & & & & +\\infty \\\\\nf(x) & & \\nearrow & & \\searrow & & \\nearrow & \\\\\n& -\\infty & & & & -1 & & \\\\\n\\hline\n\\end{array}$\nSố nghiệm thực của phương trình Cho hàm số $y = f(x)$ liên tục trên $mathbb{R}$ và có bảng biến thiên: hàm số đồng biến từ $-\\infty$ lên cực đại tại $(-1; 4)$, nghịch biến xuống cực tiểu tại $(2; -1)$, rồi đồng biến lên $+\\infty$. Số nghiệm thực của phương trình $2f(x) - 5 = 0$ là:f(x) - 5 = 0$ là:",
     "options": [
       {
         "key": "A",
@@ -110,7 +110,7 @@ export const tuongGiaoHamHopQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "tuong_giao_va_ham_hop",
     "topicName": "Tương giao đồ thị & Số nghiệm hàm hợp",
-    "content": "Cho hàm số bậc ba $y = f(x) = ax^3 + bx^2 + cx + d$ có đồ thị với hai điểm cực trị đối xứng qua trục tung tại $x = -2$ (cực đại) và $x = 2$ (cực tiểu), cắt trục tung tại điểm có tung độ dương, và nhánh vô cùng bên phải đi lên. Có bao nhiêu số dương trong các số $a, b, c, d$?",
+    "content": "Cho hàm số bậc ba $y = f(x) = ax^3 + bx^2 + cx + d$ có bảng biến thiên như sau:\n$\\begin{array}{|c|ccccccc|}\n\\hline\nx & -\\infty & & -2 & & 2 & & +\\infty \\\\\n\\hline\nf'(x) & & + & 0 & - & 0 & + & \\\\\n\\hline\n& & & y_{CĐ} & & & & +\\infty \\\\\nf(x) & & \\nearrow & & \\searrow & & \\nearrow & \\\\\n& -\\infty & & & & y_{CT} & & \\\\\n\\hline\n\\end{array}$\nBiết đồ thị hàm số cắt trục tung tại điểm có tung độ dương $d > 0$. Có bao nhiêu số dương trong các hệ số $a, b, c, d$?",
     "options": [
       {
         "key": "A",
@@ -162,7 +162,7 @@ export const tuongGiaoHamHopQuestions: Question[] = [
     "id": 256,
     "type": "fill",
     "topicId": "tuong_giao_va_ham_hop",
-    "content": "Cho hàm số $y = f(x)$ có đồ thị đối xứng qua trục tung và có 3 điểm cực trị với $y_{CĐ} = 2$ tại $x = 0$ và $y_{CT} = -2$ tại $x = \\pm 2$. Có mấy giá trị nguyên của tham số $m$ để phương trình $f(|x|) - 2025m - 2 = 0$ có đúng 4 nghiệm phân biệt?",
+    "content": "Cho hàm số $y = f(x)$ có bảng biến thiên như sau:\n$\\begin{array}{|c|ccccccccc|}\n\\hline\nx & -\\infty & & -2 & & 0 & & 2 & & +\\infty \\\\\n\\hline\nf'(x) & & - & 0 & + & 0 & - & 0 & + & \\\\\n\\hline\n& +\\infty & & & & 2 & & & & +\\infty \\\\\nf(x) & & \\searrow & & \\nearrow & & \\searrow & & \\nearrow & \\\\\n& & & -2 & & & & -2 & & \\\\\n\\hline\n\\end{array}$\nCó bao nhiêu giá trị nguyên của tham số $m$ để phương trình $f(|x|) - 2025m - 2 = 0$ có đúng 4 nghiệm phân biệt?",
     "correctAnswer": "0",
     "detailedSolution": "Phương trình tương đương với: $f(|x|) = 2025m + 2$.\nĐồ thị hàm số $y = f(|x|)$ có giá trị cực tiểu là $-2$ và cực đại là $2$.\nSố nghiệm của phương trình là số giao điểm của đồ thị $y = f(|x|)$ và đường thẳng nằm ngang $y = 2025m + 2$.\nĐể phương trình có 4 nghiệm phân biệt thì đường thẳng phải cắt đồ thị tại 4 điểm, tức là $-2 < 2025m + 2 < 2 \\iff -4 < 2025m < 0 \\iff -\\frac{4}{2025} < m < 0$.\nVì $m$ là số nguyên nên không tồn tại giá trị nguyên nào của $m$ trong khoảng $(-4/2025; 0)$.\nVậy có 0 giá trị nguyên của $m$ thỏa mãn.",
     "socraticHint": "Phương trình có 4 nghiệm phân biệt khi đường thẳng nằm giữa giá trị cực tiểu và giá trị cực đại.",
@@ -178,7 +178,7 @@ export const tuongGiaoHamHopQuestions: Question[] = [
     "id": 277,
     "type": "mcq",
     "topicId": "tuong_giao_va_ham_hop",
-    "content": "Cho hàm số bậc ba $y = x^3 + bx^2 + cx + d$ ($b, c, d \\in \\mathbb{R}$) có đồ thị cắt trục tung tại điểm có tung độ dương, có hai điểm cực trị $x_1 < 0 < x_2$ và $|x_1| > x_2$. Mệnh đề nào sau đây đúng?",
+    "content": "Cho hàm số bậc ba $y = x^3 + bx^2 + cx + d$ ($b, c, d \\in \\mathbb{R}$) có bảng biến thiên như sau:\n$\\begin{array}{|c|ccccccc|}\n\\hline\nx & -\\infty & & x_1 & & x_2 & & +\\infty \\\\\n\\hline\nf'(x) & & + & 0 & - & 0 & + & \\\\\n\\hline\n& & & y_1 & & & & +\\infty \\\\\nf(x) & & \\nearrow & & \\searrow & & \\nearrow & \\\\\n& -\\infty & & & & y_2 & & \\\\\n\\hline\n\\end{array}$\nBiết đồ thị cắt trục tung tại điểm có tung độ dương $d > 0$, hai điểm cực trị thỏa mãn $x_1 < 0 < x_2$ và $|x_1| > x_2$. Mệnh đề nào sau đây đúng?",
     "options": [
       {
         "key": "A",

@@ -424,7 +424,7 @@ export const tiemCanQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "tiem_can_va_tiem_can_xien",
     "topicName": "Tiệm cận đứng, ngang & Tiệm cận xiên",
-    "content": "Cho hàm số $y = f(x)$ có $lim_{x  o -\\infty} f(x) = 2$ và $lim_{x  o +\\infty} f(x) = 2$, đồng thời $lim_{x  o 1^+} f(x) = +\\infty$. Khẳng định nào sau đây là đúng?",
+    "content": "Cho hàm số $y = f(x)$ có bảng biến thiên như sau:\n$\\begin{array}{|c|ccccc|}\n\\hline\nx & -\\infty & & 1 & & +\\infty \\\\\n\\hline\n& & & +\\infty & & \\\\\nf(x) & & & || & & 2 \\\\\n& 2 & & || & & \\\\\n\\hline\n\\end{array}$\nBiết $\\lim\\limits_{x \\to -\\infty} f(x) = 2$, $\\lim\\limits_{x \\to +\\infty} f(x) = 2$ và $\\lim\\limits_{x \\to 1^+} f(x) = +\\infty$. Khẳng định nào sau đây là đúng?",
     "options": [
       {
         "key": "A",

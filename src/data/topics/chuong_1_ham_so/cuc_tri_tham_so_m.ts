@@ -220,7 +220,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "Cho hàm số $y = f(x)$ liên tục trên $\\mathbb{R}$ có đồ thị với điểm nhô lên cao nhất tại hoành độ $x = 2$ và điểm võng xuống thấp nhất tại hoành độ $x = 7$. Khẳng định nào dưới đây là đúng?",
+    "content": "Cho hàm số $y = f(x)$ liên tục trên $\\mathbb{R}$ có bảng biến thiên như sau:\n$\\begin{array}{|c|ccccccc|}\n\\hline\nx & -\\infty & & 2 & & 7 & & +\\infty \\\\\n\\hline\nf'(x) & & + & 0 & - & 0 & + & \\\\\n\\hline\n& & & y_{CĐ} & & & & +\\infty \\\\\nf(x) & & \\nearrow & & \\searrow & & \\nearrow & \\\\\n& -\\infty & & & & y_{CT} & & \\\\\n\\hline\n\\end{array}$\nKhẳng định nào dưới đây là đúng?",
     "options": [
       {
         "key": "A",
@@ -254,7 +254,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "Cho hàm số $f(x)$ có bảng xét dấu đạo hàm: $f'(x) > 0$ trên $(-\\infty; 4)$, $f'(x) < 0$ trên $(4; 5)$, $f'(x) > 0$ trên $(5; 6) \\cup (6; +\\infty)$, với $f'(4) = f'(5) = f'(6) = 0$. Số giá trị nguyên dương của tham số $m$ để hàm số $g(x) = f(|x^4 - 2x^2 - 3| + m)$ có ít nhất $7$ điểm cực trị là:",
+    "content": "Cho hàm số $f(x)$ có bảng xét dấu của đạo hàm $f'(x)$ như sau:\n$\\begin{array}{|c|ccccccccc|}\n\\hline\nx & -\\infty & & 4 & & 5 & & 6 & & +\\infty \\\\\n\\hline\nf'(x) & & + & 0 & - & 0 & + & 0 & + & \\\\\n\\hline\n\\end{array}$\nSố giá trị nguyên dương của tham số $m$ để hàm số $g(x) = f(|x^4 - 2x^2 - 3| + m)$ có ít nhất 7 điểm cực trị là:",
     "options": [],
     "correctAnswer": "4",
     "acceptableAnswers": [
@@ -272,7 +272,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "id": 252,
     "type": "fill",
     "topicId": "cuc_tri_tham_so_m",
-    "content": "Cho hàm số $y = f(x)$ liên tục trên $\\mathbb{R}$ có bảng xét dấu của đạo hàm $f'(x)$ đổi dấu khi qua các điểm $x = -2$ (từ dương sang âm), $x = 0$ (từ âm sang dương), $x = 3$ (từ dương sang âm), và tại $x = 5$ đạo hàm triệt tiêu nhưng không đổi dấu. Số điểm cực trị của hàm số $y = f(x)$ là bao nhiêu?",
+    "content": "Cho hàm số $y = f(x)$ liên tục trên $\\mathbb{R}$ có bảng xét dấu của đạo hàm $f'(x)$ như sau:\n$\\begin{array}{|c|ccccccccccc|}\n\\hline\nx & -\\infty & & -2 & & 0 & & 3 & & 5 & & +\\infty \\\\\n\\hline\nf'(x) & & + & 0 & - & 0 & + & 0 & - & 0 & - & \\\\\n\\hline\n\\end{array}$\nSố điểm cực trị của hàm số $y = f(x)$ là bao nhiêu?",
     "correctAnswer": "3",
     "detailedSolution": "Điểm cực trị của hàm số là điểm mà tại đó đạo hàm đổi dấu khi biến số $x$ đi qua.\nTheo giả thiết, $f'(x)$ đổi dấu khi đi qua 3 điểm $x = -2, x = 0, x = 3$.\nTại $x = 5$, $f'(x)$ triệt tiêu nhưng không đổi dấu nên $x = 5$ không phải là điểm cực trị.\nVậy hàm số $y = f(x)$ có đúng 3 điểm cực trị.",
     "socraticHint": "Đếm số lần đạo hàm đổi dấu (từ dương sang âm hoặc từ âm sang dương) qua các nghiệm.",
@@ -288,7 +288,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "id": 254,
     "type": "mcq",
     "topicId": "cuc_tri_tham_so_m",
-    "content": "Cho hàm số bậc ba $y = f(x)$ có bảng biến thiên với điểm cực đại $(-1; 4)$ và điểm cực tiểu $(1; 0)$. Gọi $S$ là tập các giá trị nguyên của tham số $m$ để hàm số $y = |f(x) - m|$ có đúng 5 điểm cực trị. Tính tổng các phần tử của $S$?",
+    "content": "Cho hàm số bậc ba $y = f(x)$ có bảng biến thiên như sau:\n$\\begin{array}{|c|ccccccc|}\n\\hline\nx & -\\infty & & -1 & & 1 & & +\\infty \\\\\n\\hline\nf'(x) & & + & 0 & - & 0 & + & \\\\\n\\hline\n& & & 4 & & & & +\\infty \\\\\nf(x) & & \\nearrow & & \\searrow & & \\nearrow & \\\\\n& -\\infty & & & & 0 & & \\\\\n\\hline\n\\end{array}$\nGọi $S$ là tập các giá trị nguyên của tham số $m$ để hàm số $y = |f(x) - m|$ có đúng 5 điểm cực trị. Tính tổng các phần tử của $S$?",
     "options": [
       {
         "key": "A",
