@@ -17,7 +17,8 @@ import {
   EyeOff,
   Eye,
   Type,
-  LayoutGrid
+  LayoutGrid,
+  Mail
 } from 'lucide-react';
 import { Question, UserAnswer, ExamSet } from '../types/exam';
 import { MathRenderer } from './MathRenderer';
@@ -755,6 +756,15 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({
                 <span>Tuyệt vời! Bạn đã hoàn thành toàn bộ {totalQuestions} câu hỏi.</span>
               </div>
             )}
+
+            {/* Auto-send notification */}
+            <div className="p-3 bg-sky-50 dark:bg-sky-950/30 border border-sky-200 dark:border-sky-800/60 rounded-xl text-xs text-sky-800 dark:text-sky-300 flex items-start gap-2">
+              <Mail className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" />
+              <div className="leading-relaxed">
+                Khi nộp bài, kết quả thi sẽ <strong>tự động gửi về email giáo viên</strong>:{' '}
+                <span className="font-mono font-bold text-sky-900 dark:text-sky-200">huyhoang6altt@gmail.com</span>
+              </div>
+            </div>
 
             <div className="flex items-center justify-end gap-2.5 pt-1">
               <button

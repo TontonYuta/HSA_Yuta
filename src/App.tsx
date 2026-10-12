@@ -154,10 +154,24 @@ export default function App() {
       studentEmail,
       calculatedSeconds,
       currentExamSet.title,
-      teacherEmail
+      DEFAULT_TEACHER_EMAIL
     );
     setExamReport(report);
     setCurrentMode('results');
+
+    // Automatically dispatch result report to teacher email huyhoang6altt@gmail.com
+    const targetUrl = webhookUrl?.trim() || DEFAULT_GAS_WEBHOOK_URL;
+    if (targetUrl) {
+      fetch(targetUrl, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain' },
+        body: JSON.stringify({
+          ...report,
+          teacherEmail: DEFAULT_TEACHER_EMAIL,
+        }),
+      }).catch(() => {});
+    }
   };
 
   // When time expires
@@ -317,13 +331,13 @@ export default function App() {
         }
       />
 
-      {/* Main Container - Fullscreen CBT in exam mode, Padded in other modes */}
-      <main className={isExamActive ? 'flex-1 overflow-hidden' : 'flex-1 px-3 sm:px-6 pt-4 sm:pt-6 pb-20 md:pb-6'}>
+      {/* Main Container - Fullscreen CBT in exam and practice mode, Padded in intro/results */}
+      <main className={(isExamActive || currentMode === 'practice') ? 'flex-1 overflow-hidden' : 'flex-1 px-3 sm:px-6 pt-4 sm:pt-6 pb-20 md:pb-6'}>
         {renderMainContent()}
       </main>
 
-      {/* Footer - Only shown when NOT inside active CBT exam */}
-      {!isExamActive && (
+      {/* Footer - Only shown when NOT inside active CBT exam or practice studio */}
+      {!isExamActive && currentMode !== 'practice' && (
         <footer className="border-t border-slate-200 dark:border-zinc-800 bg-white dark:bg-[#09090b] py-5 mb-14 md:mb-0 text-xs text-slate-500 dark:text-zinc-500 transition-colors">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-3">
             <div className="flex items-center gap-2.5">

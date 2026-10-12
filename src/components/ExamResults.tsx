@@ -105,9 +105,15 @@ export const ExamResults: React.FC<ExamResultsProps> = ({
             <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-zinc-100">
               Báo Cáo Phân Tích Năng Lực Bài Thi
             </h1>
-            <p className="text-sm text-slate-600 dark:text-zinc-400 mt-1">
-              Thí sinh: <span className="text-slate-900 dark:text-zinc-100 font-bold">{report.studentName}</span>
-            </p>
+            <div className="flex flex-wrap items-center gap-3 mt-2">
+              <p className="text-sm text-slate-600 dark:text-zinc-400">
+                Thí sinh: <span className="text-slate-900 dark:text-zinc-100 font-bold">{report.studentName}</span>
+              </p>
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 text-[11px] font-medium text-emerald-700 dark:text-emerald-300">
+                <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+                <span>Đã tự động gửi kết quả về email giáo viên: <strong className="font-mono">huyhoang6altt@gmail.com</strong></span>
+              </div>
+            </div>
           </div>
 
           {/* Action buttons */}
