@@ -258,7 +258,7 @@ export const ExamResults: React.FC<ExamResultsProps> = ({
                 <span>Chiến thuật ôn luyện:</span>
               </div>
               <p className="text-slate-600 dark:text-zinc-400 text-[11px] leading-relaxed">
-                Hãy luyện tập chuyên đề này theo từng câu hỏi độc lập, xem kỹ các bước giải KaTeX và phương pháp định hướng tư duy trước khi bấm thi lại đề tổng thể.
+                Hãy luyện tập chuyên đề này theo từng câu hỏi độc lập, xem kỹ các bước giải và phương pháp định hướng tư duy trước khi bấm thi lại đề tổng thể.
               </p>
             </div>
           </div>
@@ -284,7 +284,7 @@ export const ExamResults: React.FC<ExamResultsProps> = ({
               Chi tiết lời giải & đáp án 50 câu hỏi
             </h2>
             <p className="text-xs text-slate-500 dark:text-zinc-400 mt-0.5">
-              Xem lại từng bước giải chi tiết chuẩn mực KaTeX và phương pháp tư duy giải nhanh
+              Xem lại từng bước giải chi tiết và phương pháp tư duy giải nhanh
             </p>
           </div>
 
@@ -415,7 +415,7 @@ export const ExamResults: React.FC<ExamResultsProps> = ({
                     onClick={() => toggleSolution(item.questionId)}
                     className="text-xs font-semibold text-sky-600 dark:text-sky-400 hover:text-sky-700 dark:hover:text-sky-300 inline-flex items-center gap-1 cursor-pointer ml-auto"
                   >
-                    <span>{isExpanded ? 'Thu gọn lời giải' : 'Xem lời giải KaTeX'}</span>
+                    <span>{isExpanded ? 'Thu gọn lời giải' : 'Xem lời giải chi tiết'}</span>
                     {isExpanded ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
                   </button>
                 </div>

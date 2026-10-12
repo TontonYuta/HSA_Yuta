@@ -6,9 +6,14 @@ interface MathRendererProps {
   className?: string;
 }
 
+const mathCache = new Map<string, string>();
+
 export const MathRenderer: React.FC<MathRendererProps> = ({ content, className = '' }) => {
   const renderedHtml = useMemo(() => {
     if (!content) return '';
+    if (mathCache.has(content)) {
+      return mathCache.get(content)!;
+    }
 
     const parts: string[] = [];
     
@@ -88,7 +93,9 @@ export const MathRenderer: React.FC<MathRendererProps> = ({ content, className =
       parts.push(processPlainText(content.slice(lastIndex)));
     }
 
-    return parts.join('');
+    const finalHtml = parts.join('');
+    mathCache.set(content, finalHtml);
+    return finalHtml;
   }, [content]);
 
   return (

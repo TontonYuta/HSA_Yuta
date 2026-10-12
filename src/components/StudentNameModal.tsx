@@ -76,8 +76,8 @@ export const StudentNameModal: React.FC<StudentNameModalProps> = ({
 
         <p className="text-xs text-slate-600 dark:text-zinc-400 mb-5 leading-relaxed">
           {isFirstVisit
-            ? 'Vui lòng nhập họ tên để giáo viên ghi nhận tiến độ rèn luyện và gửi báo cáo kết quả thi tự động về email giáo viên.'
-            : 'Thông tin học sinh sẽ được đính kèm trong các báo cáo nộp bài và thống kê năng lực.'}
+            ? 'Vui lòng nhập họ và tên của bạn để hệ thống lưu hồ sơ bài làm và gửi kết quả tới giáo viên.'
+            : 'Thông tin học sinh đính kèm trong các bài thi và báo cáo kết quả.'}
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-3.5">
@@ -143,7 +143,7 @@ export const StudentNameModal: React.FC<StudentNameModalProps> = ({
           <div className="p-2.5 rounded-xl bg-sky-50 dark:bg-sky-950/40 border border-sky-200/60 dark:border-sky-800/60 flex items-start gap-2 text-[11px] text-sky-800 dark:text-sky-300">
             <ShieldCheck className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" />
             <div className="leading-tight">
-              Thông tin học sinh và kết quả bài làm sẽ được tự động gửi về Email Giáo viên:{' '}
+              Email Giáo viên nhận kết quả:{' '}
               <strong className="font-semibold text-slate-900 dark:text-white underline">{teacherEmail}</strong>
             </div>
           </div>

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Search, ChevronDown, ChevronUp, BookOpen, Lightbulb, Filter } from 'lucide-react';
+import React, { useState, useMemo } from 'react';
+import { Search, ChevronDown, ChevronUp, BookOpen, Lightbulb, Filter, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Question } from '../types/exam';
 import { MathRenderer } from './MathRenderer';
 import { MICRO_TOPICS_METADATA } from '../data/topics/index';
@@ -15,20 +15,36 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({ questions, o
   const [selectedType, setSelectedType] = useState<string>('all');
   const [selectedDifficulty, setSelectedDifficulty] = useState<string>('all');
   const [expandedId, setExpandedId] = useState<number | null>(null);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const PAGE_SIZE = 12;
 
-  const filtered = questions.filter((q) => {
-    if (selectedTopic !== 'all' && q.topicId !== selectedTopic) return false;
-    if (selectedType !== 'all' && q.type !== selectedType) return false;
-    if (selectedDifficulty !== 'all' && q.difficulty !== selectedDifficulty) return false;
-    if (searchTerm.trim() !== '') {
-      const lower = searchTerm.toLowerCase();
-      const matchContent = q.content.toLowerCase().includes(lower);
-      const matchTopic = q.topicName.toLowerCase().includes(lower);
-      const matchSol = q.detailedSolution.toLowerCase().includes(lower);
-      if (!matchContent && !matchTopic && !matchSol) return false;
-    }
-    return true;
-  });
+  const filtered = useMemo(() => {
+    return questions.filter((q) => {
+      if (selectedTopic !== 'all' && q.topicId !== selectedTopic) return false;
+      if (selectedType !== 'all' && q.type !== selectedType) return false;
+      if (selectedDifficulty !== 'all' && q.difficulty !== selectedDifficulty) return false;
+      if (searchTerm.trim() !== '') {
+        const lower = searchTerm.toLowerCase();
+        const matchContent = q.content.toLowerCase().includes(lower);
+        const matchTopic = q.topicName.toLowerCase().includes(lower);
+        const matchSol = q.detailedSolution.toLowerCase().includes(lower);
+        if (!matchContent && !matchTopic && !matchSol) return false;
+      }
+      return true;
+    });
+  }, [questions, selectedTopic, selectedType, selectedDifficulty, searchTerm]);
+
+  // Reset to page 1 when filter changes
+  const handleFilterChange = (setter: (val: string) => void, val: string) => {
+    setter(val);
+    setCurrentPage(1);
+  };
+
+  const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+  const currentQuestions = useMemo(() => {
+    const start = (currentPage - 1) * PAGE_SIZE;
+    return filtered.slice(start, start + PAGE_SIZE);
+  }, [filtered, currentPage]);
 
   const toggleExpand = (id: number) => {
     setExpandedId((prev) => (prev === id ? null : id));
@@ -42,14 +58,11 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({ questions, o
           <div>
             <div className="flex items-center gap-2">
               <h1 className="text-xl font-bold text-slate-900 dark:text-zinc-100">
-                Ngân Hàng {questions.length}+ Câu Hỏi Toán HSA - TontonYuta
+                Ngân Hàng {questions.length} Câu Hỏi Toán HSA
               </h1>
-              <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 border border-amber-300 dark:border-amber-700">
-                90% Vận Dụng & VDC
-              </span>
             </div>
             <p className="text-xs text-slate-500 dark:text-zinc-400 mt-1">
-              Hệ thống {questions.length}+ câu hỏi chuẩn hóa HSA ĐHQGHN với 10 chương, 30 chuyên đề vi mô và bộ đề gốc 558 siêu phân hóa
+              Tra cứu và rèn luyện câu hỏi theo 10 chương và 30 chuyên đề phân hóa chuẩn form HSA ĐHQGHN.
             </p>
           </div>
 
@@ -70,7 +83,7 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({ questions, o
               type="text"
               placeholder="Tìm kiếm nội dung, công thức..."
               value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
+              onChange={(e) => handleFilterChange(setSearchTerm, e.target.value)}
               className="w-full pl-9 pr-3.5 py-2.5 bg-slate-50 dark:bg-zinc-950 border border-slate-300 dark:border-zinc-700 rounded-xl text-xs text-slate-800 dark:text-zinc-200 placeholder-slate-400 dark:placeholder-zinc-600 focus:outline-none focus:border-sky-500 font-medium"
             />
           </div>
@@ -78,10 +91,10 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({ questions, o
           {/* Filter 30 topics */}
           <select
             value={selectedTopic}
-            onChange={(e) => setSelectedTopic(e.target.value)}
+            onChange={(e) => handleFilterChange(setSelectedTopic, e.target.value)}
             className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-zinc-950 border border-slate-300 dark:border-zinc-700 rounded-xl text-xs text-slate-800 dark:text-zinc-300 focus:outline-none focus:border-sky-500 font-medium"
           >
-            <option value="all">Tất cả 30 chuyên đề vi mô</option>
+            <option value="all">Tất cả 30 chuyên đề</option>
             {MICRO_TOPICS_METADATA.map((t) => (
               <option key={t.id} value={t.id}>
                 {t.name}
@@ -92,35 +105,36 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({ questions, o
           {/* Filter format */}
           <select
             value={selectedType}
-            onChange={(e) => setSelectedType(e.target.value)}
+            onChange={(e) => handleFilterChange(setSelectedType, e.target.value)}
             className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-zinc-950 border border-slate-300 dark:border-zinc-700 rounded-xl text-xs text-slate-800 dark:text-zinc-300 focus:outline-none focus:border-sky-500 font-medium"
           >
-            <option value="all">Tất cả dạng thức câu</option>
-            <option value="mcq">Trắc nghiệm 4 lựa chọn (MCQ)</option>
-            <option value="fill">Điền đáp số ngắn (Fill-in)</option>
+            <option value="all">Tất cả dạng câu</option>
+            <option value="mcq">Trắc nghiệm 4 lựa chọn</option>
+            <option value="fill">Điền đáp số ngắn</option>
           </select>
 
           {/* Filter difficulty */}
           <select
             value={selectedDifficulty}
-            onChange={(e) => setSelectedDifficulty(e.target.value)}
+            onChange={(e) => handleFilterChange(setSelectedDifficulty, e.target.value)}
             className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-zinc-950 border border-slate-300 dark:border-zinc-700 rounded-xl text-xs text-slate-800 dark:text-zinc-300 focus:outline-none focus:border-sky-500 font-medium"
           >
             <option value="all">Tất cả mức độ</option>
-            <option value="Vận dụng cao">🔥 Vận dụng cao (VDC)</option>
-            <option value="Vận dụng">⚡ Vận dụng (VD)</option>
-            <option value="Thông hiểu">🌱 Thông hiểu (TH)</option>
+            <option value="Vận dụng cao">Vận dụng cao (VDC)</option>
+            <option value="Vận dụng">Vận dụng (VD)</option>
+            <option value="Thông hiểu">Thông hiểu (TH)</option>
           </select>
         </div>
       </div>
 
       {/* Questions list */}
       <div className="space-y-3">
-        <div className="text-xs text-slate-500 dark:text-zinc-400 font-mono px-1">
-          Tìm thấy {filtered.length} câu hỏi phù hợp trong ngân hàng
+        <div className="flex items-center justify-between text-xs text-slate-500 dark:text-zinc-400 font-mono px-1">
+          <span>Tìm thấy {filtered.length} câu hỏi phù hợp</span>
+          <span>Trang {currentPage} / {totalPages}</span>
         </div>
 
-        {filtered.map((q) => {
+        {currentQuestions.map((q) => {
           const isExpanded = expandedId === q.id;
 
           return (
@@ -192,7 +206,7 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({ questions, o
 
               {q.type === 'fill' && isExpanded && (
                 <div className="mt-3 p-3 rounded-lg bg-slate-50 dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800 text-xs font-mono text-slate-800 dark:text-zinc-300">
-                  Đáp số chuẩn: <strong className="text-emerald-600 dark:text-emerald-400 font-bold">{q.correctAnswer}</strong>
+                  Đáp số: <strong className="text-emerald-600 dark:text-emerald-400 font-bold">{q.correctAnswer}</strong>
                 </div>
               )}
 
@@ -211,7 +225,7 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({ questions, o
 
                   <div className="p-4 rounded-xl bg-slate-50 dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800 space-y-1.5">
                     <div className="font-bold text-xs uppercase tracking-wider text-slate-800 dark:text-zinc-200">
-                      Các bước giải chi tiết KaTeX:
+                      Lời giải chi tiết:
                     </div>
                     <div className="text-sm text-slate-700 dark:text-zinc-300 leading-relaxed">
                       <MathRenderer content={q.detailedSolution} />
@@ -222,6 +236,41 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({ questions, o
             </div>
           );
         })}
+
+        {/* Pagination Controls */}
+        {totalPages > 1 && (
+          <div className="pt-4 flex items-center justify-between gap-2">
+            <button
+              type="button"
+              disabled={currentPage <= 1}
+              onClick={() => {
+                setCurrentPage((p) => Math.max(1, p - 1));
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="px-3.5 py-2 rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-xs font-semibold text-slate-700 dark:text-zinc-300 hover:bg-slate-50 dark:hover:bg-zinc-800 disabled:opacity-40 disabled:cursor-not-allowed transition flex items-center gap-1.5 cursor-pointer"
+            >
+              <ChevronLeft className="w-4 h-4" />
+              <span>Trang trước</span>
+            </button>
+
+            <span className="text-xs font-mono text-slate-600 dark:text-zinc-400">
+              Trang <strong>{currentPage}</strong> / {totalPages}
+            </span>
+
+            <button
+              type="button"
+              disabled={currentPage >= totalPages}
+              onClick={() => {
+                setCurrentPage((p) => Math.min(totalPages, p + 1));
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="px-3.5 py-2 rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-xs font-semibold text-slate-700 dark:text-zinc-300 hover:bg-slate-50 dark:hover:bg-zinc-800 disabled:opacity-40 disabled:cursor-not-allowed transition flex items-center gap-1.5 cursor-pointer"
+            >
+              <span>Trang sau</span>
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

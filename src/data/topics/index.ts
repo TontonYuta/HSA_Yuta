@@ -543,7 +543,7 @@ export const HSA_EXAM_SETS: ExamSet[] = [
     questionCount: 50,
     mcqCount: 35,
     fillCount: 15,
-    badge: 'Chuẩn 100% HSA',
+    badge: 'Chuẩn ĐHQGHN',
     description: 'Bao phủ chuẩn mực các chuyên đề GDPT 2018 theo cấu trúc đề tham khảo mới nhất của Trung tâm Khảo thí ĐHQGHN.',
     questionIds: Array.from({ length: 50 }, (_, i) => i + 1),
   },
@@ -622,7 +622,7 @@ export const HSA_EXAM_SETS: ExamSet[] = [
   {
     id: 'de_08_hsa558',
     title: 'Đề 08: Đề Thi Thực Chiến HSA VNU (Mã Đề 558)',
-    subtitle: '50 câu thực chiến phân hóa cao chuẩn 100% form hsavnu.edu.vn',
+    subtitle: '50 câu thực chiến phân hóa cao theo form hsavnu.edu.vn',
     timeMinutes: 75,
     questionCount: 50,
     mcqCount: 29,
