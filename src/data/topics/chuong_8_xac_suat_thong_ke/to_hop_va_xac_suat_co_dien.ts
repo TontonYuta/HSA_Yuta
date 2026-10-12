@@ -330,7 +330,7 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
     ],
     "detailedSolution": "Số phần tử không gian mẫu: $n(\\Omega) = C_{12}^3 = \\frac{12 \\times 11 \\times 10}{6} = 220$.\nSố cách chọn 3 viên bi cùng màu:\n- Cùng màu đỏ: $C_5^3 = 10$.\n- Cùng màu trắng: $C_7^3 = 35$.\nSố kết quả thuận lợi: $n(A) = 10 + 35 = 45$.\nXác suất:\n$$P(A) = \\frac{45}{220} = \\frac{9}{44}$$\nPhân số tối giản có $a = 9$ và $b = 44$.\nVậy $a + b = 9 + 44 = 53$.",
     "socraticHint": "Tính số cách lấy 3 bi đỏ ($C_5^3$) và 3 bi trắng ($C_7^3$), cộng lại rồi chia cho không gian mẫu $C_{12}^3$.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
     ]

@@ -64,7 +64,7 @@ export const ungDungDienTichTheTichQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Diện tích toàn bộ hình phẳng giới hạn bởi $(P)$ và trục hoành ($y = 0$):\n$$S_0 = \\int_0^4 (-x^2 + 4x) dx = \\left[ -\\frac{x^3}{3} + 2x^2 \\right]_0^4 = -\\frac{64}{3} + 32 = \\frac{32}{3}.$$\nPhương trình hoành độ giao điểm của $(P)$ và $d$:\n$$-x^2 + 4x = kx \\iff x(4 - k - x) = 0 \\iff x = 0 \\text{ hoặc } x = 4 - k.$$\nDiện tích phần hình phẳng phía trên đường thẳng $d$ là:\n$$S_1 = \\int_0^{4-k} [(-x^2 + 4x) - kx] dx = \\int_0^{4-k} [(4 - k)x - x^2] dx = \\frac{(4 - k)^3}{6}.$$\nĐường thẳng $d$ chia đôi diện tích khi và chỉ khi:\n$$S_1 = \\frac{1}{2} S_0 \\iff \\frac{(4 - k)^3}{6} = \\frac{16}{3} \\iff (4 - k)^3 = 32 \\iff 4 - k = 2\\sqrt[3]{4} \\iff k = 4 - 2\\sqrt[3]{4}.$$",
     "socraticHint": "Tính diện tích toàn phần rồi tính diện tích phần giới hạn giữa parabol và đường thẳng theo cận $[0; 4 - k]$, sau đó giải phương trình tỉ lệ diện tích.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -179,7 +179,7 @@ export const ungDungDienTichTheTichQuestions: Question[] = [
     "correctAnswer": "6",
     "detailedSolution": "Tổng diện tích mảnh vườn hình chữ nhật: $S_{ABCD} = 6 \\times 10 = 60\\text{ m}^2$.\nPhần trồng cỏ có dạng parabol giới hạn bởi đáy chiều dài $10\\text{ m}$ và chiều cao $6\\text{ m}$.\nTheo công thức diện tích parabol Archimedes: $S_{\\text{co}} = \\frac{2}{3} \\cdot a \\cdot h = \\frac{2}{3} \\times 10 \\times 6 = 40\\text{ m}^2$.\nDiện tích phần lát đá còn lại: $S_{\\text{da}} = S_{ABCD} - S_{\\text{co}} = 60 - 40 = 20\\text{ m}^2$.\nChi phí lát đá: $20\\text{ m}^2 \\times 300.000\\text{ đ/m}^2 = 6.000.000(đồng) = 6(triệu đồng)$.",
     "socraticHint": "Diện tích phần giới hạn bởi parabol và dây cung bằng hai phần ba tích của đáy và chiều cao parabol.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_07_hsa36"
     ],

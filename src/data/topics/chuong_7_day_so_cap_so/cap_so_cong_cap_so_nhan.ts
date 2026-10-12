@@ -103,7 +103,7 @@ export const capSoCongNhanQuestions: Question[] = [
     ],
     "detailedSolution": "Gọi 3 cạnh là $x - 3, x, x + 3$ ($x > 3$).\nTheo định lý Pythagore: $(x - 3)^2 + x^2 = (x + 3)^2 \\iff x^2 - 12x = 0 \\implies x = 12$.\nBa cạnh là $9, 12, 15$. Chu vi $P = 9 + 12 + 15 = 36$.",
     "socraticHint": "Bộ ba cạnh của tam giác vuông theo cấp số cộng luôn tỉ lệ với (3, 4, 5).",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
     ]
@@ -190,7 +190,7 @@ export const capSoCongNhanQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "- Dãy $(u_n)$ có số hạng đầu $u_1 = 3$, công sai $d_1 = 4 \\implies u_n = 4n - 1$.\n- Dãy $(v_m)$ có số hạng đầu $v_1 = 2$, công sai $d_2 = 5 \\implies v_m = 5m - 3$.\nSố hạng chung đầu tiên là 7. Vì $\\text{BCNN}(4, 5) = 20$, dãy các số hạng chung là một cấp số cộng có công sai $D = 20$:\n$$w_k = 7 + 20(k - 1) = 20k - 13 \\quad (k \\in \\mathbb{N}^*)$$\nTa tìm $k$ nguyên dương nhỏ nhất sao cho $w_k > 100$:\n$$20k - 13 > 100 \\iff 20k > 113 \\iff k > 5.65 \\implies k = 6$$\nSố hạng chung nhỏ nhất lớn hơn 100 là $w_6 = 20(6) - 13 = 107$.",
     "socraticHint": "Tìm số hạng chung đầu tiên và công sai chung là BCNN của hai công sai ban đầu.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
     ]
@@ -224,7 +224,7 @@ export const capSoCongNhanQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "- Lần rơi đầu tiên: bóng đi quãng đường $h_0 = 10\\text{ m}$.\n- Từ lần nảy đầu tiên trở đi, ở mỗi chu kỳ bóng nảy lên độ cao $h_k$ và rơi xuống lại độ cao $h_k$, tức đi quãng đường $2h_k$ với $h_k = 10 \\cdot l\\left(\\frac{2}{3}\\right)^k$.\nTổng quãng đường bóng di chuyển là:\n$$S = 10 + 2 \\sum_{k=1}^\\infty 10 l\\left(\\frac{2}{3}\\right)^k = 10 + 20 \\sum_{k=1}^\\infty l\\left(\\frac{2}{3}\\right)^k$$\nTổng cấp số nhân lùi vô hạn với $u_1 = \\frac{2}{3}$ và công bội $q = \\frac{2}{3}$:\n$$\\sum_{k=1}^\\infty l\\left(\\frac{2}{3}\\right)^k = \\frac{\\frac{2}{3}}{1 - \\frac{2}{3}} = 2$$\nDo đó: $S = 10 + 20 \\times 2 = 50\\text{ m}$.",
     "socraticHint": "Tổng quãng đường gồm độ cao ban đầu cộng với 2 lần tổng của chuỗi cấp số nhân lùi vô hạn các độ cao nảy lên.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
     ]

@@ -65,7 +65,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Đạo hàm $y' = x^2 - 2mx + (m^2 - 4)$, $y'' = 2x - 2m$.\nĐiều kiện cần $y'(1) = 0 \\iff 1 - 2m + m^2 - 4 = 0 \\iff m^2 - 2m - 3 = 0 \\iff m = -1$ hoặc $m = 3$.\nĐiều kiện đủ để $x = 1$ là cực đại là $y''(1) < 0 \\iff 2 - 2m < 0 \\iff m > 1$. Do đó chọn $m = 3$.",
     "socraticHint": "Tại điểm cực đại, đạo hàm bậc một bằng 0 và đạo hàm bậc hai âm ($y''(x_0) < 0$).",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
     ]
@@ -99,7 +99,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Đạo hàm $g'(x) = 2x f'(x^2 - 2) = 2x(x^2 - 3)^2 (x^2)(x^2 - 5)$.\nCác nhân tử lũy thừa bậc chẵn $(x^2-3)^2$ và $x^2$ không đổi dấu.\nDấu của $g'(x)$ chỉ phụ thuộc vào $2x(x^2 - 5)$, đổi dấu tại 3 nghiệm đơn $x = 0, x = \\pm \\sqrt{5}$.\nVậy hàm số có đúng 3 điểm cực trị.",
     "socraticHint": "Điểm cực trị chỉ xuất hiện tại các nghiệm làm đạo hàm đổi dấu (nghiệm bội lẻ).",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
     ]
@@ -118,7 +118,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     ],
     "detailedSolution": "Xét hàm số $f(x) = x^4 - 4x^2 + 3$.\nĐạo hàm: $f'(x) = 4x^3 - 8x = 4x(x^2 - 2) = 0 \\iff x = 0$ hoặc $x = \\pm\\sqrt{2}$.\nSố điểm cực trị của $f(x)$ là $a = 3$.\nCác giá trị cực trị tương ứng:\n- $f(0) = 3 > 0$.\n- $f(\\pm\\sqrt{2}) = (\\sqrt{2})^4 - 4(\\sqrt{2})^2 + 3 = 4 - 8 + 3 = -1 < 0$.\nPhương trình hoành độ giao điểm $f(x) = 0 \\iff (x^2 - 1)(x^2 - 3) = 0 \\iff x = \\pm 1$ hoặc $x = \\pm\\sqrt{3}$.\nPhương trình có $b = 4$ nghiệm đơn phân biệt.\nSố điểm cực trị của hàm số trị tuyệt đối $y = |f(x)|$ bằng tổng số điểm cực trị của $f(x)$ cộng với số nghiệm đơn của phương trình $f(x) = 0$:\n$$N = a + b = 3 + 4 = 7.$$",
     "socraticHint": "Số cực trị của hàm $y = |f(x)|$ bằng số điểm cực trị của $f(x)$ cộng số nghiệm đơn của $f(x) = 0$.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -186,7 +186,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Nghiệm của đạo hàm: $x = 0$ (bội 1), $x = 1$ (bội 2), $x = -2$ (bội 3).\nVì $(x - 1)^2 \\ge 0$, dấu của $f'(x)$ không đổi qua $x = 1$.\nXét dấu của $f'(x)$:\n- $x < -2$: $x < 0, (x+2)^3 < 0 \\implies f'(x) > 0$.\n- $-2 < x < 0$: $x < 0, (x+2)^3 > 0 \\implies f'(x) < 0$.\n- $x > 0$: $x > 0, (x+2)^3 > 0 \\implies f'(x) > 0$.\nQua điểm $x = -2$, $f'(x)$ đổi dấu từ dương sang âm nên $x = -2$ là điểm cực đại.\nQua điểm $x = 0$, $f'(x)$ đổi dấu từ âm sang dương nên $x = 0$ là điểm cực tiểu.\nVậy hàm số có đúng 1 điểm cực đại.",
     "socraticHint": "Điểm cực đại xảy ra khi đạo hàm đổi dấu từ dương sang âm qua nghiệm bội lẻ.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
     ]
@@ -207,7 +207,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     ],
     "detailedSolution": "Đạo hàm: $y' = x^2 - 2mx + m + 12$.\nHàm số đạt cực trị tại hai điểm phân biệt $x_1, x_2$ khi và chỉ khi phương trình $y' = 0$ có hai nghiệm phân biệt:\n$$\\Delta' = m^2 - (m + 12) > 0 \\iff m^2 - m - 12 > 0 \\iff (m - 4)(m + 3) > 0$$\nVì $m$ là số nguyên dương, nên $m > 4$.\nTheo định lý Viète: $x_1 + x_2 = 2m$ và $x_1 x_2 = m + 12$.\nTa có:\n$$|x_1 - x_2|^2 = (x_1 + x_2)^2 - 4x_1 x_2 = 4m^2 - 4(m + 12) = 4(m^2 - m - 12)$$\nTheo giả thiết:\n$$|x_1 - x_2| \\le 4\\sqrt{11} \\iff |x_1 - x_2|^2 \\le 176$$\n$$\\iff 4(m^2 - m - 12) \\le 176 \\iff m^2 - m - 12 \\le 44 \\iff m^2 - m - 56 \\le 0$$\n$$\\iff (m - 8)(m + 7) \\le 0 \\iff -7 \\le m \\le 8$$\nKết hợp điều kiện $m$ nguyên dương và $m > 4$, ta được:\n$$4 < m \\le 8 \\implies m \\in \\{5; 6; 7; 8\\}$$\nVậy tập hợp $S$ có đúng $4$ phần tử.",
     "socraticHint": "Điều kiện có hai cực trị là $\\Delta' > 0$, sau đó biến đổi $|x_1 - x_2|^2 = (x_1 + x_2)^2 - 4x_1 x_2$ theo định lý Viète.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
     ]
@@ -262,7 +262,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     ],
     "detailedSolution": "Nhận xét bảng xét dấu đạo hàm của $f(x)$:\n- $f'(x)$ đổi dấu từ $+$ sang $-$ khi qua $x = 4$ (điểm cực đại).\n- $f'(x)$ đổi dấu từ $-$ sang $+$ khi qua $x = 5$ (điểm cực tiểu).\n- Tại $x = 6$, $f'(6) = 0$ nhưng $f'(x)$ mang dấu $+$ ở cả hai phía, nên $x = 6$ không phải là điểm cực trị của $f$.\nDo đó hàm hợp $f(u)$ chỉ sinh ra thêm cực trị khi $u(x)$ cắt các đường $u = 4$ hoặc $u = 5$.\n\nXét hàm lõi $u(x) = |x^4 - 2x^2 - 3| + m = |h(x)| + m$, trong đó $h(x) = (x^2 - 1)^2 - 4$.\nCác điểm cực trị của hàm số $u(x)$:\n- $h'(x) = 4x(x^2 - 1) = 0 \\iff x = 0$ hoặc $x = \\pm 1$.\n- Tại $x = \\pm 1$: $h(\\pm 1) = -4 \\implies u(\\pm 1) = 4 + m$ (hai điểm cực đại địa phương).\n- Tại $x = 0$: $h(0) = -3 \\implies u(0) = 3 + m$ (một điểm cực tiểu địa phương).\n- Tại $x = \\pm \\sqrt{3}$: $h(\\pm \\sqrt{3}) = 0 \\implies u(\\pm \\sqrt{3}) = m$ (hai điểm cực tiểu do lấy trị tuyệt đối).\nNhư vậy hàm số $u(x)$ đã có sẵn $5$ điểm cực trị: $x \\in \\{-\\sqrt{3}; -1; 0; 1; \\sqrt{3}\\}$.\nĐể $g(x) = f(u(x))$ có ít nhất $7$ điểm cực trị, phương trình $u(x) = 4$ hoặc $u(x) = 5$ phải đóng góp thêm ít nhất $2$ điểm làm $f'(u)$ đổi dấu mà không trùng với các điểm dừng của $u(x)$.\n- Vì $u(x) \\ge m$ và tăng đến $+\\infty$ khi $|x| > \\sqrt{3}$, đường thẳng $u = c$ ($c \\in \\{4; 5\\}$) sẽ cắt đồ thị $u(x)$ tại ít nhất 2 nghiệm đơn trên $(-\\infty; -\\sqrt{3}) \\cup (\\sqrt{3}; +\\infty)$ khi và chỉ khi $c > m$.\n- Cụ thể:\n  + Khi $m = 1$: $u = 5$ có 2 nghiệm cắt, $u = 4$ có thêm nghiệm $\\implies$ tổng cộng $\\ge 7$ điểm cực trị.\n  + Khi $m = 2, 3$: cả $c = 4$ và $c = 5$ đều thỏa mãn $c > m \\implies$ sinh ra nhiều hơn 7 điểm cực trị.\n  + Khi $m = 4$: $c = 5 > 4 = m$, đường thẳng $u = 5$ cắt tại 4 nghiệm đơn $\\implies$ tổng số cực trị là $5 + 4 = 9 \\ge 7$.\n  + Khi $m \\ge 5$: cả $c = 4$ và $c = 5$ đều $\\le m$, do đó phương trình $u(x) = 4$ và $u(x) = 5$ không có thêm nghiệm cắt $\\implies$ $g(x)$ chỉ có đúng $5$ điểm cực trị ($< 7$).\n\nVậy các giá trị nguyên dương thỏa mãn là $m \\in \\{1; 2; 3; 4\\}$.\nSố giá trị nguyên dương của $m$ là $4$.",
     "socraticHint": "Tìm số điểm cực trị sẵn có của hàm lõi $u(x)$ (5 điểm) rồi tìm điều kiện để $u(x) = 4$ hoặc $u(x) = 5$ có thêm nghiệm cắt.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
     ]
@@ -309,7 +309,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "correctAnswer": "D",
     "detailedSolution": "Hàm số ban đầu $f(x)$ có 2 điểm cực trị.\nSố điểm cực trị của hàm số $y = |f(x) - m|$ bằng tổng số điểm cực trị của $f(x)$ cộng với số nghiệm đơn (hoặc bội lẻ) của phương trình $f(x) - m = 0$.\nĐể hàm số có 5 điểm cực trị thì phương trình $f(x) = m$ phải có đúng 3 nghiệm phân biệt.\nTừ bảng biến thiên, phương trình có 3 nghiệm phân biệt khi và chỉ khi:\n$$y_{\\text{CT}} < m < y_{\\text{CĐ}} \\iff 0 < m < 4$$\nVì $m$ nguyên nên $m \\in \\{1, 2, 3\\}$.\nTổng các phần tử của $S$ là: $1 + 2 + 3 = 6$.",
     "socraticHint": "Số cực trị của hàm $|f(x) - m|$ bằng số cực trị của $f(x)$ cộng số giao điểm cắt xuyên qua của đồ thị $f(x)$ với đường thẳng $y = m$.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_07_hsa36"
     ],

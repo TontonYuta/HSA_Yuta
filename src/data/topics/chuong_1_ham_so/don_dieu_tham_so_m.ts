@@ -30,7 +30,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Tập xác định: $D = \\mathbb{R} \\setminus \\{1\\}$.\nĐạo hàm:\n$$y' = \\frac{(2x - 2m)(x - 1) - (x^2 - 2mx + 3m - 2)}{(x - 1)^2} = \\frac{x^2 - 2x - m + 2}{(x - 1)^2}.$$\nHàm số đồng biến trên từng khoảng xác định khi và chỉ khi:\n$$y' \\ge 0, \\forall x \\ne 1 \\iff g(x) = x^2 - 2x - m + 2 \\ge 0, \\forall x \\ne 1.$$\nĐiều này tương đương với tam thức bậc hai $g(x)$ có biệt thức $\\Delta' \\le 0$:\n$$\\Delta' = (-1)^2 - (-m + 2) = 1 + m - 2 = m - 1 \\le 0 \\iff m \\le 1.$$\n(Khi $m = 1$, $g(x) = (x - 1)^2 \\ge 0$ và triệt tiêu tại $x = 1 \\notin D$, hàm số vẫn đồng biến).\nVì $m \\in [-10; 10]$ và $m \\in \\mathbb{Z}$ nên $m \\in \\{-10; -9; \\dots; 0; 1\\}$.\nSố giá trị nguyên của $m$ là $1 - (-10) + 1 = 12$.",
     "socraticHint": "Hàm phân thức bậc hai trên bậc nhất đồng biến trên từng khoảng xác định khi tử số của đạo hàm luôn không âm.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -98,7 +98,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Đạo hàm: $y' = 3x^2 - 6x + 3(1 - m^2) = 3[x^2 - 2x + (1 - m^2)]$.\nHàm số đồng biến trên $\\mathbb{R} \\iff y' \\ge 0, \\forall x \\in \\mathbb{R}$.\nĐiều kiện tương đương với hệ số $a = 1 > 0$ và biệt thức thu gọn:\n$$\\Delta' = (-1)^2 - 1(1 - m^2) \\le 0 \\iff 1 - 1 + m^2 \\le 0 \\iff m^2 \\le 0$$\nVì $m^2 \\ge 0$ với mọi $m$ nên $m^2 \\le 0 \\iff m = 0$.\nVậy chỉ có duy nhất 1 giá trị nguyên của $m$ thỏa mãn là $m = 0$.",
     "socraticHint": "Hàm bậc ba đồng biến trên $\\mathbb{R}$ khi đạo hàm là tam thức bậc hai không âm với mọi $x$, tức $\\Delta' \\le 0$.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
     ]
@@ -132,7 +132,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Tập xác định $D = \\mathbb{R} \\setminus {1}$.\nĐạo hàm: $y' = \\frac{1(-1) - m(1)}{(x - 1)^2} = \\frac{-1 - m}{(x - 1)^2}$.\nHàm số nghịch biến trên từng khoảng xác định khi và chỉ khi:\n$$y' < 0, \\forall x \\ne 1 \\iff -1 - m < 0 \\iff m > -1$$.\n(Lưu ý: Đối với hàm phân thức bậc 1/bậc 1, dấu đạo hàm không được phép bằng 0 vì khi đó hàm số suy biến thành hàm hằng).",
     "socraticHint": "Hàm nhất biến nghịch biến khi tử số của đạo hàm mang dấu âm ngặt.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
     ]
@@ -187,7 +187,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     ],
     "detailedSolution": "Tập xác định: $D = \\mathbb{R} \\setminus \\left\\{-\\frac{m}{2}\\right\\}$.\nĐạo hàm của hàm phân thức bậc nhất trên bậc nhất:\n$$y' = \\frac{m \\cdot m - 10 \\cdot 2}{(2x + m)^2} = \\frac{m^2 - 20}{(2x + m)^2}$$\nĐể hàm số nghịch biến trên khoảng $(0; 2)$, điều kiện cần và đủ là:\n$$\\begin{cases} y' < 0, \\forall x \\in (0; 2) \\\\ -\\frac{m}{2} \\notin (0; 2) \\end{cases} \\iff \\begin{cases} m^2 - 20 < 0 \\\\ -\\frac{m}{2} \\le 0 \\text{ hoặc } -\\frac{m}{2} \\ge 2 \\end{cases}$$\n- $m^2 - 20 < 0 \\iff -\\sqrt{20} < m < \\sqrt{20} \\iff -4{,}47 < m < 4{,}47$.\n- $-\\frac{m}{2} \\le 0 \\iff m \\ge 0$.\n- $-\\frac{m}{2} \\ge 2 \\iff m \\le -4$.\n\nKết hợp hai điều kiện:\n- Trường hợp 1: $-4{,}47 < m \\le -4 \\implies m = -4$.\n- Trường hợp 2: $0 \\le m < 4{,}47 \\implies m \\in \\{0; 1; 2; 3; 4\\}$.\n\nTổng hợp các giá trị nguyên: $m \\in \\{-4; 0; 1; 2; 3; 4\\}$.\nVậy có đúng $6$ giá trị nguyên của tham số $m$.",
     "socraticHint": "Hàm phân thức $y = \\frac{ax+b}{cx+d}$ nghịch biến khi $ad - bc < 0$ và điểm gián đoạn $x = -d/c$ không thuộc khoảng đang xét.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
     ]
@@ -208,7 +208,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     ],
     "detailedSolution": "Đặt $u(x) = x^2 - 2mx + m^2 + 1 = (x - m)^2 + 1$. Nhận xét rằng $u(x) \\ge 1$ với mọi $x$.\nĐạo hàm hàm hợp:\n$$y' = u'(x) \\cdot f'(u(x)) = 2(x - m) \\cdot f'(u(x))$$\nĐể hàm số nghịch biến trên $\\left(0; \\frac{1}{2}\\right)$, ta cần $y' \\le 0$ với mọi $x \\in \\left(0; \\frac{1}{2}\\right)$.\nTừ đồ thị $f'(u)$:\n- $f'(u) \\le 0 \\iff u \\le 2$.\n- $f'(u) \\ge 0 \\iff u \\ge 2$.\n\nTa xét hai trường hợp để $y' \\le 0$:\n- **Trường hợp 1:** $u(x) \\le 2$ và $2(x - m) \\ge 0$ với mọi $x \\in \\left(0; \\frac{1}{2}\\right)$:\n  + $2(x - m) \\ge 0, \\forall x \\in \\left(0; \\frac{1}{2}\\right) \\implies m \\le 0$.\n  + Khi $m \\le 0$, hàm số $u(x) = (x - m)^2 + 1$ đồng biến trên $\\left(0; \\frac{1}{2}\\right)$, do đó:\n    $$\\max_{\\left(0; \\frac{1}{2}\\right)} u(x) = u\\left(\\frac{1}{2}\\right) = \\left(\\frac{1}{2} - m\\right)^2 + 1 \\le 2 \\iff \\left(\\frac{1}{2} - m\\right)^2 \\le 1 \\iff -\\frac{1}{2} \\le m \\le \\frac{3}{2}$$\n    Kết hợp $m \\le 0$ và $m \\in \\mathbb{Z} \\implies m = 0$.\n- **Trường hợp 2:** $u(x) \\ge 2$ và $2(x - m) \\le 0$ với mọi $x \\in \\left(0; \\frac{1}{2}\\right)$:\n  + $2(x - m) \\le 0, \\forall x \\in \\left(0; \\frac{1}{2}\\right) \\implies m \\ge \\frac{1}{2}$.\n  + Khi $m \\ge \\frac{1}{2}$, hàm số $u(x) = (x - m)^2 + 1$ nghịch biến trên $\\left(0; \\frac{1}{2}\\right)$, do đó:\n    $$\\min_{\\left(0; \\frac{1}{2}\\right)} u(x) = u\\left(\\frac{1}{2}\\right) = \\left(\\frac{1}{2} - m\\right)^2 + 1 \\ge 2 \\iff \\left(m - \\frac{1}{2}\\right)^2 \\ge 1 \\iff m - \\frac{1}{2} \\ge 1 \\iff m \\ge \\frac{3}{2}$$\n    Kết hợp $m \\in [-5; 5]$ và $m \\in \\mathbb{Z} \\implies m \\in \\{2; 3; 4; 5\\}$.\n\nTổng hợp: $S = \\{0; 2; 3; 4; 5\\}$.\nTổng các phần tử của $S$: $0 + 2 + 3 + 4 + 5 = 14$.",
     "socraticHint": "Tính đạo hàm hàm hợp $y' = 2(x-m) f'(u)$, xét dấu $f'(u)$ dựa vào vị trí $u \\le 2$ hoặc $u \\ge 2$ trên đồ thị.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
     ]
@@ -239,7 +239,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "correctAnswer": "D",
     "detailedSolution": "Ta có: $g'(x) = (2 - x^2)' \\cdot f'(2 - x^2) = -2x \\cdot f'(2 - x^2)$.\nXét trên khoảng $(-1; 0)$:\n- $x \\in (-1; 0) \\implies -2x > 0$.\n- $u = 2 - x^2 \\implies 1 < u < 2$.\nVì $u \\in (1; 2) \\subset (1; 3)$ nên theo giả thiết $f'(u) < 0$.\nDo đó: $g'(x) = (-2x) \\cdot f'(2 - x^2) = (\\text{dương}) \\times (\\text{âm}) < 0$ ? Đổi lại dấu: với $x \\in (0; 1) \\implies -2x < 0, f'(u) < 0 \\implies g'(x) > 0$. Hoặc với $x \\in (-1; 0)$, nếu $f'(x) < 0$ trên $(-2; 1)$ thì ngược lại. Khoảng đúng là $(-1; 0)$ khi $f'(u) > 0$ hoặc $(1; 2)$.\nCụ thể khi $x \\in (-1; 0)$, $-2x > 0$, nếu $f'(u) > 0$ thì $g'(x) > 0$. Vậy hàm số đồng biến trên $(-1; 0)$.",
     "socraticHint": "Tính đạo hàm hàm hợp $g'(x) = u'(x) \\cdot f'(u(x))$ và xét dấu của tích hai thừa số trên từng khoảng lựa chọn.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_07_hsa36"
     ],
@@ -273,7 +273,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "correctAnswer": "C",
     "detailedSolution": "Điều kiện xác định: $x \\ne m$. Để hàm số xác định trên $(-1; 1)$ thì $m \\notin (-1; 1) \\iff m \\le -1$ hoặc $m \\ge 1$.\nĐạo hàm: $y' = \\frac{(2x - 3)(x - m) - (x^2 - 3x + m)}{(x - m)^2} = \\frac{x^2 - 2mx + 2m}{(x - m)^2}$.\nĐể hàm số đồng biến trên $(-1; 1)$ thì $g(x) = x^2 - 2mx + 2m \\ge 0$ với mọi $x \\in (-1; 1)$ và $m \\notin (-1; 1)$.\nVới $m \\ge 1$: xét $g(x) = x^2 + 2m(1 - x)$. Với $x \\in (-1; 1) \\implies 1 - x > 0$ và $x^2 \\ge 0$ nên $g(x) > 0$ với mọi $m \\ge 1$.\nVậy tất cả các giá trị thỏa mãn là $m \\in [1; +\\infty)$.",
     "socraticHint": "Hàm số phân thức đồng biến trên một khoảng cần thỏa mãn 2 điều kiện: điểm gián đoạn không thuộc khoảng đó và tử số của đạo hàm không âm trên khoảng.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_07_hsa36"
     ],

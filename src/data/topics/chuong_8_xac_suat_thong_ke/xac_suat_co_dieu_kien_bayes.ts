@@ -30,7 +30,7 @@ export const xacSuatBayesQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Áp dụng định nghĩa xác suất có điều kiện:\n$$P(B|A) = \\frac{P(A \\cap B)}{P(A)} = \\frac{0.3}{0.5} = 0.6$$.",
     "socraticHint": "Công thức xác suất có điều kiện của $B$ khi biết $A$ là $P(B|A) = \\frac{P(A \\cap B)}{P(A)}$.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
     ]

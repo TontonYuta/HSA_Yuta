@@ -18,7 +18,7 @@ export const hsa558ExamQuestions: Question[] = [
     correctAnswer: 'A',
     detailedSolution: 'Tập xác định $D = \\mathbb{R} \\setminus \\{2\\}$. Đạo hàm $y\' = \\frac{-5}{(x - 2)^2}$.\nGọi $M\\left(x_0; \\frac{2x_0 + 1}{x_0 - 2}\\right) \\in (C)$ với $x_0 \\ne 2$. Đặt $t = x_0 - 2 \\ne 0 \\implies x_0 = t + 2$.\nTiếp tuyến $d$ tại $M$ có phương trình: $y = -\\frac{5}{t^2}(x - t - 2) + 2 + \\frac{5}{t}$.\n- Giao điểm với trục hoành $Ox$ ($y = 0$): $x_A = \\frac{2t^2 + 10t + 10}{5}$.\n- Giao điểm với trục tung $Oy$ ($x = 0$): $y_B = \\frac{2t^2 + 10t + 10}{t^2}$.\nDiện tích tam giác vuông $OAB$ là: $S = \\frac{1}{2}|x_A y_B| = 25 \\iff |x_A y_B| = 50$.\nTa có $x_A y_B = \\frac{(2t^2 + 10t + 10)^2}{5t^2} = 50 \\iff (2t^2 + 10t + 10)^2 = 250t^2$.\n$\\iff \\left[\\begin{array}{l} 2t^2 + (10 - 5\\sqrt{10})t + 10 = 0 \\quad (\\text{vô nghiệm do } \\Delta_1 < 0) \\\\ 2t^2 + (10 + 5\\sqrt{10})t + 10 = 0 \\quad (\\text{có 2 nghiệm phân biệt khác } 0) \\end{array}\\right.$.\nVậy có đúng 2 điểm $M$ thỏa mãn yêu cầu bài toán.',
     socraticHint: 'Chuyển về ẩn phụ $t = x_0 - 2$ để rút gọn tọa độ giao điểm của tiếp tuyến với hai trục tọa độ $Ox, Oy$.',
-    difficulty: 'Vận dụng cao',
+    difficulty: 'Vận dụng',
     examSets: ['de_08_hsa558']
   },
   {
@@ -148,7 +148,7 @@ export const hsa558ExamQuestions: Question[] = [
     correctAnswer: 'A',
     detailedSolution: 'Chọn hệ trục tọa độ hoặc dùng tích vô hướng vectơ:\nVì $AB = BD = a$ nên tam giác $ABD$ đều cạnh $a$, do đó góc $\\widehat{BAD} = 60^\\circ$.\nTa có: $\\vec{DM} = \\vec{DB} + \\vec{BM} = \\vec{DB} + \\frac{2}{3}\\vec{BS} = \\vec{DB} + \\frac{2}{3}(\\vec{BA} + \\vec{AS})$.\nĐặt $\\vec{AN} = k\\vec{AD}$ với $0 \\le k \\le 1$. Khi đó $\\vec{BN} = \\vec{BA} + \\vec{AN} = \\vec{BA} + k\\vec{AD}$.\nVì $SA \\perp (ABCD)$ nên $\\vec{AS} \\cdot \\vec{BA} = 0$ và $\\vec{AS} \\cdot \\vec{AD} = 0$.\nTính tích vô hướng $\\vec{BN} \\cdot \\vec{DM} = 0$ và khai triển theo độ dài và góc $60^\\circ$:\nTa giải được nghiệm $k = \\frac{1}{2}$, nghĩa là $N$ chính là trung điểm của cạnh $AD$.',
     socraticHint: 'Phân tích các vectơ $\\vec{BN}$ và $\\vec{DM}$ theo ba vectơ cơ sở $\\vec{AB}, \\vec{AD}, \\vec{AS}$.',
-    difficulty: 'Vận dụng cao',
+    difficulty: 'Vận dụng',
     examSets: ['de_08_hsa558']
   },
   {
@@ -368,7 +368,7 @@ export const hsa558ExamQuestions: Question[] = [
     acceptableAnswers: ['2'],
     detailedSolution: 'Phương trình hoành độ giao điểm: $x^3 - 3mx^2 + 6mx - 8 = 0$.\nGiả sử 3 nghiệm phân biệt là $x_1, x_2, x_3$ lập thành một cấp số cộng $\\implies x_1 + x_3 = 2x_2$.\nTheo định lý Vi-ét bậc ba:\n$$x_1 + x_2 + x_3 = 3m \\iff 3x_2 = 3m \\iff x_2 = m$$\nVì $x_2 = m$ là một nghiệm của phương trình, thay $x = m$ vào phương trình:\n$$m^3 - 3m(m^2) + 6m(m) - 8 = 0 \\iff -2m^3 + 6m^2 - 8 = 0 \\iff m^3 - 3m^2 + 4 = 0$$\nPhân tích nhân tử: $(m - 2)^2(m + 1) = 0 \\iff m = 2$ hoặc $m = -1$.\n- Với $m = 2$: Phương trình trở thành $x^3 - 6x^2 + 12x - 8 = (x - 2)^3 = 0$ (nghiệm bội 3, loại vì cần 3 nghiệm phân biệt).\n- Kiểm tra nghiệm và điều kiện 3 nghiệm phân biệt cho thấy giá trị phù hợp là $m = 2$ khi xét đồ thị chuẩn.',
     socraticHint: 'Theo định lý Vi-ét, tổng ba nghiệm $x_1 + x_2 + x_3 = 3m$. Kết hợp tính chất cấp số cộng suy ra nghiệm ở giữa $x_2 = m$.',
-    difficulty: 'Vận dụng cao',
+    difficulty: 'Vận dụng',
     examSets: ['de_08_hsa558']
   },
   {
@@ -398,7 +398,7 @@ export const hsa558ExamQuestions: Question[] = [
     acceptableAnswers: ['1'],
     detailedSolution: 'Tốc độ tăng chiều cao là đạo hàm cấp một:\n$$v(t) = f\'(t) = \\frac{200 \\cdot (-4e^{-t}) \\cdot (-1)}{(1 + 4e^{-t})^2} = \\frac{800e^{-t}}{(1 + 4e^{-t})^2}$$\nĐặt $u = e^{-t} > 0$. Khi đó:\n$$v(u) = \\frac{800u}{(1 + 4u)^2} = \\frac{800}{\\left(\\frac{1}{\\sqrt{u}} + 4\\sqrt{u}\\right)^2}$$\nTheo bất đẳng thức AM-GM: $\\frac{1}{\\sqrt{u}} + 4\\sqrt{u} \\ge 2\\sqrt{\\frac{1}{\\sqrt{u}} \\cdot 4\\sqrt{u}} = 4$.\nDấu bằng xảy ra khi $\\frac{1}{\\sqrt{u}} = 4\\sqrt{u} \\iff 4u = 1 \\iff u = \\frac{1}{4}$.\nSuy ra: $e^{-t} = \\frac{1}{4} \\iff e^t = 4 \\iff t = \\ln 4 = 2\\ln 2 \\approx 1{,}386$ tháng.\nPhần nguyên của số tháng là: $[1{,}386] = 1$.',
     socraticHint: 'Tốc độ tăng lớn nhất khi đạo hàm cấp hai $f\'\'(t) = 0$ (điểm uốn của đồ thị hàm logistic).',
-    difficulty: 'Vận dụng cao',
+    difficulty: 'Vận dụng',
     examSets: ['de_08_hsa558']
   },
   {
@@ -598,7 +598,7 @@ export const hsa558ExamQuestions: Question[] = [
     correctAnswer: 'A',
     detailedSolution: 'Gọi $O = AC \\cap BD$. Vì $S.ABCD$ đều nên $SO \\perp (ABCD)$.\nTrong mặt phẳng $(SAC)$, gọi $I = AM \\cap SO$.\nVì $(P) \\parallel BD$ nên qua $I$ ta kẻ đường thẳng song song với $BD$ cắt $SB, SD$ lần lượt tại $E$ và $F$.\nThiết diện cắt bởi $(P)$ là tứ giác $AEMF$ có hai đường chéo $AM \\perp EF$ (do $EF \\parallel BD$ và $BD \\perp (SAC)$).\nDo đó diện tích thiết diện là: $S = \\frac{1}{2} AM \\cdot EF$.\nTính $AM$: Áp dụng định lý cosin trong $\\triangle SAC$.\nTính $EF$: Dùng định lý Thales qua tỉ số $\\frac{SI}{SO}$.\nKết quả diện tích thiết diện tính ra bằng $\\frac{4a^2\\sqrt{2}}{3}$.',
     socraticHint: 'Hai đường chéo của thiết diện vuông góc với nhau vì $EF \\parallel BD$ và $BD \\perp (SAC)$. Diện tích bằng $\\frac{1}{2} AM \\cdot EF$.',
-    difficulty: 'Vận dụng cao',
+    difficulty: 'Vận dụng',
     examSets: ['de_08_hsa558']
   },
   {
@@ -893,7 +893,7 @@ export const hsa558ExamQuestions: Question[] = [
     correctAnswer: 'A',
     detailedSolution: 'Trong hình hộp $ABCD.A\'B\'C\'D\', thiết diện cắt 4 cạnh bên tại bốn điểm $M, N, P, Q$ đồng phẳng khi và chỉ khi:\n$$\\frac{AM}{AA\'} + \\frac{CP}{CC\'} = \\frac{BN}{BB\'} + \\frac{DQ}{DD\'}$$\nThay các tỉ số đã cho vào hệ thức:\n$$\\frac{3}{4} + \\frac{1}{3} = \\frac{1}{2} + \\frac{DQ}{DD\'} \\iff \\frac{DQ}{DD\'} = \\frac{3}{4} + \\frac{1}{3} - \\frac{1}{2} = \\frac{9 + 4 - 6}{12} = \\frac{7}{12}$$\nVì $Q$ nằm trên cạnh $DD\'$ nên:\n$$\\frac{D\'Q}{D\'D} = 1 - \\frac{DQ}{DD\'} = 1 - \\frac{7}{12} = \\frac{5}{12}$$\nVậy tỷ số $\\frac{D\'Q}{D\'D} = \\frac{5}{12}$.',
     socraticHint: 'Sử dụng công thức đồng phẳng trên 4 cạnh bên hình hộp: $\\frac{AM}{AA\'} + \\frac{CP}{CC\'} = \\frac{BN}{BB\'} + \\frac{DQ}{DD\'}$.',
-    difficulty: 'Vận dụng cao',
+    difficulty: 'Vận dụng',
     examSets: ['de_08_hsa558']
   }
 ];

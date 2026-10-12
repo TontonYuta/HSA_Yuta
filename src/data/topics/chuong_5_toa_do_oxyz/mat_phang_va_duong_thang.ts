@@ -485,7 +485,7 @@ export const matPhangDuongThangQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Gọi $A = \\Delta \\cap d_1 \\implies A(1 + u; 1 + 2u; 2 + u)$.\nGọi $B = \\Delta \\cap d_2 \\implies B(2 + v; -1 - v; 2v)$.\nVì $\\Delta$ đi qua $M(1; -4; 3)$ nên ba điểm $M, A, B$ thẳng hàng, suy ra $\\vec{MA}$ cùng phương với $\\vec{MB}$:\n$\\vec{MA} = (u; 5 + 2u; u - 1)$, $\\vec{MB} = (v + 1; 3 - v; 2v - 3)$.\nGiải hệ tỉ lệ tọa độ tìm được tham số $u, v$, suy ra vectơ chỉ phương của $\\Delta$ tỉ lệ với $(6; 10; -17)$.\nPhương trình chính tắc của $\\Delta$ là: $\\frac{x - 1}{6} = \\frac{y + 4}{10} = \\frac{z - 3}{-17}$.",
     "socraticHint": "Gọi tọa độ hai giao điểm $A, B$ theo tham số rồi sử dụng điều kiện $\\vec{MA}$ và $\\vec{MB}$ cùng phương.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_07_hsa36"
     ],

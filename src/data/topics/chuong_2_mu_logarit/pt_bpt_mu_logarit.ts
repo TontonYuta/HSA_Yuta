@@ -259,7 +259,7 @@ export const ptBptMuLogaritQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Đặt $t = \\log_3 x$. Phương trình trở thành:\n$$t^2 - 2mt + 2m + 3 = 0.$$\nĐể phương trình có hai nghiệm phân biệt thì biệt thức $\\Delta' > 0$:\n$$\\Delta' = m^2 - (2m + 3) = m^2 - 2m - 3 > 0 \\iff m < -1 \\text{ hoặc } m > 3.$$\nTheo bài ra, $x_1 x_2 = 81 \\iff \\log_3(x_1 x_2) = \\log_3 81 = 4 \\iff \\log_3 x_1 + \\log_3 x_2 = 4 \\iff t_1 + t_2 = 4$.\nTheo định lý Viète: $t_1 + t_2 = 2m = 4 \\iff m = 2$.\nThử lại với $m = 2$: $\\Delta' = 2^2 - 2(2) - 3 = -3 < 0$, phương trình vô nghiệm.\nVậy không có giá trị nào của $m$ thỏa mãn.",
     "socraticHint": "Kiểm tra kỹ điều kiện có hai nghiệm phân biệt $\\Delta' > 0$ sau khi tìm được giá trị tham số $m$ từ định lý Viète.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
     ]
@@ -313,7 +313,7 @@ export const ptBptMuLogaritQuestions: Question[] = [
     ],
     "detailedSolution": "Điều kiện: $x > 0$.\nĐặt $t = \\log_2 x$. Phương trình trở thành:\n$$t^2 - 4t + 3 = 0 \\iff (t - 1)(t - 3) = 0 \\iff \\begin{cases} t_1 = 1 \\\\ t_2 = 3 \\end{cases}$$\n- $t_1 = 1 \\implies \\log_2 x_1 = 1 \\implies x_1 = 2^1 = 2$.\n- $t_2 = 3 \\implies \\log_2 x_2 = 3 \\implies x_2 = 2^3 = 8$.\nTích các nghiệm: $x_1 \\cdot x_2 = 2 \\times 8 = 16$.\n(Hoặc áp dụng định lý Viète: $t_1 + t_2 = \\log_2(x_1 x_2) = 4 \\implies x_1 x_2 = 2^4 = 16$).",
     "socraticHint": "Sử dụng hệ thức Viète cho phương trình ẩn $t = \\log_2 x$: tổng hai nghiệm $t_1 + t_2 = \\log_2(x_1 x_2)$.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
     ]
@@ -428,7 +428,7 @@ export const ptBptMuLogaritQuestions: Question[] = [
     "correctAnswer": "2029",
     "detailedSolution": "Áp dụng công thức đổi cơ số lũy thừa: $x^{\\log_3 5} = 5^{\\log_3 x}$.\nBất phương trình trở thành:\n$$2 \\cdot 5^{\\log_3 x} \\ge 2m \\iff 5^{\\log_3 x} \\ge m$$\nĐể bất phương trình nghiệm đúng với mọi $x \\in [3; 9]$ thì:\n$$m \\le \\min_{x \\in [3; 9]} 5^{\\log_3 x}$$\nVì cơ số $5 > 1$ và cơ số logarit $3 > 1$ nên hàm số $g(x) = 5^{\\log_3 x}$ đồng biến trên $[3; 9]$.\nDo đó: $\\min_{x \\in [3; 9]} g(x) = g(3) = 5^{\\log_3 3} = 5^1 = 5$.\nSuy ra: $m \\le 5$.\nKết hợp điều kiện $m \\in (-2025; 2025)$ và $m \\in \\mathbb{Z}$:\n$$-2024 \\le m \\le 5$$\nSố phần tử là: $5 - (-2024) + 1 = 2030 - 1 = 2029$ số nguyên.",
     "socraticHint": "Sử dụng tính chất $a^{\\log_b c} = c^{\\log_b a}$ để quy về bất đẳng thức đơn giản $5^{\\log_3 x} \\ge m$.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_07_hsa36"
     ],

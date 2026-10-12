@@ -30,7 +30,7 @@ export const nghiemNguyenMuLogQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Điều kiện xác định: $x^2 - 2x > 0 \\iff x < 0$ hoặc $x > 2$.\nBất phương trình:\n$$x^2 - 2x \\le 2^3 = 8 \\iff x^2 - 2x - 8 \\le 0 \\iff -2 \\le x \\le 4$$\nKết hợp điều kiện xác định:\n$$x in [-2; 0) \\cup (2; 4]$$\nCác giá trị nguyên của $x$ là: $x in {-2; -1; 3; 4}$.\nVậy có đúng 4 nghiệm nguyên.",
     "socraticHint": "Đừng quên điều kiện biểu thức trong logarit phải dương ngặt trước khi giải bất phương trình mũ hóa.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
     ]
@@ -50,7 +50,7 @@ export const nghiemNguyenMuLogQuestions: Question[] = [
     ],
     "detailedSolution": "Điều kiện xác định: $3 - x \\ge 0 \\iff x \\le 3$.\n- Trường hợp 1: $\\sqrt{3 - x} = 0 \\iff x = 3$. Thay vào BPT thỏa mãn ($0 \\le 0$). Vậy $x = 3$ là một nghiệm.\n- Trường hợp 2: Với $x < 3$, ta có $\\sqrt{3 - x} > 0$. Bất phương trình tương đương:\n$$4^x - 17 \\cdot 2^x + 16 \\le 0$$\nĐặt $t = 2^x > 0$, ta có $t^2 - 17t + 16 \\le 0 \\iff 1 \\le t \\le 16$.\nThay lại: $1 \\le 2^x \\le 16 \\iff 0 \\le x \\le 4$.\nKết hợp điều kiện $x < 3$, ta được: $0 \\le x < 3$.\nCác nghiệm nguyên trong khoảng này là $x in {0; 1; 2}$.\nKết hợp cả hai trường hợp: $x in {0; 1; 2; 3}$.\nVậy bất phương trình có đúng 4 nghiệm nguyên.",
     "socraticHint": "Xét riêng trường hợp căn thức bằng 0, sau đó rút gọn căn thức dương với điều kiện chặn.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
     ]

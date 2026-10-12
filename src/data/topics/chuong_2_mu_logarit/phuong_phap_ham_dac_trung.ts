@@ -30,7 +30,7 @@ export const hamDacTrungQuestions: Question[] = [
     "correctAnswer": "B",
     "detailedSolution": "Đặt $t = 2^x > 0$. Phương trình thành $t^2 - (m+2)t + 2m = 0 \\iff (t - 2)(t - m) = 0$.\nNghiệm $t_1 = 2 \\implies x_1 = 1$.\nTheo giả thiết $x_1 + x_2 = 3 \\implies x_2 = 2 \\implies t_2 = 2^2 = 4 \\implies m = 4$.",
     "socraticHint": "Phân tích nhân tử phương trình bậc hai theo ẩn phụ $t = 2^x$.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
     ]

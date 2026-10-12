@@ -83,7 +83,7 @@ export const nguyenHamCoBanQuestions: Question[] = [
     ],
     "detailedSolution": "Đặt hằng số $A = \\int_0^1 f(t) dt$. Khi đó ta có:\n$$f(x) = 6x + \\frac{1}{2}A.$$\nLấy tích phân từ $0$ đến $1$ của cả hai vế:\n$$A = \\int_0^1 \\left( 6t + \\frac{1}{2}A \\right) dt = \\left[ 3t^2 + \\frac{1}{2}At \\right]_0^1 = 3 + \\frac{1}{2}A.$$\nGiải phương trình tìm $A$:\n$$A - \\frac{1}{2}A = 3 \\iff \\frac{1}{2}A = 3 \\iff A = 6.$$\nSuy ra hàm số là $f(x) = 6x + \\frac{1}{2}(6) = 6x + 3$.\nGiá trị cần tính là:\n$$f(3) = 6(3) + 3 = 18 + 3 = 21.$$",
     "socraticHint": "Đặt tích phân xác định bằng một hằng số $A$, từ đó tìm được biểu thức hàm số tường minh.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
     ]
@@ -272,7 +272,7 @@ export const nguyenHamCoBanQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Nhận thấy vế trái chính là đạo hàm của một tích:\n$$[x f(x)]' = 1 \\cdot f(x) + x \\cdot f'(x) = f(x) + x f'(x).$$\nDo đó:\n$$[x f(x)]' = 3x^2 + 2x \\implies x f(x) = \\int (3x^2 + 2x) dx = x^3 + x^2 + C.$$\nThay $x = 1$ vào:\n$$1 \\cdot f(1) = 1^3 + 1^2 + C \\iff 3 = 2 + C \\iff C = 1.$$\nDo đó $x f(x) = x^3 + x^2 + 1 \\implies f(x) = x^2 + x + \\frac{1}{x}$.\nTại $x = 2$:\n$$f(2) = 2^2 + 2 + \\frac{1}{2} = 6 + 0{,}5 = \\frac{13}{2}.$$",
     "socraticHint": "Nhận dạng quy tắc đạo hàm của tích $[x f(x)]' = f(x) + x f'(x)$ để tìm nguyên hàm.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
     ]

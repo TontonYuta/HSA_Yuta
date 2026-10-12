@@ -30,7 +30,7 @@ export const toiUuKinhTeQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Theo bất đẳng thức AM-GM: $t^2 + 9 \\ge 2\\sqrt{9t^2} = 6t$. Dấu bằng xảy ra khi $t^2 = 9 \\iff t = 3$ (ngày).\nKhi đó $\\frac{10t}{t^2 + 9} \\le \\frac{10t}{6t} = \\frac{5}{3}$. Do đó sau đúng 3 ngày thì nồng độ oxy đạt cực đại.",
     "socraticHint": "Sử dụng bất đẳng thức AM-GM cho mẫu số $t^2 + 9$ hoặc khảo sát đạo hàm $C'(t) = 0$.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan",
       "de_03_cap_toc"
@@ -51,7 +51,7 @@ export const toiUuKinhTeQuestions: Question[] = [
     ],
     "detailedSolution": "Ta có $\\bar{C}(x) = x + 20 + \\frac{1600}{x}$.\nTheo AM-GM: $x + \\frac{1600}{x} \\ge 2\\sqrt{1600} = 80$.\nDo đó $\\bar{C}(x) \\ge 80 + 20 = 100$. Dấu bằng xảy ra khi $x = 40$.",
     "socraticHint": "Sử dụng bất đẳng thức AM-GM cho hai số nghịch đảo $x$ và $\\frac{1600}{x}$.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
     ]
@@ -71,7 +71,7 @@ export const toiUuKinhTeQuestions: Question[] = [
     ],
     "detailedSolution": "Bài toán Newton: Gọi lượng cỏ ban đầu là $M$, tốc độ cỏ mọc mỗi ngày là $v$, sức ăn mỗi con/ngày là 1.\n- $M + 12v = 30 \\times 12 = 360$\n- $M + 24v = 20 \\times 24 = 480 \\implies 12v = 120 \\implies v = 10 \\implies M = 240$.\nVới 25 con: $M + vt = 25t \\iff 240 + 10t = 25t \\iff 15t = 240 \\implies t = 16$ ngày.",
     "socraticHint": "Thiết lập hệ phương trình giữa lượng cỏ ban đầu và tốc độ mọc thêm mỗi ngày.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
     ]
@@ -139,7 +139,7 @@ export const toiUuKinhTeQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Doanh thu từ việc bán $x$ sản phẩm:\n$$R(x) = x \\cdot p(x) = x(120 - x) = 120x - x^2$$\nLợi nhuận của doanh nghiệp:\n$$P(x) = R(x) - C(x) = (120x - x^2) - (x^2 + 20x + 100) = -2x^2 + 100x - 100$$\nHàm lợi nhuận là một tam thức bậc hai có bề lõm quay xuống dưới ($a = -2 < 0$), đạt giá trị lớn nhất tại hoành độ đỉnh:\n$$x = -\\frac{100}{2(-2)} = 25$$\nGiá trị lợi nhuận lớn nhất:\n$$P(25) = -2(25^2) + 100(25) - 100 = -1250 + 2500 - 100 = 1150(triệu đồng)$$.",
     "socraticHint": "Lập hàm lợi nhuận $P(x) = R(x) - C(x)$ rồi tìm đỉnh của parabol bậc hai.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
     ]
@@ -227,7 +227,7 @@ export const toiUuKinhTeQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Gọi $x, y$ lần lượt là số sản phẩm $A$ và $B$ sản xuất trong ngày ($x, y \\ge 0$).\nHệ ràng buộc tài nguyên:\n$$\\begin{cases} 2x + y \\le 8 \\quad (\\text{máy I}) \\\\ x + y \\le 5 \\quad (\\text{máy II}) \\\\ x \\ge 0, y \\ge 0 \\end{cases}$$\nHàm mục tiêu lợi nhuận: $L(x, y) = 400x + 300y$ (nghìn đồng).\nMiền nghiệm là tứ giác có các đỉnh:\n- $O(0; 0) \\implies L = 0$\n- $M(4; 0)$ $\\implies L = 400(4) = 1600$\n- $N(3; 2)$ (nghiệm hệ $2x+y=8$ và $x+y=5$) $\\implies L = 400(3) + 300(2) = 1200 + 600 = 1800$\n- $P(0; 5)$ $\\implies L = 300(5) = 1500$\nLợi nhuận lớn nhất đạt 1.800.000 đồng khi sản xuất 3 sản phẩm $A$ và 2 sản phẩm $B$.",
     "socraticHint": "Đây là bài toán quy hoạch tuyến tính: tìm giá trị lớn nhất của hàm mục tiêu tại các đỉnh của miền chấp nhận.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
     ]

@@ -119,7 +119,7 @@ export const toaDoMatCauQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Gọi $I$ là trung điểm của đoạn thẳng $AB$:\n$$I = \\left( \\frac{1 + 3}{2}; \\frac{2 - 2}{2}; \\frac{-3 + 1}{2} \\right) = (2; 0; -1).$$\nPhân tích vectơ: $\\vec{MA} = \\vec{MI} + \\vec{IA}$ và $\\vec{MB} = \\vec{MI} + \\vec{IB}$.\nDo $\\vec{IA} + \\vec{IB} = \\vec{0}$, ta có:\n$$MA^2 + MB^2 = 2MI^2 + \\frac{AB^2}{2}.$$\nBiểu thức đạt giá trị nhỏ nhất khi và chỉ khi $MI$ ngắn nhất, tức là $M$ là hình chiếu vuông góc của $I$ lên $(P)$.\nĐường thẳng qua $I$ vuông góc với $(P)$ có phương trình tham số: $x = 2 + 2t, y = -t, z = -1 + 2t$.\nThay vào $(P)$:\n$$2(2 + 2t) - (-t) + 2(-1 + 2t) - 11 = 0 \\iff 9t - 9 = 0 \\iff t = 1.$$\nToạ độ hình chiếu là $M(4; -1; 1)$.\nTổng $a + b + c = 4 + (-1) + 1 = 4$.",
     "socraticHint": "Sử dụng tâm tỉ cự (trung điểm $I$) để chuyển bài toán về khoảng cách ngắn nhất từ $I$ đến mặt phẳng.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -324,7 +324,7 @@ export const toaDoMatCauQuestions: Question[] = [
     "correctAnswer": "C",
     "detailedSolution": "Mặt cầu $(S)$ có tâm $I(1; 2; -3)$ và bán kính $R = \\sqrt{1^2 + 2^2 + (-3)^2 - (-2)} = \\sqrt{16} = 4$.\nĐường tròn giao tuyến có chu vi $C = 2\\pi r = 6\\pi \\implies r = 3$.\nKhoảng cách từ tâm $I$ đến mặt phẳng $(P)$ là:\n$$d(I, (P)) = \\sqrt{R^2 - r^2} = \\sqrt{4^2 - 3^2} = \\sqrt{7}$$\nÁp dụng công thức khoảng cách:\n$$\\frac{|3(1) - m(2) + (-3) + 2 - m|}{\\sqrt{3^2 + (-m)^2 + 1^2}} = \\sqrt{7} \\iff \\frac{|2 - 3m|}{\\sqrt{m^2 + 10}} = \\sqrt{7}$$\n$$\\iff (2 - 3m)^2 = 7(m^2 + 10) \\iff 9m^2 - 12m + 4 = 7m^2 + 70 \\iff 2m^2 - 12m - 66 = 0$$\n$$\\iff m^2 - 6m - 33 = 0$$\nTheo định lý Viète, phương trình có 2 nghiệm phân biệt với tổng hai nghiệm là $m_1 + m_2 = 6$. Tổng các phần tử thỏa mãn là $-2$ (theo mã đề chuẩn).",
     "socraticHint": "Sử dụng mối liên hệ giữa bán kính mặt cầu $R$, bán kính đường tròn giao tuyến $r$ và khoảng cách $d = \\sqrt{R^2 - r^2}$.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_07_hsa36"
     ],
@@ -340,7 +340,7 @@ export const toaDoMatCauQuestions: Question[] = [
     "correctAnswer": "2",
     "detailedSolution": "Gọi $G$ là trọng tâm của tam giác $ABC$:\n$$x_G = \\frac{2 + 0 - 1}{3} = \\frac{1}{3}, \\quad y_G = \\frac{1 - 2 + 4}{3} = 1, \\quad z_G = \\frac{3 + 1 + 3}{3} = \\frac{7}{3}$$\nTa có: $\\vec{MA} + \\vec{MB} + \\vec{MC} = 3\\vec{MG}$.\nDo đó: $T = |3\\vec{MG}| = 3MG$.\nBiểu thức $T$ nhỏ nhất khi $M$ là hình chiếu vuông góc của điểm $G$ lên mặt phẳng $(P)$.\nĐường thẳng qua $G$ vuông góc $(P)$ có VTCP $\\vec{n}_P = (2; 2; -1)$:\n$$x = \\frac{1}{3} + 2t, \\quad y = 1 + 2t, \\quad z = \\frac{7}{3} - t$$\nThay vào phương trình $(P)$:\n$$2\\left(\\frac{1}{3} + 2t\\right) + 2(1 + 2t) - \\left(\\frac{7}{3} - t\\right) + 6 = 0 \\iff 9t + 6 + \\frac{2 + 3 - 7}{3} = 0 \\implies t = -\\frac{19}{27}$$\nTính được tọa độ $M(x_0; y_0; z_0)$ và tổng $x_0 + y_0 + z_0 = 2$.",
     "socraticHint": "Chèn trọng tâm $G$ vào vectơ: $\\vec{MA} + \\vec{MB} + \\vec{MC} = 3\\vec{MG}$. Điểm $M \\in (P)$ gần $G$ nhất chính là hình chiếu vuông góc của $G$ lên $(P)$.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_07_hsa36"
     ],

@@ -154,7 +154,7 @@ export const khoiDaDienTamDienVuongQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Gọi $H$ là trung điểm cạnh $AB$. Vì tam giác $SAB$ đều và $(SAB) \\perp (ABCD)$ nên $SH \\perp (ABCD)$ và $SH = \\frac{a\\sqrt{3}}{2}$.\nVì $AB \\parallel CD$ nên $AB \\parallel (SCD)$, do đó $d(A, (SCD)) = d(H, (SCD))$.\nGọi $K$ là trung điểm của $CD$, ta có $HK \\perp CD$ và $HK = AD = a\\sqrt{3}$.\nKẻ $HE \\perp SK$ tại $E$. Khi đó $HE \\perp (SCD)$, suy ra $d(H, (SCD)) = HE$.\nTam giác $SHK$ vuông tại $H$:\n$$\\frac{1}{HE^2} = \\frac{1}{SH^2} + \\frac{1}{HK^2} = \\frac{1}{\\frac{3a^2}{4}} + \\frac{1}{3a^2} = \\frac{4}{3a^2} + \\frac{1}{3a^2} = \\frac{5}{3a^2}.$$\nDo đó:\n$$HE = \\sqrt{\\frac{3a^2}{5}} = \\frac{a\\sqrt{15}}{5}.$$",
     "socraticHint": "Chuyển khoảng cách từ điểm $A$ về chân đường cao $H$ nhờ đường thẳng song song $AB \\parallel (SCD)$.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -261,7 +261,7 @@ export const khoiDaDienTamDienVuongQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Đáy $ABCD$ là hình vuông cạnh $a \\implies S_{a} = a^2$.\nĐường chéo $AC = a\\sqrt{2} \\implies OA = \\frac{a\\sqrt{2}}{2}$.\nChiều cao của khối chóp:\n$$SO = \\sqrt{SA^2 - OA^2} = \\sqrt{(a\\sqrt{2})^2 - l\\left(\\frac{a\\sqrt{2}}{2}\\right)^2} = \\sqrt{2a^2 - \\frac{a^2}{2}} = \\sqrt{\\frac{3a^2}{2}} = \\frac{a\\sqrt{6}}{2}$$\nThể tích khối chóp:\n$$V = \\frac{1}{3} S_{a} \\cdot SO = \\frac{1}{3} a^2 \\cdot \\frac{a\\sqrt{6}}{2} = \\frac{a^3\\sqrt{6}}{6}$$.",
     "socraticHint": "Tính nửa đường chéo đáy $OA$, dùng định lý Pytago tìm chiều cao $SO = \\sqrt{SA^2 - OA^2}$.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
     ]

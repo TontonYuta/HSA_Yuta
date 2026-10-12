@@ -30,7 +30,7 @@ export const toiUuHinhHocQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Gọi chiều rộng hai cạnh là $x \\implies$ chiều dài song song bờ sông là $120 - 2x$.\nDiện tích: $S(x) = x(120 - 2x) = -2x^2 + 120x$.\nĐỉnh parabol tại $x = 30 \\implies S_{\\max} = 30(60) = 1800\\text{ m}^2$.",
     "socraticHint": "Lập hàm diện tích theo một biến rồi tìm giá trị lớn nhất của tam thức bậc hai.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
     ]
@@ -50,7 +50,7 @@ export const toiUuHinhHocQuestions: Question[] = [
     ],
     "detailedSolution": "Gọi chiều rộng là $x$, chiều dài là $2x$, chiều sâu là $h \\implies V = 2x^2 h = 108 \\implies h = \\frac{54}{x^2}$.\nDiện tích lát gạch: $S = 2x^2 + 6xh = 2x^2 + \\frac{324}{x}$.\nÁp dụng AM-GM cho 3 số: $2x^2 + \\frac{162}{x} + \\frac{162}{x} \\ge 3\\sqrt[3]{2x^2 \\frac{162^2}{x^2}} = 54$.\nDấu bằng xảy ra khi $2x^2 = \\frac{162}{x} \\iff x^3 = 27 \\implies x = 3$.\nChiều sâu $h = \\frac{54}{3^2} = 3$ mét.",
     "socraticHint": "Thế $h$ theo $x$ rồi áp dụng bất đẳng thức AM-GM 3 số.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
     ]
@@ -84,7 +84,7 @@ export const toiUuHinhHocQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Gọi $x, y$ là độ dài hai cạnh của khung hình chữ nhật ($x, y > 0$).\nChu vi của khung: $2(x + y) = 12 \\implies x + y = 6$.\nDiện tích khung: $S = x \\cdot y$.\nTheo bất đẳng thức AM-GM:\n$$S = xy \\le l\\left(\\frac{x + y}{2}\\right)^2 = l\\left(\\frac{6}{2}\\right)^2 = 9\\text{ m}^2$$\nDấu bằng xảy ra khi và chỉ khi $x = y = 3\\text{ m}$.\nVậy khung hình chữ nhật trở thành hình vuông có cạnh $3\\text{ m}$.",
     "socraticHint": "Trong các hình chữ nhật có cùng chu vi, hình vuông luôn có diện tích lớn nhất.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
     ]
@@ -104,7 +104,7 @@ export const toiUuHinhHocQuestions: Question[] = [
     ],
     "detailedSolution": "Sau khi cắt, đáy hộp là hình vuông cạnh $12 - 2x$ và chiều cao của hộp là $x$ ($0 < x < 6$).\nThể tích của hộp:\n$$V(x) = x(12 - 2x)^2 = 4x(6 - x)^2 = 4x(x^2 - 12x + 36) = 4(x^3 - 12x^2 + 36x)$$\nĐạo hàm:\n$$V'(x) = 4(3x^2 - 24x + 36) = 12(x^2 - 8x + 12) = 12(x - 2)(x - 6)$$\nTrên khoảng $(0; 6)$, $V'(x) = 0 \\iff x = 2$.\nThể tích lớn nhất đạt được tại $x = 2$:\n$$V(2) = 2(12 - 2 \\times 2)^2 = 2 \\times 8^2 = 2 \\times 64 = 128\\text{ cm}^3$$.",
     "socraticHint": "Biểu diễn thể tích $V(x) = x(12-2x)^2$, tính đạo hàm $V'(x) = 0$ để tìm điểm cực đại.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
     ]
@@ -138,7 +138,7 @@ export const toiUuHinhHocQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Gọi $h$ là chiều cao của bể. Thể tích $V = x^2 h = 32 \\implies h = \\frac{32}{x^2}$.\nDiện tích toàn phần (gồm 1 đáy và 4 mặt bên do không có nắp):\n$$S(x) = x^2 + 4xh = x^2 + 4x \\cdot \\frac{32}{x^2} = x^2 + \\frac{128}{x} = x^2 + \\frac{64}{x} + \\frac{64}{x}$$\nÁp dụng bất đẳng thức AM-GM cho 3 số dương:\n$$S(x) \\ge 3 \\sqrt[3]{x^2 \\cdot \\frac{64}{x} \\cdot \\frac{64}{x}} = 3 \\sqrt[3]{4096} = 3 \\times 16 = 48\\text{ m}^2$$\nDấu bằng xảy ra khi $x^2 = \\frac{64}{x} \\iff x^3 = 64 \\iff x = 4\\text{ m}$.",
     "socraticHint": "Lập hàm diện tích xây dựng theo cạnh đáy $x$, dùng bất đẳng thức AM-GM hoặc đạo hàm để tìm cực tiểu.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
     ]
@@ -158,7 +158,7 @@ export const toiUuHinhHocQuestions: Question[] = [
     ],
     "detailedSolution": "Gọi cạnh vuông góc với tường là $x\\text{ m}$ ($x > 0$). Vì có hai cạnh này nên chiều dài cạnh song song với tường là $60 - 2x\\text{ m}$.\nĐiều kiện: $0 < x < 30$.\nDiện tích mảnh vườn rào được:\n$$S(x) = x(60 - 2x) = 60x - 2x^2 = -2(x^2 - 30x) = -2(x - 15)^2 + 450$$\nVì $-2(x - 15)^2 \\le 0$ nên $S(x) \\le 450$.\nDấu bằng xảy ra khi $x = 15\\text{ m}$ (khi đó chiều dài là $60 - 2(15) = 30\\text{ m}$).\nDiện tích lớn nhất bằng $450\\text{ m}^2$.",
     "socraticHint": "Tổng chiều dài lưới là $2x + y = 60$, lập hàm diện tích $S(x) = x(60-2x)$ và tìm đỉnh parabol.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
     ]

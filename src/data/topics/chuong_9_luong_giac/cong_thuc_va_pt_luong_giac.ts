@@ -65,7 +65,7 @@ export const congThucPtLuongGiacQuestions: Question[] = [
     "correctAnswer": "C",
     "detailedSolution": "Ta có $\\frac{\\sqrt{2}}{2} = \\sin\\frac{\\pi}{4}$. Do đó:\n$$\\begin{cases} x + \\frac{\\pi}{4} = \\frac{\\pi}{4} + k2\\pi \\\\ x + \\frac{\\pi}{4} = \\pi - \\frac{\\pi}{4} + k2\\pi = \\frac{3\\pi}{4} + k2\\pi \\end{cases} \\iff \\begin{cases} x = k2\\pi \\\\ x = \\frac{\\pi}{2} + k2\\pi \\end{cases}$$\nTrên đoạn $[0; 2\\pi]$:\n- Họ nghiệm 1: $x = 0$ và $x = 2\\pi$ (2 nghiệm).\n- Họ nghiệm 2: $x = \\frac{\\pi}{2}$ (1 nghiệm).\nTổng cộng có đúng 3 nghiệm phân biệt.",
     "socraticHint": "Liệt kê các nghiệm từ hai nhánh giải cơ bản và đối chiếu với đoạn $[0; 2\\pi]$. Lưu ý kiểm tra cả hai đầu mút 0 và $2\\pi$.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
     ]
@@ -220,7 +220,7 @@ export const congThucPtLuongGiacQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Biến đổi phương trình:\n$$2\\cos^2 x - 1 - (2m + 1)\\cos x + m + 1 = 0 \\iff 2\\cos^2 x - (2m + 1)\\cos x + m = 0$$\n$$\\iff (2\\cos x - 1)(\\cos x - m) = 0 \\iff \\left[\\begin{array}{l} \\cos x = \\frac{1}{2} \\\\ \\cos x = m \\end{array}\\right.$$\nXét $x \\in \\left[-\\frac{\\pi}{2}; \\pi\\right]$:\n- Phương trình $\\cos x = \\frac{1}{2}$ có đúng 2 nghiệm là $x = -\\frac{\\pi}{3}$ và $x = \\frac{\\pi}{3}$.\nĐể phương trình ban đầu có đúng 3 nghiệm phân biệt trên $\\left[-\\frac{\\pi}{2}; \\pi\\right]$, phương trình $\\cos x = m$ phải sinh ra đúng 1 nghiệm khác $\\pm\\frac{\\pi}{3}$.\nXét đồ thị hàm số $y = \\cos x$ trên $\\left[-\\frac{\\pi}{2}; \\pi\\right]$:\n- Với $m = 1$: sinh ra duy nhất nghiệm $x = 0$ (thỏa mãn).\n- Với $-1 \\le m < 0$: sinh ra duy nhất 1 nghiệm thuộc $\\left(\\frac{\\pi}{2}; \\pi\\right]$ (thỏa mãn).\n- Với $0 \\le m < 1$ và $m \\ne \\frac{1}{2}$: đường thẳng cắt tại 2 điểm nên sinh ra 2 nghiệm (loại).\n- Với $m = \\frac{1}{2}$: nghiệm trùng với 2 nghiệm đã có, không tạo thêm nghiệm mới (loại).\nVậy $m \\in [-1; 0) \\cup \\{1\\}$.",
     "socraticHint": "Phân tích phương trình thành tích $(2\\cos x - 1)(\\cos x - m) = 0$ rồi dùng đường tròn lượng giác để đếm nghiệm theo tham số $m$.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -346,7 +346,7 @@ export const congThucPtLuongGiacQuestions: Question[] = [
     ],
     "detailedSolution": "Biến đổi $\\cos 2x = 2\\cos^2 x - 1$:\n$$2\\cos^2 x - 1 - 3\\cos x + 2 = 0 \\iff 2\\cos^2 x - 3\\cos x + 1 = 0$$\n$$\\iff (\\cos x - 1)(2\\cos x - 1) = 0 \\iff \\begin{cases} \\cos x = 1 \\\\ \\cos x = \\frac{1}{2} \\end{cases}$$\nTrên đoạn $[0; 2\\pi]$:\n- $\\cos x = 1 \\iff x = 0$ hoặc $x = 2\\pi$.\n- $\\cos x = \\frac{1}{2} \\iff x = \\frac{\\pi}{3}$ hoặc $x = \\frac{5\\pi}{3}$.\nTổng các nghiệm là: $S = 0 + 2\\pi + \\frac{\\pi}{3} + \\frac{5\\pi}{3} = 4\\pi$.\nVậy $k = 4$.",
     "socraticHint": "Dùng công thức nhân đôi đưa về phương trình bậc hai đối với $\\cos x$, sau đó liệt kê nghiệm trên $[0; 2\\pi]$.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
     ]

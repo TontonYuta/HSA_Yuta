@@ -187,7 +187,7 @@ export const daySoGioiHanQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Hàm số liên tục tại $x = 1$ khi và chỉ khi: $\\lim\\limits_{x \\to 1^+} f(x) = \\lim\\limits_{x \\to 1^-} f(x) = f(1) = m$.\n- Giới hạn bên phải:\n  $$\\lim\\limits_{x \\to 1^+} \\frac{x^2 - 3x + 2}{x - 1} = \\lim\\limits_{x \\to 1^+} \\frac{(x - 1)(x - 2)}{x - 1} = \\lim\\limits_{x \\to 1^+} (x - 2) = 1 - 2 = -1$$\n- Giới hạn bên trái:\n  $$\\lim\\limits_{x \\to 1^-} (2x - 3) = 2(1) - 3 = -1$$\nDo đó để hàm số liên tục thì $m = -1$.",
     "socraticHint": "Tính giới hạn trái và giới hạn phải khi $x \\to 1$ rồi cho bằng $f(1) = m$.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_07_hsa36"
     ],

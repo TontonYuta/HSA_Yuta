@@ -70,7 +70,7 @@ export const maxMinThamSoMQuestions: Question[] = [
     ],
     "detailedSolution": "Đạo hàm $y' = 3x^2 - 6x = 3x(x - 2) = 0 \\iff x = 0$ hoặc $x = 2$ (đều thuộc $[-1; 4]$).\nTính các giá trị tại các điểm tới hạn và biên:\n- $y(-1) = (-1)^3 - 3(-1)^2 + 1 = -3$\n- $y(0) = 1$\n- $y(2) = 2^3 - 3(2^2) + 1 = 8 - 12 + 1 = -3$\n- $y(4) = 4^3 - 3(4^2) + 1 = 64 - 48 + 1 = 17$\nDo đó $M = \\max y = 17$ và $m = \\min y = -3$.\nGiá trị biểu thức: $T = M + 2m = 17 + 2(-3) = 17 - 6 = 11$.",
     "socraticHint": "Tìm các nghiệm $y' = 0$ nằm trong đoạn, so sánh giá trị tại các nghiệm đó và hai đầu mút.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
     ]

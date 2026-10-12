@@ -85,7 +85,7 @@ export const duongThangDuongTronConicQuestions: Question[] = [
     ],
     "detailedSolution": "Ta có $\\vec{AB} = (-3; -2)$ và $\\vec{AC} = (3; -4)$.\nDiện tích tam giác tính theo định thức tọa độ:\n$$S = \\frac{1}{2} |(-3)(-4) - (3)(-2)| = \\frac{1}{2} |12 + 6| = 9$$.",
     "socraticHint": "Dùng công thức diện tích tam giác theo tọa độ hai vectơ $S = \\frac{1}{2}|x_1 y_2 - x_2 y_1|$.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan",
       "de_03_cap_toc"
@@ -193,7 +193,7 @@ export const duongThangDuongTronConicQuestions: Question[] = [
     ],
     "detailedSolution": "Độ dài trục lớn $2a = 10 \\implies a = 5$.\nĐộ dài trục nhỏ $2b = 6 \\implies b = 3$.\nNửa tiêu cự: $c = \\sqrt{a^2 - b^2} = \\sqrt{5^2 - 3^2} = \\sqrt{16} = 4$.\nTiêu cự của hình elip là khoảng cách giữa 2 tiêu điểm: $2c = 2 \\times 4 = 8\\text{ m}$.",
     "socraticHint": "Tiêu cự của elip là $2c$ với $c = \\sqrt{a^2 - b^2}$.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
     ]
@@ -261,7 +261,7 @@ export const duongThangDuongTronConicQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Theo tính chất trọng tâm: $\\vec{AG} = 2\\vec{GM} \\iff G - A = 2(M - G) \\iff 3G = A + 2M$.\nSuy ra $M = \\frac{3G - A}{2}$:\n- $x_M = \\frac{3(3) - 1}{2} = \\frac{8}{2} = 4$.\n- $y_M = \\frac{3(4) - 2}{2} = \\frac{10}{2} = 5$.\nVậy $M(4; 5)$.",
     "socraticHint": "Trọng tâm $G$ chia đoạn trung tuyến $AM$ theo tỉ số $AG = 2GM$.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
     ]

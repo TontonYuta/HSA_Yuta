@@ -342,7 +342,7 @@ export const tiemCanQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Đồ thị có đúng 2 đường tiệm cận đứng khi và chỉ khi phương trình mẫu $g(x) = x^2 - 4x + m = 0$ có 2 nghiệm phân biệt khác 1 (nghiệm của tử):\n- Điều kiện 2 nghiệm phân biệt: $\\Delta' = (-2)^2 - m = 4 - m > 0 \\iff m < 4$.\n- Điều kiện nghiệm khác 1: $g(1) = 1^2 - 4(1) + m = m - 3 \\ne 0 \\iff m \\ne 3$.\nKết hợp lại ta được: $m < 4$ và $m \\ne 3$.",
     "socraticHint": "Mẫu số phải có hai nghiệm phân biệt và không bị triệt tiêu bởi nghiệm của tử số.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
     ]
@@ -464,7 +464,7 @@ export const tiemCanQuestions: Question[] = [
     ],
     "detailedSolution": "Thực hiện phép chia đa thức:\n$$2x^2 + mx - 3 = 2x(x - 2) + (m + 4)(x - 2) + 2(m + 4) - 3 = (2x + m + 4)(x - 2) + (2m + 5)$$\n$$\\implies y = 2x + m + 4 + \\frac{2m + 5}{x - 2}$$\nĐường tiệm cận xiên là $d: y = 2x + m + 4$.\nĐường thẳng $d$ đi qua điểm $A(1; 5)$ nên:\n$$5 = 2(1) + m + 4 \\iff 5 = m + 6 \\iff m = -1$$.",
     "socraticHint": "Tìm phương trình tiệm cận xiên theo tham số $m$ rồi thay tọa độ điểm $A$ vào.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
     ]

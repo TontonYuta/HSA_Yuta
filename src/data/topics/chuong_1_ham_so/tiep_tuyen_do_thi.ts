@@ -138,7 +138,7 @@ export const tiepTuyenQuestions: Question[] = [
     "correctAnswer": "C",
     "detailedSolution": "Đồ thị $(C)$ có tiệm cận đứng $x = 1$, tiệm cận ngang $y = 2$, giao điểm hai tiệm cận là tâm đối xứng $I(1; 2)$.\nTa có: $y = 2 + \\frac{1}{x - 1}$. Đạo hàm: $y' = -\\frac{1}{(x - 1)^2}$.\nGọi $A(x_0; y_0) \\in (C)$ với $y_0 = m = 2 + \\frac{1}{x_0 - 1}$ ($x_0 \\ne 1$).\nPhương trình tiếp tuyến tại $A$:\n$$y - y_0 = -\\frac{1}{(x_0 - 1)^2}(x - x_0)$$\n- Giao điểm với tiệm cận đứng $x = 1$: $H\\left(1; 2 + \\frac{2}{x_0 - 1}\\right) \\implies \\vec{IH} = \\left(0; \\frac{2}{x_0 - 1}\\right)$.\n- Giao điểm với tiệm cận ngang $y = 2$: $K(2x_0 - 1; 2) \\implies \\vec{IK} = (2(x_0 - 1); 0)$.\nTam giác $IHK$ vuông tại $I$, do đó:\n$$HK^2 = IH^2 + IK^2 = \\frac{4}{(x_0 - 1)^2} + 4(x_0 - 1)^2$$\nÁp dụng bất đẳng thức AM-GM:\n$$HK^2 \\ge 2\\sqrt{\\frac{4}{(x_0 - 1)^2} \\cdot 4(x_0 - 1)^2} = 2 \\times 4 = 8$$\nDấu bằng xảy ra $\\iff \\frac{4}{(x_0 - 1)^2} = 4(x_0 - 1)^2 \\iff (x_0 - 1)^4 = 1 \\iff x_0 - 1 = \\pm 1$.\n- Nếu $x_0 - 1 = 1 \\implies x_0 = 2 \\implies m = 2 + 1 = 3$.\n- Nếu $x_0 - 1 = -1 \\implies x_0 = 0 \\implies m = 2 - 1 = 1$.\nTích các giá trị của $m$ là: $3 \\times 1 = 3$.",
     "socraticHint": "Tìm tọa độ giao điểm $H, K$ của tiếp tuyến với hai đường tiệm cận, sau đó áp dụng BĐT AM-GM cho $HK^2 = IH^2 + IK^2$.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
     ]

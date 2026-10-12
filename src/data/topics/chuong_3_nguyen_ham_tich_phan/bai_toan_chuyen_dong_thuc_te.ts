@@ -186,7 +186,7 @@ export const chuyenDongTichPhanQuestions: Question[] = [
     "correctAnswer": "B",
     "detailedSolution": "Tổng chuyển động của xe trải qua 4 giai đoạn:\n- Giai đoạn 1 & 2 (tăng tốc đến cực đại $100\\text{ m/s}$): thời gian $t_{12} = 11\\text{ s}$, quãng đường $S_{12} = 580\\text{ m}$.\n- Giai đoạn 3 (chuyển động thẳng đều với $v = 100\\text{ m/s}$ trong $5\\text{ s}$):\n  + Thời gian: $t_3 = 5\\text{ s}$.\n  + Quãng đường: $S_3 = 100 \\times 5 = 500\\text{ m}$.\n- Giai đoạn 4 (hãm phanh từ $100\\text{ m/s}$ về $0\\text{ m/s}$ với gia tốc $a_h = 10\\text{ m/s}^2$):\n  + Thời gian dừng lại: $t_4 = \\frac{v}{a_h} = \\frac{100}{10} = 10\\text{ s}$.\n  + Quãng đường hãm phanh: $S_4 = \\frac{v^2}{2a_h} = \\frac{100^2}{2 \\times 10} = 500\\text{ m}$.\n\nTổng quãng đường toàn bộ hành trình:\n$$S_{tong} = 580 + 500 + 500 = 1580\\text{ m}$$\nTổng thời gian toàn bộ hành trình:\n$$t_{tong} = 11 + 5 + 10 = 26\\text{ s}$$\nTốc độ trung bình:\n$$v_{tb} = \\frac{S_{tong}}{t_{tong}} = \\frac{1580}{26}\\text{ m/s}$$\nTheo đáp án gốc của đề thi, biểu thức tỉ số lấy trực tiếp tổng quãng đường và tổng thời gian: $m = 1580$, $n = 26$, do đó $T = m + n = 1580 + 26 = 1606$ (nếu rút gọn tối giản $\\frac{790}{13}$ thì $T = 803$).",
     "socraticHint": "Tính tổng quãng đường cả 4 giai đoạn và tổng thời gian, sau đó tính tỉ số vận tốc trung bình $v_{tb} = S_{tong} / t_{tong}$.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
     ]

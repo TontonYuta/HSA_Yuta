@@ -64,7 +64,7 @@ export const gocKhoangCachQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Chọn hệ trục tọa độ $Oxyz$ với gốc $O$ là trung điểm của cạnh $BC$:\n- $Ox$ dọc theo tia $OC$, suy ra $C\\left(\\frac{a}{2}; 0; 0\\right), B\\left(-\\frac{a}{2}; 0; 0\\right)$.\n- $Oy$ dọc theo tia $OA$, suy ra $A\\left(0; \\frac{a\\sqrt{3}}{2}; 0\\right)$.\n- $Oz$ song song với các cạnh bên, suy ra $A'\\left(0; \\frac{a\\sqrt{3}}{2}; a\\sqrt{3}\\right), B'\\left(-\\frac{a}{2}; 0; a\\sqrt{3}\\right)$.\nVectơ chỉ phương của các đường thẳng:\n$$\\vec{u}_1 = \\vec{A'B} = \\left(-\\frac{a}{2}; -\\frac{a\\sqrt{3}}{2}; -a\\sqrt{3}\\right) \\sim (1; \\sqrt{3}; 2\\sqrt{3}),$$\n$$\\vec{u}_2 = \\vec{B'C} = (a; 0; -a\\sqrt{3}) \\sim (1; 0; -\\sqrt{3}).$$\nTích có hướng $[\\\\vec{u}_1, \\vec{u}_2] = (-3; 3\\sqrt{3}; -\\sqrt{3}) \\sim (\\sqrt{3}; -3; 1)$.\nVectơ $\\vec{BC} = (a; 0; 0)$. Khoảng cách giữa hai đường thẳng chéo nhau là:\n$$d(A'B, B'C) = \\frac{|\\vec{BC} \\cdot [\\vec{u}_1, \\vec{u}_2]|}{|[\\vec{u}_1, \\vec{u}_2]|} = \\frac{|a\\sqrt{3}|}{\\sqrt{3 + 9 + 1}} = \\frac{a\\sqrt{3}}{\\sqrt{13}} = \\frac{a\\sqrt{39}}{13}.$$",
     "socraticHint": "Tọa độ hóa lăng trụ đều bằng cách lấy gốc tại trung điểm cạnh đáy hoặc dùng phương pháp khoảng cách qua mặt phẳng song song.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -166,7 +166,7 @@ export const gocKhoangCachQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Gọi $M$ là trung điểm của $CD \\implies OM = \\frac{a}{2}$ và $OM \\perp CD$.\nVì $SO \\perp CD$ nên $CD \\perp (SOM)$. Do đó $(SCD) \\perp (SOM)$ theo giao tuyến $SM$.\nKẻ $OH \\perp SM$ tại $H \\implies OH \\perp (SCD)$, do đó $d(O, (SCD)) = OH$.\nTrong tam giác vuông $SOM$ tại $O$:\n$$\\frac{1}{OH^2} = \\frac{1}{SO^2} + \\frac{1}{OM^2} = \\frac{1}{a^2} + \\frac{1}{(a/2)^2} = \\frac{1}{a^2} + \\frac{4}{a^2} = \\frac{5}{a^2}$$\n$$\\implies OH = \\frac{a}{\\sqrt{5}} = \\frac{a\\sqrt{5}}{5}$$.",
     "socraticHint": "Hạ đường cao từ tâm đáy lên đoạn nối đỉnh và trung điểm cạnh đáy: $\\frac{1}{h^2} = \\frac{1}{SO^2} + \\frac{1}{OM^2}$.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
     ]
@@ -255,7 +255,7 @@ export const gocKhoangCachQuestions: Question[] = [
     "correctAnswer": "D",
     "detailedSolution": "Vì lăng trụ đứng nên $A'A \\perp (ABC)$. Hình chiếu vuông góc của $A'B$ lên đáy là $AB$.\nGóc giữa $A'B$ và đáy là $\\widehat{A'BA} = 60^\\circ$.\nTam giác $A'AB$ vuông tại $A$:\n- $AB = A'B \\cos 60^\\circ = a\\sqrt{3} \\times \\frac{1}{2} = \\frac{a\\sqrt{3}}{2}$.\n- $A'A = A'B \\sin 60^\\circ = a\\sqrt{3} \\times \\frac{\\sqrt{3}}{2} = \\frac{3a}{2}$.\n\nVì đáy vuông tại $B$ nên $BC \\perp AB$. Mặt khác $BC \\perp A'A$, suy ra $BC \\perp (ABB'A')$.\nDo mặt phẳng $(A'BC)$ chứa $BC$ nên $(A'BC) \\perp (ABB'A')$ theo giao tuyến $A'B$.\nVì $M$ là trung điểm $B'C'$ và $B'C' \\parallel BC \\subset (A'BC)$, nên $B'C' \\parallel (A'BC)$.\nDo đó $d(M, (A'BC)) = d(B', (A'BC))$.\nTrong mặt phẳng $(ABB'A')$, kẻ $B'H \\perp A'B$ tại $H$. Khi đó $B'H \\perp (A'BC)$, nên $d(B', (A'BC)) = B'H$.\nTam giác $A'B'B$ vuông tại $B'$ có các cạnh góc vuông $A'B' = AB = \\frac{a\\sqrt{3}}{2}$, $BB' = A'A = \\frac{3a}{2}$ và cạnh huyền $A'B = a\\sqrt{3}$:\n$$B'H = \\frac{A'B' \\cdot BB'}{A'B} = \\frac{\\frac{a\\sqrt{3}}{2} \\cdot \\frac{3a}{2}}{a\\sqrt{3}} = \\frac{3a}{4}$$",
     "socraticHint": "Nhận xét đường thẳng $B'C' \\parallel (A'BC)$, chuyển khoảng cách từ $M$ về khoảng cách từ $B'$ đến giao tuyến $A'B$.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
     ]
@@ -289,7 +289,7 @@ export const gocKhoangCachQuestions: Question[] = [
     "correctAnswer": "B",
     "detailedSolution": "Gọi $H$ là trung điểm của $AB$. Do $\\Delta SAB$ đều cạnh $2a$ và $(SAB) \\perp (ABCD)$, ta có $SH \\perp (ABCD)$ và $SH = 2a \\frac{\\sqrt{3}}{2} = a\\sqrt{3}$.\nChọn hệ trục tọa độ $Oxyz$ với gốc $H(0; 0; 0)$:\n- Trục $Ox$ dọc theo $HB$: $A(-a; 0; 0)$, $B(a; 0; 0)$.\n- Trục $Oy$ song song $AD$: $D(-a; a; 0)$, $C(a; a; 0)$, $M(0; a; 0)$.\n- Trục $Oz$ dọc theo $HS$: $S(0; 0; a\\sqrt{3})$.\n\nTa có:\n- $\\vec{AM} = (a; a; 0)$.\n- $\\vec{SD} = (-a; a; -a\\sqrt{3})$.\n- $\\vec{AS} = (a; 0; a\\sqrt{3})$.\nTích có hướng $[\\\\vec{AM}, \\vec{SD}]$:\n$$[\\vec{AM}, \\vec{SD}] = (a(-a\\sqrt{3}) - 0, 0 - a(-a\\sqrt{3}), a \\cdot a - a(-a)) = a^2(-\\sqrt{3}; \\sqrt{3}; 2)$$\nĐộ dài: $|[\\vec{AM}, \\vec{SD}]| = a^2\\sqrt{(-\\sqrt{3})^2 + (\\sqrt{3})^2 + 2^2} = a^2\\sqrt{10}$.\nTích hỗn tạp:\n$$[\\vec{AM}, \\vec{SD}] \\cdot \\vec{AS} = a^2(-\\sqrt{3} \\cdot a + 0 + 2 \\cdot a\\sqrt{3}) = a^3\\sqrt{3}$$\nKhoảng cách giữa hai đường thẳng chéo nhau $AM$ và $SD$:\n$$d(AM, SD) = \\frac{|[\\vec{AM}, \\vec{SD}] \\cdot \\vec{AS}|}{|[\\vec{AM}, \\vec{SD}]|} = \\frac{a^3\\sqrt{3}}{a^2\\sqrt{10}} = \\frac{a\\sqrt{30}}{10}$$",
     "socraticHint": "Dựng trục tọa độ Oxyz với gốc tại trung điểm H của AB hoặc dựng mặt phẳng chứa đường thẳng này và song song với đường thẳng kia.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
     ]

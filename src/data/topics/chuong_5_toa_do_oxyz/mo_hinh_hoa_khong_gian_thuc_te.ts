@@ -50,7 +50,7 @@ export const moHinhOxyzThucTeQuestions: Question[] = [
     ],
     "detailedSolution": "Mặt cầu $(S)$ có tâm $I(1; 2; 3)$ và bán kính $R = \\sqrt{25} = 5$.\nKhoảng cách từ tâm $I$ đến điểm $A$:\n$$IA = \\sqrt{(4 - 1)^2 + (6 - 2)^2 + (3 - 3)^2} = \\sqrt{3^2 + 4^2 + 0} = 5$$\nKhoảng cách lớn nhất từ $A$ đến một điểm $M$ trên mặt cầu là:\n$$d_{\\max} = IA + R = 5 + 5 = 10$$.",
     "socraticHint": "Khoảng cách lớn nhất từ điểm $A$ tới điểm $M$ thuộc mặt cầu tâm $I$ bán kính $R$ là $IA + R$.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
     ]

@@ -64,7 +64,7 @@ export const tapHopVennQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Để hai khoảng $A$ và $B$ không giao nhau, khoảng $A$ phải nằm hoàn toàn bên trái hoặc bên phải của khoảng $B$:\n- Trường hợp 1: $A$ nằm bên trái $B$, tức mút phải của $A$ nhỏ hơn hoặc bằng mút trái của $B$:\n$$m + 2 \\le 1 \\iff m \\le -1$$\n- Trường hợp 2: $A$ nằm bên phải $B$, tức mút trái của $A$ lớn hơn hoặc bằng mút phải của $B$:\n$$m - 1 \\ge 4 \\iff m \\ge 5$$\nKết hợp lại: $m \\le -1$ hoặc $m \\ge 5$.",
     "socraticHint": "Hai khoảng rời nhau khi khoảng này nằm hoàn toàn bên trái hoặc bên phải của khoảng kia trên trục số.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
     ]
