@@ -42,14 +42,14 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({ questions, o
           <div>
             <div className="flex items-center gap-2">
               <h1 className="text-xl font-bold text-slate-900 dark:text-zinc-100">
-                Ngân Hàng 300+ Câu Hỏi Toán HSA - TontonYuta
+                Ngân Hàng 350+ Câu Hỏi Toán HSA - TontonYuta
               </h1>
               <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 border border-amber-300 dark:border-amber-700">
                 90% Vận Dụng & VDC
               </span>
             </div>
             <p className="text-xs text-slate-500 dark:text-zinc-400 mt-1">
-              Hệ thống 300 câu hỏi chuẩn hóa HSA ĐHQGHN với 10 chương và 30 chuyên đề vi mô phân hóa điểm cao
+              Hệ thống 350 câu hỏi chuẩn hóa HSA ĐHQGHN với 10 chương, 30 chuyên đề vi mô và bộ đề gốc 558 siêu phân hóa
             </p>
           </div>
 

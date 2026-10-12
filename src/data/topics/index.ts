@@ -84,6 +84,9 @@ import {
   toiUuHinhHocQuestions,
 } from './chuong_10_toan_thuc_te_toi_uu';
 
+// Official HSA Exam 558
+import { hsa558ExamQuestions } from './de_thi_hsa_558';
+
 // Re-export micro-topics for modular consumption
 export {
   // Chuong 1
@@ -158,6 +161,7 @@ export const HSA_QUESTIONS_DATABASE: Question[] = [
   ...chuong_8_xac_suat_thong_keQuestions,
   ...chuong_9_luong_giacQuestions,
   ...chuong_10_toan_thuc_te_toi_uuQuestions,
+  ...hsa558ExamQuestions,
 ].sort((a, b) => a.id - b.id);
 
 // Chapters Metadata
@@ -614,5 +618,17 @@ export const HSA_EXAM_SETS: ExamSet[] = [
     badge: 'Đề gốc HSA 36',
     description: 'Trích từ bộ đề thi chính thức HSA ĐHQGHN (Mã đề 36): cấu trúc chuẩn 35 trắc nghiệm + 15 điền số với chùm câu hỏi hình học không gian phân tích vectơ Menelaus, bất đẳng thức logarit, xác suất toàn phần bệnh phổi và bài toán tư duy logic.',
     questionIds: Array.from({ length: 50 }, (_, i) => i + 251),
+  },
+  {
+    id: 'de_08_hsa558',
+    title: 'Đề 08: Đề Thi Thực Chiến HSA VNU (Mã Đề 558)',
+    subtitle: '50 câu thực chiến phân hóa cao chuẩn 100% form hsavnu.edu.vn',
+    timeMinutes: 75,
+    questionCount: 50,
+    mcqCount: 35,
+    fillCount: 15,
+    badge: 'Đề gốc 558',
+    description: 'Bộ đề thi thực chiến mã 558 trên cổng luyện thi HSA VNU: bài toán tiếp tuyến tam giác diện tích S=25, hàm đặc trưng, logistic, tư duy logic bàn tròn, chùm câu hỏi sinh thái học và tỷ số hình hộp.',
+    questionIds: Array.from({ length: 50 }, (_, i) => i + 301),
   },
 ];
