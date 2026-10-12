@@ -79,19 +79,6 @@ export const Navbar: React.FC<NavbarProps> = ({
           <nav className="hidden md:flex items-center gap-1 text-xs font-medium text-slate-600 dark:text-zinc-400">
             <button
               type="button"
-              onClick={() => onSelectMode('exam')}
-              className={`px-3 py-1.5 rounded-lg transition inline-flex items-center gap-1.5 cursor-pointer ${
-                currentMode === 'exam'
-                  ? 'bg-slate-100 dark:bg-zinc-800/80 text-sky-600 dark:text-sky-400 font-semibold'
-                  : 'hover:text-slate-900 dark:hover:text-zinc-100 hover:bg-slate-50 dark:hover:bg-zinc-900'
-              }`}
-            >
-              <CheckSquare className="w-3.5 h-3.5" />
-              <span>Thi Thử 75 Phút</span>
-            </button>
-
-            <button
-              type="button"
               onClick={() => onSelectMode('practice')}
               className={`px-3 py-1.5 rounded-lg transition inline-flex items-center gap-1.5 cursor-pointer ${
                 currentMode === 'practice'
@@ -101,6 +88,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <BookOpen className="w-3.5 h-3.5" />
               <span>30 Chuyên Đề</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => onSelectMode('exam')}
+              className={`px-3 py-1.5 rounded-lg transition inline-flex items-center gap-1.5 cursor-pointer ${
+                currentMode === 'exam'
+                  ? 'bg-slate-100 dark:bg-zinc-800/80 text-sky-600 dark:text-sky-400 font-semibold'
+                  : 'hover:text-slate-900 dark:hover:text-zinc-100 hover:bg-slate-50 dark:hover:bg-zinc-900'
+              }`}
+            >
+              <CheckSquare className="w-3.5 h-3.5" />
+              <span>Thi Thử 75 Phút</span>
             </button>
 
             <button
@@ -201,19 +201,6 @@ export const Navbar: React.FC<NavbarProps> = ({
         >
           <button
             type="button"
-            onClick={() => onSelectMode('exam')}
-            className={`flex flex-col items-center justify-center py-1 px-3 rounded-xl transition text-[11px] font-semibold cursor-pointer active:scale-95 ${
-              currentMode === 'exam'
-                ? 'text-sky-600 dark:text-sky-400 bg-sky-50 dark:bg-sky-950/50'
-                : 'text-slate-500 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-100'
-            }`}
-          >
-            <CheckSquare className="w-4 h-4 mb-0.5" />
-            <span>Thi Thử</span>
-          </button>
-
-          <button
-            type="button"
             onClick={() => onSelectMode('practice')}
             className={`flex flex-col items-center justify-center py-1 px-3 rounded-xl transition text-[11px] font-semibold cursor-pointer active:scale-95 ${
               currentMode === 'practice'
@@ -223,6 +210,19 @@ export const Navbar: React.FC<NavbarProps> = ({
           >
             <BookOpen className="w-4 h-4 mb-0.5" />
             <span>30 Chuyên Đề</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => onSelectMode('exam')}
+            className={`flex flex-col items-center justify-center py-1 px-3 rounded-xl transition text-[11px] font-semibold cursor-pointer active:scale-95 ${
+              currentMode === 'exam'
+                ? 'text-sky-600 dark:text-sky-400 bg-sky-50 dark:bg-sky-950/50'
+                : 'text-slate-500 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-100'
+            }`}
+          >
+            <CheckSquare className="w-4 h-4 mb-0.5" />
+            <span>Thi Thử</span>
           </button>
 
           <button

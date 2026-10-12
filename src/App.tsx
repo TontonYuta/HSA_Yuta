@@ -239,6 +239,12 @@ export default function App() {
           questions={HSA_QUESTIONS_DATABASE}
           initialTopicId={practiceTopic}
           onBackToExam={handleGoHome}
+          studentName={studentName}
+          setStudentName={setStudentName}
+          studentEmail={studentEmail}
+          setStudentEmail={setStudentEmail}
+          teacherEmail={teacherEmail}
+          webhookUrl={webhookUrl}
         />
       );
     }

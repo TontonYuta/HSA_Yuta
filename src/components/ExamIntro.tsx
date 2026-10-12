@@ -33,8 +33,87 @@ export const ExamIntro: React.FC<ExamIntroProps> = ({
   const currentExamSet = HSA_EXAM_SETS.find((s) => s.id === selectedExamSetId) || HSA_EXAM_SETS[0];
 
   return (
-    <div className="max-w-4xl mx-auto space-y-6 pb-16 animate-fade-in">
-      {/* Main CBT Exam Setup Card */}
+    <div className="max-w-4xl mx-auto space-y-8 pb-16 animate-fade-in">
+      {/* PHẦN 1: Luyện theo từng chuyên đề (Đưa lên TRÊN) */}
+      <div className="space-y-3.5">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-1 border-b border-slate-100 dark:border-zinc-800/80">
+          <div>
+            <div className="flex items-center gap-2 mb-1">
+              <span className="px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider bg-sky-100 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 font-mono">
+                Trọng Tâm Ôn Luyện
+              </span>
+              <span className="text-xs text-slate-400 dark:text-zinc-500 font-medium">
+                Chương trình GDPT 2018
+              </span>
+            </div>
+            <h2 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-zinc-100 flex items-center gap-2">
+              <BookOpen className="w-5 h-5 text-sky-600 dark:text-sky-400" />
+              10 Chương & 30 Chuyên Đề Toán Trọng Tâm HSA
+            </h2>
+            <p className="text-xs text-slate-500 dark:text-zinc-400 mt-0.5">
+              Luyện tập độc lập từng dạng toán phân hóa cao, kèm lời giải KaTeX từng bước và tự động gửi kết quả về email
+            </p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          {CHAPTERS_METADATA.map((ch, idx) => {
+            const firstTopicId = ch.topics[0]?.id || ch.id;
+            const totalQ = ch.topics.reduce((sum, t) => sum + (t.questionCount || 0), 0);
+
+            return (
+              <div
+                key={ch.id}
+                className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 hover:border-slate-400 dark:hover:border-zinc-700 transition flex flex-col justify-between shadow-xs group"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-[11px] font-bold text-sky-600 dark:text-sky-400 font-mono uppercase tracking-wider">
+                      Chương {idx + 1}
+                    </span>
+                    <span className="text-[10px] px-2 py-0.5 rounded-md bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 font-mono font-medium">
+                      {totalQ} câu · {ch.topics.length} chuyên đề
+                    </span>
+                  </div>
+
+                  <h3 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-zinc-100 line-clamp-1 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition">
+                    {ch.name}
+                  </h3>
+                  <p className="text-[11px] text-slate-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">
+                    {ch.description}
+                  </p>
+
+                  {/* Micro-topics tags */}
+                  <div className="flex flex-wrap gap-1 mt-2.5">
+                    {ch.topics.map((t) => (
+                      <span
+                        key={t.id}
+                        className="text-[10px] px-1.5 py-0.5 rounded bg-slate-50 dark:bg-zinc-800/80 border border-slate-200/70 dark:border-zinc-700/60 text-slate-600 dark:text-zinc-300"
+                      >
+                        {t.shortName}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="pt-3 mt-3 border-t border-slate-100 dark:border-zinc-800/80 flex items-center justify-between">
+                  <span className="text-[10px] text-slate-400 dark:text-zinc-500">100% KaTeX Chuẩn</span>
+                  <button
+                    type="button"
+                    onClick={() => onSelectTopicPractice(firstTopicId)}
+                    className="text-xs font-semibold text-sky-600 dark:text-sky-400 hover:text-sky-700 dark:hover:text-sky-300 inline-flex items-center gap-1 cursor-pointer"
+                  >
+                    <span>Luyện ngay</span>
+                    <ArrowRight className="w-3 h-3" />
+                  </button>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* PHẦN 2: Luyện đề thi thử chuẩn HSA CBT (Đưa xuống DƯỚI) */}
       <div className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-2xl p-5 sm:p-7 shadow-sm space-y-5 transition-colors">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-slate-100 dark:border-zinc-800/80">
           <div>
@@ -43,14 +122,15 @@ export const ExamIntro: React.FC<ExamIntroProps> = ({
                 ĐHQGHN · HSA 2025
               </span>
               <span className="text-xs text-slate-400 dark:text-zinc-500 font-medium">
-                Chương trình mới GDPT 2018
+                Cấu trúc đề chính thức
               </span>
             </div>
-            <h1 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-zinc-100">
-              Phòng Thi Thử Toán Học & Tư Duy Định Lượng
-            </h1>
+            <h2 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-zinc-100 flex items-center gap-2">
+              <FileCheck2 className="w-5 h-5 text-sky-600 dark:text-sky-400" />
+              Phòng Thi Thử Toàn Diện (Luyện Bộ Đề HSA 75 Phút)
+            </h2>
             <p className="text-xs text-slate-500 dark:text-zinc-400 mt-0.5">
-              Mô phỏng 100% giao diện thi trên máy tính (CBT) của Trung tâm Khảo thí ĐHQGHN
+              Mô phỏng 100% giao diện thi trên máy tính (CBT) của Trung tâm Khảo thí ĐHQGHN với đồng hồ đếm ngược và bảng câu hỏi
             </p>
           </div>
         </div>
@@ -117,7 +197,7 @@ export const ExamIntro: React.FC<ExamIntroProps> = ({
               className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-zinc-950 border border-slate-300 dark:border-zinc-700 rounded-xl text-xs sm:text-sm text-slate-900 dark:text-zinc-100 placeholder-slate-400 dark:placeholder-zinc-600 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500/30 font-medium transition"
             />
             <p className="text-[11px] text-slate-400 dark:text-zinc-500 mt-1">
-              Tên sẽ hiển thị trên bảng điểm và chứng nhận năng lực sau khi thi.
+              Tên sẽ hiển thị trên bảng điểm, chứng nhận năng lực và báo cáo gửi về email.
             </p>
           </div>
         </div>
@@ -174,75 +254,6 @@ export const ExamIntro: React.FC<ExamIntroProps> = ({
           <p className="text-[11px] text-slate-500 dark:text-zinc-400 leading-relaxed">
             Phân định rõ từng dạng toán (tham số m, Bayes, tích phân chuyển động, Venn...) kèm lời giải KaTeX.
           </p>
-        </div>
-      </div>
-
-      {/* 10 Chapters & 30 Micro-Topics Grid */}
-      <div className="space-y-3">
-        <div>
-          <h2 className="text-sm font-bold text-slate-900 dark:text-zinc-100 flex items-center gap-1.5">
-            <BookOpen className="w-4 h-4 text-sky-600 dark:text-sky-400" />
-            10 Chương & 30 Chuyên đề trọng tâm GDPT 2018
-          </h2>
-          <p className="text-[11px] text-slate-500 dark:text-zinc-400">
-            Tách nhỏ từng chuyên đề chuyên biệt, luyện tập độc lập có đáp án và lời giải chi tiết
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-          {CHAPTERS_METADATA.map((ch, idx) => {
-            const firstTopicId = ch.topics[0]?.id || ch.id;
-            const totalQ = ch.topics.reduce((sum, t) => sum + (t.questionCount || 0), 0);
-
-            return (
-              <div
-                key={ch.id}
-                className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 hover:border-slate-400 dark:hover:border-zinc-700 transition flex flex-col justify-between shadow-xs group"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-[11px] font-bold text-sky-600 dark:text-sky-400 font-mono uppercase tracking-wider">
-                      Chương {idx + 1}
-                    </span>
-                    <span className="text-[10px] px-2 py-0.5 rounded-md bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 font-mono font-medium">
-                      {totalQ} câu · {ch.topics.length} chuyên đề
-                    </span>
-                  </div>
-
-                  <h3 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-zinc-100 line-clamp-1 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition">
-                    {ch.name}
-                  </h3>
-                  <p className="text-[11px] text-slate-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">
-                    {ch.description}
-                  </p>
-
-                  {/* Micro-topics tags */}
-                  <div className="flex flex-wrap gap-1 mt-2.5">
-                    {ch.topics.map((t) => (
-                      <span
-                        key={t.id}
-                        className="text-[10px] px-1.5 py-0.5 rounded bg-slate-50 dark:bg-zinc-800/80 border border-slate-200/70 dark:border-zinc-700/60 text-slate-600 dark:text-zinc-300"
-                      >
-                        {t.shortName}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="pt-3 mt-3 border-t border-slate-100 dark:border-zinc-800/80 flex items-center justify-between">
-                  <span className="text-[10px] text-slate-400 dark:text-zinc-500">100% KaTeX Chuẩn</span>
-                  <button
-                    type="button"
-                    onClick={() => onSelectTopicPractice(firstTopicId)}
-                    className="text-xs font-semibold text-sky-600 dark:text-sky-400 hover:text-sky-700 dark:hover:text-sky-300 inline-flex items-center gap-1 cursor-pointer"
-                  >
-                    <span>Luyện ngay</span>
-                    <ArrowRight className="w-3 h-3" />
-                  </button>
-                </div>
-              </div>
-            );
-          })}
         </div>
       </div>
     </div>
