@@ -179,7 +179,7 @@ export const CHAPTERS_METADATA: ChapterInfo[] = [
         shortName: 'Đơn điệu hàm số',
         chapterId: 'chuong_1_ham_so',
         description: 'Tính đồng biến, nghịch biến của hàm số, bảng biến thiên và bài toán chứa tham số m',
-        questionCount: 11,
+        questionCount: 71,
       },
       {
         id: 'cuc_tri_tham_so_m',
@@ -187,7 +187,7 @@ export const CHAPTERS_METADATA: ChapterInfo[] = [
         shortName: 'Cực trị hàm số',
         chapterId: 'chuong_1_ham_so',
         description: 'Cực đại, cực tiểu của hàm số, đồ thị đạo hàm và bài toán chứa tham số m',
-        questionCount: 12,
+        questionCount: 66,
       },
       {
         id: 'max_min_tham_so_m',
@@ -195,7 +195,7 @@ export const CHAPTERS_METADATA: ChapterInfo[] = [
         shortName: 'GTLN & GTNN',
         chapterId: 'chuong_1_ham_so',
         description: 'GTLN, GTNN trên đoạn, bất đẳng thức và bài toán chứa tham số m',
-        questionCount: 5,
+        questionCount: 23,
       },
       {
         id: 'tiem_can_va_tiem_can_xien',
@@ -219,7 +219,7 @@ export const CHAPTERS_METADATA: ChapterInfo[] = [
         shortName: 'Tương giao hàm hợp',
         chapterId: 'chuong_1_ham_so',
         description: 'Tương giao đồ thị hàm đa thức và đếm số nghiệm hàm hợp f(f(x)) = 0',
-        questionCount: 7,
+        questionCount: 40,
       },
     ],
   },

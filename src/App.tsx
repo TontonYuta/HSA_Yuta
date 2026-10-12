@@ -326,7 +326,8 @@ export default function App() {
       {!isExamActive && (
         <footer className="border-t border-slate-200 dark:border-zinc-800 bg-white dark:bg-[#09090b] py-5 mb-14 md:mb-0 text-xs text-slate-500 dark:text-zinc-500 transition-colors">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2.5">
+              <img src="/avt.jpg" alt="TontonYuta" className="w-5 h-5 rounded-full object-cover ring-1 ring-sky-500/40" />
               <span className="font-bold text-slate-800 dark:text-zinc-200">
                 Luyện thi HSA cùng TontonYuta
               </span>

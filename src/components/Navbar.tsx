@@ -56,14 +56,23 @@ export const Navbar: React.FC<NavbarProps> = ({
             className="flex items-center gap-2 group cursor-pointer text-left"
             title="Trang chủ Luyện thi HSA"
           >
-            <div className="w-7 h-7 rounded-lg bg-sky-600 dark:bg-sky-500 flex items-center justify-center text-white font-bold text-xs shadow-xs">
-              HSA
+            <div className="relative w-8 h-8 rounded-full overflow-hidden ring-2 ring-sky-500/30 dark:ring-sky-400/30 shadow-xs shrink-0 group-hover:ring-sky-500 transition">
+              <img
+                src="/avt.jpg"
+                alt="TontonYuta"
+                className="w-full h-full object-cover"
+              />
             </div>
             <div className="flex flex-col">
-              <span className="text-xs sm:text-sm font-bold tracking-tight text-slate-900 dark:text-zinc-100 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition whitespace-nowrap">
-                <span className="hidden sm:inline">Luyện thi cùng TontonYuta</span>
-                <span className="sm:hidden font-bold">HSA Yuta</span>
-              </span>
+              <div className="flex items-center gap-1.5">
+                <span className="text-xs sm:text-sm font-bold tracking-tight text-slate-900 dark:text-zinc-100 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition whitespace-nowrap">
+                  <span className="hidden sm:inline">Luyện thi cùng TontonYuta</span>
+                  <span className="sm:hidden font-bold">HSA Yuta</span>
+                </span>
+                <span className="hidden lg:inline-flex items-center px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wider rounded bg-sky-100 dark:bg-sky-950/70 text-sky-700 dark:text-sky-300 border border-sky-200/60 dark:border-sky-800/60">
+                  HSA 2025
+                </span>
+              </div>
             </div>
           </button>
         </div>

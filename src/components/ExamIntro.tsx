@@ -34,6 +34,31 @@ export const ExamIntro: React.FC<ExamIntroProps> = ({
 
   return (
     <div className="max-w-4xl mx-auto space-y-8 pb-16 animate-fade-in">
+      {/* Mentor & Creator Branding Banner */}
+      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-sky-500/10 via-indigo-500/5 to-purple-500/10 dark:from-sky-950/40 dark:via-zinc-900/60 dark:to-indigo-950/30 border border-sky-200/60 dark:border-sky-900/40 p-4 sm:p-5 flex flex-col sm:flex-row items-center gap-4">
+        <div className="relative shrink-0">
+          <div className="w-16 h-16 sm:w-18 sm:h-18 rounded-2xl overflow-hidden ring-2 ring-sky-500/40 shadow-md">
+            <img src="/avt.jpg" alt="TontonYuta" className="w-full h-full object-cover" />
+          </div>
+          <span className="absolute -bottom-1 -right-1 px-1.5 py-0.5 rounded-full bg-sky-600 text-[10px] font-bold text-white shadow-xs">
+            HSA
+          </span>
+        </div>
+        <div className="flex-1 text-center sm:text-left space-y-1">
+          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
+            <h1 className="text-base sm:text-lg font-bold text-slate-900 dark:text-zinc-100">
+              Luyện thi HSA cùng TontonYuta
+            </h1>
+            <span className="px-2 py-0.5 text-[10px] font-semibold rounded-full bg-emerald-100 dark:bg-emerald-950/70 text-emerald-700 dark:text-emerald-300 border border-emerald-200/50 dark:border-emerald-800/50">
+              GDPT 2018
+            </span>
+          </div>
+          <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 leading-relaxed">
+            Hệ thống ngân hàng câu hỏi định lượng Toán học chuẩn đề thi ĐGNL ĐHQGHN (HSA). Lời giải KaTeX chi tiết từng bước, phân loại 4 mức độ tư duy.
+          </p>
+        </div>
+      </div>
+
       {/* PHẦN 1: Luyện theo từng chuyên đề (Đưa lên TRÊN) */}
       <div className="space-y-3.5">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-1 border-b border-slate-100 dark:border-zinc-800/80">
