@@ -185,14 +185,14 @@ export const toiUuKinhTeQuestions: Question[] = [
     "chapterName": "Chương 10: Toán ứng dụng & Mô hình hóa tối ưu",
     "topicId": "toi_uu_kinh_te_va_doanh_thu",
     "topicName": "Tối ưu hóa kinh tế, Chi phí & Doanh thu",
-    "content": "Một chủ trang trại nuôi cá ước tính tổng khối lượng của đàn cá sau $t$ tuần nuôi tuân theo quy luật $m(t) = \\frac{500}{1 + 9e^{-0.2t}}$ (đơn vị: kg). Giới hạn khối lượng tối đa mà đàn cá có thể đạt được khi thời gian nuôi rất lớn ($t  o +\\infty$) bằng bao nhiêu kg?",
+    "content": "Một chủ trang trại nuôi cá ước tính tổng khối lượng của đàn cá sau $t$ tuần nuôi tuân theo quy luật $m(t) = \\frac{500}{1 + 9e^{-0.2t}}$ (đơn vị: kg). Giới hạn khối lượng tối đa mà đàn cá có thể đạt được khi thời gian nuôi rất lớn ($t \\to +\\infty$) bằng bao nhiêu kg?",
     "correctAnswer": "500",
     "acceptableAnswers": [
       "500",
       "500.0"
     ],
-    "detailedSolution": "Khi $t  o +\\infty$, ta có $-0.2t  o -\\infty \\implies e^{-0.2t}  o 0$.\nDo đó giới hạn khối lượng tối đa của đàn cá là:\n$$\\lim\\limits_{t  o +\\infty} m(t) = \\lim\\limits_{t  o +\\infty} \\frac{500}{1 + 9e^{-0.2t}} = \\frac{500}{1 + 9(0)} = 500\\text{ kg}$$.",
-    "socraticHint": "Tính giới hạn của hàm số $m(t)$ khi $t  o +\\infty$, lưu ý rằng $e^{-\\infty} = 0$.",
+    "detailedSolution": "Khi $t \\to +\\infty$, ta có $-0.2t \\to -\\infty \\implies e^{-0.2t}  o 0$.\nDo đó giới hạn khối lượng tối đa của đàn cá là:\n$$\\lim\\limits_{t \\to +\\infty} m(t) = \\lim\\limits_{t \\to +\\infty} \\frac{500}{1 + 9e^{-0.2t}} = \\frac{500}{1 + 9(0)} = 500\\text{ kg}$$.",
+    "socraticHint": "Tính giới hạn của hàm số $m(t)$ khi $t \\to +\\infty$, lưu ý rằng $e^{-\\infty} = 0$.",
     "difficulty": "Nhận biết",
     "examSets": [
       "de_03_moi"

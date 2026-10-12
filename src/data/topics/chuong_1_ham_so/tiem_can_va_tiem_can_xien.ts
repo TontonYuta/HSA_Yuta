@@ -274,7 +274,7 @@ export const tiemCanQuestions: Question[] = [
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Thực hiện phép chia đa thức tử cho mẫu:\n$$2x^2 - 3x + 5 = 2x(x - 1) - (x - 1) + 4 = (2x - 1)(x - 1) + 4$$\n$$\\implies y = 2x - 1 + \\frac{4}{x - 1}$$\nKhi $x  o \\pm\\infty$, ta có $\\lim\\limits_{x  o \\pm\\infty} \\frac{4}{x - 1} = 0$.\nVậy đường tiệm cận xiên là $y = 2x - 1$.",
+    "detailedSolution": "Thực hiện phép chia đa thức tử cho mẫu:\n$$2x^2 - 3x + 5 = 2x(x - 1) - (x - 1) + 4 = (2x - 1)(x - 1) + 4$$\n$$\\implies y = 2x - 1 + \\frac{4}{x - 1}$$\nKhi $x \\to \\pm\\infty$, ta có $\\lim\\limits_{x \\to \\pm\\infty} \\frac{4}{x - 1} = 0$.\nVậy đường tiệm cận xiên là $y = 2x - 1$.",
     "socraticHint": "Chia đa thức tử số cho mẫu số để tìm thương bậc nhất $y = ax + b$.",
     "difficulty": "Thông hiểu",
     "examSets": [
@@ -376,8 +376,8 @@ export const tiemCanQuestions: Question[] = [
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "- Tiệm cận đứng: $x = 2$ vì $\\lim\\limits_{x \\to 2^+} y = +\\infty$.\n- Tiệm cận ngang khi $x  o +\\infty$:\n$$\\lim\\limits_{x  o +\\infty} \\frac{\\sqrt{x^2 + 1}}{x - 2} = \\lim\\limits_{x  o +\\infty} \\frac{x\\sqrt{1 + 1/x^2}}{x(1 - 2/x)} = 1 \\implies y = 1$$\n- Tiệm cận ngang khi $x  o -\\infty$:\n$$\\lim\\limits_{x  o -\\infty} \\frac{\\sqrt{x^2 + 1}}{x - 2} = \\lim\\limits_{x  o -\\infty} \\frac{-x\\sqrt{1 + 1/x^2}}{x(1 - 2/x)} = -1 \\implies y = -1$$\nTổng số đường tiệm cận gồm 1 tiệm cận đứng và 2 tiệm cận ngang, tổng cộng là 3 đường tiệm cận.",
-    "socraticHint": "Chú ý khi $x  o -\\infty$ thì $\\sqrt{x^2} = |x| = -x$, tạo ra tiệm cận ngang khác với khi $x  o +\\infty$.",
+    "detailedSolution": "- Tiệm cận đứng: $x = 2$ vì $\\lim\\limits_{x \\to 2^+} y = +\\infty$.\n- Tiệm cận ngang khi $x \\to +\\infty$:\n$$\\lim\\limits_{x \\to +\\infty} \\frac{\\sqrt{x^2 + 1}}{x - 2} = \\lim\\limits_{x \\to +\\infty} \\frac{x\\sqrt{1 + 1/x^2}}{x(1 - 2/x)} = 1 \\implies y = 1$$\n- Tiệm cận ngang khi $x \\to -\\infty$:\n$$\\lim\\limits_{x \\to -\\infty} \\frac{\\sqrt{x^2 + 1}}{x - 2} = \\lim\\limits_{x \\to -\\infty} \\frac{-x\\sqrt{1 + 1/x^2}}{x(1 - 2/x)} = -1 \\implies y = -1$$\nTổng số đường tiệm cận gồm 1 tiệm cận đứng và 2 tiệm cận ngang, tổng cộng là 3 đường tiệm cận.",
+    "socraticHint": "Chú ý khi $x \\to -\\infty$ thì $\\sqrt{x^2} = |x| = -x$, tạo ra tiệm cận ngang khác với khi $x \\to +\\infty$.",
     "difficulty": "Thông hiểu",
     "examSets": [
       "de_04_nang_cao"
@@ -410,8 +410,8 @@ export const tiemCanQuestions: Question[] = [
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Hệ số góc $a$ của tiệm cận xiên $y = ax + b$ là:\n$$a = \\lim\\limits_{x  o \\pm\\infty} \\frac{y}{x} = \\lim\\limits_{x  o \\pm\\infty} \\frac{x^2 + 3x - 1}{x(2x + 1)} = \\lim\\limits_{x  o \\pm\\infty} \\frac{x^2}{2x^2} = \\frac{1}{2}$$.",
-    "socraticHint": "Hệ số góc của tiệm cận xiên được tính bằng công thức $a = \\lim\\limits_{x  o \\infty} \\frac{f(x)}{x}$.",
+    "detailedSolution": "Hệ số góc $a$ của tiệm cận xiên $y = ax + b$ là:\n$$a = \\lim\\limits_{x \\to \\pm\\infty} \\frac{y}{x} = \\lim\\limits_{x \\to \\pm\\infty} \\frac{x^2 + 3x - 1}{x(2x + 1)} = \\lim\\limits_{x \\to \\pm\\infty} \\frac{x^2}{2x^2} = \\frac{1}{2}$$.",
+    "socraticHint": "Hệ số góc của tiệm cận xiên được tính bằng công thức $a = \\lim\\limits_{x \\to \\infty} \\frac{f(x)}{x}$.",
     "difficulty": "Nhận biết",
     "examSets": [
       "de_04_nang_cao"
@@ -444,7 +444,7 @@ export const tiemCanQuestions: Question[] = [
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "- Vì $\\lim\\limits_{x  o \\pm\\infty} f(x) = 2$ nên đường thẳng $y = 2$ là tiệm cận ngang.\n- Vì $\\lim\\limits_{x \\to 1^+} f(x) = +\\infty$ nên đường thẳng $x = 1$ là tiệm cận đứng.\nDo đó khẳng định A đúng.",
+    "detailedSolution": "- Vì $\\lim\\limits_{x \\to \\pm\\infty} f(x) = 2$ nên đường thẳng $y = 2$ là tiệm cận ngang.\n- Vì $\\lim\\limits_{x \\to 1^+} f(x) = +\\infty$ nên đường thẳng $x = 1$ là tiệm cận đứng.\nDo đó khẳng định A đúng.",
     "socraticHint": "Định nghĩa giới hạn tại vô cực cho tiệm cận ngang $y = y_0$, giới hạn vô cực tại điểm cho tiệm cận đứng $x = x_0$.",
     "difficulty": "Nhận biết",
     "examSets": [
