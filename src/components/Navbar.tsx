@@ -58,7 +58,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           >
             <div className="relative w-8 h-8 rounded-full overflow-hidden ring-2 ring-sky-500/30 dark:ring-sky-400/30 shadow-xs shrink-0 group-hover:ring-sky-500 transition">
               <img
-                src="/avt.jpg"
+                src="/avt.png"
                 alt="TontonYuta"
                 className="w-full h-full object-cover"
               />

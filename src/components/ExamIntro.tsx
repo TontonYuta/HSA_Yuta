@@ -38,7 +38,7 @@ export const ExamIntro: React.FC<ExamIntroProps> = ({
       <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-sky-500/10 via-indigo-500/5 to-purple-500/10 dark:from-sky-950/40 dark:via-zinc-900/60 dark:to-indigo-950/30 border border-sky-200/60 dark:border-sky-900/40 p-4 sm:p-5 flex flex-col sm:flex-row items-center gap-4">
         <div className="relative shrink-0">
           <div className="w-16 h-16 sm:w-18 sm:h-18 rounded-2xl overflow-hidden ring-2 ring-sky-500/40 shadow-md">
-            <img src="/avt.jpg" alt="TontonYuta" className="w-full h-full object-cover" />
+            <img src="/avt.png" alt="TontonYuta" className="w-full h-full object-cover" />
           </div>
           <span className="absolute -bottom-1 -right-1 px-1.5 py-0.5 rounded-full bg-sky-600 text-[10px] font-bold text-white shadow-xs">
             HSA

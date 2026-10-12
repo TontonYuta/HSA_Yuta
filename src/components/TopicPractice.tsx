@@ -21,7 +21,8 @@ import {
   LayoutGrid,
   Loader2,
   HelpCircle,
-  Home
+  Home,
+  Search
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { Question, TopicId, ChapterInfo, MicroTopicInfo, UserAnswer } from '../types/exam';
@@ -65,12 +66,17 @@ export const TopicPractice: React.FC<TopicPracticeProps> = ({
     return CHAPTERS_METADATA[0];
   }, [initialTopicId]);
 
+  // Catalog browsing state: If initialTopicId is NOT provided, show catalog first!
+  const [isBrowsingCatalog, setIsBrowsingCatalog] = useState<boolean>(!initialTopicId);
+  const [catalogSearch, setCatalogSearch] = useState<string>('');
+  const [catalogFilter, setCatalogFilter] = useState<'all' | '12' | '11_10' | 'geometry'>('all');
+
   const [selectedChapterId, setSelectedChapterId] = useState<string>(defaultChapter.id);
   const [selectedTopicId, setSelectedTopicId] = useState<string | null>(() => {
     if (initialTopicId && defaultChapter.topics.some(t => t.id === initialTopicId)) {
       return initialTopicId;
     }
-    return defaultChapter.topics[0]?.id || null;
+    return initialTopicId ? (defaultChapter.topics[0]?.id || null) : null;
   });
 
   // Sidebar visibility: Default open on desktop, closed on mobile
@@ -166,6 +172,58 @@ export const TopicPractice: React.FC<TopicPracticeProps> = ({
     practiceStartTimeRef.current = Date.now();
     setSubmitStatus('idle');
   };
+
+  // Synchronize when initialTopicId changes from parent
+  useEffect(() => {
+    if (initialTopicId) {
+      const match = CHAPTERS_METADATA.find(c => 
+        c.id === initialTopicId || c.topics.some(t => t.id === initialTopicId)
+      );
+      if (match) {
+        setSelectedChapterId(match.id);
+        const t = match.topics.find(top => top.id === initialTopicId);
+        setSelectedTopicId(t ? t.id : null);
+        setIsBrowsingCatalog(false);
+        resetQuestionState();
+      }
+    } else {
+      setIsBrowsingCatalog(true);
+      setSelectedTopicId(null);
+    }
+  }, [initialTopicId]);
+
+  const handleSelectTopicFromCatalog = (chId: string, tId: string | null) => {
+    setSelectedChapterId(chId);
+    setSelectedTopicId(tId);
+    setIsBrowsingCatalog(false);
+    setRandomSeed((prev) => prev + 1);
+    resetQuestionState();
+  };
+
+  // Filtered chapters for the catalog overview screen
+  const catalogChapters = useMemo(() => {
+    let list = CHAPTERS_METADATA;
+
+    if (catalogFilter === '12') {
+      const g12Ids = ['chuong_1_ham_so', 'chuong_2_mu_logarit', 'chuong_3_nguyen_ham_tich_phan', 'chuong_5_toa_do_oxyz', 'chuong_10_toan_thuc_te_toi_uu'];
+      list = list.filter(c => g12Ids.includes(c.id));
+    } else if (catalogFilter === '11_10') {
+      const g1110Ids = ['chuong_6_toan_lop_10', 'chuong_7_day_so_cap_so', 'chuong_8_xac_suat_thong_ke', 'chuong_9_luong_giac'];
+      list = list.filter(c => g1110Ids.includes(c.id));
+    } else if (catalogFilter === 'geometry') {
+      const geomIds = ['chuong_4_hinh_hoc_khong_gian', 'chuong_5_toa_do_oxyz', 'chuong_6_toan_lop_10'];
+      list = list.filter(c => geomIds.includes(c.id));
+    }
+
+    const q = catalogSearch.trim().toLowerCase();
+    if (!q) return list;
+
+    return list.filter(c => 
+      c.name.toLowerCase().includes(q) ||
+      c.description.toLowerCase().includes(q) ||
+      c.topics.some(t => t.name.toLowerCase().includes(q) || t.description.toLowerCase().includes(q))
+    );
+  }, [catalogFilter, catalogSearch]);
 
   const handleReshuffle = () => {
     setRandomSeed((prev) => prev + 1);
@@ -299,6 +357,248 @@ export const TopicPractice: React.FC<TopicPracticeProps> = ({
   const isSolutionVisible = currentQ ? showSolution[currentQ.id] : false;
   const isHintVisible = currentQ ? showHint[currentQ.id] : false;
 
+  // Render Catalog Screen when browsing topics
+  if (isBrowsingCatalog) {
+    return (
+      <div className="h-[calc(100vh-52px)] overflow-y-auto bg-slate-50 dark:bg-[#09090b] text-slate-900 dark:text-zinc-100 p-3 sm:p-6 lg:p-8 select-none">
+        <div className="max-w-6xl mx-auto space-y-6 pb-20">
+          {/* Header Hero Banner */}
+          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-sky-500/10 via-indigo-500/5 to-purple-500/10 dark:from-sky-950/40 dark:via-zinc-900/60 dark:to-indigo-950/30 border border-sky-200/60 dark:border-sky-900/40 p-5 sm:p-6">
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+              <div className="flex items-center gap-4">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl overflow-hidden ring-2 ring-sky-500/40 shadow-md shrink-0">
+                  <img src="/avt.png" alt="TontonYuta" className="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950/80 text-sky-700 dark:text-sky-300 text-[11px] font-bold uppercase tracking-wider mb-1.5 border border-sky-200 dark:border-sky-800">
+                    <Sparkles className="w-3 h-3" />
+                    <span>Hệ Thống 10 Chương & 30 Chuyên Đề HSA</span>
+                  </div>
+                  <h1 className="text-lg sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">
+                    Trung Tâm Luyện Chuyên Đề Toán HSA
+                  </h1>
+                  <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 mt-1 max-w-2xl leading-relaxed">
+                    Chọn chuyên đề bạn muốn ôn luyện. Hệ thống cung cấp câu hỏi phân hóa từ Nhận biết đến Vận dụng cao, kiểm tra đáp án tức thì và lời giải chi tiết KaTeX.
+                  </p>
+                </div>
+              </div>
+
+              <button
+                type="button"
+                onClick={onBackToExam}
+                className="self-end md:self-center px-3.5 py-2 rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:bg-slate-50 dark:hover:bg-zinc-800 text-xs font-semibold text-slate-700 dark:text-zinc-300 transition flex items-center gap-1.5 cursor-pointer shadow-xs"
+              >
+                <Home className="w-3.5 h-3.5" />
+                <span>Về trang chủ</span>
+              </button>
+            </div>
+
+            {/* Quick Stats Strip */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 mt-4 pt-4 border-t border-sky-200/40 dark:border-sky-900/40 text-xs">
+              <div className="p-2 rounded-xl bg-white/60 dark:bg-zinc-900/60 border border-slate-200/50 dark:border-zinc-800/50 flex items-center gap-2">
+                <BookOpen className="w-4 h-4 text-sky-500" />
+                <div>
+                  <div className="font-bold text-slate-900 dark:text-zinc-100">10 Chương</div>
+                  <div className="text-[10px] text-slate-500 dark:text-zinc-400">GDPT 2018 Mới</div>
+                </div>
+              </div>
+              <div className="p-2 rounded-xl bg-white/60 dark:bg-zinc-900/60 border border-slate-200/50 dark:border-zinc-800/50 flex items-center gap-2">
+                <Layers className="w-4 h-4 text-indigo-500" />
+                <div>
+                  <div className="font-bold text-slate-900 dark:text-zinc-100">30 Chuyên Đề</div>
+                  <div className="text-[10px] text-slate-500 dark:text-zinc-400">Trọng tâm thi HSA</div>
+                </div>
+              </div>
+              <div className="p-2 rounded-xl bg-white/60 dark:bg-zinc-900/60 border border-slate-200/50 dark:border-zinc-800/50 flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+                <div>
+                  <div className="font-bold text-slate-900 dark:text-zinc-100">515+ Câu Hỏi</div>
+                  <div className="text-[10px] text-slate-500 dark:text-zinc-400">Phân hóa 4 mức độ</div>
+                </div>
+              </div>
+              <div className="p-2 rounded-xl bg-white/60 dark:bg-zinc-900/60 border border-slate-200/50 dark:border-zinc-800/50 flex items-center gap-2">
+                <Mail className="w-4 h-4 text-purple-500" />
+                <div>
+                  <div className="font-bold text-slate-900 dark:text-zinc-100">Tự Động Báo Cáo</div>
+                  <div className="text-[10px] text-slate-500 dark:text-zinc-400">Gửi mail giáo viên</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Search & Category Filter Controls */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+            <div className="relative flex-1 max-w-md">
+              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+              <input
+                type="text"
+                value={catalogSearch}
+                onChange={(e) => setCatalogSearch(e.target.value)}
+                placeholder="Tìm nhanh chuyên đề (tham số m, logarit, oxyz, tích phân...)"
+                className="w-full pl-9 pr-8 py-2 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 text-xs text-slate-900 dark:text-zinc-100 placeholder:text-slate-400 dark:placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-sky-500 transition shadow-xs"
+              />
+              {catalogSearch && (
+                <button
+                  type="button"
+                  onClick={() => setCatalogSearch('')}
+                  className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 text-xs p-1"
+                >
+                  <X className="w-3.5 h-3.5" />
+                </button>
+              )}
+            </div>
+
+            {/* Filter Pills */}
+            <div className="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0 scrollbar-none">
+              <button
+                type="button"
+                onClick={() => setCatalogFilter('all')}
+                className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition cursor-pointer ${
+                  catalogFilter === 'all'
+                    ? 'bg-sky-600 text-white shadow-xs'
+                    : 'bg-white dark:bg-zinc-900 text-slate-600 dark:text-zinc-400 border border-slate-200 dark:border-zinc-800 hover:bg-slate-100 dark:hover:bg-zinc-800'
+                }`}
+              >
+                Tất cả (10 Chương)
+              </button>
+              <button
+                type="button"
+                onClick={() => setCatalogFilter('12')}
+                className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition cursor-pointer ${
+                  catalogFilter === '12'
+                    ? 'bg-sky-600 text-white shadow-xs'
+                    : 'bg-white dark:bg-zinc-900 text-slate-600 dark:text-zinc-400 border border-slate-200 dark:border-zinc-800 hover:bg-slate-100 dark:hover:bg-zinc-800'
+                }`}
+              >
+                Chương trình 12
+              </button>
+              <button
+                type="button"
+                onClick={() => setCatalogFilter('11_10')}
+                className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition cursor-pointer ${
+                  catalogFilter === '11_10'
+                    ? 'bg-sky-600 text-white shadow-xs'
+                    : 'bg-white dark:bg-zinc-900 text-slate-600 dark:text-zinc-400 border border-slate-200 dark:border-zinc-800 hover:bg-slate-100 dark:hover:bg-zinc-800'
+                }`}
+              >
+                Lớp 11 & 10
+              </button>
+              <button
+                type="button"
+                onClick={() => setCatalogFilter('geometry')}
+                className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition cursor-pointer ${
+                  catalogFilter === 'geometry'
+                    ? 'bg-sky-600 text-white shadow-xs'
+                    : 'bg-white dark:bg-zinc-900 text-slate-600 dark:text-zinc-400 border border-slate-200 dark:border-zinc-800 hover:bg-slate-100 dark:hover:bg-zinc-800'
+                }`}
+              >
+                Hình Học & Oxyz
+              </button>
+            </div>
+          </div>
+
+          {/* Chapters & Topics List */}
+          <div className="space-y-4">
+            {catalogChapters.length === 0 ? (
+              <div className="p-10 text-center rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 text-slate-500">
+                <Search className="w-8 h-8 mx-auto mb-2 text-slate-400 opacity-50" />
+                <p className="text-sm font-semibold">Không tìm thấy chuyên đề nào phù hợp</p>
+                <p className="text-xs text-slate-400 mt-1">Vui lòng thử từ khóa tìm kiếm khác</p>
+              </div>
+            ) : (
+              catalogChapters.map((ch) => {
+                const chQuestions = questions.filter(q => q.chapterId === ch.id);
+                const originalIdx = CHAPTERS_METADATA.findIndex(c => c.id === ch.id);
+
+                return (
+                  <div
+                    key={ch.id}
+                    className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-[#101014] border border-slate-200 dark:border-zinc-800/80 shadow-xs hover:border-slate-300 dark:hover:border-zinc-700 transition"
+                  >
+                    {/* Chapter Header */}
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 mb-3 border-b border-slate-100 dark:border-zinc-800/80">
+                      <div>
+                        <div className="flex items-center gap-2 mb-1">
+                          <span className="px-2 py-0.5 rounded-md bg-sky-100 dark:bg-sky-950/80 text-sky-700 dark:text-sky-300 text-[10px] font-bold font-mono uppercase tracking-wider border border-sky-200/60 dark:border-sky-800/60">
+                            Chương {originalIdx + 1}
+                          </span>
+                          <span className="text-[11px] font-mono text-slate-400 dark:text-zinc-500">
+                            {chQuestions.length} câu hỏi · {ch.topics.length} chuyên đề
+                          </span>
+                        </div>
+                        <h2 className="text-sm sm:text-base font-bold text-slate-900 dark:text-zinc-100">
+                          {ch.name}
+                        </h2>
+                        <p className="text-xs text-slate-500 dark:text-zinc-400 mt-0.5">
+                          {ch.description}
+                        </p>
+                      </div>
+
+                      <button
+                        type="button"
+                        onClick={() => handleSelectTopicFromCatalog(ch.id, null)}
+                        className="self-start sm:self-center px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-xs font-semibold text-slate-700 dark:text-zinc-300 transition flex items-center gap-1.5 cursor-pointer shrink-0"
+                        title="Luyện tổng hợp tất cả các chuyên đề trong chương này"
+                      >
+                        <Shuffle className="w-3.5 h-3.5 text-sky-500" />
+                        <span>Luyện cả chương ({chQuestions.length} câu)</span>
+                      </button>
+                    </div>
+
+                    {/* Micro-topics Cards Grid */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
+                      {ch.topics.map((t, tIdx) => {
+                        const tCount = questions.filter(q => q.topicId === t.id).length;
+
+                        return (
+                          <div
+                            key={t.id}
+                            className="p-3 rounded-xl bg-slate-50/70 dark:bg-zinc-900/60 border border-slate-200/60 dark:border-zinc-800/60 hover:border-sky-300 dark:hover:border-sky-800 hover:bg-sky-50/30 dark:hover:bg-sky-950/20 transition flex flex-col justify-between group"
+                          >
+                            <div>
+                              <div className="flex items-center justify-between mb-1.5">
+                                <span className="text-[10px] font-mono font-bold text-slate-400 dark:text-zinc-500">
+                                  #{tIdx + 1}
+                                </span>
+                                <span className="text-[10px] px-1.5 py-0.5 rounded bg-white dark:bg-zinc-800 border border-slate-200/60 dark:border-zinc-700/60 font-mono font-medium text-slate-600 dark:text-zinc-300">
+                                  {tCount} câu
+                                </span>
+                              </div>
+                              <h3 className="text-xs font-bold text-slate-800 dark:text-zinc-200 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition line-clamp-1">
+                                {t.name}
+                              </h3>
+                              <p className="text-[11px] text-slate-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">
+                                {t.description}
+                              </p>
+                            </div>
+
+                            <div className="mt-3 pt-2.5 border-t border-slate-200/40 dark:border-zinc-800/40 flex items-center justify-between">
+                              <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-medium">
+                                Đầy đủ KaTeX & Lời giải
+                              </span>
+                              <button
+                                type="button"
+                                onClick={() => handleSelectTopicFromCatalog(ch.id, t.id)}
+                                className="px-2.5 py-1 rounded-lg bg-sky-600 hover:bg-sky-700 text-white text-[11px] font-bold transition flex items-center gap-1 cursor-pointer shadow-xs group-hover:scale-102"
+                              >
+                                <span>Luyện ngay</span>
+                                <ArrowRight className="w-3 h-3" />
+                              </button>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              })
+            )}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="h-[calc(100vh-52px)] flex overflow-hidden bg-slate-50 dark:bg-[#09090b] text-slate-900 dark:text-zinc-100 select-none">
       {/* ============================================================== */}
@@ -337,6 +637,24 @@ export const TopicPractice: React.FC<TopicPracticeProps> = ({
 
         {/* Scrollable Chapters & Topics Picker */}
         <div className="flex-1 overflow-y-auto p-3 space-y-3 divide-y divide-slate-100 dark:divide-zinc-800/80">
+          {/* Back to Catalog Button */}
+          <button
+            type="button"
+            onClick={() => {
+              setIsBrowsingCatalog(true);
+              if (window.innerWidth < 1024) setIsSidebarOpen(false);
+            }}
+            className="w-full mb-1 px-3 py-2 rounded-xl bg-sky-50 dark:bg-sky-950/60 hover:bg-sky-100 dark:hover:bg-sky-900/60 border border-sky-200 dark:border-sky-800/80 text-sky-700 dark:text-sky-300 text-xs font-bold transition flex items-center justify-between cursor-pointer"
+          >
+            <div className="flex items-center gap-1.5">
+              <LayoutGrid className="w-3.5 h-3.5" />
+              <span>Kho 30 Chuyên Đề</span>
+            </div>
+            <span className="text-[10px] bg-sky-200/80 dark:bg-sky-900 px-1.5 py-0.5 rounded font-mono font-medium">
+              Danh mục
+            </span>
+          </button>
+
           {/* Chapter Selector Accordion */}
           <div className="space-y-1.5 pb-3">
             <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-zinc-500 px-1">
@@ -486,17 +804,28 @@ export const TopicPractice: React.FC<TopicPracticeProps> = ({
       <div className="flex-1 flex flex-col h-full overflow-hidden">
         {/* Sticky Compact Topbar */}
         <header className="h-12 border-b border-slate-200 dark:border-zinc-800 bg-white dark:bg-[#101014] px-3 sm:px-4 flex items-center justify-between gap-2 shrink-0 z-20">
-          {/* Left: Sidebar Toggle & Topic Badge */}
-          <div className="flex items-center gap-2 truncate">
+          {/* Left: Sidebar Toggle, Catalog Button & Topic Badge */}
+          <div className="flex items-center gap-1.5 sm:gap-2 truncate">
+            <button
+              type="button"
+              onClick={() => setIsBrowsingCatalog(true)}
+              className="px-2 sm:px-2.5 py-1.5 rounded-lg border border-slate-200 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-900 hover:bg-slate-100 dark:hover:bg-zinc-800 text-xs font-semibold text-slate-700 dark:text-zinc-300 transition flex items-center gap-1 cursor-pointer shrink-0"
+              title="Quay lại danh mục 30 chuyên đề"
+            >
+              <LayoutGrid className="w-3.5 h-3.5 text-sky-500" />
+              <span className="hidden sm:inline text-[11px] font-bold">Chọn CĐ khác</span>
+              <span className="sm:hidden text-[11px] font-bold">Đổi CĐ</span>
+            </button>
+
             <button
               type="button"
               onClick={() => setIsSidebarOpen((prev) => !prev)}
-              className="px-2.5 py-1.5 rounded-lg border border-slate-200 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-900 hover:bg-slate-100 dark:hover:bg-zinc-800 text-xs font-semibold text-slate-700 dark:text-zinc-300 transition flex items-center gap-1 cursor-pointer shrink-0"
-              title="Đổi chuyên đề & xem bảng câu hỏi"
-              aria-label="Mở danh sách chuyên đề"
+              className="px-2 sm:px-2.5 py-1.5 rounded-lg border border-slate-200 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-900 hover:bg-slate-100 dark:hover:bg-zinc-800 text-xs font-semibold text-slate-700 dark:text-zinc-300 transition flex items-center gap-1 cursor-pointer shrink-0"
+              title="Mở bảng câu hỏi"
+              aria-label="Mở bảng câu hỏi"
             >
               <Layers className="w-3.5 h-3.5 text-sky-500" />
-              <span className="text-[11px] font-bold">Chuyên đề</span>
+              <span className="hidden xs:inline text-[11px] font-bold">Bảng câu</span>
               <ChevronDown className="w-3 h-3 text-slate-400" />
             </button>
 

@@ -10,6 +10,7 @@ import { HSA_QUESTIONS_DATABASE, HSA_EXAM_SETS } from './data/topics/index';
 import { UserAnswer, ExamReport, TopicId } from './types/exam';
 import { generateExamReport } from './utils/scoring';
 import { prepareExamQuestions } from './utils/questionRandomizer';
+import { TrafficBadge } from './components/TrafficBadge';
 
 export default function App() {
   // Theme state: dark or light mode
@@ -32,7 +33,7 @@ export default function App() {
 
   // Navigation & View state
   const [currentMode, setCurrentMode] = useState<AppMode | 'intro' | 'results'>('intro');
-  const [practiceTopic, setPracticeTopic] = useState<TopicId>('trigonometry');
+  const [practiceTopic, setPracticeTopic] = useState<TopicId | undefined>(undefined);
 
   // Exam Selection state
   const [selectedExamSetId, setSelectedExamSetId] = useState<string>('de_01_chuan');
@@ -180,7 +181,7 @@ export default function App() {
   };
 
   // Practice specific topic
-  const handleSelectTopicPractice = (topicId: TopicId) => {
+  const handleSelectTopicPractice = (topicId?: TopicId) => {
     setPracticeTopic(topicId);
     setCurrentMode('practice');
   };
@@ -307,6 +308,9 @@ export default function App() {
             }
           } else {
             setExamReport(null);
+            if (mode === 'practice') {
+              setPracticeTopic(undefined);
+            }
             setCurrentMode(mode);
           }
         }}
@@ -341,7 +345,7 @@ export default function App() {
         <footer className="border-t border-slate-200 dark:border-zinc-800 bg-white dark:bg-[#09090b] py-5 mb-14 md:mb-0 text-xs text-slate-500 dark:text-zinc-500 transition-colors">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-3">
             <div className="flex items-center gap-2.5">
-              <img src="/avt.jpg" alt="TontonYuta" className="w-5 h-5 rounded-full object-cover ring-1 ring-sky-500/40" />
+              <img src="/avt.png" alt="TontonYuta" className="w-5 h-5 rounded-full object-cover ring-1 ring-sky-500/40" />
               <span className="font-bold text-slate-800 dark:text-zinc-200">
                 Luyện thi HSA cùng TontonYuta
               </span>
@@ -357,6 +361,9 @@ export default function App() {
           </div>
         </footer>
       )}
+
+      {/* Real-time Traffic Statistics Floating Corner Badge */}
+      <TrafficBadge webhookUrl={webhookUrl} isExamActive={isExamActive} />
     </div>
   );
 }
