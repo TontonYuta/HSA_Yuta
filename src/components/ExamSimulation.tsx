@@ -16,7 +16,8 @@ import {
   RotateCcw,
   EyeOff,
   Eye,
-  Type
+  Type,
+  LayoutGrid
 } from 'lucide-react';
 import { Question, UserAnswer, ExamSet } from '../types/exam';
 import { MathRenderer } from './MathRenderer';
@@ -59,6 +60,15 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({
   const currentAns = userAnswers[currentQ?.id];
   const currentValue = currentAns?.value || '';
   const isFlagged = currentAns?.isFlagged || false;
+
+  const mainScrollRef = React.useRef<HTMLElement>(null);
+
+  // Auto scroll question view to top when navigating between questions
+  useEffect(() => {
+    if (mainScrollRef.current) {
+      mainScrollRef.current.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [currentQuestionIndex]);
 
   const [showKeyboard, setShowKeyboard] = useState(true);
   const [showHintModal, setShowHintModal] = useState(false);
@@ -197,7 +207,7 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({
       {/* ============================================================== */}
       {/* MAIN QUESTION WORKSPACE (Left / Center - Scrollable)            */}
       {/* ============================================================== */}
-      <main className="flex-1 overflow-y-auto flex flex-col justify-between p-4 sm:p-6 lg:p-8">
+      <main ref={mainScrollRef} className="flex-1 overflow-y-auto flex flex-col justify-between p-3.5 sm:p-6 lg:p-8 pb-24 sm:pb-8">
         <div className={`w-full mx-auto space-y-5 transition-all duration-200 ${isSidebarOpen ? 'max-w-4xl' : 'max-w-4xl lg:max-w-5xl'}`}>
           {/* Question Metadata & CBT Control Bar */}
           <div className="flex items-center justify-between pb-3.5 border-b border-slate-200 dark:border-zinc-800 flex-wrap gap-2.5">
@@ -477,8 +487,8 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({
           )}
         </div>
 
-        {/* Bottom Question Navigation Bar */}
-        <div className={`w-full mx-auto pt-5 mt-5 border-t border-slate-200 dark:border-zinc-800 flex items-center justify-between gap-3 transition-all duration-200 ${isSidebarOpen ? 'max-w-4xl' : 'max-w-4xl lg:max-w-5xl'}`}>
+        {/* Desktop Bottom Question Navigation Bar (Hidden on mobile) */}
+        <div className={`w-full mx-auto pt-5 mt-5 border-t border-slate-200 dark:border-zinc-800 hidden sm:flex items-center justify-between gap-3 transition-all duration-200 ${isSidebarOpen ? 'max-w-4xl' : 'max-w-4xl lg:max-w-5xl'}`}>
           <button
             type="button"
             onClick={handlePrev}
@@ -524,6 +534,71 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({
             )}
           </div>
         </div>
+
+        {/* Mobile Fixed Bottom Action Bar (Cố định ở đáy điện thoại, tối ưu 1 ngón tay cái) */}
+        <div className="sm:hidden fixed bottom-0 left-0 right-0 z-30 bg-white/95 dark:bg-[#0e0e12]/95 backdrop-blur-md border-t border-slate-200 dark:border-zinc-800 px-3 py-2 pb-[max(0.625rem,env(safe-area-inset-bottom))] shadow-lg flex items-center justify-between gap-2 touch-manipulation">
+          {/* Câu trước */}
+          <button
+            type="button"
+            onClick={handlePrev}
+            disabled={currentQuestionIndex === 0}
+            className="flex-1 py-2.5 px-2 rounded-xl bg-slate-100 dark:bg-zinc-800 text-slate-700 dark:text-zinc-200 font-semibold text-xs flex items-center justify-center gap-1 disabled:opacity-30 active:scale-95 transition cursor-pointer"
+            aria-label="Câu trước"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            <span>Trước</span>
+          </button>
+
+          {/* Cắm cờ */}
+          <button
+            type="button"
+            onClick={() => onToggleFlag(currentQ.id)}
+            className={`py-2.5 px-3 rounded-xl border text-xs font-semibold flex items-center justify-center gap-1 active:scale-95 transition cursor-pointer ${
+              isFlagged
+                ? 'bg-amber-500 text-white border-amber-600 shadow-xs'
+                : 'bg-white dark:bg-zinc-900 border-slate-200 dark:border-zinc-800 text-slate-600 dark:text-zinc-400'
+            }`}
+            title="Cắm cờ câu này"
+            aria-label="Cắm cờ câu này"
+          >
+            <Flag className={`w-3.5 h-3.5 ${isFlagged ? 'fill-current' : ''}`} />
+            <span className="text-[11px]">{isFlagged ? 'Đã cờ' : 'Cờ'}</span>
+          </button>
+
+          {/* Mở bảng câu hỏi */}
+          <button
+            type="button"
+            onClick={() => setIsSidebarOpen(true)}
+            className="flex-1 py-2.5 px-2 rounded-xl border border-sky-300 dark:border-sky-800/80 bg-sky-50 dark:bg-sky-950/50 text-sky-700 dark:text-sky-300 font-mono font-bold text-xs flex items-center justify-center gap-1 active:scale-95 transition cursor-pointer shadow-xs"
+            aria-label="Mở bảng câu hỏi"
+          >
+            <LayoutGrid className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400" />
+            <span>{currentQuestionIndex + 1}/{questions.length}</span>
+          </button>
+
+          {/* Câu tiếp theo / Nộp bài */}
+          {currentQuestionIndex < questions.length - 1 ? (
+            <button
+              type="button"
+              onClick={handleNext}
+              className="flex-1 py-2.5 px-2 rounded-xl bg-slate-900 dark:bg-zinc-100 text-white dark:text-zinc-900 font-semibold text-xs flex items-center justify-center gap-1 active:scale-95 transition cursor-pointer shadow-xs"
+              aria-label="Câu tiếp theo"
+            >
+              <span>Sau</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          ) : (
+            <button
+              type="button"
+              onClick={() => setIsConfirmSubmitOpen(true)}
+              className="flex-1 py-2.5 px-2 rounded-xl bg-rose-600 text-white font-bold text-xs flex items-center justify-center gap-1 active:scale-95 transition cursor-pointer shadow-xs"
+              aria-label="Nộp bài thi"
+            >
+              <span>Nộp</span>
+              <Check className="w-4 h-4" />
+            </button>
+          )}
+        </div>
       </main>
 
       {/* ============================================================== */}
@@ -552,11 +627,11 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({
           </aside>
         </>
       ) : (
-        /* Floating Handle on Right Edge to Re-open Palette with One Click */
+        /* Floating Handle on Right Edge to Re-open Palette with One Click (Desktop only) */
         <button
           type="button"
           onClick={() => setIsSidebarOpen(true)}
-          className="fixed right-0 top-1/2 -translate-y-1/2 z-30 bg-white dark:bg-[#101014] border-l-2 border-y border-l-sky-500 border-slate-200 dark:border-zinc-800 shadow-xl px-2 py-4 rounded-l-xl text-xs font-semibold text-slate-700 dark:text-zinc-300 hover:text-sky-600 dark:hover:text-sky-400 hover:bg-slate-50 dark:hover:bg-zinc-900 transition-all flex flex-col items-center gap-2 group cursor-pointer"
+          className="hidden md:flex fixed right-0 top-1/2 -translate-y-1/2 z-30 bg-white dark:bg-[#101014] border-l-2 border-y border-l-sky-500 border-slate-200 dark:border-zinc-800 shadow-xl px-2 py-4 rounded-l-xl text-xs font-semibold text-slate-700 dark:text-zinc-300 hover:text-sky-600 dark:hover:text-sky-400 hover:bg-slate-50 dark:hover:bg-zinc-900 transition-all flex-col items-center gap-2 group cursor-pointer"
           title="Mở bảng câu hỏi"
         >
           <ChevronLeft className="w-4 h-4 text-slate-400 group-hover:text-sky-500 transition-transform group-hover:-translate-x-0.5" />

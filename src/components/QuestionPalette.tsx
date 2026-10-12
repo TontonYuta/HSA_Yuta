@@ -99,11 +99,11 @@ export const QuestionPalette: React.FC<QuestionPaletteProps> = ({
         </div>
 
         {/* Filter Tabs */}
-        <div className="grid grid-cols-4 gap-1 p-0.5 bg-slate-200/60 dark:bg-zinc-800/60 rounded-lg text-[11px] font-medium">
+        <div className="grid grid-cols-4 gap-1 p-0.5 bg-slate-200/60 dark:bg-zinc-800/60 rounded-lg text-[10px] sm:text-[11px] font-medium">
           <button
             type="button"
             onClick={() => setActiveFilter('all')}
-            className={`py-1 rounded-md transition text-center cursor-pointer ${
+            className={`py-1.5 px-0.5 rounded-md transition text-center cursor-pointer ${
               activeFilter === 'all'
                 ? 'bg-white dark:bg-zinc-900 text-slate-900 dark:text-white font-bold shadow-xs'
                 : 'text-slate-600 dark:text-zinc-400 hover:text-slate-900'
@@ -114,7 +114,7 @@ export const QuestionPalette: React.FC<QuestionPaletteProps> = ({
           <button
             type="button"
             onClick={() => setActiveFilter('unanswered')}
-            className={`py-1 rounded-md transition text-center cursor-pointer ${
+            className={`py-1.5 px-0.5 rounded-md transition text-center cursor-pointer ${
               activeFilter === 'unanswered'
                 ? 'bg-rose-500 text-white font-bold shadow-xs'
                 : 'text-slate-600 dark:text-zinc-400 hover:text-rose-600'
@@ -125,7 +125,7 @@ export const QuestionPalette: React.FC<QuestionPaletteProps> = ({
           <button
             type="button"
             onClick={() => setActiveFilter('answered')}
-            className={`py-1 rounded-md transition text-center cursor-pointer ${
+            className={`py-1.5 px-0.5 rounded-md transition text-center cursor-pointer ${
               activeFilter === 'answered'
                 ? 'bg-emerald-500 text-white font-bold shadow-xs'
                 : 'text-slate-600 dark:text-zinc-400 hover:text-emerald-600'
@@ -136,7 +136,7 @@ export const QuestionPalette: React.FC<QuestionPaletteProps> = ({
           <button
             type="button"
             onClick={() => setActiveFilter('flagged')}
-            className={`py-1 rounded-md transition text-center cursor-pointer ${
+            className={`py-1.5 px-0.5 rounded-md transition text-center cursor-pointer ${
               activeFilter === 'flagged'
                 ? 'bg-amber-500 text-white font-bold shadow-xs'
                 : 'text-slate-600 dark:text-zinc-400 hover:text-amber-600'
