@@ -64,7 +64,7 @@ export const tuongGiaoHamHopQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Phương trình $f(t) = 0$ có 3 nghiệm phân biệt $t_1 in (-\\infty; -2)$, $t_2 in (-1; 1)$, $t_3 in (1; 2)$.\nKhi đó:\n- $f(x) = t_1 < -2$ có đúng 1 nghiệm thực.\n- $f(x) = t_2 in (-2; 2)$ có đúng 3 nghiệm thực phân biệt.\n- $f(x) = t_3 in (-2; 2)$ có đúng 3 nghiệm thực phân biệt.\nTổng cộng có $1 + 3 + 3 = 7$ nghiệm thực phân biệt.",
     "socraticHint": "Đặt $t = f(x)$, giải tìm nghiệm $t$ rồi tương giao đồ thị $y = f(x)$ với các đường thẳng nằm ngang $y = t_i$.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Thông hiểu",
     "examSets": [
       "de_03_moi"
     ]
@@ -98,7 +98,7 @@ export const tuongGiaoHamHopQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Phương trình $2f(x) - 5 = 0 \\iff f(x) = \\frac{5}{2} = 2.5$.\nSo sánh với giá trị cực trị của hàm số: $y_{\\text{CT}} = -1 < 2.5 < y_{\\text{CĐ}} = 4$.\nDo $2.5$ nằm trong khoảng $(-1; 4)$, đường thẳng $y = 2.5$ cắt đồ thị hàm số tại đúng 3 điểm phân biệt.\nVậy phương trình có đúng 3 nghiệm thực.",
     "socraticHint": "Số nghiệm phương trình $f(x) = c$ bằng số giao điểm giữa đồ thị và đường thẳng ngang $y = c$.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Thông hiểu",
     "examSets": [
       "de_04_nang_cao"
     ]
@@ -132,7 +132,7 @@ export const tuongGiaoHamHopQuestions: Question[] = [
     "correctAnswer": "C",
     "detailedSolution": "1) Nhánh cuối của đồ thị đi lên khi $x \\to +\\infty$, suy ra $a > 0$.\n2) Đồ thị cắt trục tung tại điểm $(0; d)$ nằm phía trên trục hoành ($d = f(0) > 0$), suy ra $d > 0$.\n3) Đạo hàm: $y' = 3ax^2 + 2bx + c$. Đồ thị có 2 điểm cực trị tại $x_1 = -2$ và $x_2 = 2$.\nTheo định lý Viète:\n- $x_1 + x_2 = -2 + 2 = 0 \\iff -\\frac{2b}{3a} = 0 \\implies b = 0$ (không dương, không âm).\n- $x_1 x_2 = (-2)(2) = -4 < 0 \\iff \\frac{c}{3a} = -4 \\implies c = -12a < 0$ (do $a > 0$).\n\nNhư vậy:\n- $a > 0$ (dương)\n- $b = 0$ (không phải số dương)\n- $c < 0$ (âm)\n- $d > 0$ (dương)\nTrong bốn hệ số $a, b, c, d$, có đúng $2$ số dương là $a$ và $d$.",
     "socraticHint": "Xác định dấu của $a$ từ nhánh vô cùng, dấu của $d$ từ giao điểm với trục tung, và dùng định lý Viète cho hai điểm cực trị để suy ra dấu của $b$ và $c$.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
     ]
@@ -153,7 +153,7 @@ export const tuongGiaoHamHopQuestions: Question[] = [
     ],
     "detailedSolution": "Phương trình hoành độ giao điểm của hai đồ thị:\n$$2x^3 - x^2 + x + 2 = -6x^2 - 4x - 4$$\n$$\\iff 2x^3 + 5x^2 + 5x + 6 = 0$$\n$$\\iff (x + 2)(2x^2 + x + 3) = 0$$\nPhương trình bậc hai $2x^2 + x + 3 = 0$ có biệt thức $\\Delta = 1^2 - 4 \\times 2 \\times 3 = -23 < 0$, nên vô nghiệm thực.\nDo đó phương trình chỉ có một nghiệm thực duy nhất là $x_0 = -2$.\nThay $x_0 = -2$ vào phương trình parabol:\n$$y_0 = -6(-2)^2 - 4(-2) - 4 = -24 + 8 - 4 = -20$$\nVậy tọa độ giao điểm là $(-2; -20)$.\nGiá trị của biểu thức $P = x_0 + y_0 = -2 + (-20) = -22$.",
     "socraticHint": "Lập phương trình hoành độ giao điểm, nhẩm nghiệm $x = -2$ rồi phân tích thành nhân tử.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
     ]
@@ -166,7 +166,7 @@ export const tuongGiaoHamHopQuestions: Question[] = [
     "correctAnswer": "0",
     "detailedSolution": "Phương trình tương đương với: $f(|x|) = 2025m + 2$.\nĐồ thị hàm số $y = f(|x|)$ có giá trị cực tiểu là $-2$ và cực đại là $2$.\nSố nghiệm của phương trình là số giao điểm của đồ thị $y = f(|x|)$ và đường thẳng nằm ngang $y = 2025m + 2$.\nĐể phương trình có 4 nghiệm phân biệt thì đường thẳng phải cắt đồ thị tại 4 điểm, tức là $-2 < 2025m + 2 < 2 \\iff -4 < 2025m < 0 \\iff -\\frac{4}{2025} < m < 0$.\nVì $m$ là số nguyên nên không tồn tại giá trị nguyên nào của $m$ trong khoảng $(-4/2025; 0)$.\nVậy có 0 giá trị nguyên của $m$ thỏa mãn.",
     "socraticHint": "Phương trình có 4 nghiệm phân biệt khi đường thẳng nằm giữa giá trị cực tiểu và giá trị cực đại.",
-    "difficulty": "Vận dụng",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_07_hsa36"
     ],
@@ -178,7 +178,7 @@ export const tuongGiaoHamHopQuestions: Question[] = [
     "id": 277,
     "type": "mcq",
     "topicId": "tuong_giao_va_ham_hop",
-    "content": "Cho hàm số bậc ba $y = x^3 + bx^2 + cx + d$ ($b, c, d \\\\in \\mathbb{R}$) có bảng biến thiên như sau:\n$\\begin{array}{|c|ccccccc|}\n\\hline\nx & -\\infty & & x_1 & & x_2 & & +\\infty \\\\\n\\hline\nf'(x) & & + & 0 & - & 0 & + & \\\\\n\\hline\n& & & y_1 & & & & +\\infty \\\\\nf(x) & & \\nearrow & & \\searrow & & \\nearrow & \\\\\n& -\\infty & & & & y_2 & & \\\\\n\\hline\n\\end{array}$\nBiết đồ thị cắt trục tung tại điểm có tung độ dương $d > 0$, hai điểm cực trị thỏa mãn $x_1 < 0 < x_2$ và $|x_1| > x_2$. Mệnh đề nào sau đây đúng?",
+    "content": "Cho hàm số bậc ba $y = x^3 + bx^2 + cx + d$ ($b, c, d \\in \\mathbb{R}$) có bảng biến thiên như sau:\n$\\begin{array}{|c|ccccccc|}\n\\hline\nx & -\\infty & & x_1 & & x_2 & & +\\infty \\\\\n\\hline\nf'(x) & & + & 0 & - & 0 & + & \\\\\n\\hline\n& & & y_1 & & & & +\\infty \\\\\nf(x) & & \\nearrow & & \\searrow & & \\nearrow & \\\\\n& -\\infty & & & & y_2 & & \\\\\n\\hline\n\\end{array}$\nBiết đồ thị cắt trục tung tại điểm có tung độ dương $d > 0$, hai điểm cực trị thỏa mãn $x_1 < 0 < x_2$ và $|x_1| > x_2$. Mệnh đề nào sau đây đúng?",
     "options": [
       {
         "key": "A",
@@ -200,7 +200,7 @@ export const tuongGiaoHamHopQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "- Giao điểm với trục tung là $(0; d) \\implies d > 0$.\n- Đạo hàm: $y' = 3x^2 + 2bx + c$. Đồ thị có hai điểm cực trị trái dấu $x_1 < 0 < x_2$ nên theo Viète:\n  $$x_1 x_2 = \\frac{c}{3} < 0 \\implies c < 0$$\n- Tổng hai nghiệm: $x_1 + x_2 = -\\frac{2b}{3}$. Vì $|x_1| > x_2$ và $x_1 < 0$ nên $x_1 + x_2 < 0 \\implies -\\frac{2b}{3} < 0 \\implies b > 0$.\nVậy $b > 0, c < 0, d > 0$.",
     "socraticHint": "Sử dụng định lý Viète cho phương trình đạo hàm bậc hai để xác định dấu của $b$ và $c$, dùng giao điểm với $Oy$ để xác định dấu của $d$.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_07_hsa36"
     ],

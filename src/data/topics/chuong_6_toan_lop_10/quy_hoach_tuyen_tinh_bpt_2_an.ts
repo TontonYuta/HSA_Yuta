@@ -16,7 +16,7 @@ export const quyHoachTuyenTinhQuestions: Question[] = [
     ],
     "detailedSolution": "Miền nghiệm là tứ giác $OABC$ với tọa độ các đỉnh:\n- $O(0; 0) \\implies F(0, 0) = 0$\n- $A(3; 0)$ (giao của $2x + y = 6$ với trục $Ox$) $\\implies F(3, 0) = 3(3) + 2(0) = 9$\n- $B(2; 2)$ (giao điểm của $x + y = 4$ và $2x + y = 6$) $\\implies F(2, 2) = 3(2) + 2(2) = 10$\n- $C(0; 4)$ (giao của $x + y = 4$ với trục $Oy$) $\\implies F(0, 4) = 3(0) + 2(4) = 8$\nGiá trị lớn nhất của $F(x, y)$ đạt được tại đỉnh $B(2; 2)$ và bằng 10.",
     "socraticHint": "Xác định các đỉnh của đa giác miền nghiệm, tính giá trị của $F$ tại từng đỉnh rồi chọn giá trị lớn nhất.",
-    "difficulty": "Vận dụng",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_03_moi"
     ]
@@ -48,9 +48,9 @@ export const quyHoachTuyenTinhQuestions: Question[] = [
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Điều kiện xác định: $8 + 2x - x^2 \\ge 0 \\iff -(x - 4)(x + 2) \\ge 0 \\iff -2 \\le x \\le 4$.\nTa có: $(x + 1)(x - 3) = x^2 - 2x - 3 = -(8 + 2x - x^2) + 5$.\nĐặt $t = \\sqrt{8 + 2x - x^2}$.\nVì $8 + 2x - x^2 = -(x - 1)^2 + 9 \\le 9$ với mọi $x \\in [-2; 4]$, nên $0 \\le t \\le 3$.\n\nKhi đó phương trình trở thành:\n$$-t^2 + t + 5 = 2m$$\nXét hàm số $f(t) = -t^2 + t + 5$ trên $[0; 3]$:\n$f'(t) = -2t + 1 = 0 \\iff t = \\frac{1}{2}$.\nTa có:\n$f(0) = 5$; $f\\left(\\frac{1}{2}\\right) = \\frac{21}{4} = 5.25$; $f(3) = -1$.\nDo đó miền giá trị của $f(t)$ là $[-1; \\frac{21}{4}]$.\nPhương trình có nghiệm $\\iff -1 \\le 2m \\le \\frac{21}{4} \\iff -0.5 \\le m \\le 2.625$.\nVì $m \\\\in \\mathbb{Z}$, nên $m \\in \\{0; 1; 2\\}$. Vậy có $3$ giá trị nguyên thỏa mãn.",
+    "detailedSolution": "Điều kiện xác định: $8 + 2x - x^2 \\ge 0 \\iff -(x - 4)(x + 2) \\ge 0 \\iff -2 \\le x \\le 4$.\nTa có: $(x + 1)(x - 3) = x^2 - 2x - 3 = -(8 + 2x - x^2) + 5$.\nĐặt $t = \\sqrt{8 + 2x - x^2}$.\nVì $8 + 2x - x^2 = -(x - 1)^2 + 9 \\le 9$ với mọi $x \\in [-2; 4]$, nên $0 \\le t \\le 3$.\n\nKhi đó phương trình trở thành:\n$$-t^2 + t + 5 = 2m$$\nXét hàm số $f(t) = -t^2 + t + 5$ trên $[0; 3]$:\n$f'(t) = -2t + 1 = 0 \\iff t = \\frac{1}{2}$.\nTa có:\n$f(0) = 5$; $f\\left(\\frac{1}{2}\\right) = \\frac{21}{4} = 5.25$; $f(3) = -1$.\nDo đó miền giá trị của $f(t)$ là $[-1; \\frac{21}{4}]$.\nPhương trình có nghiệm $\\iff -1 \\le 2m \\le \\frac{21}{4} \\iff -0.5 \\le m \\le 2.625$.\nVì $m \\in \\mathbb{Z}$, nên $m \\in \\{0; 1; 2\\}$. Vậy có $3$ giá trị nguyên thỏa mãn.",
     "socraticHint": "Khai triển biểu thức $(x+1)(x-3)$ và biểu diễn theo $8 + 2x - x^2$, sau đó đặt ẩn phụ $t = \\sqrt{8 + 2x - x^2}$.",
-    "difficulty": "Vận dụng",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_06_hsa35"
     ]
@@ -81,7 +81,7 @@ export const quyHoachTuyenTinhQuestions: Question[] = [
     "correctAnswer": "C",
     "detailedSolution": "Phân tích câu hỏi C: \"Nếu tôi hỏi người kia cánh cửa nào dẫn đến Thiên Đường, anh ta sẽ chỉ cánh cửa nào?\"\n- Trường hợp 1: Bạn hỏi người nói thật.\n  Người nói thật biết người kia nói dối (sẽ chỉ vào Địa Ngục), nên người nói thật sẽ trả lời trung thực là người kia chỉ vào Địa Ngục.\n- Trường hợp 2: Bạn hỏi người nói dối.\n  Người nói thật sẽ chỉ vào Thiên Đường, nhưng người nói dối sẽ nói ngược lại, tức anh ta sẽ bảo người kia chỉ vào Địa Ngục.\nNhư vậy, dù hỏi bất kỳ ai, câu trả lời nhận được LUÔN LUÔN là cánh cửa dẫn đến Địa Ngục.\nDo đó, bạn chỉ cần chọn cánh cửa NGƯỢC LẠI với cánh cửa được chỉ thì chắc chắn 100% sẽ bước vào Thiên Đường!",
     "socraticHint": "Sử dụng tính chất logic phản đảo: phủ định của khẳng định và khẳng định của phủ định đều tạo ra kết quả phủ định (nói dối về lời nói thật = nói dối).",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_07_hsa36"
     ],

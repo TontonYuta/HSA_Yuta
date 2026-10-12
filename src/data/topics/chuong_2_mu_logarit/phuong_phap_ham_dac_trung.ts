@@ -30,7 +30,7 @@ export const hamDacTrungQuestions: Question[] = [
     "correctAnswer": "B",
     "detailedSolution": "Đặt $t = 2^x > 0$. Phương trình thành $t^2 - (m+2)t + 2m = 0 \\iff (t - 2)(t - m) = 0$.\nNghiệm $t_1 = 2 \\implies x_1 = 1$.\nTheo giả thiết $x_1 + x_2 = 3 \\implies x_2 = 2 \\implies t_2 = 2^2 = 4 \\implies m = 4$.",
     "socraticHint": "Phân tích nhân tử phương trình bậc hai theo ẩn phụ $t = 2^x$.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_01_chuan"
     ]
@@ -64,7 +64,7 @@ export const hamDacTrungQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Đặt $t = 3^x > 0 \\implies t^2 - 4t + 3 = 0 \\iff t = 1$ hoặc $t = 3$.\n- $3^x = 1 \\implies x = 0$.\n- $3^x = 3 \\implies x = 1$.\nVậy phương trình có 2 nghiệm phân biệt.",
     "socraticHint": "Đặt ẩn phụ $t = 3^x > 0$.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -83,7 +83,7 @@ export const hamDacTrungQuestions: Question[] = [
       "3",
       "3.0"
     ],
-    "detailedSolution": "Ta biến đổi biểu thức logarit:\n$$\\log_3(162x + 243) = \\log_3(81(2x + 3)) = \\log_3(81) + \\log_3(2x + 3) = 4 + \\log_3(2x + 3)$$\nThay vào phương trình ban đầu:\n$$4 + \\log_3(2x + 3) + 2x - 1 = 2y + 9^y$$\n$$\\iff \\log_3(2x + 3) + (2x + 3) = 2y + 3^{2y}$$\n$$\\iff \\log_3(2x + 3) + 3^{\\log_3(2x + 3)} = 2y + 3^{2y}$$\nXét hàm số đại diện $f(t) = t + 3^t$ trên $\\mathbb{R}$:\n$f'(t) = 1 + 3^t \\ln 3 > 0, \\\\forall t \\\\in \\mathbb{R} \\implies f(t)$ đồng biến trên $\\mathbb{R}$.\nDo đó:\n$$\\log_3(2x + 3) = 2y \\iff 2x + 3 = 3^{2y} = 9^y \\iff x = \\frac{9^y - 3}{2}$$\nVì $0 \\le x \\le 2025$:\n$$0 \\le \\frac{9^y - 3}{2} \\le 2025 \\iff 3 \\le 9^y \\le 4053$$\nVới $y \\\\in \\mathbb{Z}$:\n- $y = 1 \\implies 9^1 = 9 \\in [3; 4053] \\implies x = 3$.\n- $y = 2 \\implies 9^2 = 81 \\in [3; 4053] \\implies x = 39$.\n- $y = 3 \\implies 9^3 = 729 \\in [3; 4053] \\implies x = 363$.\n- Với $y \\ge 4 \\implies 9^4 = 6561 > 4053$ (loại).\n- Với $y \\le 0 \\implies 9^y \\le 1 < 3$ (loại).\nVậy có đúng $3$ cặp số nguyên $(x; y)$ thỏa mãn.",
+    "detailedSolution": "Ta biến đổi biểu thức logarit:\n$$\\log_3(162x + 243) = \\log_3(81(2x + 3)) = \\log_3(81) + \\log_3(2x + 3) = 4 + \\log_3(2x + 3)$$\nThay vào phương trình ban đầu:\n$$4 + \\log_3(2x + 3) + 2x - 1 = 2y + 9^y$$\n$$\\iff \\log_3(2x + 3) + (2x + 3) = 2y + 3^{2y}$$\n$$\\iff \\log_3(2x + 3) + 3^{\\log_3(2x + 3)} = 2y + 3^{2y}$$\nXét hàm số đại diện $f(t) = t + 3^t$ trên $\\mathbb{R}$:\n$f'(t) = 1 + 3^t \\ln 3 > 0, \\forall t \\in \\mathbb{R} \\implies f(t)$ đồng biến trên $\\mathbb{R}$.\nDo đó:\n$$\\log_3(2x + 3) = 2y \\iff 2x + 3 = 3^{2y} = 9^y \\iff x = \\frac{9^y - 3}{2}$$\nVì $0 \\le x \\le 2025$:\n$$0 \\le \\frac{9^y - 3}{2} \\le 2025 \\iff 3 \\le 9^y \\le 4053$$\nVới $y \\in \\mathbb{Z}$:\n- $y = 1 \\implies 9^1 = 9 \\in [3; 4053] \\implies x = 3$.\n- $y = 2 \\implies 9^2 = 81 \\in [3; 4053] \\implies x = 39$.\n- $y = 3 \\implies 9^3 = 729 \\in [3; 4053] \\implies x = 363$.\n- Với $y \\ge 4 \\implies 9^4 = 6561 > 4053$ (loại).\n- Với $y \\le 0 \\implies 9^y \\le 1 < 3$ (loại).\nVậy có đúng $3$ cặp số nguyên $(x; y)$ thỏa mãn.",
     "socraticHint": "Tách $\\log_3(162x + 243) = 4 + \\log_3(2x + 3)$ để đưa về phương trình hàm đặc trưng dạng $u + 3^u = v + 3^v$.",
     "difficulty": "Vận dụng cao",
     "examSets": [
@@ -116,7 +116,7 @@ export const hamDacTrungQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Biến đổi phương trình:\n$$\\log_2(x^2 - 5x + 6) - \\log_2(x^2 - 2x + 3) = (x^2 - 2x + 3) - (x^2 - 5x + 6)$$\n$$\\iff \\log_2(x^2 - 5x + 6) + (x^2 - 5x + 6) = \\log_2(x^2 - 2x + 3) + (x^2 - 2x + 3)$$\nXét hàm đặc trưng $f(t) = \\log_2 t + t$ với $t > 0$.\nĐạo hàm $f'(t) = \\frac{1}{t\\ln 2} + 1 > 0$ nên $f(t)$ đồng biến trên $(0; +\\infty)$.\nDo đó:\n$$x^2 - 5x + 6 = x^2 - 2x + 3 \\iff -3x = -3 \\iff x = 1$$\nThử lại $x = 1$ thỏa mãn điều kiện $x^2 - 5x + 6 = 2 > 0$ và $x^2 - 2x + 3 = 2 > 0$. Hoặc phương trình bậc hai có tổng nghiệm theo Viète bằng 3.",
     "socraticHint": "Chuyển vế để tạo dạng hàm đặc trưng đối xứng $f(u) = f(v)$ với $f(t) = \\log_2 t + t$.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_07_hsa36"
     ],

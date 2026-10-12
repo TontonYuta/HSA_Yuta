@@ -30,7 +30,7 @@ export const ungDungDienTichTheTichQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Công thức thể tích khối tròn xoay:\n$$V = \\pi \\int_0^4 y^2 dx = \\pi \\int_0^4 x \\, dx = \\pi \\left[ \\frac{x^2}{2} \\right]_0^4 = \\pi \\frac{16}{2} = 8\\pi$$.",
     "socraticHint": "Thể tích khi quay quanh $Ox$ là $V = \\pi \\int_a^b [f(x)]^2 dx$.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
     ]
@@ -64,7 +64,7 @@ export const ungDungDienTichTheTichQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Hoành độ giao điểm: $x^2 = 2x \\iff x = 0$ hoặc $x = 2$.\nDiện tích: $S = \\int_0^2 (2x - x^2) dx = [x^2 - x^3/3]_0^2 = 4 - 8/3 = 4/3$.",
     "socraticHint": "Tìm giao điểm rồi tính tích phân trị tuyệt đối hiệu hai hàm số.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -132,7 +132,7 @@ export const ungDungDienTichTheTichQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Áp dụng công thức thể tích khối tròn xoay quay quanh trục $Ox$:\n$$V = \\pi \\int_0^4 [y(x)]^2 dx = \\pi \\int_0^4 (\\sqrt{x})^2 dx = \\pi \\int_0^4 x dx = \\pi \\left[ \\frac{x^2}{2} \\right]_0^4 = \\pi \\cdot \\frac{16}{2} = 8\\pi$$.",
     "socraticHint": "Công thức thể tích tròn xoay quanh trục hoành: $V = \\pi \\int_a^b [f(x)]^2 dx$.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
     ]
@@ -166,7 +166,7 @@ export const ungDungDienTichTheTichQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Giao điểm với trục hoành: $4 - x^2 = 0 \\iff x = \\pm 2$.\nDiện tích hình phẳng:\n$$S = \\int_{-2}^2 (4 - x^2) dx = 2 \\int_0^2 (4 - x^2) dx = 2 l\\left[ 4x - \\frac{x^3}{3} \\right]_0^2 = 2l\\left(8 - \\frac{8}{3}\\right) = 2 \\cdot \\frac{16}{3} = \\frac{32}{3}$$.",
     "socraticHint": "Tính tích phân hàm số chẵn trên đoạn đối xứng $[-2; 2]$ bằng cách nhân đôi tích phân trên $[0; 2]$.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
     ]
@@ -179,7 +179,7 @@ export const ungDungDienTichTheTichQuestions: Question[] = [
     "correctAnswer": "6",
     "detailedSolution": "Tổng diện tích mảnh vườn hình chữ nhật: $S_{ABCD} = 6 \\times 10 = 60\\text{ m}^2$.\nPhần trồng cỏ có dạng parabol giới hạn bởi đáy chiều dài $10\\text{ m}$ và chiều cao $6\\text{ m}$.\nTheo công thức diện tích parabol Archimedes: $S_{\\text{co}} = \\frac{2}{3} \\cdot \a \\cdot \h = \\frac{2}{3} \\times 10 \\times 6 = 40\\text{ m}^2$.\nDiện tích phần lát đá còn lại: $S_{\\text{da}} = S_{ABCD} - S_{\\text{co}} = 60 - 40 = 20\\text{ m}^2$.\nChi phí lát đá: $20\\text{ m}^2 \\times 300.000\\text{ đ/m}^2 = 6.000.000\(đồng) = 6\(triệu đồng)$.",
     "socraticHint": "Diện tích phần giới hạn bởi parabol và dây cung bằng hai phần ba tích của đáy và chiều cao parabol.",
-    "difficulty": "Vận dụng",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_07_hsa36"
     ],
@@ -213,7 +213,7 @@ export const ungDungDienTichTheTichQuestions: Question[] = [
     "correctAnswer": "D",
     "detailedSolution": "Theo công thức tính thể tích khối tròn xoay chuẩn SGK Giải tích 12:\nThể tích khối tròn xoay sinh ra khi quay hình thang cong quanh trục hoành $Ox$ là:\n$$V = \\pi \\int_a^b [f(x)]^2 dx$$",
     "socraticHint": "Mỗi lát cắt thẳng góc trục $Ox$ là một hình tròn có bán kính $R = |f(x)|$ nên diện tích là $S(x) = \\pi [f(x)]^2$.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Thông hiểu",
     "examSets": [
       "de_07_hsa36"
     ],

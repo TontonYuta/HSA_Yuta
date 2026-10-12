@@ -30,7 +30,7 @@ export const moHinhOxyzThucTeQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Tọa độ điểm bất kỳ trên đoạn $AB$ có dạng $M(60; 80; z)$ với $0 \\le z \\le 100$.\nKhoảng cách từ $O$ đến $M$:\n$$OM = \\sqrt{60^2 + 80^2 + z^2} = \\sqrt{3600 + 6400 + z^2} = \\sqrt{10000 + z^2}$$\nVì $z \\ge 0$, giá trị nhỏ nhất của $OM$ đạt được khi $z = 0$ (tại điểm $A$):\n$$OM_{\\min} = \\sqrt{10000 + 0} = 100\\text{ km}$$.",
     "socraticHint": "Lập biểu thức khoảng cách $OM$ theo tham số cao độ $z$ rồi tìm giá trị nhỏ nhất trên đoạn $[0; 100]$.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
     ]
@@ -50,7 +50,7 @@ export const moHinhOxyzThucTeQuestions: Question[] = [
     ],
     "detailedSolution": "Mặt cầu $(S)$ có tâm $I(1; 2; 3)$ và bán kính $R = \\sqrt{25} = 5$.\nKhoảng cách từ tâm $I$ đến điểm $A$:\n$$IA = \\sqrt{(4 - 1)^2 + (6 - 2)^2 + (3 - 3)^2} = \\sqrt{3^2 + 4^2 + 0} = 5$$\nKhoảng cách lớn nhất từ $A$ đến một điểm $M$ trên mặt cầu là:\n$$d_{\\max} = IA + R = 5 + 5 = 10$$.",
     "socraticHint": "Khoảng cách lớn nhất từ điểm $A$ tới điểm $M$ thuộc mặt cầu tâm $I$ bán kính $R$ là $IA + R$.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_03_moi"
     ]
@@ -62,7 +62,7 @@ export const moHinhOxyzThucTeQuestions: Question[] = [
     "chapterName": "Chương 5: Phương pháp tọa độ trong không gian Oxyz",
     "topicId": "mo_hinh_hoa_khong_gian_thuc_te",
     "topicName": "Mô hình hóa không gian thực tế Oxyz",
-    "content": "Vị trí của một chiếc máy bay tại thời điểm $9$ giờ $30$ phút trong hệ trục $Oxyz$ (đơn vị: $\\text{km}$) có tọa độ là $(150; 300; 9)$, trong đó trục $Ox$ hướng về phía Nam, $Oy$ hướng về phía Đông, $Oz$ thẳng đứng biểu thị độ cao. Phi công đặt chế độ tự động cho máy bay bay với vận tốc $984\\text{ km/h}$, theo hướng Đông và độ cao không thay đổi. Đến thời điểm $a$ giờ $b$ phút ($a, b \\\\in \\mathbb{N}^*$), hình chiếu vuông góc của máy bay trên mặt đất (mặt phẳng $(Oxy)$) có khoảng cách theo đường chim bay đến gốc $O$ là $1130\\text{ km}$. Tính giá trị của biểu thức $T = a + b$.",
+    "content": "Vị trí của một chiếc máy bay tại thời điểm $9$ giờ $30$ phút trong hệ trục $Oxyz$ (đơn vị: $\\text{km}$) có tọa độ là $(150; 300; 9)$, trong đó trục $Ox$ hướng về phía Nam, $Oy$ hướng về phía Đông, $Oz$ thẳng đứng biểu thị độ cao. Phi công đặt chế độ tự động cho máy bay bay với vận tốc $984\\text{ km/h}$, theo hướng Đông và độ cao không thay đổi. Đến thời điểm $a$ giờ $b$ phút ($a, b \\in \\mathbb{N}^*$), hình chiếu vuông góc của máy bay trên mặt đất (mặt phẳng $(Oxy)$) có khoảng cách theo đường chim bay đến gốc $O$ là $1130\\text{ km}$. Tính giá trị của biểu thức $T = a + b$.",
     "options": [],
     "correctAnswer": "30",
     "acceptableAnswers": [

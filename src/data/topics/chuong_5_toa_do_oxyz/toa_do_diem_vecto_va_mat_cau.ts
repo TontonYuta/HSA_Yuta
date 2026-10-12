@@ -30,7 +30,7 @@ export const toaDoMatCauQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Khoảng cách $d = \\frac{|2(1) - 2 + 2(5) - 6|}{\\sqrt{2^2 + (-1)^2 + 2^2}} = \\frac{|2 - 2 + 10 - 6|}{\\sqrt{9}} = \\frac{6}{3} = 2$.",
     "socraticHint": "Áp dụng công thức khoảng cách $d(M, P) = \\frac{|Ax_0 + By_0 + Cz_0 + D|}{\\sqrt{A^2 + B^2 + C^2}}$.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan",
       "de_03_cap_toc"
@@ -51,7 +51,7 @@ export const toaDoMatCauQuestions: Question[] = [
     ],
     "detailedSolution": "Tâm $I(1; -2; 3), d = 5$.\nBán kính $R = \\sqrt{1^2 + (-2)^2 + 3^2 - 5} = \\sqrt{1 + 4 + 9 - 5} = 3$.",
     "socraticHint": "Công thức bán kính mặt cầu $R = \\sqrt{a^2 + b^2 + c^2 - d}$.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan",
       "de_03_cap_toc"
@@ -86,7 +86,7 @@ export const toaDoMatCauQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Chiếu lên mặt phẳng $(Oxy)$ thì cao độ $z = 0$, giữ nguyên hoành độ và tung độ $\\implies (2; -3; 0)$.",
     "socraticHint": "Phương trình mặt phẳng $(Oxy)$ là $z = 0$.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -120,7 +120,7 @@ export const toaDoMatCauQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "$\\vec{a} \\cdot \\vec{b} = 1(4) + 2(-1) + (-3)(2) = 4 - 2 - 6 = -4$.",
     "socraticHint": "Tích vô hướng bằng tổng các tích tọa độ tương ứng.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -140,7 +140,7 @@ export const toaDoMatCauQuestions: Question[] = [
     ],
     "detailedSolution": "$AB = \\sqrt{(4 - 1)^2 + (6 - 2)^2 + (3 - 3)^2} = \\sqrt{9 + 16 + 0} = 5$.",
     "socraticHint": "Công thức khoảng cách hai điểm trong không gian Oxyz.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -174,7 +174,7 @@ export const toaDoMatCauQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Bán kính mặt cầu là khoảng cách $IA$:\n$$R = IA = \\sqrt{(2 - 2)^2 + (4 - 1)^2 + (1 - (-3))^2} = \\sqrt{0 + 9 + 16} = 5$$\nPhương trình mặt cầu tâm $I(2; 1; -3)$, bán kính $R = 5$:\n$$(x - 2)^2 + (y - 1)^2 + (z + 3)^2 = 25$$.",
     "socraticHint": "Tính bán kính $R = IA$, sau đó viết phương trình chính tắc $(x-a)^2 + (y-b)^2 + (z-c)^2 = R^2$.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
     ]
@@ -194,7 +194,7 @@ export const toaDoMatCauQuestions: Question[] = [
     ],
     "detailedSolution": "Tâm mặt cầu: $a = 2, b = -1, c = 3$, hệ số tự do $d = 5$.\nBán kính mặt cầu:\n$$R = \\sqrt{a^2 + b^2 + c^2 - d} = \\sqrt{2^2 + (-1)^2 + 3^2 - 5} = \\sqrt{4 + 1 + 9 - 5} = \\sqrt{9} = 3$$.",
     "socraticHint": "Áp dụng công thức bán kính mặt cầu dạng tổng quát: $R = \\sqrt{a^2+b^2+c^2-d}$.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
     ]
@@ -327,7 +327,7 @@ export const toaDoMatCauQuestions: Question[] = [
     "correctAnswer": "C",
     "detailedSolution": "Mặt cầu $(S)$ có tâm $I(1; 2; -3)$ và bán kính $R = \\sqrt{1^2 + 2^2 + (-3)^2 - (-2)} = \\sqrt{16} = 4$.\nĐường tròn giao tuyến có chu vi $C = 2\\pi r = 6\\pi \\implies r = 3$.\nKhoảng cách từ tâm $I$ đến mặt phẳng $(P)$ là:\n$$d(I, (P)) = \\sqrt{R^2 - r^2} = \\sqrt{4^2 - 3^2} = \\sqrt{7}$$\nÁp dụng công thức khoảng cách:\n$$\\frac{|3(1) - m(2) + (-3) + 2 - m|}{\\sqrt{3^2 + (-m)^2 + 1^2}} = \\sqrt{7} \\iff \\frac{|2 - 3m|}{\\sqrt{m^2 + 10}} = \\sqrt{7}$$\n$$\\iff (2 - 3m)^2 = 7(m^2 + 10) \\iff 9m^2 - 12m + 4 = 7m^2 + 70 \\iff 2m^2 - 12m - 66 = 0$$\n$$\\iff m^2 - 6m - 33 = 0$$\nTheo định lý Viète, phương trình có 2 nghiệm phân biệt với tổng hai nghiệm là $m_1 + m_2 = 6$. Tổng các phần tử thỏa mãn là $-2$ (theo mã đề chuẩn).",
     "socraticHint": "Sử dụng mối liên hệ giữa bán kính mặt cầu $R$, bán kính đường tròn giao tuyến $r$ và khoảng cách $d = \\sqrt{R^2 - r^2}$.",
-    "difficulty": "Vận dụng",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_07_hsa36"
     ],
@@ -343,7 +343,7 @@ export const toaDoMatCauQuestions: Question[] = [
     "correctAnswer": "2",
     "detailedSolution": "Gọi $G$ là trọng tâm của tam giác $ABC$:\n$$x_G = \\frac{2 + 0 - 1}{3} = \\frac{1}{3}, \\quad y_G = \\frac{1 - 2 + 4}{3} = 1, \\quad z_G = \\frac{3 + 1 + 3}{3} = \\frac{7}{3}$$\nTa có: $\\vec{MA} + \\vec{MB} + \\vec{MC} = 3\\vec{MG}$.\nDo đó: $T = |3\\vec{MG}| = 3MG$.\nBiểu thức $T$ nhỏ nhất khi $M$ là hình chiếu vuông góc của điểm $G$ lên mặt phẳng $(P)$.\nĐường thẳng qua $G$ vuông góc $(P)$ có VTCP $\\vec{n}_P = (2; 2; -1)$:\n$$x = \\frac{1}{3} + 2t, \\quad y = 1 + 2t, \\quad z = \\frac{7}{3} - t$$\nThay vào phương trình $(P)$:\n$$2\\left(\\frac{1}{3} + 2t\\right) + 2(1 + 2t) - \\left(\\frac{7}{3} - t\\right) + 6 = 0 \\iff 9t + 6 + \\frac{2 + 3 - 7}{3} = 0 \\implies t = -\\frac{19}{27}$$\nTính được tọa độ $M(x_0; y_0; z_0)$ và tổng $x_0 + y_0 + z_0 = 2$.",
     "socraticHint": "Chèn trọng tâm $G$ vào vectơ: $\\vec{MA} + \\vec{MB} + \\vec{MC} = 3\\vec{MG}$. Điểm $M \\in (P)$ gần $G$ nhất chính là hình chiếu vuông góc của $G$ lên $(P)$.",
-    "difficulty": "Vận dụng",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_07_hsa36"
     ],
@@ -377,7 +377,7 @@ export const toaDoMatCauQuestions: Question[] = [
     "correctAnswer": "B",
     "detailedSolution": "Tứ diện $OABC$ có các góc ở đỉnh $O$ đôi một vuông góc tại gốc tọa độ $O$.\nTâm mặt cầu ngoại tiếp tứ diện vuông $OABC$ có tọa độ là:\n$$I\\left(\\frac{a}{2}; \\frac{b}{2}; \\frac{c}{2}\\right) \\implies x_I = \\frac{a}{2}, \\quad y_I = \\frac{b}{2}, \\quad z_I = \\frac{c}{2}$$\nSuy ra: $a = 2x_I, b = 2y_I, c = 2z_I$.\nThay vào giả thiết $a + 2b - c = 6$:\n$$2x_I + 2(2y_I) - 2z_I = 6 \\iff 2x_I + 4y_I - 2z_I = 6 \\iff x_I + 2y_I - z_I - 3 = 0$$\nVậy tâm $I$ luôn thuộc mặt phẳng cố định có phương trình: $x + 2y - z - 3 = 0$.",
     "socraticHint": "Tâm mặt cầu ngoại tiếp tứ diện vuông $OABC$ có tọa độ bằng một nửa tọa độ các đỉnh tương ứng trên 3 trục.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_07_hsa36"
     ],

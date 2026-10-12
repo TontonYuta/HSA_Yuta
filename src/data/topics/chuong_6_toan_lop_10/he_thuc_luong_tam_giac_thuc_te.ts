@@ -16,7 +16,7 @@ export const heThucLuongTamGiacQuestions: Question[] = [
     ],
     "detailedSolution": "Xét tam giác $OAB$ có $OA = 30$, $OB = 50$, góc $widehat{AOB} = 120^\\circ$.\nÁp dụng định lý côsin:\n$$AB^2 = OA^2 + OB^2 - 2 \\cdot OA \\cdot OB \\cdot \\cos 120^\\circ$$\n$$AB^2 = 30^2 + 50^2 - 2 \\cdot 30 \\cdot 50 \\cdot l\\left(-\\frac{1}{2}\\right) = 900 + 2500 + 1500 = 4900$$\nSuy ra $AB = \\sqrt{4900} = 70$ hải lý.",
     "socraticHint": "Áp dụng định lý côsin trong tam giác: $c^2 = a^2 + b^2 - 2abcos C$.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
     ]

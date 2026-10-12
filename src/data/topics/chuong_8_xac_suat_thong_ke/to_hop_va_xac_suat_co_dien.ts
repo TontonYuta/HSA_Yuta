@@ -30,7 +30,7 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Vòng 1 (số chẵn $\\{0, 2, 4, 6, 8\\}$): 5 cách.\nVòng 2 (khác vòng 1): 9 cách.\nVòng 3 (khác 2 vòng trước): 8 cách.\nSố mã: $5 \\times 9 \\times 8 = 360$.",
     "socraticHint": "Áp dụng quy tắc nhân liên tiếp cho 3 vị trí.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan",
       "de_03_cap_toc"
@@ -65,7 +65,7 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Xét biến cố đối: \"Cả ba khẩu đều bắn trượt\":\n$$P(\\overline{A}) = (1 - 0{,}7)(1 - 0{,}8)(1 - 0{,}5) = 0{,}3 \\times 0{,}2 \\times 0{,}5 = 0{,}03$$.\nXác suất mục tiêu bị hạ: $P(A) = 1 - P(\\overline{A}) = 1 - 0{,}03 = 0{,}97$.",
     "socraticHint": "Biến cố \"trúng ít nhất một phát\" có biến cố đối là \"toàn bộ đều trượt\".",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
     ]
@@ -99,7 +99,7 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Số phần tử không gian mẫu: $n(\\Omega) = C_{12}^4 = 495$.\nSố kết quả thuận lợi: $C_5^2 \\times C_7^2 = 10 \\times 21 = 210$.\nXác suất $P = \\frac{210}{495} = \\frac{14}{33}$.",
     "socraticHint": "Chọn 2 bi đỏ từ 5 viên và 2 bi xanh từ 7 viên.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
     ]
@@ -120,7 +120,7 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
     ],
     "detailedSolution": "Không gian mẫu có $6 \\times 6 = 36$ phần tử.\nCác cặp có tổng bằng 7: $(1, 6), (2, 5), (3, 4), (4, 3), (5, 2), (6, 1)$ có 6 cặp.\nXác suất: $6/36 = 1/6$.",
     "socraticHint": "Liệt kê các cặp số tự nhiên từ 1 đến 6 có tổng bằng 7.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan",
       "de_03_cap_toc"
@@ -155,7 +155,7 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Số hoán vị của 5 phần tử: $P_5 = 5! = 120$.",
     "socraticHint": "Số hoán vị $n$ phần tử là $n!$.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -189,7 +189,7 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Số tập con 2 phần tử là $C_6^2 = \\frac{6 \\times 5}{2} = 15$.",
     "socraticHint": "Tổ hợp chập 2 của 6 phần tử.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -209,7 +209,7 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
     ],
     "detailedSolution": "Mỗi lần có 2 khả năng (sấp hoặc ngửa). Tung 3 lần: $2^3 = 8$.",
     "socraticHint": "Quy tắc nhân cho các phép thử độc lập.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -243,7 +243,7 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Mỗi số tự nhiên có 4 chữ số khác nhau lập từ tập $S$ (gồm 7 phần tử khác 0) là một chỉnh hợp chập 4 của 7 phần tử:\n$$A_7^4 = \\frac{7!}{(7 - 4)!} = 7 \\times 6 \\times 5 \\times 4 = 840$$.",
     "socraticHint": "Chọn có thứ tự 4 chữ số từ 7 chữ số khác nhau dùng công thức chỉnh hợp $A_n^k$.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
     ]
@@ -277,7 +277,7 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Biến cố \"có đúng một xạ thủ bắn trúng bia\" gồm hai trường hợp xung khắc:\n- Trường hợp 1: $A$ bắn trúng và $B$ trượt: $P_1 = 0.7 \\times (1 - 0.8) = 0.7 \\times 0.2 = 0.14$.\n- Trường hợp 2: $A$ bắn trượt và $B$ trúng: $P_2 = (1 - 0.7) \\times 0.8 = 0.3 \\times 0.8 = 0.24$.\nTổng xác suất:\n$$P = P_1 + P_2 = 0.14 + 0.24 = 0.38$$.",
     "socraticHint": "Cộng xác suất của hai biến cố rời nhau: ($A$ trúng, $B$ trượt) và ($A$ trượt, $B$ trúng).",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
     ]
@@ -311,7 +311,7 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Số phần tử của không gian mẫu: $n(\\Omega) = C_{10}^3 = \\frac{10 \\times 9 \\times 8}{6} = 120$.\nXét biến cố đối $\\overline{A}$: \"Cả 3 quả cầu được chọn đều là màu đỏ\".\n$$n(\\overline{A}) = C_6^3 = \\frac{6 \\times 5 \\times 4}{6} = 20$$\nXác suất của biến cố đối: $P(\\overline{A}) = \\frac{20}{120} = \\frac{1}{6}$.\nXác suất cần tìm:\n$$P(A) = 1 - P(\\overline{A}) = 1 - \\frac{1}{6} = \\frac{5}{6}$$.",
     "socraticHint": "Dùng biến cố đối: \"Ít nhất 1 quả cầu xanh\" có biến cố đối là \"Không có quả xanh nào (cả 3 quả đỏ)\".",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
     ]
@@ -331,7 +331,7 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
     ],
     "detailedSolution": "Số phần tử không gian mẫu: $n(\\Omega) = C_{12}^3 = \\frac{12 \\times 11 \\times 10}{6} = 220$.\nSố cách chọn 3 viên bi cùng màu:\n- Cùng màu đỏ: $C_5^3 = 10$.\n- Cùng màu trắng: $C_7^3 = 35$.\nSố kết quả thuận lợi: $n(A) = 10 + 35 = 45$.\nXác suất:\n$$P(A) = \\frac{45}{220} = \\frac{9}{44}$$\nPhân số tối giản có $a = 9$ và $b = 44$.\nVậy $a + b = 9 + 44 = 53$.",
     "socraticHint": "Tính số cách lấy 3 bi đỏ ($C_5^3$) và 3 bi trắng ($C_7^3$), cộng lại rồi chia cho không gian mẫu $C_{12}^3$.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_04_nang_cao"
     ]
@@ -386,7 +386,7 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
     ],
     "detailedSolution": "Xác suất để cả ba cầu thủ đều ghi bàn:\n$$x \\cdot y \\cdot 0{,}6 = 0{,}336 \\implies x \\cdot y = \\frac{0{,}336}{0{,}6} = 0{,}56$$\nXác suất để cả ba cầu thủ đều không ghi bàn là biến cố đối của 'ít nhất một cầu thủ ghi bàn':\n$$(1 - x)(1 - y)(1 - 0{,}6) = 1 - 0{,}976 = 0{,}024$$\n$$(1 - x)(1 - y) \\cdot 0{,}4 = 0{,}024 \\implies (1 - x)(1 - y) = 0{,}06$$\n$$1 - (x + y) + xy = 0{,}06 \\implies 1 - (x + y) + 0{,}56 = 0{,}06 \\implies x + y = 1{,}5$$\nVì $x, y$ có tổng $1{,}5$ và tích $0{,}56$, $x, y$ là hai nghiệm của phương trình $t^2 - 1{,}5t + 0{,}56 = 0$.\nGiải ra được hai nghiệm: $t_1 = 0{,}8$ và $t_2 = 0{,}7$.\nVì $x > y$, ta có $x = 0{,}8$ và $y = 0{,}7$.\n\nBiến cố có đúng hai cầu thủ ghi bàn gồm 3 trường hợp xung khắc:\n1) Cầu thủ 1 và 2 ghi bàn, cầu thủ 3 hỏng: $x \\cdot y \\cdot (1 - 0{,}6) = 0{,}56 \\times 0{,}4 = 0{,}224$.\n2) Cầu thủ 1 và 3 ghi bàn, cầu thủ 2 hỏng: $x \\cdot (1 - y) \\cdot 0{,}6 = 0{,}8 \\times 0{,}3 \\times 0{,}6 = 0{,}144$.\n3) Cầu thủ 2 và 3 ghi bàn, cầu thủ 1 hỏng: $(1 - x) \\cdot y \\cdot 0{,}6 = 0{,}2 \\times 0{,}7 \\times 0{,}6 = 0{,}084$.\nTổng xác suất:\n$$P = 0{,}224 + 0{,}144 + 0{,}084 = 0{,}452 = \\frac{452}{1000} = \\frac{113}{250}$$\nPhân số $\\frac{113}{250}$ là tối giản, nên $a = 113$ và $b = 250$.\nGiá trị biểu thức $T = a + b = 113 + 250 = 363$.",
     "socraticHint": "Lập hệ phương trình tính tổng và tích của x, y từ xác suất cả 3 người ghi bàn và xác suất không ai ghi bàn.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
     ]
@@ -451,7 +451,7 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "- Lượt 1: Xạ thủ 1 trúng với $p_1 = 0{,}4$; xạ thủ 2 trúng với $q_1 = 0{,}5$.\n  Xác suất đúng 1 người trúng ở lượt 1 là:\n  $$P_1 = p_1(1 - q_1) + (1 - p_1)q_1 = 0{,}4(0{,}5) + (0{,}6)(0{,}5) = 0{,}20 + 0{,}30 = 0{,}50$$\n- Lượt 2: Xạ thủ 1 trúng với $p_2 = 0{,}3$; xạ thủ 2 trúng với $q_2 = 0{,}4$.\n  Xác suất đúng 1 người trúng ở lượt 2 là:\n  $$P_2 = p_2(1 - q_2) + (1 - p_2)q_2 = 0{,}3(0{,}6) + (0{,}7)(0{,}4) = 0{,}18 + 0{,}28 = 0{,}46$$\nVì hai lượt bắn độc lập nên xác suất ở cả hai lượt đều có đúng 1 người bắn trúng là:\n$$P = P_1 \\times P_2 = 0{,}50 \\times 0{,}46 = 0{,}23$$",
     "socraticHint": "Tính xác suất có đúng 1 người trúng ở từng lượt độc lập rồi nhân hai kết quả lại với nhau.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_07_hsa36"
     ],
@@ -485,7 +485,7 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
     "correctAnswer": "C",
     "detailedSolution": "Giải phương trình tìm $n$:\n$$3 \\cdot \\frac{n(n - 1)}{2} + \\frac{n(n - 1)(n - 2)}{6} = 405$$\n$$\\iff \\frac{n(n - 1)}{6} [9 + n - 2] = 405 \\iff n(n - 1)(n + 7) = 2430$$\nVới $n = 10$: $10 \\times 9 \\times 17 = 1530 \\ne 2430$. Với $n = 10$, khai triển có số mũ tổng quát:\n$$T_{k+1} = C_{10}^k (x^3)^{10 - k} \\left(-\\frac{1}{4}x^{-5}\\right)^k = C_{10}^k \\left(-\\frac{1}{4}\\right)^k x^{30 - 3k - 5k} = C_{10}^k \\left(-\\frac{1}{4}\\right)^k x^{30 - 8k}$$\nĐể có số mũ $x^6$: $30 - 8k = 6 \\iff 8k = 24 \\iff k = 3$.\nHệ số tương ứng là $C_{10}^3 \\left(-\\frac{1}{4}\\right)^3 = C_{10}^7 \\left(-\\frac{1}{4}\\right)^7$ (theo tính chất đối xứng tổ hợp).",
     "socraticHint": "Giải phương trình tổ hợp tìm $n$ rồi dùng công thức số hạng tổng quát của nhị thức Newton $T_{k+1} = C_n^k a^{n-k} b^k$.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_07_hsa36"
     ],
@@ -501,7 +501,7 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
     "correctAnswer": "132",
     "detailedSolution": "Số cách tam giác hóa một đa giác lồi $n$ đỉnh bằng các đường chéo không cắt nhau là số Catalan thứ $n - 2$, ký hiệu là $C_{n-2}$.\nCông thức số Catalan:\n$$C_k = \\frac{1}{k + 1} C_{2k}^k$$\nVới đa giác $n = 8$ đỉnh, ta tính số Catalan với $k = 8 - 2 = 6$:\n$$C_6 = \\frac{1}{6 + 1} C_{12}^6 = \\frac{1}{7} \\times \\frac{12!}{6! \\cdot 6!} = \\frac{1}{7} \\times 924 = 132$$\nVậy có đúng 132 cách chia đa giác thành các tam giác.",
     "socraticHint": "Số cách tam giác hóa đa giác lồi $n$ đỉnh được tính bằng số Catalan $C_{n-2} = \\frac{1}{n - 1} C_{2n - 4}^{n - 2}$.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_07_hsa36"
     ],
@@ -535,7 +535,7 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
     "correctAnswer": "B",
     "detailedSolution": "Theo tính chất đối xứng của tổ hợp:\n$$C_n^k = \\frac{n!}{k!(n - k)!} = \\frac{n!}{(n - k)![n - (n - k)]!} = C_n^{n - k}$$\nĐẳng thức $C_n^k = C_n^{n - k}$ đúng với mọi $0 \\le k \\le n$.",
     "socraticHint": "Tính chất đối xứng của số tổ hợp chập $k$ của $n$ phần tử.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Thông hiểu",
     "examSets": [
       "de_07_hsa36"
     ],

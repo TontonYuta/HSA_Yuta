@@ -30,7 +30,7 @@ export const daySoGioiHanQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Cấp số cộng có $u_1 = 15, d = 4, n = 20$.\n$$S_{20} = \\frac{20}{2}[2(15) + (20 - 1)4] = 10[30 + 76] = 10 \\times 106 = 1060$$.",
     "socraticHint": "Công thức tổng $n$ số hạng đầu của cấp số cộng $S_n = \\frac{n}{2}[2u_1 + (n - 1)d]$.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan",
       "de_03_cap_toc"
@@ -65,7 +65,7 @@ export const daySoGioiHanQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "$u_{10} = u_1 + 9d = 2 + 9(3) = 29$.",
     "socraticHint": "Áp dụng công thức $u_n = u_1 + (n - 1)d$.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -99,7 +99,7 @@ export const daySoGioiHanQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Chia cả tử và mẫu cho $n^2$ bậc cao nhất:\n$$\\lim\\limits_{n \\to +\\infty} \\frac{3n^2 - 2n + 5}{2n^2 + n - 1} = \\lim \\frac{3 - \\frac{2}{n} + \\frac{5}{n^2}}{2 + \\frac{1}{n} - \\frac{1}{n^2}} = \\frac{3 - 0 + 0}{2 + 0 - 0} = \\frac{3}{2}$$.",
     "socraticHint": "Giới hạn tỉ số hai đa thức cùng bậc bằng tỉ số hai hệ số của bậc cao nhất.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
     ]
@@ -122,7 +122,7 @@ export const daySoGioiHanQuestions: Question[] = [
     ],
     "detailedSolution": "Tam giác nối trung điểm của ba cạnh tam giác đồng dạng với tam giác ban đầu theo tỉ số $k = \\frac{1}{2}$, do đó diện tích bằng $k^2 = \\frac{1}{4}$ diện tích tam giác ban đầu:\n- Tam giác thứ nhất dựng được $A_1B_1C_1$ có diện tích: $S_1 = \\frac{1}{4} S_{ABC} = \\frac{12}{4} = 3\\text{ cm}^2$.\n- Tam giác thứ hai dựng được $A_2B_2C_2$ có diện tích: $S_2 = \\frac{1}{4} S_1 = \\frac{3}{4}\\text{ cm}^2$.\n- Tổng quát: $S_n = 3 \\cdot \\left(\\frac{1}{4}\\right)^{n-1}$.\n\nDãy các diện tích tam giác đã dựng tạo thành cấp số nhân lùi vô hạn với $u_1 = 3$ và công bội $q = \\frac{1}{4}$.\nTổng diện tích các tam giác đã dựng là:\n$$S = \\sum_{n=1}^\\infty S_n = \\frac{u_1}{1 - q} = \\frac{3}{1 - \\frac{1}{4}} = \\frac{3}{\\frac{3}{4}} = 4\\text{ cm}^2$$\n(Nếu tính cả tam giác ban đầu $ABC$, tổng diện tích là $12 + 4 = 16\\text{ cm}^2$. Cả hai cách hiểu đều được hệ thống công nhận).",
     "socraticHint": "Diện tích tam giác trung điểm bằng $1/4$ diện tích tam giác mẹ. Áp dụng công thức tổng cấp số nhân lùi vô hạn $S = \\frac{u_1}{1 - q}$.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
     ]
@@ -131,7 +131,7 @@ export const daySoGioiHanQuestions: Question[] = [
     "id": 280,
     "type": "mcq",
     "topicId": "day_so_va_gioi_han",
-    "content": "Cho dãy số $(u_n)$ xác định bởi $u_1 = 3$ và $u_{n+1} = \\frac{1}{2}\\left(u_n + \\frac{3}{u_n}\\right)$ với mọi $n \\\\in \\mathbb{N}^*$. Giới hạn $\\lim\\limits_{n \\to +\\infty} u_n$ bằng:",
+    "content": "Cho dãy số $(u_n)$ xác định bởi $u_1 = 3$ và $u_{n+1} = \\frac{1}{2}\\left(u_n + \\frac{3}{u_n}\\right)$ với mọi $n \\in \\mathbb{N}^*$. Giới hạn $\\lim\\limits_{n \\to +\\infty} u_n$ bằng:",
     "options": [
       {
         "key": "A",
@@ -153,7 +153,7 @@ export const daySoGioiHanQuestions: Question[] = [
     "correctAnswer": "C",
     "detailedSolution": "Bằng quy nạp, ta thấy $u_n > 0$ với mọi $n \\ge 1$.\nÁp dụng bất đẳng thức Cauchy:\n$$u_{n+1} = \\frac{1}{2}\\left(u_n + \\frac{3}{u_n}\\right) \\ge \\sqrt{u_n \\cdot \\frac{3}{u_n}} = \\sqrt{3}$$\nVới $n \\ge 2$, ta có $u_n \\ge \\sqrt{3}$. Khi đó:\n$$u_{n+1} - u_n = \\frac{3 - u_n^2}{2u_n} \\le 0$$\nDo đó dãy $(u_n)$ giảm kể từ số hạng thứ hai và bị chặn dưới bởi $\\sqrt{3}$, nên dãy có giới hạn hữu hạn $L \\ge \\sqrt{3}$.\nLấy giới hạn hai vế phương trình truy hồi:\n$$L = \\frac{1}{2}\\left(L + \\frac{3}{L}\\right) \\iff 2L = L + \\frac{3}{L} \\iff L = \\frac{3}{L} \\iff L^2 = 3 \\implies L = \\sqrt{3}$$",
     "socraticHint": "Đây là thuật toán Heron tính căn bậc hai. Chứng minh dãy số giảm và bị chặn dưới bởi $\\sqrt{3}$, sau đó chuyển qua giới hạn.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_07_hsa36"
     ],
@@ -187,7 +187,7 @@ export const daySoGioiHanQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Hàm số liên tục tại $x = 1$ khi và chỉ khi: $\\lim\\limits_{x \\to 1^+} f(x) = \\lim\\limits_{x \\to 1^-} f(x) = f(1) = m$.\n- Giới hạn bên phải:\n  $$\\lim\\limits_{x \\to 1^+} \\frac{x^2 - 3x + 2}{x - 1} = \\lim\\limits_{x \\to 1^+} \\frac{(x - 1)(x - 2)}{x - 1} = \\lim\\limits_{x \\to 1^+} (x - 2) = 1 - 2 = -1$$\n- Giới hạn bên trái:\n  $$\\lim\\limits_{x \\to 1^-} (2x - 3) = 2(1) - 3 = -1$$\nDo đó để hàm số liên tục thì $m = -1$.",
     "socraticHint": "Tính giới hạn trái và giới hạn phải khi $x \\to 1$ rồi cho bằng $f(1) = m$.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_07_hsa36"
     ],

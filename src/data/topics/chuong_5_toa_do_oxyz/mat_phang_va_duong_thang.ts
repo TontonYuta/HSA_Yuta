@@ -30,7 +30,7 @@ export const matPhangDuongThangQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Vectơ chỉ phương $\\vec{u}_1 = (2; 1; -2)$ và $\\vec{u}_2 = (1; -2; 2)$.\n$$\\cos \\varphi = \\frac{|\\vec{u}_1 \\cdot \\vec{u}_2|}{|\\vec{u}_1||\\vec{u}_2|} = \\frac{|2(1) + 1(-2) + (-2)(2)|}{\\sqrt{4+1+4}\\sqrt{1+4+4}} = \\frac{|2 - 2 - 4|}{3 \\times 3} = \\frac{4}{9}$$.",
     "socraticHint": "Góc giữa hai đường thẳng luôn thỏa mãn $0^\\circ \\le \\varphi \\le 90^\\circ$, do đó côsin luôn không âm.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
     ]
@@ -64,7 +64,7 @@ export const matPhangDuongThangQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Vectơ pháp tuyến của $(P)$ là $\\vec{u}_d = (3; -1; 2)$.\nPhương trình: $3(x - 1) - 1(y + 2) + 2(z - 3) = 0 \\iff 3x - y + 2z - 11 = 0$.",
     "socraticHint": "Mặt phẳng vuông góc đường thẳng thì vectơ chỉ phương của đường thẳng là vectơ pháp tuyến của mặt phẳng.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
     ]
@@ -98,7 +98,7 @@ export const matPhangDuongThangQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Trung điểm $M(2; 0; -1)$. VTPT $\\vec{AB} = (2; -2; 2) = 2(1; -1; 1)$.\nPhương trình: $1(x - 2) - 1(y - 0) + 1(z + 1) = 0 \\iff x - y + z - 1 = 0$.",
     "socraticHint": "Mặt phẳng trung trực đi qua trung điểm và vuông góc với đoạn thẳng.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
     ]
@@ -132,7 +132,7 @@ export const matPhangDuongThangQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Hệ số của $t$ cho ta tọa độ vectơ chỉ phương: $\\vec{u} = (2; -1; 4)$.",
     "socraticHint": "Vectơ chỉ phương lấy từ hệ số của tham số $t$.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -166,7 +166,7 @@ export const matPhangDuongThangQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Tâm mặt cầu $I(1; 2; -3)$, bán kính $R = \\sqrt{1^2 + 2^2 + (-3)^2 - (-2)} = \\sqrt{16} = 4$.\nKhoảng cách từ tâm $I$ đến $(P)$:\n$$d = \\frac{|2(1) - 2 + 2(-3) + 12|}{\\sqrt{2^2 + (-1)^2 + 2^2}} = \\frac{|2 - 2 - 6 + 12|}{3} = \\frac{6}{3} = 2$$\nBán kính đường tròn giao tuyến là:\n$$r = \\sqrt{R^2 - d^2} = \\sqrt{4^2 - 2^2} = \\sqrt{12} = 2\\sqrt{3}$$.",
     "socraticHint": "Sử dụng hệ thức Pytago liên hệ bán kính mặt cầu, khoảng cách và bán kính đường tròn: $r = \\sqrt{R^2 - d^2}$.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
     ]
@@ -200,7 +200,7 @@ export const matPhangDuongThangQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Vì $OA = OB = OC = a > 0$, tọa độ các giao điểm là $A(a; 0; 0), B(0; a; 0), C(0; 0; a)$.\nPhương trình mặt phẳng theo đoạn chắn:\n$$\\frac{x}{a} + \\frac{y}{a} + \\frac{z}{a} = 1 \\iff x + y + z = a$$\nMặt phẳng đi qua $M(1; 2; 3)$ nên:\n$$1 + 2 + 3 = a \\implies a = 6$$\nPhương trình của mặt phẳng là $x + y + z - 6 = 0$.",
     "socraticHint": "Sử dụng phương trình mặt phẳng theo đoạn chắn $\\frac{x}{a} + \\frac{y}{b} + \\frac{z}{c} = 1$ với $a = b = c$.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
     ]
@@ -234,7 +234,7 @@ export const matPhangDuongThangQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Trung điểm $I$ của đoạn thẳng $AB$ có tọa độ:\n$$Il\\left(\\frac{1+3}{2}; \\frac{2+0}{2}; \\frac{-1+3}{2}\\right) = I(2; 1; 1)$$\nVectơ pháp tuyến của mặt phẳng trung trực là $\\vec{AB} = (3-1; 0-2; 3-(-1)) = (2; -2; 4) = 2(1; -1; 2)$.\nChọn $\\vec{n} = (1; -1; 2)$. Phương trình mặt phẳng:\n$$1(x - 2) - 1(y - 1) + 2(z - 1) = 0 \\iff x - 2 - y + 1 + 2z - 2 = 0 \\iff x - y + 2z - 3 = 0$$.",
     "socraticHint": "Mặt phẳng trung trực của $AB$ đi qua trung điểm của $AB$ và nhận vectơ $\\vec{AB}$ làm vectơ pháp tuyến.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
     ]
@@ -268,7 +268,7 @@ export const matPhangDuongThangQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Khoảng cách từ điểm $M$ đến mặt phẳng $(P)$:\n$$d(M, (P)) = \\frac{|2(1) - (-2) + 2(3) - 4|}{\\sqrt{2^2 + (-1)^2 + 2^2}} = \\frac{|2 + 2 + 6 - 4|}{\\sqrt{9}} = \\frac{6}{3} = 2$$.",
     "socraticHint": "Áp dụng công thức khoảng cách từ điểm đến mặt phẳng: $d = \\frac{|Ax_0 + By_0 + Cz_0 + D|}{\\sqrt{A^2+B^2+C^2}}$.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
     ]
@@ -302,7 +302,7 @@ export const matPhangDuongThangQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Từ phương trình chính tắc của đường thẳng $\\frac{x - x_0}{a} = \\frac{y - y_0}{b} = \\frac{z - z_0}{c}$, vectơ chỉ phương là $\\vec{u} = (a; b; c) = (2; -1; 3)$.",
     "socraticHint": "Các hệ số dưới mẫu của phương trình chính tắc chính là tọa độ vectơ chỉ phương.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
     ]
@@ -336,7 +336,7 @@ export const matPhangDuongThangQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Mặt phẳng vuông góc với $\\Delta$ nên nhận VTCP $\\vec{u}_Delta = (2; -3; 1)$ làm VTPT.\nPhương trình mặt phẳng đi qua $A(1; 0; -2)$:\n$$2(x - 1) - 3(y - 0) + 1(z + 2) = 0 \\iff 2x - 2 - 3y + z + 2 = 0 \\iff 2x - 3y + z = 0$$.",
     "socraticHint": "Mặt phẳng vuông góc với đường thẳng thì vectơ chỉ phương của đường thẳng là vectơ pháp tuyến của mặt phẳng.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
     ]
@@ -370,7 +370,7 @@ export const matPhangDuongThangQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Mặt phẳng $(\\alpha)$ là mặt phẳng trung trực của đoạn thẳng $MN$.\nTrung điểm $I$ của đoạn thẳng $MN$:\n$$I = \\left( \\frac{1 + (-3)}{2}; \\frac{2 + (-2)}{2}; \\frac{3 + (-1)}{2} \\right) = (-1; 0; 1)$$\nVectơ pháp tuyến của $(\\alpha)$ cùng phương với vectơ $\\vec{MN}$:\n$$\\vec{MN} = (-3 - 1; -2 - 2; -1 - 3) = (-4; -4; -4) = -4(1; 1; 1)$$\nChọn vectơ pháp tuyến $\\vec{n} = (1; 1; 1)$.\nPhương trình mặt phẳng $(\\alpha)$ đi qua $I(-1; 0; 1)$ và có VTPT $\\vec{n} = (1; 1; 1)$:\n$$1(x + 1) + 1(y - 0) + 1(z - 1) = 0 \\iff x + y + z = 0$$",
     "socraticHint": "Tìm tọa độ trung điểm I của MN và lấy vectơ chỉ phương của đoạn MN làm vectơ pháp tuyến của mặt phẳng.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
     ]
@@ -404,7 +404,7 @@ export const matPhangDuongThangQuestions: Question[] = [
     "correctAnswer": "B",
     "detailedSolution": "Vectơ chỉ phương của đường thẳng $AB$ là vectơ $\\vec{AB}$:\n$$\\vec{AB} = (3 - 1; 2 - (-2); -8 - 0) = (2; 4; -8)$$\nCác vectơ cùng phương với $\\vec{AB}$ có dạng $k(2; 4; -8) = 2k(1; 2; -4)$.\nChọn hệ số tỉ lệ $k = -\\frac{1}{2}$, ta được:\n$$\\vec{u} = -\\frac{1}{2} \\vec{AB} = (-1; -2; 4)$$\nVậy $\\vec{u} = (-1; -2; 4)$ là một vectơ chỉ phương của đường thẳng $AB$.",
     "socraticHint": "Tính tọa độ vectơ $\\vec{AB}$ rồi tìm vectơ tỉ lệ cùng phương trong 4 phương án.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
     ]
@@ -438,7 +438,7 @@ export const matPhangDuongThangQuestions: Question[] = [
     "correctAnswer": "C",
     "detailedSolution": "Vectơ chỉ phương của $\\Delta_1$: $\\vec{u}_1 = (1; -1; 2)$.\nVectơ chỉ phương của $\\Delta_2$: $\\vec{u}_2 = (3; -1; 3)$.\nVectơ chỉ phương của đường vuông góc chung $\\Delta$ là tích có hướng của $\\vec{u}_1$ và $\\vec{u}_2$:\n$$\\vec{u} = [\\vec{u}_1, \\vec{u}_2] = ((-1)(3) - (2)(-1); (2)(3) - (1)(3); (1)(-1) - (-1)(3)) = (-1; 3; 2)$$\nGọi $M \\in \\Delta_1$ và $N \\in \\Delta_2$ là hai chân đường vuông góc chung:\n- $M(1 + t; 3 - t; 2 + 2t)$.\n- $N(3s; -s; -1 + 3s)$.\nTa có $\\vec{MN} = (3s - t - 1; -s + t - 3; 3s - 2t - 3)$.\nVì $\\vec{MN} \\perp \\vec{u}_1$ và $\\vec{MN} \\perp \\vec{u}_2$:\n$$\\begin{cases} (3s - t - 1)(1) + (-s + t - 3)(-1) + (3s - 2t - 3)(2) = 0 \\\\ (3s - t - 1)(3) + (-s + t - 3)(-1) + (3s - 2t - 3)(3) = 0 \\end{cases}$$\n$$\\iff \\begin{cases} 10s - 6t - 4 = 0 \\\\ 19s - 10t - 9 = 0 \\end{cases} \\iff \\begin{cases} 5s - 3t = 2 \\\\ 19s - 10t = 9 \\end{cases} \\iff \\begin{cases} s = 1 \\\\ t = 1 \\end{cases}$$\nThay $s = 1$ vào tọa độ điểm $N$:\n$$N(3(1); -(1); -1 + 3(1)) = (3; -1; 2)$$\nĐường vuông góc chung $\\Delta$ đi qua điểm $N(3; -1; 2)$ và có VTCP $\\vec{u} = (-1; 3; 2)$, có phương trình chính tắc là:\n$$\\frac{x - 3}{-1} = \\frac{y + 1}{3} = \\frac{z - 2}{2}$$",
     "socraticHint": "Tìm VTCP bằng tích có hướng $[\\vec{u}_1, \\vec{u}_2]$, tham số hóa hai điểm $M \\in \\Delta_1, N \\in \\Delta_2$ rồi giải hệ vuông góc.",
-    "difficulty": "Vận dụng",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_06_hsa35"
     ]
@@ -485,7 +485,7 @@ export const matPhangDuongThangQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Gọi $A = \\Delta \\cap d_1 \\implies A(1 + u; 1 + 2u; 2 + u)$.\nGọi $B = \\Delta \\cap d_2 \\implies B(2 + v; -1 - v; 2v)$.\nVì $\\Delta$ đi qua $M(1; -4; 3)$ nên ba điểm $M, A, B$ thẳng hàng, suy ra $\\vec{MA}$ cùng phương với $\\vec{MB}$:\n$\\vec{MA} = (u; 5 + 2u; u - 1)$, $\\vec{MB} = (v + 1; 3 - v; 2v - 3)$.\nGiải hệ tỉ lệ tọa độ tìm được tham số $u, v$, suy ra vectơ chỉ phương của $\\Delta$ tỉ lệ với $(6; 10; -17)$.\nPhương trình chính tắc của $\\Delta$ là: $\\frac{x - 1}{6} = \\frac{y + 4}{10} = \\frac{z - 3}{-17}$.",
     "socraticHint": "Gọi tọa độ hai giao điểm $A, B$ theo tham số rồi sử dụng điều kiện $\\vec{MA}$ và $\\vec{MB}$ cùng phương.",
-    "difficulty": "Vận dụng",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_07_hsa36"
     ],
@@ -519,7 +519,7 @@ export const matPhangDuongThangQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Bán kính đường tròn giao tuyến $r = \\sqrt{R^2 - d^2(I, (P))}$ nhỏ nhất khi và chỉ khi khoảng cách $d(I, (P))$ lớn nhất.\nMặt phẳng $(P)$ chứa đường thẳng $d$ nên khoảng cách từ tâm $I(-2; 1; 0)$ đến $(P)$ luôn nhỏ hơn hoặc bằng khoảng cách từ $I$ đến hình chiếu $H$ của $I$ lên $d$.\nDo đó, khoảng cách lớn nhất đạt được khi $(P) \\perp IH$, tức VTPT của $(P)$ là $\\vec{n} = \\vec{u}_d \\times (\\vec{u}_d \\times \\vec{IA})$.\nTính toán được phương trình mặt phẳng: $19x - 13y + 20z - 32 = 0$.",
     "socraticHint": "Mặt phẳng chứa đường thẳng $d$ và cách tâm $I$ khoảng cách lớn nhất là mặt phẳng vuông góc với hình chiếu vuông góc của $I$ lên $d$.",
-    "difficulty": "Vận dụng",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_07_hsa36"
     ],

@@ -30,7 +30,7 @@ export const toiUuKinhTeQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Theo bất đẳng thức AM-GM: $t^2 + 9 \\ge 2\\sqrt{9t^2} = 6t$. Dấu bằng xảy ra khi $t^2 = 9 \\iff t = 3$ (ngày).\nKhi đó $\\frac{10t}{t^2 + 9} \\le \\frac{10t}{6t} = \\frac{5}{3}$. Do đó sau đúng 3 ngày thì nồng độ oxy đạt cực đại.",
     "socraticHint": "Sử dụng bất đẳng thức AM-GM cho mẫu số $t^2 + 9$ hoặc khảo sát đạo hàm $C'(t) = 0$.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_01_chuan",
       "de_03_cap_toc"
@@ -51,7 +51,7 @@ export const toiUuKinhTeQuestions: Question[] = [
     ],
     "detailedSolution": "Ta có $\\bar{C}(x) = x + 20 + \\frac{1600}{x}$.\nTheo AM-GM: $x + \\frac{1600}{x} \\ge 2\\sqrt{1600} = 80$.\nDo đó $\\bar{C}(x) \\ge 80 + 20 = 100$. Dấu bằng xảy ra khi $x = 40$.",
     "socraticHint": "Sử dụng bất đẳng thức AM-GM cho hai số nghịch đảo $x$ và $\\frac{1600}{x}$.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_01_chuan"
     ]
@@ -105,7 +105,7 @@ export const toiUuKinhTeQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Hàm bậc hai đạt cực đại tại đỉnh: $x = -\\frac{b}{2a} = -\\frac{200}{2(-1)} = 100$ sản phẩm.",
     "socraticHint": "Tìm hoành độ đỉnh parabol của hàm số bậc hai.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -139,7 +139,7 @@ export const toiUuKinhTeQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Doanh thu từ việc bán $x$ sản phẩm:\n$$R(x) = x \\cdot p(x) = x(120 - x) = 120x - x^2$$\nLợi nhuận của doanh nghiệp:\n$$P(x) = R(x) - C(x) = (120x - x^2) - (x^2 + 20x + 100) = -2x^2 + 100x - 100$$\nHàm lợi nhuận là một tam thức bậc hai có bề lõm quay xuống dưới ($a = -2 < 0$), đạt giá trị lớn nhất tại hoành độ đỉnh:\n$$x = -\\frac{100}{2(-2)} = 25$$\nGiá trị lợi nhuận lớn nhất:\n$$P(25) = -2(25^2) + 100(25) - 100 = -1250 + 2500 - 100 = 1150\(triệu đồng)$$.",
     "socraticHint": "Lập hàm lợi nhuận $P(x) = R(x) - C(x)$ rồi tìm đỉnh của parabol bậc hai.",
-    "difficulty": "Vận dụng",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_03_moi"
     ]
@@ -171,9 +171,9 @@ export const toiUuKinhTeQuestions: Question[] = [
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Số tiền nhận được sau $n$ năm theo công thức lãi kép:\n$$A_n = 200(1 + 0.07)^n = 200(1.07)^n$$\nĐể số tiền vượt quá 400 triệu đồng:\n$$200(1.07)^n > 400 \\iff (1.07)^n > 2 \\iff n > \\\\log_{1.07} 2 = \\frac{\\ln 2}{\\ln 1.07} \\approx \\frac{0.69315}{0.06766} \\approx 10.24$$\nVì số năm $n$ là số nguyên dương, người đó cần ít nhất 11 năm.",
+    "detailedSolution": "Số tiền nhận được sau $n$ năm theo công thức lãi kép:\n$$A_n = 200(1 + 0.07)^n = 200(1.07)^n$$\nĐể số tiền vượt quá 400 triệu đồng:\n$$200(1.07)^n > 400 \\iff (1.07)^n > 2 \\iff n > \\log_{1.07} 2 = \\frac{\\ln 2}{\\ln 1.07} \\approx \\frac{0.69315}{0.06766} \\approx 10.24$$\nVì số năm $n$ là số nguyên dương, người đó cần ít nhất 11 năm.",
     "socraticHint": "Áp dụng công thức lãi kép $A = P(1+r)^n$, dùng logarit để tìm số năm nguyên dương nhỏ nhất thỏa mãn.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
     ]
@@ -193,7 +193,7 @@ export const toiUuKinhTeQuestions: Question[] = [
     ],
     "detailedSolution": "Khi $t \\to +\\infty$, ta có $-0.2t \\to -\\infty \\implies e^{-0.2t}  o 0$.\nDo đó giới hạn khối lượng tối đa của đàn cá là:\n$$\\lim\\limits_{t \\to +\\infty} m(t) = \\lim\\limits_{t \\to +\\infty} \\frac{500}{1 + 9e^{-0.2t}} = \\frac{500}{1 + 9(0)} = 500\\text{ kg}$$.",
     "socraticHint": "Tính giới hạn của hàm số $m(t)$ khi $t \\to +\\infty$, lưu ý rằng $e^{-\\infty} = 0$.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
     ]
@@ -227,7 +227,7 @@ export const toiUuKinhTeQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Gọi $x, y$ lần lượt là số sản phẩm $A$ và $B$ sản xuất trong ngày ($x, y \\ge 0$).\nHệ ràng buộc tài nguyên:\n$$\\begin{cases} 2x + y \\le 8 \\quad (\\text{máy I}) \\\\ x + y \\le 5 \\quad (\\text{máy II}) \\\\ x \\ge 0, y \\ge 0 \\end{cases}$$\nHàm mục tiêu lợi nhuận: $L(x, y) = 400x + 300y$ (nghìn đồng).\nMiền nghiệm là tứ giác có các đỉnh:\n- $O(0; 0) \\implies L = 0$\n- $M(4; 0)$ $\\implies L = 400(4) = 1600$\n- $N(3; 2)$ (nghiệm hệ $2x+y=8$ và $x+y=5$) $\\implies L = 400(3) + 300(2) = 1200 + 600 = 1800$\n- $P(0; 5)$ $\\implies L = 300(5) = 1500$\nLợi nhuận lớn nhất đạt 1.800.000 đồng khi sản xuất 3 sản phẩm $A$ và 2 sản phẩm $B$.",
     "socraticHint": "Đây là bài toán quy hoạch tuyến tính: tìm giá trị lớn nhất của hàm mục tiêu tại các đỉnh của miền chấp nhận.",
-    "difficulty": "Vận dụng",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_04_nang_cao"
     ]
@@ -247,7 +247,7 @@ export const toiUuKinhTeQuestions: Question[] = [
     ],
     "detailedSolution": "Khoảng thời gian từ năm 2020 đến năm 2025 là $n = 2025 - 2020 = 5$ năm.\nTheo công thức tăng trưởng dân số:\n$$N = N_0(1 + r)^n = 1000 \\times (1 + 0.012)^5 = 1000 \\times (1.012)^5$$\nTa tính:\n$$1.012^5 \\approx 1.06145$$\n$$N \\approx 1000 \\times 1.06145 = 1061.45\(nghìn người)$$\nLàm tròn đến hàng đơn vị nghìn người ta được 1061 nghìn người.",
     "socraticHint": "Áp dụng công thức tăng trưởng $N = N_0(1+r)^n$ với $n = 5$ năm và làm tròn kết quả.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
     ]
@@ -281,7 +281,7 @@ export const toiUuKinhTeQuestions: Question[] = [
     "correctAnswer": "C",
     "detailedSolution": "Tốc độ tăng của tổng chi phí tại sản lượng $x$ chính là chi phí cận biên, biểu diễn bởi đạo hàm cấp một $C'(x)$:\n$$C'(x) = 3 \\times 0{,}00024 x^2 - 2 \\times 0{,}03 x + 5 = 0{,}00072 x^2 - 0{,}06 x + 5$$\nKhi nhà máy sản xuất $x = 100$ tấn:\n$$C'(100) = 0{,}00072 \\times 100^2 - 0{,}06 \\times 100 + 5$$\n$$C'(100) = 7{,}2 - 6 + 5 = 6{,}2\\text{ (triệu đồng/tấn)}$$",
     "socraticHint": "Tốc độ tăng của một đại lượng đo bằng đạo hàm theo biến thời gian hoặc sản lượng.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
     ]
@@ -315,7 +315,7 @@ export const toiUuKinhTeQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Chia cả tử và mẫu cho $R > 0$:\n$$P = \\frac{E^2}{\\frac{(R + r)^2}{R}} = \\frac{E^2}{\\left(\\sqrt{R} + \\frac{r}{\\sqrt{R}}\\right)^2}$$\nÁp dụng bất đẳng thức AM-GM cho hai số dương $\\sqrt{R}$ và $\\frac{r}{\\sqrt{R}}$:\n$$\\sqrt{R} + \\frac{r}{\\sqrt{R}} \\ge 2\\sqrt{\\sqrt{R} \\cdot \\frac{r}{\\sqrt{R}}} = 2\\sqrt{r}$$\nSuy ra:\n$$\\left(\\sqrt{R} + \\frac{r}{\\sqrt{R}}\\right)^2 \\ge 4r \\implies P \\le \\frac{E^2}{4r}$$\nDấu bằng xảy ra khi $\\sqrt{R} = \\frac{r}{\\sqrt{R}} \\iff R = r$.\nVậy công suất cực đại là $P_{\\max} = \\frac{E^2}{4r}\\text{ (W)}$.",
     "socraticHint": "Chia cả tử và mẫu cho biến trở R rồi áp dụng bất đẳng thức AM-GM ở mẫu số.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
     ]
@@ -349,7 +349,7 @@ export const toiUuKinhTeQuestions: Question[] = [
     "correctAnswer": "D",
     "detailedSolution": "Tổng số quả cam mà bốn cô vợ đã ăn:\n$$S_{vo} = 3 + 2 + 4 + 1 = 10\(quả)$$\nTổng số quả cam mà bốn anh chồng đã ăn:\n$$S_{chong} = 32 - 10 = 22\(quả)$$\nGọi $w_M, w_N, w_P, w_Q$ lần lượt là số quả cam mà các cô vợ của các anh $M, N, P, Q$ đã ăn.\nTheo bài ra:\n- Anh $M$ ăn bằng vợ: $1 \\cdot w_M$.\n- Anh $N$ ăn gấp 2 vợ: $2 \\cdot w_N$.\n- Anh $P$ ăn gấp 3 vợ: $3 \\cdot w_P$.\n- Anh $Q$ ăn gấp 4 vợ: $4 \\cdot w_Q$.\nTổng cam của các anh chồng:\n$$w_M + 2w_N + 3w_P + 4w_Q = 22$$\nTrong đó $(w_M, w_N, w_P, w_Q)$ là một hoán vị của tập hợp $\\{1; 2; 3; 4\\}$.\nThử các trường hợp với các hệ số lớn:\n- $w_Q$ nhân với 4, nên $w_Q$ không thể bằng 4 (vì $4 \\times 4 = 16$, phần còn lại $22 - 16 = 6$ quá nhỏ đối với các hệ số $1, 2, 3$ với ba số $1, 2, 3$: $1 \\times 3 + 2 \\times 2 + 3 \\times 1 = 10 > 6$).\n- Nếu $w_Q = 2$:\n  $$w_M + 2w_N + 3w_P = 22 - 4 \\times 2 = 14$$\n  Ba giá trị còn lại là $\\{1; 3; 4\\}$.\n  Thử $w_P = 1$: $w_M + 2w_N = 14 - 3(1) = 11$. Với $\\{3; 4\\}$: $3 + 2(4) = 11$ (thỏa mãn với $w_M = 3, w_N = 4$)!\nKiểm tra lại hoán vị:\n- Anh $M$ lấy cô $A$ (ăn 3 quả): anh $M$ ăn $1 \\times 3 = 3$ quả.\n- Anh $N$ lấy cô $C$ (ăn 4 quả): anh $N$ ăn $2 \\times 4 = 8$ quả.\n- Anh $P$ lấy cô $D$ (ăn 1 quả): anh $P$ ăn $3 \\times 1 = 3$ quả.\n- Anh $Q$ lấy cô $B$ (ăn 2 quả): anh $Q$ ăn $4 \\times 2 = 8$ quả.\nTổng số cam các anh chồng: $3 + 8 + 3 + 8 = 22$ quả (chính xác).\nVậy vợ của anh $P$ là Cô $D$.",
     "socraticHint": "Tính tổng số cam các anh chồng ăn là $32 - 10 = 22$, thiết lập phương trình nghiệm nguyên $w_M + 2w_N + 3w_P + 4w_Q = 22$.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
     ]
@@ -380,7 +380,7 @@ export const toiUuKinhTeQuestions: Question[] = [
     "correctAnswer": "C",
     "detailedSolution": "Khối lượng muối NaCl ban đầu trong 500 g dung dịch là: $m_{\\text{muối ban đầu}} = 500 \\times 20\\% = 100\\text{ g}$.\nSau khi thêm $x$ gam muối tinh khiết:\n- Khối lượng chất tan mới là: $100 + x\\text{ (g)}$.\n- Khối lượng dung dịch mới là: $500 + x\\text{ (g)}$.\nNồng độ phần trăm của dung dịch mới là:\n$$f(x) = \\frac{100 + x}{500 + x} \\times 100\\%$$",
     "socraticHint": "Nồng độ phần trăm bằng khối lượng chất tan chia cho tổng khối lượng dung dịch mới rồi nhân với 100.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Thông hiểu",
     "examSets": [
       "de_07_hsa36"
     ],

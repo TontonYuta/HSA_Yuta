@@ -30,7 +30,7 @@ export const nghiemNguyenMuLogQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Điều kiện xác định: $x^2 - 2x > 0 \\iff x < 0$ hoặc $x > 2$.\nBất phương trình:\n$$x^2 - 2x \\le 2^3 = 8 \\iff x^2 - 2x - 8 \\le 0 \\iff -2 \\le x \\le 4$$\nKết hợp điều kiện xác định:\n$$x in [-2; 0) \\cup (2; 4]$$\nCác giá trị nguyên của $x$ là: $x in {-2; -1; 3; 4}$.\nVậy có đúng 4 nghiệm nguyên.",
     "socraticHint": "Đừng quên điều kiện biểu thức trong logarit phải dương ngặt trước khi giải bất phương trình mũ hóa.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_03_moi"
     ]
@@ -50,7 +50,7 @@ export const nghiemNguyenMuLogQuestions: Question[] = [
     ],
     "detailedSolution": "Điều kiện xác định: $3 - x \\ge 0 \\iff x \\le 3$.\n- Trường hợp 1: $\\sqrt{3 - x} = 0 \\iff x = 3$. Thay vào BPT thỏa mãn ($0 \\le 0$). Vậy $x = 3$ là một nghiệm.\n- Trường hợp 2: Với $x < 3$, ta có $\\sqrt{3 - x} > 0$. Bất phương trình tương đương:\n$$4^x - 17 \\cdot 2^x + 16 \\le 0$$\nĐặt $t = 2^x > 0$, ta có $t^2 - 17t + 16 \\le 0 \\iff 1 \\le t \\le 16$.\nThay lại: $1 \\le 2^x \\le 16 \\iff 0 \\le x \\le 4$.\nKết hợp điều kiện $x < 3$, ta được: $0 \\le x < 3$.\nCác nghiệm nguyên trong khoảng này là $x in {0; 1; 2}$.\nKết hợp cả hai trường hợp: $x in {0; 1; 2; 3}$.\nVậy bất phương trình có đúng 4 nghiệm nguyên.",
     "socraticHint": "Xét riêng trường hợp căn thức bằng 0, sau đó rút gọn căn thức dương với điều kiện chặn.",
-    "difficulty": "Vận dụng",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_03_moi"
     ]
@@ -71,7 +71,7 @@ export const nghiemNguyenMuLogQuestions: Question[] = [
     ],
     "detailedSolution": "Đặt $t = e^x - x$.\nXét hàm số $h(x) = e^x - x$ trên $\\mathbb{R}$:\n- $h'(x) = e^x - 1 = 0 \\iff x = 0$.\n- Bảng biến thiên cho thấy $h(x)$ nghịch biến trên $(-\\infty; 0)$ và đồng biến trên $(0; +\\infty)$.\n- Giá trị nhỏ nhất: $h(0) = 1$.\n- $\\lim\\limits_{x \\to \\pm\\infty} h(x) = +\\infty$.\nDo đó:\n+ Với mỗi giá trị $t > 1$, phương trình $e^x - x = t$ có đúng $2$ nghiệm thực phân biệt (một âm, một dương).\n+ Với $t = 1$, có đúng $1$ nghiệm $x = 0$.\n+ Với $t < 1$, vô nghiệm.\n\nBây giờ thay $t$ vào phương trình đã cho:\n$$(t - 4)^3 - 12t + 40 = 0$$\n$$\\iff t^3 - 12t^2 + 48t - 64 - 12t + 40 = 0$$\n$$\\iff t^3 - 12t^2 + 36t - 24 = 0$$\nXét hàm số $g(t) = t^3 - 12t^2 + 36t - 24$:\n- $g'(t) = 3t^2 - 24t + 36 = 3(t - 2)(t - 6) = 0 \\iff t = 2$ hoặc $t = 6$.\n- Ta có $g(1) = 1 - 12 + 36 - 24 = 1 > 0$.\n- $g(2) = 8 - 48 + 72 - 24 = 8 > 0$.\n- $g(6) = 216 - 432 + 216 - 24 = -24 < 0$.\n- $\\lim\\limits_{t \\to +\\infty} g(t) = +\\infty$.\nDo đó phương trình $g(t) = 0$ có đúng 3 nghiệm thực phân biệt:\n1) Nghiệm $t_1 \\in (-\\infty; 1)$ (vì $g(0) = -24 < 0 < g(1) = 1$) $\\implies t_1 < 1$ (loại vì không sinh ra nghiệm $x$).\n2) Nghiệm $t_2 \\in (2; 6)$ $\\implies t_2 > 1$ (sinh ra đúng 2 nghiệm $x$ phân biệt).\n3) Nghiệm $t_3 \\in (6; +\\infty)$ $\\implies t_3 > 1$ (sinh ra đúng 2 nghiệm $x$ phân biệt).\nVì $t_2 \\ne t_3$, bốn nghiệm $x$ này hoàn toàn phân biệt đôi một.\nVậy phương trình ban đầu có đúng $4$ nghiệm thực.",
     "socraticHint": "Đặt ẩn phụ $t = e^x - x \\ge 1$, khảo sát số nghiệm của phương trình bậc ba theo $t$ trên miền $t > 1$.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
     ]

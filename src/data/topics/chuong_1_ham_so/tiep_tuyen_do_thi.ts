@@ -30,7 +30,7 @@ export const tiepTuyenQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Đạo hàm $y' = \\frac{2(1) - (-1)(1)}{(x + 1)^2} = \\frac{3}{(x + 1)^2}$.\nTiếp tuyến song song với đường thẳng $y = 3x - 2$ nên hệ số góc $k = 3$:\n$$\\frac{3}{(x_0 + 1)^2} = 3 \\iff (x_0 + 1)^2 = 1 \\iff \\begin{cases} x_0 + 1 = 1 \\iff x_0 = 0 \\\\ x_0 + 1 = -1 \\iff x_0 = -2 \\end{cases}$$\n- Với $x_0 = 0 \\implies y_0 = -1$. Tiếp tuyến: $y = 3(x - 0) - 1 = 3x - 1$.\n- Với $x_0 = -2 \\implies y_0 = 5$. Tiếp tuyến: $y = 3(x + 2) + 5 = 3x + 11$.\nCả hai đường thẳng đều khác $d$, thỏa mãn.",
     "socraticHint": "Tiếp tuyến song song với đường thẳng cho trước khi và chỉ khi hệ số góc của tiếp tuyến bằng hệ số góc của đường thẳng đó ($f'(x_0) = 3$).",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
     ]
@@ -50,7 +50,7 @@ export const tiepTuyenQuestions: Question[] = [
     ],
     "detailedSolution": "Giao điểm của đồ thị với trục tung $Oy$ có hoành độ $x_0 = 0$.\nĐạo hàm của hàm số:\n$$y' = \\frac{1(-1) - (-3)(1)}{(x - 1)^2} = \\frac{-1 + 3}{(x - 1)^2} = \\frac{2}{(x - 1)^2}$$\nThay $x_0 = 0$ vào đạo hàm ta được hệ số góc của tiếp tuyến:\n$$k = y'(0) = \\frac{2}{(0 - 1)^2} = 2$$.",
     "socraticHint": "Giao điểm với trục $Oy$ có hoành độ $x = 0$. Hệ số góc tiếp tuyến là $k = y'(x_0)$.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
     ]
@@ -104,7 +104,7 @@ export const tiepTuyenQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Tọa độ tiếp điểm: $x_0 = 2 \\implies y_0 = 2^3 - 3(2) + 2 = 8 - 6 + 2 = 4$.\nĐạo hàm $y' = 3x^2 - 3 \\implies k = y'(2) = 3(2^2) - 3 = 9$.\nPhương trình tiếp tuyến: $y = 9(x - 2) + 4 = 9x - 18 + 4 = 9x - 14$.",
     "socraticHint": "Công thức phương trình tiếp tuyến tại điểm: $y = y'(x_0)(x - x_0) + y(x_0)$.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Thông hiểu",
     "examSets": [
       "de_04_nang_cao"
     ]
@@ -167,9 +167,9 @@ export const tiepTuyenQuestions: Question[] = [
       }
     ],
     "correctAnswer": "B",
-    "detailedSolution": "Tập xác định: $D = \\mathbb{R} \\\\setminus \\{-1\\}$.\nĐạo hàm: $y' = \\frac{1(1) - (-3)(1)}{(x + 1)^2} = \\frac{4}{(x + 1)^2}$.\nGọi tọa độ tiếp điểm là $M\\left(x_0; \\frac{x_0 - 3}{x_0 + 1}\\right)$ với $x_0 \\ne -1$.\nPhương trình tiếp tuyến tại $M$ là:\n$$d: y = \\frac{4}{(x_0 + 1)^2}(x - x_0) + \\frac{x_0 - 3}{x_0 + 1}$$\nVì tiếp tuyến đi qua điểm $A(-1; -1)$:\n$$-1 = \\frac{4}{(x_0 + 1)^2}(-1 - x_0) + \\frac{x_0 - 3}{x_0 + 1} = \\frac{-4}{x_0 + 1} + \\frac{x_0 - 3}{x_0 + 1} = \\frac{x_0 - 7}{x_0 + 1}$$\n$$\\iff -(x_0 + 1) = x_0 - 7 \\iff -2x_0 = -6 \\iff x_0 = 3$$\nVới $x_0 = 3 \\implies y'(3) = \\frac{4}{(3 + 1)^2} = \\frac{4}{16} = \\frac{1}{4}$ và $y_0 = \\frac{3 - 3}{3 + 1} = 0$.\nTiếp tuyến: $y = \\frac{1}{4}(x - 3) + 0 \\implies x - 4y - 3 = 0$ hoặc với hệ số chuẩn hóa theo đề: $x - y = 0$.",
+    "detailedSolution": "Tập xác định: $D = \\mathbb{R} \\setminus \\{-1\\}$.\nĐạo hàm: $y' = \\frac{1(1) - (-3)(1)}{(x + 1)^2} = \\frac{4}{(x + 1)^2}$.\nGọi tọa độ tiếp điểm là $M\\left(x_0; \\frac{x_0 - 3}{x_0 + 1}\\right)$ với $x_0 \\ne -1$.\nPhương trình tiếp tuyến tại $M$ là:\n$$d: y = \\frac{4}{(x_0 + 1)^2}(x - x_0) + \\frac{x_0 - 3}{x_0 + 1}$$\nVì tiếp tuyến đi qua điểm $A(-1; -1)$:\n$$-1 = \\frac{4}{(x_0 + 1)^2}(-1 - x_0) + \\frac{x_0 - 3}{x_0 + 1} = \\frac{-4}{x_0 + 1} + \\frac{x_0 - 3}{x_0 + 1} = \\frac{x_0 - 7}{x_0 + 1}$$\n$$\\iff -(x_0 + 1) = x_0 - 7 \\iff -2x_0 = -6 \\iff x_0 = 3$$\nVới $x_0 = 3 \\implies y'(3) = \\frac{4}{(3 + 1)^2} = \\frac{4}{16} = \\frac{1}{4}$ và $y_0 = \\frac{3 - 3}{3 + 1} = 0$.\nTiếp tuyến: $y = \\frac{1}{4}(x - 3) + 0 \\implies x - 4y - 3 = 0$ hoặc với hệ số chuẩn hóa theo đề: $x - y = 0$.",
     "socraticHint": "Gọi tiếp điểm $(x_0; y_0)$, viết phương trình tiếp tuyến theo $x_0$ rồi thay tọa độ điểm $A$ vào để tìm $x_0$.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_07_hsa36"
     ],

@@ -30,7 +30,7 @@ export const khoiDaDienTamDienVuongQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Hình chiếu vuông góc của $A'C$ lên đáy $(ABCD)$ là $AC$.\nĐáy là hình chữ nhật nên $AC = \\sqrt{3^2 + 4^2} = 5$. Chiều cao $AA' = 5$.\nTam giác $A'AC$ vuông cân tại $A$ $\\implies \\widehat{A'CA} = 45^\\circ \\implies \\sin 45^\\circ = \\frac{\\sqrt{2}}{2}$.",
     "socraticHint": "Góc giữa đường thẳng và mặt phẳng là góc tạo bởi đường thẳng và hình chiếu vuông góc của nó lên mặt phẳng đó.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan",
       "de_03_cap_toc"
@@ -65,7 +65,7 @@ export const khoiDaDienTamDienVuongQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Diện tích đáy: $S = a^2$. Chiều cao $h = 2a$.\nThể tích $V = \\frac{1}{3} S h = \\frac{1}{3} a^2 (2a) = \\frac{2}{3}a^3$.",
     "socraticHint": "Công thức thể tích hình chóp $V = \\frac{1}{3}Bh$.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
     ]
@@ -85,7 +85,7 @@ export const khoiDaDienTamDienVuongQuestions: Question[] = [
     ],
     "detailedSolution": "Thể tích tứ diện vuông có 3 cạnh đôi một vuông góc: $V = \\frac{1}{6} OA \\cdot OB \\cdot OC = \\frac{1}{6}(3 \\times 4 \\times 5) = 10$.",
     "socraticHint": "Công thức tính thể tích góc tam diện vuông $V = \\frac{1}{6}abc$.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
     ]
@@ -119,7 +119,7 @@ export const khoiDaDienTamDienVuongQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Thể tích lăng trụ: $V = S_{\a} \\cdot h = 6 \\times 5 = 30\\text{ cm}^3$.",
     "socraticHint": "Thể tích hình lăng trụ $V = Bh$.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -153,7 +153,7 @@ export const khoiDaDienTamDienVuongQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "$V = a^3 = 3^3 = 27$.",
     "socraticHint": "Thể tích hình lập phương $V = a^3$.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -173,7 +173,7 @@ export const khoiDaDienTamDienVuongQuestions: Question[] = [
     ],
     "detailedSolution": "Hình lập phương có 6 mặt hình vuông: $S_{\\text{tp}} = 6 a^2 = 6(2^2) = 24$.",
     "socraticHint": "Hình lập phương có 6 mặt vuông bằng nhau.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -207,7 +207,7 @@ export const khoiDaDienTamDienVuongQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Khối chóp có tam diện vuông tại đỉnh $O$ có công thức thể tích:\n$$V = \\frac{1}{6} OA \\cdot OB \\cdot OC = \\frac{1}{6} \\times 3 \\times 4 \\times 5 = \\frac{60}{6} = 10$$.",
     "socraticHint": "Thể tích khối tứ diện có ba cạnh xuất phát từ một đỉnh đôi một vuông góc là $V = \\frac{1}{6}abc$.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
     ]
@@ -227,7 +227,7 @@ export const khoiDaDienTamDienVuongQuestions: Question[] = [
     ],
     "detailedSolution": "Công thức thể tích khối chóp có tam diện vuông tại đỉnh $S$:\n$$V = \\frac{1}{6} SA \\cdot SB \\cdot SC = \\frac{1}{6} \\times 3 \\times 4 \\times 6 = 12$$.",
     "socraticHint": "Áp dụng công thức $V = \\frac{1}{6}abc$ cho tứ diện vuông.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
     ]
@@ -261,7 +261,7 @@ export const khoiDaDienTamDienVuongQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Đáy $ABCD$ là hình vuông cạnh $a \\implies S_{\a} = a^2$.\nĐường chéo $AC = a\\sqrt{2} \\implies OA = \\frac{a\\sqrt{2}}{2}$.\nChiều cao của khối chóp:\n$$SO = \\sqrt{SA^2 - OA^2} = \\sqrt{(a\\sqrt{2})^2 - l\\left(\\frac{a\\sqrt{2}}{2}\\right)^2} = \\sqrt{2a^2 - \\frac{a^2}{2}} = \\sqrt{\\frac{3a^2}{2}} = \\frac{a\\sqrt{6}}{2}$$\nThể tích khối chóp:\n$$V = \\frac{1}{3} S_{\a} \\cdot SO = \\frac{1}{3} a^2 \\cdot \\frac{a\\sqrt{6}}{2} = \\frac{a^3\\sqrt{6}}{6}$$.",
     "socraticHint": "Tính nửa đường chéo đáy $OA$, dùng định lý Pytago tìm chiều cao $SO = \\sqrt{SA^2 - OA^2}$.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_04_nang_cao"
     ]
@@ -295,7 +295,7 @@ export const khoiDaDienTamDienVuongQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Gọi $G$ là trọng tâm $\\Delta ABC$. Giả thiết cho $A'G \\perp (ABC)$.\nHình chiếu vuông góc của cạnh bên $A'A$ lên $(ABC)$ là đoạn thẳng $AG$, do đó góc giữa cạnh bên và mặt đáy là $\\widehat{A'AG} = 60^\\circ$.\nDiện tích tam giác đều $ABC$: $S_{ABC} = \\frac{a^2\\sqrt{3}}{4}$.\nKhoảng cách từ đỉnh đến trọng tâm đáy: $AG = \\frac{2}{3} \\frac{a\\sqrt{3}}{2} = \\frac{a\\sqrt{3}}{3} = \\frac{a}{\\sqrt{3}}$.\nTam giác $A'GA$ vuông tại $G$:\n$$A'G = AG \\cdot \\tan 60^\\circ = \\frac{a}{\\sqrt{3}} \\cdot \\sqrt{3} = a$$\nThể tích của khối lăng trụ $ABC.A'B'C'$:\n$$V = S_{ABC} \\cdot A'G = \\frac{a^2\\sqrt{3}}{4} \\cdot a = \\frac{a^3\\sqrt{3}}{4}$$",
     "socraticHint": "Xác định chiều cao lăng trụ bằng $h = A'G = AG \\tan 60^\\circ$, sau đó áp dụng công thức $V = B \\cdot h$.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
     ]

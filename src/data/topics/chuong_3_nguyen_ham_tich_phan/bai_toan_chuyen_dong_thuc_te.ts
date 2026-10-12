@@ -64,7 +64,7 @@ export const chuyenDongTichPhanQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Quãng đường vật di chuyển từ $t = 1$ đến $t = 3$ là tích phân của vận tốc:\n$$s = \\int_1^3 v(t) dt = \\int_1^3 (3t^2 - 2t) dt = l\\left[ t^3 - t^2 \\right]_1^3$$\n$$= (3^3 - 3^2) - (1^3 - 1^2) = (27 - 9) - (1 - 1) = 18\\text{ m}$$.",
     "socraticHint": "Quãng đường chuyển động trong khoảng thời gian $[t_1; t_2]$ bằng $\\int_{t_1}^{t_2} v(t) dt$.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Thông hiểu",
     "examSets": [
       "de_03_moi"
     ]
@@ -84,7 +84,7 @@ export const chuyenDongTichPhanQuestions: Question[] = [
     ],
     "detailedSolution": "Canô dừng hẳn khi $v(t) = 0 \\iff 12 - 2t = 0 \\iff t = 6\\text{ s}$.\nQuãng đường canô di chuyển cho đến khi dừng hẳn là:\n$$s = \\int_0^6 (12 - 2t) dt = l\\left[ 12t - t^2 \\right]_0^6 = 12(6) - 6^2 = 72 - 36 = 36\\text{ m}$$.",
     "socraticHint": "Xác định thời điểm vận tốc triệt tiêu ($v(t) = 0$), sau đó tính tích phân vận tốc từ 0 đến thời điểm đó.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
     ]
@@ -118,7 +118,7 @@ export const chuyenDongTichPhanQuestions: Question[] = [
     "correctAnswer": "B",
     "detailedSolution": "Đổi vận tốc lớn nhất sang đơn vị $\\text{m/s}$:\n$$v_{\\max} = 360\\text{ km/h} = \\frac{360}{3{,}6} = 100\\text{ m/s}$$\nTại thời điểm $t = 3\\text{ s}$, vận tốc của xe là:\n$$v(3) = 4 \\times 3^2 = 36\\text{ m/s}$$\nTừ $t = 3$ đến $t = 11$, xe chuyển động thẳng biến đổi đều với gia tốc không đổi $a$, do đó quy luật vận tốc là:\n$$v(t) = v(3) + a(t - 3) = 36 + a(t - 3)$$\nTại thời điểm $t = 11\\text{ s}$, xe đạt tốc độ cực đại $100\\text{ m/s}$:\n$$36 + a(11 - 3) = 100 \\iff 8a = 64 \\implies a = 8\\text{ m/s}^2$$",
     "socraticHint": "Đổi $360\\text{ km/h}$ ra $100\\text{ m/s}$, tính $v(3)$ rồi dùng công thức biến đổi đều $v(11) = v(3) + a \\Delta t$.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
     ]
@@ -152,7 +152,7 @@ export const chuyenDongTichPhanQuestions: Question[] = [
     "correctAnswer": "C",
     "detailedSolution": "Quãng đường chuyển động gồm hai giai đoạn:\n1) Giai đoạn 1 ($0 \\le t \\le 3$): xe chuyển động với vận tốc $v(t) = 4t^2$:\n$$S_1 = \\int_0^3 4t^2 dt = \\left[ \\frac{4t^3}{3} \\right]_0^3 = \\frac{4 \\times 27}{3} = 36\\text{ m}$$\n2) Giai đoạn 2 ($3 \\le t \\le 11$): xe chạy biến đổi đều từ vận tốc $v_1 = 36\\text{ m/s}$ đến $v_2 = 100\\text{ m/s}$ trong khoảng thời gian $\\Delta t = 8\\text{ s}$:\n$$S_2 = \\frac{v_1 + v_2}{2} \\cdot \\Delta t = \\frac{36 + 100}{2} \\times 8 = 68 \\times 8 = 544\\text{ m}$$\n(Hoặc dùng tích phân: $S_2 = \\int_3^{11} [36 + 8(t - 3)] dt = 544\\text{ m}$).\n\nTổng quãng đường xe đi được đến khi đạt tốc độ cực đại:\n$$S = S_1 + S_2 = 36 + 544 = 580\\text{ m}$$",
     "socraticHint": "Tính quãng đường từng chặng bằng tích phân của vận tốc trên hai khoảng thời gian $[0; 3]$ và $[3; 11]$.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
     ]
@@ -186,7 +186,7 @@ export const chuyenDongTichPhanQuestions: Question[] = [
     "correctAnswer": "B",
     "detailedSolution": "Tổng chuyển động của xe trải qua 4 giai đoạn:\n- Giai đoạn 1 & 2 (tăng tốc đến cực đại $100\\text{ m/s}$): thời gian $t_{12} = 11\\text{ s}$, quãng đường $S_{12} = 580\\text{ m}$.\n- Giai đoạn 3 (chuyển động thẳng đều với $v = 100\\text{ m/s}$ trong $5\\text{ s}$):\n  + Thời gian: $t_3 = 5\\text{ s}$.\n  + Quãng đường: $S_3 = 100 \\times 5 = 500\\text{ m}$.\n- Giai đoạn 4 (hãm phanh từ $100\\text{ m/s}$ về $0\\text{ m/s}$ với gia tốc $a_h = 10\\text{ m/s}^2$):\n  + Thời gian dừng lại: $t_4 = \\frac{v}{a_h} = \\frac{100}{10} = 10\\text{ s}$.\n  + Quãng đường hãm phanh: $S_4 = \\frac{v^2}{2a_h} = \\frac{100^2}{2 \\times 10} = 500\\text{ m}$.\n\nTổng quãng đường toàn bộ hành trình:\n$$S_{tong} = 580 + 500 + 500 = 1580\\text{ m}$$\nTổng thời gian toàn bộ hành trình:\n$$t_{tong} = 11 + 5 + 10 = 26\\text{ s}$$\nTốc độ trung bình:\n$$v_{tb} = \\frac{S_{tong}}{t_{tong}} = \\frac{1580}{26}\\text{ m/s}$$\nTheo đáp án gốc của đề thi, biểu thức tỉ số lấy trực tiếp tổng quãng đường và tổng thời gian: $m = 1580$, $n = 26$, do đó $T = m + n = 1580 + 26 = 1606$ (nếu rút gọn tối giản $\\frac{790}{13}$ thì $T = 803$).",
     "socraticHint": "Tính tổng quãng đường cả 4 giai đoạn và tổng thời gian, sau đó tính tỉ số vận tốc trung bình $v_{tb} = S_{tong} / t_{tong}$.",
-    "difficulty": "Vận dụng",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_06_hsa35"
     ]

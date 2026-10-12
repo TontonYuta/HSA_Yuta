@@ -119,7 +119,7 @@ export const tiemCanQuestions: Question[] = [
     ],
     "detailedSolution": "Thực hiện phép chia: $y = x + 2 - \\frac{3}{x + 2} \\implies$ tiệm cận xiên là $y = x + 2$.\nThay hoành độ $x = 5 \\implies y_0 = 5 + 2 = 7$.",
     "socraticHint": "Xác định phương trình tiệm cận xiên $y = ax + b$ rồi thay hoành độ $x = 5$.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan",
       "de_03_cap_toc"
@@ -188,7 +188,7 @@ export const tiemCanQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Ta có $y = x + \\frac{1}{x} \\implies$ tiệm cận xiên là $y = x$.\nHệ số góc $k = 1 = \\tan \\alpha \\implies \\alpha = 45^\\circ$.",
     "socraticHint": "Hệ số góc của đường thẳng $y = kx + b$ liên hệ với góc nghiêng qua $\\tan \\alpha = k$.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Thông hiểu",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -222,7 +222,7 @@ export const tiemCanQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Tiệm cận đứng: $x = 3$. Tiệm cận ngang: $y = 2$. Tổng cộng có 2 đường tiệm cận.",
     "socraticHint": "Phân thức bậc nhất trên bậc nhất có đúng 1 tiệm cận đứng và 1 tiệm cận ngang.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -242,7 +242,7 @@ export const tiemCanQuestions: Question[] = [
     ],
     "detailedSolution": "Thực hiện phép chia: $3x^2 - x + 2 = (3x - 4)(x + 1) + 6 \\implies y = 3x - 4 + \\frac{6}{x + 1}$.\nTiệm cận xiên là $y = 3x - 4$, có hệ số góc bằng 3.",
     "socraticHint": "Hệ số góc của tiệm cận xiên chính là hệ số của $x$ trong thương của phép chia đa thức.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -310,7 +310,7 @@ export const tiemCanQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "- Tiệm cận đứng là $x = \\frac{2}{b} = 1 \\implies b = 2$.\n- Tiệm cận ngang là $y = \\frac{a}{b} = 2 \\implies a = 2b = 2(2) = 4$.\nDo đó $P = a + b = 4 + 2 = 6$.",
     "socraticHint": "Đồ thị $y = \\frac{ax+b}{cx+d}$ có tiệm cận đứng $x = -d/c$ và tiệm cận ngang $y = a/c$.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Thông hiểu",
     "examSets": [
       "de_03_moi"
     ]
@@ -344,7 +344,7 @@ export const tiemCanQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Đồ thị có đúng 2 đường tiệm cận đứng khi và chỉ khi phương trình mẫu $g(x) = x^2 - 4x + m = 0$ có 2 nghiệm phân biệt khác 1 (nghiệm của tử):\n- Điều kiện 2 nghiệm phân biệt: $\\Delta' = (-2)^2 - m = 4 - m > 0 \\iff m < 4$.\n- Điều kiện nghiệm khác 1: $g(1) = 1^2 - 4(1) + m = m - 3 \\ne 0 \\iff m \\ne 3$.\nKết hợp lại ta được: $m < 4$ và $m \\ne 3$.",
     "socraticHint": "Mẫu số phải có hai nghiệm phân biệt và không bị triệt tiêu bởi nghiệm của tử số.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_03_moi"
     ]
@@ -378,7 +378,7 @@ export const tiemCanQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "- Tiệm cận đứng: $x = 2$ vì $\\lim\\limits_{x \\to 2^+} y = +\\infty$.\n- Tiệm cận ngang khi $x \\to +\\infty$:\n$$\\lim\\limits_{x \\to +\\infty} \\frac{\\sqrt{x^2 + 1}}{x - 2} = \\lim\\limits_{x \\to +\\infty} \\frac{x\\sqrt{1 + 1/x^2}}{x(1 - 2/x)} = 1 \\implies y = 1$$\n- Tiệm cận ngang khi $x \\to -\\infty$:\n$$\\lim\\limits_{x \\to -\\infty} \\frac{\\sqrt{x^2 + 1}}{x - 2} = \\lim\\limits_{x \\to -\\infty} \\frac{-x\\sqrt{1 + 1/x^2}}{x(1 - 2/x)} = -1 \\implies y = -1$$\nTổng số đường tiệm cận gồm 1 tiệm cận đứng và 2 tiệm cận ngang, tổng cộng là 3 đường tiệm cận.",
     "socraticHint": "Chú ý khi $x \\to -\\infty$ thì $\\sqrt{x^2} = |x| = -x$, tạo ra tiệm cận ngang khác với khi $x \\to +\\infty$.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
     ]
@@ -412,7 +412,7 @@ export const tiemCanQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Hệ số góc $a$ của tiệm cận xiên $y = ax + b$ là:\n$$a = \\lim\\limits_{x \\to \\pm\\infty} \\frac{y}{x} = \\lim\\limits_{x \\to \\pm\\infty} \\frac{x^2 + 3x - 1}{x(2x + 1)} = \\lim\\limits_{x \\to \\pm\\infty} \\frac{x^2}{2x^2} = \\frac{1}{2}$$.",
     "socraticHint": "Hệ số góc của tiệm cận xiên được tính bằng công thức $a = \\lim\\limits_{x \\to \\infty} \\frac{f(x)}{x}$.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Thông hiểu",
     "examSets": [
       "de_04_nang_cao"
     ]
@@ -446,7 +446,7 @@ export const tiemCanQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "- Vì $\\lim\\limits_{x \\to \\pm\\infty} f(x) = 2$ nên đường thẳng $y = 2$ là tiệm cận ngang.\n- Vì $\\lim\\limits_{x \\to 1^+} f(x) = +\\infty$ nên đường thẳng $x = 1$ là tiệm cận đứng.\nDo đó khẳng định A đúng.",
     "socraticHint": "Định nghĩa giới hạn tại vô cực cho tiệm cận ngang $y = y_0$, giới hạn vô cực tại điểm cho tiệm cận đứng $x = x_0$.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Thông hiểu",
     "examSets": [
       "de_04_nang_cao"
     ]
@@ -466,7 +466,7 @@ export const tiemCanQuestions: Question[] = [
     ],
     "detailedSolution": "Thực hiện phép chia đa thức:\n$$2x^2 + mx - 3 = 2x(x - 2) + (m + 4)(x - 2) + 2(m + 4) - 3 = (2x + m + 4)(x - 2) + (2m + 5)$$\n$$\\implies y = 2x + m + 4 + \\frac{2m + 5}{x - 2}$$\nĐường tiệm cận xiên là $d: y = 2x + m + 4$.\nĐường thẳng $d$ đi qua điểm $A(1; 5)$ nên:\n$$5 = 2(1) + m + 4 \\iff 5 = m + 6 \\iff m = -1$$.",
     "socraticHint": "Tìm phương trình tiệm cận xiên theo tham số $m$ rồi thay tọa độ điểm $A$ vào.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_04_nang_cao"
     ]
@@ -500,7 +500,7 @@ export const tiemCanQuestions: Question[] = [
     "correctAnswer": "D",
     "detailedSolution": "Tập xác định: $x^2 - 4 > 0 \\iff x \\in (-\\infty; -2) \\cup (2; +\\infty)$.\n1) Tiệm cận ngang:\n- Khi $x \\to +\\infty$:\n  $$\\lim\\limits_{x \\to +\\infty} \\frac{x - 1}{\\sqrt{x^2 - 4}} = \\lim\\limits_{x \\to +\\infty} \\frac{1 - \\frac{1}{x}}{\\sqrt{1 - \\frac{4}{x^2}}} = 1 \\implies y = 1\\text{ là một TCN. }$$\n- Khi $x \\to -\\infty$ ($x < 0 \\implies \\sqrt{x^2} = -x$):\n  $$\\lim\\limits_{x \\to -\\infty} \\frac{x - 1}{\\sqrt{x^2 - 4}} = \\lim\\limits_{x \\to -\\infty} \\frac{x\\left(1 - \\frac{1}{x}\\right)}{-x\\sqrt{1 - \\frac{4}{x^2}}} = -1 \\implies y = -1\\text{ là một TCN. }$$\n2) Tiệm cận đứng:\n- Tại $x = 2$: $\\lim\\limits_{x \\to 2^+} \\frac{x - 1}{\\sqrt{x^2 - 4}} = \\frac{1}{0^+} = +\\infty \\implies x = 2\\text{ là một TCĐ. }$\n- Tại $x = -2$: $\\lim\\limits_{x \\to -2^-} \\frac{x - 1}{\\sqrt{x^2 - 4}} = \\frac{-3}{0^+} = -\\infty \\implies x = -2\\text{ là một TCĐ. }$\n\nTổng cộng đồ thị hàm số có $2$ tiệm cận ngang và $2$ tiệm cận đứng, tức có tất cả $4$ đường tiệm cận.",
     "socraticHint": "Tính giới hạn tại $+\\infty$ và $-\\infty$ chú ý đưa biến âm ra ngoài dấu căn bậc hai, và tính giới hạn tại các điểm biên làm mẫu bằng 0.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
     ]
@@ -529,9 +529,9 @@ export const tiemCanQuestions: Question[] = [
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Tập xác định: $D = \\mathbb{R} \\\\setminus \\{5\\}$.\nTại $x = 5$, tử số $5^2 - 3(5) + 2 = 12 \\ne 0$. Do đó $\\lim\\limits_{x \\to 5^+} y = +\\infty$ nên đường thẳng $x = 5$ là tiệm cận đứng.\nChia đa thức: $y = \\frac{x^2 - 3x + 2}{x - 5} = x + 2 + \\frac{12}{x - 5}$.\nVì $\\lim\\limits_{x \\to \\pm\\infty} \\frac{12}{x - 5} = 0$ nên đường thẳng $y = x + 2$ là tiệm cận xiên của đồ thị hàm số.\nVậy đồ thị có tổng cộng 2 đường tiệm cận (1 tiệm cận đứng và 1 tiệm cận xiên).",
+    "detailedSolution": "Tập xác định: $D = \\mathbb{R} \\setminus \\{5\\}$.\nTại $x = 5$, tử số $5^2 - 3(5) + 2 = 12 \\ne 0$. Do đó $\\lim\\limits_{x \\to 5^+} y = +\\infty$ nên đường thẳng $x = 5$ là tiệm cận đứng.\nChia đa thức: $y = \\frac{x^2 - 3x + 2}{x - 5} = x + 2 + \\frac{12}{x - 5}$.\nVì $\\lim\\limits_{x \\to \\pm\\infty} \\frac{12}{x - 5} = 0$ nên đường thẳng $y = x + 2$ là tiệm cận xiên của đồ thị hàm số.\nVậy đồ thị có tổng cộng 2 đường tiệm cận (1 tiệm cận đứng và 1 tiệm cận xiên).",
     "socraticHint": "Phân thức bậc 2 trên bậc 1 có tiệm cận đứng tại nghiệm của mẫu và tiệm cận xiên bằng thương phép chia đa thức.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_07_hsa36"
     ],

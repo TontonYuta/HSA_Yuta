@@ -50,7 +50,7 @@ export const ungDungMuLogQuestions: Question[] = [
     ],
     "detailedSolution": "Lãi mỗi năm là $100 \\times 6\\% = 6$ triệu. Sau 2 năm lãi 12 triệu $\\implies$ Tổng nhận được là $100 + 12 = 112$ triệu đồng.",
     "socraticHint": "Lãi đơn tính trực tiếp trên tiền gốc ban đầu.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -84,7 +84,7 @@ export const ungDungMuLogQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Xét hàm $C(t)$ với $t > 0$:\n$$C(t) = \\frac{4}{t + \\frac{4}{t}}$$\nTheo bất đẳng thức AM-GM: $t + \\frac{4}{t} \\ge 2\\sqrt{t \\cdot \\frac{4}{t}} = 4$.\nDo đó: $C(t) \\le \\frac{4}{4} = 1\\text{ mg/L}$.\nDấu bằng xảy ra khi $t = \\frac{4}{t} \\iff t^2 = 4 \\iff t = 2\(giờ)$ (vì $t > 0$).\nVậy sau 2 giờ nồng độ thuốc trong máu đạt mức cao nhất.",
     "socraticHint": "Chia cả tử và mẫu cho $t$ rồi dùng bất đẳng thức AM-GM ở mẫu số, hoặc khảo sát đạo hàm $C'(t) = 0$.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
     ]
@@ -97,7 +97,7 @@ export const ungDungMuLogQuestions: Question[] = [
     "correctAnswer": "352",
     "detailedSolution": "Khoảng thời gian từ năm 2022 đến năm 2030 là: $n = 2030 - 2022 = 8$ năm.\nLượng phát thải $\\text{CO}_2$ sau 8 năm tính theo công thức tăng trưởng mũ liên tục:\n$$P(8) = P_0 \\cdot (1 + r)^8 = 344 \\times (1 + 0{,}003)^8 = 344 \\times (1{,}003)^8 \\approx 344 \\times 1{,}024257 \\approx 352{,}34\\text{ triệu tấn}$$\nLàm tròn đến hàng đơn vị: $352$ triệu tấn.",
     "socraticHint": "Công thức tăng trưởng định kỳ $P_n = P_0 (1 + r)^n$ với số năm $n = 8$ và lãi suất tăng trưởng $r = 0{,}3\\% = 0{,}003$.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_07_hsa36"
     ],

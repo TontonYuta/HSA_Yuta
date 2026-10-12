@@ -64,7 +64,7 @@ export const gocKhoangCachQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Theo định nghĩa, hai mặt phẳng vuông góc khi và chỉ khi góc giữa chúng bằng $90^\\circ$.",
     "socraticHint": "Định nghĩa góc giữa hai mặt phẳng vuông góc.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -98,7 +98,7 @@ export const gocKhoangCachQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Vì lăng trụ đứng nên $A'A \\perp (ABC)$.\nHình chiếu vuông góc của $A'C$ lên $(ABC)$ là đoạn thẳng $AC$.\nDo đó góc giữa $A'C$ và $(ABC)$ là góc $widehat{A'CA}$.\nXét tam giác vuông $A'AC$ tại $A$:\n$$\\tan\\widehat{A'CA} = \\frac{A'A}{AC} = \\frac{a}{a\\sqrt{3}} = \\frac{1}{\\sqrt{3}} \\implies widehat{A'CA} = 30^\\circ$$.",
     "socraticHint": "Góc giữa đường thẳng và mặt phẳng là góc giữa đường thẳng đó và hình chiếu vuông góc của nó lên mặt phẳng.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
     ]
@@ -132,7 +132,7 @@ export const gocKhoangCachQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Ta có $BC \\perp AB$ và $BC \\perp SA \\implies BC \\perp (SAB)$.\nDo đó $(SBC) \\perp (SAB)$ theo giao tuyến $SB$.\nKẻ $AH \\perp SB$ tại $H$, suy ra $AH \\perp (SBC)$.\nKhoảng cách từ $A$ đến $(SBC)$ chính là đoạn $AH$.\nTam giác $SAB$ vuông cân tại $A$ (do $SA = AB = a$):\n$$AH = \\frac{SA \\cdot AB}{\\sqrt{SA^2 + AB^2}} = \\frac{a \\cdot a}{\\sqrt{a^2 + a^2}} = \\frac{a^2}{a\\sqrt{2}} = \\frac{a\\sqrt{2}}{2}$$.",
     "socraticHint": "Chứng minh $(SBC) \\perp (SAB)$, sau đó hạ đường cao $AH \\perp SB$ từ $A$ xuống giao tuyến.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
     ]
@@ -166,7 +166,7 @@ export const gocKhoangCachQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Gọi $M$ là trung điểm của $CD \\implies OM = \\frac{a}{2}$ và $OM \\perp CD$.\nVì $SO \\perp CD$ nên $CD \\perp (SOM)$. Do đó $(SCD) \\perp (SOM)$ theo giao tuyến $SM$.\nKẻ $OH \\perp SM$ tại $H \\implies OH \\perp (SCD)$, do đó $d(O, (SCD)) = OH$.\nTrong tam giác vuông $SOM$ tại $O$:\n$$\\frac{1}{OH^2} = \\frac{1}{SO^2} + \\frac{1}{OM^2} = \\frac{1}{a^2} + \\frac{1}{(a/2)^2} = \\frac{1}{a^2} + \\frac{4}{a^2} = \\frac{5}{a^2}$$\n$$\\implies OH = \\frac{a}{\\sqrt{5}} = \\frac{a\\sqrt{5}}{5}$$.",
     "socraticHint": "Hạ đường cao từ tâm đáy lên đoạn nối đỉnh và trung điểm cạnh đáy: $\\frac{1}{h^2} = \\frac{1}{SO^2} + \\frac{1}{OM^2}$.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_04_nang_cao"
     ]
@@ -200,7 +200,7 @@ export const gocKhoangCachQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Gọi $M$ là trung điểm của $CD$.\nVì tam giác $ACD$ và $BCD$ đều nên $AM \\perp CD$ và $BM \\perp CD$.\nSuy ra $CD \\perp (ABM)$.\nVì đường thẳng $AB$ nằm trong mặt phẳng $(ABM)$ nên $CD \\perp AB$.\nDo đó góc giữa hai đường thẳng $AB$ và $CD$ bằng $90^\\circ$.",
     "socraticHint": "Trong tứ diện đều, các cặp cạnh đối diện luôn vuông góc với nhau từng đôi một.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
     ]
@@ -221,7 +221,7 @@ export const gocKhoangCachQuestions: Question[] = [
     ],
     "detailedSolution": "Vì hai mặt phẳng $(SAB)$ và $(SAD)$ cùng vuông góc với $(ABCD)$ nên giao tuyến $SA \\perp (ABCD)$.\nĐáy $ABCD$ là hình vuông cạnh $a\\sqrt{6} \\implies AC = a\\sqrt{6} \\cdot \\sqrt{2} = 2a\\sqrt{3}$.\nTam giác $SAC$ vuông tại $A$:\n$$SA = \\sqrt{SC^2 - AC^2} = \\sqrt{15a^2 - 12a^2} = a\\sqrt{3}$$\nGọi $O = AC \\cap BD$ là tâm hình vuông đáy.\nVì $ABCD$ là hình vuông nên $BO \\perp AC$. Lại có $SA \\perp BO$ (do $SA \\perp (ABCD)$), suy ra $BO \\perp (SAC)$.\nDo đó hình chiếu vuông góc của $B$ lên $(SAC)$ là $O$, suy ra góc giữa $SB$ và $(SAC)$ là góc $\\alpha = \\widehat{BSO}$.\nTam giác $SOB$ vuông tại $O$ (vì $BO \\perp (SAC) \\implies BO \\perp SO$):\n- $BO = \\frac{BD}{2} = \\frac{2a\\sqrt{3}}{2} = a\\sqrt{3}$.\n- $SB = \\sqrt{SA^2 + AB^2} = \\sqrt{3a^2 + 6a^2} = 3a$.\n- $SO = \\sqrt{SB^2 - BO^2} = \\sqrt{9a^2 - 3a^2} = a\\sqrt{6}$.\nTrong tam giác vuông $SOB$ tại $O$:\n$$\\tan\\alpha = \\frac{BO}{SO} = \\frac{a\\sqrt{3}}{a\\sqrt{6}} = \\frac{1}{\\sqrt{2}} \\implies \\cot\\alpha = \\sqrt{2} \\implies \\cot^2\\alpha = 2$$",
     "socraticHint": "Chứng minh $BO \\perp (SAC)$ để xác định hình chiếu của điểm $B$, từ đó góc giữa $SB$ và $(SAC)$ là $\\widehat{BSO}$.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
     ]
@@ -255,7 +255,7 @@ export const gocKhoangCachQuestions: Question[] = [
     "correctAnswer": "D",
     "detailedSolution": "Vì lăng trụ đứng nên $A'A \\perp (ABC)$. Hình chiếu vuông góc của $A'B$ lên đáy là $AB$.\nGóc giữa $A'B$ và đáy là $\\widehat{A'BA} = 60^\\circ$.\nTam giác $A'AB$ vuông tại $A$:\n- $AB = A'B \\cos 60^\\circ = a\\sqrt{3} \\times \\frac{1}{2} = \\frac{a\\sqrt{3}}{2}$.\n- $A'A = A'B \\sin 60^\\circ = a\\sqrt{3} \\times \\frac{\\sqrt{3}}{2} = \\frac{3a}{2}$.\n\nVì đáy vuông tại $B$ nên $BC \\perp AB$. Mặt khác $BC \\perp A'A$, suy ra $BC \\perp (ABB'A')$.\nDo mặt phẳng $(A'BC)$ chứa $BC$ nên $(A'BC) \\perp (ABB'A')$ theo giao tuyến $A'B$.\nVì $M$ là trung điểm $B'C'$ và $B'C' \\parallel BC \\subset (A'BC)$, nên $B'C' \\parallel (A'BC)$.\nDo đó $d(M, (A'BC)) = d(B', (A'BC))$.\nTrong mặt phẳng $(ABB'A')$, kẻ $B'H \\perp A'B$ tại $H$. Khi đó $B'H \\perp (A'BC)$, nên $d(B', (A'BC)) = B'H$.\nTam giác $A'B'B$ vuông tại $B'$ có các cạnh góc vuông $A'B' = AB = \\frac{a\\sqrt{3}}{2}$, $BB' = A'A = \\frac{3a}{2}$ và cạnh huyền $A'B = a\\sqrt{3}$:\n$$B'H = \\frac{A'B' \\cdot BB'}{A'B} = \\frac{\\frac{a\\sqrt{3}}{2} \\cdot \\frac{3a}{2}}{a\\sqrt{3}} = \\frac{3a}{4}$$",
     "socraticHint": "Nhận xét đường thẳng $B'C' \\parallel (A'BC)$, chuyển khoảng cách từ $M$ về khoảng cách từ $B'$ đến giao tuyến $A'B$.",
-    "difficulty": "Vận dụng",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_06_hsa35"
     ]
@@ -289,7 +289,7 @@ export const gocKhoangCachQuestions: Question[] = [
     "correctAnswer": "B",
     "detailedSolution": "Gọi $H$ là trung điểm của $AB$. Do $\\Delta SAB$ đều cạnh $2a$ và $(SAB) \\perp (ABCD)$, ta có $SH \\perp (ABCD)$ và $SH = 2a \\frac{\\sqrt{3}}{2} = a\\sqrt{3}$.\nChọn hệ trục tọa độ $Oxyz$ với gốc $H(0; 0; 0)$:\n- Trục $Ox$ dọc theo $HB$: $A(-a; 0; 0)$, $B(a; 0; 0)$.\n- Trục $Oy$ song song $AD$: $D(-a; a; 0)$, $C(a; a; 0)$, $M(0; a; 0)$.\n- Trục $Oz$ dọc theo $HS$: $S(0; 0; a\\sqrt{3})$.\n\nTa có:\n- $\\vec{AM} = (a; a; 0)$.\n- $\\vec{SD} = (-a; a; -a\\sqrt{3})$.\n- $\\vec{AS} = (a; 0; a\\sqrt{3})$.\nTích có hướng $[\\vec{AM}, \\vec{SD}]$:\n$$[\\vec{AM}, \\vec{SD}] = (a(-a\\sqrt{3}) - 0, 0 - a(-a\\sqrt{3}), a \\cdot a - a(-a)) = a^2(-\\sqrt{3}; \\sqrt{3}; 2)$$\nĐộ dài: $|[\\vec{AM}, \\vec{SD}]| = a^2\\sqrt{(-\\sqrt{3})^2 + (\\sqrt{3})^2 + 2^2} = a^2\\sqrt{10}$.\nTích hỗn tạp:\n$$[\\vec{AM}, \\vec{SD}] \\cdot \\vec{AS} = a^2(-\\sqrt{3} \\cdot a + 0 + 2 \\cdot a\\sqrt{3}) = a^3\\sqrt{3}$$\nKhoảng cách giữa hai đường thẳng chéo nhau $AM$ và $SD$:\n$$d(AM, SD) = \\frac{|[\\vec{AM}, \\vec{SD}] \\cdot \\vec{AS}|}{|[\\vec{AM}, \\vec{SD}]|} = \\frac{a^3\\sqrt{3}}{a^2\\sqrt{10}} = \\frac{a\\sqrt{30}}{10}$$",
     "socraticHint": "Dựng trục tọa độ Oxyz với gốc tại trung điểm H của AB hoặc dựng mặt phẳng chứa đường thẳng này và song song với đường thẳng kia.",
-    "difficulty": "Vận dụng",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_06_hsa35"
     ]
@@ -320,7 +320,7 @@ export const gocKhoangCachQuestions: Question[] = [
     "correctAnswer": "D",
     "detailedSolution": "Trong tam giác $SAB$, xét đường thẳng $HMN$ cắt $SA$ tại $M$, $SB$ tại $N$ và $AB$ kéo dài tại $H$.\nÁp dụng định lý Menelaus cho tam giác $SAB$ với cát tuyến $HMN$:\n$$\\frac{HA}{HB} \\cdot \\frac{NB}{NS} \\cdot \\frac{MS}{MA} = 1$$\nTheo giả thiết:\n- $\\frac{MS}{MA} = \\frac{1/3}{2/3} = \\frac{1}{2}$\n- $\\frac{NB}{NS} = \\frac{1/3}{2/3} = \\frac{1}{2}$\nSuy ra: $\\frac{HA}{HB} \\cdot \\frac{1}{2} \\cdot \\frac{1}{2} = 1 \\implies \\frac{HA}{HB} = 4$.\nDo $A$ nằm giữa $H$ và $B$ nên $\\vec{HA} = -\\frac{4}{3}\\vec{AB}$.\nKhi đó $\\vec{MH} = \\vec{MA} + \\vec{AH} = \\frac{2}{3}\\vec{SA} + 2\\vec{AB}$.",
     "socraticHint": "Sử dụng định lý Menelaus trong mặt phẳng $(SAB)$ để tìm tỉ số đoạn thẳng $\\frac{HA}{HB}$.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_07_hsa36"
     ],
@@ -354,7 +354,7 @@ export const gocKhoangCachQuestions: Question[] = [
     "correctAnswer": "C",
     "detailedSolution": "Trong tam giác $SAC$, xét cát tuyến $MKP$ cắt $SA, SC, AC$:\nÁp dụng định lý Menelaus cho tam giác $SAC$:\n$$\\frac{KA}{KC} \\cdot \\frac{PC}{PS} \\cdot \\frac{MS}{MA} = 1$$\nVới $\\frac{PC}{PS} = 1$ và $\\frac{MS}{MA} = \\frac{1}{2} \\implies \\frac{KA}{KC} \\cdot 1 \\cdot \\frac{1}{2} = 1 \\implies \\frac{KA}{KC} = 2$.\nDo đó $\\vec{AK} = 2\\vec{AC} = 2(\\vec{AB} + \\vec{BC})$.\nTa có: $\\vec{MK} = \\vec{MA} + \\vec{AK} = \\frac{2}{3}\\vec{SA} + 2(\\vec{AB} + \\vec{BC})$.",
     "socraticHint": "Sử dụng định lý Menelaus trong tam giác $(SAC)$ để tính tỉ số đoạn thẳng trên cạnh $AC$.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_07_hsa36"
     ],
@@ -388,7 +388,7 @@ export const gocKhoangCachQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Trong tam giác $SBC$, áp dụng định lý Menelaus với cát tuyến $NPI$:\n$$\\frac{IB}{IC} \\cdot \\frac{PC}{PS} \\cdot \\frac{NS}{NB} = 1$$\nVới $\\frac{PC}{PS} = 1, \\frac{NS}{NB} = 2 \\implies \\frac{IB}{IC} \\cdot 2 = 1 \\implies \\frac{IB}{IC} = \\frac{1}{2}$.\nDo đó $B$ là trung điểm của $IC$, suy ra $\\vec{BI} = \\vec{BC} \\implies \\vec{AI} = \\vec{AB} + 2\\vec{BC}$.\nTa có: $\\vec{MI} = \\vec{MA} + \\vec{AI} = \\frac{2}{3}\\vec{SA} + \\vec{AB} + 2\\vec{BC}$.",
     "socraticHint": "Áp dụng định lý Menelaus trong tam giác $(SBC)$ xác định vị trí điểm $I$ trên đường thẳng $BC$.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_07_hsa36"
     ],

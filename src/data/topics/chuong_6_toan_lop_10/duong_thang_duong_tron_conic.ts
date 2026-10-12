@@ -30,7 +30,7 @@ export const duongThangDuongTronConicQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Phương trình chính tắc đường tròn: $(x - a)^2 + (y - b)^2 = R^2$.\nThay $a = 2, b = -1, R = 3 \\implies (x - 2)^2 + (y + 1)^2 = 9$.",
     "socraticHint": "Đổi dấu tọa độ tâm khi viết vào phương trình chính tắc.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan",
       "de_03_cap_toc"
@@ -65,7 +65,7 @@ export const duongThangDuongTronConicQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Khoảng cách $d(M, \\Delta) = \\frac{|3(3) - 4(4) + 12|}{\\sqrt{3^2 + (-4)^2}} = \\frac{|9 - 16 + 12|}{5} = \\frac{5}{5} = 1$.",
     "socraticHint": "Công thức khoảng cách từ điểm đến đường thẳng trong mặt phẳng Oxy.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
     ]
@@ -85,7 +85,7 @@ export const duongThangDuongTronConicQuestions: Question[] = [
     ],
     "detailedSolution": "Ta có $\\vec{AB} = (-3; -2)$ và $\\vec{AC} = (3; -4)$.\nDiện tích tam giác tính theo định thức tọa độ:\n$$S = \\frac{1}{2} |(-3)(-4) - (3)(-2)| = \\frac{1}{2} |12 + 6| = 9$$.",
     "socraticHint": "Dùng công thức diện tích tam giác theo tọa độ hai vectơ $S = \\frac{1}{2}|x_1 y_2 - x_2 y_1|$.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_01_chuan",
       "de_03_cap_toc"
@@ -120,7 +120,7 @@ export const duongThangDuongTronConicQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Phương trình chính tắc của elip $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$ có tâm đối xứng là gốc tọa độ $O(0; 0)$.",
     "socraticHint": "Elip chính tắc có tâm đối xứng tại gốc tọa độ.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -154,7 +154,7 @@ export const duongThangDuongTronConicQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Từ phương trình $Ax + By + C = 0$, VTPT là $\\vec{n} = (A; B) = (2; -3)$.",
     "socraticHint": "Hệ số của $x$ và $y$ chính là tọa độ vectơ pháp tuyến.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -174,7 +174,7 @@ export const duongThangDuongTronConicQuestions: Question[] = [
     ],
     "detailedSolution": "Tâm $I(2; -3), c = -12$. Bán kính $R = \\sqrt{2^2 + (-3)^2 - (-12)} = \\sqrt{4 + 9 + 12} = 5$.",
     "socraticHint": "Bán kính đường tròn dạng tổng quát $R = \\sqrt{a^2 + b^2 - c}$.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -194,7 +194,7 @@ export const duongThangDuongTronConicQuestions: Question[] = [
     ],
     "detailedSolution": "Độ dài trục lớn $2a = 10 \\implies a = 5$.\nĐộ dài trục nhỏ $2b = 6 \\implies b = 3$.\nNửa tiêu cự: $c = \\sqrt{a^2 - b^2} = \\sqrt{5^2 - 3^2} = \\sqrt{16} = 4$.\nTiêu cự của hình elip là khoảng cách giữa 2 tiêu điểm: $2c = 2 \\times 4 = 8\\text{ m}$.",
     "socraticHint": "Tiêu cự của elip là $2c$ với $c = \\sqrt{a^2 - b^2}$.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_03_moi"
     ]
@@ -228,7 +228,7 @@ export const duongThangDuongTronConicQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Đường tròn $(C)$ có tâm $O(0; 0)$ và bán kính $R = 5$.\nTiếp tuyến tại $M(3; 4)$ nhận vectơ $\\vec{OM} = (3; 4)$ làm vectơ pháp tuyến.\nPhương trình tiếp tuyến: $3(x - 3) + 4(y - 4) = 0 \\iff 3x + 4y - 25 = 0$.",
     "socraticHint": "Phương trình tiếp tuyến tại $M(x_0; y_0)$ của đường tròn $x^2 + y^2 = R^2$ là $x_0 x + y_0 y = R^2$.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
     ]
@@ -262,7 +262,7 @@ export const duongThangDuongTronConicQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Theo tính chất trọng tâm: $\\vec{AG} = 2\\vec{GM} \\iff G - A = 2(M - G) \\iff 3G = A + 2M$.\nSuy ra $M = \\frac{3G - A}{2}$:\n- $x_M = \\frac{3(3) - 1}{2} = \\frac{8}{2} = 4$.\n- $y_M = \\frac{3(4) - 2}{2} = \\frac{10}{2} = 5$.\nVậy $M(4; 5)$.",
     "socraticHint": "Trọng tâm $G$ chia đoạn trung tuyến $AM$ theo tỉ số $AG = 2GM$.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_04_nang_cao"
     ]
@@ -282,7 +282,7 @@ export const duongThangDuongTronConicQuestions: Question[] = [
     ],
     "detailedSolution": "Đường tròn tâm $I$ tiếp xúc với đường thẳng $\\Delta$ khi bán kính $R = d(I, \\Delta)$.\n$$R = \\frac{|3(1) - 4(-3) + 5|}{\\sqrt{3^2 + (-4)^2}} = \\frac{|3 + 12 + 5|}{5} = \\frac{20}{5} = 4$$.",
     "socraticHint": "Khoảng cách từ tâm đến tiếp tuyến bằng chính bán kính đường tròn.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
     ]
@@ -302,7 +302,7 @@ export const duongThangDuongTronConicQuestions: Question[] = [
     ],
     "detailedSolution": "Tọa độ trọng tâm $G$ thỏa mãn:\n$$y_G = \\frac{y_A + y_B + y_C}{3} \\iff 2 = \\frac{4 + 0 + y_C}{3} \\iff 6 = 4 + y_C \\iff y_C = 2$$.",
     "socraticHint": "Tung độ trọng tâm bằng trung bình cộng tung độ ba đỉnh của tam giác.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
     ]
@@ -324,7 +324,7 @@ export const duongThangDuongTronConicQuestions: Question[] = [
     ],
     "detailedSolution": "Chọn hệ trục tọa độ $Oxy$ sao cho gốc $O$ là tâm elip, trục hoành chứa trục lớn và trục tung chứa trục bé.\nPhương trình chính tắc của elip:\n- Độ dài trục lớn: $2a = 20 \\implies a = 10$.\n- Độ dài trục bé: $2b = 16 \\implies b = 8$.\n$$(E): \\frac{x^2}{100} + \\frac{y^2}{64} = 1$$\nHình chữ nhật $MNPQ$ nội tiếp elip và có cạnh $MN = 16\\text{ m}$ song song với trục lớn.\nDo tính đối xứng qua các trục tọa độ, hoành độ đỉnh $M$ thỏa mãn $2x_M = 16 \\implies x_M = 8$.\nThay $x_M = 8$ vào phương trình $(E)$:\n$$\\frac{64}{100} + \\frac{y^2}{64} = 1 \\iff \\frac{y^2}{64} = 0.36 \\implies y_M = \\sqrt{64 \\times 0.36} = 8 \\times 0.6 = 4.8\\text{ m}$$\nChiều rộng hình chữ nhật: $MQ = 2y_M = 2 \\times 4.8 = 9.6\\text{ m}$.\nDiện tích hình chữ nhật trồng hoa:\n$$S = MN \\times MQ = 16 \\times 9.6 = 153.6\\text{ m}^2$$",
     "socraticHint": "Thiết lập phương trình chính tắc elip $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$, từ chiều dài cạnh suy ra hoành độ và tìm tung độ.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
     ]

@@ -30,7 +30,7 @@ export const nguyenHamCoBanQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Nhân hai vế với thừa số tích phân $e^{x^2}$:\n$$e^{x^2} f'(x) + 2x e^{x^2} f(x) = 2x \\iff [e^{x^2} f(x)]' = 2x$$\nLấy tích phân hai vế từ 0 đến 1:\n$$[e^{x^2} f(x)]_0^1 = [x^2]_0^1 \\implies e f(1) - f(0) = 1 \\implies e f(1) - 3 = 1 \\implies f(1) = \\frac{4}{e}$$.",
     "socraticHint": "Dạng phương trình vi phân tuyến tính cấp 1: $y' + p(x)y = q(x)$ nhân với $e^{\\int p(x)dx}$.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
     ]
@@ -42,7 +42,7 @@ export const nguyenHamCoBanQuestions: Question[] = [
     "chapterName": "Chương 3: Nguyên hàm & Tích phân",
     "topicId": "nguyen_ham_va_tich_phan_co_ban",
     "topicName": "Nguyên hàm & Tính chất tích phân cơ bản",
-    "content": "Cho $\\int_0^1 \\frac{2x + 3}{x + 1} dx = a + b \\ln 2$ ($a, b \\\\in \\mathbb{Z}$). Giá trị của $S = a + 2b$ là:",
+    "content": "Cho $\\int_0^1 \\frac{2x + 3}{x + 1} dx = a + b \\ln 2$ ($a, b \\in \\mathbb{Z}$). Giá trị của $S = a + 2b$ là:",
     "options": [
       {
         "key": "A",
@@ -64,7 +64,7 @@ export const nguyenHamCoBanQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Tách biểu thức: $\\frac{2x + 3}{x + 1} = 2 + \\frac{1}{x + 1}$.\n$$\\int_0^1 \\left( 2 + \\frac{1}{x + 1} \\right) dx = [2x + \\ln(x + 1)]_0^1 = 2 + \\ln 2$$.\nSuy ra $a = 2, b = 1 \\implies S = 2 + 2(1) = 4$.",
     "socraticHint": "Chia tử cho mẫu rồi tính nguyên hàm từng thành phần.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
     ]
@@ -84,7 +84,7 @@ export const nguyenHamCoBanQuestions: Question[] = [
     ],
     "detailedSolution": "Nguyên hàm $f(x) = x^3 + x^2 + C$.\nVì $f(0) = 1 \\implies C = 1$.\nDo đó $f(x) = x^3 + x^2 + 1 \\implies f(2) = 2^3 + 2^2 + 1 = 8 + 4 + 1 = 13$.",
     "socraticHint": "Xác định hàm ban đầu từ đạo hàm và điều kiện biên ban đầu.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_01_chuan"
     ]
@@ -118,7 +118,7 @@ export const nguyenHamCoBanQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Ta có $\\int \\cos 2x dx = \\frac{1}{2}\\sin 2x + C$.",
     "socraticHint": "Áp dụng công thức $\\int \\cos(ax+b) dx = \\frac{1}{a}\\sin(ax+b) + C$.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -152,7 +152,7 @@ export const nguyenHamCoBanQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "$I = [\\frac{1}{2} e^{2x}]_0^1 = \\frac{1}{2}(e^2 - 1)$.",
     "socraticHint": "Nguyên hàm hàm mũ $e^{kx}$.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -186,7 +186,7 @@ export const nguyenHamCoBanQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Theo tính chất tuyến tính: $\\int_1^3 2f(x) dx = 2 \\int_1^3 f(x) dx = 2(5) = 10$.",
     "socraticHint": "Tính chất tuyến tính của tích phân xác định.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -206,7 +206,7 @@ export const nguyenHamCoBanQuestions: Question[] = [
     ],
     "detailedSolution": "$I = [x^3]_0^2 = 2^3 - 0 = 8$.",
     "socraticHint": "Nguyên hàm cơ bản của $3x^2$.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -240,7 +240,7 @@ export const nguyenHamCoBanQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Áp dụng tính chất tuyến tính của tích phân:\n$$I = 2int_1^3 f(x) dx - 3int_1^3 g(x) dx = 2(4) - 3(-2) = 8 + 6 = 14$$.",
     "socraticHint": "Áp dụng tính chất tuyến tính $\\int [af(x) + bg(x)] dx = aint f(x) dx + bint g(x) dx$.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
     ]
@@ -274,7 +274,7 @@ export const nguyenHamCoBanQuestions: Question[] = [
     "correctAnswer": "B",
     "detailedSolution": "Khai triển biểu thức hàm số dưới dấu tích phân:\n$$f(x) = \\sin^2 \\frac{x}{2} - 2\\sin \\frac{x}{2}\\cos \\frac{x}{2} + \\cos^2 \\frac{x}{2}$$\n$$f(x) = \\left(\\sin^2 \\frac{x}{2} + \\cos^2 \\frac{x}{2}\\right) - \\sin\\left(2 \\cdot \\frac{x}{2}\\right) = 1 - \\sin x$$\nTìm họ nguyên hàm:\n$$\\int f(x) dx = \\int (1 - \\sin x) dx = x - (-\\cos x) + C = x + \\cos x + C$$",
     "socraticHint": "Khai triển hằng đẳng thức và dùng công thức góc nhân đôi: $2\\sin(x/2)\\cos(x/2) = \\sin x$.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
     ]
@@ -305,7 +305,7 @@ export const nguyenHamCoBanQuestions: Question[] = [
     "correctAnswer": "B",
     "detailedSolution": "Với $a < -1$, ta có $x + a < 0$ với mọi $x \\in [0; 1]$.\nDo đó: $\\int_0^1 \\frac{1}{x + a} dx = \\ln|x + a| \\Big|_0^1 = \\ln|1 + a| - \\ln|a| = \\ln\\left|\\frac{1 + a}{a}\\right| = \\ln\\left(\\frac{-1 - a}{-a}\\right) = \\ln\\left(\\frac{a + 1}{a}\\right)$.\nTheo đề bài:\n$$\\ln\\left(\\frac{a + 1}{a}\\right) = \\ln\\left(\\frac{1}{2}\\right) \\iff \\frac{a + 1}{a} = \\frac{1}{2} \\iff 2(a + 1) = a \\iff 2a + 2 = a \\iff a = -2$$\nGiá trị $a = -2$ thỏa mãn điều kiện $a < -1$.\nVậy có đúng 1 số thực $a$ thỏa mãn.",
     "socraticHint": "Chú ý tính dấu của biểu thức trong dấu giá trị tuyệt đối khi $x \\in [0; 1]$ và $a < -1$.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_07_hsa36"
     ],

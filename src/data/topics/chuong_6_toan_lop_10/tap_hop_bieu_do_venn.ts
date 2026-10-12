@@ -30,7 +30,7 @@ export const tapHopVennQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Áp dụng công thức số phần tử của hợp 3 tập hợp:\n$$|A \\cup B \\cup C| = |A| + |B| + |C| - (|A \\cap B| + |B \\cap C| + |C \\cap A|) + |A \\cap B \\cap C|$$\nThay số:\n$$|A \\cup B \\cup C| = 15 + 12 + 10 - (5 + 4 + 3) + 2 = 37 - 12 + 2 = 27$$\nSố học sinh không chơi môn nào trong ba môn trên là:\n$$30 - 27 = 3\(học sinh)$$.",
     "socraticHint": "Sử dụng công thức nguyên lý bù trừ cho 3 tập hợp rồi lấy tổng số trừ đi số phần tử của hợp.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
     ]
@@ -64,7 +64,7 @@ export const tapHopVennQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Để hai khoảng $A$ và $B$ không giao nhau, khoảng $A$ phải nằm hoàn toàn bên trái hoặc bên phải của khoảng $B$:\n- Trường hợp 1: $A$ nằm bên trái $B$, tức mút phải của $A$ nhỏ hơn hoặc bằng mút trái của $B$:\n$$m + 2 \\le 1 \\iff m \\le -1$$\n- Trường hợp 2: $A$ nằm bên phải $B$, tức mút trái của $A$ lớn hơn hoặc bằng mút phải của $B$:\n$$m - 1 \\ge 4 \\iff m \\ge 5$$\nKết hợp lại: $m \\le -1$ hoặc $m \\ge 5$.",
     "socraticHint": "Hai khoảng rời nhau khi khoảng này nằm hoàn toàn bên trái hoặc bên phải của khoảng kia trên trục số.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_03_moi"
     ]
@@ -83,9 +83,9 @@ export const tapHopVennQuestions: Question[] = [
       "6",
       "6.0"
     ],
-    "detailedSolution": "Để hai tập hợp $A$ và $B$ khác rỗng, ta có điều kiện:\n- $A \\ne \\emptyset \\iff m - 2 < 3 \\iff m < 5$.\n- $B \\ne \\emptyset \\iff -3 < 2m + 6 \\iff 2m > -9 \\iff m > -4.5$.\n\nĐể $A \\subset B$, ta cần đồng thời:\n1) $-3 \\le m - 2 \\iff m \\ge -1$.\n2) $3 < 2m + 6 \\iff 2m > -3 \\iff m > -1.5$ (do $3 \\in A$ nhưng $B$ là khoảng mở tại $2m + 6$).\n\nKết hợp tất cả các điều kiện trên:\n$$-1 \\le m < 5$$\nVì $m \\\\in \\mathbb{Z}$, nên $m \\in \\{-1; 0; 1; 2; 3; 4\\}$.\nVậy có đúng $6$ giá trị nguyên của tham số $m$.",
+    "detailedSolution": "Để hai tập hợp $A$ và $B$ khác rỗng, ta có điều kiện:\n- $A \\ne \\emptyset \\iff m - 2 < 3 \\iff m < 5$.\n- $B \\ne \\emptyset \\iff -3 < 2m + 6 \\iff 2m > -9 \\iff m > -4.5$.\n\nĐể $A \\subset B$, ta cần đồng thời:\n1) $-3 \\le m - 2 \\iff m \\ge -1$.\n2) $3 < 2m + 6 \\iff 2m > -3 \\iff m > -1.5$ (do $3 \\in A$ nhưng $B$ là khoảng mở tại $2m + 6$).\n\nKết hợp tất cả các điều kiện trên:\n$$-1 \\le m < 5$$\nVì $m \\in \\mathbb{Z}$, nên $m \\in \\{-1; 0; 1; 2; 3; 4\\}$.\nVậy có đúng $6$ giá trị nguyên của tham số $m$.",
     "socraticHint": "Xác định điều kiện để tập hợp khác rỗng trước, sau đó so sánh hai đầu mút của các khoảng tập hợp.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
     ]

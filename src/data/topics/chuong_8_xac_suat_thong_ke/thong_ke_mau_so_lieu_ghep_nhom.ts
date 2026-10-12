@@ -30,7 +30,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Theo định nghĩa chuẩn GDPT 2018, khoảng biến thiên $R$ là hiệu số giữa đầu mút phải của nhóm cuối và đầu mút trái của nhóm đầu:\n$$R = 150 - 30 = 120$$.",
     "socraticHint": "Khoảng biến thiên của mẫu ghép nhóm bằng đầu mút lớn nhất trừ đầu mút nhỏ nhất.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan",
       "de_03_cap_toc"
@@ -65,7 +65,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Giá trị đại diện: nhóm 1 là 1, nhóm 2 là 3, nhóm 3 là 5.\nTrung bình: $\\bar{x} = \\frac{4(1) + 10(3) + 6(5)}{20} = \\frac{64}{20} = 3{,}2$.",
     "socraticHint": "Lấy giá trị đại diện (trung điểm) nhân tần số tương ứng rồi chia tổng số phần tử.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
     ]
@@ -86,7 +86,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
     ],
     "detailedSolution": "Số trung bình: $\\bar{x} = \\frac{4(1) + 10(3) + 6(5)}{20} = \\frac{64}{20} = 3{,}2$.",
     "socraticHint": "Trung bình trọng số với giá trị tâm của mỗi khoảng.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
     ]
@@ -120,7 +120,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Theo định nghĩa SGK Toán 12 GDPT 2018, nhóm chứa trung vị là nhóm đầu tiên có tần số tích lũy $\\ge \\frac{n}{2}$.",
     "socraticHint": "Trung vị chia dữ liệu thành hai nửa bằng nhau ($50\\% - 50\\%$).",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -154,7 +154,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Độ dài nhóm $[a; b)$ là hiệu $b - a = 25 - 20 = 5$.",
     "socraticHint": "Độ dài nhóm bằng đầu mút phải trừ đầu mút trái.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -174,7 +174,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
     ],
     "detailedSolution": "Độ dài của khoảng là $30 - 10 = 20$.",
     "socraticHint": "Lấy đầu mút phải trừ đầu mút trái.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -208,7 +208,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Cỡ mẫu $n = 40$. Tần số tích lũy: $cf_1 = 4, cf_2 = 16, cf_3 = 32, cf_4 = 40$.\n- Tứ phân vị thứ nhất $Q_1$: vị trí $\\frac{n}{4} = 10$. Nhóm chứa $Q_1$ là $[5; 10)$:\n$$Q_1 = 5 + \\frac{10 - 4}{12} \\times (10 - 5) = 5 + \\frac{6}{12} \\times 5 = 5 + 2.5 = 7.5$$\n- Tứ phân vị thứ ba $Q_3$: vị trí $\\frac{3n}{4} = 30$. Nhóm chứa $Q_3$ là $[10; 15)$:\n$$Q_3 = 10 + \\frac{30 - 16}{16} \\times (15 - 10) = 10 + \\frac{14}{16} \\times 5 = 10 + 4.375 = 14.375$$\nKhoảng tứ phân vị:\n$$Delta_Q = Q_3 - Q_1 = 14.375 - 7.5 = 6.875$$.",
     "socraticHint": "Tính $Q_1$ và $Q_3$ theo công thức tứ phân vị mẫu số liệu ghép nhóm rồi lấy hiệu $Delta_Q = Q_3 - Q_1$.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
     ]
@@ -242,7 +242,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Xác định giá trị đại diện của từng nhóm:\n- Nhóm $[4; 6)$ có giá trị đại diện $c_1 = \\frac{4 + 6}{2} = 5$.\n- Nhóm $[6; 8)$ có giá trị đại diện $c_2 = \\frac{6 + 8}{2} = 7$.\n- Nhóm $[8; 10]$ có giá trị đại diện $c_3 = \\frac{8 + 10}{2} = 9$.\nSố trung bình cộng của mẫu số liệu ghép nhóm:\n$$\\bar{x} = \\frac{6(5) + 15(7) + 9(9)}{30} = \\frac{30 + 105 + 81}{30} = \\frac{216}{30} = 7.2$$.",
     "socraticHint": "Lấy trung điểm mỗi nhóm làm giá trị đại diện rồi áp dụng công thức trung bình có trọng số.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
     ]
@@ -282,7 +282,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
     ],
     "detailedSolution": "Cỡ mẫu $n = 40 \\implies \\frac{n}{2} = 20$.\nTần số tích lũy: $cf_1 = 6, cf_2 = 20, cf_3 = 32, cf_4 = 40$.\nVì $cf_1 = 6 < 20 \\le cf_2 = 20$, trung vị rơi vào nhóm $[20; 30)$ (cụ thể ngay tại mút trên).\nÁp dụng công thức trung vị mẫu ghép nhóm:\n$$M_e = a_2 + \\frac{\\frac{n}{2} - cf_1}{n_2} \\cdot (a_3 - a_2) = 20 + \\frac{20 - 6}{14} \\cdot (30 - 20) = 20 + \\frac{14}{14} \\cdot 10 = 30$$.",
     "socraticHint": "Xác định nhóm chứa trung vị qua vị trí $n/2 = 20$ rồi áp dụng công thức $M_e = a_p + \\frac{n/2 - cf_{p-1}}{n_p} h$.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
     ]
@@ -316,7 +316,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Nhóm chứa mốt của mẫu số liệu ghép nhóm là nhóm có tần số lớn nhất.\nTrong bảng trên, nhóm $[20; 30)$ có tần số lớn nhất là $18$.\nDo đó nhóm chứa mốt là $[20; 30)$.",
     "socraticHint": "Nhóm chứa mốt là nhóm có tần số xuất hiện cao nhất trong bảng số liệu.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
     ]
@@ -350,7 +350,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Khoảng biến thiên của mẫu số liệu ghép nhóm là hiệu số giữa đầu mút phải của nhóm cuối cùng và đầu mút trái của nhóm đầu tiên:\n$$R = 50 - 10 = 40$$.",
     "socraticHint": "Khoảng biến thiên $R$ là hiệu số giữa giá trị lớn nhất và nhỏ nhất của thang đo: $R = x_{\\max} - x_{\\min}$.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
     ]
@@ -370,7 +370,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
     ],
     "detailedSolution": "Giá trị đại diện các nhóm:\n- $[150; 155)$: $c_1 = 152.5$\n- $[155; 160)$: $c_2 = 157.5$\n- $[160; 165)$: $c_3 = 162.5$\n- $[165; 170)$: $c_4 = 167.5$\nSố trung bình cộng:\n$$\\bar{x} = \\frac{5(152.5) + 12(157.5) + 15(162.5) + 8(167.5)}{40} = \\frac{762.5 + 1890 + 2437.5 + 1340}{40} = \\frac{6430}{40} = 160.75$$.",
     "socraticHint": "Tìm giá trị đại diện của từng nhóm rồi tính trung bình có trọng số theo công thức chuẩn.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
     ]
@@ -390,7 +390,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
     ],
     "detailedSolution": "Đầu mút trái của nhóm đầu tiên là 0. Đầu mút phải của nhóm cuối cùng là 10.\nKhoảng biến thiên của mẫu số liệu ghép nhóm:\n$$R = 10 - 0 = 10$$.",
     "socraticHint": "Khoảng biến thiên $R$ bằng đầu mút phải của nhóm lớn nhất trừ đầu mút trái của nhóm nhỏ nhất.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
     ]
@@ -424,7 +424,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Tổng số học sinh: $n = 1 + 3 + 10 + 15 + 7 + 4 = 40$.\nĐiểm trung bình cộng của mẫu số liệu:\n$$\\bar{x} = \\frac{5 \\times 1 + 6 \\times 3 + 7 \\times 10 + 8 \\times 15 + 9 \\times 7 + 10 \\times 4}{40} = \\frac{316}{40} = 7{,}9$$\nPhương sai của mẫu số liệu theo định nghĩa SGK:\n$$s^2 = \\frac{1}{n} \\sum_{i=1}^k n_i(x_i - \\bar{x})^2$$\n$$s^2 = \\frac{1(5-7.9)^2 + 3(6-7.9)^2 + 10(7-7.9)^2 + 15(8-7.9)^2 + 7(9-7.9)^2 + 4(10-7.9)^2}{40}$$\n$$s^2 = \\frac{1(8.41) + 3(3.61) + 10(0.81) + 15(0.01) + 7(1.21) + 4(4.41)}{40} = \\frac{53.60}{40} = 1{,}34$$\n(Nếu dùng phương sai mẫu hiệu chỉnh: $s'^2 = \\frac{53.60}{39} \\approx 1{,}37$. Phương án chuẩn theo SGK Lớp 10 là $s^2 = 1{,}34$).",
     "socraticHint": "Tính số trung bình $\\bar{x}$ trước, sau đó áp dụng công thức phương sai $s^2 = \\frac{1}{n} \\sum n_i(x_i - \\bar{x})^2$.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
     ]
@@ -492,7 +492,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "correctAnswer": "B",
     "detailedSolution": "Tổng số kỳ thủ: $n = 2 + 4 + 8 + 5 + 6 = 25$.\nTần số tích lũy: $cf_1 = 2, cf_2 = 6, cf_3 = 14, cf_4 = 19, cf_5 = 25$.\n1) Tìm tứ phân vị thứ nhất $Q_1$:\n- Vị trí: $\\frac{n}{4} = \\frac{25}{4} = 6{,}25$. Giá trị này rơi vào nhóm thứ ba $[4; 6)$ vì $6 < 6{,}25 \\le 14$.\n- Đầu mút trái $u = 4$, tần số tích lũy nhóm trước $cf = 6$, tần số nhóm $n_3 = 8$, độ dài nhóm $h = 2$.\n$$Q_1 = 4 + \\frac{6{,}25 - 6}{8} \\times 2 = 4 + \\frac{0{,}25}{8} \\times 2 = 4 + 0{,}0625 = 4{,}0625$$\n2) Tìm tứ phân vị thứ ba $Q_3$:\n- Vị trí: $\\frac{3n}{4} = \\frac{75}{4} = 18{,}75$. Giá trị này rơi vào nhóm thứ tư $[6; 8)$ vì $14 < 18{,}75 \\le 19$.\n- Đầu mút trái $u = 6$, tần số tích lũy nhóm trước $cf = 14$, tần số nhóm $n_4 = 5$, độ dài nhóm $h = 2$.\n$$Q_3 = 6 + \\frac{18{,}75 - 14}{5} \\times 2 = 6 + \\frac{4{,}75}{5} \\times 2 = 6 + 1{,}9 = 7{,}9$$\n3) Khoảng tứ phân vị $\\Delta_Q$:\n$$\\Delta_Q = Q_3 - Q_1 = 7{,}9 - 4{,}0625 = 3{,}8375 \\approx 3{,}8$$",
     "socraticHint": "Tìm nhóm chứa $Q_1$ và nhóm chứa $Q_3$ theo tần số tích lũy rồi áp dụng công thức tính khoảng tứ phân vị $\\Delta_Q = Q_3 - Q_1$.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
     ]
@@ -505,7 +505,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "correctAnswer": "4",
     "detailedSolution": "Tổng số quan sát $n = 100$.\n- Tìm $Q_1$: vị trí $\\frac{n}{4} = 25$. Tần số tích lũy: nhóm 1 có 22, nhóm 2 có $22 + 38 = 60$. Vậy nhóm chứa $Q_1$ là $[18; 21)$.\n  $$Q_1 = 18 + \\frac{25 - 22}{38} \\times (21 - 18) = 18 + \\frac{9}{38} \\approx 18{,}237$$\n- Tìm $Q_3$: vị trí $\\frac{3n}{4} = 75$. Tần số tích lũy nhóm 3 là $60 + 27 = 87$. Vậy nhóm chứa $Q_3$ là $[21; 24)$.\n  $$Q_3 = 21 + \\frac{75 - 60}{27} \\times (24 - 21) = 21 + \\frac{15}{27} \\times 3 = 21 + \\frac{5}{3} \\approx 22{,}667$$\n- Khoảng tứ phân vị:\n  $$\\Delta_Q = Q_3 - Q_1 = 22{,}667 - 18{,}237 = 4{,}43$$\nLàm tròn đến hàng đơn vị: $4$.",
     "socraticHint": "Xác định nhóm chứa $Q_1$ và nhóm chứa $Q_3$ theo tần số tích lũy rồi áp dụng công thức nội suy tứ phân vị.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_07_hsa36"
     ],

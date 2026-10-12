@@ -30,7 +30,7 @@ export const xacSuatBayesQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Áp dụng định nghĩa xác suất có điều kiện:\n$$P(B|A) = \\frac{P(A \\cap B)}{P(A)} = \\frac{0.3}{0.5} = 0.6$$.",
     "socraticHint": "Công thức xác suất có điều kiện của $B$ khi biết $A$ là $P(B|A) = \\frac{P(A \\cap B)}{P(A)}$.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_03_moi"
     ]
@@ -98,7 +98,7 @@ export const xacSuatBayesQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Gọi $H_1$ là biến cố \"chọn Hộp I\" (xúc xắc ra mặt 1 hoặc 2) $\\implies P(H_1) = \\frac{2}{6} = \\frac{1}{3}$.\nGọi $H_2$ là biến cố \"chọn Hộp II\" $\\implies P(H_2) = 1 - \\frac{1}{3} = \\frac{2}{3}$.\nGọi $A$ là biến cố \"rút được thẻ màu xanh\":\n- Từ Hộp I: $P(A|H_1) = \\frac{3}{3 + 2} = \\frac{3}{5}$.\n- Từ Hộp II: $P(A|H_2) = \\frac{4}{4 + 6} = \\frac{4}{10} = \\frac{2}{5}$.\nTheo công thức xác suất toàn phần:\n$$P(A) = P(H_1)P(A|H_1) + P(H_2)P(A|H_2) = \\frac{1}{3} \\times \\frac{3}{5} + \\frac{2}{3} \\times \\frac{2}{5} = \\frac{3}{15} + \\frac{4}{15} = \\frac{7}{15}$$.",
     "socraticHint": "Phân tích hai giai đoạn độc lập và dùng công thức xác suất toàn phần $P(A) = P(H_1)P(A|H_1) + P(H_2)P(A|H_2)$.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
     ]
@@ -118,7 +118,7 @@ export const xacSuatBayesQuestions: Question[] = [
     ],
     "detailedSolution": "Xác suất rút quả thứ nhất màu xanh: $P_1 = \\frac{6}{10}$.\nSau khi rút quả thứ nhất màu xanh, trong hộp còn lại 5 quả xanh và tổng số 9 quả bóng.\nXác suất rút quả thứ hai màu xanh: $P_2 = \\frac{5}{9}$.\nXác suất để cả hai quả màu xanh:\n$$P = \\frac{6}{10} \\times \\frac{5}{9} = \\frac{30}{90} = \\frac{1}{3}$$\nPhân số tối giản là $\\frac{1}{3} \\implies a = 1, b = 3$.\nDo đó $a + b = 1 + 3 = 4$.",
     "socraticHint": "Dùng quy tắc nhân xác suất cho hai biến cố liên tiếp không hoàn lại: $P(A \\cap B) = P(A) \\cdot P(B|A)$.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
     ]
@@ -152,7 +152,7 @@ export const xacSuatBayesQuestions: Question[] = [
     "correctAnswer": "D",
     "detailedSolution": "Gọi $A$ là biến cố 'Làm đúng bài thứ nhất' $\\implies P(A) = 0{,}6$.\nGọi $B$ là biến cố 'Làm đúng bài thứ hai' $\\implies P(B) = 0{,}5$.\nGiả thiết cho xác suất có điều kiện: $P(B | A) = 0{,}8$.\nÁp dụng công thức nhân xác suất:\n$$P(A \\cap B) = P(A) \\cdot P(B | A) = 0{,}6 \\times 0{,}8 = 0{,}48$$\nTheo công thức xác suất toàn phần:\n$$P(B) = P(A \\cap B) + P(\\overline{A} \\cap B)$$\n$$\\implies P(\\overline{A} \\cap B) = P(B) - P(A \\cap B) = 0{,}5 - 0{,}48 = 0{,}02$$\nXác suất học sinh làm sai bài thứ nhất khi biết đã làm đúng bài thứ hai là:\n$$P(\\overline{A} | B) = \\frac{P(\\overline{A} \\cap B)}{P(B)} = \\frac{0{,}02}{0{,}5} = 0{,}04$$",
     "socraticHint": "Tính $P(A \\cap B) = P(A)P(B|A)$, suy ra $P(\\overline{A} \\cap B) = P(B) - P(A \\cap B)$, rồi tính xác suất có điều kiện $P(\\overline{A}|B)$.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
     ]
@@ -217,7 +217,7 @@ export const xacSuatBayesQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Gọi $A$ là biến cố 'Người được chọn nghiện thuốc lá' $\\implies P(A) = 0{,}30$ và $P(\\bar{A}) = 0{,}70$.\nGọi $B$ là biến cố 'Người được chọn bị bệnh phổi'.\nTheo giả thiết:\n- $P(B|A) = 0{,}80$\n- $P(B|\\bar{A}) = 0{,}10$\nÁp dụng công thức xác suất toàn phần:\n$$P(B) = P(A) \\cdot P(B|A) + P(\\bar{A}) \\cdot P(B|\\bar{A}) = 0{,}30 \\times 0{,}80 + 0{,}70 \\times 0{,}10 = 0{,}24 + 0{,}07 = 0{,}31$$",
     "socraticHint": "Sử dụng công thức xác suất toàn phần: $P(B) = P(A)P(B|A) + P(\\bar{A})P(B|\\bar{A})$.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_07_hsa36"
     ],

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Search, ChevronDown, ChevronUp, BookOpen, Lightbulb } from 'lucide-react';
-import { Question, TopicId } from '../types/exam';
+import { Search, ChevronDown, ChevronUp, BookOpen, Lightbulb, Filter } from 'lucide-react';
+import { Question } from '../types/exam';
 import { MathRenderer } from './MathRenderer';
-import { TOPIC_METADATA } from '../utils/scoring';
+import { MICRO_TOPICS_METADATA } from '../data/topics/index';
 
 interface QuestionBankViewProps {
   questions: Question[];
@@ -13,11 +13,13 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({ questions, o
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTopic, setSelectedTopic] = useState<string>('all');
   const [selectedType, setSelectedType] = useState<string>('all');
+  const [selectedDifficulty, setSelectedDifficulty] = useState<string>('all');
   const [expandedId, setExpandedId] = useState<number | null>(null);
 
   const filtered = questions.filter((q) => {
     if (selectedTopic !== 'all' && q.topicId !== selectedTopic) return false;
     if (selectedType !== 'all' && q.type !== selectedType) return false;
+    if (selectedDifficulty !== 'all' && q.difficulty !== selectedDifficulty) return false;
     if (searchTerm.trim() !== '') {
       const lower = searchTerm.toLowerCase();
       const matchContent = q.content.toLowerCase().includes(lower);
@@ -38,11 +40,16 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({ questions, o
       <div className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm space-y-4 transition-colors">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-3 border-b border-slate-100 dark:border-zinc-800/80">
           <div>
-            <h1 className="text-xl font-bold text-slate-900 dark:text-zinc-100">
-              Ngân Hàng 100+ Câu Hỏi Toán HSA - TontonYuta
-            </h1>
-            <p className="text-xs text-slate-500 dark:text-zinc-400 mt-0.5">
-              Toàn bộ đề thi môn Toán học & Tư duy định lượng theo chương trình mới GDPT 2018
+            <div className="flex items-center gap-2">
+              <h1 className="text-xl font-bold text-slate-900 dark:text-zinc-100">
+                Ngân Hàng 300+ Câu Hỏi Toán HSA - TontonYuta
+              </h1>
+              <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 border border-amber-300 dark:border-amber-700">
+                90% Vận Dụng & VDC
+              </span>
+            </div>
+            <p className="text-xs text-slate-500 dark:text-zinc-400 mt-1">
+              Hệ thống 300 câu hỏi chuẩn hóa HSA ĐHQGHN với 10 chương và 30 chuyên đề vi mô phân hóa điểm cao
             </p>
           </div>
 
@@ -55,7 +62,7 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({ questions, o
           </button>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 pt-1">
           {/* Search bar */}
           <div className="relative">
             <Search className="w-4 h-4 absolute left-3.5 top-3 text-slate-400 dark:text-zinc-500" />
@@ -68,16 +75,16 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({ questions, o
             />
           </div>
 
-          {/* Filter 12 topics */}
+          {/* Filter 30 topics */}
           <select
             value={selectedTopic}
             onChange={(e) => setSelectedTopic(e.target.value)}
             className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-zinc-950 border border-slate-300 dark:border-zinc-700 rounded-xl text-xs text-slate-800 dark:text-zinc-300 focus:outline-none focus:border-sky-500 font-medium"
           >
-            <option value="all">Tất cả 12 chuyên đề vi mô</option>
-            {Object.entries(TOPIC_METADATA).map(([key, val]) => (
-              <option key={key} value={key}>
-                {val.name}
+            <option value="all">Tất cả 30 chuyên đề vi mô</option>
+            {MICRO_TOPICS_METADATA.map((t) => (
+              <option key={t.id} value={t.id}>
+                {t.name}
               </option>
             ))}
           </select>
@@ -91,6 +98,18 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({ questions, o
             <option value="all">Tất cả dạng thức câu</option>
             <option value="mcq">Trắc nghiệm 4 lựa chọn (MCQ)</option>
             <option value="fill">Điền đáp số ngắn (Fill-in)</option>
+          </select>
+
+          {/* Filter difficulty */}
+          <select
+            value={selectedDifficulty}
+            onChange={(e) => setSelectedDifficulty(e.target.value)}
+            className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-zinc-950 border border-slate-300 dark:border-zinc-700 rounded-xl text-xs text-slate-800 dark:text-zinc-300 focus:outline-none focus:border-sky-500 font-medium"
+          >
+            <option value="all">Tất cả mức độ</option>
+            <option value="Vận dụng cao">🔥 Vận dụng cao (VDC)</option>
+            <option value="Vận dụng">⚡ Vận dụng (VD)</option>
+            <option value="Thông hiểu">🌱 Thông hiểu (TH)</option>
           </select>
         </div>
       </div>
@@ -122,7 +141,15 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({ questions, o
                     {q.type === 'mcq' ? 'Trắc nghiệm 4 lựa chọn' : 'Điền đáp số'}
                   </span>
                   <span className="text-slate-300 dark:text-zinc-700 text-xs">·</span>
-                  <span className="text-[11px] px-2 py-0.5 rounded-md bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-slate-600 dark:text-zinc-400 font-medium">
+                  <span
+                    className={`text-[11px] px-2 py-0.5 rounded-md border font-medium ${
+                      q.difficulty === 'Vận dụng cao'
+                        ? 'bg-rose-50 dark:bg-rose-950/40 border-rose-200 dark:border-rose-800/60 text-rose-700 dark:text-rose-400 font-bold'
+                        : q.difficulty === 'Vận dụng'
+                        ? 'bg-amber-50 dark:bg-amber-950/40 border-amber-200 dark:border-amber-800/60 text-amber-700 dark:text-amber-400 font-semibold'
+                        : 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-200 dark:border-emerald-800/60 text-emerald-700 dark:text-emerald-400 font-medium'
+                    }`}
+                  >
                     {q.difficulty}
                   </span>
                 </div>

@@ -198,7 +198,7 @@ export const ExamResults: React.FC<ExamResultsProps> = ({
           <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-zinc-800/80">
             <h2 className="text-base font-bold text-slate-900 dark:text-zinc-100 flex items-center gap-2">
               <BookOpen className="w-4 h-4 text-sky-600 dark:text-sky-400" />
-              Năng lực theo 12 chuyên đề vi mô
+              Năng lực theo từng chuyên đề vi mô
             </h2>
             <span className="text-xs text-slate-500 dark:text-zinc-400 font-mono">{report.topicBreakdown.length} Chuyên đề</span>
           </div>

@@ -589,7 +589,7 @@ export const HSA_EXAM_SETS: ExamSet[] = [
     fillCount: 7,
     badge: 'Cấp tốc 40 phút',
     description: 'Dành cho học sinh muốn kiểm tra nhanh kiến thức trọng tâm trước giờ thi hoặc tự luyện ngắn.',
-    questionIds: [101, 103, 106, 109, 111, 114, 117, 120, 122, 125, 128, 130, 133, 134, 135, 151, 154, 161, 136, 137, 140, 142, 143, 144, 147],
+    questionIds: [101, 103, 108, 109, 111, 114, 117, 120, 122, 125, 128, 130, 133, 134, 135, 151, 154, 161, 136, 137, 140, 142, 143, 144, 147],
   },
   {
     id: 'de_06_hsa35',

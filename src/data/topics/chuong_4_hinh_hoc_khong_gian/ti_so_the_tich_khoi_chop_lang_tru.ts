@@ -30,7 +30,7 @@ export const tiSoTheTichQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Gọi $G$ là trọng tâm tam giác $SAB$. Nếu $M$ là trung điểm $AB$, thì $\\frac{SG}{SM} = \\frac{2}{3}$.\nMặt phẳng $(\\alpha)$ song song với đáy nên thiết diện $A'B'C'D'$ đồng dạng với đáy $ABCD$ theo tỉ số $k = \\frac{2}{3}$.\nKhoảng cách từ $S$ đến $(\\alpha)$ bằng $\\frac{2}{3} h$.\nDo đó thể tích khối chóp $S.A'B'C'D'$ tỉ lệ với lập phương của tỉ số đồng dạng:\n$$\\frac{V_{S.A'B'C'D'}}{V} = l\\left(\\frac{2}{3}\\right)^3 = \\frac{8}{27} \\implies V_{S.A'B'C'D'} = \\frac{8}{27}V$$.",
     "socraticHint": "Khi cắt hình chóp bằng mặt phẳng song song với đáy, tỉ số thể tích bằng lập phương của tỉ số đồng dạng $k^3$.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
     ]
@@ -64,7 +64,7 @@ export const tiSoTheTichQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Khối chóp $A.A'B'C'$ có cùng chiều cao với hình lăng trụ và có đáy là đáy $A'B'C'$.\nThể tích lăng trụ $V = B \\cdot h$.\nThể tích khối chóp $V_{A.A'B'C'} = \\frac{1}{3} B \\cdot h = \\frac{V}{3}$.",
     "socraticHint": "Hình chóp có chung đáy và chiều cao với lăng trụ thì thể tích bằng 1/3 thể tích lăng trụ.",
-    "difficulty": "Nhận biết",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
     ]
@@ -86,7 +86,7 @@ export const tiSoTheTichQuestions: Question[] = [
     ],
     "detailedSolution": "Từ các hệ thức vectơ trên các cạnh bên:\n- $\\vec{MS} = -2\\vec{MA} \\implies \\vec{SM} = 2\\vec{MA} \\implies SA = 3MA, SM = 2MA \\implies \\frac{SA}{SM} = \\frac{3}{2}$.\n- $\\vec{SN} = 3\\vec{NB} \\implies SB = 4NB, SN = 3NB \\implies \\frac{SB}{SN} = \\frac{4}{3}$.\n- $\\vec{PS} + \\vec{PC} = \\vec{0} \\implies P$ là trung điểm $SC \\implies \\frac{SC}{SP} = 2$.\n\nVới hình chóp có đáy $ABCD$ là hình bình hành, bốn điểm $M \\in SA, N \\in SB, P \\in SC, Q \\in SD$ đồng phẳng khi và chỉ khi:\n$$\\frac{SA}{SM} + \\frac{SC}{SP} = \\frac{SB}{SN} + \\frac{SD}{SQ}$$\nThay các tỉ số vào:\n$$\\frac{3}{2} + 2 = \\frac{4}{3} + k$$\n$$\\frac{7}{2} = \\frac{4}{3} + k \\implies k = \\frac{7}{2} - \\frac{4}{3} = \\frac{21 - 8}{6} = \\frac{13}{6} \\approx 2{,}17$$\nVậy hệ số $k = \\frac{13}{6}$.",
     "socraticHint": "Sử dụng công thức đồng phẳng cho hình chóp có đáy là hình bình hành: $\\frac{SA}{SM} + \\frac{SC}{SP} = \\frac{SB}{SN} + \\frac{SD}{SQ}$.",
-    "difficulty": "Vận dụng cao",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
     ]
