@@ -32,24 +32,24 @@ export const heThucLuongTamGiacQuestions: Question[] = [
     "options": [
       {
         "key": "A",
-        "content": "$\\frac{5sqrt{2}}{2}$"
+        "content": "$\\frac{5\\sqrt{2}}{2}$"
       },
       {
         "key": "B",
-        "content": "$5sqrt{2}$"
+        "content": "$5\\sqrt{2}$"
       },
       {
         "key": "C",
-        "content": "$\\frac{7sqrt{2}}{2}$"
+        "content": "$\\frac{7\\sqrt{2}}{2}$"
       },
       {
         "key": "D",
-        "content": "$4sqrt{2}$"
+        "content": "$4\\sqrt{2}$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Áp dụng định lý côsin tính cạnh $a$:\n$$a^2 = b^2 + c^2 - 2bccos A = 7^2 + 5^2 - 2(7)(5)l\\left(\\frac{3}{5}\\right) = 49 + 25 - 42 = 32 \\implies a = 4sqrt{2}$$\nVì góc $A$ nhọn nên $\\sin A = \\sqrt{1 - \\cos^2 A} = \\sqrt{1 - \\frac{9}{25}} = \\frac{4}{5}$.\nÁp dụng định lý sin:\n$$R = \\frac{a}{2sin A} = \\frac{4sqrt{2}}{2 \\cdot \\frac{4}{5}} = \\frac{4sqrt{2}}{\\frac{8}{5}} = \\frac{5sqrt{2}}{2}$$.",
-    "socraticHint": "Tính cạnh đối diện bằng định lý Cosin, sau đó dùng định lý Sin $R = \\frac{a}{2sin A}$.",
+    "detailedSolution": "Áp dụng định lý côsin tính cạnh $a$:\n$$a^2 = b^2 + c^2 - 2bc \\cos A = 7^2 + 5^2 - 2(7)(5)l\\left(\\frac{3}{5}\\right) = 49 + 25 - 42 = 32 \\implies a = 4\\sqrt{2}$$\nVì góc $A$ nhọn nên $\\sin A = \\sqrt{1 - \\cos^2 A} = \\sqrt{1 - \\frac{9}{25}} = \\frac{4}{5}$.\nÁp dụng định lý sin:\n$$R = \\frac{a}{2\\sin A} = \\frac{4\\sqrt{2}}{2 \\cdot \\frac{4}{5}} = \\frac{4\\sqrt{2}}{\\frac{8}{5}} = \\frac{5\\sqrt{2}}{2}$$.",
+    "socraticHint": "Tính cạnh đối diện bằng định lý Cosin, sau đó dùng định lý Sin $R = \\frac{a}{2\\sin A}$.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"

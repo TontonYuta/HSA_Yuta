@@ -42,7 +42,7 @@ export const nguyenHamCoBanQuestions: Question[] = [
     "chapterName": "Chương 3: Nguyên hàm & Tích phân",
     "topicId": "nguyen_ham_va_tich_phan_co_ban",
     "topicName": "Nguyên hàm & Tính chất tích phân cơ bản",
-    "content": "Cho $\\int_0^1 \\frac{2x + 3}{x + 1} dx = a + b \\ln 2$ ($a, b \\in \\mathbb{Z}$). Giá trị của $S = a + 2b$ là:",
+    "content": "Cho $\\int_0^1 \\frac{2x + 3}{x + 1} dx = a + b \\ln 2$ ($a, b \\\\in \\mathbb{Z}$). Giá trị của $S = a + 2b$ là:",
     "options": [
       {
         "key": "A",

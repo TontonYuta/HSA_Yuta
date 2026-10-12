@@ -239,19 +239,19 @@ export const khoiDaDienTamDienVuongQuestions: Question[] = [
     "chapterName": "Chương 4: Hình học không gian cổ điển",
     "topicId": "khoi_da_dien_tam_dien_vuong",
     "topicName": "Khối đa diện & Khối chóp tam diện vuông",
-    "content": "Cho hình chóp tứ giác đều $S.ABCD$ có cạnh đáy bằng $a$ và cạnh bên bằng $asqrt{2}$. Thể tích của khối chóp $S.ABCD$ bằng:",
+    "content": "Cho hình chóp tứ giác đều $S.ABCD$ có cạnh đáy bằng $a$ và cạnh bên bằng $a\\sqrt{2}$. Thể tích của khối chóp $S.ABCD$ bằng:",
     "options": [
       {
         "key": "A",
-        "content": "$\\frac{a^3sqrt{6}}{6}$"
+        "content": "$\\frac{a^3\\sqrt{6}}{6}$"
       },
       {
         "key": "B",
-        "content": "$\\frac{a^3sqrt{6}}{2}$"
+        "content": "$\\frac{a^3\\sqrt{6}}{2}$"
       },
       {
         "key": "C",
-        "content": "$\\frac{a^3sqrt{2}}{3}$"
+        "content": "$\\frac{a^3\\sqrt{2}}{3}$"
       },
       {
         "key": "D",
@@ -259,7 +259,7 @@ export const khoiDaDienTamDienVuongQuestions: Question[] = [
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Đáy $ABCD$ là hình vuông cạnh $a \\implies S_{\\text{đáy}} = a^2$.\nĐường chéo $AC = asqrt{2} \\implies OA = \\frac{asqrt{2}}{2}$.\nChiều cao của khối chóp:\n$$SO = \\sqrt{SA^2 - OA^2} = \\sqrt{(asqrt{2})^2 - l\\left(\\frac{asqrt{2}}{2}\\right)^2} = \\sqrt{2a^2 - \\frac{a^2}{2}} = \\sqrt{\\frac{3a^2}{2}} = \\frac{asqrt{6}}{2}$$\nThể tích khối chóp:\n$$V = \\frac{1}{3} S_{\\text{đáy}} \\cdot SO = \\frac{1}{3} a^2 \\cdot \\frac{asqrt{6}}{2} = \\frac{a^3sqrt{6}}{6}$$.",
+    "detailedSolution": "Đáy $ABCD$ là hình vuông cạnh $a \\implies S_{\\text{đáy}} = a^2$.\nĐường chéo $AC = a\\sqrt{2} \\implies OA = \\frac{a\\sqrt{2}}{2}$.\nChiều cao của khối chóp:\n$$SO = \\sqrt{SA^2 - OA^2} = \\sqrt{(a\\sqrt{2})^2 - l\\left(\\frac{a\\sqrt{2}}{2}\\right)^2} = \\sqrt{2a^2 - \\frac{a^2}{2}} = \\sqrt{\\frac{3a^2}{2}} = \\frac{a\\sqrt{6}}{2}$$\nThể tích khối chóp:\n$$V = \\frac{1}{3} S_{\\text{đáy}} \\cdot SO = \\frac{1}{3} a^2 \\cdot \\frac{a\\sqrt{6}}{2} = \\frac{a^3\\sqrt{6}}{6}$$.",
     "socraticHint": "Tính nửa đường chéo đáy $OA$, dùng định lý Pytago tìm chiều cao $SO = \\sqrt{SA^2 - OA^2}$.",
     "difficulty": "Thông hiểu",
     "examSets": [

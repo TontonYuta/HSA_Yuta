@@ -187,6 +187,7 @@ export default function App() {
     if (isExamActive) {
       handleExitExam();
     } else {
+      setExamReport(null);
       setCurrentMode('intro');
     }
   };
@@ -210,6 +211,7 @@ export default function App() {
           }
           if (mode === 'exam') {
             if (!isExamActive) {
+              setExamReport(null);
               setCurrentMode('intro');
             } else {
               setCurrentMode('exam');
@@ -241,7 +243,7 @@ export default function App() {
 
       {/* Main Container - Fullscreen CBT in exam mode, Padded in other modes */}
       <main className={isExamActive ? 'flex-1 overflow-hidden' : 'flex-1 px-4 sm:px-6 pt-6'}>
-        {(currentMode === 'intro' || (currentMode === 'exam' && !isExamActive)) && (
+        {(currentMode === 'intro' || (!isExamActive && currentMode !== 'practice' && currentMode !== 'bank' && currentMode !== 'results')) && (
           <ExamIntro
             onStartExam={(setId) => handleStartExam(setId)}
             onSelectTopicPractice={handleSelectTopicPractice}

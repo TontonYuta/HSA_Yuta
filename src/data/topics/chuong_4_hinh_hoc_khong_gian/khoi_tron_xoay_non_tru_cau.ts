@@ -42,13 +42,13 @@ export const khoiTronXoayQuestions: Question[] = [
     "chapterName": "Chương 4: Hình học không gian cổ điển",
     "topicId": "khoi_tron_xoay_non_tru_cau",
     "topicName": "Khối tròn xoay: Khối nón, Khối trụ & Khối cầu",
-    "content": "Cho khối nón tròn xoay có bán kính đường tròn đáy $r = 3\\text{ cm}$ và chiều cao $h = 4\\text{ cm}$. Diện tích xung quanh của khối nón bằng $kpi\\text{ cm}^2$. Tính giá trị của $k$.",
+    "content": "Cho khối nón tròn xoay có bán kính đường tròn đáy $r = 3\\text{ cm}$ và chiều cao $h = 4\\text{ cm}$. Diện tích xung quanh của khối nón bằng $k\\pi\\text{ cm}^2$. Tính giá trị của $k$.",
     "correctAnswer": "15",
     "acceptableAnswers": [
       "15",
       "15.0"
     ],
-    "detailedSolution": "Độ dài đường sinh của hình nón:\n$$l = \\sqrt{r^2 + h^2} = \\sqrt{3^2 + 4^2} = \\sqrt{25} = 5\\text{ cm}$$\nDiện tích xung quanh của hình nón:\n$$S_{\\text{xq}} = \\pi r l = \\pi \\times 3 \\times 5 = 15pi\\text{ cm}^2$$\nDo đó $k = 15$.",
+    "detailedSolution": "Độ dài đường sinh của hình nón:\n$$l = \\sqrt{r^2 + h^2} = \\sqrt{3^2 + 4^2} = \\sqrt{25} = 5\\text{ cm}$$\nDiện tích xung quanh của hình nón:\n$$S_{\\text{xq}} = \\pi r l = \\pi \\times 3 \\times 5 = 15\\pi\\text{ cm}^2$$\nDo đó $k = 15$.",
     "socraticHint": "Đường sinh $l = \\sqrt{r^2+h^2}$, diện tích xung quanh khối nón $S_{\\text{xq}} = \\pi r l$.",
     "difficulty": "Nhận biết",
     "examSets": [

@@ -12,23 +12,23 @@ export const congThucPtLuongGiacQuestions: Question[] = [
     "options": [
       {
         "key": "A",
-        "content": "$x = \\pm \\frac{\\pi}{3} + k\\pi \\quad (k \\in \\mathbb{Z})$"
+        "content": "$x = \\pm \\frac{\\pi}{3} + k\\pi \\quad (k \\\\in \\mathbb{Z})$"
       },
       {
         "key": "B",
-        "content": "$x = \\pm \\frac{2\\pi}{3} + k\\pi \\quad (k \\in \\mathbb{Z})$"
+        "content": "$x = \\pm \\frac{2\\pi}{3} + k\\pi \\quad (k \\\\in \\mathbb{Z})$"
       },
       {
         "key": "C",
-        "content": "$x = \\pm \\frac{\\pi}{6} + k\\pi \\quad (k \\in \\mathbb{Z})$"
+        "content": "$x = \\pm \\frac{\\pi}{6} + k\\pi \\quad (k \\\\in \\mathbb{Z})$"
       },
       {
         "key": "D",
-        "content": "$x = \\frac{\\pi}{3} + k2\\pi \\quad (k \\in \\mathbb{Z})$"
+        "content": "$x = \\frac{\\pi}{3} + k2\\pi \\quad (k \\\\in \\mathbb{Z})$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Ta có $-\\frac{1}{2} = \\cos\\left(\\frac{2\\pi}{3}\\right)$.\nDo đó phương trình $\\cos 2x = \\cos\\left(\\frac{2\\pi}{3}\\right) \\iff 2x = \\pm \\frac{2\\pi}{3} + k2\\pi \\iff x = \\pm \\frac{\\pi}{3} + k\\pi$ ($k \\in \\mathbb{Z}$).",
+    "detailedSolution": "Ta có $-\\frac{1}{2} = \\cos\\left(\\frac{2\\pi}{3}\\right)$.\nDo đó phương trình $\\cos 2x = \\cos\\left(\\frac{2\\pi}{3}\\right) \\iff 2x = \\pm \\frac{2\\pi}{3} + k2\\pi \\iff x = \\pm \\frac{\\pi}{3} + k\\pi$ ($k \\\\in \\mathbb{Z}$).",
     "socraticHint": "Áp dụng công thức nghiệm cơ bản $\\cos u = \\cos \\alpha \\iff u = \\pm \\alpha + k2\\pi$.",
     "difficulty": "Nhận biết",
     "examSets": [
@@ -151,7 +151,7 @@ export const congThucPtLuongGiacQuestions: Question[] = [
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Ta có $\\sqrt{3} = \\tan\\frac{\\pi}{3} \\implies x = \\frac{\\pi}{3} + k\\pi$ ($k \\in \\mathbb{Z}$).\nNghiệm dương nhỏ nhất ứng với $k = 0$ là $x = \\frac{\\pi}{3}$.",
+    "detailedSolution": "Ta có $\\sqrt{3} = \\tan\\frac{\\pi}{3} \\implies x = \\frac{\\pi}{3} + k\\pi$ ($k \\\\in \\mathbb{Z}$).\nNghiệm dương nhỏ nhất ứng với $k = 0$ là $x = \\frac{\\pi}{3}$.",
     "socraticHint": "Giải phương trình lượng giác cơ bản $\\tan x = \\tan \\alpha \\iff x = \\alpha + k\\pi$.",
     "difficulty": "Nhận biết",
     "examSets": [
@@ -278,23 +278,23 @@ export const congThucPtLuongGiacQuestions: Question[] = [
     "options": [
       {
         "key": "A",
-        "content": "$x = \\frac{\\pi}{12} + k2pi; x = \\frac{7pi}{12} + k2pi \\quad (k in mathbb{Z})$"
+        "content": "$x = \\frac{\\pi}{12} + k2\\pi; x = \\frac{7\\pi}{12} + k2\\pi \\quad (k \\\\in \\mathbb{Z})$"
       },
       {
         "key": "B",
-        "content": "$x = \\frac{\\pi}{6} + k2pi; x = \\frac{5pi}{6} + k2pi \\quad (k in mathbb{Z})$"
+        "content": "$x = \\frac{\\pi}{6} + k2\\pi; x = \\frac{5\\pi}{6} + k2\\pi \\quad (k \\\\in \\mathbb{Z})$"
       },
       {
         "key": "C",
-        "content": "$x = -\\frac{\\pi}{12} + k2pi; x = \\frac{7pi}{12} + k2pi \\quad (k in mathbb{Z})$"
+        "content": "$x = -\\frac{\\pi}{12} + k2\\pi; x = \\frac{7\\pi}{12} + k2\\pi \\quad (k \\\\in \\mathbb{Z})$"
       },
       {
         "key": "D",
-        "content": "$x = \\frac{\\pi}{4} + k2pi; x = \\frac{3pi}{4} + k2pi \\quad (k in mathbb{Z})$"
+        "content": "$x = \\frac{\\pi}{4} + k2\\pi; x = \\frac{3\\pi}{4} + k2\\pi \\quad (k \\\\in \\mathbb{Z})$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Chia hai vế cho $\\sqrt{(\\sqrt{3})^2 + 1^2} = 2$:\n$$\\frac{\\sqrt{3}}{2}\\sin x + \\frac{1}{2}\\cos x = \\frac{\\sqrt{2}}{2} \\iff sinl\\left(x + \\frac{\\pi}{6}\\right) = \\sin\\frac{\\pi}{4}$$\n$$\\iff \\begin{cases} x + \\frac{\\pi}{6} = \\frac{\\pi}{4} + k2pi \\\\ x + \\frac{\\pi}{6} = \\pi - \\frac{\\pi}{4} + k2pi \\end{cases} \\iff \\begin{cases} x = \\frac{\\pi}{12} + k2pi \\\\ x = \\frac{7pi}{12} + k2pi \\end{cases} \\quad (k in mathbb{Z})$$",
+    "detailedSolution": "Chia hai vế cho $\\sqrt{(\\sqrt{3})^2 + 1^2} = 2$:\n$$\\frac{\\sqrt{3}}{2}\\sin x + \\frac{1}{2}\\cos x = \\frac{\\sqrt{2}}{2} \\iff \\sin\\left(x + \\frac{\\pi}{6}\\right) = \\sin\\frac{\\pi}{4}$$\n$$\\iff \\begin{cases} x + \\frac{\\pi}{6} = \\frac{\\pi}{4} + k2\\pi \\\\ x + \\frac{\\pi}{6} = \\pi - \\frac{\\pi}{4} + k2\\pi \\end{cases} \\iff \\begin{cases} x = \\frac{\\pi}{12} + k2\\pi \\\\ x = \\frac{7\\pi}{12} + k2\\pi \\end{cases} \\quad (k \\\\in \\mathbb{Z})$$",
     "socraticHint": "Đưa phương trình bậc nhất đối với $\\sin x$ và $\\cos x$ về dạng $\\sin(x + \\alpha)$.",
     "difficulty": "Thông hiểu",
     "examSets": [
@@ -308,7 +308,7 @@ export const congThucPtLuongGiacQuestions: Question[] = [
     "chapterName": "Chương 9: Lượng giác & Phương trình lượng giác (Lớp 11)",
     "topicId": "cong_thuc_va_pt_luong_giac",
     "topicName": "Công thức & Phương trình lượng giác",
-    "content": "Giá trị lớn nhất của hàm số $y = 3sin x - 4cos x + 5$ là:",
+    "content": "Giá trị lớn nhất của hàm số $y = 3\\sin x - 4\\cos x + 5$ là:",
     "options": [
       {
         "key": "A",
@@ -328,7 +328,7 @@ export const congThucPtLuongGiacQuestions: Question[] = [
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Biểu thức $3sin x - 4cos x$ có dạng $asin x + bcos x$.\nGiá trị lớn nhất của $3sin x - 4cos x$ là $\\sqrt{3^2 + (-4)^2} = \\sqrt{25} = 5$.\nDo đó giá trị lớn nhất của $y$ là $5 + 5 = 10$.",
+    "detailedSolution": "Biểu thức $3\\sin x - 4\\cos x$ có dạng $asin x + bcos x$.\nGiá trị lớn nhất của $3\\sin x - 4\\cos x$ là $\\sqrt{3^2 + (-4)^2} = \\sqrt{25} = 5$.\nDo đó giá trị lớn nhất của $y$ là $5 + 5 = 10$.",
     "socraticHint": "Biểu thức $asin x + bcos x$ luôn thuộc đoạn $[-\\sqrt{a^2+b^2}; \\sqrt{a^2+b^2}]$.",
     "difficulty": "Nhận biết",
     "examSets": [
@@ -342,14 +342,14 @@ export const congThucPtLuongGiacQuestions: Question[] = [
     "chapterName": "Chương 9: Lượng giác & Phương trình lượng giác (Lớp 11)",
     "topicId": "cong_thuc_va_pt_luong_giac",
     "topicName": "Công thức & Phương trình lượng giác",
-    "content": "Cho phương trình $\\cos 2x - 3cos x + 2 = 0$. Tổng tất cả các nghiệm của phương trình thuộc đoạn $[0; 2pi]$ bằng $kpi$. Giá trị của $k$ bằng bao nhiêu?",
+    "content": "Cho phương trình $\\cos 2x - 3\\cos x + 2 = 0$. Tổng tất cả các nghiệm của phương trình thuộc đoạn $[0; 2\\pi]$ bằng $k\\pi$. Giá trị của $k$ bằng bao nhiêu?",
     "correctAnswer": "4",
     "acceptableAnswers": [
       "4",
       "4.0"
     ],
-    "detailedSolution": "Biến đổi $\\cos 2x = 2cos^2 x - 1$:\n$$2cos^2 x - 1 - 3cos x + 2 = 0 \\iff 2cos^2 x - 3cos x + 1 = 0$$\n$$\\iff (\\cos x - 1)(2cos x - 1) = 0 \\iff \\begin{cases} \\cos x = 1 \\\\ \\cos x = \\frac{1}{2} \\end{cases}$$\nTrên đoạn $[0; 2pi]$:\n- $\\cos x = 1 \\iff x = 0$ hoặc $x = 2pi$.\n- $\\cos x = \\frac{1}{2} \\iff x = \\frac{\\pi}{3}$ hoặc $x = \\frac{5pi}{3}$.\nTổng các nghiệm là: $S = 0 + 2pi + \\frac{\\pi}{3} + \\frac{5pi}{3} = 4pi$.\nVậy $k = 4$.",
-    "socraticHint": "Dùng công thức nhân đôi đưa về phương trình bậc hai đối với $\\cos x$, sau đó liệt kê nghiệm trên $[0; 2pi]$.",
+    "detailedSolution": "Biến đổi $\\cos 2x = 2\\cos^2 x - 1$:\n$$2\\cos^2 x - 1 - 3\\cos x + 2 = 0 \\iff 2\\cos^2 x - 3\\cos x + 1 = 0$$\n$$\\iff (\\cos x - 1)(2\\cos x - 1) = 0 \\iff \\begin{cases} \\cos x = 1 \\\\ \\cos x = \\frac{1}{2} \\end{cases}$$\nTrên đoạn $[0; 2\\pi]$:\n- $\\cos x = 1 \\iff x = 0$ hoặc $x = 2\\pi$.\n- $\\cos x = \\frac{1}{2} \\iff x = \\frac{\\pi}{3}$ hoặc $x = \\frac{5\\pi}{3}$.\nTổng các nghiệm là: $S = 0 + 2\\pi + \\frac{\\pi}{3} + \\frac{5\\pi}{3} = 4\\pi$.\nVậy $k = 4$.",
+    "socraticHint": "Dùng công thức nhân đôi đưa về phương trình bậc hai đối với $\\cos x$, sau đó liệt kê nghiệm trên $[0; 2\\pi]$.",
     "difficulty": "Thông hiểu",
     "examSets": [
       "de_04_nang_cao"
@@ -379,7 +379,7 @@ export const congThucPtLuongGiacQuestions: Question[] = [
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Nhận thấy tại $x = 0$:\n$$\\cos 0 = 1, \\quad \\frac{0^2}{2} + 0 + 1 = 1$$\nVậy $x = 0$ là một nghiệm của phương trình.\nTa chứng minh phương trình không còn nghiệm nào khác:\nXét hàm số $f(x) = \\frac{x^2}{2} + x + 1 - \\cos x$.\n- $f'(x) = x + 1 + \\sin x$.\n- $f''(x) = 1 + \\cos x \\ge 0$ với mọi $x \\in \\mathbb{R}$.\nDo $f''(x) \\ge 0$ nên $f'(x)$ là hàm đồng biến trên $\\mathbb{R}$.\nTa có $f'(0) = 0 + 1 + \\sin 0 = 1 > 0$. Suy ra $f'(x) = 0$ có tối đa 1 nghiệm và $f(x)$ đạt cực tiểu tại điểm đó, dẫn đến phương trình $f(x) = 0$ có duy nhất nghiệm $x = 0$.",
+    "detailedSolution": "Nhận thấy tại $x = 0$:\n$$\\cos 0 = 1, \\quad \\frac{0^2}{2} + 0 + 1 = 1$$\nVậy $x = 0$ là một nghiệm của phương trình.\nTa chứng minh phương trình không còn nghiệm nào khác:\nXét hàm số $f(x) = \\frac{x^2}{2} + x + 1 - \\cos x$.\n- $f'(x) = x + 1 + \\sin x$.\n- $f''(x) = 1 + \\cos x \\ge 0$ với mọi $x \\\\in \\mathbb{R}$.\nDo $f''(x) \\ge 0$ nên $f'(x)$ là hàm đồng biến trên $\\mathbb{R}$.\nTa có $f'(0) = 0 + 1 + \\sin 0 = 1 > 0$. Suy ra $f'(x) = 0$ có tối đa 1 nghiệm và $f(x)$ đạt cực tiểu tại điểm đó, dẫn đến phương trình $f(x) = 0$ có duy nhất nghiệm $x = 0$.",
     "socraticHint": "Kiểm tra nghiệm đặc biệt $x = 0$ và khảo sát đạo hàm cấp hai $f''(x) = 1 + \\cos x \\ge 0$.",
     "difficulty": "Thông hiểu",
     "examSets": [

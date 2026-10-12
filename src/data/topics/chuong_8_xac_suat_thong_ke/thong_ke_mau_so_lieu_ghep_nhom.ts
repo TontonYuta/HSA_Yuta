@@ -260,8 +260,8 @@ export const thongKeGhepNhomQuestions: Question[] = [
       "3.24",
       "3,24"
     ],
-    "detailedSolution": "Giá trị đại diện các nhóm: $c_1 = 1, c_2 = 3, c_3 = 5, c_4 = 7$.\nCỡ mẫu $n = 20$.\nSố trung bình:\n$$\\bar{x} = \\frac{2(1) + 6(3) + 8(5) + 4(7)}{20} = \\frac{2 + 18 + 40 + 28}{20} = \\frac{88}{20} = 4.4$$\nTổng bình phương các giá trị đại diện nhân tần số:\n$$sum n_i c_i^2 = 2(1^2) + 6(3^2) + 8(5^2) + 4(7^2) = 2 + 54 + 200 + 196 = 452$$\nPhương sai:\n$$s^2 = \\frac{1}{n}sum n_i c_i^2 - \\bar{x}^2 = \\frac{452}{20} - 4.4^2 = 22.6 - 19.36 = 3.24$$.",
-    "socraticHint": "Tính số trung bình $\\bar{x}$, sau đó dùng công thức $s^2 = \\frac{1}{n}sum n_i c_i^2 - \\bar{x}^2$.",
+    "detailedSolution": "Giá trị đại diện các nhóm: $c_1 = 1, c_2 = 3, c_3 = 5, c_4 = 7$.\nCỡ mẫu $n = 20$.\nSố trung bình:\n$$\\bar{x} = \\frac{2(1) + 6(3) + 8(5) + 4(7)}{20} = \\frac{2 + 18 + 40 + 28}{20} = \\frac{88}{20} = 4.4$$\nTổng bình phương các giá trị đại diện nhân tần số:\n$$\\sum n_i c_i^2 = 2(1^2) + 6(3^2) + 8(5^2) + 4(7^2) = 2 + 54 + 200 + 196 = 452$$\nPhương sai:\n$$s^2 = \\frac{1}{n}\\sum n_i c_i^2 - \\bar{x}^2 = \\frac{452}{20} - 4.4^2 = 22.6 - 19.36 = 3.24$$.",
+    "socraticHint": "Tính số trung bình $\\bar{x}$, sau đó dùng công thức $s^2 = \\frac{1}{n}\\sum n_i c_i^2 - \\bar{x}^2$.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
@@ -349,7 +349,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
     ],
     "correctAnswer": "A",
     "detailedSolution": "Khoảng biến thiên của mẫu số liệu ghép nhóm là hiệu số giữa đầu mút phải của nhóm cuối cùng và đầu mút trái của nhóm đầu tiên:\n$$R = 50 - 10 = 40$$.",
-    "socraticHint": "Khoảng biến thiên $R$ là hiệu số giữa giá trị lớn nhất và nhỏ nhất của thang đo: $R = x_{max} - x_{min}$.",
+    "socraticHint": "Khoảng biến thiên $R$ là hiệu số giữa giá trị lớn nhất và nhỏ nhất của thang đo: $R = x_{\\max} - x_{\\min}$.",
     "difficulty": "Nhận biết",
     "examSets": [
       "de_04_nang_cao"

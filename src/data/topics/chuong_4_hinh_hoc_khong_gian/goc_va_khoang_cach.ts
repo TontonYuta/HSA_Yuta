@@ -76,7 +76,7 @@ export const gocKhoangCachQuestions: Question[] = [
     "chapterName": "Chương 4: Hình học không gian cổ điển",
     "topicId": "goc_va_khoang_cach",
     "topicName": "Góc & Khoảng cách trong không gian",
-    "content": "Cho hình lăng trụ đứng $ABC.A'B'C'$ có đáy $ABC$ là tam giác vuông tại $A$ với $AB = a, AC = asqrt{3}$. Chiều cao của lăng trụ là $AA' = a$. Góc giữa đường thẳng $A'C$ và mặt phẳng đáy $(ABC)$ bằng:",
+    "content": "Cho hình lăng trụ đứng $ABC.A'B'C'$ có đáy $ABC$ là tam giác vuông tại $A$ với $AB = a, AC = a\\sqrt{3}$. Chiều cao của lăng trụ là $AA' = a$. Góc giữa đường thẳng $A'C$ và mặt phẳng đáy $(ABC)$ bằng:",
     "options": [
       {
         "key": "A",
@@ -96,7 +96,7 @@ export const gocKhoangCachQuestions: Question[] = [
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Vì lăng trụ đứng nên $A'A \\perp (ABC)$.\nHình chiếu vuông góc của $A'C$ lên $(ABC)$ là đoạn thẳng $AC$.\nDo đó góc giữa $A'C$ và $(ABC)$ là góc $widehat{A'CA}$.\nXét tam giác vuông $A'AC$ tại $A$:\n$$ anwidehat{A'CA} = \\frac{A'A}{AC} = \\frac{a}{asqrt{3}} = \\frac{1}{\\sqrt{3}} \\implies widehat{A'CA} = 30^\\circ$$.",
+    "detailedSolution": "Vì lăng trụ đứng nên $A'A \\perp (ABC)$.\nHình chiếu vuông góc của $A'C$ lên $(ABC)$ là đoạn thẳng $AC$.\nDo đó góc giữa $A'C$ và $(ABC)$ là góc $widehat{A'CA}$.\nXét tam giác vuông $A'AC$ tại $A$:\n$$\\tan\\widehat{A'CA} = \\frac{A'A}{AC} = \\frac{a}{a\\sqrt{3}} = \\frac{1}{\\sqrt{3}} \\implies widehat{A'CA} = 30^\\circ$$.",
     "socraticHint": "Góc giữa đường thẳng và mặt phẳng là góc giữa đường thẳng đó và hình chiếu vuông góc của nó lên mặt phẳng.",
     "difficulty": "Thông hiểu",
     "examSets": [
@@ -114,11 +114,11 @@ export const gocKhoangCachQuestions: Question[] = [
     "options": [
       {
         "key": "A",
-        "content": "$\\frac{asqrt{2}}{2}$"
+        "content": "$\\frac{a\\sqrt{2}}{2}$"
       },
       {
         "key": "B",
-        "content": "$asqrt{2}$"
+        "content": "$a\\sqrt{2}$"
       },
       {
         "key": "C",
@@ -126,11 +126,11 @@ export const gocKhoangCachQuestions: Question[] = [
       },
       {
         "key": "D",
-        "content": "$\\frac{asqrt{3}}{3}$"
+        "content": "$\\frac{a\\sqrt{3}}{3}$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Ta có $BC \\perp AB$ và $BC \\perp SA \\implies BC \\perp (SAB)$.\nDo đó $(SBC) \\perp (SAB)$ theo giao tuyến $SB$.\nKẻ $AH \\perp SB$ tại $H$, suy ra $AH \\perp (SBC)$.\nKhoảng cách từ $A$ đến $(SBC)$ chính là đoạn $AH$.\nTam giác $SAB$ vuông cân tại $A$ (do $SA = AB = a$):\n$$AH = \\frac{SA \\cdot AB}{\\sqrt{SA^2 + AB^2}} = \\frac{a \\cdot a}{\\sqrt{a^2 + a^2}} = \\frac{a^2}{asqrt{2}} = \\frac{asqrt{2}}{2}$$.",
+    "detailedSolution": "Ta có $BC \\perp AB$ và $BC \\perp SA \\implies BC \\perp (SAB)$.\nDo đó $(SBC) \\perp (SAB)$ theo giao tuyến $SB$.\nKẻ $AH \\perp SB$ tại $H$, suy ra $AH \\perp (SBC)$.\nKhoảng cách từ $A$ đến $(SBC)$ chính là đoạn $AH$.\nTam giác $SAB$ vuông cân tại $A$ (do $SA = AB = a$):\n$$AH = \\frac{SA \\cdot AB}{\\sqrt{SA^2 + AB^2}} = \\frac{a \\cdot a}{\\sqrt{a^2 + a^2}} = \\frac{a^2}{a\\sqrt{2}} = \\frac{a\\sqrt{2}}{2}$$.",
     "socraticHint": "Chứng minh $(SBC) \\perp (SAB)$, sau đó hạ đường cao $AH \\perp SB$ từ $A$ xuống giao tuyến.",
     "difficulty": "Thông hiểu",
     "examSets": [
@@ -148,11 +148,11 @@ export const gocKhoangCachQuestions: Question[] = [
     "options": [
       {
         "key": "A",
-        "content": "$\\frac{asqrt{5}}{5}$"
+        "content": "$\\frac{a\\sqrt{5}}{5}$"
       },
       {
         "key": "B",
-        "content": "$\\frac{asqrt{2}}{2}$"
+        "content": "$\\frac{a\\sqrt{2}}{2}$"
       },
       {
         "key": "C",
@@ -164,7 +164,7 @@ export const gocKhoangCachQuestions: Question[] = [
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Gọi $M$ là trung điểm của $CD \\implies OM = \\frac{a}{2}$ và $OM \\perp CD$.\nVì $SO \\perp CD$ nên $CD \\perp (SOM)$. Do đó $(SCD) \\perp (SOM)$ theo giao tuyến $SM$.\nKẻ $OH \\perp SM$ tại $H \\implies OH \\perp (SCD)$, do đó $d(O, (SCD)) = OH$.\nTrong tam giác vuông $SOM$ tại $O$:\n$$\\frac{1}{OH^2} = \\frac{1}{SO^2} + \\frac{1}{OM^2} = \\frac{1}{a^2} + \\frac{1}{(a/2)^2} = \\frac{1}{a^2} + \\frac{4}{a^2} = \\frac{5}{a^2}$$\n$$\\implies OH = \\frac{a}{\\sqrt{5}} = \\frac{asqrt{5}}{5}$$.",
+    "detailedSolution": "Gọi $M$ là trung điểm của $CD \\implies OM = \\frac{a}{2}$ và $OM \\perp CD$.\nVì $SO \\perp CD$ nên $CD \\perp (SOM)$. Do đó $(SCD) \\perp (SOM)$ theo giao tuyến $SM$.\nKẻ $OH \\perp SM$ tại $H \\implies OH \\perp (SCD)$, do đó $d(O, (SCD)) = OH$.\nTrong tam giác vuông $SOM$ tại $O$:\n$$\\frac{1}{OH^2} = \\frac{1}{SO^2} + \\frac{1}{OM^2} = \\frac{1}{a^2} + \\frac{1}{(a/2)^2} = \\frac{1}{a^2} + \\frac{4}{a^2} = \\frac{5}{a^2}$$\n$$\\implies OH = \\frac{a}{\\sqrt{5}} = \\frac{a\\sqrt{5}}{5}$$.",
     "socraticHint": "Hạ đường cao từ tâm đáy lên đoạn nối đỉnh và trung điểm cạnh đáy: $\\frac{1}{h^2} = \\frac{1}{SO^2} + \\frac{1}{OM^2}$.",
     "difficulty": "Thông hiểu",
     "examSets": [

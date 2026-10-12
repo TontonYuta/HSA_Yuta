@@ -131,7 +131,7 @@ export const daySoGioiHanQuestions: Question[] = [
     "id": 280,
     "type": "mcq",
     "topicId": "day_so_va_gioi_han",
-    "content": "Cho dãy số $(u_n)$ xác định bởi $u_1 = 3$ và $u_{n+1} = \\frac{1}{2}\\left(u_n + \\frac{3}{u_n}\\right)$ với mọi $n \\in \\mathbb{N}^*$. Giới hạn $\\lim u_n$ bằng:",
+    "content": "Cho dãy số $(u_n)$ xác định bởi $u_1 = 3$ và $u_{n+1} = \\frac{1}{2}\\left(u_n + \\frac{3}{u_n}\\right)$ với mọi $n \\\\in \\mathbb{N}^*$. Giới hạn $\\lim u_n$ bằng:",
     "options": [
       {
         "key": "A",
@@ -185,7 +185,7 @@ export const daySoGioiHanQuestions: Question[] = [
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Hàm số liên tục tại $x = 1$ khi và chỉ khi: $\\lim_{x \\to 1^+} f(x) = \\lim_{x \\to 1^-} f(x) = f(1) = m$.\n- Giới hạn bên phải:\n  $$\\lim_{x \\to 1^+} \\frac{x^2 - 3x + 2}{x - 1} = \\lim_{x \\to 1^+} \\frac{(x - 1)(x - 2)}{x - 1} = \\lim_{x \\to 1^+} (x - 2) = 1 - 2 = -1$$\n- Giới hạn bên trái:\n  $$\\lim_{x \\to 1^-} (2x - 3) = 2(1) - 3 = -1$$\nDo đó để hàm số liên tục thì $m = -1$.",
+    "detailedSolution": "Hàm số liên tục tại $x = 1$ khi và chỉ khi: $\\lim\\limits_{x \\to 1^+} f(x) = \\lim\\limits_{x \\to 1^-} f(x) = f(1) = m$.\n- Giới hạn bên phải:\n  $$\\lim\\limits_{x \\to 1^+} \\frac{x^2 - 3x + 2}{x - 1} = \\lim\\limits_{x \\to 1^+} \\frac{(x - 1)(x - 2)}{x - 1} = \\lim\\limits_{x \\to 1^+} (x - 2) = 1 - 2 = -1$$\n- Giới hạn bên trái:\n  $$\\lim\\limits_{x \\to 1^-} (2x - 3) = 2(1) - 3 = -1$$\nDo đó để hàm số liên tục thì $m = -1$.",
     "socraticHint": "Tính giới hạn trái và giới hạn phải khi $x \\to 1$ rồi cho bằng $f(1) = m$.",
     "difficulty": "Thông hiểu",
     "examSets": [
@@ -199,7 +199,7 @@ export const daySoGioiHanQuestions: Question[] = [
     "id": 287,
     "type": "mcq",
     "topicId": "day_so_va_gioi_han",
-    "content": "Cho đa thức $f(x)$ thỏa mãn $\\lim_{x \\to 1} \\frac{f(x) - 10}{x - 1} = 4$. Tính giới hạn $L = \\lim_{x \\to 1} \\frac{\\sqrt[3]{3f(x) + 34} - 4}{2x^2 - 3x + 1}$:",
+    "content": "Cho đa thức $f(x)$ thỏa mãn $\\lim\\limits_{x \\to 1} \\frac{f(x) - 10}{x - 1} = 4$. Tính giới hạn $L = \\lim\\limits_{x \\to 1} \\frac{\\sqrt[3]{3f(x) + 34} - 4}{2x^2 - 3x + 1}$:",
     "options": [
       {
         "key": "A",
@@ -219,7 +219,7 @@ export const daySoGioiHanQuestions: Question[] = [
       }
     ],
     "correctAnswer": "B",
-    "detailedSolution": "Vì giới hạn hữu hạn nên khi $x \\to 1$, $f(1) = 10$ và $f'(1) = 4$.\nMẫu số: $2x^2 - 3x + 1 = (x - 1)(2x - 1)$.\nTử số: nhân lượng liên hợp bậc ba của $A - 4$ với $A = \\sqrt[3]{3f(x) + 34}$:\n$$A^3 - 4^3 = 3f(x) + 34 - 64 = 3(f(x) - 10)$$\n$$L = \\lim_{x \\to 1} \\frac{3(f(x) - 10)}{(x - 1)(2x - 1) [A^2 + 4A + 16]}$$\nThay các giá trị khi $x \\to 1$:\n- $\\lim_{x \\to 1} \\frac{f(x) - 10}{x - 1} = 4$\n- $\\lim_{x \\to 1} (2x - 1) = 1$\n- $A = \\sqrt[3]{3(10) + 34} = \\sqrt[3]{64} = 4 \\implies A^2 + 4A + 16 = 16 + 16 + 16 = 48$\nDo đó:\n$$L = \\frac{3 \\times 4}{1 \\times 48} = \\frac{12}{48} = \\frac{1}{4}$$",
+    "detailedSolution": "Vì giới hạn hữu hạn nên khi $x \\to 1$, $f(1) = 10$ và $f'(1) = 4$.\nMẫu số: $2x^2 - 3x + 1 = (x - 1)(2x - 1)$.\nTử số: nhân lượng liên hợp bậc ba của $A - 4$ với $A = \\sqrt[3]{3f(x) + 34}$:\n$$A^3 - 4^3 = 3f(x) + 34 - 64 = 3(f(x) - 10)$$\n$$L = \\lim\\limits_{x \\to 1} \\frac{3(f(x) - 10)}{(x - 1)(2x - 1) [A^2 + 4A + 16]}$$\nThay các giá trị khi $x \\to 1$:\n- $\\lim\\limits_{x \\to 1} \\frac{f(x) - 10}{x - 1} = 4$\n- $\\lim\\limits_{x \\to 1} (2x - 1) = 1$\n- $A = \\sqrt[3]{3(10) + 34} = \\sqrt[3]{64} = 4 \\implies A^2 + 4A + 16 = 16 + 16 + 16 = 48$\nDo đó:\n$$L = \\frac{3 \\times 4}{1 \\times 48} = \\frac{12}{48} = \\frac{1}{4}$$",
     "socraticHint": "Sử dụng hằng đẳng thức lượng liên hợp $A - B = \\frac{A^3 - B^3}{A^2 + AB + B^2}$ kết hợp đạo hàm định nghĩa.",
     "difficulty": "Vận dụng",
     "examSets": [

@@ -190,7 +190,7 @@ export const capSoCongNhanQuestions: Question[] = [
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "- Dãy $(u_n)$ có số hạng đầu $u_1 = 3$, công sai $d_1 = 4 \\implies u_n = 4n - 1$.\n- Dãy $(v_m)$ có số hạng đầu $v_1 = 2$, công sai $d_2 = 5 \\implies v_m = 5m - 3$.\nSố hạng chung đầu tiên là 7. Vì $\\text{BCNN}(4, 5) = 20$, dãy các số hạng chung là một cấp số cộng có công sai $D = 20$:\n$$w_k = 7 + 20(k - 1) = 20k - 13 \\quad (k in mathbb{N}^*)$$\nTa tìm $k$ nguyên dương nhỏ nhất sao cho $w_k > 100$:\n$$20k - 13 > 100 \\iff 20k > 113 \\iff k > 5.65 \\implies k = 6$$\nSố hạng chung nhỏ nhất lớn hơn 100 là $w_6 = 20(6) - 13 = 107$.",
+    "detailedSolution": "- Dãy $(u_n)$ có số hạng đầu $u_1 = 3$, công sai $d_1 = 4 \\implies u_n = 4n - 1$.\n- Dãy $(v_m)$ có số hạng đầu $v_1 = 2$, công sai $d_2 = 5 \\implies v_m = 5m - 3$.\nSố hạng chung đầu tiên là 7. Vì $\\text{BCNN}(4, 5) = 20$, dãy các số hạng chung là một cấp số cộng có công sai $D = 20$:\n$$w_k = 7 + 20(k - 1) = 20k - 13 \\quad (k \\\\in \\mathbb{N}^*)$$\nTa tìm $k$ nguyên dương nhỏ nhất sao cho $w_k > 100$:\n$$20k - 13 > 100 \\iff 20k > 113 \\iff k > 5.65 \\implies k = 6$$\nSố hạng chung nhỏ nhất lớn hơn 100 là $w_6 = 20(6) - 13 = 107$.",
     "socraticHint": "Tìm số hạng chung đầu tiên và công sai chung là BCNN của hai công sai ban đầu.",
     "difficulty": "Vận dụng",
     "examSets": [
@@ -258,7 +258,7 @@ export const capSoCongNhanQuestions: Question[] = [
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Áp dụng công thức tổng $n$ số hạng đầu của cấp số cộng:\n$$S_n = \\frac{n}{2}[2u_1 + (n - 1)d] = \\frac{n}{2}[2(3) + 4(n - 1)] = \\frac{n}{2}[4n + 2] = n(2n + 1)$$\nTheo giả thiết:\n$$n(2n + 1) = 253 \\iff 2n^2 + n - 253 = 0$$\nGiải phương trình bậc hai: $\\Delta = 1^2 - 4(2)(-253) = 1 + 2024 = 2025 = 45^2$.\n$$n = \\frac{-1 + 45}{4} = 11 \\quad (\\text{do } n in mathbb{N}^*)$$\nVậy $n = 11$.",
+    "detailedSolution": "Áp dụng công thức tổng $n$ số hạng đầu của cấp số cộng:\n$$S_n = \\frac{n}{2}[2u_1 + (n - 1)d] = \\frac{n}{2}[2(3) + 4(n - 1)] = \\frac{n}{2}[4n + 2] = n(2n + 1)$$\nTheo giả thiết:\n$$n(2n + 1) = 253 \\iff 2n^2 + n - 253 = 0$$\nGiải phương trình bậc hai: $\\Delta = 1^2 - 4(2)(-253) = 1 + 2024 = 2025 = 45^2$.\n$$n = \\frac{-1 + 45}{4} = 11 \\quad (\\text{do } n \\\\in \\mathbb{N}^*)$$\nVậy $n = 11$.",
     "socraticHint": "Sử dụng công thức $S_n = \\frac{n}{2}[2u_1 + (n-1)d]$ để lập phương trình bậc hai theo số nguyên dương $n$.",
     "difficulty": "Thông hiểu",
     "examSets": [
@@ -278,7 +278,7 @@ export const capSoCongNhanQuestions: Question[] = [
       "101",
       "101.0"
     ],
-    "detailedSolution": "Số hạng chung đầu tiên là 7. Công sai chung là $D = \\text{BCNN}(4, 5) = 20$.\nDãy số hạng chung là $w_k = 7 + 20(k - 1) = 20k - 13$ với $k in mathbb{N}^*$.\nĐiều kiện số hạng chung nhỏ hơn 2025:\n$$w_k < 2025 \\iff 20k - 13 < 2025 \\iff 20k < 2038 \\iff k < 101.9$$\nVì $k in mathbb{N}^*$, ta có $k in {1; 2; dots; 101}$.\nVậy có đúng 101 số hạng chung nhỏ hơn 2025.",
+    "detailedSolution": "Số hạng chung đầu tiên là 7. Công sai chung là $D = \\text{BCNN}(4, 5) = 20$.\nDãy số hạng chung là $w_k = 7 + 20(k - 1) = 20k - 13$ với $k \\\\in \\mathbb{N}^*$.\nĐiều kiện số hạng chung nhỏ hơn 2025:\n$$w_k < 2025 \\iff 20k - 13 < 2025 \\iff 20k < 2038 \\iff k < 101.9$$\nVì $k \\\\in \\mathbb{N}^*$, ta có $k in {1; 2; dots; 101}$.\nVậy có đúng 101 số hạng chung nhỏ hơn 2025.",
     "socraticHint": "Dãy số hạng chung lập thành cấp số cộng với công sai $D = \\text{BCNN}(d_1, d_2)$. Đếm số nguyên $k$ thỏa mãn bất đẳng thức.",
     "difficulty": "Vận dụng",
     "examSets": [

@@ -114,7 +114,7 @@ export const ptBptMuLogaritQuestions: Question[] = [
       },
       {
         "key": "D",
-        "content": "$\\mathbb{R} \\setminus \\{3\\}$"
+        "content": "$\\mathbb{R} \\\\setminus \\{3\\}$"
       }
     ],
     "correctAnswer": "A",
@@ -240,7 +240,7 @@ export const ptBptMuLogaritQuestions: Question[] = [
     "chapterName": "Chương 2: Hàm số mũ & Hàm số Logarit",
     "topicId": "pt_bpt_mu_logarit",
     "topicName": "Phương trình & BPT mũ, logarit đối xứng",
-    "content": "Tập nghiệm của phương trình $log_3(x - 1) + log_3(x + 1) = 1$ là:",
+    "content": "Tập nghiệm của phương trình $\\log_3(x - 1) + \\log_3(x + 1) = 1$ là:",
     "options": [
       {
         "key": "A",
@@ -260,7 +260,7 @@ export const ptBptMuLogaritQuestions: Question[] = [
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Điều kiện: $x - 1 > 0$ và $x + 1 > 0 \\iff x > 1$.\nPhương trình biến đổi thành:\n$$log_3[(x - 1)(x + 1)] = 1 \\iff x^2 - 1 = 3^1 = 3 \\iff x^2 = 4 \\iff x = \\pm 2$$\nĐối chiếu điều kiện $x > 1$, ta chỉ nhận nghiệm $x = 2$.\nVậy tập nghiệm là ${2}$.",
+    "detailedSolution": "Điều kiện: $x - 1 > 0$ và $x + 1 > 0 \\iff x > 1$.\nPhương trình biến đổi thành:\n$$\\log_3[(x - 1)(x + 1)] = 1 \\iff x^2 - 1 = 3^1 = 3 \\iff x^2 = 4 \\iff x = \\pm 2$$\nĐối chiếu điều kiện $x > 1$, ta chỉ nhận nghiệm $x = 2$.\nVậy tập nghiệm là ${2}$.",
     "socraticHint": "Sử dụng công thức tổng hai logarit cùng cơ số và kiểm tra điều kiện xác định $x > 1$.",
     "difficulty": "Nhận biết",
     "examSets": [
@@ -308,14 +308,14 @@ export const ptBptMuLogaritQuestions: Question[] = [
     "chapterName": "Chương 2: Hàm số mũ & Hàm số Logarit",
     "topicId": "pt_bpt_mu_logarit",
     "topicName": "Phương trình & BPT mũ, logarit đối xứng",
-    "content": "Cho phương trình $log_2^2 x - 4log_2 x + 3 = 0$. Tích các nghiệm của phương trình bằng bao nhiêu?",
+    "content": "Cho phương trình $\\log_2^2 x - 4\\log_2 x + 3 = 0$. Tích các nghiệm của phương trình bằng bao nhiêu?",
     "correctAnswer": "16",
     "acceptableAnswers": [
       "16",
       "16.0"
     ],
-    "detailedSolution": "Điều kiện: $x > 0$.\nĐặt $t = log_2 x$. Phương trình trở thành:\n$$t^2 - 4t + 3 = 0 \\iff (t - 1)(t - 3) = 0 \\iff \\begin{cases} t_1 = 1 \\\\ t_2 = 3 \\end{cases}$$\n- $t_1 = 1 \\implies log_2 x_1 = 1 \\implies x_1 = 2^1 = 2$.\n- $t_2 = 3 \\implies log_2 x_2 = 3 \\implies x_2 = 2^3 = 8$.\nTích các nghiệm: $x_1 \\cdot x_2 = 2 \\times 8 = 16$.\n(Hoặc áp dụng định lý Viète: $t_1 + t_2 = log_2(x_1 x_2) = 4 \\implies x_1 x_2 = 2^4 = 16$).",
-    "socraticHint": "Sử dụng hệ thức Viète cho phương trình ẩn $t = log_2 x$: tổng hai nghiệm $t_1 + t_2 = log_2(x_1 x_2)$.",
+    "detailedSolution": "Điều kiện: $x > 0$.\nĐặt $t = \\log_2 x$. Phương trình trở thành:\n$$t^2 - 4t + 3 = 0 \\iff (t - 1)(t - 3) = 0 \\iff \\begin{cases} t_1 = 1 \\\\ t_2 = 3 \\end{cases}$$\n- $t_1 = 1 \\implies \\log_2 x_1 = 1 \\implies x_1 = 2^1 = 2$.\n- $t_2 = 3 \\implies \\log_2 x_2 = 3 \\implies x_2 = 2^3 = 8$.\nTích các nghiệm: $x_1 \\cdot x_2 = 2 \\times 8 = 16$.\n(Hoặc áp dụng định lý Viète: $t_1 + t_2 = \\log_2(x_1 x_2) = 4 \\implies x_1 x_2 = 2^4 = 16$).",
+    "socraticHint": "Sử dụng hệ thức Viète cho phương trình ẩn $t = \\log_2 x$: tổng hai nghiệm $t_1 + t_2 = \\log_2(x_1 x_2)$.",
     "difficulty": "Thông hiểu",
     "examSets": [
       "de_04_nang_cao"
@@ -393,7 +393,7 @@ export const ptBptMuLogaritQuestions: Question[] = [
     "id": 286,
     "type": "mcq",
     "topicId": "pt_bpt_mu_logarit",
-    "content": "Cho các số thực dương $a, b, c$ thỏa mãn $a^{\\log_2 4} = 32, \\quad b^{\\log_3 5} = 27, \\quad c^{\\log_{11} 16} = 11$. Giá trị của biểu thức $T = a^2 + b^{\\log_3 25} + c^{\\log_{11} 256}$ là:",
+    "content": "Cho các số thực dương $a, b, c$ thỏa mãn $a^{\\log_2 4} = 32, \\quad b^{\\log_3 5} = 27, \\quad c^{\\\\log_{11} 16} = 11$. Giá trị của biểu thức $T = a^2 + b^{\\log_3 25} + c^{\\\\log_{11} 256}$ là:",
     "options": [
       {
         "key": "A",
@@ -413,7 +413,7 @@ export const ptBptMuLogaritQuestions: Question[] = [
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Ta có: $\\log_2 4 = 2 \\implies a^2 = 32$.\nTừ $b^{\\log_3 5} = 27 = 3^3$, lấy $\\log_3$ hai vế: $\\log_3 5 \\cdot \\log_3 b = 3 \\implies \\log_3 b = \\frac{3}{\\log_3 5} = 3\\log_5 3$.\nKhi đó: $b^{\\log_3 25} = b^{2\\log_3 5} = (b^{\\log_3 5})^2 = 27^2 = 729$.\nTương tự với $c^{\\log_{11} 16} = 11$, suy ra $c = 11^{1/\\log_{11} 16} = 11^{\\log_{16} 11}$.\nDo đó: $c^{\\log_{11} 256} = c^{2\\log_{11} 16} = (c^{\\log_{11} 16})^2 = 11^2 = 121$ hoặc lũy thừa tương ứng.\nTổng các giá trị thu được theo dữ liệu chuẩn hóa đề thi là $T = 3193$.",
+    "detailedSolution": "Ta có: $\\log_2 4 = 2 \\implies a^2 = 32$.\nTừ $b^{\\log_3 5} = 27 = 3^3$, lấy $\\log_3$ hai vế: $\\log_3 5 \\cdot \\log_3 b = 3 \\implies \\log_3 b = \\frac{3}{\\log_3 5} = 3\\log_5 3$.\nKhi đó: $b^{\\log_3 25} = b^{2\\log_3 5} = (b^{\\log_3 5})^2 = 27^2 = 729$.\nTương tự với $c^{\\\\log_{11} 16} = 11$, suy ra $c = 11^{1/\\\\log_{11} 16} = 11^{\\\\log_{16} 11}$.\nDo đó: $c^{\\\\log_{11} 256} = c^{2\\\\log_{11} 16} = (c^{\\\\log_{11} 16})^2 = 11^2 = 121$ hoặc lũy thừa tương ứng.\nTổng các giá trị thu được theo dữ liệu chuẩn hóa đề thi là $T = 3193$.",
     "socraticHint": "Sử dụng tính chất $x^{\\log_a y} = y^{\\log_a x}$ và $\\log_a(y^2) = 2\\log_a y$.",
     "difficulty": "Vận dụng",
     "examSets": [
@@ -429,7 +429,7 @@ export const ptBptMuLogaritQuestions: Question[] = [
     "topicId": "pt_bpt_mu_logarit",
     "content": "Gọi $S$ là tập hợp các giá trị nguyên của tham số $m \\in (-2025; 2025)$ để bất phương trình $5^{\\log_3 x} + x^{\\log_3 5} \\ge 2m$ nghiệm đúng với mọi $x \\in [3; 9]$. Số phần tử của tập hợp $S$ là bao nhiêu?",
     "correctAnswer": "2029",
-    "detailedSolution": "Áp dụng công thức đổi cơ số lũy thừa: $x^{\\log_3 5} = 5^{\\log_3 x}$.\nBất phương trình trở thành:\n$$2 \\cdot 5^{\\log_3 x} \\ge 2m \\iff 5^{\\log_3 x} \\ge m$$\nĐể bất phương trình nghiệm đúng với mọi $x \\in [3; 9]$ thì:\n$$m \\le \\min_{x \\in [3; 9]} 5^{\\log_3 x}$$\nVì cơ số $5 > 1$ và cơ số logarit $3 > 1$ nên hàm số $g(x) = 5^{\\log_3 x}$ đồng biến trên $[3; 9]$.\nDo đó: $\\min_{x \\in [3; 9]} g(x) = g(3) = 5^{\\log_3 3} = 5^1 = 5$.\nSuy ra: $m \\le 5$.\nKết hợp điều kiện $m \\in (-2025; 2025)$ và $m \\in \\mathbb{Z}$:\n$$-2024 \\le m \\le 5$$\nSố phần tử là: $5 - (-2024) + 1 = 2030 - 1 = 2029$ số nguyên.",
+    "detailedSolution": "Áp dụng công thức đổi cơ số lũy thừa: $x^{\\log_3 5} = 5^{\\log_3 x}$.\nBất phương trình trở thành:\n$$2 \\cdot 5^{\\log_3 x} \\ge 2m \\iff 5^{\\log_3 x} \\ge m$$\nĐể bất phương trình nghiệm đúng với mọi $x \\in [3; 9]$ thì:\n$$m \\le \\min_{x \\in [3; 9]} 5^{\\log_3 x}$$\nVì cơ số $5 > 1$ và cơ số logarit $3 > 1$ nên hàm số $g(x) = 5^{\\log_3 x}$ đồng biến trên $[3; 9]$.\nDo đó: $\\min_{x \\in [3; 9]} g(x) = g(3) = 5^{\\log_3 3} = 5^1 = 5$.\nSuy ra: $m \\le 5$.\nKết hợp điều kiện $m \\in (-2025; 2025)$ và $m \\\\in \\mathbb{Z}$:\n$$-2024 \\le m \\le 5$$\nSố phần tử là: $5 - (-2024) + 1 = 2030 - 1 = 2029$ số nguyên.",
     "socraticHint": "Sử dụng tính chất $a^{\\log_b c} = c^{\\log_b a}$ để quy về bất đẳng thức đơn giản $5^{\\log_3 x} \\ge m$.",
     "difficulty": "Vận dụng",
     "examSets": [
@@ -463,7 +463,7 @@ export const ptBptMuLogaritQuestions: Question[] = [
       }
     ],
     "correctAnswer": "B",
-    "detailedSolution": "Áp dụng công thức đổi cơ số logarit: $\\log_9(ab) = \\log_{3^2}(ab) = \\frac{1}{2}\\log_3(ab) = \\log_3\\sqrt{ab}$.\nPhương trình trở thành:\n$$\\log_3 a = \\log_3\\sqrt{ab} \\iff a = \\sqrt{ab} \\iff a^2 = ab$$\nVì $a > 0$ nên chia cả hai vế cho $a$, ta được $a = b$.",
+    "detailedSolution": "Áp dụng công thức đổi cơ số logarit: $\\log_9(ab) = \\\\log_{3^2}(ab) = \\frac{1}{2}\\log_3(ab) = \\log_3\\sqrt{ab}$.\nPhương trình trở thành:\n$$\\log_3 a = \\log_3\\sqrt{ab} \\iff a = \\sqrt{ab} \\iff a^2 = ab$$\nVì $a > 0$ nên chia cả hai vế cho $a$, ta được $a = b$.",
     "socraticHint": "Đưa về cùng cơ số 3: $\\log_9(ab) = \\frac{1}{2}\\log_3(ab) = \\log_3 \\sqrt{ab}$.",
     "difficulty": "Nhận biết",
     "examSets": [

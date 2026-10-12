@@ -148,7 +148,7 @@ export const matPhangDuongThangQuestions: Question[] = [
     "options": [
       {
         "key": "A",
-        "content": "$2sqrt{3}$"
+        "content": "$2\\sqrt{3}$"
       },
       {
         "key": "B",
@@ -164,7 +164,7 @@ export const matPhangDuongThangQuestions: Question[] = [
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Tâm mặt cầu $I(1; 2; -3)$, bán kính $R = \\sqrt{1^2 + 2^2 + (-3)^2 - (-2)} = \\sqrt{16} = 4$.\nKhoảng cách từ tâm $I$ đến $(P)$:\n$$d = \\frac{|2(1) - 2 + 2(-3) + 12|}{\\sqrt{2^2 + (-1)^2 + 2^2}} = \\frac{|2 - 2 - 6 + 12|}{3} = \\frac{6}{3} = 2$$\nBán kính đường tròn giao tuyến là:\n$$r = \\sqrt{R^2 - d^2} = \\sqrt{4^2 - 2^2} = \\sqrt{12} = 2sqrt{3}$$.",
+    "detailedSolution": "Tâm mặt cầu $I(1; 2; -3)$, bán kính $R = \\sqrt{1^2 + 2^2 + (-3)^2 - (-2)} = \\sqrt{16} = 4$.\nKhoảng cách từ tâm $I$ đến $(P)$:\n$$d = \\frac{|2(1) - 2 + 2(-3) + 12|}{\\sqrt{2^2 + (-1)^2 + 2^2}} = \\frac{|2 - 2 - 6 + 12|}{3} = \\frac{6}{3} = 2$$\nBán kính đường tròn giao tuyến là:\n$$r = \\sqrt{R^2 - d^2} = \\sqrt{4^2 - 2^2} = \\sqrt{12} = 2\\sqrt{3}$$.",
     "socraticHint": "Sử dụng hệ thức Pytago liên hệ bán kính mặt cầu, khoảng cách và bán kính đường tròn: $r = \\sqrt{R^2 - d^2}$.",
     "difficulty": "Thông hiểu",
     "examSets": [

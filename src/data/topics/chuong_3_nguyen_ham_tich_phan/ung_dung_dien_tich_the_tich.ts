@@ -114,23 +114,23 @@ export const ungDungDienTichTheTichQuestions: Question[] = [
     "options": [
       {
         "key": "A",
-        "content": "$8pi$"
+        "content": "$8\\pi$"
       },
       {
         "key": "B",
-        "content": "$16pi$"
+        "content": "$16\\pi$"
       },
       {
         "key": "C",
-        "content": "$4pi$"
+        "content": "$4\\pi$"
       },
       {
         "key": "D",
-        "content": "$\\frac{16pi}{3}$"
+        "content": "$\\frac{16\\pi}{3}$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Áp dụng công thức thể tích khối tròn xoay quay quanh trục $Ox$:\n$$V = \\pi \\int_0^4 [y(x)]^2 dx = \\pi \\int_0^4 (\\sqrt{x})^2 dx = \\pi \\int_0^4 x dx = \\pi l\\left[ \\frac{x^2}{2} \\right]_0^4 = \\pi \\cdot \\frac{16}{2} = 8pi$$.",
+    "detailedSolution": "Áp dụng công thức thể tích khối tròn xoay quay quanh trục $Ox$:\n$$V = \\pi \\int_0^4 [y(x)]^2 dx = \\pi \\int_0^4 (\\sqrt{x})^2 dx = \\pi \\int_0^4 x dx = \\pi l\\left[ \\frac{x^2}{2} \\right]_0^4 = \\pi \\cdot \\frac{16}{2} = 8\\pi$$.",
     "socraticHint": "Công thức thể tích tròn xoay quanh trục hoành: $V = \\pi \\int_a^b [f(x)]^2 dx$.",
     "difficulty": "Nhận biết",
     "examSets": [

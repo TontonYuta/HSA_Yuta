@@ -83,7 +83,7 @@ export const tapHopVennQuestions: Question[] = [
       "6",
       "6.0"
     ],
-    "detailedSolution": "Để hai tập hợp $A$ và $B$ khác rỗng, ta có điều kiện:\n- $A \\ne \\emptyset \\iff m - 2 < 3 \\iff m < 5$.\n- $B \\ne \\emptyset \\iff -3 < 2m + 6 \\iff 2m > -9 \\iff m > -4.5$.\n\nĐể $A \\subset B$, ta cần đồng thời:\n1) $-3 \\le m - 2 \\iff m \\ge -1$.\n2) $3 < 2m + 6 \\iff 2m > -3 \\iff m > -1.5$ (do $3 \\in A$ nhưng $B$ là khoảng mở tại $2m + 6$).\n\nKết hợp tất cả các điều kiện trên:\n$$-1 \\le m < 5$$\nVì $m \\in \\mathbb{Z}$, nên $m \\in \\{-1; 0; 1; 2; 3; 4\\}$.\nVậy có đúng $6$ giá trị nguyên của tham số $m$.",
+    "detailedSolution": "Để hai tập hợp $A$ và $B$ khác rỗng, ta có điều kiện:\n- $A \\ne \\emptyset \\iff m - 2 < 3 \\iff m < 5$.\n- $B \\ne \\emptyset \\iff -3 < 2m + 6 \\iff 2m > -9 \\iff m > -4.5$.\n\nĐể $A \\subset B$, ta cần đồng thời:\n1) $-3 \\le m - 2 \\iff m \\ge -1$.\n2) $3 < 2m + 6 \\iff 2m > -3 \\iff m > -1.5$ (do $3 \\in A$ nhưng $B$ là khoảng mở tại $2m + 6$).\n\nKết hợp tất cả các điều kiện trên:\n$$-1 \\le m < 5$$\nVì $m \\\\in \\mathbb{Z}$, nên $m \\in \\{-1; 0; 1; 2; 3; 4\\}$.\nVậy có đúng $6$ giá trị nguyên của tham số $m$.",
     "socraticHint": "Xác định điều kiện để tập hợp khác rỗng trước, sau đó so sánh hai đầu mút của các khoảng tập hợp.",
     "difficulty": "Thông hiểu",
     "examSets": [

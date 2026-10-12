@@ -28,7 +28,7 @@ export const tiemCanQuestions: Question[] = [
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Thực hiện phép chia đa thức:\n$$\\frac{x^2 - 3x + 4}{x - 1} = x - 2 + \\frac{2}{x - 1}$$\nKhi $x \\to \\pm\\infty$, $\\lim_{x \\to \\pm\\infty} \\frac{2}{x - 1} = 0$. Do đó tiệm cận xiên là $y = x - 2$.",
+    "detailedSolution": "Thực hiện phép chia đa thức:\n$$\\frac{x^2 - 3x + 4}{x - 1} = x - 2 + \\frac{2}{x - 1}$$\nKhi $x \\to \\pm\\infty$, $\\lim\\limits_{x \\to \\pm\\infty} \\frac{2}{x - 1} = 0$. Do đó tiệm cận xiên là $y = x - 2$.",
     "socraticHint": "Chia tử cho mẫu để viết hàm số dưới dạng $y = ax + b + \\frac{r}{x - x_0}$.",
     "difficulty": "Thông hiểu",
     "examSets": [
@@ -152,7 +152,7 @@ export const tiemCanQuestions: Question[] = [
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Ta có $y = \\frac{(x - 2)(x - 3)}{(x - 2)(x + 2)} = \\frac{x - 3}{x + 2}$ (với $x \\ne 2$).\nTại $x = 2$: $\\lim_{x \\to 2} y = -\\frac{1}{4} \\ne \\pm\\infty$, không là tiệm cận đứng.\nTại $x = -2$: mẫu triệt tiêu nhưng tử khác 0 $\\implies x = -2$ là tiệm cận đứng duy nhất.\nVậy đồ thị có đúng 1 đường tiệm cận đứng.",
+    "detailedSolution": "Ta có $y = \\frac{(x - 2)(x - 3)}{(x - 2)(x + 2)} = \\frac{x - 3}{x + 2}$ (với $x \\ne 2$).\nTại $x = 2$: $\\lim\\limits_{x \\to 2} y = -\\frac{1}{4} \\ne \\pm\\infty$, không là tiệm cận đứng.\nTại $x = -2$: mẫu triệt tiêu nhưng tử khác 0 $\\implies x = -2$ là tiệm cận đứng duy nhất.\nVậy đồ thị có đúng 1 đường tiệm cận đứng.",
     "socraticHint": "Rút gọn các nhân tử chung ở tử và mẫu trước khi xác định tiệm cận đứng.",
     "difficulty": "Thông hiểu",
     "examSets": [
@@ -274,7 +274,7 @@ export const tiemCanQuestions: Question[] = [
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Thực hiện phép chia đa thức tử cho mẫu:\n$$2x^2 - 3x + 5 = 2x(x - 1) - (x - 1) + 4 = (2x - 1)(x - 1) + 4$$\n$$\\implies y = 2x - 1 + \\frac{4}{x - 1}$$\nKhi $x  o pminfty$, ta có $lim_{x  o pminfty} \\frac{4}{x - 1} = 0$.\nVậy đường tiệm cận xiên là $y = 2x - 1$.",
+    "detailedSolution": "Thực hiện phép chia đa thức tử cho mẫu:\n$$2x^2 - 3x + 5 = 2x(x - 1) - (x - 1) + 4 = (2x - 1)(x - 1) + 4$$\n$$\\implies y = 2x - 1 + \\frac{4}{x - 1}$$\nKhi $x  o \\pm\\infty$, ta có $\\lim\\limits_{x  o \\pm\\infty} \\frac{4}{x - 1} = 0$.\nVậy đường tiệm cận xiên là $y = 2x - 1$.",
     "socraticHint": "Chia đa thức tử số cho mẫu số để tìm thương bậc nhất $y = ax + b$.",
     "difficulty": "Thông hiểu",
     "examSets": [
@@ -376,7 +376,7 @@ export const tiemCanQuestions: Question[] = [
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "- Tiệm cận đứng: $x = 2$ vì $lim_{x  o 2^+} y = +\\infty$.\n- Tiệm cận ngang khi $x  o +\\infty$:\n$$lim_{x  o +\\infty} \\frac{\\sqrt{x^2 + 1}}{x - 2} = lim_{x  o +\\infty} \\frac{xsqrt{1 + 1/x^2}}{x(1 - 2/x)} = 1 \\implies y = 1$$\n- Tiệm cận ngang khi $x  o -\\infty$:\n$$lim_{x  o -\\infty} \\frac{\\sqrt{x^2 + 1}}{x - 2} = lim_{x  o -\\infty} \\frac{-xsqrt{1 + 1/x^2}}{x(1 - 2/x)} = -1 \\implies y = -1$$\nTổng số đường tiệm cận gồm 1 tiệm cận đứng và 2 tiệm cận ngang, tổng cộng là 3 đường tiệm cận.",
+    "detailedSolution": "- Tiệm cận đứng: $x = 2$ vì $\\lim\\limits_{x \\to 2^+} y = +\\infty$.\n- Tiệm cận ngang khi $x  o +\\infty$:\n$$\\lim\\limits_{x  o +\\infty} \\frac{\\sqrt{x^2 + 1}}{x - 2} = \\lim\\limits_{x  o +\\infty} \\frac{x\\sqrt{1 + 1/x^2}}{x(1 - 2/x)} = 1 \\implies y = 1$$\n- Tiệm cận ngang khi $x  o -\\infty$:\n$$\\lim\\limits_{x  o -\\infty} \\frac{\\sqrt{x^2 + 1}}{x - 2} = \\lim\\limits_{x  o -\\infty} \\frac{-x\\sqrt{1 + 1/x^2}}{x(1 - 2/x)} = -1 \\implies y = -1$$\nTổng số đường tiệm cận gồm 1 tiệm cận đứng và 2 tiệm cận ngang, tổng cộng là 3 đường tiệm cận.",
     "socraticHint": "Chú ý khi $x  o -\\infty$ thì $\\sqrt{x^2} = |x| = -x$, tạo ra tiệm cận ngang khác với khi $x  o +\\infty$.",
     "difficulty": "Thông hiểu",
     "examSets": [
@@ -410,8 +410,8 @@ export const tiemCanQuestions: Question[] = [
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Hệ số góc $a$ của tiệm cận xiên $y = ax + b$ là:\n$$a = lim_{x  o pminfty} \\frac{y}{x} = lim_{x  o pminfty} \\frac{x^2 + 3x - 1}{x(2x + 1)} = lim_{x  o pminfty} \\frac{x^2}{2x^2} = \\frac{1}{2}$$.",
-    "socraticHint": "Hệ số góc của tiệm cận xiên được tính bằng công thức $a = lim_{x  o \\infty} \\frac{f(x)}{x}$.",
+    "detailedSolution": "Hệ số góc $a$ của tiệm cận xiên $y = ax + b$ là:\n$$a = \\lim\\limits_{x  o \\pm\\infty} \\frac{y}{x} = \\lim\\limits_{x  o \\pm\\infty} \\frac{x^2 + 3x - 1}{x(2x + 1)} = \\lim\\limits_{x  o \\pm\\infty} \\frac{x^2}{2x^2} = \\frac{1}{2}$$.",
+    "socraticHint": "Hệ số góc của tiệm cận xiên được tính bằng công thức $a = \\lim\\limits_{x  o \\infty} \\frac{f(x)}{x}$.",
     "difficulty": "Nhận biết",
     "examSets": [
       "de_04_nang_cao"
@@ -444,7 +444,7 @@ export const tiemCanQuestions: Question[] = [
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "- Vì $lim_{x  o pminfty} f(x) = 2$ nên đường thẳng $y = 2$ là tiệm cận ngang.\n- Vì $lim_{x  o 1^+} f(x) = +\\infty$ nên đường thẳng $x = 1$ là tiệm cận đứng.\nDo đó khẳng định A đúng.",
+    "detailedSolution": "- Vì $\\lim\\limits_{x  o \\pm\\infty} f(x) = 2$ nên đường thẳng $y = 2$ là tiệm cận ngang.\n- Vì $\\lim\\limits_{x \\to 1^+} f(x) = +\\infty$ nên đường thẳng $x = 1$ là tiệm cận đứng.\nDo đó khẳng định A đúng.",
     "socraticHint": "Định nghĩa giới hạn tại vô cực cho tiệm cận ngang $y = y_0$, giới hạn vô cực tại điểm cho tiệm cận đứng $x = x_0$.",
     "difficulty": "Nhận biết",
     "examSets": [
@@ -498,7 +498,7 @@ export const tiemCanQuestions: Question[] = [
       }
     ],
     "correctAnswer": "D",
-    "detailedSolution": "Tập xác định: $x^2 - 4 > 0 \\iff x \\in (-\\infty; -2) \\cup (2; +\\infty)$.\n1) Tiệm cận ngang:\n- Khi $x \\to +\\infty$:\n  $$\\lim_{x \\to +\\infty} \\frac{x - 1}{\\sqrt{x^2 - 4}} = \\lim_{x \\to +\\infty} \\frac{1 - \\frac{1}{x}}{\\sqrt{1 - \\frac{4}{x^2}}} = 1 \\implies y = 1\\text{ là một TCN. }$$\n- Khi $x \\to -\\infty$ ($x < 0 \\implies \\sqrt{x^2} = -x$):\n  $$\\lim_{x \\to -\\infty} \\frac{x - 1}{\\sqrt{x^2 - 4}} = \\lim_{x \\to -\\infty} \\frac{x\\left(1 - \\frac{1}{x}\\right)}{-x\\sqrt{1 - \\frac{4}{x^2}}} = -1 \\implies y = -1\\text{ là một TCN. }$$\n2) Tiệm cận đứng:\n- Tại $x = 2$: $\\lim_{x \\to 2^+} \\frac{x - 1}{\\sqrt{x^2 - 4}} = \\frac{1}{0^+} = +\\infty \\implies x = 2\\text{ là một TCĐ. }$\n- Tại $x = -2$: $\\lim_{x \\to -2^-} \\frac{x - 1}{\\sqrt{x^2 - 4}} = \\frac{-3}{0^+} = -\\infty \\implies x = -2\\text{ là một TCĐ. }$\n\nTổng cộng đồ thị hàm số có $2$ tiệm cận ngang và $2$ tiệm cận đứng, tức có tất cả $4$ đường tiệm cận.",
+    "detailedSolution": "Tập xác định: $x^2 - 4 > 0 \\iff x \\in (-\\infty; -2) \\cup (2; +\\infty)$.\n1) Tiệm cận ngang:\n- Khi $x \\to +\\infty$:\n  $$\\lim\\limits_{x \\to +\\infty} \\frac{x - 1}{\\sqrt{x^2 - 4}} = \\lim\\limits_{x \\to +\\infty} \\frac{1 - \\frac{1}{x}}{\\sqrt{1 - \\frac{4}{x^2}}} = 1 \\implies y = 1\\text{ là một TCN. }$$\n- Khi $x \\to -\\infty$ ($x < 0 \\implies \\sqrt{x^2} = -x$):\n  $$\\lim\\limits_{x \\to -\\infty} \\frac{x - 1}{\\sqrt{x^2 - 4}} = \\lim\\limits_{x \\to -\\infty} \\frac{x\\left(1 - \\frac{1}{x}\\right)}{-x\\sqrt{1 - \\frac{4}{x^2}}} = -1 \\implies y = -1\\text{ là một TCN. }$$\n2) Tiệm cận đứng:\n- Tại $x = 2$: $\\lim\\limits_{x \\to 2^+} \\frac{x - 1}{\\sqrt{x^2 - 4}} = \\frac{1}{0^+} = +\\infty \\implies x = 2\\text{ là một TCĐ. }$\n- Tại $x = -2$: $\\lim\\limits_{x \\to -2^-} \\frac{x - 1}{\\sqrt{x^2 - 4}} = \\frac{-3}{0^+} = -\\infty \\implies x = -2\\text{ là một TCĐ. }$\n\nTổng cộng đồ thị hàm số có $2$ tiệm cận ngang và $2$ tiệm cận đứng, tức có tất cả $4$ đường tiệm cận.",
     "socraticHint": "Tính giới hạn tại $+\\infty$ và $-\\infty$ chú ý đưa biến âm ra ngoài dấu căn bậc hai, và tính giới hạn tại các điểm biên làm mẫu bằng 0.",
     "difficulty": "Thông hiểu",
     "examSets": [
@@ -529,7 +529,7 @@ export const tiemCanQuestions: Question[] = [
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Tập xác định: $D = \\mathbb{R} \\setminus \\{5\\}$.\nTại $x = 5$, tử số $5^2 - 3(5) + 2 = 12 \\ne 0$. Do đó $\\lim_{x \\to 5^+} y = +\\infty$ nên đường thẳng $x = 5$ là tiệm cận đứng.\nChia đa thức: $y = \\frac{x^2 - 3x + 2}{x - 5} = x + 2 + \\frac{12}{x - 5}$.\nVì $\\lim_{x \\to \\pm\\infty} \\frac{12}{x - 5} = 0$ nên đường thẳng $y = x + 2$ là tiệm cận xiên của đồ thị hàm số.\nVậy đồ thị có tổng cộng 2 đường tiệm cận (1 tiệm cận đứng và 1 tiệm cận xiên).",
+    "detailedSolution": "Tập xác định: $D = \\mathbb{R} \\\\setminus \\{5\\}$.\nTại $x = 5$, tử số $5^2 - 3(5) + 2 = 12 \\ne 0$. Do đó $\\lim\\limits_{x \\to 5^+} y = +\\infty$ nên đường thẳng $x = 5$ là tiệm cận đứng.\nChia đa thức: $y = \\frac{x^2 - 3x + 2}{x - 5} = x + 2 + \\frac{12}{x - 5}$.\nVì $\\lim\\limits_{x \\to \\pm\\infty} \\frac{12}{x - 5} = 0$ nên đường thẳng $y = x + 2$ là tiệm cận xiên của đồ thị hàm số.\nVậy đồ thị có tổng cộng 2 đường tiệm cận (1 tiệm cận đứng và 1 tiệm cận xiên).",
     "socraticHint": "Phân thức bậc 2 trên bậc 1 có tiệm cận đứng tại nghiệm của mẫu và tiệm cận xiên bằng thương phép chia đa thức.",
     "difficulty": "Nhận biết",
     "examSets": [

@@ -171,7 +171,7 @@ export const toiUuKinhTeQuestions: Question[] = [
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Số tiền nhận được sau $n$ năm theo công thức lãi kép:\n$$A_n = 200(1 + 0.07)^n = 200(1.07)^n$$\nĐể số tiền vượt quá 400 triệu đồng:\n$$200(1.07)^n > 400 \\iff (1.07)^n > 2 \\iff n > log_{1.07} 2 = \\frac{\\ln 2}{\\ln 1.07} \\approx \\frac{0.69315}{0.06766} \\approx 10.24$$\nVì số năm $n$ là số nguyên dương, người đó cần ít nhất 11 năm.",
+    "detailedSolution": "Số tiền nhận được sau $n$ năm theo công thức lãi kép:\n$$A_n = 200(1 + 0.07)^n = 200(1.07)^n$$\nĐể số tiền vượt quá 400 triệu đồng:\n$$200(1.07)^n > 400 \\iff (1.07)^n > 2 \\iff n > \\\\log_{1.07} 2 = \\frac{\\ln 2}{\\ln 1.07} \\approx \\frac{0.69315}{0.06766} \\approx 10.24$$\nVì số năm $n$ là số nguyên dương, người đó cần ít nhất 11 năm.",
     "socraticHint": "Áp dụng công thức lãi kép $A = P(1+r)^n$, dùng logarit để tìm số năm nguyên dương nhỏ nhất thỏa mãn.",
     "difficulty": "Thông hiểu",
     "examSets": [
@@ -191,7 +191,7 @@ export const toiUuKinhTeQuestions: Question[] = [
       "500",
       "500.0"
     ],
-    "detailedSolution": "Khi $t  o +\\infty$, ta có $-0.2t  o -\\infty \\implies e^{-0.2t}  o 0$.\nDo đó giới hạn khối lượng tối đa của đàn cá là:\n$$lim_{t  o +\\infty} m(t) = lim_{t  o +\\infty} \\frac{500}{1 + 9e^{-0.2t}} = \\frac{500}{1 + 9(0)} = 500\\text{ kg}$$.",
+    "detailedSolution": "Khi $t  o +\\infty$, ta có $-0.2t  o -\\infty \\implies e^{-0.2t}  o 0$.\nDo đó giới hạn khối lượng tối đa của đàn cá là:\n$$\\lim\\limits_{t  o +\\infty} m(t) = \\lim\\limits_{t  o +\\infty} \\frac{500}{1 + 9e^{-0.2t}} = \\frac{500}{1 + 9(0)} = 500\\text{ kg}$$.",
     "socraticHint": "Tính giới hạn của hàm số $m(t)$ khi $t  o +\\infty$, lưu ý rằng $e^{-\\infty} = 0$.",
     "difficulty": "Nhận biết",
     "examSets": [
