@@ -8,28 +8,28 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
     "topicId": "thong_ke_mau_so_lieu_ghep_nhom",
     "topicName": "Thống kê & Mẫu số liệu ghép nhóm",
-    "content": "Cho mẫu số liệu ghép nhóm thời gian học (phút):\n$[30; 60): 6, \\quad [60; 90): 14, \\quad [90; 120): 12, \\quad [120; 150): 8$.\nKhoảng biến thiên của mẫu số liệu ghép nhóm là:",
+    "content": "Thống kê điểm thi khảo sát của 50 học sinh được cho bởi bảng tần số ghép nhóm: $[0; 4)$ có 5 học sinh; $[4; 6)$ có 15 học sinh; $[6; 8)$ có 20 học sinh; $[8; 10)$ có 10 học sinh. Mốt của mẫu số liệu ghép nhóm này bằng:",
     "options": [
       {
         "key": "A",
-        "content": "$120$"
+        "content": "$\\frac{20}{3}$"
       },
       {
         "key": "B",
-        "content": "$150$"
+        "content": "$\\frac{19}{3}$"
       },
       {
         "key": "C",
-        "content": "$90$"
+        "content": "$7$"
       },
       {
         "key": "D",
-        "content": "$100$"
+        "content": "$\\frac{13}{2}$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Theo định nghĩa chuẩn GDPT 2018, khoảng biến thiên $R$ là hiệu số giữa đầu mút phải của nhóm cuối và đầu mút trái của nhóm đầu:\n$$R = 150 - 30 = 120$$.",
-    "socraticHint": "Khoảng biến thiên của mẫu ghép nhóm bằng đầu mút lớn nhất trừ đầu mút nhỏ nhất.",
+    "detailedSolution": "Nhóm có tần số lớn nhất là nhóm $[6; 8)$ với tần số $m_3 = 20$.\nTần số của nhóm trước đó: $m_2 = 15$.\nTần số của nhóm sau đó: $m_4 = 10$.\nĐộ dài nhóm: $h = 8 - 6 = 2$.\nÁp dụng công thức tính mốt của mẫu số liệu ghép nhóm:\n$$M_o = 6 + \\frac{m_3 - m_2}{(m_3 - m_2) + (m_3 - m_4)} \\times h = 6 + \\frac{20 - 15}{(20 - 15) + (20 - 10)} \\times 2$$\n$$= 6 + \\frac{5}{5 + 10} \\times 2 = 6 + \\frac{1}{3} \\times 2 = 6 + \\frac{2}{3} = \\frac{20}{3}.$$",
+    "socraticHint": "Xác định nhóm có tần số lớn nhất rồi dùng công thức tính mốt mẫu ghép nhóm.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan",
@@ -43,28 +43,28 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
     "topicId": "thong_ke_mau_so_lieu_ghep_nhom",
     "topicName": "Thống kê & Mẫu số liệu ghép nhóm",
-    "content": "Số bàn thắng của 20 trận đấu bóng đá được tổng hợp:\n$[0; 2): 4, \\quad [2; 4): 10, \\quad [4; 6): 6$.\nSố trung bình của mẫu số liệu ghép nhóm này là:",
+    "content": "Mẫu số liệu ghép nhóm về thời gian hoàn thành một bài test (đơn vị: phút) của 40 học sinh: $[10; 15)$ có 6 học sinh; $[15; 20)$ có 14 học sinh; $[20; 25)$ có 12 học sinh; $[25; 30)$ có 8 học sinh. Khoảng biến thiên của mẫu số liệu ghép nhóm này bằng:",
     "options": [
       {
         "key": "A",
-        "content": "$3{,}2$"
+        "content": "$20$"
       },
       {
         "key": "B",
-        "content": "$3{,}0$"
+        "content": "$15$"
       },
       {
         "key": "C",
-        "content": "$3{,}5$"
+        "content": "$25$"
       },
       {
         "key": "D",
-        "content": "$2{,}8$"
+        "content": "$10$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Giá trị đại diện: nhóm 1 là 1, nhóm 2 là 3, nhóm 3 là 5.\nTrung bình: $\\bar{x} = \\frac{4(1) + 10(3) + 6(5)}{20} = \\frac{64}{20} = 3{,}2$.",
-    "socraticHint": "Lấy giá trị đại diện (trung điểm) nhân tần số tương ứng rồi chia tổng số phần tử.",
+    "detailedSolution": "Khoảng biến thiên của mẫu số liệu ghép nhóm được tính bằng hiệu giữa đầu mút phải của nhóm cuối cùng và đầu mút trái của nhóm đầu tiên:\n$$R = a_{k+1} - a_1 = 30 - 10 = 20\\text{ (phút)}.$$",
+    "socraticHint": "Khoảng biến thiên mẫu số liệu ghép nhóm là hiệu giữa mút trên của nhóm cao nhất và mút dưới của nhóm thấp nhất.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
@@ -77,15 +77,13 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
     "topicId": "thong_ke_mau_so_lieu_ghep_nhom",
     "topicName": "Thống kê & Mẫu số liệu ghép nhóm",
-    "content": "Bảng tần số ghép nhóm số bàn thắng:\n$[0; 2): 4, \\quad [2; 4): 10, \\quad [4; 6): 6$.\nHãy tính số trung bình số bàn thắng của mẫu trên.",
-    "correctAnswer": "3.2",
+    "content": "Khảo sát thời gian hoàn thành một sản phẩm của 20 công nhân thu được mẫu số liệu ghép nhóm: $[10; 20)$ có 5 công nhân; $[20; 30)$ có 10 công nhân; $[30; 40)$ có 5 công nhân. Tính số trung bình của mẫu số liệu ghép nhóm này.",
+    "correctAnswer": "25",
     "acceptableAnswers": [
-      "3.2",
-      "3,2",
-      "16/5"
+      "25"
     ],
-    "detailedSolution": "Số trung bình: $\\bar{x} = \\frac{4(1) + 10(3) + 6(5)}{20} = \\frac{64}{20} = 3{,}2$.",
-    "socraticHint": "Trung bình trọng số với giá trị tâm của mỗi khoảng.",
+    "detailedSolution": "Giá trị đại diện của các nhóm:\n- Nhóm $[10; 20)$: $c_1 = 15$.\n- Nhóm $[20; 30)$: $c_2 = 25$.\n- Nhóm $[30; 40)$: $c_3 = 35$.\nSố trung bình của mẫu số liệu ghép nhóm:\n$$\\bar{x} = \\frac{5 \\times 15 + 10 \\times 25 + 5 \\times 35}{20} = \\frac{75 + 250 + 175}{20} = \\frac{500}{20} = 25.$$",
+    "socraticHint": "Thay mỗi khoảng bằng giá trị trung điểm đại diện rồi tính trung bình có trọng số theo tần số.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
@@ -98,28 +96,28 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
     "topicId": "thong_ke_mau_so_lieu_ghep_nhom",
     "topicName": "Thống kê & Mẫu số liệu ghép nhóm",
-    "content": "Trong mẫu số liệu ghép nhóm, nhóm chứa trung vị $M_e$ là nhóm đầu tiên có tần số tích lũy lớn hơn hoặc bằng:",
+    "content": "Thống kê thời gian tự học mỗi ngày của 100 học sinh lớp 12 thu được bảng số liệu ghép nhóm: $[2; 4)$ có 15 học sinh; $[4; 6)$ có 35 học sinh; $[6; 8)$ có 30 học sinh; $[8; 10)$ có 20 học sinh. Khoảng tứ phân vị $\\Delta_Q = Q_3 - Q_1$ của mẫu số liệu ghép nhóm này bằng:",
     "options": [
       {
         "key": "A",
-        "content": "$n/2$"
+        "content": "$\\frac{65}{21}$"
       },
       {
         "key": "B",
-        "content": "$n/4$"
+        "content": "$\\frac{31}{10}$"
       },
       {
         "key": "C",
-        "content": "$3n/4$"
+        "content": "$\\frac{67}{21}$"
       },
       {
         "key": "D",
-        "content": "$n$"
+        "content": "$\\frac{59}{21}$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Theo định nghĩa SGK Toán 12 GDPT 2018, nhóm chứa trung vị là nhóm đầu tiên có tần số tích lũy $\\ge \\frac{n}{2}$.",
-    "socraticHint": "Trung vị chia dữ liệu thành hai nửa bằng nhau ($50\\% - 50\\%$).",
+    "detailedSolution": "Tổng cỡ mẫu $n = 100$.\n1. Tìm $Q_1$:\nGiá trị $\\frac{n}{4} = 25$. Tần số tích lũy của nhóm 1 là 15, nhóm 2 là $15 + 35 = 50 \\ge 25$.\nDo đó nhóm chứa $Q_1$ là $[4; 6)$.\n$$Q_1 = 4 + \\frac{25 - 15}{35} \\times (6 - 4) = 4 + \\frac{20}{35} = 4 + \\frac{4}{7} = \\frac{32}{7}.$$\n2. Tìm $Q_3$:\nGiá trị $\\frac{3n}{4} = 75$. Tần số tích lũy của nhóm 2 là 50, nhóm 3 là $50 + 30 = 80 \\ge 75$.\nDo đó nhóm chứa $Q_3$ là $[6; 8)$.\n$$Q_3 = 6 + \\frac{75 - 50}{30} \\times (8 - 6) = 6 + \\frac{25}{30} \\times 2 = 6 + \\frac{5}{3} = \\frac{23}{3}.$$\nKhoảng tứ phân vị:\n$$\\Delta_Q = Q_3 - Q_1 = \\frac{23}{3} - \\frac{32}{7} = \\frac{161 - 96}{21} = \\frac{65}{21}.$$",
+    "socraticHint": "Xác định nhóm chứa tứ phân vị thứ nhất và thứ ba dựa vào tần số tích lũy, sau đó dùng công thức nội suy tuyến tính.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
@@ -132,28 +130,28 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
     "topicId": "thong_ke_mau_so_lieu_ghep_nhom",
     "topicName": "Thống kê & Mẫu số liệu ghép nhóm",
-    "content": "Độ dài của nhóm $[20; 25)$ là:",
+    "content": "Khảo sát thu nhập hàng tháng (đơn vị: triệu đồng) của 50 nhân viên một công ty thu được mẫu số liệu ghép nhóm: $[10; 15)$ có 8 nhân viên; $[15; 20)$ có 18 nhân viên; $[20; 25)$ có 16 nhân viên; $[25; 30)$ có 8 nhân viên. Phương sai $s^2$ của mẫu số liệu ghép nhóm này bằng:",
     "options": [
       {
         "key": "A",
-        "content": "$5$"
+        "content": "$22{,}24$"
       },
       {
         "key": "B",
-        "content": "$22{,}5$"
+        "content": "$21{,}86$"
       },
       {
         "key": "C",
-        "content": "$4$"
+        "content": "$24{,}15$"
       },
       {
         "key": "D",
-        "content": "$25$"
+        "content": "$4{,}72$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Độ dài nhóm $[a; b)$ là hiệu $b - a = 25 - 20 = 5$.",
-    "socraticHint": "Độ dài nhóm bằng đầu mút phải trừ đầu mút trái.",
+    "detailedSolution": "Giá trị đại diện các nhóm:\n$c_1 = 12{,}5; c_2 = 17{,}5; c_3 = 22{,}5; c_4 = 27{,}5$.\nSố trung bình:\n$$\\bar{x} = \\frac{8(12{,}5) + 18(17{,}5) + 16(22{,}5) + 8(27{,}5)}{50} = \\frac{100 + 315 + 360 + 220}{50} = \\frac{995}{50} = 19{,}9.$$\nPhương sai của mẫu ghép nhóm:\n$$s^2 = \\frac{1}{n} \\sum m_i c_i^2 - \\bar{x}^2.$$\nTa có:\n$$\\sum m_i c_i^2 = 8(12{,}5^2) + 18(17{,}5^2) + 16(22{,}5^2) + 8(27{,}5^2)$$\n$$= 8(156{,}25) + 18(306{,}25) + 16(506{,}25) + 8(756{,}25) = 1250 + 5512{,}5 + 8100 + 6050 = 20912{,}5.$$\nDo đó:\n$$s^2 = \\frac{20912{,}5}{50} - (19{,}9)^2 = 418{,}25 - 396{,}01 = 22{,}24.$$",
+    "socraticHint": "Áp dụng công thức phương sai mẫu số liệu ghép nhóm qua giá trị đại diện và công thức thu gọn $s^2 = \\frac{1}{n}\\sum m_i c_i^2 - \\bar{x}^2$.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
@@ -166,15 +164,15 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
     "topicId": "thong_ke_mau_so_lieu_ghep_nhom",
     "topicName": "Thống kê & Mẫu số liệu ghép nhóm",
-    "content": "Độ dài của khoảng $[10; 30)$ bằng bao nhiêu?",
-    "correctAnswer": "20",
+    "content": "Khảo sát mẫu số liệu ghép nhóm về điểm kiểm tra của 40 học sinh: $[4; 6)$ có 8 học sinh; $[6; 8)$ có 20 học sinh; $[8; 10)$ có 12 học sinh. Tính trung vị $M_e$ của mẫu số liệu ghép nhóm này (làm tròn đến một chữ số thập phân).",
+    "correctAnswer": "7.2",
     "acceptableAnswers": [
-      "20",
-      "20.0"
+      "7.2",
+      "7,2"
     ],
-    "detailedSolution": "Độ dài của khoảng là $30 - 10 = 20$.",
-    "socraticHint": "Lấy đầu mút phải trừ đầu mút trái.",
-    "difficulty": "Vận dụng cao",
+    "detailedSolution": "Tổng số học sinh $n = 40$.\nGiá trị vị trí trung vị: $\\frac{n}{2} = 20$.\nTần số tích lũy của nhóm thứ nhất $[4; 6)$ là 8.\nTần số tích lũy của nhóm thứ hai $[6; 8)$ là $8 + 20 = 28 \\ge 20$.\nDo đó nhóm chứa trung vị là $[6; 8)$.\nÁp dụng công thức tính trung vị của mẫu số liệu ghép nhóm:\n$$M_e = 6 + \\frac{20 - 8}{20} \\times (8 - 6) = 6 + \\frac{12}{20} \\times 2 = 6 + 1{,}2 = 7{,}2.$$",
+    "socraticHint": "Dùng công thức nội suy trung vị mẫu số liệu ghép nhóm: $M_e = u_m + \\frac{n/2 - C}{n_m} \\times h$.",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -328,28 +326,28 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
     "topicId": "thong_ke_mau_so_lieu_ghep_nhom",
     "topicName": "Thống kê & Mẫu số liệu ghép nhóm",
-    "content": "Khoảng biến thiên của mẫu số liệu ghép nhóm gồm các nhóm $[10; 20), [20; 30), [30; 40), [40; 50)$ bằng:",
+    "content": "Cho mẫu số liệu ghép nhóm về năng suất lúa (đơn vị: tạ/ha) của 120 thửa ruộng: $[40; 45)$ có 15 thửa; $[45; 50)$ có 40 thửa; $[50; 55)$ có 45 thửa; $[55; 60)$ có 20 thửa. Tứ phân vị thứ hai (trung vị $Q_2$) của mẫu số liệu ghép nhóm này bằng:",
     "options": [
       {
         "key": "A",
-        "content": "$40$"
+        "content": "$\\frac{455}{9}$"
       },
       {
         "key": "B",
-        "content": "$50$"
+        "content": "$\\frac{452}{9}$"
       },
       {
         "key": "C",
-        "content": "$10$"
+        "content": "$51$"
       },
       {
         "key": "D",
-        "content": "$30$"
+        "content": "$\\frac{460}{9}$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Khoảng biến thiên của mẫu số liệu ghép nhóm là hiệu số giữa đầu mút phải của nhóm cuối cùng và đầu mút trái của nhóm đầu tiên:\n$$R = 50 - 10 = 40$$.",
-    "socraticHint": "Khoảng biến thiên $R$ là hiệu số giữa giá trị lớn nhất và nhỏ nhất của thang đo: $R = x_{\\max} - x_{\\min}$.",
+    "detailedSolution": "Tổng cỡ mẫu $n = 120 \\Rightarrow \\frac{n}{2} = 60$.\nTần số tích lũy của nhóm 1 là 15, nhóm 2 là $15 + 40 = 55 < 60$, nhóm 3 là $55 + 45 = 100 \\ge 60$.\nDo đó nhóm chứa trung vị $Q_2$ là nhóm $[50; 55)$.\nÁp dụng công thức tính trung vị mẫu ghép nhóm:\n$$Q_2 = 50 + \\frac{60 - 55}{45} \\times (55 - 50) = 50 + \\frac{5}{45} \\times 5 = 50 + \\frac{5}{9} = \\frac{455}{9} \\approx 50{,}56.$$",
+    "socraticHint": "Xác định nhóm chứa trung vị theo tần số tích lũy rồi dùng công thức nội suy tuyến tính.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
@@ -458,7 +456,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "correctAnswer": "C",
     "detailedSolution": "Nhóm chứa mốt là nhóm có tần số lớn nhất: nhóm $[30; 35)$ với tần số $m_j = 25$.\nCác thông số:\n- Đầu mút trái: $u_j = 30$.\n- Độ dài nhóm: $h = 35 - 30 = 5$.\n- Tần số nhóm trước nó: $m_{j-1} = 20$.\n- Tần số nhóm sau nó: $m_{j+1} = 15$.\n\nCông thức mốt của mẫu số liệu ghép nhóm:\n$$M_o = u_j + \\frac{m_j - m_{j-1}}{(m_j - m_{j-1}) + (m_j - m_{j+1})} \\cdot h$$\n$$M_o = 30 + \\frac{25 - 20}{(25 - 20) + (25 - 15)} \\cdot 5 = 30 + \\frac{5}{5 + 10} \\cdot 5 = 30 + \\frac{5}{3} = \\frac{95}{3} \\approx 31{,}67$$",
     "socraticHint": "Tìm nhóm có tần số lớn nhất rồi thay vào công thức chuẩn tính mốt của mẫu số liệu ghép nhóm.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
     ]

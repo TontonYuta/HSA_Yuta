@@ -8,28 +8,28 @@ export const ptBptMuLogaritQuestions: Question[] = [
     "chapterName": "Chương 2: Hàm số mũ & Hàm số Logarit",
     "topicId": "pt_bpt_mu_logarit",
     "topicName": "Phương trình & BPT mũ, logarit đối xứng",
-    "content": "Tập nghiệm của bất phương trình $\\log_2(x - 1) + \\log_2(x + 1) \\le 3$ là:",
+    "content": "Tập nghiệm của bất phương trình $\\log_{0{,}5}(x - 1) + \\log_{0{,}5}(x + 2) \\ge -2$ là:",
     "options": [
       {
         "key": "A",
-        "content": "$(1; 3]$"
+        "content": "$(1; 2]$"
       },
       {
         "key": "B",
-        "content": "$(-3; 3]$"
+        "content": "$[-3; 2]$"
       },
       {
         "key": "C",
-        "content": "$(1; \\sqrt{10}]$"
+        "content": "$(1; +\\infty)$"
       },
       {
         "key": "D",
-        "content": "$[1; 3]$"
+        "content": "$[2; +\\infty)$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Điều kiện: $x > 1$.\nBPT $\\iff \\log_2[(x - 1)(x + 1)] \\le 3 \\iff x^2 - 1 \\le 2^3 = 8 \\iff x^2 \\le 9 \\iff -3 \\le x \\le 3$.\nKết hợp điều kiện $x > 1$, tập nghiệm là $(1; 3]$.",
-    "socraticHint": "Luôn tìm điều kiện xác định cho tất cả các biểu thức dưới dấu logarit trước khi thu gọn.",
+    "detailedSolution": "Điều kiện xác định:\n$$\\begin{cases} x - 1 > 0 \\\\ x + 2 > 0 \\end{cases} \\iff x > 1.$$\nBất phương trình tương đương:\n$$\\log_{0{,}5}[(x - 1)(x + 2)] \\ge -2 = \\log_{0{,}5} (0{,}5^{-2}) = \\log_{0{,}5} 4.$$\nVì cơ số $0 < 0{,}5 < 1$, ta đổi chiều bất đẳng thức:\n$$(x - 1)(x + 2) \\le 4 \\iff x^2 + x - 2 \\le 4 \\iff x^2 + x - 6 \\le 0 \\iff -3 \\le x \\le 2.$$\nKết hợp điều kiện $x > 1$, ta được tập nghiệm $S = (1; 2]$.",
+    "socraticHint": "Chú ý cơ số bé hơn 1 phải đổi chiều bất đẳng thức khi bỏ logarit và kết hợp tập xác định.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan",
@@ -43,15 +43,14 @@ export const ptBptMuLogaritQuestions: Question[] = [
     "chapterName": "Chương 2: Hàm số mũ & Hàm số Logarit",
     "topicId": "pt_bpt_mu_logarit",
     "topicName": "Phương trình & BPT mũ, logarit đối xứng",
-    "content": "Tìm số nghiệm nguyên dương của bất phương trình: $2^{x^2 - 4x} \\le 32$.",
-    "correctAnswer": "5",
+    "content": "Có bao nhiêu số nguyên $x$ thỏa mãn bất phương trình $\\log_3(x^2 - 3x) \\le 2$?",
+    "correctAnswer": "2",
     "acceptableAnswers": [
-      "5",
-      "5.0"
+      "2"
     ],
-    "detailedSolution": "Ta có $32 = 2^5 \\implies x^2 - 4x \\le 5 \\iff x^2 - 4x - 5 \\le 0 \\iff -1 \\le x \\le 5$.\nCác nghiệm nguyên dương là $x \\in \\{1, 2, 3, 4, 5\\}$. Vậy có đúng 5 nghiệm.",
-    "socraticHint": "Đưa về cùng cơ số 2, giải bất phương trình bậc hai rồi đếm số nguyên dương.",
-    "difficulty": "Vận dụng cao",
+    "detailedSolution": "Điều kiện xác định: $x^2 - 3x > 0 \\iff x < 0$ hoặc $x > 3$.\nBất phương trình tương đương:\n$$x^2 - 3x \\le 3^2 = 9 \\iff x^2 - 3x - 9 \\le 0.$$\nNghiệm của bất phương trình:\n$$\\frac{3 - 3\\sqrt{5}}{2} \\le x \\le \\frac{3 + 3\\sqrt{5}}{2}.$$\nVì $\\sqrt{5} \\approx 2{,}236$, nên $-1{,}85 \\le x \\le 4{,}85$.\nKết hợp điều kiện $x < 0$ hoặc $x > 3$, ta có:\n$$x \\in [-1{,}85; 0) \\cup (3; 4{,}85].$$\nCác số nguyên thỏa mãn là $x = -1$ và $x = 4$.\nVậy có đúng 2 số nguyên thỏa mãn.",
+    "socraticHint": "Giải bất phương trình bậc hai và kết hợp chặt chẽ với điều kiện xác định của biểu thức dưới dấu logarit.",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan",
       "de_03_cap_toc"
@@ -64,29 +63,29 @@ export const ptBptMuLogaritQuestions: Question[] = [
     "chapterName": "Chương 2: Hàm số mũ & Hàm số Logarit",
     "topicId": "pt_bpt_mu_logarit",
     "topicName": "Phương trình & BPT mũ, logarit đối xứng",
-    "content": "Nghiệm của phương trình $\\log_3(2x - 1) = 2$ là:",
+    "content": "Cho $x, y$ là các số nguyên dương thỏa mãn $\\log_2\\left(\\frac{x + 2y}{2x + y + 1}\\right) = x - y + 1$ và $x \\le 100$. Có bao nhiêu cặp số nguyên dương $(x; y)$ thỏa mãn đẳng thức trên?",
     "options": [
       {
         "key": "A",
-        "content": "$x = 5$"
+        "content": "$100$"
       },
       {
         "key": "B",
-        "content": "$x = 4$"
+        "content": "$99$"
       },
       {
         "key": "C",
-        "content": "$x = 7$"
+        "content": "$50$"
       },
       {
         "key": "D",
-        "content": "$x = 9$"
+        "content": "$101$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "$2x - 1 = 3^2 = 9 \\iff 2x = 10 \\iff x = 5$.",
-    "socraticHint": "Theo định nghĩa: $\\log_a b = c \\iff b = a^c$.",
-    "difficulty": "Vận dụng",
+    "detailedSolution": "Phương trình tương đương:\n$$\\log_2(x + 2y) - \\log_2(2x + y + 1) = (2x + y + 1) - (x + 2y)$$\n$$\\iff \\log_2(x + 2y) + (x + 2y) = \\log_2(2x + y + 1) + (2x + y + 1).$$\nXét hàm số đặc trưng $f(t) = \\log_2 t + t$ trên $(0; +\\infty)$.\nVì $f'(t) = \\frac{1}{t \\ln 2} + 1 > 0, \\forall t > 0$ nên hàm số $f(t)$ đồng biến trên $(0; +\\infty)$.\nDo đó:\n$$x + 2y = 2x + y + 1 \\iff y = x + 1.$$\nVì $x, y$ là các số nguyên dương và $x \\le 100$, ta có $x \\in \\{1; 2; \\dots; 100\\}$.\nVới mỗi giá trị $x \\in \\{1; 2; \\dots; 100\\}$, tương ứng có đúng một giá trị $y = x + 1 \\in \\{2; 3; \\dots; 101\\}$ là số nguyên dương thỏa mãn.\nVậy có đúng $100$ cặp số nguyên dương $(x; y)$.",
+    "socraticHint": "Chuyển vế để xuất hiện hàm đặc trưng $f(t) = \\log_2 t + t$ ở cả hai vế.",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -98,29 +97,29 @@ export const ptBptMuLogaritQuestions: Question[] = [
     "chapterName": "Chương 2: Hàm số mũ & Hàm số Logarit",
     "topicId": "pt_bpt_mu_logarit",
     "topicName": "Phương trình & BPT mũ, logarit đối xứng",
-    "content": "Tập xác định của hàm số $y = \\ln(3 - x)$ là:",
+    "content": "Có bao nhiêu giá trị nguyên của tham số $m \\in [-10; 10]$ để bất phương trình $\\log_2^2 x - (2m + 1)\\log_2 x + m^2 + m > 0$ nghiệm đúng với mọi $x \\in (2; +\\infty)$?",
     "options": [
       {
         "key": "A",
-        "content": "$(-\\infty; 3)$"
+        "content": "$11$"
       },
       {
         "key": "B",
-        "content": "$(3; +\\infty)$"
+        "content": "$10$"
       },
       {
         "key": "C",
-        "content": "$(-\\infty; 3]$"
+        "content": "$12$"
       },
       {
         "key": "D",
-        "content": "$\\mathbb{R} \\setminus \\{3\\}$"
+        "content": "$9$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Điều kiện xác định: $3 - x > 0 \\iff x < 3$. Do đó tập xác định là $(-\\infty; 3)$.",
-    "socraticHint": "Biểu thức bên trong hàm logarit tự nhiên phải nhận giá trị dương.",
-    "difficulty": "Vận dụng",
+    "detailedSolution": "Đặt $t = \\log_2 x$. Với $x \\in (2; +\\infty)$ thì $t \\in (1; +\\infty)$.\nBất phương trình trở thành:\n$$f(t) = t^2 - (2m + 1)t + m^2 + m > 0, \\forall t > 1.$$\nBiệt thức $\\Delta = (2m + 1)^2 - 4(m^2 + m) = 1 > 0$.\nHai nghiệm của tam thức là $t_1 = m$ và $t_2 = m + 1$.\nBất phương trình $f(t) > 0 \\iff t < m$ hoặc $t > m + 1$.\nĐể $f(t) > 0, \\forall t > 1$, khoảng $(1; +\\infty)$ phải là tập con của $(m + 1; +\\infty)$:\n$$m + 1 \\le 1 \\iff m \\le 0.$$\nVì $m \\in [-10; 10]$ và $m \\in \\mathbb{Z}$ nên $m \\in \\{-10; -9; \\dots; 0\\}$.\nSố giá trị nguyên của $m$ là $0 - (-10) + 1 = 11$.",
+    "socraticHint": "Đặt ẩn phụ $t = \\log_2 x > 1$, phân tích tam thức bậc hai thành nhân tử $(t - m)(t - m - 1) > 0$.",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -132,28 +131,28 @@ export const ptBptMuLogaritQuestions: Question[] = [
     "chapterName": "Chương 2: Hàm số mũ & Hàm số Logarit",
     "topicId": "pt_bpt_mu_logarit",
     "topicName": "Phương trình & BPT mũ, logarit đối xứng",
-    "content": "Với $a > 0, a \\ne 1$, giá trị của $\\log_a(a^3)$ bằng:",
+    "content": "Cho hai số thực dương $a, b > 1$ thỏa mãn $\\log_a b = 2$. Giá trị của biểu thức $P = \\log_{a^2\\sqrt{b}}(a\\sqrt[3]{b})$ bằng:",
     "options": [
       {
         "key": "A",
-        "content": "$3$"
+        "content": "$\\frac{5}{9}$"
       },
       {
         "key": "B",
-        "content": "$a$"
+        "content": "$\\frac{2}{3}$"
       },
       {
         "key": "C",
-        "content": "$1/3$"
+        "content": "$\\frac{7}{9}$"
       },
       {
         "key": "D",
-        "content": "$3a$"
+        "content": "$\\frac{1}{2}$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Theo tính chất cơ bản: $\\log_a(a^3) = 3\\log_a a = 3(1) = 3$.",
-    "socraticHint": "Công thức $\\log_a(a^k) = k$.",
+    "detailedSolution": "Vì $\\log_a b = 2$ nên $b = a^2$.\nThay vào biểu thức cơ số:\n$$a^2 \\sqrt{b} = a^2 \\sqrt{a^2} = a^2 \\cdot a = a^3.$$\nThay vào biểu thức lấy logarit:\n$$a\\sqrt[3]{b} = a \\sqrt[3]{a^2} = a \\cdot a^{2/3} = a^{5/3}.$$\nDo đó:\n$$P = \\log_{a^3}(a^{5/3}) = \\frac{5/3}{3} = \\frac{5}{9}.$$",
+    "socraticHint": "Đưa cả cơ số và biểu thức lấy logarit về cùng một luỹ thừa của cơ số $a$.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
@@ -166,14 +165,13 @@ export const ptBptMuLogaritQuestions: Question[] = [
     "chapterName": "Chương 2: Hàm số mũ & Hàm số Logarit",
     "topicId": "pt_bpt_mu_logarit",
     "topicName": "Phương trình & BPT mũ, logarit đối xứng",
-    "content": "Giải phương trình $2^{x + 3} = 64$. Tìm nghiệm $x$.",
-    "correctAnswer": "3",
+    "content": "Tìm số nghiệm thực của phương trình $4^x - 3 \\cdot 2^{x+1} + 8 = 0$.",
+    "correctAnswer": "2",
     "acceptableAnswers": [
-      "3",
-      "3.0"
+      "2"
     ],
-    "detailedSolution": "Ta có $64 = 2^6 \\implies x + 3 = 6 \\implies x = 3$.",
-    "socraticHint": "Đưa phương trình về dạng cùng cơ số $2^u = 2^v$.",
+    "detailedSolution": "Phương trình được viết lại dưới dạng:\n$$(2^x)^2 - 6 \\cdot 2^x + 8 = 0.$$\nĐặt $t = 2^x > 0$, ta có phương trình bậc hai:\n$$t^2 - 6t + 8 = 0 \\iff (t - 2)(t - 4) = 0 \\iff \\left[\\begin{array}{l} t = 2 \\\\ t = 4 \\end{array}\\right.$$\nCả hai nghiệm đều thỏa mãn điều kiện $t > 0$:\n- Với $t = 2 \\Rightarrow 2^x = 2 \\Rightarrow x = 1$.\n- Với $t = 4 \\Rightarrow 2^x = 4 \\Rightarrow x = 2$.\nVậy phương trình có đúng $2$ nghiệm thực phân biệt.",
+    "socraticHint": "Đặt ẩn phụ $t = 2^x > 0$ đưa về phương trình bậc hai.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
@@ -186,15 +184,14 @@ export const ptBptMuLogaritQuestions: Question[] = [
     "chapterName": "Chương 2: Hàm số mũ & Hàm số Logarit",
     "topicId": "pt_bpt_mu_logarit",
     "topicName": "Phương trình & BPT mũ, logarit đối xứng",
-    "content": "Tính giá trị của biểu thức $P = \\log_2 8 + \\log_3 9$.",
-    "correctAnswer": "5",
+    "content": "Cho hai số thực dương $x, y$ thỏa mãn $\\log_2 x + \\log_2 y = 4$ và $\\log_2(x + y) = 3$. Tính giá trị của biểu thức $P = x^2 + y^2$.",
+    "correctAnswer": "32",
     "acceptableAnswers": [
-      "5",
-      "5.0"
+      "32"
     ],
-    "detailedSolution": "$\\log_2 8 = 3$ và $\\log_3 9 = 2 \\implies P = 3 + 2 = 5$.",
-    "socraticHint": "Tính riêng từng giá trị logarit cơ bản.",
-    "difficulty": "Vận dụng cao",
+    "detailedSolution": "Từ các phương trình logarit ta có:\n$$\\log_2(xy) = 4 \\iff xy = 2^4 = 16,$$\n$$\\log_2(x + y) = 3 \\iff x + y = 2^3 = 8.$$\nBiểu thức cần tính:\n$$P = x^2 + y^2 = (x + y)^2 - 2xy = 8^2 - 2(16) = 64 - 32 = 32.$$",
+    "socraticHint": "Áp dụng định nghĩa logarit đưa về tổng và tích của hai số $x + y$ và $xy$.",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -240,29 +237,29 @@ export const ptBptMuLogaritQuestions: Question[] = [
     "chapterName": "Chương 2: Hàm số mũ & Hàm số Logarit",
     "topicId": "pt_bpt_mu_logarit",
     "topicName": "Phương trình & BPT mũ, logarit đối xứng",
-    "content": "Tập nghiệm của phương trình $\\log_3(x - 1) + \\log_3(x + 1) = 1$ là:",
+    "content": "Có bao nhiêu giá trị nguyên của tham số $m$ để phương trình $\\log_3^2 x - 2m\\log_3 x + 2m + 3 = 0$ có hai nghiệm phân biệt $x_1, x_2$ thỏa mãn $x_1 x_2 = 81$?",
     "options": [
       {
         "key": "A",
-        "content": "${2}$"
+        "content": "$0$"
       },
       {
         "key": "B",
-        "content": "${-2; 2}$"
+        "content": "$1$"
       },
       {
         "key": "C",
-        "content": "${\\sqrt{2}}$"
+        "content": "$2$"
       },
       {
         "key": "D",
-        "content": "${4}$"
+        "content": "Vô số"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Điều kiện: $x - 1 > 0$ và $x + 1 > 0 \\iff x > 1$.\nPhương trình biến đổi thành:\n$$\\log_3[(x - 1)(x + 1)] = 1 \\iff x^2 - 1 = 3^1 = 3 \\iff x^2 = 4 \\iff x = \\pm 2$$\nĐối chiếu điều kiện $x > 1$, ta chỉ nhận nghiệm $x = 2$.\nVậy tập nghiệm là ${2}$.",
-    "socraticHint": "Sử dụng công thức tổng hai logarit cùng cơ số và kiểm tra điều kiện xác định $x > 1$.",
-    "difficulty": "Thông hiểu",
+    "detailedSolution": "Đặt $t = \\log_3 x$. Phương trình trở thành:\n$$t^2 - 2mt + 2m + 3 = 0.$$\nĐể phương trình có hai nghiệm phân biệt thì biệt thức $\\Delta' > 0$:\n$$\\Delta' = m^2 - (2m + 3) = m^2 - 2m - 3 > 0 \\iff m < -1 \\text{ hoặc } m > 3.$$\nTheo bài ra, $x_1 x_2 = 81 \\iff \\log_3(x_1 x_2) = \\log_3 81 = 4 \\iff \\log_3 x_1 + \\log_3 x_2 = 4 \\iff t_1 + t_2 = 4$.\nTheo định lý Viète: $t_1 + t_2 = 2m = 4 \\iff m = 2$.\nThử lại với $m = 2$: $\\Delta' = 2^2 - 2(2) - 3 = -3 < 0$, phương trình vô nghiệm.\nVậy không có giá trị nào của $m$ thỏa mãn.",
+    "socraticHint": "Kiểm tra kỹ điều kiện có hai nghiệm phân biệt $\\Delta' > 0$ sau khi tìm được giá trị tham số $m$ từ định lý Viète.",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_04_nang_cao"
     ]
@@ -274,28 +271,28 @@ export const ptBptMuLogaritQuestions: Question[] = [
     "chapterName": "Chương 2: Hàm số mũ & Hàm số Logarit",
     "topicId": "pt_bpt_mu_logarit",
     "topicName": "Phương trình & BPT mũ, logarit đối xứng",
-    "content": "Tập nghiệm của bất phương trình $9^x - 4 \\cdot 3^x + 3 < 0$ là khoảng $(a; b)$. Giá trị của $a + b$ bằng:",
+    "content": "Cho bất phương trình $4^x - (m + 3)2^x + 2m + 2 < 0$. Tìm tất cả các giá trị của tham số $m$ để bất phương trình có tập nghiệm là một khoảng có độ dài bằng $2$.",
     "options": [
       {
         "key": "A",
-        "content": "$1$"
+        "content": "$m \\in \\left\\{ -\\frac{1}{2}; 7 \\right\\}$"
       },
       {
         "key": "B",
-        "content": "$2$"
+        "content": "$m = 7$"
       },
       {
         "key": "C",
-        "content": "$0$"
+        "content": "$m = -\\frac{1}{2}$"
       },
       {
         "key": "D",
-        "content": "$3$"
+        "content": "$m \\in \\{1; 5\\}$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Đặt $t = 3^x > 0$. Bất phương trình trở thành:\n$$t^2 - 4t + 3 < 0 \\iff 1 < t < 3$$\nThay lại $t = 3^x$:\n$$1 < 3^x < 3 \\iff 3^0 < 3^x < 3^1 \\iff 0 < x < 1$$\nTập nghiệm là khoảng $(0; 1) \\implies a = 0, b = 1$.\nVậy $a + b = 0 + 1 = 1$.",
-    "socraticHint": "Đặt ẩn phụ $t = 3^x > 0$ rồi giải bất phương trình bậc hai cơ bản.",
+    "detailedSolution": "Đặt $t = 2^x > 0$. Bất phương trình trở thành:\n$$t^2 - (m + 3)t + 2m + 2 < 0 \\iff (t - 2)(t - (m + 1)) < 0.$$\nGiả sử tập nghiệm của bất phương trình theo $x$ là $(x_1; x_2)$ có độ dài $x_2 - x_1 = 2$.\nKhi đó hai nghiệm theo $t$ thỏa mãn $\\frac{t_2}{t_1} = 2^{x_2 - x_1} = 2^2 = 4$.\n- Trường hợp 1: $t_1 = 2 < t_2 = m + 1$.\n$$\\frac{m + 1}{2} = 4 \\iff m + 1 = 8 \\iff m = 7.$$\nKhi $m = 7$, tập nghiệm là $t \\in (2; 8) \\iff x \\in (1; 3)$, có độ dài $3 - 1 = 2$ (thỏa mãn).\n- Trường hợp 2: $t_1 = m + 1 < t_2 = 2$ ($m + 1 > 0$):\n$$\\frac{2}{m + 1} = 4 \\iff m + 1 = \\frac{1}{2} \\iff m = -\\frac{1}{2}.$$\nKhi $m = -1/2$, tập nghiệm là $t \\in (1/2; 2) \\iff x \\in (-1; 1)$, có độ dài $1 - (-1) = 2$ (thỏa mãn).\nVậy $m \\in \\left\\{ -\\frac{1}{2}; 7 \\right\\}$.",
+    "socraticHint": "Phân tích tam thức bậc hai thành nhân tử $(t - 2)(t - m - 1) < 0$ và sử dụng mối liên hệ giữa hiệu các số mũ với tỉ số giữa các luỹ thừa.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"

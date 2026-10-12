@@ -42,29 +42,29 @@ export const gocKhoangCachQuestions: Question[] = [
     "chapterName": "Chương 4: Hình học không gian cổ điển",
     "topicId": "goc_va_khoang_cach",
     "topicName": "Góc & Khoảng cách trong không gian",
-    "content": "Góc giữa hai mặt phẳng vuông góc với nhau bằng:",
+    "content": "Cho hình lăng trụ đứng $ABC.A'B'C'$ có đáy $ABC$ là tam giác đều cạnh $a$, chiều cao $AA' = a\\sqrt{3}$. Khoảng cách giữa hai đường thẳng chéo nhau $A'B$ và $B'C$ bằng:",
     "options": [
       {
         "key": "A",
-        "content": "$90^\\circ$"
+        "content": "$\\frac{a\\sqrt{39}}{13}$"
       },
       {
         "key": "B",
-        "content": "$0^\\circ$"
+        "content": "$\\frac{a\\sqrt{3}}{4}$"
       },
       {
         "key": "C",
-        "content": "$180^\\circ$"
+        "content": "$\\frac{a\\sqrt{13}}{13}$"
       },
       {
         "key": "D",
-        "content": "$45^\\circ$"
+        "content": "$\\frac{a\\sqrt{3}}{2}$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Theo định nghĩa, hai mặt phẳng vuông góc khi và chỉ khi góc giữa chúng bằng $90^\\circ$.",
-    "socraticHint": "Định nghĩa góc giữa hai mặt phẳng vuông góc.",
-    "difficulty": "Vận dụng",
+    "detailedSolution": "Chọn hệ trục tọa độ $Oxyz$ với gốc $O$ là trung điểm của cạnh $BC$:\n- $Ox$ dọc theo tia $OC$, suy ra $C\\left(\\frac{a}{2}; 0; 0\\right), B\\left(-\\frac{a}{2}; 0; 0\\right)$.\n- $Oy$ dọc theo tia $OA$, suy ra $A\\left(0; \\frac{a\\sqrt{3}}{2}; 0\\right)$.\n- $Oz$ song song với các cạnh bên, suy ra $A'\\left(0; \\frac{a\\sqrt{3}}{2}; a\\sqrt{3}\\right), B'\\left(-\\frac{a}{2}; 0; a\\sqrt{3}\\right)$.\nVectơ chỉ phương của các đường thẳng:\n$$\\vec{u}_1 = \\vec{A'B} = \\left(-\\frac{a}{2}; -\\frac{a\\sqrt{3}}{2}; -a\\sqrt{3}\\right) \\sim (1; \\sqrt{3}; 2\\sqrt{3}),$$\n$$\\vec{u}_2 = \\vec{B'C} = (a; 0; -a\\sqrt{3}) \\sim (1; 0; -\\sqrt{3}).$$\nTích có hướng $[\\\\vec{u}_1, \\vec{u}_2] = (-3; 3\\sqrt{3}; -\\sqrt{3}) \\sim (\\sqrt{3}; -3; 1)$.\nVectơ $\\vec{BC} = (a; 0; 0)$. Khoảng cách giữa hai đường thẳng chéo nhau là:\n$$d(A'B, B'C) = \\frac{|\\vec{BC} \\cdot [\\vec{u}_1, \\vec{u}_2]|}{|[\\vec{u}_1, \\vec{u}_2]|} = \\frac{|a\\sqrt{3}|}{\\sqrt{3 + 9 + 1}} = \\frac{a\\sqrt{3}}{\\sqrt{13}} = \\frac{a\\sqrt{39}}{13}.$$",
+    "socraticHint": "Tọa độ hóa lăng trụ đều bằng cách lấy gốc tại trung điểm cạnh đáy hoặc dùng phương pháp khoảng cách qua mặt phẳng song song.",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -178,28 +178,28 @@ export const gocKhoangCachQuestions: Question[] = [
     "chapterName": "Chương 4: Hình học không gian cổ điển",
     "topicId": "goc_va_khoang_cach",
     "topicName": "Góc & Khoảng cách trong không gian",
-    "content": "Cho tứ diện đều $ABCD$. Góc giữa hai đường thẳng $AB$ và $CD$ bằng:",
+    "content": "Cho hình chóp $S.ABC$ có đáy $ABC$ là tam giác đều cạnh $a$. Cạnh bên $SA \\perp (ABC)$ và $SA = a$. Cosin của góc giữa hai mặt phẳng $(SBC)$ và $(ABC)$ bằng:",
     "options": [
       {
         "key": "A",
-        "content": "$90^\\circ$"
+        "content": "$\\frac{\\sqrt{21}}{7}$"
       },
       {
         "key": "B",
-        "content": "$60^\\circ$"
+        "content": "$\\frac{\\sqrt{7}}{7}$"
       },
       {
         "key": "C",
-        "content": "$45^\\circ$"
+        "content": "$\\frac{\\sqrt{3}}{2}$"
       },
       {
         "key": "D",
-        "content": "$30^\\circ$"
+        "content": "$\\frac{2\\sqrt{7}}{7}$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Gọi $M$ là trung điểm của $CD$.\nVì tam giác $ACD$ và $BCD$ đều nên $AM \\perp CD$ và $BM \\perp CD$.\nSuy ra $CD \\perp (ABM)$.\nVì đường thẳng $AB$ nằm trong mặt phẳng $(ABM)$ nên $CD \\perp AB$.\nDo đó góc giữa hai đường thẳng $AB$ và $CD$ bằng $90^\\circ$.",
-    "socraticHint": "Trong tứ diện đều, các cặp cạnh đối diện luôn vuông góc với nhau từng đôi một.",
+    "detailedSolution": "Gọi $M$ là trung điểm của cạnh $BC$.\nVì tam giác $ABC$ đều cạnh $a$ nên $AM \\perp BC$ và $AM = \\frac{a\\sqrt{3}}{2}$.\nDo $SA \\perp (ABC)$ nên $SM \\perp BC$.\nGóc giữa mặt phẳng $(SBC)$ và mặt phẳng $(ABC)$ chính là góc $\\widehat{SMA} = \\alpha$.\nTam giác $SAM$ vuông tại $A$:\n$$SM = \\sqrt{SA^2 + AM^2} = \\sqrt{a^2 + \\frac{3a^2}{4}} = \\frac{a\\sqrt{7}}{2}.$$\nCosin của góc giữa hai mặt phẳng là:\n$$\\cos \\alpha = \\frac{AM}{SM} = \\frac{\\frac{a\\sqrt{3}}{2}}{\\frac{a\\sqrt{7}}{2}} = \\frac{\\sqrt{3}}{\\sqrt{7}} = \\frac{\\sqrt{21}}{7}.$$",
+    "socraticHint": "Xác định góc giữa hai mặt phẳng bằng góc giữa hai đường thẳng cùng vuông góc với giao tuyến $BC$.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
@@ -287,7 +287,7 @@ export const gocKhoangCachQuestions: Question[] = [
       }
     ],
     "correctAnswer": "B",
-    "detailedSolution": "Gọi $H$ là trung điểm của $AB$. Do $\\Delta SAB$ đều cạnh $2a$ và $(SAB) \\perp (ABCD)$, ta có $SH \\perp (ABCD)$ và $SH = 2a \\frac{\\sqrt{3}}{2} = a\\sqrt{3}$.\nChọn hệ trục tọa độ $Oxyz$ với gốc $H(0; 0; 0)$:\n- Trục $Ox$ dọc theo $HB$: $A(-a; 0; 0)$, $B(a; 0; 0)$.\n- Trục $Oy$ song song $AD$: $D(-a; a; 0)$, $C(a; a; 0)$, $M(0; a; 0)$.\n- Trục $Oz$ dọc theo $HS$: $S(0; 0; a\\sqrt{3})$.\n\nTa có:\n- $\\vec{AM} = (a; a; 0)$.\n- $\\vec{SD} = (-a; a; -a\\sqrt{3})$.\n- $\\vec{AS} = (a; 0; a\\sqrt{3})$.\nTích có hướng $[\\vec{AM}, \\vec{SD}]$:\n$$[\\vec{AM}, \\vec{SD}] = (a(-a\\sqrt{3}) - 0, 0 - a(-a\\sqrt{3}), a \\cdot a - a(-a)) = a^2(-\\sqrt{3}; \\sqrt{3}; 2)$$\nĐộ dài: $|[\\vec{AM}, \\vec{SD}]| = a^2\\sqrt{(-\\sqrt{3})^2 + (\\sqrt{3})^2 + 2^2} = a^2\\sqrt{10}$.\nTích hỗn tạp:\n$$[\\vec{AM}, \\vec{SD}] \\cdot \\vec{AS} = a^2(-\\sqrt{3} \\cdot a + 0 + 2 \\cdot a\\sqrt{3}) = a^3\\sqrt{3}$$\nKhoảng cách giữa hai đường thẳng chéo nhau $AM$ và $SD$:\n$$d(AM, SD) = \\frac{|[\\vec{AM}, \\vec{SD}] \\cdot \\vec{AS}|}{|[\\vec{AM}, \\vec{SD}]|} = \\frac{a^3\\sqrt{3}}{a^2\\sqrt{10}} = \\frac{a\\sqrt{30}}{10}$$",
+    "detailedSolution": "Gọi $H$ là trung điểm của $AB$. Do $\\Delta SAB$ đều cạnh $2a$ và $(SAB) \\perp (ABCD)$, ta có $SH \\perp (ABCD)$ và $SH = 2a \\frac{\\sqrt{3}}{2} = a\\sqrt{3}$.\nChọn hệ trục tọa độ $Oxyz$ với gốc $H(0; 0; 0)$:\n- Trục $Ox$ dọc theo $HB$: $A(-a; 0; 0)$, $B(a; 0; 0)$.\n- Trục $Oy$ song song $AD$: $D(-a; a; 0)$, $C(a; a; 0)$, $M(0; a; 0)$.\n- Trục $Oz$ dọc theo $HS$: $S(0; 0; a\\sqrt{3})$.\n\nTa có:\n- $\\vec{AM} = (a; a; 0)$.\n- $\\vec{SD} = (-a; a; -a\\sqrt{3})$.\n- $\\vec{AS} = (a; 0; a\\sqrt{3})$.\nTích có hướng $[\\\\vec{AM}, \\vec{SD}]$:\n$$[\\vec{AM}, \\vec{SD}] = (a(-a\\sqrt{3}) - 0, 0 - a(-a\\sqrt{3}), a \\cdot a - a(-a)) = a^2(-\\sqrt{3}; \\sqrt{3}; 2)$$\nĐộ dài: $|[\\vec{AM}, \\vec{SD}]| = a^2\\sqrt{(-\\sqrt{3})^2 + (\\sqrt{3})^2 + 2^2} = a^2\\sqrt{10}$.\nTích hỗn tạp:\n$$[\\vec{AM}, \\vec{SD}] \\cdot \\vec{AS} = a^2(-\\sqrt{3} \\cdot a + 0 + 2 \\cdot a\\sqrt{3}) = a^3\\sqrt{3}$$\nKhoảng cách giữa hai đường thẳng chéo nhau $AM$ và $SD$:\n$$d(AM, SD) = \\frac{|[\\vec{AM}, \\vec{SD}] \\cdot \\vec{AS}|}{|[\\vec{AM}, \\vec{SD}]|} = \\frac{a^3\\sqrt{3}}{a^2\\sqrt{10}} = \\frac{a\\sqrt{30}}{10}$$",
     "socraticHint": "Dựng trục tọa độ Oxyz với gốc tại trung điểm H của AB hoặc dựng mặt phẳng chứa đường thẳng này và song song với đường thẳng kia.",
     "difficulty": "Vận dụng cao",
     "examSets": [

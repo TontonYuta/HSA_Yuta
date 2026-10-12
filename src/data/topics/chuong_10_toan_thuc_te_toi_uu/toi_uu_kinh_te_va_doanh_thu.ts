@@ -83,29 +83,29 @@ export const toiUuKinhTeQuestions: Question[] = [
     "chapterName": "Chương 10: Toán ứng dụng & Mô hình hóa tối ưu",
     "topicId": "toi_uu_kinh_te_va_doanh_thu",
     "topicName": "Tối ưu hóa kinh tế, Chi phí & Doanh thu",
-    "content": "Doanh thu bán $x$ sản phẩm là $R(x) = 200x - x^2$ (nghìn đồng). Doanh thu đạt cực đại khi bán bao nhiêu sản phẩm?",
+    "content": "Một công ty sản xuất độc quyền một loại hàng hóa với hàm cầu $p = 120 - 2x$ (trong đó $p$ là giá bán mỗi sản phẩm, $x$ là số lượng sản phẩm sản xuất và bán ra, $0 < x < 60$). Hàm tổng chi phí sản xuất $x$ sản phẩm là $C(x) = x^2 + 30x + 100$. Mức sản lượng $x$ để công ty đạt lợi nhuận lớn nhất là:",
     "options": [
       {
         "key": "A",
-        "content": "$100$"
+        "content": "$15$"
       },
       {
         "key": "B",
-        "content": "$200$"
+        "content": "$20$"
       },
       {
         "key": "C",
-        "content": "$50$"
+        "content": "$12$"
       },
       {
         "key": "D",
-        "content": "$150$"
+        "content": "$18$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Hàm bậc hai đạt cực đại tại đỉnh: $x = -\\frac{b}{2a} = -\\frac{200}{2(-1)} = 100$ sản phẩm.",
-    "socraticHint": "Tìm hoành độ đỉnh parabol của hàm số bậc hai.",
-    "difficulty": "Vận dụng cao",
+    "detailedSolution": "Doanh thu của công ty là hàm số:\n$$R(x) = p \\cdot x = (120 - 2x)x = 120x - 2x^2.$$\nLợi nhuận của công ty:\n$$L(x) = R(x) - C(x) = (120x - 2x^2) - (x^2 + 30x + 100) = -3x^2 + 90x - 100.$$\nĐạo hàm hàm lợi nhuận:\n$$L'(x) = -6x + 90 = 0 \\iff x = 15.$$\nVì hệ số của $x^2$ âm ($-3 < 0$) nên hàm số đạt giá trị cực đại tại đỉnh parabol $x = 15$.\nVậy mức sản lượng để đạt lợi nhuận lớn nhất là $x = 15$.",
+    "socraticHint": "Lợi nhuận bằng Doanh thu trừ Chi phí ($L = R - C$). Tìm cực đại của hàm bậc hai theo $x$.",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -121,23 +121,23 @@ export const toiUuKinhTeQuestions: Question[] = [
     "options": [
       {
         "key": "A",
-        "content": "$1150\(triệu đồng)$"
+        "content": "$1150(triệu đồng)$"
       },
       {
         "key": "B",
-        "content": "$1250\(triệu đồng)$"
+        "content": "$1250(triệu đồng)$"
       },
       {
         "key": "C",
-        "content": "$1050\(triệu đồng)$"
+        "content": "$1050(triệu đồng)$"
       },
       {
         "key": "D",
-        "content": "$1400\(triệu đồng)$"
+        "content": "$1400(triệu đồng)$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Doanh thu từ việc bán $x$ sản phẩm:\n$$R(x) = x \\cdot p(x) = x(120 - x) = 120x - x^2$$\nLợi nhuận của doanh nghiệp:\n$$P(x) = R(x) - C(x) = (120x - x^2) - (x^2 + 20x + 100) = -2x^2 + 100x - 100$$\nHàm lợi nhuận là một tam thức bậc hai có bề lõm quay xuống dưới ($a = -2 < 0$), đạt giá trị lớn nhất tại hoành độ đỉnh:\n$$x = -\\frac{100}{2(-2)} = 25$$\nGiá trị lợi nhuận lớn nhất:\n$$P(25) = -2(25^2) + 100(25) - 100 = -1250 + 2500 - 100 = 1150\(triệu đồng)$$.",
+    "detailedSolution": "Doanh thu từ việc bán $x$ sản phẩm:\n$$R(x) = x \\cdot p(x) = x(120 - x) = 120x - x^2$$\nLợi nhuận của doanh nghiệp:\n$$P(x) = R(x) - C(x) = (120x - x^2) - (x^2 + 20x + 100) = -2x^2 + 100x - 100$$\nHàm lợi nhuận là một tam thức bậc hai có bề lõm quay xuống dưới ($a = -2 < 0$), đạt giá trị lớn nhất tại hoành độ đỉnh:\n$$x = -\\frac{100}{2(-2)} = 25$$\nGiá trị lợi nhuận lớn nhất:\n$$P(25) = -2(25^2) + 100(25) - 100 = -1250 + 2500 - 100 = 1150(triệu đồng)$$.",
     "socraticHint": "Lập hàm lợi nhuận $P(x) = R(x) - C(x)$ rồi tìm đỉnh của parabol bậc hai.",
     "difficulty": "Vận dụng cao",
     "examSets": [
@@ -209,19 +209,19 @@ export const toiUuKinhTeQuestions: Question[] = [
     "options": [
       {
         "key": "A",
-        "content": "$1.800.000\(đồng)$"
+        "content": "$1.800.000(đồng)$"
       },
       {
         "key": "B",
-        "content": "$1.600.000\(đồng)$"
+        "content": "$1.600.000(đồng)$"
       },
       {
         "key": "C",
-        "content": "$1.500.000\(đồng)$"
+        "content": "$1.500.000(đồng)$"
       },
       {
         "key": "D",
-        "content": "$2.000.000\(đồng)$"
+        "content": "$2.000.000(đồng)$"
       }
     ],
     "correctAnswer": "A",
@@ -245,7 +245,7 @@ export const toiUuKinhTeQuestions: Question[] = [
       "1061",
       "1061.0"
     ],
-    "detailedSolution": "Khoảng thời gian từ năm 2020 đến năm 2025 là $n = 2025 - 2020 = 5$ năm.\nTheo công thức tăng trưởng dân số:\n$$N = N_0(1 + r)^n = 1000 \\times (1 + 0.012)^5 = 1000 \\times (1.012)^5$$\nTa tính:\n$$1.012^5 \\approx 1.06145$$\n$$N \\approx 1000 \\times 1.06145 = 1061.45\(nghìn người)$$\nLàm tròn đến hàng đơn vị nghìn người ta được 1061 nghìn người.",
+    "detailedSolution": "Khoảng thời gian từ năm 2020 đến năm 2025 là $n = 2025 - 2020 = 5$ năm.\nTheo công thức tăng trưởng dân số:\n$$N = N_0(1 + r)^n = 1000 \\times (1 + 0.012)^5 = 1000 \\times (1.012)^5$$\nTa tính:\n$$1.012^5 \\approx 1.06145$$\n$$N \\approx 1000 \\times 1.06145 = 1061.45(nghìn người)$$\nLàm tròn đến hàng đơn vị nghìn người ta được 1061 nghìn người.",
     "socraticHint": "Áp dụng công thức tăng trưởng $N = N_0(1+r)^n$ với $n = 5$ năm và làm tròn kết quả.",
     "difficulty": "Vận dụng",
     "examSets": [
@@ -347,7 +347,7 @@ export const toiUuKinhTeQuestions: Question[] = [
       }
     ],
     "correctAnswer": "D",
-    "detailedSolution": "Tổng số quả cam mà bốn cô vợ đã ăn:\n$$S_{vo} = 3 + 2 + 4 + 1 = 10\(quả)$$\nTổng số quả cam mà bốn anh chồng đã ăn:\n$$S_{chong} = 32 - 10 = 22\(quả)$$\nGọi $w_M, w_N, w_P, w_Q$ lần lượt là số quả cam mà các cô vợ của các anh $M, N, P, Q$ đã ăn.\nTheo bài ra:\n- Anh $M$ ăn bằng vợ: $1 \\cdot w_M$.\n- Anh $N$ ăn gấp 2 vợ: $2 \\cdot w_N$.\n- Anh $P$ ăn gấp 3 vợ: $3 \\cdot w_P$.\n- Anh $Q$ ăn gấp 4 vợ: $4 \\cdot w_Q$.\nTổng cam của các anh chồng:\n$$w_M + 2w_N + 3w_P + 4w_Q = 22$$\nTrong đó $(w_M, w_N, w_P, w_Q)$ là một hoán vị của tập hợp $\\{1; 2; 3; 4\\}$.\nThử các trường hợp với các hệ số lớn:\n- $w_Q$ nhân với 4, nên $w_Q$ không thể bằng 4 (vì $4 \\times 4 = 16$, phần còn lại $22 - 16 = 6$ quá nhỏ đối với các hệ số $1, 2, 3$ với ba số $1, 2, 3$: $1 \\times 3 + 2 \\times 2 + 3 \\times 1 = 10 > 6$).\n- Nếu $w_Q = 2$:\n  $$w_M + 2w_N + 3w_P = 22 - 4 \\times 2 = 14$$\n  Ba giá trị còn lại là $\\{1; 3; 4\\}$.\n  Thử $w_P = 1$: $w_M + 2w_N = 14 - 3(1) = 11$. Với $\\{3; 4\\}$: $3 + 2(4) = 11$ (thỏa mãn với $w_M = 3, w_N = 4$)!\nKiểm tra lại hoán vị:\n- Anh $M$ lấy cô $A$ (ăn 3 quả): anh $M$ ăn $1 \\times 3 = 3$ quả.\n- Anh $N$ lấy cô $C$ (ăn 4 quả): anh $N$ ăn $2 \\times 4 = 8$ quả.\n- Anh $P$ lấy cô $D$ (ăn 1 quả): anh $P$ ăn $3 \\times 1 = 3$ quả.\n- Anh $Q$ lấy cô $B$ (ăn 2 quả): anh $Q$ ăn $4 \\times 2 = 8$ quả.\nTổng số cam các anh chồng: $3 + 8 + 3 + 8 = 22$ quả (chính xác).\nVậy vợ của anh $P$ là Cô $D$.",
+    "detailedSolution": "Tổng số quả cam mà bốn cô vợ đã ăn:\n$$S_{vo} = 3 + 2 + 4 + 1 = 10(quả)$$\nTổng số quả cam mà bốn anh chồng đã ăn:\n$$S_{chong} = 32 - 10 = 22(quả)$$\nGọi $w_M, w_N, w_P, w_Q$ lần lượt là số quả cam mà các cô vợ của các anh $M, N, P, Q$ đã ăn.\nTheo bài ra:\n- Anh $M$ ăn bằng vợ: $1 \\cdot w_M$.\n- Anh $N$ ăn gấp 2 vợ: $2 \\cdot w_N$.\n- Anh $P$ ăn gấp 3 vợ: $3 \\cdot w_P$.\n- Anh $Q$ ăn gấp 4 vợ: $4 \\cdot w_Q$.\nTổng cam của các anh chồng:\n$$w_M + 2w_N + 3w_P + 4w_Q = 22$$\nTrong đó $(w_M, w_N, w_P, w_Q)$ là một hoán vị của tập hợp $\\{1; 2; 3; 4\\}$.\nThử các trường hợp với các hệ số lớn:\n- $w_Q$ nhân với 4, nên $w_Q$ không thể bằng 4 (vì $4 \\times 4 = 16$, phần còn lại $22 - 16 = 6$ quá nhỏ đối với các hệ số $1, 2, 3$ với ba số $1, 2, 3$: $1 \\times 3 + 2 \\times 2 + 3 \\times 1 = 10 > 6$).\n- Nếu $w_Q = 2$:\n  $$w_M + 2w_N + 3w_P = 22 - 4 \\times 2 = 14$$\n  Ba giá trị còn lại là $\\{1; 3; 4\\}$.\n  Thử $w_P = 1$: $w_M + 2w_N = 14 - 3(1) = 11$. Với $\\{3; 4\\}$: $3 + 2(4) = 11$ (thỏa mãn với $w_M = 3, w_N = 4$)!\nKiểm tra lại hoán vị:\n- Anh $M$ lấy cô $A$ (ăn 3 quả): anh $M$ ăn $1 \\times 3 = 3$ quả.\n- Anh $N$ lấy cô $C$ (ăn 4 quả): anh $N$ ăn $2 \\times 4 = 8$ quả.\n- Anh $P$ lấy cô $D$ (ăn 1 quả): anh $P$ ăn $3 \\times 1 = 3$ quả.\n- Anh $Q$ lấy cô $B$ (ăn 2 quả): anh $Q$ ăn $4 \\times 2 = 8$ quả.\nTổng số cam các anh chồng: $3 + 8 + 3 + 8 = 22$ quả (chính xác).\nVậy vợ của anh $P$ là Cô $D$.",
     "socraticHint": "Tính tổng số cam các anh chồng ăn là $32 - 10 = 22$, thiết lập phương trình nghiệm nguyên $w_M + 2w_N + 3w_P + 4w_Q = 22$.",
     "difficulty": "Vận dụng",
     "examSets": [
@@ -380,7 +380,7 @@ export const toiUuKinhTeQuestions: Question[] = [
     "correctAnswer": "C",
     "detailedSolution": "Khối lượng muối NaCl ban đầu trong 500 g dung dịch là: $m_{\\text{muối ban đầu}} = 500 \\times 20\\% = 100\\text{ g}$.\nSau khi thêm $x$ gam muối tinh khiết:\n- Khối lượng chất tan mới là: $100 + x\\text{ (g)}$.\n- Khối lượng dung dịch mới là: $500 + x\\text{ (g)}$.\nNồng độ phần trăm của dung dịch mới là:\n$$f(x) = \\frac{100 + x}{500 + x} \\times 100\\%$$",
     "socraticHint": "Nồng độ phần trăm bằng khối lượng chất tan chia cho tổng khối lượng dung dịch mới rồi nhân với 100.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_07_hsa36"
     ],

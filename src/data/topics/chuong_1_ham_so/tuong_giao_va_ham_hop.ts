@@ -8,29 +8,29 @@ export const tuongGiaoHamHopQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "tuong_giao_va_ham_hop",
     "topicName": "Tương giao đồ thị & Số nghiệm hàm hợp",
-    "content": "Số giao điểm của đồ thị hàm số $y = x^3 - 3x^2 + 4$ và trục hoành $Ox$ là:",
+    "content": "Cho hàm số bậc ba $y = f(x)$ có điểm cực đại là $(-1; 2)$ và điểm cực tiểu là $(1; -2)$. Số nghiệm thực phân biệt của phương trình $f(f(x) - 1) = 2$ là:",
     "options": [
       {
         "key": "A",
-        "content": "$2$"
+        "content": "$4$"
       },
       {
         "key": "B",
-        "content": "$1$"
-      },
-      {
-        "key": "C",
         "content": "$3$"
       },
       {
+        "key": "C",
+        "content": "$5$"
+      },
+      {
         "key": "D",
-        "content": "$0$"
+        "content": "$2$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Phương trình hoành độ giao điểm: $x^3 - 3x^2 + 4 = 0 \\iff (x + 1)(x - 2)^2 = 0$.\nPhương trình có 2 nghiệm phân biệt là $x = -1$ và $x = 2$.\nDo đó đồ thị cắt trục hoành tại đúng 2 điểm.",
-    "socraticHint": "Giải phương trình $y = 0$ bằng phương pháp nhẩm nghiệm nguyên.",
-    "difficulty": "Thông hiểu",
+    "detailedSolution": "Từ đồ thị hàm số bậc ba $y = f(x)$, đường thẳng nằm ngang $y = 2$ tiếp xúc với đồ thị tại điểm cực đại $x = -1$ (nghiệm kép) và cắt đồ thị tại một điểm có hoành độ $x = 2$ (nghiệm đơn).\nDo đó phương trình $f(t) = 2 \\iff t = -1$ hoặc $t = 2$.\nÁp dụng với $t = f(x) - 1$:\n1. $f(x) - 1 = -1 \\iff f(x) = 0$.\nVì giá trị cực tiểu là $-2$ và cực đại là $2$, đường thẳng $y = 0$ cắt đồ thị tại $3$ điểm phân biệt (nằm giữa cực tiểu và cực đại).\n2. $f(x) - 1 = 2 \\iff f(x) = 3$.\nVì $3 > 2$ (lớn hơn giá trị cực đại), đường thẳng $y = 3$ chỉ cắt đồ thị tại đúng $1$ điểm phân biệt.\nTổng số nghiệm thực phân biệt là $3 + 1 = 4$.",
+    "socraticHint": "Phương trình hàm hợp $f(t) = 2$ cho các giá trị của $t$, sau đó giải phương trình tương giao $f(x) = t + 1$ dựa trên tung độ cực trị.",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -64,7 +64,7 @@ export const tuongGiaoHamHopQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Phương trình $f(t) = 0$ có 3 nghiệm phân biệt $t_1 in (-\\infty; -2)$, $t_2 in (-1; 1)$, $t_3 in (1; 2)$.\nKhi đó:\n- $f(x) = t_1 < -2$ có đúng 1 nghiệm thực.\n- $f(x) = t_2 in (-2; 2)$ có đúng 3 nghiệm thực phân biệt.\n- $f(x) = t_3 in (-2; 2)$ có đúng 3 nghiệm thực phân biệt.\nTổng cộng có $1 + 3 + 3 = 7$ nghiệm thực phân biệt.",
     "socraticHint": "Đặt $t = f(x)$, giải tìm nghiệm $t$ rồi tương giao đồ thị $y = f(x)$ với các đường thẳng nằm ngang $y = t_i$.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
     ]
@@ -98,7 +98,7 @@ export const tuongGiaoHamHopQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Phương trình $2f(x) - 5 = 0 \\iff f(x) = \\frac{5}{2} = 2.5$.\nSo sánh với giá trị cực trị của hàm số: $y_{\\text{CT}} = -1 < 2.5 < y_{\\text{CĐ}} = 4$.\nDo $2.5$ nằm trong khoảng $(-1; 4)$, đường thẳng $y = 2.5$ cắt đồ thị hàm số tại đúng 3 điểm phân biệt.\nVậy phương trình có đúng 3 nghiệm thực.",
     "socraticHint": "Số nghiệm phương trình $f(x) = c$ bằng số giao điểm giữa đồ thị và đường thẳng ngang $y = c$.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
     ]

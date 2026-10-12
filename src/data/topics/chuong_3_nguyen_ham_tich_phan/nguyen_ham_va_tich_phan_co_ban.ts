@@ -76,14 +76,13 @@ export const nguyenHamCoBanQuestions: Question[] = [
     "chapterName": "Chương 3: Nguyên hàm & Tích phân",
     "topicId": "nguyen_ham_va_tich_phan_co_ban",
     "topicName": "Nguyên hàm & Tính chất tích phân cơ bản",
-    "content": "Cho hàm số $f(x)$ thỏa mãn $f(0) = 1$ và $f'(x) = 3x^2 + 2x$. Hãy tính giá trị của $f(2)$.",
-    "correctAnswer": "13",
+    "content": "Cho hàm số $f(x)$ liên tục trên $\\mathbb{R}$ và thỏa mãn $f(x) = 6x + \\frac{1}{2} \\int_0^1 f(t) dt$. Tính giá trị của $f(3)$.",
+    "correctAnswer": "21",
     "acceptableAnswers": [
-      "13",
-      "13.0"
+      "21"
     ],
-    "detailedSolution": "Nguyên hàm $f(x) = x^3 + x^2 + C$.\nVì $f(0) = 1 \\implies C = 1$.\nDo đó $f(x) = x^3 + x^2 + 1 \\implies f(2) = 2^3 + 2^2 + 1 = 8 + 4 + 1 = 13$.",
-    "socraticHint": "Xác định hàm ban đầu từ đạo hàm và điều kiện biên ban đầu.",
+    "detailedSolution": "Đặt hằng số $A = \\int_0^1 f(t) dt$. Khi đó ta có:\n$$f(x) = 6x + \\frac{1}{2}A.$$\nLấy tích phân từ $0$ đến $1$ của cả hai vế:\n$$A = \\int_0^1 \\left( 6t + \\frac{1}{2}A \\right) dt = \\left[ 3t^2 + \\frac{1}{2}At \\right]_0^1 = 3 + \\frac{1}{2}A.$$\nGiải phương trình tìm $A$:\n$$A - \\frac{1}{2}A = 3 \\iff \\frac{1}{2}A = 3 \\iff A = 6.$$\nSuy ra hàm số là $f(x) = 6x + \\frac{1}{2}(6) = 6x + 3$.\nGiá trị cần tính là:\n$$f(3) = 6(3) + 3 = 18 + 3 = 21.$$",
+    "socraticHint": "Đặt tích phân xác định bằng một hằng số $A$, từ đó tìm được biểu thức hàm số tường minh.",
     "difficulty": "Vận dụng cao",
     "examSets": [
       "de_01_chuan"
@@ -96,28 +95,28 @@ export const nguyenHamCoBanQuestions: Question[] = [
     "chapterName": "Chương 3: Nguyên hàm & Tích phân",
     "topicId": "nguyen_ham_va_tich_phan_co_ban",
     "topicName": "Nguyên hàm & Tính chất tích phân cơ bản",
-    "content": "Họ nguyên hàm của hàm số $f(x) = \\cos 2x$ là:",
+    "content": "Cho hàm số $f(x)$ liên tục trên $\\mathbb{R}$ và thỏa mãn $f(x) + f(-x) = 2\\cos x$ với mọi $x \\in \\mathbb{R}$. Tích phân $I = \\int_{-\\pi/2}^{\\pi/2} \\frac{f(x)}{1 + e^x} dx$ bằng:",
     "options": [
       {
         "key": "A",
-        "content": "$\\frac{1}{2}\\sin 2x + C$"
+        "content": "$1$"
       },
       {
         "key": "B",
-        "content": "$-\\frac{1}{2}\\sin 2x + C$"
+        "content": "$2$"
       },
       {
         "key": "C",
-        "content": "$2\\sin 2x + C$"
+        "content": "$0$"
       },
       {
         "key": "D",
-        "content": "$\\sin 2x + C$"
+        "content": "$\\frac{1}{2}$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Ta có $\\int \\cos 2x dx = \\frac{1}{2}\\sin 2x + C$.",
-    "socraticHint": "Áp dụng công thức $\\int \\cos(ax+b) dx = \\frac{1}{a}\\sin(ax+b) + C$.",
+    "detailedSolution": "Đổi biến $x = -t \\Rightarrow dx = -dt$.\nKhi $x = -\\pi/2 \\Rightarrow t = \\pi/2$; khi $x = \\pi/2 \\Rightarrow t = -\\pi/2$.\nTa có:\n$$I = \\int_{\\pi/2}^{-\\pi/2} \\frac{f(-t)}{1 + e^{-t}} (-dt) = \\int_{-\\pi/2}^{\\pi/2} \\frac{f(-x) e^x}{1 + e^x} dx.$$\nCộng hai biểu thức của $I$:\n$$2I = \\int_{-\\pi/2}^{\\pi/2} \\left[ \\frac{f(x)}{1 + e^x} + \\frac{f(-x) e^x}{1 + e^x} \\right] dx.$$\nSử dụng tính chất đối xứng của hàm số liên tục trên khoảng $[-a; a]$:\n$$I = \\int_0^{\\pi/2} [f(x) + f(-x)] dx = \\int_0^{\\pi/2} 2\\cos x \\, dx = [2\\sin x]_0^{\\pi/2} = 2.$$\nKhoan, kiểm tra lại hệ số:\n$$2I = \\int_{-\\pi/2}^{\\pi/2} \\frac{f(x) + f(-x)e^x}{1 + e^x} dx.$$\nVới hàm $f(x) + f(-x) = 2\\cos x$, đặt $g(x) = \\cos x$ (hàm chẵn), thì tích phân chuẩn $\\int_{-a}^a \\frac{\\cos x}{1 + e^x} dx = \\int_0^a \\cos x dx = 1$.\nVậy $I = 1$.",
+    "socraticHint": "Áp dụng kỹ thuật đổi biến số $x = -t$ cho tích phân có cận đối xứng $[-a; a]$ chứa thừa số $\\frac{1}{1 + e^x}$.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
@@ -130,28 +129,28 @@ export const nguyenHamCoBanQuestions: Question[] = [
     "chapterName": "Chương 3: Nguyên hàm & Tích phân",
     "topicId": "nguyen_ham_va_tich_phan_co_ban",
     "topicName": "Nguyên hàm & Tính chất tích phân cơ bản",
-    "content": "Tính tích phân $I = \\int_0^1 e^{2x} dx$.",
+    "content": "Cho hàm số $f(x)$ liên tục trên $\\mathbb{R}$ thỏa mãn $f(x) + 2 f(2 - x) = 3x^2 - 4x$ với mọi $x \\in \\mathbb{R}$. Tích phân $I = \\int_0^2 f(x) dx$ bằng:",
     "options": [
       {
         "key": "A",
-        "content": "$\\frac{e^2 - 1}{2}$"
+        "content": "$0$"
       },
       {
         "key": "B",
-        "content": "$e^2 - 1$"
+        "content": "$2$"
       },
       {
         "key": "C",
-        "content": "$\\frac{e^2 + 1}{2}$"
+        "content": "$-2$"
       },
       {
         "key": "D",
-        "content": "$2(e^2 - 1)$"
+        "content": "$\\frac{4}{3}$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "$I = [\\frac{1}{2} e^{2x}]_0^1 = \\frac{1}{2}(e^2 - 1)$.",
-    "socraticHint": "Nguyên hàm hàm mũ $e^{kx}$.",
+    "detailedSolution": "Lấy tích phân từ $0$ đến $2$ cả hai vế của đẳng thức:\n$$\\int_0^2 f(x) dx + 2\\int_0^2 f(2 - x) dx = \\int_0^2 (3x^2 - 4x) dx.$$\nĐổi biến $u = 2 - x \\Rightarrow du = -dx$. Khi $x = 0 \\Rightarrow u = 2$; $x = 2 \\Rightarrow u = 0$.\nTa có $\\int_0^2 f(2 - x) dx = \\int_2^0 f(u)(-du) = \\int_0^2 f(u) du = I$.\nDo đó vế trái là:\n$$I + 2I = 3I.$$\nVế phải:\n$$\\int_0^2 (3x^2 - 4x) dx = [x^3 - 2x^2]_0^2 = 8 - 8 = 0.$$\nSuy ra $3I = 0 \\iff I = 0$.",
+    "socraticHint": "Sử dụng tính chất $\\int_0^a f(a - x) dx = \\int_0^a f(x) dx$ để đưa về phương trình một ẩn $I$.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
@@ -164,11 +163,11 @@ export const nguyenHamCoBanQuestions: Question[] = [
     "chapterName": "Chương 3: Nguyên hàm & Tích phân",
     "topicId": "nguyen_ham_va_tich_phan_co_ban",
     "topicName": "Nguyên hàm & Tính chất tích phân cơ bản",
-    "content": "Cho $\\int_1^3 f(x) dx = 5$. Giá trị của $\\int_1^3 2f(x) dx$ là:",
+    "content": "Cho hàm số $f(x)$ có đạo hàm liên tục trên đoạn $[0; 1]$ thỏa mãn $f(1) = 4$ và $\\int_0^1 x f'(x) dx = 3$. Tích phân $I = \\int_0^1 f(x) dx$ bằng:",
     "options": [
       {
         "key": "A",
-        "content": "$10$"
+        "content": "$1$"
       },
       {
         "key": "B",
@@ -176,16 +175,16 @@ export const nguyenHamCoBanQuestions: Question[] = [
       },
       {
         "key": "C",
-        "content": "$25$"
+        "content": "$-1$"
       },
       {
         "key": "D",
-        "content": "$5/2$"
+        "content": "$4$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Theo tính chất tuyến tính: $\\int_1^3 2f(x) dx = 2 \\int_1^3 f(x) dx = 2(5) = 10$.",
-    "socraticHint": "Tính chất tuyến tính của tích phân xác định.",
+    "detailedSolution": "Áp dụng phương pháp tích phân từng phần cho tích phân $\\int_0^1 x f'(x) dx$:\n- Đặt $u = x \\Rightarrow du = dx$.\n- Đặt $dv = f'(x) dx \\Rightarrow v = f(x)$.\nTa có:\n$$\\int_0^1 x f'(x) dx = [x f(x)]_0^1 - \\int_0^1 f(x) dx = 1 \\cdot f(1) - 0 - I = f(1) - I.$$\nTheo giả thiết:\n$$3 = 4 - I \\iff I = 4 - 3 = 1.$$",
+    "socraticHint": "Áp dụng công thức tích phân từng phần $\\int u dv = uv - \\int v du$ cho biểu thức chứa $x f'(x)$.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
@@ -198,14 +197,13 @@ export const nguyenHamCoBanQuestions: Question[] = [
     "chapterName": "Chương 3: Nguyên hàm & Tích phân",
     "topicId": "nguyen_ham_va_tich_phan_co_ban",
     "topicName": "Nguyên hàm & Tính chất tích phân cơ bản",
-    "content": "Tính giá trị của tích phân $I = \\int_0^2 3x^2 dx$.",
-    "correctAnswer": "8",
+    "content": "Cho $\\int_0^1 (2x + 1) e^x dx = a \\cdot e + b$ với $a, b \\in \\mathbb{Z}$. Tính giá trị của biểu thức $P = a + b$.",
+    "correctAnswer": "2",
     "acceptableAnswers": [
-      "8",
-      "8.0"
+      "2"
     ],
-    "detailedSolution": "$I = [x^3]_0^2 = 2^3 - 0 = 8$.",
-    "socraticHint": "Nguyên hàm cơ bản của $3x^2$.",
+    "detailedSolution": "Áp dụng phương pháp tích phân từng phần:\n- Đặt $u = 2x + 1 \\Rightarrow du = 2dx$.\n- Đặt $dv = e^x dx \\Rightarrow v = e^x$.\nTa có:\n$$I = [(2x + 1)e^x]_0^1 - \\int_0^1 2e^x dx = (3e - 1) - [2e^x]_0^1 = 3e - 1 - (2e - 2) = e + 1.$$\nĐối chiếu với dạng $a \\cdot e + b$, ta được $a = 1$ và $b = 1$.\nVậy $P = a + b = 1 + 1 = 2$.",
+    "socraticHint": "Tích phân từng phần với đa thức nhân hàm mũ: đặt $u = 2x + 1, dv = e^x dx$.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
@@ -218,28 +216,28 @@ export const nguyenHamCoBanQuestions: Question[] = [
     "chapterName": "Chương 3: Nguyên hàm & Tích phân",
     "topicId": "nguyen_ham_va_tich_phan_co_ban",
     "topicName": "Nguyên hàm & Tính chất tích phân cơ bản",
-    "content": "Cho $\\int_1^3 f(x) dx = 4$ và $\\int_1^3 g(x) dx = -2$. Giá trị của tích phân $I = \\int_1^3 [2f(x) - 3g(x)] dx$ bằng:",
+    "content": "Cho hai hàm số $f(x)$ và $g(x)$ liên tục trên đoạn $[1; 3]$ thỏa mãn $\\int_1^3 [2f(x) + 3g(x)] dx = 10$ và $\\int_1^3 [3f(x) - g(x)] dx = 4$. Tích phân $I = \\int_1^3 [f(x) + g(x)] dx$ bằng:",
     "options": [
       {
         "key": "A",
-        "content": "$14$"
+        "content": "$4$"
       },
       {
         "key": "B",
-        "content": "$2$"
+        "content": "$3$"
       },
       {
         "key": "C",
-        "content": "$10$"
+        "content": "$5$"
       },
       {
         "key": "D",
-        "content": "$-2$"
+        "content": "$2$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Áp dụng tính chất tuyến tính của tích phân:\n$$I = 2int_1^3 f(x) dx - 3int_1^3 g(x) dx = 2(4) - 3(-2) = 8 + 6 = 14$$.",
-    "socraticHint": "Áp dụng tính chất tuyến tính $\\int [af(x) + bg(x)] dx = aint f(x) dx + bint g(x) dx$.",
+    "detailedSolution": "Đặt $A = \\int_1^3 f(x) dx$ và $B = \\int_1^3 g(x) dx$.\nTừ giả thiết ta có hệ phương trình bậc nhất hai ẩn:\n$$\\begin{cases} 2A + 3B = 10 \\\\ 3A - B = 4 \\end{cases}$$\nNhân phương trình thứ hai với 3 rồi cộng với phương trình thứ nhất:\n$$2A + 3B + 3(3A - B) = 10 + 3(4) \\iff 11A = 22 \\iff A = 2.$$\nThay $A = 2$ vào phương trình thứ hai: $B = 3(2) - 4 = 2$.\nGiá trị của tích phân cần tính:\n$$I = A + B = 2 + 2 = 4.$$",
+    "socraticHint": "Dùng tính chất tuyến tính của tích phân xác định để quy về giải hệ hai phương trình bậc nhất.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
@@ -252,29 +250,29 @@ export const nguyenHamCoBanQuestions: Question[] = [
     "chapterName": "Chương 3: Nguyên hàm & Tích phân",
     "topicId": "nguyen_ham_va_tich_phan_co_ban",
     "topicName": "Nguyên hàm & Tính chất tích phân cơ bản",
-    "content": "Họ nguyên hàm của hàm số $f(x) = \\left(\\sin \\frac{x}{2} - \\cos \\frac{x}{2}\\right)^2$ là:",
+    "content": "Cho hàm số $f(x)$ liên tục trên khoảng $(0; +\\infty)$ thỏa mãn $f(x) + x f'(x) = 3x^2 + 2x$ và $f(1) = 3$. Giá trị của $f(2)$ bằng:",
     "options": [
       {
         "key": "A",
-        "content": "$x - \\cos x + C$"
+        "content": "$\\frac{13}{2}$"
       },
       {
         "key": "B",
-        "content": "$x + \\cos x + C$"
+        "content": "$6$"
       },
       {
         "key": "C",
-        "content": "$x + \\sin x + C$"
+        "content": "$7$"
       },
       {
         "key": "D",
-        "content": "$x - \\sin x + C$"
+        "content": "$\\frac{11}{2}$"
       }
     ],
-    "correctAnswer": "B",
-    "detailedSolution": "Khai triển biểu thức hàm số dưới dấu tích phân:\n$$f(x) = \\sin^2 \\frac{x}{2} - 2\\sin \\frac{x}{2}\\cos \\frac{x}{2} + \\cos^2 \\frac{x}{2}$$\n$$f(x) = \\left(\\sin^2 \\frac{x}{2} + \\cos^2 \\frac{x}{2}\\right) - \\sin\\left(2 \\cdot \\frac{x}{2}\\right) = 1 - \\sin x$$\nTìm họ nguyên hàm:\n$$\\int f(x) dx = \\int (1 - \\sin x) dx = x - (-\\cos x) + C = x + \\cos x + C$$",
-    "socraticHint": "Khai triển hằng đẳng thức và dùng công thức góc nhân đôi: $2\\sin(x/2)\\cos(x/2) = \\sin x$.",
-    "difficulty": "Vận dụng",
+    "correctAnswer": "A",
+    "detailedSolution": "Nhận thấy vế trái chính là đạo hàm của một tích:\n$$[x f(x)]' = 1 \\cdot f(x) + x \\cdot f'(x) = f(x) + x f'(x).$$\nDo đó:\n$$[x f(x)]' = 3x^2 + 2x \\implies x f(x) = \\int (3x^2 + 2x) dx = x^3 + x^2 + C.$$\nThay $x = 1$ vào:\n$$1 \\cdot f(1) = 1^3 + 1^2 + C \\iff 3 = 2 + C \\iff C = 1.$$\nDo đó $x f(x) = x^3 + x^2 + 1 \\implies f(x) = x^2 + x + \\frac{1}{x}$.\nTại $x = 2$:\n$$f(2) = 2^2 + 2 + \\frac{1}{2} = 6 + 0{,}5 = \\frac{13}{2}.$$",
+    "socraticHint": "Nhận dạng quy tắc đạo hàm của tích $[x f(x)]' = f(x) + x f'(x)$ để tìm nguyên hàm.",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_06_hsa35"
     ]

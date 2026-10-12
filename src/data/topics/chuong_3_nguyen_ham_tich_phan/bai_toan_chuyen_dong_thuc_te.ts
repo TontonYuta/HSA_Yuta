@@ -64,7 +64,7 @@ export const chuyenDongTichPhanQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Quãng đường vật di chuyển từ $t = 1$ đến $t = 3$ là tích phân của vận tốc:\n$$s = \\int_1^3 v(t) dt = \\int_1^3 (3t^2 - 2t) dt = l\\left[ t^3 - t^2 \\right]_1^3$$\n$$= (3^3 - 3^2) - (1^3 - 1^2) = (27 - 9) - (1 - 1) = 18\\text{ m}$$.",
     "socraticHint": "Quãng đường chuyển động trong khoảng thời gian $[t_1; t_2]$ bằng $\\int_{t_1}^{t_2} v(t) dt$.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
     ]

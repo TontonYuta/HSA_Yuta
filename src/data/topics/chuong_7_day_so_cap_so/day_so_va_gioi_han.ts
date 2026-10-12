@@ -43,29 +43,29 @@ export const daySoGioiHanQuestions: Question[] = [
     "chapterName": "Chương 7: Dãy số, Cấp số cộng & Cấp số nhân",
     "topicId": "day_so_va_gioi_han",
     "topicName": "Dãy số & Giới hạn dãy số",
-    "content": "Cho cấp số cộng có $u_1 = 2$ và công sai $d = 3$. Số hạng thứ 10 là:",
+    "content": "Cho dãy số $(u_n)$ xác định bởi $u_1 = 1$ và $u_{n+1} = \\frac{u_n}{\\sqrt{1 + 3u_n^2}}$ với mọi $n \\ge 1$. Giới hạn $\\lim\\limits_{n \\to +\\infty} (\\sqrt{n} \\cdot u_n)$ bằng:",
     "options": [
       {
         "key": "A",
-        "content": "$29$"
+        "content": "$\\frac{\\sqrt{3}}{3}$"
       },
       {
         "key": "B",
-        "content": "$32$"
+        "content": "$\\frac{1}{3}$"
       },
       {
         "key": "C",
-        "content": "$27$"
+        "content": "$\\sqrt{3}$"
       },
       {
         "key": "D",
-        "content": "$30$"
+        "content": "$0$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "$u_{10} = u_1 + 9d = 2 + 9(3) = 29$.",
-    "socraticHint": "Áp dụng công thức $u_n = u_1 + (n - 1)d$.",
-    "difficulty": "Vận dụng",
+    "detailedSolution": "Dễ thấy $u_n > 0, \\forall n$. Nghịch đảo và bình phương hai vế hệ thức truy hồi:\n$$\\frac{1}{u_{n+1}^2} = \\frac{1 + 3u_n^2}{u_n^2} = \\frac{1}{u_n^2} + 3.$$\nĐặt $v_n = \\frac{1}{u_n^2}$. Khi đó $v_1 = 1$ và $v_{n+1} = v_n + 3$.\nDo đó dãy $(v_n)$ là cấp số cộng có số hạng đầu $v_1 = 1$ và công sai $d = 3$.\nSố hạng tổng quát: $v_n = 1 + 3(n - 1) = 3n - 2$.\nSuy ra $u_n = \\frac{1}{\\sqrt{3n - 2}}$.\nGiới hạn cần tìm:\n$$\\lim_{n \\to +\\infty} (\\sqrt{n} \\cdot u_n) = \\lim_{n \\to +\\infty} \\frac{\\sqrt{n}}{\\sqrt{3n - 2}} = \\lim_{n \\to +\\infty} \\frac{1}{\\sqrt{3 - \\frac{2}{n}}} = \\frac{1}{\\sqrt{3}} = \\frac{\\sqrt{3}}{3}.$$",
+    "socraticHint": "Đặt biến phụ $v_n = \\frac{1}{u_n^2}$ để đưa hệ thức phi tuyến về cấp số cộng quen thuộc.",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -77,28 +77,28 @@ export const daySoGioiHanQuestions: Question[] = [
     "chapterName": "Chương 7: Dãy số, Cấp số cộng & Cấp số nhân",
     "topicId": "day_so_va_gioi_han",
     "topicName": "Dãy số & Giới hạn dãy số",
-    "content": "Giới hạn $\\lim\\limits_{n \\to +\\infty} \\frac{3n^2 - 2n + 5}{2n^2 + n - 1}$ bằng:",
+    "content": "Giới hạn $\\lim\\limits_{x \\to 1} \\frac{\\sqrt{2x + 2} - 2}{x^2 - 1}$ bằng:",
     "options": [
       {
         "key": "A",
-        "content": "$\\frac{3}{2}$"
+        "content": "$\\frac{1}{4}$"
       },
       {
         "key": "B",
-        "content": "$1$"
+        "content": "$\\frac{1}{2}$"
       },
       {
         "key": "C",
-        "content": "$3$"
+        "content": "$\\frac{1}{8}$"
       },
       {
         "key": "D",
-        "content": "$0$"
+        "content": "$1$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Chia cả tử và mẫu cho $n^2$ bậc cao nhất:\n$$\\lim\\limits_{n \\to +\\infty} \\frac{3n^2 - 2n + 5}{2n^2 + n - 1} = \\lim \\frac{3 - \\frac{2}{n} + \\frac{5}{n^2}}{2 + \\frac{1}{n} - \\frac{1}{n^2}} = \\frac{3 - 0 + 0}{2 + 0 - 0} = \\frac{3}{2}$$.",
-    "socraticHint": "Giới hạn tỉ số hai đa thức cùng bậc bằng tỉ số hai hệ số của bậc cao nhất.",
+    "detailedSolution": "Nhân lượng liên hợp ở tử số:\n$$\\frac{\\sqrt{2x + 2} - 2}{x^2 - 1} = \\frac{(2x + 2) - 4}{(x - 1)(x + 1)(\\sqrt{2x + 2} + 2)} = \\frac{2(x - 1)}{(x - 1)(x + 1)(\\sqrt{2x + 2} + 2)}.$$\nKhử nhân tử chung $(x - 1)$:\n$$= \\frac{2}{(x + 1)(\\sqrt{2x + 2} + 2)}.$$\nKhi $x \\to 1$:\n$$\\lim_{x \\to 1} \\frac{2}{(x + 1)(\\sqrt{2x + 2} + 2)} = \\frac{2}{(1 + 1)(2 + 2)} = \\frac{2}{2 \\times 4} = \\frac{1}{4}.$$",
+    "socraticHint": "Khử dạng vô định $0/0$ bằng phương pháp nhân liên hợp.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"

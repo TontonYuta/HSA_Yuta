@@ -8,29 +8,29 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Cho hàm số $y = \\frac{2x - 1}{x + 1}$. Khẳng định nào sau đây là đúng?",
+    "content": "Cho hàm số $y = \\frac{x^2 - 2mx + 3m - 2}{x - 1}$. Có bao nhiêu giá trị nguyên của tham số $m \\in [-10; 10]$ để hàm số đồng biến trên từng khoảng xác định của nó?",
     "options": [
       {
         "key": "A",
-        "content": "Hàm số đồng biến trên các khoảng $(-\\infty; -1)$ và $(-1; +\\infty)$"
+        "content": "$12$"
       },
       {
         "key": "B",
-        "content": "Hàm số nghịch biến trên $\\mathbb{R} \\setminus \\{-1\\}$"
+        "content": "$11$"
       },
       {
         "key": "C",
-        "content": "Hàm số đồng biến trên $\\mathbb{R}$"
+        "content": "$10$"
       },
       {
         "key": "D",
-        "content": "Hàm số có cực trị tại $x = -1$"
+        "content": "$13$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Đạo hàm $y' = \\frac{2(1) - (-1)(1)}{(x + 1)^2} = \\frac{3}{(x + 1)^2} > 0$ với mọi $x \\ne -1$.\nVậy hàm số đồng biến trên từng khoảng xác định $(-\\infty; -1)$ và $(-1; +\\infty)$.",
-    "socraticHint": "Dấu của đạo hàm hàm phân thức bậc 1 trên bậc 1 quyết định tính đồng biến hoặc nghịch biến trên từng khoảng.",
-    "difficulty": "Thông hiểu",
+    "detailedSolution": "Tập xác định: $D = \\mathbb{R} \\setminus \\{1\\}$.\nĐạo hàm:\n$$y' = \\frac{(2x - 2m)(x - 1) - (x^2 - 2mx + 3m - 2)}{(x - 1)^2} = \\frac{x^2 - 2x - m + 2}{(x - 1)^2}.$$\nHàm số đồng biến trên từng khoảng xác định khi và chỉ khi:\n$$y' \\ge 0, \\forall x \\ne 1 \\iff g(x) = x^2 - 2x - m + 2 \\ge 0, \\forall x \\ne 1.$$\nĐiều này tương đương với tam thức bậc hai $g(x)$ có biệt thức $\\Delta' \\le 0$:\n$$\\Delta' = (-1)^2 - (-m + 2) = 1 + m - 2 = m - 1 \\le 0 \\iff m \\le 1.$$\n(Khi $m = 1$, $g(x) = (x - 1)^2 \\ge 0$ và triệt tiêu tại $x = 1 \\notin D$, hàm số vẫn đồng biến).\nVì $m \\in [-10; 10]$ và $m \\in \\mathbb{Z}$ nên $m \\in \\{-10; -9; \\dots; 0; 1\\}$.\nSố giá trị nguyên của $m$ là $1 - (-10) + 1 = 12$.",
+    "socraticHint": "Hàm phân thức bậc hai trên bậc nhất đồng biến trên từng khoảng xác định khi tử số của đạo hàm luôn không âm.",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -42,28 +42,28 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Đạo hàm của hàm số $y = x^4 - 2x^2 + 1$ là:",
+    "content": "Cho hàm số $y = f(x)$ có bảng xét dấu của đạo hàm $f'(x)$ như sau: $f'(x) > 0$ trên $(-\\infty; -1)$ và $(2; +\\infty)$; $f'(x) < 0$ trên $(-1; 2)$. Hàm số $g(x) = f(3 - 2x)$ đồng biến trên khoảng nào dưới đây?",
     "options": [
       {
         "key": "A",
-        "content": "$y' = 4x^3 - 4x$"
+        "content": "$\\left(\\frac{1}{2}; 2\\right)$"
       },
       {
         "key": "B",
-        "content": "$y' = 4x^3 - 2x$"
+        "content": "$\\left(-\\infty; \\frac{1}{2}\\right)$"
       },
       {
         "key": "C",
-        "content": "$y' = x^3 - 4x$"
+        "content": "$(2; +\\infty)$"
       },
       {
         "key": "D",
-        "content": "$y' = 4x^3 - 4$"
+        "content": "$(-1; 2)$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "$y' = 4x^3 - 2(2x) = 4x^3 - 4x$.",
-    "socraticHint": "Quy tắc đạo hàm $(x^n)' = n x^{n-1}$.",
+    "detailedSolution": "Ta có $g'(x) = [f(3 - 2x)]' = -2 f'(3 - 2x)$.\nHàm số $g(x)$ đồng biến khi và chỉ khi:\n$$g'(x) \\ge 0 \\iff -2 f'(3 - 2x) \\ge 0 \\iff f'(3 - 2x) \\le 0.$$\nTừ bảng xét dấu của $f'(x)$, ta có $f'(t) \\le 0 \\iff -1 \\le t \\le 2$.\nDo đó:\n$$-1 \\le 3 - 2x \\le 2 \\iff -4 \\le -2x \\le -1 \\iff \\frac{1}{2} \\le x \\le 2.$$\nVậy hàm số $g(x)$ đồng biến trên khoảng $\\left(\\frac{1}{2}; 2\\right)$.",
+    "socraticHint": "Áp dụng quy tắc đạo hàm hàm hợp $g'(x) = u'(x) \\cdot f'(u(x))$ và đổi chiều bất đẳng thức do hệ số âm.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
@@ -130,7 +130,7 @@ export const donDieuThamSoMQuestions: Question[] = [
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Tập xác định $D = \\mathbb{R} \\setminus \{1\}$.\nĐạo hàm: $y' = \\frac{1(-1) - m(1)}{(x - 1)^2} = \\frac{-1 - m}{(x - 1)^2}$.\nHàm số nghịch biến trên từng khoảng xác định khi và chỉ khi:\n$$y' < 0, \\forall x \\ne 1 \\iff -1 - m < 0 \\iff m > -1$$.\n(Lưu ý: Đối với hàm phân thức bậc 1/bậc 1, dấu đạo hàm không được phép bằng 0 vì khi đó hàm số suy biến thành hàm hằng).",
+    "detailedSolution": "Tập xác định $D = \\mathbb{R} \\setminus {1}$.\nĐạo hàm: $y' = \\frac{1(-1) - m(1)}{(x - 1)^2} = \\frac{-1 - m}{(x - 1)^2}$.\nHàm số nghịch biến trên từng khoảng xác định khi và chỉ khi:\n$$y' < 0, \\forall x \\ne 1 \\iff -1 - m < 0 \\iff m > -1$$.\n(Lưu ý: Đối với hàm phân thức bậc 1/bậc 1, dấu đạo hàm không được phép bằng 0 vì khi đó hàm số suy biến thành hàm hằng).",
     "socraticHint": "Hàm nhất biến nghịch biến khi tử số của đạo hàm mang dấu âm ngặt.",
     "difficulty": "Vận dụng cao",
     "examSets": [
@@ -301,29 +301,29 @@ export const donDieuThamSoMQuestions: Question[] = [
     "id": 281,
     "type": "mcq",
     "topicId": "don_dieu_tham_so_m",
-    "content": "Đạo hàm của hàm số $y = \\sqrt{x^2 - 3x + 1}$ với mọi $x$ thuộc tập xác định là:",
+    "content": "Cho hàm số bậc ba $y = f(x)$ có bảng biến thiên với các điểm cực trị là $x = -2$ và $x = 1$. Biết rằng $f'(x) < 0$ trên khoảng $(-2; 1)$. Hàm số $g(x) = f(x^2 - 3)$ nghịch biến trên khoảng nào dưới đây?",
     "options": [
       {
         "key": "A",
-        "content": "$y' = \\frac{2x - 3}{2\\sqrt{x^2 - 3x + 1}}$"
+        "content": "$(1; 2)$"
       },
       {
         "key": "B",
-        "content": "$y' = \\frac{2x - 3}{\\sqrt{x^2 - 3x + 1}}$"
+        "content": "$(0; 1)$"
       },
       {
         "key": "C",
-        "content": "$y' = \\frac{1}{2\\sqrt{x^2 - 3x + 1}}$"
+        "content": "$(2; 3)$"
       },
       {
         "key": "D",
-        "content": "$y' = \\frac{x - 3}{2\\sqrt{x^2 - 3x + 1}}$"
+        "content": "$(-1; 0)$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Áp dụng công thức đạo hàm hàm hợp căn bậc hai: $(\\sqrt{u})' = \\frac{u'}{2\\sqrt{u}}$.\nVới $u(x) = x^2 - 3x + 1 \\implies u'(x) = 2x - 3$.\nDo đó:\n$$y' = \\frac{2x - 3}{2\\sqrt{x^2 - 3x + 1}}$$",
-    "socraticHint": "Công thức đạo hàm hàm hợp căn thức bậc hai $(\\sqrt{u})' = \\frac{u'}{2\\sqrt{u}}$.",
-    "difficulty": "Thông hiểu",
+    "detailedSolution": "Ta có $g'(x) = [x^2 - 3]' \\cdot f'(x^2 - 3) = 2x \\cdot f'(x^2 - 3)$.\nHàm số $g(x)$ nghịch biến khi và chỉ khi $g'(x) \\le 0$.\nXét với $x > 0$:\n$$g'(x) \\le 0 \\iff f'(x^2 - 3) \\le 0.$$\nTừ giả thiết, $f'(t) \\le 0 \\iff -2 \\le t \\le 1$.\nDo đó:\n$$-2 \\le x^2 - 3 \\le 1 \\iff 1 \\le x^2 \\le 4.$$\nVì $x > 0$ nên $1 \\le x \\le 2$.\nVậy hàm số $g(x)$ nghịch biến trên khoảng $(1; 2)$.",
+    "socraticHint": "Tính đạo hàm hàm hợp $g'(x) = 2x f'(x^2 - 3)$ rồi xét dấu với từng trường hợp của $x$.",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_07_hsa36"
     ],

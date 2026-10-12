@@ -42,28 +42,28 @@ export const matPhangDuongThangQuestions: Question[] = [
     "chapterName": "Chương 5: Phương pháp tọa độ trong không gian Oxyz",
     "topicId": "mat_phang_va_duong_thang",
     "topicName": "Mặt phẳng & Đường thẳng trong không gian",
-    "content": "Mặt phẳng $(P)$ đi qua $A(1; -2; 3)$ và vuông góc với đường thẳng $d: \\frac{x-2}{3} = \\frac{y+1}{-1} = \\frac{z}{2}$ có phương trình:",
+    "content": "Trong không gian $Oxyz$, cho hai đường thẳng chéo nhau $d_1: \\frac{x - 1}{2} = \\frac{y}{1} = \\frac{z + 1}{-1}$ và $d_2: \\frac{x + 1}{1} = \\frac{y - 2}{2} = \\frac{z}{1}$. Mặt phẳng $(P)$ chứa đường thẳng $d_1$ và song song với đường thẳng $d_2$ có phương trình là:",
     "options": [
       {
         "key": "A",
-        "content": "$3x - y + 2z - 11 = 0$"
+        "content": "$x - y + z = 0$"
       },
       {
         "key": "B",
-        "content": "$3x - y + 2z + 11 = 0$"
+        "content": "$x + y + z - 2 = 0$"
       },
       {
         "key": "C",
-        "content": "$x - 2y + 3z - 14 = 0$"
+        "content": "$x - y - z - 2 = 0$"
       },
       {
         "key": "D",
-        "content": "$3x + y - 2z + 5 = 0$"
+        "content": "$x + y - z = 0$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Vectơ pháp tuyến của $(P)$ là $\\vec{u}_d = (3; -1; 2)$.\nPhương trình: $3(x - 1) - 1(y + 2) + 2(z - 3) = 0 \\iff 3x - y + 2z - 11 = 0$.",
-    "socraticHint": "Mặt phẳng vuông góc đường thẳng thì vectơ chỉ phương của đường thẳng là vectơ pháp tuyến của mặt phẳng.",
+    "detailedSolution": "Vectơ chỉ phương của $d_1$ là $\\vec{u}_1 = (2; 1; -1)$ và của $d_2$ là $\\vec{u}_2 = (1; 2; 1)$.\nĐường thẳng $d_1$ đi qua điểm $M(1; 0; -1)$.\nVectơ pháp tuyến của mặt phẳng $(P)$ cùng phương với tích có hướng $[\\\\vec{u}_1, \\vec{u}_2]$:\n$$[\\vec{u}_1, \\vec{u}_2] = (1(1) - (-1)(2); (-1)(1) - 2(1); 2(2) - 1(1)) = (3; -3; 3) \\sim (1; -1; 1).$$\nPhương trình mặt phẳng $(P)$ đi qua $M(1; 0; -1)$ nhận $\\vec{n} = (1; -1; 1)$ làm VTPT:\n$$1(x - 1) - 1(y - 0) + 1(z + 1) = 0 \\iff x - y + z = 0.$$\nĐiểm $N(-1; 2; 0) \\in d_2$ không thỏa mãn phương trình $(P)$ ($-1 - 2 + 0 = -3 \\ne 0$), nên $d_2 \\parallel (P)$.",
+    "socraticHint": "Vectơ pháp tuyến của mặt phẳng chứa $d_1$ và song song $d_2$ chính là tích có hướng của hai vectơ chỉ phương.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
@@ -76,28 +76,28 @@ export const matPhangDuongThangQuestions: Question[] = [
     "chapterName": "Chương 5: Phương pháp tọa độ trong không gian Oxyz",
     "topicId": "mat_phang_va_duong_thang",
     "topicName": "Mặt phẳng & Đường thẳng trong không gian",
-    "content": "Mặt phẳng trung trực của đoạn thẳng $AB$ với $A(1; 1; -2)$ và $B(3; -1; 0)$ có phương trình:",
+    "content": "Trong không gian $Oxyz$, cho điểm $A(2; 1; 4)$ và đường thẳng $d: \\frac{x - 1}{1} = \\frac{y - 2}{1} = \\frac{z - 1}{2}$. Tọa độ hình chiếu vuông góc của điểm $A$ lên đường thẳng $d$ là:",
     "options": [
       {
         "key": "A",
-        "content": "$x - y + z - 1 = 0$"
+        "content": "$(2; 3; 3)$"
       },
       {
         "key": "B",
-        "content": "$x - y + z + 1 = 0$"
+        "content": "$(1; 2; 1)$"
       },
       {
         "key": "C",
-        "content": "$2x - 2y + 2z - 3 = 0$"
+        "content": "$(0; 1; -1)$"
       },
       {
         "key": "D",
-        "content": "$x + y - z - 2 = 0$"
+        "content": "$(3; 4; 5)$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Trung điểm $M(2; 0; -1)$. VTPT $\\vec{AB} = (2; -2; 2) = 2(1; -1; 1)$.\nPhương trình: $1(x - 2) - 1(y - 0) + 1(z + 1) = 0 \\iff x - y + z - 1 = 0$.",
-    "socraticHint": "Mặt phẳng trung trực đi qua trung điểm và vuông góc với đoạn thẳng.",
+    "detailedSolution": "Phương trình tham số của $d$: $x = 1 + t, y = 2 + t, z = 1 + 2t$.\nGọi $H(1 + t; 2 + t; 1 + 2t) \\in d$ là hình chiếu vuông góc của $A$ lên $d$.\nVectơ $\\vec{AH} = (t - 1; t + 1; 2t - 3)$.\nVectơ chỉ phương của $d$ là $\\vec{u}_d = (1; 1; 2)$.\nVì $AH \\perp d$ nên:\n$$\\vec{AH} \\cdot \\vec{u}_d = 0 \\iff 1(t - 1) + 1(t + 1) + 2(2t - 3) = 0$$\n$$\\iff t - 1 + t + 1 + 4t - 6 = 0 \\iff 6t - 6 = 0 \\iff t = 1.$$\nThay $t = 1$ vào tọa độ của $H$, ta được $H(2; 3; 3)$.",
+    "socraticHint": "Tham số hóa tọa độ hình chiếu $H$ thuộc đường thẳng rồi dùng điều kiện tích vô hướng $\\vec{AH} \\cdot \\vec{u} = 0$.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
@@ -110,28 +110,28 @@ export const matPhangDuongThangQuestions: Question[] = [
     "chapterName": "Chương 5: Phương pháp tọa độ trong không gian Oxyz",
     "topicId": "mat_phang_va_duong_thang",
     "topicName": "Mặt phẳng & Đường thẳng trong không gian",
-    "content": "Vectơ nào sau đây là vectơ chỉ phương của đường thẳng $d: \\begin{cases} x = 1 + 2t \\\\ y = -1 - t \\\\ z = 3 + 4t \\end{cases}$?",
+    "content": "Trong không gian $Oxyz$, cho đường thẳng $d: \\frac{x - 1}{2} = \\frac{y + 2}{-1} = \\frac{z - 3}{1}$ và mặt phẳng $(P): x + y + z - 4 = 0$. Gọi $\\Delta$ là đường thẳng nằm trong mặt phẳng $(P)$, đồng thời cắt và vuông góc với đường thẳng $d$. Một vectơ chỉ phương của $\\Delta$ là:",
     "options": [
       {
         "key": "A",
-        "content": "$\\vec{u} = (2; -1; 4)$"
+        "content": "$\\vec{u} = (2; 1; -3)$"
       },
       {
         "key": "B",
-        "content": "$\\vec{u} = (1; -1; 3)$"
+        "content": "$\\vec{u} = (1; 1; -2)$"
       },
       {
         "key": "C",
-        "content": "$\\vec{u} = (2; 1; 4)$"
+        "content": "$\\vec{u} = (2; -1; 3)$"
       },
       {
         "key": "D",
-        "content": "$\\vec{u} = (-2; 1; 4)$"
+        "content": "$\\vec{u} = (3; 1; -2)$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Hệ số của $t$ cho ta tọa độ vectơ chỉ phương: $\\vec{u} = (2; -1; 4)$.",
-    "socraticHint": "Vectơ chỉ phương lấy từ hệ số của tham số $t$.",
+    "detailedSolution": "Đường thẳng $\\Delta$ nằm trong mặt phẳng $(P)$ nên vectơ chỉ phương $\\vec{u}_\\Delta \\perp \\vec{n}_P = (1; 1; 1)$.\nĐồng thời $\\Delta \\perp d$ nên $\\vec{u}_\\Delta \\perp \\vec{u}_d = (2; -1; 1)$.\nDo đó vectơ chỉ phương của $\\Delta$ cùng phương với tích có hướng $[\\\\vec{n}_P, \\vec{u}_d]$:\n$$[\\vec{n}_P, \\vec{u}_d] = (1(1) - 1(-1); 1(2) - 1(1); 1(-1) - 1(2)) = (2; 1; -3).$$\nVậy một vectơ chỉ phương của $\\Delta$ là $\\vec{u} = (2; 1; -3)$.",
+    "socraticHint": "Vectơ chỉ phương của đường thẳng đồng thời vuông góc với hai vectơ đã cho chính là tích có hướng của hai vectơ đó.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
@@ -246,28 +246,28 @@ export const matPhangDuongThangQuestions: Question[] = [
     "chapterName": "Chương 5: Phương pháp tọa độ trong không gian Oxyz",
     "topicId": "mat_phang_va_duong_thang",
     "topicName": "Mặt phẳng & Đường thẳng trong không gian",
-    "content": "Trong không gian $Oxyz$, khoảng cách từ điểm $M(1; -2; 3)$ đến mặt phẳng $(P): 2x - y + 2z - 4 = 0$ bằng:",
+    "content": "Trong không gian $Oxyz$, cho mặt phẳng $(P): 2x - 2y + z + 1 = 0$ và điểm $M(1; -2; 3)$. Mặt phẳng $(Q)$ song song với $(P)$ và cách điểm $M$ một khoảng bằng $3$ có phương trình là:",
     "options": [
       {
         "key": "A",
-        "content": "$2$"
+        "content": "$2x - 2y + z = 0$"
       },
       {
         "key": "B",
-        "content": "$3$"
+        "content": "$2x - 2y + z + 9 = 0$"
       },
       {
         "key": "C",
-        "content": "$\\frac{4}{3}$"
+        "content": "$2x - 2y + z - 6 = 0$"
       },
       {
         "key": "D",
-        "content": "$6$"
+        "content": "$x - y + 2z = 0$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Khoảng cách từ điểm $M$ đến mặt phẳng $(P)$:\n$$d(M, (P)) = \\frac{|2(1) - (-2) + 2(3) - 4|}{\\sqrt{2^2 + (-1)^2 + 2^2}} = \\frac{|2 + 2 + 6 - 4|}{\\sqrt{9}} = \\frac{6}{3} = 2$$.",
-    "socraticHint": "Áp dụng công thức khoảng cách từ điểm đến mặt phẳng: $d = \\frac{|Ax_0 + By_0 + Cz_0 + D|}{\\sqrt{A^2+B^2+C^2}}$.",
+    "detailedSolution": "Mặt phẳng $(Q)$ song song với $(P)$ nên có phương trình dạng:\n$$2x - 2y + z + D = 0 \\quad (D \\ne 1).$$\nKhoảng cách từ điểm $M(1; -2; 3)$ đến mặt phẳng $(Q)$ bằng $3$:\n$$d(M, (Q)) = \\frac{|2(1) - 2(-2) + 3 + D|}{\\sqrt{2^2 + (-2)^2 + 1^2}} = 3$$\n$$\\iff \\frac{|9 + D|}{3} = 3 \\iff |9 + D| = 9 \\iff \\left[\\begin{array}{l} 9 + D = 9 \\iff D = 0 \\\\ 9 + D = -9 \\iff D = -18 \\end{array}\\right.$$\nCả hai giá trị đều thỏa mãn $D \\ne 1$.\nĐối chiếu các phương án, phương trình phù hợp là $2x - 2y + z = 0$.",
+    "socraticHint": "Lập phương trình chùm mặt phẳng song song dạng $2x - 2y + z + D = 0$ rồi áp dụng công thức khoảng cách.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
@@ -437,7 +437,7 @@ export const matPhangDuongThangQuestions: Question[] = [
     ],
     "correctAnswer": "C",
     "detailedSolution": "Vectơ chỉ phương của $\\Delta_1$: $\\vec{u}_1 = (1; -1; 2)$.\nVectơ chỉ phương của $\\Delta_2$: $\\vec{u}_2 = (3; -1; 3)$.\nVectơ chỉ phương của đường vuông góc chung $\\Delta$ là tích có hướng của $\\vec{u}_1$ và $\\vec{u}_2$:\n$$\\vec{u} = [\\vec{u}_1, \\vec{u}_2] = ((-1)(3) - (2)(-1); (2)(3) - (1)(3); (1)(-1) - (-1)(3)) = (-1; 3; 2)$$\nGọi $M \\in \\Delta_1$ và $N \\in \\Delta_2$ là hai chân đường vuông góc chung:\n- $M(1 + t; 3 - t; 2 + 2t)$.\n- $N(3s; -s; -1 + 3s)$.\nTa có $\\vec{MN} = (3s - t - 1; -s + t - 3; 3s - 2t - 3)$.\nVì $\\vec{MN} \\perp \\vec{u}_1$ và $\\vec{MN} \\perp \\vec{u}_2$:\n$$\\begin{cases} (3s - t - 1)(1) + (-s + t - 3)(-1) + (3s - 2t - 3)(2) = 0 \\\\ (3s - t - 1)(3) + (-s + t - 3)(-1) + (3s - 2t - 3)(3) = 0 \\end{cases}$$\n$$\\iff \\begin{cases} 10s - 6t - 4 = 0 \\\\ 19s - 10t - 9 = 0 \\end{cases} \\iff \\begin{cases} 5s - 3t = 2 \\\\ 19s - 10t = 9 \\end{cases} \\iff \\begin{cases} s = 1 \\\\ t = 1 \\end{cases}$$\nThay $s = 1$ vào tọa độ điểm $N$:\n$$N(3(1); -(1); -1 + 3(1)) = (3; -1; 2)$$\nĐường vuông góc chung $\\Delta$ đi qua điểm $N(3; -1; 2)$ và có VTCP $\\vec{u} = (-1; 3; 2)$, có phương trình chính tắc là:\n$$\\frac{x - 3}{-1} = \\frac{y + 1}{3} = \\frac{z - 2}{2}$$",
-    "socraticHint": "Tìm VTCP bằng tích có hướng $[\\vec{u}_1, \\vec{u}_2]$, tham số hóa hai điểm $M \\in \\Delta_1, N \\in \\Delta_2$ rồi giải hệ vuông góc.",
+    "socraticHint": "Tìm VTCP bằng tích có hướng $[\\\\vec{u}_1, \\vec{u}_2]$, tham số hóa hai điểm $M \\in \\Delta_1, N \\in \\Delta_2$ rồi giải hệ vuông góc.",
     "difficulty": "Vận dụng cao",
     "examSets": [
       "de_06_hsa35"

@@ -62,28 +62,28 @@ export const doiBienTungPhanQuestions: Question[] = [
     "chapterName": "Chương 3: Nguyên hàm & Tích phân",
     "topicId": "tich_phan_doi_bien_tung_phan",
     "topicName": "Tích phân đổi biến số & Từng phần",
-    "content": "Tính tích phân $I = \\int_0^{\\pi/2} x \\cos x dx$.",
+    "content": "Cho hàm số $f(x)$ liên tục trên $\\mathbb{R}$ thỏa mãn $\\int_0^1 x f'(2x) dx = 3$ và $f(2) = 8$. Giá trị của tích phân $I = \\int_0^2 f(x) dx$ bằng:",
     "options": [
       {
         "key": "A",
-        "content": "$\\frac{\\pi}{2} - 1$"
+        "content": "$4$"
       },
       {
         "key": "B",
-        "content": "$\\frac{\\pi}{2} + 1$"
+        "content": "$2$"
       },
       {
         "key": "C",
-        "content": "$1 - \\frac{\\pi}{2}$"
+        "content": "$8$"
       },
       {
         "key": "D",
-        "content": "$\\frac{\\pi}{2}$"
+        "content": "$6$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Áp dụng phương pháp tích phân từng phần:\nĐặt $\\begin{cases} u = x \\implies du = dx \\\\ dv = \\cos x dx \\implies v = \\sin x \\end{cases}$\nTa có:\n$$I = [x \\sin x]_0^{\\pi/2} - \\int_0^{\\pi/2} \\sin x dx = \\left(\\frac{\\pi}{2} \\sin\\frac{\\pi}{2} - 0\\right) - [-\\cos x]_0^{\\pi/2}$$\n$$= \\frac{\\pi}{2} - (0 - (-1)) = \\frac{\\pi}{2} - 1$$.",
-    "socraticHint": "Tích phân hàm đa thức nhân lượng giác dùng phương pháp từng phần: đặt $u = x, dv = \\cos x dx$.",
+    "detailedSolution": "Đổi biến số $t = 2x \\Rightarrow x = \\frac{t}{2}, dx = \\frac{dt}{2}$.\nKhi $x = 0 \\Rightarrow t = 0$; khi $x = 1 \\Rightarrow t = 2$.\nTích phân trở thành:\n$$\\int_0^1 x f'(2x) dx = \\int_0^2 \\frac{t}{2} f'(t) \\frac{dt}{2} = \\frac{1}{4} \\int_0^2 t f'(t) dt = 3 \\iff \\int_0^2 t f'(t) dt = 12.$$\nÁp dụng phương pháp tích phân từng phần:\n$$\\int_0^2 t f'(t) dt = [t f(t)]_0^2 - \\int_0^2 f(t) dt = 2f(2) - I.$$\nThay $f(2) = 8$ và giá trị tích phân bằng 12:\n$$12 = 2(8) - I = 16 - I \\iff I = 16 - 12 = 4.$$",
+    "socraticHint": "Đổi biến số để đưa biểu thức về dạng $\\int_0^2 t f'(t) dt$, sau đó dùng tích phân từng phần.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"

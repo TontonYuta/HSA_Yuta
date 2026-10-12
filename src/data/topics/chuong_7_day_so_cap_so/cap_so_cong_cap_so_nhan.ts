@@ -8,28 +8,28 @@ export const capSoCongNhanQuestions: Question[] = [
     "chapterName": "Chương 7: Dãy số, Cấp số cộng & Cấp số nhân",
     "topicId": "cap_so_cong_cap_so_nhan",
     "topicName": "Cấp số cộng & Cấp số nhân",
-    "content": "Cho cấp số nhân có $u_1 = 3$ và công bội $q = 2$. Số $768$ là số hạng thứ mấy?",
+    "content": "Cho một cấp số nhân $(u_n)$ có công bội $q > 0$. Biết $u_2 = 6$ và $u_4 = 54$. Tổng của 8 số hạng đầu tiên của cấp số nhân đó bằng:",
     "options": [
       {
         "key": "A",
-        "content": "$9$"
+        "content": "$6560$"
       },
       {
         "key": "B",
-        "content": "$8$"
+        "content": "$6561$"
       },
       {
         "key": "C",
-        "content": "$10$"
+        "content": "$2186$"
       },
       {
         "key": "D",
-        "content": "$7$"
+        "content": "$19682$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Ta có $u_n = u_1 q^{n - 1} \\implies 3 \\cdot 2^{n - 1} = 768 \\iff 2^{n - 1} = 256 = 2^8 \\iff n = 9$.",
-    "socraticHint": "Số hạng tổng quát của cấp số nhân $u_n = u_1 q^{n - 1}$.",
+    "detailedSolution": "Ta có tỉ số giữa các số hạng:\n$$\\frac{u_4}{u_2} = q^2 = \\frac{54}{6} = 9.$$\nVì công bội $q > 0$ nên $q = 3$.\nSố hạng đầu tiên:\n$$u_1 = \\frac{u_2}{q} = \\frac{6}{3} = 2.$$\nTổng của 8 số hạng đầu tiên của cấp số nhân:\n$$S_8 = \\frac{u_1(q^8 - 1)}{q - 1} = \\frac{2(3^8 - 1)}{3 - 1} = 3^8 - 1 = 6561 - 1 = 6560.$$",
+    "socraticHint": "Lập tỉ số giữa hai số hạng đã cho để tìm công bội $q$, suy ra $u_1$ rồi dùng công thức tổng $S_n$.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
@@ -42,28 +42,28 @@ export const capSoCongNhanQuestions: Question[] = [
     "chapterName": "Chương 7: Dãy số, Cấp số cộng & Cấp số nhân",
     "topicId": "cap_so_cong_cap_so_nhan",
     "topicName": "Cấp số cộng & Cấp số nhân",
-    "content": "Tổng cấp số nhân lùi vô hạn $S = 2 + \\frac{2}{3} + \\frac{2}{9} + \\dots$ bằng:",
+    "content": "Một quả bóng cao su được thả rơi tự do từ độ cao $18\\text{ m}$ xuống mặt đất. Mỗi lần chạm đất, quả bóng nảy lên được độ cao bằng $\\frac{2}{3}$ độ cao của lần rơi ngay trước đó. Tổng quãng đường mà quả bóng di chuyển được kể từ lúc thả cho đến khi dừng hẳn bằng:",
     "options": [
       {
         "key": "A",
-        "content": "$3$"
+        "content": "$90\\text{ m}$"
       },
       {
         "key": "B",
-        "content": "$2{,}5$"
+        "content": "$72\\text{ m}$"
       },
       {
         "key": "C",
-        "content": "$4$"
+        "content": "$54\\text{ m}$"
       },
       {
         "key": "D",
-        "content": "$6$"
+        "content": "$108\\text{ m}$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Cấp số nhân lùi vô hạn có $u_1 = 2, q = 1/3$ ($|q| < 1$).\n$$S = \\frac{u_1}{1 - q} = \\frac{2}{1 - 1/3} = \\frac{2}{2/3} = 3$$.",
-    "socraticHint": "Tổng cấp số nhân lùi vô hạn là $S = \\frac{u_1}{1 - q}$ khi $|q| < 1$.",
+    "detailedSolution": "Quãng đường quả bóng rơi lần đầu tiên là $h_0 = 18\\text{ m}$.\nKể từ lần chạm đất thứ nhất, mỗi lần nảy lên quả bóng di chuyển cả chiều lên và chiều xuống với độ cao $h_n = 18 \\cdot \\left(\\frac{2}{3}\\right)^n$.\nTổng quãng đường quả bóng di chuyển là:\n$$S = h_0 + 2(h_1 + h_2 + h_3 + \\dots) = 18 + 2 \\sum_{n=1}^\\infty 18 \\cdot \\left(\\frac{2}{3}\\right)^n.$$\nTổng các độ cao nảy lên là tổng của cấp số nhân lùi vô hạn với số hạng đầu $h_1 = 18 \\cdot \\frac{2}{3} = 12$ và công bội $q = \\frac{2}{3}$:\n$$\\sum_{n=1}^\\infty h_n = \\frac{12}{1 - \\frac{2}{3}} = \\frac{12}{\\frac{1}{3}} = 36\\text{ m}.$$\nDo đó tổng quãng đường là:\n$$S = 18 + 2(36) = 18 + 72 = 90\\text{ m}.$$",
+    "socraticHint": "Tổng quãng đường gồm độ cao thả rơi ban đầu cộng với hai lần tổng các độ cao nảy lên (cấp số nhân lùi vô hạn).",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
@@ -76,14 +76,13 @@ export const capSoCongNhanQuestions: Question[] = [
     "chapterName": "Chương 7: Dãy số, Cấp số cộng & Cấp số nhân",
     "topicId": "cap_so_cong_cap_so_nhan",
     "topicName": "Cấp số cộng & Cấp số nhân",
-    "content": "Cho cấp số cộng có $u_3 = 10$ và $u_7 = 26$. Hãy tìm công sai $d$ của cấp số cộng đó.",
-    "correctAnswer": "4",
+    "content": "Cho cấp số cộng $(u_n)$ có $u_1 = 3$ và công sai $d = 4$. Biết tổng của $n$ số hạng đầu tiên bằng $253$. Tìm giá trị của $n$.",
+    "correctAnswer": "11",
     "acceptableAnswers": [
-      "4",
-      "4.0"
+      "11"
     ],
-    "detailedSolution": "Ta có $u_7 - u_3 = (7 - 3)d = 4d \\implies 26 - 10 = 4d \\implies 4d = 16 \\implies d = 4$.",
-    "socraticHint": "Hiệu số giữa hai số hạng bất kỳ: $u_m - u_k = (m - k)d$.",
+    "detailedSolution": "Tổng của $n$ số hạng đầu tiên của cấp số cộng được tính theo công thức:\n$$S_n = \\frac{n[2u_1 + (n - 1)d]}{2}.$$\nThay $u_1 = 3, d = 4$ và $S_n = 253$:\n$$253 = \\frac{n[2(3) + 4(n - 1)]}{2} = \\frac{n(4n + 2)}{2} = n(2n + 1) = 2n^2 + n.$$\nPhương trình trở thành:\n$$2n^2 + n - 253 = 0.$$\nBiệt thức $\\Delta = 1^2 - 4(2)(-253) = 1 + 2024 = 2025 = 45^2$.\nNghiệm nguyên dương:\n$$n = \\frac{-1 + 45}{4} = \\frac{44}{4} = 11.$$",
+    "socraticHint": "Thiết lập phương trình bậc hai theo $n$ từ công thức tổng $n$ số hạng đầu của cấp số cộng.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
@@ -116,28 +115,28 @@ export const capSoCongNhanQuestions: Question[] = [
     "chapterName": "Chương 7: Dãy số, Cấp số cộng & Cấp số nhân",
     "topicId": "cap_so_cong_cap_so_nhan",
     "topicName": "Cấp số cộng & Cấp số nhân",
-    "content": "Cho cấp số nhân có $u_1 = 5, u_2 = 15$. Công bội $q$ bằng:",
+    "content": "Cho cấp số nhân $(u_n)$ có các số hạng đều dương thỏa mãn $u_2 + u_4 = 60$ và $u_3 + u_5 = 180$. Tổng 6 số hạng đầu tiên $S_6$ của cấp số nhân này bằng:",
     "options": [
       {
         "key": "A",
-        "content": "$3$"
+        "content": "$728$"
       },
       {
         "key": "B",
-        "content": "$10$"
+        "content": "$364$"
       },
       {
         "key": "C",
-        "content": "$1/3$"
+        "content": "$1456$"
       },
       {
         "key": "D",
-        "content": "$5$"
+        "content": "$726$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "$q = \\frac{u_2}{u_1} = \\frac{15}{5} = 3$.",
-    "socraticHint": "Công bội cấp số nhân $q = u_2 / u_1$.",
+    "detailedSolution": "Biểu diễn qua $u_1$ và công bội $q > 0$:\n$$\\begin{cases} u_1 q + u_1 q^3 = 60 \\iff u_1 q(1 + q^2) = 60 \\\\ u_1 q^2 + u_1 q^4 = 180 \\iff u_1 q^2(1 + q^2) = 180 \\end{cases}$$\nChia phương trình dưới cho phương trình trên ta được:\n$$q = \\frac{180}{60} = 3.$$\nThay $q = 3$ vào phương trình thứ nhất:\n$$u_1 \\cdot 3 \\cdot (1 + 9) = 60 \\iff 30 u_1 = 60 \\iff u_1 = 2.$$\nTổng 6 số hạng đầu tiên:\n$$S_6 = \\frac{u_1(q^6 - 1)}{q - 1} = \\frac{2(3^6 - 1)}{3 - 1} = 3^6 - 1 = 729 - 1 = 728.$$",
+    "socraticHint": "Lập tỉ số giữa hai hệ thức tổng để tìm nhanh công bội $q$ rồi suy ra $u_1$.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
@@ -150,15 +149,14 @@ export const capSoCongNhanQuestions: Question[] = [
     "chapterName": "Chương 7: Dãy số, Cấp số cộng & Cấp số nhân",
     "topicId": "cap_so_cong_cap_so_nhan",
     "topicName": "Cấp số cộng & Cấp số nhân",
-    "content": "Tính tổng 10 số nguyên dương đầu tiên: $S = 1 + 2 + 3 + \\dots + 10$.",
-    "correctAnswer": "55",
+    "content": "Cho cấp số cộng $(u_n)$ thỏa mãn $u_1 + u_5 = 18$ và $u_3 + u_7 = 26$. Tính số hạng $u_{10}$ của cấp số cộng đó.",
+    "correctAnswer": "23",
     "acceptableAnswers": [
-      "55",
-      "55.0"
+      "23"
     ],
-    "detailedSolution": "$S = \\frac{10(10 + 1)}{2} = 55$.",
-    "socraticHint": "Công thức Gauss: $S_n = \\frac{n(n + 1)}{2}$.",
-    "difficulty": "Vận dụng cao",
+    "detailedSolution": "Biểu diễn các số hạng qua $u_1$ và công sai $d$:\n$$\\begin{cases} u_1 + (u_1 + 4d) = 18 \\iff 2u_1 + 4d = 18 \\iff u_1 + 2d = 9 \\\\ (u_1 + 2d) + (u_1 + 6d) = 26 \\iff 2u_1 + 8d = 26 \\iff u_1 + 4d = 13 \\end{cases}$$\nTrừ hai phương trình:\n$$2d = 4 \\iff d = 2.$$\nThay vào ta được $u_1 = 9 - 2(2) = 5$.\nSố hạng thứ 10 là:\n$$u_{10} = u_1 + 9d = 5 + 9(2) = 23.$$",
+    "socraticHint": "Lập hệ phương trình bậc nhất hai ẩn $u_1$ và $d$ từ tính chất cấp số cộng.",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -292,28 +290,28 @@ export const capSoCongNhanQuestions: Question[] = [
     "chapterName": "Chương 7: Dãy số, Cấp số cộng & Cấp số nhân",
     "topicId": "cap_so_cong_cap_so_nhan",
     "topicName": "Cấp số cộng & Cấp số nhân",
-    "content": "Cho cấp số nhân $(u_n)$ có số hạng đầu $u_1 = 2$ và công bội $q = 3$. Số hạng thứ 5 của cấp số nhân là:",
+    "content": "Cho ba số thực phân biệt $a, b, c$ theo thứ tự lập thành một cấp số nhân với công bội $q$. Biết rằng đồng thời ba số $a, 2b, 3c$ theo thứ tự lập thành một cấp số cộng. Giá trị của công bội $q$ bằng:",
     "options": [
       {
         "key": "A",
-        "content": "$162$"
+        "content": "$\\frac{1}{3}$"
       },
       {
         "key": "B",
-        "content": "$486$"
+        "content": "$3$"
       },
       {
         "key": "C",
-        "content": "$54$"
+        "content": "$\\frac{1}{2}$"
       },
       {
         "key": "D",
-        "content": "$18$"
+        "content": "$2$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Công thức số hạng tổng quát của cấp số nhân: $u_n = u_1 \\cdot q^{n-1}$.\nVới $n = 5$:\n$$u_5 = 2 \\cdot 3^{5-1} = 2 \\cdot 3^4 = 2 \\times 81 = 162$$.",
-    "socraticHint": "Số hạng thứ $n$ của cấp số nhân là $u_n = u_1 \\cdot q^{n-1}$.",
+    "detailedSolution": "Vì $a, b, c$ lập thành cấp số nhân nên $b = aq$ và $c = aq^2$ ($a \\ne 0, q \\ne 1$).\nBa số $a, 2b, 3c$ lập thành cấp số cộng nên:\n$$a + 3c = 2(2b) \\iff a + 3aq^2 = 4aq.$$\nVì $a \\ne 0$, chia cả hai vế cho $a$ ta được:\n$$3q^2 - 4q + 1 = 0 \\iff (q - 1)(3q - 1) = 0 \\iff \\left[\\begin{array}{l} q = 1 \\\\ q = \\frac{1}{3} \\end{array}\\right.$$\nDo ba số $a, b, c$ đôi một phân biệt nên $q \\ne 1$. Vậy $q = \\frac{1}{3}$.",
+    "socraticHint": "Biểu diễn các số hạng qua $a$ và $q$, thiết lập phương trình bậc hai từ tính chất cấp số cộng.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
@@ -360,14 +358,13 @@ export const capSoCongNhanQuestions: Question[] = [
     "chapterName": "Chương 7: Dãy số, Cấp số cộng & Cấp số nhân",
     "topicId": "cap_so_cong_cap_so_nhan",
     "topicName": "Cấp số cộng & Cấp số nhân",
-    "content": "Cho cấp số cộng $(u_n)$ có số hạng tổng quát $u_n = 3n + 2$. Số hạng thứ 20 của cấp số cộng bằng bao nhiêu?",
-    "correctAnswer": "62",
+    "content": "Cho cấp số cộng $(u_n)$ có $u_5 = 19$ và $u_9 = 35$. Tính tổng 20 số hạng đầu tiên $S_{20}$ của cấp số cộng đó.",
+    "correctAnswer": "820",
     "acceptableAnswers": [
-      "62",
-      "62.0"
+      "820"
     ],
-    "detailedSolution": "Thay $n = 20$ vào công thức số hạng tổng quát:\n$$u_{20} = 3(20) + 2 = 60 + 2 = 62$$.",
-    "socraticHint": "Thay trực tiếp chỉ số $n = 20$ vào công thức số hạng tổng quát.",
+    "detailedSolution": "Ta có $u_9 - u_5 = 4d \\iff 35 - 19 = 16 \\iff d = 4$.\nSố hạng đầu tiên:\n$$u_1 = u_5 - 4d = 19 - 4(4) = 3.$$\nTổng 20 số hạng đầu tiên của cấp số cộng:\n$$S_{20} = \\frac{20[2u_1 + 19d]}{2} = 10[2(3) + 19(4)] = 10(6 + 76) = 10 \\times 82 = 820.$$",
+    "socraticHint": "Tìm công sai $d$ từ hiệu hai số hạng, suy ra $u_1$ rồi tính tổng $S_{20}$.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
@@ -389,7 +386,7 @@ export const capSoCongNhanQuestions: Question[] = [
     ],
     "detailedSolution": "Số lượng cây ở mỗi hàng lập thành một cấp số cộng với số hạng đầu $u_1 = 1$, công sai $d = 2$.\nSố cây ở hàng thứ $n$ là: $u_n = u_1 + (n - 1)d = 1 + 2(n - 1) = 2n - 1$.\nTổng số cây trồng ở cả $n$ hàng là:\n$$S_n = \\frac{n(u_1 + u_n)}{2} = \\frac{n(1 + 2n - 1)}{2} = n^2$$\nTheo đề bài, tổng số cây là $10000$:\n$$n^2 = 10000 \\implies n = 100\\text{ (hàng)}$$\nHàng cuối cùng là hàng thứ $100$, số cây trồng ở hàng này là:\n$$u_{100} = 2 \\times 100 - 1 = 199\\text{ cây}$$",
     "socraticHint": "Tổng của $n$ số lẻ liên tiếp bắt đầu từ 1 là $n^2$. Tìm số hàng $n$ rồi tính số cây của hàng thứ $n$.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
     ]
@@ -418,7 +415,7 @@ export const capSoCongNhanQuestions: Question[] = [
       }
     ],
     "correctAnswer": "C",
-    "detailedSolution": "Số ngày tiết kiệm trong năm không nhuận là $365$ ngày.\nMỗi ngày Lan bỏ thêm $10.000$ đồng vào hũ tiết kiệm.\nTổng số tiền Lan tích lũy thêm trong 365 ngày là:\n$$365 \\times 10.000 = 3.650.000\(đồng)$$\nCộng với số tiền ban đầu là $2.000.000$ đồng:\n$$\T = 2.000.000 + 3.650.000 = 5.650.000\(đồng)$$",
+    "detailedSolution": "Số ngày tiết kiệm trong năm không nhuận là $365$ ngày.\nMỗi ngày Lan bỏ thêm $10.000$ đồng vào hũ tiết kiệm.\nTổng số tiền Lan tích lũy thêm trong 365 ngày là:\n$$365 \\times 10.000 = 3.650.000(đồng)$$\nCộng với số tiền ban đầu là $2.000.000$ đồng:\n$$T = 2.000.000 + 3.650.000 = 5.650.000(đồng)$$",
     "socraticHint": "Lấy số tiền tích lũy đều đặn mỗi ngày nhân với 365 ngày rồi cộng với số tiền gốc ban đầu.",
     "difficulty": "Vận dụng",
     "examSets": [

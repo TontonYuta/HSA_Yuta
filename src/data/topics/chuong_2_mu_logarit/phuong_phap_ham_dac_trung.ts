@@ -42,29 +42,29 @@ export const hamDacTrungQuestions: Question[] = [
     "chapterName": "Chương 2: Hàm số mũ & Hàm số Logarit",
     "topicId": "phuong_phap_ham_dac_trung",
     "topicName": "Phương pháp hàm đặc trưng mũ - logarit",
-    "content": "Số nghiệm của phương trình $9^x - 4 \\cdot 3^x + 3 = 0$ là:",
+    "content": "Cho hai số thực $x, y$ thỏa mãn $4^{x^2 + y^2 - 1} + \\log_2(x^2 + y^2 + 1) = 2^{2xy} + \\log_2(2xy + 2)$. Tìm giá trị nhỏ nhất của biểu thức $P = x^2 + 2y^2 - 4x$.",
     "options": [
       {
         "key": "A",
-        "content": "$2$"
+        "content": "$-\\frac{10}{3}$"
       },
       {
         "key": "B",
-        "content": "$1$"
+        "content": "$-3$"
       },
       {
         "key": "C",
-        "content": "$0$"
+        "content": "$2$"
       },
       {
         "key": "D",
-        "content": "$3$"
+        "content": "$-\\frac{8}{3}$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Đặt $t = 3^x > 0 \\implies t^2 - 4t + 3 = 0 \\iff t = 1$ hoặc $t = 3$.\n- $3^x = 1 \\implies x = 0$.\n- $3^x = 3 \\implies x = 1$.\nVậy phương trình có 2 nghiệm phân biệt.",
-    "socraticHint": "Đặt ẩn phụ $t = 3^x > 0$.",
-    "difficulty": "Vận dụng",
+    "detailedSolution": "Đặt $u = x^2 + y^2 + 1 > 0$ và $v = 2xy + 2 > 0$.\nKhi đó $x^2 + y^2 - 1 = u - 2$ và $2xy = v - 2$.\nPhương trình trở thành:\n$$4^{u - 2} + \\log_2 u = 4^{v - 2} + \\log_2 v.$$\nHàm số $f(t) = 4^{t - 2} + \\log_2 t$ đồng biến trên $(0; +\\infty)$, do đó $u = v$:\n$$x^2 + y^2 + 1 = 2xy + 2 \\iff (x - y)^2 = 1 \\iff \\left[\\begin{array}{l} y = x - 1 \\\\ y = x + 1 \\end{array}\\right.$$\n- Trường hợp 1: $y = x - 1$.\n$$P = x^2 + 2(x - 1)^2 - 4x = 3x^2 - 8x + 2 = 3\\left(x - \\frac{4}{3}\\right)^2 - \\frac{10}{3} \\ge -\\frac{10}{3}.$$\nĐạt được khi $x = \\frac{4}{3}, y = \\frac{1}{3}$.\n- Trường hợp 2: $y = x + 1$.\n$$P = x^2 + 2(x + 1)^2 - 4x = 3x^2 + 2 \\ge 2.$$\nSo sánh hai trường hợp, giá trị nhỏ nhất của $P$ là $-\\frac{10}{3}$.",
+    "socraticHint": "Áp dụng phương pháp hàm đặc trưng tìm mối quan hệ tuyến tính giữa $x$ và $y$, sau đó đưa về tam thức bậc hai một biến.",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_02_thuc_chien"
     ]

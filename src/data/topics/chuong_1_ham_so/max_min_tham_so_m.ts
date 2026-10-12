@@ -8,28 +8,28 @@ export const maxMinThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "max_min_tham_so_m",
     "topicName": "Giá trị lớn nhất & Giá trị nhỏ nhất (Max - Min)",
-    "content": "Giá trị nhỏ nhất của hàm số $y = x + \\frac{4}{x}$ trên đoạn $[1; 3]$ bằng:",
+    "content": "Cho hàm số $f(x) = |x^3 - 3x + m|$. Gọi $M$ là giá trị lớn nhất của $f(x)$ trên đoạn $[0; 2]$. Giá trị nhỏ nhất có thể có của $M$ bằng:",
     "options": [
       {
         "key": "A",
-        "content": "$4$"
+        "content": "$2$"
       },
       {
         "key": "B",
-        "content": "$5$"
+        "content": "$1$"
       },
       {
         "key": "C",
-        "content": "$\\frac{13}{3}$"
+        "content": "$3$"
       },
       {
         "key": "D",
-        "content": "$2$"
+        "content": "$4$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Với $x > 0$, áp dụng bất đẳng thức Cauchy: $x + \\frac{4}{x} \\ge 2\\sqrt{x \\cdot \\frac{4}{x}} = 4$.\nDấu bằng xảy ra khi $x = 2 \\in [1; 3]$.\nTa có $y(1) = 5$, $y(3) = 13/3$. Vậy giá trị nhỏ nhất trên đoạn $[1; 3]$ là 4.",
-    "socraticHint": "Khảo sát hàm số hoặc dùng bất đẳng thức AM-GM cho hai số dương $x$ và $\\frac{4}{x}$.",
+    "detailedSolution": "Xét hàm số $g(x) = x^3 - 3x$ trên đoạn $[0; 2]$.\nĐạo hàm $g'(x) = 3x^2 - 3 = 0 \\iff x = 1 \\in [0; 2]$.\nGiá trị tại các điểm đặc biệt:\n- $g(0) = 0$.\n- $g(1) = -2$.\n- $g(2) = 2$.\nSuy ra $\\min_{[0; 2]} g(x) = -2$ và $\\max_{[0; 2]} g(x) = 2$.\nKhi đó:\n$$M = \\max_{[0; 2]} |g(x) + m| = \\max\\{|-2 + m|; |2 + m|\\}.$$\nÁp dụng bất đẳng thức $|a| + |b| \\ge |a - b|$:\n$$|-2 + m| + |2 + m| = |m - 2| + |m + 2| \\ge |(m + 2) - (m - 2)| = 4.$$\nSuy ra:\n$$M = \\max\\{|m - 2|; |m + 2|\\} \\ge \\frac{|m - 2| + |m + 2|}{2} \\ge \\frac{4}{2} = 2.$$\nDấu bằng xảy ra khi $|m - 2| = |m + 2| \\iff m = 0$.\nVậy giá trị nhỏ nhất của $M$ là $2$.",
+    "socraticHint": "Khảo sát hàm lõi $g(x) = x^3 - 3x$ trên đoạn $[0; 2]$, sau đó dùng bất đẳng thức $\\max\\{|A|, |B|\\} \\ge \\frac{|A - B|}{2}$.",
     "difficulty": "Vận dụng cao",
     "examSets": [
       "de_01_chuan",
@@ -43,15 +43,14 @@ export const maxMinThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "max_min_tham_so_m",
     "topicName": "Giá trị lớn nhất & Giá trị nhỏ nhất (Max - Min)",
-    "content": "Tìm giá trị lớn nhất của hàm số $y = -x^2 + 6x - 5$.",
-    "correctAnswer": "4",
+    "content": "Tìm giá trị lớn nhất của hàm số $y = x^3 - 3x^2 - 9x + 35$ trên đoạn $[-2; 2]$.",
+    "correctAnswer": "40",
     "acceptableAnswers": [
-      "4",
-      "4.0"
+      "40"
     ],
-    "detailedSolution": "Hoành độ đỉnh parabol: $x = -\\frac{6}{2(-1)} = 3$.\nGiá trị lớn nhất: $y(3) = -(3^2) + 6(3) - 5 = -9 + 18 - 5 = 4$.",
-    "socraticHint": "Tọa độ đỉnh của parabol $y = ax^2 + bx + c$ với $a < 0$.",
-    "difficulty": "Vận dụng cao",
+    "detailedSolution": "Hàm số liên tục trên đoạn $[-2; 2]$.\nĐạo hàm: $y' = 3x^2 - 6x - 9$.\nCho $y' = 0 \\iff 3(x^2 - 2x - 3) = 0 \\iff x = -1$ hoặc $x = 3$.\nVì $3 \\notin [-2; 2]$, ta chỉ xét điểm tới hạn $x = -1$.\nTính giá trị tại các đầu mút và điểm tới hạn:\n- $y(-2) = (-2)^3 - 3(-2)^2 - 9(-2) + 35 = -8 - 12 + 18 + 35 = 33$.\n- $y(-1) = (-1)^3 - 3(-1)^2 - 9(-1) + 35 = -1 - 3 + 9 + 35 = 40$.\n- $y(2) = 2^3 - 3(2)^2 - 9(2) + 35 = 8 - 12 - 18 + 35 = 13$.\nSo sánh các giá trị, ta được giá trị lớn nhất là $40$ tại $x = -1$.",
+    "socraticHint": "Khảo sát hàm số trên đoạn đóng bằng cách tính giá trị tại các điểm cực trị thuộc đoạn và hai đầu mút.",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
     ]

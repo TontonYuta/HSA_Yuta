@@ -8,28 +8,28 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
     "topicId": "to_hop_va_xac_suat_co_dien",
     "topicName": "Đại số tổ hợp & Xác suất cổ điển",
-    "content": "Một vali có khóa 3 vòng số, mỗi vòng từ 0 đến 9. Chữ số đầu tiên chẵn và 3 chữ số khác nhau. Số mật khẩu tối đa cần thử là:",
+    "content": "Từ các chữ số thuộc tập hợp $A = \\{1, 2, 3, 4, 5, 6, 7\\}$, lập được bao nhiêu số tự nhiên có 4 chữ số đôi một khác nhau và luôn có mặt đồng thời hai chữ số $1$ và $2$?",
     "options": [
       {
         "key": "A",
-        "content": "$360$"
+        "content": "$240$"
       },
       {
         "key": "B",
-        "content": "$450$"
+        "content": "$120$"
       },
       {
         "key": "C",
-        "content": "$500$"
+        "content": "$480$"
       },
       {
         "key": "D",
-        "content": "$288$"
+        "content": "$360$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Vòng 1 (số chẵn $\\{0, 2, 4, 6, 8\\}$): 5 cách.\nVòng 2 (khác vòng 1): 9 cách.\nVòng 3 (khác 2 vòng trước): 8 cách.\nSố mã: $5 \\times 9 \\times 8 = 360$.",
-    "socraticHint": "Áp dụng quy tắc nhân liên tiếp cho 3 vị trí.",
+    "detailedSolution": "Để lập số có 4 chữ số đôi một khác nhau luôn có mặt 1 và 2:\n- Bước 1: Chọn 2 vị trí trong 4 vị trí cho hai chữ số 1 và 2 rồi hoán vị chúng, có $A_4^2 = 12$ cách.\n- Bước 2: Chọn 2 chữ số còn lại từ 5 chữ số $\\{3, 4, 5, 6, 7\\}$ và xếp vào 2 vị trí còn lại, có $A_5^2 = 20$ cách.\nTheo quy tắc nhân, số các số tự nhiên thỏa mãn là:\n$$N = A_4^2 \\times A_5^2 = 12 \\times 20 = 240\\text{ số}.$$",
+    "socraticHint": "Chọn vị trí xếp hai chữ số bắt buộc trước rồi xếp các chữ số còn lại vào các vị trí trống.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan",
@@ -133,28 +133,28 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
     "topicId": "to_hop_va_xac_suat_co_dien",
     "topicName": "Đại số tổ hợp & Xác suất cổ điển",
-    "content": "Số cách xếp 5 học sinh vào một hàng ghế gồm 5 chỗ là:",
+    "content": "Xếp ngẫu nhiên 8 học sinh gồm 4 bạn nam và 4 bạn nữ ngồi quanh một chiếc bàn tròn có 8 ghế. Xác suất để không có hai bạn nữ nào ngồi cạnh nhau bằng:",
     "options": [
       {
         "key": "A",
-        "content": "$120$"
+        "content": "$\\frac{1}{35}$"
       },
       {
         "key": "B",
-        "content": "$24$"
+        "content": "$\\frac{1}{70}$"
       },
       {
         "key": "C",
-        "content": "$25$"
+        "content": "$\\frac{2}{35}$"
       },
       {
         "key": "D",
-        "content": "$720$"
+        "content": "$\\frac{1}{14}$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Số hoán vị của 5 phần tử: $P_5 = 5! = 120$.",
-    "socraticHint": "Số hoán vị $n$ phần tử là $n!$.",
+    "detailedSolution": "Số phần tử của không gian mẫu (xếp 8 người vào bàn tròn):\n$$n(\\Omega) = (8 - 1)! = 7! = 5040.$$\nĐể không có hai bạn nữ nào ngồi cạnh nhau, các bạn nam và nữ phải ngồi xen kẽ:\n- Bước 1: Xếp 4 bạn nam vào bàn tròn có $(4 - 1)! = 3! = 6$ cách.\n- Bước 2: 4 bạn nam tạo ra 4 khoảng trống xen kẽ. Xếp 4 bạn nữ vào 4 khoảng trống đó có $4! = 24$ cách.\nSố cách sắp xếp thỏa mãn là:\n$$n(A) = 3! \\times 4! = 6 \\times 24 = 144.$$\nXác suất cần tính:\n$$P(A) = \\frac{144}{5040} = \\frac{1}{35}.$$",
+    "socraticHint": "Áp dụng phương pháp vách ngăn trong hoán vị vòng quanh: xếp các bạn nam cố định trước rồi chèn các bạn nữ vào khoảng trống.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
@@ -167,28 +167,28 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
     "topicId": "to_hop_va_xac_suat_co_dien",
     "topicName": "Đại số tổ hợp & Xác suất cổ điển",
-    "content": "Số tập hợp con gồm 2 phần tử của tập hợp có 6 phần tử là:",
+    "content": "Gieo đồng thời ba con xúc xắc cân đối và đồng chất. Xác suất để tổng số chấm xuất hiện trên ba con xúc xắc bằng 10 là:",
     "options": [
       {
         "key": "A",
-        "content": "$15$"
+        "content": "$\\frac{1}{8}$"
       },
       {
         "key": "B",
-        "content": "$30$"
+        "content": "$\\frac{7}{72}$"
       },
       {
         "key": "C",
-        "content": "$12$"
+        "content": "$\\frac{5}{36}$"
       },
       {
         "key": "D",
-        "content": "$36$"
+        "content": "$\\frac{1}{6}$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Số tập con 2 phần tử là $C_6^2 = \\frac{6 \\times 5}{2} = 15$.",
-    "socraticHint": "Tổ hợp chập 2 của 6 phần tử.",
+    "detailedSolution": "Số phần tử không gian mẫu khi gieo 3 con xúc xắc: $n(\\Omega) = 6^3 = 216$.\nGọi $x, y, z$ lần lượt là số chấm trên 3 con xúc xắc ($1 \\le x, y, z \\le 6$).\nTa cần đếm số bộ $(x; y; z)$ thỏa mãn $x + y + z = 10$.\nLiệt kê các hoán vị của các bộ số tổng bằng 10:\n- Bộ $\\{6; 3; 1\\}$: $3! = 6$ cách.\n- Bộ $\\{6; 2; 2\\}$: $\\frac{3!}{2!} = 3$ cách.\n- Bộ $\\{5; 4; 1\\}$: $3! = 6$ cách.\n- Bộ $\\{5; 3; 2\\}$: $3! = 6$ cách.\n- Bộ $\\{4; 4; 2\\}$: $\\frac{3!}{2!} = 3$ cách.\n- Bộ $\\{4; 3; 3\\}$: $\\frac{3!}{2!} = 3$ cách.\nTổng số kết quả thuận lợi là $6 + 3 + 6 + 6 + 3 + 3 = 27$.\nXác suất cần tìm là:\n$$P = \\frac{27}{216} = \\frac{1}{8}.$$",
+    "socraticHint": "Phân loại các bộ ba số tự nhiên có tổng bằng 10 rồi tính số hoán vị của từng bộ.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
@@ -201,15 +201,14 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
     "topicId": "to_hop_va_xac_suat_co_dien",
     "topicName": "Đại số tổ hợp & Xác suất cổ điển",
-    "content": "Tung một đồng xu cân đối 3 lần liên tiếp. Tính số phần tử của không gian mẫu.",
-    "correctAnswer": "8",
+    "content": "Có bao nhiêu số tự nhiên gồm 4 chữ số đôi một khác nhau được lập từ các chữ số thuộc tập $S = \\{0, 1, 2, 3, 4, 5\\}$ sao cho số đó chia hết cho 5?",
+    "correctAnswer": "108",
     "acceptableAnswers": [
-      "8",
-      "8.0"
+      "108"
     ],
-    "detailedSolution": "Mỗi lần có 2 khả năng (sấp hoặc ngửa). Tung 3 lần: $2^3 = 8$.",
-    "socraticHint": "Quy tắc nhân cho các phép thử độc lập.",
-    "difficulty": "Vận dụng cao",
+    "detailedSolution": "Gọi số có 4 chữ số là $\\overline{abcd}$ với $a \\ne 0$ và $a, b, c, d \\in S$ đôi một khác nhau.\nĐể số đó chia hết cho 5, chữ số tận cùng $d \\in \\{0; 5\\}$.\n- Trường hợp 1: $d = 0$.\n  + Chữ số $a$ có 5 cách chọn (từ $\\{1, 2, 3, 4, 5\\}$).\n  + Chữ số $b$ có 4 cách chọn.\n  + Chữ số $c$ có 3 cách chọn.\n  Số các số là $5 \\times 4 \\times 3 = 60$ số.\n- Trường hợp 2: $d = 5$.\n  + Chữ số $a \\ne 0$ và $a \\ne 5$ nên có 4 cách chọn (từ $\\{1, 2, 3, 4\\}$).\n  + Chữ số $b \\ne a$ và $b \\ne 5$ nên có 4 cách chọn (kể cả số 0).\n  + Chữ số $c$ có 3 cách chọn.\n  Số các số là $4 \\times 4 \\times 3 = 48$ số.\nTổng số các số thỏa mãn là $60 + 48 = 108$ số.",
+    "socraticHint": "Chia hai trường hợp theo chữ số tận cùng là 0 và 5, chú ý điều kiện chữ số đầu tiên khác 0.",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -365,7 +364,7 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
     "correctAnswer": "C",
     "detailedSolution": "Số phần tử của không gian mẫu khi lấy $6$ thẻ từ $20$ thẻ:\n$$n(\\Omega) = C_{20}^6 = 38760$$\nTrong các số từ $1$ đến $20$, các số chia hết cho $6$ là: $\\{6; 12; 18\\}$ (có $3$ số).\nSố lượng các thẻ không chia hết cho $6$ là: $20 - 3 = 17$ thẻ.\nGọi biến cố $A$: \"Trong $6$ thẻ lấy ra có ít nhất một thẻ chia hết cho $6$\".\nBiến cố đối $\\overline{A}$: \"Cả $6$ thẻ lấy ra đều không chia hết cho $6$\".\nSố cách chọn $6$ thẻ từ $17$ thẻ không chia hết cho $6$:\n$$n(\\overline{A}) = C_{17}^6 = 12376$$\nXác suất cần tìm:\n$$P(A) = 1 - P(\\overline{A}) = 1 - \\frac{C_{17}^6}{C_{20}^6} = 1 - \\frac{12376}{38760} = 1 - \\frac{91}{285} = \\frac{194}{285}$$",
     "socraticHint": "Sử dụng biến cố đối: tính xác suất của biến cố 'không có thẻ nào chia hết cho 6'.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
     ]
@@ -420,7 +419,7 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
     "correctAnswer": "B",
     "detailedSolution": "Gọi $A$ là biến cố 'Du khách tham quan động Thiên Cung' $\\implies P(A) = 0{,}7$.\nGọi $B$ là biến cố 'Du khách tham quan động Kim Quy' $\\implies P(B) = 0{,}5$.\nBiến cố du khách không đến tham quan cả hai động là $\\overline{A \\cup B}$, với $P(\\overline{A \\cup B}) = 0{,}1$.\nSuy ra xác suất du khách tham quan ít nhất một trong hai động là:\n$$P(A \\cup B) = 1 - P(\\overline{A \\cup B}) = 1 - 0{,}1 = 0{,}9$$\nTheo công thức cộng xác suất:\n$$P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$$\n$$\\implies P(A \\cap B) = P(A) + P(B) - P(A \\cup B) = 0{,}7 + 0{,}5 - 0{,}9 = 0{,}3$$",
     "socraticHint": "Dùng công thức bù $P(A \\cup B) = 1 - 0{,}1 = 0{,}9$ kết hợp công thức cộng xác suất.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
     ]
@@ -513,29 +512,29 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
     "id": 298,
     "type": "mcq",
     "topicId": "to_hop_va_xac_suat_co_dien",
-    "content": "Công thức tính chất tổ hợp nào sau đây là đúng với mọi $0 \\le k \\le n$?",
+    "content": "Một tổ có 10 học sinh gồm 6 bạn nam và 4 bạn nữ. Chọn ngẫu nhiên một ban cán sự gồm 5 học sinh sao cho phải có ít nhất 2 bạn nữ và ít nhất 1 bạn nam. Số cách chọn là:",
     "options": [
       {
         "key": "A",
-        "content": "$C_n^k = \\frac{k!}{(n - k)!}$"
+        "content": "$186$"
       },
       {
         "key": "B",
-        "content": "$C_n^k = C_n^{n - k}$"
+        "content": "$180$"
       },
       {
         "key": "C",
-        "content": "$C_n^k = \\frac{n!}{(n - k)!}$"
+        "content": "$192$"
       },
       {
         "key": "D",
-        "content": "$C_n^k = \\frac{(n - k)!}{n! k!}$"
+        "content": "$120$"
       }
     ],
-    "correctAnswer": "B",
-    "detailedSolution": "Theo tính chất đối xứng của tổ hợp:\n$$C_n^k = \\frac{n!}{k!(n - k)!} = \\frac{n!}{(n - k)![n - (n - k)]!} = C_n^{n - k}$$\nĐẳng thức $C_n^k = C_n^{n - k}$ đúng với mọi $0 \\le k \\le n$.",
-    "socraticHint": "Tính chất đối xứng của số tổ hợp chập $k$ của $n$ phần tử.",
-    "difficulty": "Thông hiểu",
+    "correctAnswer": "A",
+    "detailedSolution": "Tổng số cách chọn 5 bạn bất kỳ từ 10 bạn là:\n$$n(\\Omega) = C_{10}^5 = 252\\text{ cách}.$$\nTa dùng phương pháp phần bù. Các trường hợp không thỏa mãn yêu cầu:\n- Trường hợp 1: Không có bạn nữ nào (chọn 5 bạn nam từ 6 nam): $C_6^5 = 6$ cách.\n- Trường hợp 2: Có đúng 1 bạn nữ (chọn 1 nữ từ 4 nữ và 4 nam từ 6 nam): $C_4^1 \\times C_6^4 = 4 \\times 15 = 60$ cách.\n- Trường hợp 3: Không có bạn nam nào (chọn 5 bạn nữ từ 4 nữ): không thể xảy ra (0 cách).\nTổng số cách không thỏa mãn là $6 + 60 = 66$ cách.\nSố cách chọn thỏa mãn yêu cầu là:\n$$N = 252 - 66 = 186\\text{ cách}.$$",
+    "socraticHint": "Dùng phương pháp biến cố đối (phần bù): lấy tổng số cách chọn trừ đi số cách chọn có 0 nữ và 1 nữ.",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_07_hsa36"
     ],

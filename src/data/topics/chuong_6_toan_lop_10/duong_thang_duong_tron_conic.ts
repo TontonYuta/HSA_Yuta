@@ -8,28 +8,28 @@ export const duongThangDuongTronConicQuestions: Question[] = [
     "chapterName": "Chương 6: Toán Lớp 10 & Hình học Oxy",
     "topicId": "duong_thang_duong_tron_conic",
     "topicName": "Đường thẳng, Đường tròn & Ba đường Conic",
-    "content": "Trong mặt phẳng $Oxy$, phương trình đường tròn có tâm $I(2; -1)$ và bán kính $R = 3$ là:",
+    "content": "Trong mặt phẳng $Oxy$, cho đường tròn $(C): x^2 + y^2 - 4x + 2y - 4 = 0$ và đường thẳng $d: 3x - 4y + m = 0$. Có bao nhiêu giá trị của tham số $m$ để đường thẳng $d$ tiếp xúc với đường tròn $(C)$?",
     "options": [
       {
         "key": "A",
-        "content": "$(x - 2)^2 + (y + 1)^2 = 9$"
+        "content": "$2$"
       },
       {
         "key": "B",
-        "content": "$(x + 2)^2 + (y - 1)^2 = 9$"
+        "content": "$1$"
       },
       {
         "key": "C",
-        "content": "$(x - 2)^2 + (y + 1)^2 = 3$"
+        "content": "$0$"
       },
       {
         "key": "D",
-        "content": "$(x + 2)^2 + (y - 1)^2 = 3$"
+        "content": "$3$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Phương trình chính tắc đường tròn: $(x - a)^2 + (y - b)^2 = R^2$.\nThay $a = 2, b = -1, R = 3 \\implies (x - 2)^2 + (y + 1)^2 = 9$.",
-    "socraticHint": "Đổi dấu tọa độ tâm khi viết vào phương trình chính tắc.",
+    "detailedSolution": "Đường tròn $(C)$ có tâm $I(2; -1)$ và bán kính $R = \\sqrt{2^2 + (-1)^2 - (-4)} = \\sqrt{9} = 3$.\nĐường thẳng $d$ tiếp xúc với đường tròn $(C)$ khi và chỉ khi khoảng cách từ $I$ đến $d$ bằng bán kính $R$:\n$$d(I, d) = R \\iff \\frac{|3(2) - 4(-1) + m|}{\\sqrt{3^2 + (-4)^2}} = 3$$\n$$\\iff \\frac{|10 + m|}{5} = 3 \\iff |10 + m| = 15 \\iff \\left[\\begin{array}{l} 10 + m = 15 \\iff m = 5 \\\\ 10 + m = -15 \\iff m = -25 \\end{array}\\right.$$\nVậy có đúng 2 giá trị của tham số $m$.",
+    "socraticHint": "Điều kiện tiếp xúc giữa đường thẳng và đường tròn là khoảng cách từ tâm đến đường thẳng bằng bán kính.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan",
@@ -43,28 +43,28 @@ export const duongThangDuongTronConicQuestions: Question[] = [
     "chapterName": "Chương 6: Toán Lớp 10 & Hình học Oxy",
     "topicId": "duong_thang_duong_tron_conic",
     "topicName": "Đường thẳng, Đường tròn & Ba đường Conic",
-    "content": "Trong mặt phẳng $Oxy$, khoảng cách từ điểm $M(3; 4)$ đến đường thẳng $\\Delta: 3x - 4y + 12 = 0$ bằng:",
+    "content": "Trong mặt phẳng $Oxy$, cho tam giác $ABC$ có các đỉnh $A(1; 3), B(-1; 1), C(3; 0)$. Độ dài đường cao kẻ từ đỉnh $A$ của tam giác $ABC$ bằng:",
     "options": [
       {
         "key": "A",
-        "content": "$1$"
+        "content": "$\\frac{10\\sqrt{17}}{17}$"
       },
       {
         "key": "B",
-        "content": "$2$"
+        "content": "$\\frac{5\\sqrt{17}}{17}$"
       },
       {
         "key": "C",
-        "content": "$3$"
+        "content": "$\\frac{2\\sqrt{17}}{17}$"
       },
       {
         "key": "D",
-        "content": "$5$"
+        "content": "$\\sqrt{17}$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Khoảng cách $d(M, \\Delta) = \\frac{|3(3) - 4(4) + 12|}{\\sqrt{3^2 + (-4)^2}} = \\frac{|9 - 16 + 12|}{5} = \\frac{5}{5} = 1$.",
-    "socraticHint": "Công thức khoảng cách từ điểm đến đường thẳng trong mặt phẳng Oxy.",
+    "detailedSolution": "Độ dài đường cao kẻ từ $A$ chính là khoảng cách từ điểm $A$ đến đường thẳng $BC$.\nVectơ $\\vec{BC} = (3 - (-1); 0 - 1) = (4; -1)$.\nVectơ pháp tuyến của đường thẳng $BC$ là $\\vec{n}_{BC} = (1; 4)$.\nPhương trình đường thẳng $BC$ đi qua $C(3; 0)$:\n$$1(x - 3) + 4(y - 0) = 0 \\iff x + 4y - 3 = 0.$$\nKhoảng cách từ $A(1; 3)$ đến đường thẳng $BC$:\n$$h_A = d(A, BC) = \\frac{|1 + 4(3) - 3|}{\\sqrt{1^2 + 4^2}} = \\frac{10}{\\sqrt{17}} = \\frac{10\\sqrt{17}}{17}.$$",
+    "socraticHint": "Lập phương trình tổng quát của đường thẳng chứa cạnh đối diện $BC$, sau đó tính khoảng cách từ đỉnh $A$ đến đường thẳng đó.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
@@ -98,28 +98,28 @@ export const duongThangDuongTronConicQuestions: Question[] = [
     "chapterName": "Chương 6: Toán Lớp 10 & Hình học Oxy",
     "topicId": "duong_thang_duong_tron_conic",
     "topicName": "Đường thẳng, Đường tròn & Ba đường Conic",
-    "content": "Tâm của elip $(E): \\frac{x^2}{9} + \\frac{y^2}{4} = 1$ là:",
+    "content": "Trong mặt phẳng $Oxy$, cho elip $(E): \\frac{x^2}{16} + \\frac{y^2}{9} = 1$ và điểm $M(2; 1)$. Đường thẳng $\\Delta$ đi qua điểm $M$ cắt $(E)$ tại hai điểm phân biệt $A, B$ sao cho $M$ là trung điểm của đoạn thẳng $AB$. Hệ số góc của đường thẳng $\\Delta$ bằng:",
     "options": [
       {
         "key": "A",
-        "content": "$O(0; 0)$"
+        "content": "$-\\frac{9}{8}$"
       },
       {
         "key": "B",
-        "content": "$(3; 2)$"
+        "content": "$-\\frac{8}{9}$"
       },
       {
         "key": "C",
-        "content": "$(9; 4)$"
+        "content": "$\\frac{9}{8}$"
       },
       {
         "key": "D",
-        "content": "$(3; 0)$"
+        "content": "$-\\frac{3}{4}$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Phương trình chính tắc của elip $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$ có tâm đối xứng là gốc tọa độ $O(0; 0)$.",
-    "socraticHint": "Elip chính tắc có tâm đối xứng tại gốc tọa độ.",
+    "detailedSolution": "Giả sử $A(x_1; y_1), B(x_2; y_2) \\in (E)$. Ta có hệ:\n$$\\begin{cases} \\frac{x_1^2}{16} + \\frac{y_1^2}{9} = 1 \\\\ \\frac{x_2^2}{16} + \\frac{y_2^2}{9} = 1 \\end{cases}$$\nTrừ hai phương trình theo vế:\n$$\\frac{x_1^2 - x_2^2}{16} + \\frac{y_1^2 - y_2^2}{9} = 0 \\iff \\frac{(x_1 - x_2)(x_1 + x_2)}{16} + \\frac{(y_1 - y_2)(y_1 + y_2)}{9} = 0.$$\nVì $M(2; 1)$ là trung điểm của đoạn $AB$ nên $x_1 + x_2 = 2x_M = 4$ và $y_1 + y_2 = 2y_M = 2$.\nThay vào đẳng thức trên:\n$$\\frac{4(x_1 - x_2)}{16} + \\frac{2(y_1 - y_2)}{9} = 0 \\iff \\frac{x_1 - x_2}{4} = -\\frac{2(y_1 - y_2)}{9}$$\n$$\\iff k = \\frac{y_1 - y_2}{x_1 - x_2} = -\\frac{9}{8}.$$\nVậy hệ số góc của đường thẳng $\\Delta$ là $-\\frac{9}{8}$.",
+    "socraticHint": "Sử dụng tính chất phân giác/hệ thức trung điểm của dây cung conic bằng cách trừ hai phương trình elip tại hai đầu mút.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
@@ -132,28 +132,28 @@ export const duongThangDuongTronConicQuestions: Question[] = [
     "chapterName": "Chương 6: Toán Lớp 10 & Hình học Oxy",
     "topicId": "duong_thang_duong_tron_conic",
     "topicName": "Đường thẳng, Đường tròn & Ba đường Conic",
-    "content": "Đường thẳng $d: 2x - 3y + 5 = 0$ có một vectơ pháp tuyến là:",
+    "content": "Trong mặt phẳng $Oxy$, cho tam giác $ABC$ có trực tâm $H(2; 1)$, tâm đường tròn ngoại tiếp $I(1; 0)$ và trung điểm của cạnh $BC$ là $M(3; 2)$. Tọa độ của đỉnh $A$ là:",
     "options": [
       {
         "key": "A",
-        "content": "$\\vec{n} = (2; -3)$"
+        "content": "$(-2; -3)$"
       },
       {
         "key": "B",
-        "content": "$\\vec{n} = (3; 2)$"
+        "content": "$(2; 3)$"
       },
       {
         "key": "C",
-        "content": "$\\vec{n} = (2; 3)$"
+        "content": "$(-1; -2)$"
       },
       {
         "key": "D",
-        "content": "$\\vec{n} = (-3; 2)$"
+        "content": "$(0; -1)$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Từ phương trình $Ax + By + C = 0$, VTPT là $\\vec{n} = (A; B) = (2; -3)$.",
-    "socraticHint": "Hệ số của $x$ và $y$ chính là tọa độ vectơ pháp tuyến.",
+    "detailedSolution": "Theo tính chất hình học tam giác (đường thẳng Euler), vectơ nối đỉnh và trực tâm liên hệ với vectơ từ tâm ngoại tiếp đến trung điểm cạnh đối diện qua hệ thức:\n$$\\vec{AH} = 2\\vec{IM}.$$\nTa có $\\vec{IM} = (3 - 1; 2 - 0) = (2; 2)$.\nSuy ra $\\vec{AH} = 2(2; 2) = (4; 4)$.\nVì $H(2; 1)$ nên:\n$$\\vec{AH} = (2 - x_A; 1 - y_A) = (4; 4) \\iff \\begin{cases} 2 - x_A = 4 \\\\ 1 - y_A = 4 \\end{cases} \\iff \\begin{cases} x_A = -2 \\\\ y_A = -3 \\end{cases}.$$\nVậy đỉnh $A$ có tọa độ $(-2; -3)$.",
+    "socraticHint": "Áp dụng hệ thức Euler trong tam giác: $\\vec{AH} = 2\\vec{IM}$ với $M$ là trung điểm cạnh $BC$.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
@@ -166,15 +166,14 @@ export const duongThangDuongTronConicQuestions: Question[] = [
     "chapterName": "Chương 6: Toán Lớp 10 & Hình học Oxy",
     "topicId": "duong_thang_duong_tron_conic",
     "topicName": "Đường thẳng, Đường tròn & Ba đường Conic",
-    "content": "Bán kính của đường tròn $(C): x^2 + y^2 - 4x + 6y - 12 = 0$ bằng bao nhiêu?",
+    "content": "Trong mặt phẳng $Oxy$, cho đường tròn $(C)$ đi qua ba điểm $A(0; 6), B(8; 6), C(8; 0)$. Bán kính của đường tròn $(C)$ bằng bao nhiêu?",
     "correctAnswer": "5",
     "acceptableAnswers": [
-      "5",
-      "5.0"
+      "5"
     ],
-    "detailedSolution": "Tâm $I(2; -3), c = -12$. Bán kính $R = \\sqrt{2^2 + (-3)^2 - (-12)} = \\sqrt{4 + 9 + 12} = 5$.",
-    "socraticHint": "Bán kính đường tròn dạng tổng quát $R = \\sqrt{a^2 + b^2 - c}$.",
-    "difficulty": "Vận dụng cao",
+    "detailedSolution": "Xét các vectơ:\n$$\\vec{BA} = (0 - 8; 6 - 6) = (-8; 0),$$\n$$\\vec{BC} = (8 - 8; 0 - 6) = (0; -6).$$\nTích vô hướng $\\vec{BA} \\cdot \\vec{BC} = (-8)(0) + (0)(-6) = 0$, suy ra tam giác $ABC$ vuông tại $B$.\nDo đó đường tròn ngoại tiếp tam giác $ABC$ nhận cạnh huyền $AC$ làm đường kính.\nĐộ dài đường kính là:\n$$AC = \\sqrt{(8 - 0)^2 + (0 - 6)^2} = \\sqrt{64 + 36} = \\sqrt{100} = 10.$$\nBán kính của đường tròn là $R = \\frac{AC}{2} = 5$.",
+    "socraticHint": "Kiểm tra tính vuông góc của tam giác tạo bởi 3 điểm để xác định cạnh huyền là đường kính.",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -206,28 +205,28 @@ export const duongThangDuongTronConicQuestions: Question[] = [
     "chapterName": "Chương 6: Toán Lớp 10 & Hình học Oxy",
     "topicId": "duong_thang_duong_tron_conic",
     "topicName": "Đường thẳng, Đường tròn & Ba đường Conic",
-    "content": "Trong mặt phẳng $Oxy$, phương trình tiếp tuyến của đường tròn $(C): x^2 + y^2 = 25$ tại điểm $M(3; 4)$ là:",
+    "content": "Trong mặt phẳng $Oxy$, cho đường tròn $(C): x^2 + y^2 = 9$. Từ điểm $M(5; 0)$ kẻ hai tiếp tuyến $MA, MB$ đến đường tròn $(C)$ với $A, B$ là hai tiếp điểm. Độ dài đoạn thẳng $AB$ bằng:",
     "options": [
       {
         "key": "A",
-        "content": "$3x + 4y - 25 = 0$"
+        "content": "$\\frac{24}{5}$"
       },
       {
         "key": "B",
-        "content": "$4x - 3y = 0$"
+        "content": "$\\frac{12}{5}$"
       },
       {
         "key": "C",
-        "content": "$3x + 4y + 25 = 0$"
+        "content": "$4$"
       },
       {
         "key": "D",
-        "content": "$3x - 4y + 7 = 0$"
+        "content": "$\\frac{18}{5}$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Đường tròn $(C)$ có tâm $O(0; 0)$ và bán kính $R = 5$.\nTiếp tuyến tại $M(3; 4)$ nhận vectơ $\\vec{OM} = (3; 4)$ làm vectơ pháp tuyến.\nPhương trình tiếp tuyến: $3(x - 3) + 4(y - 4) = 0 \\iff 3x + 4y - 25 = 0$.",
-    "socraticHint": "Phương trình tiếp tuyến tại $M(x_0; y_0)$ của đường tròn $x^2 + y^2 = R^2$ là $x_0 x + y_0 y = R^2$.",
+    "detailedSolution": "Đường tròn $(C)$ có tâm $O(0; 0)$ và bán kính $R = 3$.\nKhoảng cách từ tâm đến điểm ngoài: $OM = 5$.\nTam giác $OAM$ vuông tại $A$, độ dài tiếp tuyến:\n$$MA = \\sqrt{OM^2 - OA^2} = \\sqrt{5^2 - 3^2} = 4.$$\nĐoạn nối hai tiếp điểm $AB$ vuông góc với $OM$ tại $H$. Khi đó $AH$ là đường cao của tam giác vuông $OAM$:\n$$AH = \\frac{OA \\cdot MA}{OM} = \\frac{3 \\times 4}{5} = \\frac{12}{5}.$$\nĐộ dài dây cung $AB$ là:\n$$AB = 2AH = 2 \\times \\frac{12}{5} = \\frac{24}{5}.$$",
+    "socraticHint": "Đoạn thẳng nối hai tiếp điểm vuông góc với đường nối tâm và điểm ngoài tại trung điểm, dùng hệ thức lượng tam giác vuông.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
@@ -294,14 +293,13 @@ export const duongThangDuongTronConicQuestions: Question[] = [
     "chapterName": "Chương 6: Toán Lớp 10 & Hình học Oxy",
     "topicId": "duong_thang_duong_tron_conic",
     "topicName": "Đường thẳng, Đường tròn & Ba đường Conic",
-    "content": "Trong mặt phẳng $Oxy$, cho tam giác $ABC$ có trọng tâm $G(1; 2)$ và hai đỉnh $A(-1; 4), B(3; 0)$. Tìm tung độ $y_C$ của đỉnh $C$.",
-    "correctAnswer": "2",
+    "content": "Trong mặt phẳng $Oxy$, cho tam giác $ABC$ có các đỉnh $A(1; 4), B(3; 0), C(5; 5)$. Tính diện tích tam giác $ABC$.",
+    "correctAnswer": "9",
     "acceptableAnswers": [
-      "2",
-      "2.0"
+      "9"
     ],
-    "detailedSolution": "Tọa độ trọng tâm $G$ thỏa mãn:\n$$y_G = \\frac{y_A + y_B + y_C}{3} \\iff 2 = \\frac{4 + 0 + y_C}{3} \\iff 6 = 4 + y_C \\iff y_C = 2$$.",
-    "socraticHint": "Tung độ trọng tâm bằng trung bình cộng tung độ ba đỉnh của tam giác.",
+    "detailedSolution": "Vectơ $\\vec{AB} = (3 - 1; 0 - 4) = (2; -4)$.\nVectơ $\\vec{AC} = (5 - 1; 5 - 4) = (4; 1)$.\nDiện tích tam giác $ABC$ được tính theo công thức định thức tọa độ:\n$$S_{ABC} = \\frac{1}{2} |x_{\\vec{AB}} y_{\\vec{AC}} - y_{\\vec{AB}} x_{\\vec{AC}}| = \\frac{1}{2} |2(1) - (-4)(4)| = \\frac{1}{2} |2 + 16| = \\frac{18}{2} = 9.$$",
+    "socraticHint": "Sử dụng công thức diện tích tam giác qua tọa độ hai vectơ chung đỉnh: $S = \\frac{1}{2}|x_1 y_2 - x_2 y_1|$.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"

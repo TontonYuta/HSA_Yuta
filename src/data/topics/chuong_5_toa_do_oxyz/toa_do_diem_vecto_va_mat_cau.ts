@@ -8,28 +8,28 @@ export const toaDoMatCauQuestions: Question[] = [
     "chapterName": "Chương 5: Phương pháp tọa độ trong không gian Oxyz",
     "topicId": "toa_do_diem_vecto_va_mat_cau",
     "topicName": "Tọa độ điểm, Vectơ & Phương trình mặt cầu",
-    "content": "Trong không gian $Oxyz$, khoảng cách từ điểm $M(1; 2; 5)$ đến mặt phẳng $(P): 2x - y + 2z - 6 = 0$ bằng:",
+    "content": "Trong không gian $Oxyz$, cho điểm $A(2; 1; -1)$ và mặt phẳng $(P): x + 2y - 2z + 3 = 0$. Tọa độ điểm $A'$ đối xứng với điểm $A$ qua mặt phẳng $(P)$ là:",
     "options": [
       {
         "key": "A",
-        "content": "$2$"
+        "content": "$(0; -3; 3)$"
       },
       {
         "key": "B",
-        "content": "$4/3$"
+        "content": "$(1; -1; 1)$"
       },
       {
         "key": "C",
-        "content": "$8/3$"
+        "content": "$(-1; -2; 2)$"
       },
       {
         "key": "D",
-        "content": "$3$"
+        "content": "$(0; 3; -3)$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Khoảng cách $d = \\frac{|2(1) - 2 + 2(5) - 6|}{\\sqrt{2^2 + (-1)^2 + 2^2}} = \\frac{|2 - 2 + 10 - 6|}{\\sqrt{9}} = \\frac{6}{3} = 2$.",
-    "socraticHint": "Áp dụng công thức khoảng cách $d(M, P) = \\frac{|Ax_0 + By_0 + Cz_0 + D|}{\\sqrt{A^2 + B^2 + C^2}}$.",
+    "detailedSolution": "Đường thẳng qua $A(2; 1; -1)$ vuông góc với mặt phẳng $(P)$ có phương trình tham số:\n$$\\begin{cases} x = 2 + t \\\\ y = 1 + 2t \\\\ z = -1 - 2t \\end{cases}$$\nGọi $H$ là hình chiếu vuông góc của $A$ lên $(P)$. Tọa độ $H$ thỏa mãn phương trình $(P)$:\n$$(2 + t) + 2(1 + 2t) - 2(-1 - 2t) + 3 = 0 \\iff 9t + 9 = 0 \\iff t = -1.$$\nSuy ra $H(1; -1; 1)$.\nVì $A'$ đối xứng với $A$ qua $(P)$, $H$ là trung điểm của đoạn thẳng $AA'$:\n$$\\begin{cases} x_{A'} = 2x_H - x_A = 2(1) - 2 = 0 \\\\ y_{A'} = 2y_H - y_A = 2(-1) - 1 = -3 \\\\ z_{A'} = 2z_H - z_A = 2(1) - (-1) = 3 \\end{cases}$$\nVậy $A'(0; -3; 3)$.",
+    "socraticHint": "Tìm hình chiếu vuông góc $H$ của $A$ lên $(P)$ rồi dùng công thức trung điểm tìm tọa độ điểm đối xứng $A'$.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan",
@@ -43,14 +43,13 @@ export const toaDoMatCauQuestions: Question[] = [
     "chapterName": "Chương 5: Phương pháp tọa độ trong không gian Oxyz",
     "topicId": "toa_do_diem_vecto_va_mat_cau",
     "topicName": "Tọa độ điểm, Vectơ & Phương trình mặt cầu",
-    "content": "Trong không gian $Oxyz$, bán kính của mặt cầu $(S): x^2 + y^2 + z^2 - 2x + 4y - 6z + 5 = 0$ bằng bao nhiêu?",
-    "correctAnswer": "3",
+    "content": "Trong không gian $Oxyz$, cho mặt cầu $(S): x^2 + y^2 + z^2 - 4x + 2y - 20 = 0$ và mặt phẳng $(P): 2x - 2y + z + 3 = 0$. Bán kính của đường tròn giao tuyến tạo bởi mặt phẳng $(P)$ và mặt cầu $(S)$ bằng bao nhiêu?",
+    "correctAnswer": "4",
     "acceptableAnswers": [
-      "3",
-      "3.0"
+      "4"
     ],
-    "detailedSolution": "Tâm $I(1; -2; 3), d = 5$.\nBán kính $R = \\sqrt{1^2 + (-2)^2 + 3^2 - 5} = \\sqrt{1 + 4 + 9 - 5} = 3$.",
-    "socraticHint": "Công thức bán kính mặt cầu $R = \\sqrt{a^2 + b^2 + c^2 - d}$.",
+    "detailedSolution": "Mặt cầu $(S)$ có tâm $I(2; -1; 0)$ và bán kính:\n$$R = \\sqrt{2^2 + (-1)^2 + 0^2 - (-20)} = \\sqrt{4 + 1 + 20} = \\sqrt{25} = 5.$$\nKhoảng cách từ tâm $I$ đến mặt phẳng $(P)$ là:\n$$d = \\frac{|2(2) - 2(-1) + 1(0) + 3|}{\\sqrt{2^2 + (-2)^2 + 1^2}} = \\frac{|4 + 2 + 3|}{\\sqrt{9}} = \\frac{9}{3} = 3.$$\nVì $d < R$ nên mặt phẳng $(P)$ cắt mặt cầu theo đường tròn có bán kính:\n$$r = \\sqrt{R^2 - d^2} = \\sqrt{5^2 - 3^2} = \\sqrt{25 - 9} = \\sqrt{16} = 4.$$",
+    "socraticHint": "Bán kính đường tròn giao tuyến được tính theo hệ thức Pythagore $r = \\sqrt{R^2 - d^2}$.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan",
@@ -64,28 +63,28 @@ export const toaDoMatCauQuestions: Question[] = [
     "chapterName": "Chương 5: Phương pháp tọa độ trong không gian Oxyz",
     "topicId": "toa_do_diem_vecto_va_mat_cau",
     "topicName": "Tọa độ điểm, Vectơ & Phương trình mặt cầu",
-    "content": "Tọa độ hình chiếu vuông góc của điểm $A(2; -3; 4)$ lên mặt phẳng $(Oxy)$ là:",
+    "content": "Trong không gian $Oxyz$, cho mặt cầu $(S): (x - 1)^2 + (y - 2)^2 + (z + 1)^2 = 25$ và điểm $M(2; 4; 1)$. Mặt phẳng $(P)$ đi qua $M$ và cắt mặt cầu $(S)$ theo giao tuyến là đường tròn có bán kính nhỏ nhất có phương trình là:",
     "options": [
       {
         "key": "A",
-        "content": "$(2; -3; 0)$"
+        "content": "$x + 2y + 2z - 12 = 0$"
       },
       {
         "key": "B",
-        "content": "$(0; 0; 4)$"
+        "content": "$x + 2y + 2z - 10 = 0$"
       },
       {
         "key": "C",
-        "content": "$(2; 0; 4)$"
+        "content": "$2x + y + 2z - 10 = 0$"
       },
       {
         "key": "D",
-        "content": "$(0; -3; 4)$"
+        "content": "$x + 2y - 2z - 8 = 0$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Chiếu lên mặt phẳng $(Oxy)$ thì cao độ $z = 0$, giữ nguyên hoành độ và tung độ $\\implies (2; -3; 0)$.",
-    "socraticHint": "Phương trình mặt phẳng $(Oxy)$ là $z = 0$.",
+    "detailedSolution": "Mặt cầu $(S)$ có tâm $I(1; 2; -1)$ và bán kính $R = 5$.\nTa có $IM^2 = (2 - 1)^2 + (4 - 2)^2 + (1 + 1)^2 = 1 + 4 + 4 = 9 < 25$, suy ra điểm $M$ nằm bên trong mặt cầu $(S)$.\nBán kính đường tròn giao tuyến là $r = \\sqrt{R^2 - d^2(I, (P))}$.\nĐể $r$ nhỏ nhất thì khoảng cách $d(I, (P))$ lớn nhất. Vì $d(I, (P)) \\le IM$, giá trị lớn nhất đạt được khi mặt phẳng $(P)$ vuông góc với $IM$ tại $M$.\nVectơ pháp tuyến của mặt phẳng $(P)$ là $\\vec{n} = \\vec{IM} = (1; 2; 2)$.\nPhương trình mặt phẳng $(P)$:\n$$1(x - 2) + 2(y - 4) + 2(z - 1) = 0 \\iff x + 2y + 2z - 12 = 0.$$",
+    "socraticHint": "Đường tròn giao tuyến có bán kính nhỏ nhất khi mặt phẳng qua điểm trong mặt cầu vuông góc với đường nối tâm và điểm đó.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
@@ -98,29 +97,29 @@ export const toaDoMatCauQuestions: Question[] = [
     "chapterName": "Chương 5: Phương pháp tọa độ trong không gian Oxyz",
     "topicId": "toa_do_diem_vecto_va_mat_cau",
     "topicName": "Tọa độ điểm, Vectơ & Phương trình mặt cầu",
-    "content": "Tích vô hướng của hai vectơ $\\vec{a} = (1; 2; -3)$ và $\\vec{b} = (4; -1; 2)$ bằng:",
+    "content": "Trong không gian $Oxyz$, cho hai điểm $A(1; 2; -3), B(3; -2; 1)$ và mặt phẳng $(P): 2x - y + 2z - 11 = 0$. Điểm $M(a; b; c)$ thuộc mặt phẳng $(P)$ sao cho biểu thức $MA^2 + MB^2$ đạt giá trị nhỏ nhất. Tổng $a + b + c$ bằng:",
     "options": [
       {
         "key": "A",
-        "content": "$-4$"
-      },
-      {
-        "key": "B",
         "content": "$4$"
       },
       {
+        "key": "B",
+        "content": "$3$"
+      },
+      {
         "key": "C",
-        "content": "$-2$"
+        "content": "$2$"
       },
       {
         "key": "D",
-        "content": "$6$"
+        "content": "$5$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "$\\vec{a} \\cdot \\vec{b} = 1(4) + 2(-1) + (-3)(2) = 4 - 2 - 6 = -4$.",
-    "socraticHint": "Tích vô hướng bằng tổng các tích tọa độ tương ứng.",
-    "difficulty": "Vận dụng",
+    "detailedSolution": "Gọi $I$ là trung điểm của đoạn thẳng $AB$:\n$$I = \\left( \\frac{1 + 3}{2}; \\frac{2 - 2}{2}; \\frac{-3 + 1}{2} \\right) = (2; 0; -1).$$\nPhân tích vectơ: $\\vec{MA} = \\vec{MI} + \\vec{IA}$ và $\\vec{MB} = \\vec{MI} + \\vec{IB}$.\nDo $\\vec{IA} + \\vec{IB} = \\vec{0}$, ta có:\n$$MA^2 + MB^2 = 2MI^2 + \\frac{AB^2}{2}.$$\nBiểu thức đạt giá trị nhỏ nhất khi và chỉ khi $MI$ ngắn nhất, tức là $M$ là hình chiếu vuông góc của $I$ lên $(P)$.\nĐường thẳng qua $I$ vuông góc với $(P)$ có phương trình tham số: $x = 2 + 2t, y = -t, z = -1 + 2t$.\nThay vào $(P)$:\n$$2(2 + 2t) - (-t) + 2(-1 + 2t) - 11 = 0 \\iff 9t - 9 = 0 \\iff t = 1.$$\nToạ độ hình chiếu là $M(4; -1; 1)$.\nTổng $a + b + c = 4 + (-1) + 1 = 4$.",
+    "socraticHint": "Sử dụng tâm tỉ cự (trung điểm $I$) để chuyển bài toán về khoảng cách ngắn nhất từ $I$ đến mặt phẳng.",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -132,15 +131,14 @@ export const toaDoMatCauQuestions: Question[] = [
     "chapterName": "Chương 5: Phương pháp tọa độ trong không gian Oxyz",
     "topicId": "toa_do_diem_vecto_va_mat_cau",
     "topicName": "Tọa độ điểm, Vectơ & Phương trình mặt cầu",
-    "content": "Độ dài đoạn thẳng nối hai điểm $A(1; 2; 3)$ và $B(4; 6; 3)$ bằng bao nhiêu?",
+    "content": "Trong không gian $Oxyz$, cho mặt cầu $(S): x^2 + y^2 + z^2 - 2x + 4y - 6z - 11 = 0$. Bán kính của mặt cầu $(S)$ bằng bao nhiêu?",
     "correctAnswer": "5",
     "acceptableAnswers": [
-      "5",
-      "5.0"
+      "5"
     ],
-    "detailedSolution": "$AB = \\sqrt{(4 - 1)^2 + (6 - 2)^2 + (3 - 3)^2} = \\sqrt{9 + 16 + 0} = 5$.",
-    "socraticHint": "Công thức khoảng cách hai điểm trong không gian Oxyz.",
-    "difficulty": "Vận dụng cao",
+    "detailedSolution": "Phương trình mặt cầu có dạng $x^2 + y^2 + z^2 - 2ax - 2by - 2cz + d = 0$.\nTa xác định được:\n$$a = 1, \\quad b = -2, \\quad c = 3, \\quad d = -11.$$\nBán kính của mặt cầu là:\n$$R = \\sqrt{a^2 + b^2 + c^2 - d} = \\sqrt{1^2 + (-2)^2 + 3^2 - (-11)} = \\sqrt{1 + 4 + 9 + 11} = \\sqrt{25} = 5.$$",
+    "socraticHint": "Áp dụng công thức bán kính mặt cầu dạng khai triển $R = \\sqrt{a^2 + b^2 + c^2 - d}$.",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -152,28 +150,28 @@ export const toaDoMatCauQuestions: Question[] = [
     "chapterName": "Chương 5: Phương pháp tọa độ trong không gian Oxyz",
     "topicId": "toa_do_diem_vecto_va_mat_cau",
     "topicName": "Tọa độ điểm, Vectơ & Phương trình mặt cầu",
-    "content": "Trong không gian $Oxyz$, phương trình mặt cầu có tâm $I(2; 1; -3)$ và đi qua điểm $A(2; 4; 1)$ là:",
+    "content": "Trong không gian $Oxyz$, cho mặt cầu $(S)$ có tâm $I(1; 2; -3)$ và tiếp xúc với mặt phẳng $(P): 2x - 2y + z - 7 = 0$. Phương trình của mặt cầu $(S)$ là:",
     "options": [
       {
         "key": "A",
-        "content": "$(x - 2)^2 + (y - 1)^2 + (z + 3)^2 = 25$"
+        "content": "$(x - 1)^2 + (y - 2)^2 + (z + 3)^2 = 16$"
       },
       {
         "key": "B",
-        "content": "$(x - 2)^2 + (y - 1)^2 + (z + 3)^2 = 5$"
+        "content": "$(x + 1)^2 + (y + 2)^2 + (z - 3)^2 = 16$"
       },
       {
         "key": "C",
-        "content": "$(x + 2)^2 + (y + 1)^2 + (z - 3)^2 = 25$"
+        "content": "$(x - 1)^2 + (y - 2)^2 + (z + 3)^2 = 4$"
       },
       {
         "key": "D",
-        "content": "$(x - 2)^2 + (y - 4)^2 + (z - 1)^2 = 25$"
+        "content": "$(x - 1)^2 + (y - 2)^2 + (z - 3)^2 = 16$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Bán kính mặt cầu là khoảng cách $IA$:\n$$R = IA = \\sqrt{(2 - 2)^2 + (4 - 1)^2 + (1 - (-3))^2} = \\sqrt{0 + 9 + 16} = 5$$\nPhương trình mặt cầu tâm $I(2; 1; -3)$, bán kính $R = 5$:\n$$(x - 2)^2 + (y - 1)^2 + (z + 3)^2 = 25$$.",
-    "socraticHint": "Tính bán kính $R = IA$, sau đó viết phương trình chính tắc $(x-a)^2 + (y-b)^2 + (z-c)^2 = R^2$.",
+    "detailedSolution": "Bán kính của mặt cầu bằng khoảng cách từ tâm $I(1; 2; -3)$ đến mặt phẳng tiếp xúc $(P)$:\n$$R = d(I, (P)) = \\frac{|2(1) - 2(2) + 1(-3) - 7|}{\\sqrt{2^2 + (-2)^2 + 1^2}} = \\frac{|2 - 4 - 3 - 7|}{3} = \\frac{|-12|}{3} = 4.$$\nPhương trình chính tắc của mặt cầu $(S)$ có tâm $I(1; 2; -3)$ và bán kính $R = 4$ là:\n$$(x - 1)^2 + (y - 2)^2 + (z + 3)^2 = 16.$$",
+    "socraticHint": "Mặt cầu tiếp xúc với mặt phẳng khi và chỉ khi bán kính bằng khoảng cách từ tâm đến mặt phẳng đó.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
@@ -186,14 +184,13 @@ export const toaDoMatCauQuestions: Question[] = [
     "chapterName": "Chương 5: Phương pháp tọa độ trong không gian Oxyz",
     "topicId": "toa_do_diem_vecto_va_mat_cau",
     "topicName": "Tọa độ điểm, Vectơ & Phương trình mặt cầu",
-    "content": "Trong không gian $Oxyz$, cho mặt cầu $(S): x^2 + y^2 + z^2 - 4x + 2y - 6z + 5 = 0$. Bán kính $R$ của mặt cầu bằng bao nhiêu?",
-    "correctAnswer": "3",
+    "content": "Trong không gian $Oxyz$, cho hai mặt cầu $(S_1): (x - 1)^2 + (y - 2)^2 + (z - 3)^2 = 16$ và $(S_2): (x - 4)^2 + (y - 6)^2 + (z - 15)^2 = 25$. Khoảng cách giữa hai tâm của hai mặt cầu $(S_1)$ và $(S_2)$ bằng bao nhiêu?",
+    "correctAnswer": "13",
     "acceptableAnswers": [
-      "3",
-      "3.0"
+      "13"
     ],
-    "detailedSolution": "Tâm mặt cầu: $a = 2, b = -1, c = 3$, hệ số tự do $d = 5$.\nBán kính mặt cầu:\n$$R = \\sqrt{a^2 + b^2 + c^2 - d} = \\sqrt{2^2 + (-1)^2 + 3^2 - 5} = \\sqrt{4 + 1 + 9 - 5} = \\sqrt{9} = 3$$.",
-    "socraticHint": "Áp dụng công thức bán kính mặt cầu dạng tổng quát: $R = \\sqrt{a^2+b^2+c^2-d}$.",
+    "detailedSolution": "Tâm của mặt cầu $(S_1)$ là $I_1(1; 2; 3)$.\nTâm của mặt cầu $(S_2)$ là $I_2(4; 6; 15)$.\nKhoảng cách giữa hai tâm $I_1$ và $I_2$ là:\n$$I_1 I_2 = \\sqrt{(4 - 1)^2 + (6 - 2)^2 + (15 - 3)^2} = \\sqrt{3^2 + 4^2 + 12^2} = \\sqrt{9 + 16 + 144} = \\sqrt{169} = 13.$$",
+    "socraticHint": "Xác định tọa độ hai tâm mặt cầu rồi tính độ dài đoạn thẳng nối hai điểm.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"

@@ -8,29 +8,29 @@ export const congThucPtLuongGiacQuestions: Question[] = [
     "chapterName": "Chương 9: Lượng giác & Phương trình lượng giác (Lớp 11)",
     "topicId": "cong_thuc_va_pt_luong_giac",
     "topicName": "Công thức & Phương trình lượng giác",
-    "content": "Tập nghiệm của phương trình $\\cos 2x = -\\frac{1}{2}$ là:",
+    "content": "Số nghiệm thuộc đoạn $[0; 2\\pi]$ của phương trình $\\cos 2x + \\sqrt{3}\\sin 2x = 2\\sin x$ là:",
     "options": [
       {
         "key": "A",
-        "content": "$x = \\pm \\frac{\\pi}{3} + k\\pi \\quad (k \\in \\mathbb{Z})$"
+        "content": "$4$"
       },
       {
         "key": "B",
-        "content": "$x = \\pm \\frac{2\\pi}{3} + k\\pi \\quad (k \\in \\mathbb{Z})$"
+        "content": "$3$"
       },
       {
         "key": "C",
-        "content": "$x = \\pm \\frac{\\pi}{6} + k\\pi \\quad (k \\in \\mathbb{Z})$"
+        "content": "$2$"
       },
       {
         "key": "D",
-        "content": "$x = \\frac{\\pi}{3} + k2\\pi \\quad (k \\in \\mathbb{Z})$"
+        "content": "$5$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Ta có $-\\frac{1}{2} = \\cos\\left(\\frac{2\\pi}{3}\\right)$.\nDo đó phương trình $\\cos 2x = \\cos\\left(\\frac{2\\pi}{3}\\right) \\iff 2x = \\pm \\frac{2\\pi}{3} + k2\\pi \\iff x = \\pm \\frac{\\pi}{3} + k\\pi$ ($k \\in \\mathbb{Z}$).",
-    "socraticHint": "Áp dụng công thức nghiệm cơ bản $\\cos u = \\cos \\alpha \\iff u = \\pm \\alpha + k2\\pi$.",
-    "difficulty": "Thông hiểu",
+    "detailedSolution": "Chia hai vế cho 2:\n$$\\frac{1}{2}\\cos 2x + \\frac{\\sqrt{3}}{2}\\sin 2x = \\sin x \\iff \\sin\\left(2x + \\frac{\\pi}{6}\\right) = \\sin x.$$\nPhương trình tương đương:\n$$\\left[\\begin{array}{l} 2x + \\frac{\\pi}{6} = x + k2\\pi \\\\ 2x + \\frac{\\pi}{6} = \\pi - x + k2\\pi \\end{array}\\right. \\iff \\left[\\begin{array}{l} x = -\\frac{\\pi}{6} + k2\\pi \\\\ 3x = \\frac{5\\pi}{6} + k2\\pi \\iff x = \\frac{5\\pi}{18} + \\frac{k2\\pi}{3} \\end{array}\\right.$$\nXét trên đoạn $[0; 2\\pi]$:\n- Nhánh 1: $x = -\\frac{\\pi}{6} + k2\\pi$, với $k = 1 \\Rightarrow x = \\frac{11\\pi}{6}$ (1 nghiệm).\n- Nhánh 2: $x = \\frac{5\\pi}{18} + \\frac{k2\\pi}{3}$:\n  + $k = 0 \\Rightarrow x = \\frac{5\\pi}{18}$\n  + $k = 1 \\Rightarrow x = \\frac{17\\pi}{18}$\n  + $k = 2 \\Rightarrow x = \\frac{29\\pi}{18}$\n  (Có 3 nghiệm).\nCác nghiệm trên đều phân biệt và thuộc $[0; 2\\pi]$.\nTổng cộng có $1 + 3 = 4$ nghiệm.",
+    "socraticHint": "Đưa vế trái về dạng $\\sin(2x + \\pi/6)$ bằng phương pháp biến đổi góc phụ.",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan",
       "de_03_cap_toc"
@@ -77,14 +77,13 @@ export const congThucPtLuongGiacQuestions: Question[] = [
     "chapterName": "Chương 9: Lượng giác & Phương trình lượng giác (Lớp 11)",
     "topicId": "cong_thuc_va_pt_luong_giac",
     "topicName": "Công thức & Phương trình lượng giác",
-    "content": "Tính giá trị của biểu thức $P = \\sin^2 10^\\circ + \\sin^2 20^\\circ + \\dots + \\sin^2 80^\\circ$.",
-    "correctAnswer": "4",
+    "content": "Cho phương trình $\\cos 2x + 3\\sin x - 2 = 0$. Tìm số nghiệm của phương trình thuộc đoạn $[0; 2\\pi]$.",
+    "correctAnswer": "3",
     "acceptableAnswers": [
-      "4",
-      "4.0"
+      "3"
     ],
-    "detailedSolution": "Nhận xét: $\\sin^2 80^\\circ = \\cos^2 10^\\circ \\implies \\sin^2 10^\\circ + \\sin^2 80^\\circ = 1$.\nTương tự:\n- $\\sin^2 20^\\circ + \\sin^2 70^\\circ = 1$\n- $\\sin^2 30^\\circ + \\sin^2 60^\\circ = 1$\n- $\\sin^2 40^\\circ + \\sin^2 50^\\circ = 1$\nCó 4 cặp số phụ nhau thành 1, vậy tổng $P = 4 \\times 1 = 4$.",
-    "socraticHint": "Hai góc phụ nhau $(\\alpha + \\beta = 90^\\circ)$ thỏa mãn $\\sin^2 \\alpha + \\sin^2 \\beta = 1$.",
+    "detailedSolution": "Áp dụng công thức nhân đôi $\\cos 2x = 1 - 2\\sin^2 x$:\n$$1 - 2\\sin^2 x + 3\\sin x - 2 = 0 \\iff 2\\sin^2 x - 3\\sin x + 1 = 0$$\n$$\\iff (2\\sin x - 1)(\\sin x - 1) = 0 \\iff \\left[\\begin{array}{l} \\sin x = 1 \\\\ \\sin x = \\frac{1}{2} \\end{array}\\right.$$\nXét trên đoạn $[0; 2\\pi]$:\n- $\\sin x = 1$ có đúng 1 nghiệm là $x = \\frac{\\pi}{2}$.\n- $\\sin x = \\frac{1}{2}$ có đúng 2 nghiệm là $x = \\frac{\\pi}{6}$ và $x = \\frac{5\\pi}{6}$.\nCác nghiệm này phân biệt từng đôi một.\nTổng số nghiệm thuộc đoạn $[0; 2\\pi]$ là $1 + 2 = 3$.",
+    "socraticHint": "Đưa phương trình về dạng bậc hai theo $\\sin x$ bằng công thức $\\cos 2x = 1 - 2\\sin^2 x$.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
@@ -97,29 +96,29 @@ export const congThucPtLuongGiacQuestions: Question[] = [
     "chapterName": "Chương 9: Lượng giác & Phương trình lượng giác (Lớp 11)",
     "topicId": "cong_thuc_va_pt_luong_giac",
     "topicName": "Công thức & Phương trình lượng giác",
-    "content": "Giá trị lớn nhất của hàm số $y = 3\\sin x - 4\\cos x + 2$ là:",
+    "content": "Cho hàm số $f(x) = \\sin^4 x + \\cos^4 x + m\\sin 2x$. Tìm tập hợp tất cả các giá trị thực của tham số $m$ để giá trị lớn nhất của hàm số $f(x)$ bằng $2$.",
     "options": [
       {
         "key": "A",
-        "content": "$7$"
+        "content": "$m = \\pm \\frac{3}{2}$"
       },
       {
         "key": "B",
-        "content": "$5$"
+        "content": "$m = \\pm \\sqrt{2}$"
       },
       {
         "key": "C",
-        "content": "$6$"
+        "content": "$m = \\pm 1$"
       },
       {
         "key": "D",
-        "content": "$8$"
+        "content": "$m = \\pm 2$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Biểu thức dạng $a\\sin x + b\\cos x$ có miền giá trị $[-\\sqrt{a^2+b^2}; \\sqrt{a^2+b^2}]$.\nTại đây $\\sqrt{3^2 + (-4)^2} = 5$.\nDo đó giá trị lớn nhất $y_{\\max} = 5 + 2 = 7$.",
-    "socraticHint": "Sử dụng bất đẳng thức Bunhiacopxki hoặc biến đổi về góc phụ $\\sqrt{a^2+b^2}\\sin(x + \\varphi)$.",
-    "difficulty": "Vận dụng cao",
+    "detailedSolution": "Ta biến đổi:\n$$f(x) = (\\sin^2 x + \\cos^2 x)^2 - 2\\sin^2 x \\cos^2 x + m\\sin 2x = 1 - \\frac{1}{2}\\sin^2 2x + m\\sin 2x.$$\nĐặt $t = \\sin 2x \\in [-1; 1]$. Xét hàm số $g(t) = -\\frac{1}{2}t^2 + mt + 1$ trên $[-1; 1]$.\nĐạo hàm $g'(t) = -t + m = 0 \\iff t = m$.\n- Nếu $|m| \\le 1$: $\\max g(t) = g(m) = \\frac{m^2}{2} + 1 = 2 \\iff m^2 = 2 \\iff m = \\pm\\sqrt{2}$ (loại vì $|m| \\le 1$).\n- Nếu $m > 1$: hàm số đồng biến trên $[-1; 1]$, suy ra $\\max g(t) = g(1) = m + \\frac{1}{2} = 2 \\iff m = \\frac{3}{2}$ (thỏa mãn $m > 1$).\n- Nếu $m < -1$: hàm số nghịch biến trên $[-1; 1]$, suy ra $\\max g(t) = g(-1) = -m + \\frac{1}{2} = 2 \\iff m = -\\frac{3}{2}$ (thỏa mãn $m < -1$).\nVậy các giá trị thỏa mãn là $m = \\pm \\frac{3}{2}$.",
+    "socraticHint": "Đổi biến $t = \\sin 2x \\in [-1; 1]$, đưa về bài toán tìm GTLN của tam thức bậc hai theo tham số $m$ trên đoạn $[-1; 1]$.",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -131,29 +130,29 @@ export const congThucPtLuongGiacQuestions: Question[] = [
     "chapterName": "Chương 9: Lượng giác & Phương trình lượng giác (Lớp 11)",
     "topicId": "cong_thuc_va_pt_luong_giac",
     "topicName": "Công thức & Phương trình lượng giác",
-    "content": "Nghiệm dương nhỏ nhất của phương trình $\\tan x = \\sqrt{3}$ là:",
+    "content": "Số nghiệm thuộc khoảng $(0; 2\\pi)$ của phương trình $\\frac{\\cos 3x - \\cos x + \\sin 2x}{2\\sin x - 1} = 0$ là:",
     "options": [
       {
         "key": "A",
-        "content": "$\\frac{\\pi}{3}$"
+        "content": "$3$"
       },
       {
         "key": "B",
-        "content": "$\\frac{\\pi}{6}$"
+        "content": "$4$"
       },
       {
         "key": "C",
-        "content": "$\\frac{4\\pi}{3}$"
+        "content": "$2$"
       },
       {
         "key": "D",
-        "content": "$\\frac{2\\pi}{3}$"
+        "content": "$5$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Ta có $\\sqrt{3} = \\tan\\frac{\\pi}{3} \\implies x = \\frac{\\pi}{3} + k\\pi$ ($k \\in \\mathbb{Z}$).\nNghiệm dương nhỏ nhất ứng với $k = 0$ là $x = \\frac{\\pi}{3}$.",
-    "socraticHint": "Giải phương trình lượng giác cơ bản $\\tan x = \\tan \\alpha \\iff x = \\alpha + k\\pi$.",
-    "difficulty": "Vận dụng cao",
+    "detailedSolution": "Điều kiện xác định: $2\\sin x - 1 \\ne 0 \\iff \\sin x \\ne \\frac{1}{2}$.\nBiến đổi tử số:\n$$\\cos 3x - \\cos x + \\sin 2x = -2\\sin 2x \\sin x + \\sin 2x = \\sin 2x (1 - 2\\sin x) = 0.$$\nDo điều kiện mẫu $1 - 2\\sin x \\ne 0$, phương trình tương đương:\n$$\\sin 2x = 0 \\iff 2x = k\\pi \\iff x = \\frac{k\\pi}{2} \\quad (k \\in \\mathbb{Z}).$$\nXét các nghiệm trong khoảng $(0; 2\\pi)$:\n$x \\in \\left\\{ \\frac{\\pi}{2}; \\pi; \\frac{3\\pi}{2} \\right\\}$.\nKiểm tra điều kiện:\n- Tại $x = \\frac{\\pi}{2}$: $\\sin x = 1 \\ne \\frac{1}{2}$ (thỏa mãn).\n- Tại $x = \\pi$: $\\sin x = 0 \\ne \\frac{1}{2}$ (thỏa mãn).\n- Tại $x = \\frac{3\\pi}{2}$: $\\sin x = -1 \\ne \\frac{1}{2}$ (thỏa mãn).\nVậy phương trình có đúng $3$ nghiệm thuộc khoảng $(0; 2\\pi)$.",
+    "socraticHint": "Lưu ý điều kiện xác định của mẫu số để loại bỏ nghiệm ngoại lai $1 - 2\\sin x = 0$.",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -165,28 +164,28 @@ export const congThucPtLuongGiacQuestions: Question[] = [
     "chapterName": "Chương 9: Lượng giác & Phương trình lượng giác (Lớp 11)",
     "topicId": "cong_thuc_va_pt_luong_giac",
     "topicName": "Công thức & Phương trình lượng giác",
-    "content": "Đẳng thức nào sau đây đúng với mọi $x$?",
+    "content": "Số nghiệm thuộc khoảng $(0; 2\\pi)$ của phương trình $\\sin 3x + \\sqrt{3}\\cos 3x = 2\\cos 2x$ là:",
     "options": [
       {
         "key": "A",
-        "content": "$\\sin 2x = 2\\sin x \\cos x$"
+        "content": "$6$"
       },
       {
         "key": "B",
-        "content": "$\\cos 2x = \\cos^2 x + \\sin^2 x$"
+        "content": "$5$"
       },
       {
         "key": "C",
-        "content": "$\\sin 2x = \\sin^2 x - \\cos^2 x$"
+        "content": "$4$"
       },
       {
         "key": "D",
-        "content": "$\\cos 2x = 2\\cos x$"
+        "content": "$7$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Theo công thức nhân đôi cơ bản: $\\sin 2x = 2\\sin x \\cos x$.",
-    "socraticHint": "Kiểm tra công thức lượng giác nhân đôi trong sách giáo khoa.",
+    "detailedSolution": "Chia hai vế cho 2:\n$$\\frac{1}{2}\\sin 3x + \\frac{\\sqrt{3}}{2}\\cos 3x = \\cos 2x \\iff \\cos\\left(3x - \\frac{\\pi}{6}\\right) = \\cos 2x.$$\nPhương trình tương đương:\n$$\\left[\\begin{array}{l} 3x - \\frac{\\pi}{6} = 2x + k2\\pi \\\\ 3x - \\frac{\\pi}{6} = -2x + k2\\pi \\end{array}\\right. \\iff \\left[\\begin{array}{l} x = \\frac{\\pi}{6} + k2\\pi \\\\ x = \\frac{\\pi}{30} + \\frac{k2\\pi}{5} \\end{array}\\right.$$\nXét trên khoảng $(0; 2\\pi)$:\n- Nhánh 1: $x = \\frac{\\pi}{6}$ (1 nghiệm).\n- Nhánh 2: $x = \\frac{\\pi}{30} + \\frac{k2\\pi}{5}$ với $k \\in \\{0; 1; 2; 3; 4\\}$ cho $5$ nghiệm: $\\frac{\\pi}{30}, \\frac{13\\pi}{30}, \\frac{5\\pi}{6}, \\frac{37\\pi}{30}, \\frac{49\\pi}{30}$.\nCác nghiệm này hoàn toàn phân biệt với $\\frac{\\pi}{6}$.\nTổng cộng có $1 + 5 = 6$ nghiệm thuộc khoảng $(0; 2\\pi)$.",
+    "socraticHint": "Đưa vế trái về dạng $\\cos(3x - \\alpha)$ bằng công thức cộng cung.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
@@ -199,29 +198,29 @@ export const congThucPtLuongGiacQuestions: Question[] = [
     "chapterName": "Chương 9: Lượng giác & Phương trình lượng giác (Lớp 11)",
     "topicId": "cong_thuc_va_pt_luong_giac",
     "topicName": "Công thức & Phương trình lượng giác",
-    "content": "Giá trị của $\\cos 60^\\circ + \\sin 30^\\circ$ là:",
+    "content": "Cho phương trình $\\cos 2x - (2m + 1)\\cos x + m + 1 = 0$. Tìm tất cả các giá trị của tham số $m$ để phương trình có đúng 3 nghiệm phân biệt thuộc đoạn $\\left[-\\frac{\\pi}{2}; \\pi\\right]$.",
     "options": [
       {
         "key": "A",
-        "content": "$1$"
+        "content": "$m \\in [-1; 0) \\cup \\{1\\}$"
       },
       {
         "key": "B",
-        "content": "$\\frac{\\sqrt{3}}{2}$"
+        "content": "$m \\in [-1; 1]$"
       },
       {
         "key": "C",
-        "content": "$\\sqrt{3}$"
+        "content": "$m \\in (0; 1)$"
       },
       {
         "key": "D",
-        "content": "$1/2$"
+        "content": "$m \\in [-1; 0]$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "$\\cos 60^\\circ = \\frac{1}{2}$, $\\sin 30^\\circ = \\frac{1}{2} \\implies \\frac{1}{2} + \\frac{1}{2} = 1$.",
-    "socraticHint": "Tra cứu bảng giá trị lượng giác của các góc cơ bản.",
-    "difficulty": "Vận dụng",
+    "detailedSolution": "Biến đổi phương trình:\n$$2\\cos^2 x - 1 - (2m + 1)\\cos x + m + 1 = 0 \\iff 2\\cos^2 x - (2m + 1)\\cos x + m = 0$$\n$$\\iff (2\\cos x - 1)(\\cos x - m) = 0 \\iff \\left[\\begin{array}{l} \\cos x = \\frac{1}{2} \\\\ \\cos x = m \\end{array}\\right.$$\nXét $x \\in \\left[-\\frac{\\pi}{2}; \\pi\\right]$:\n- Phương trình $\\cos x = \\frac{1}{2}$ có đúng 2 nghiệm là $x = -\\frac{\\pi}{3}$ và $x = \\frac{\\pi}{3}$.\nĐể phương trình ban đầu có đúng 3 nghiệm phân biệt trên $\\left[-\\frac{\\pi}{2}; \\pi\\right]$, phương trình $\\cos x = m$ phải sinh ra đúng 1 nghiệm khác $\\pm\\frac{\\pi}{3}$.\nXét đồ thị hàm số $y = \\cos x$ trên $\\left[-\\frac{\\pi}{2}; \\pi\\right]$:\n- Với $m = 1$: sinh ra duy nhất nghiệm $x = 0$ (thỏa mãn).\n- Với $-1 \\le m < 0$: sinh ra duy nhất 1 nghiệm thuộc $\\left(\\frac{\\pi}{2}; \\pi\\right]$ (thỏa mãn).\n- Với $0 \\le m < 1$ và $m \\ne \\frac{1}{2}$: đường thẳng cắt tại 2 điểm nên sinh ra 2 nghiệm (loại).\n- Với $m = \\frac{1}{2}$: nghiệm trùng với 2 nghiệm đã có, không tạo thêm nghiệm mới (loại).\nVậy $m \\in [-1; 0) \\cup \\{1\\}$.",
+    "socraticHint": "Phân tích phương trình thành tích $(2\\cos x - 1)(\\cos x - m) = 0$ rồi dùng đường tròn lượng giác để đếm nghiệm theo tham số $m$.",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -233,15 +232,13 @@ export const congThucPtLuongGiacQuestions: Question[] = [
     "chapterName": "Chương 9: Lượng giác & Phương trình lượng giác (Lớp 11)",
     "topicId": "cong_thuc_va_pt_luong_giac",
     "topicName": "Công thức & Phương trình lượng giác",
-    "content": "Cho góc $\\alpha$ thỏa mãn $\\sin \\alpha = \\frac{3}{5}$ và $0 < \\alpha < \\frac{\\pi}{2}$. Tính giá trị của $\\tan \\alpha$.",
-    "correctAnswer": "0.75",
+    "content": "Cho phương trình $\\sin x + \\cos x = \\sqrt{2}\\sin 5x$. Tìm số nghiệm của phương trình thuộc đoạn $[0; \\pi]$.",
+    "correctAnswer": "5",
     "acceptableAnswers": [
-      "0.75",
-      "3/4",
-      "0,75"
+      "5"
     ],
-    "detailedSolution": "Vì $0 < \\alpha < \\frac{\\pi}{2} \\implies \\cos \\alpha = \\sqrt{1 - \\sin^2 \\alpha} = \\sqrt{1 - \\frac{9}{25}} = \\frac{4}{5}$.\nDo đó $\\tan \\alpha = \\frac{\\sin \\alpha}{\\cos \\alpha} = \\frac{3/5}{4/5} = \\frac{3}{4} = 0{,}75$.",
-    "socraticHint": "Dùng hệ thức $\\sin^2 \\alpha + \\cos^2 \\alpha = 1$, chú ý dấu của $\\cos \\alpha$ trong góc phần tư thứ nhất.",
+    "detailedSolution": "Biến đổi vế trái: $\\sin x + \\cos x = \\sqrt{2}\\sin\\left(x + \\frac{\\pi}{4}\\right)$.\nPhương trình trở thành:\n$$\\sqrt{2}\\sin\\left(x + \\frac{\\pi}{4}\\right) = \\sqrt{2}\\sin 5x \\iff \\sin 5x = \\sin\\left(x + \\frac{\\pi}{4}\\right)$$\n$$\\iff \\left[\\begin{array}{l} 5x = x + \\frac{\\pi}{4} + k2\\pi \\\\ 5x = \\pi - \\left(x + \\frac{\\pi}{4}\\right) + k2\\pi \\end{array}\\right. \\iff \\left[\\begin{array}{l} 4x = \\frac{\\pi}{4} + k2\\pi \\iff x = \\frac{\\pi}{16} + \\frac{k\\pi}{2} \\\\ 6x = \\frac{3\\pi}{4} + k2\\pi \\iff x = \\frac{\\pi}{8} + \\frac{k\\pi}{3} \\end{array}\\right.$$\nXét trên đoạn $[0; \\pi]$:\n- Nhánh 1: $x = \\frac{\\pi}{16}$ ($k = 0$) và $x = \\frac{9\\pi}{16}$ ($k = 1$). (Có 2 nghiệm).\n- Nhánh 2: $x = \\frac{\\pi}{8}$ ($k = 0$), $x = \\frac{11\\pi}{24}$ ($k = 1$), và $x = \\frac{19\\pi}{24}$ ($k = 2$). (Có 3 nghiệm).\nHai họ nghiệm này không trùng nhau.\nTổng số nghiệm thuộc đoạn $[0; \\pi]$ là $2 + 3 = 5$.",
+    "socraticHint": "Dùng công thức $\\sin x + \\cos x = \\sqrt{2}\\sin(x + \\pi/4)$ đưa về phương trình $\\sin u = \\sin v$.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
@@ -254,15 +251,14 @@ export const congThucPtLuongGiacQuestions: Question[] = [
     "chapterName": "Chương 9: Lượng giác & Phương trình lượng giác (Lớp 11)",
     "topicId": "cong_thuc_va_pt_luong_giac",
     "topicName": "Công thức & Phương trình lượng giác",
-    "content": "Tính chu kỳ tuần hoàn cơ bản $T$ của hàm số $y = \\sin 2x$ (Nhập giá trị của $T / \\pi$, ví dụ nếu $T = \\pi$ thì nhập 1).",
-    "correctAnswer": "1",
+    "content": "Tìm số nghiệm thuộc khoảng $(0; 3\\pi)$ của phương trình $\\sin 2x = \\cos x$.",
+    "correctAnswer": "7",
     "acceptableAnswers": [
-      "1",
-      "1.0"
+      "7"
     ],
-    "detailedSolution": "Chu kỳ cơ bản của hàm số $y = \\sin(\\omega x)$ là $T = \\frac{2\\pi}{|\\omega|}$.\nỞ đây $\\omega = 2 \\implies T = \\frac{2\\pi}{2} = \\pi$. Do đó $T / \\pi = 1$.",
-    "socraticHint": "Công thức chu kỳ cơ bản của hàm $\\sin(\\omega x)$ là $T = \\frac{2\\pi}{\\omega}$.",
-    "difficulty": "Vận dụng cao",
+    "detailedSolution": "Biến đổi phương trình:\n$$\\sin 2x - \\cos x = 0 \\iff 2\\sin x \\cos x - \\cos x = 0 \\iff \\cos x (2\\sin x - 1) = 0$$\n$$\\iff \\left[\\begin{array}{l} \\cos x = 0 \\\\ \\sin x = \\frac{1}{2} \\end{array}\\right.$$\nXét trên khoảng $(0; 3\\pi)$:\n1. $\\cos x = 0 \\iff x = \\frac{\\pi}{2} + k\\pi$. Các nghiệm là $\\frac{\\pi}{2}, \\frac{3\\pi}{2}, \\frac{5\\pi}{2}$ (3 nghiệm).\n2. $\\sin x = \\frac{1}{2} \\iff x = \\frac{\\pi}{6} + k2\\pi$ hoặc $x = \\frac{5\\pi}{6} + k2\\pi$.\n- Nhánh $x = \\frac{\\pi}{6} + k2\\pi$: các nghiệm là $\\frac{\\pi}{6}, \\frac{13\\pi}{6}$ (2 nghiệm).\n- Nhánh $x = \\frac{5\\pi}{6} + k2\\pi$: các nghiệm là $\\frac{5\\pi}{6}, \\frac{17\\pi}{6}$ (2 nghiệm).\nCác nghiệm trên đều khác nhau từng đôi một.\nTổng số nghiệm là $3 + 2 + 2 = 7$.",
+    "socraticHint": "Dùng công thức nhân đôi $\\sin 2x = 2\\sin x \\cos x$ đưa về phương trình tích.",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -308,29 +304,29 @@ export const congThucPtLuongGiacQuestions: Question[] = [
     "chapterName": "Chương 9: Lượng giác & Phương trình lượng giác (Lớp 11)",
     "topicId": "cong_thuc_va_pt_luong_giac",
     "topicName": "Công thức & Phương trình lượng giác",
-    "content": "Giá trị lớn nhất của hàm số $y = 3\\sin x - 4\\cos x + 5$ là:",
+    "content": "Cho hàm số $f(x) = \\frac{\\sin x + 2\\cos x + 1}{\\sin x + \\cos x + 2}$. Gọi $M$ và $m$ lần lượt là giá trị lớn nhất và giá trị nhỏ nhất của hàm số $f(x)$. Tích $M \\cdot m$ bằng:",
     "options": [
       {
         "key": "A",
-        "content": "$10$"
+        "content": "$-2$"
       },
       {
         "key": "B",
-        "content": "$5$"
+        "content": "$2$"
       },
       {
         "key": "C",
-        "content": "$12$"
+        "content": "$-1$"
       },
       {
         "key": "D",
-        "content": "$7$"
+        "content": "$0$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Biểu thức $3\\sin x - 4\\cos x$ có dạng $asin x + bcos x$.\nGiá trị lớn nhất của $3\\sin x - 4\\cos x$ là $\\sqrt{3^2 + (-4)^2} = \\sqrt{25} = 5$.\nDo đó giá trị lớn nhất của $y$ là $5 + 5 = 10$.",
-    "socraticHint": "Biểu thức $asin x + bcos x$ luôn thuộc đoạn $[-\\sqrt{a^2+b^2}; \\sqrt{a^2+b^2}]$.",
-    "difficulty": "Vận dụng cao",
+    "detailedSolution": "Gọi $y$ là một giá trị của hàm số, ta có:\n$$y = \\frac{\\sin x + 2\\cos x + 1}{\\sin x + \\cos x + 2} \\iff y(\\sin x + \\cos x + 2) = \\sin x + 2\\cos x + 1$$\n$$\\iff (y - 1)\\sin x + (y - 2)\\cos x = 1 - 2y.$$\nĐiều kiện để phương trình có nghiệm theo $x$ là:\n$$(y - 1)^2 + (y - 2)^2 \\ge (1 - 2y)^2$$\n$$\\iff y^2 - 2y + 1 + y^2 - 4y + 4 \\ge 4y^2 - 4y + 1 \\iff 2y^2 + 2y - 4 \\le 0$$\n$$\\iff y^2 + y - 2 \\le 0 \\iff -2 \\le y \\le 1.$$\nDo đó $M = 1$ và $m = -2$.\nTích $M \\cdot m = 1 \\cdot (-2) = -2$.",
+    "socraticHint": "Sử dụng điều kiện có nghiệm $a^2 + b^2 \\ge c^2$ của phương trình lượng giác bậc nhất $a\\sin x + b\\cos x = c$.",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
     ]

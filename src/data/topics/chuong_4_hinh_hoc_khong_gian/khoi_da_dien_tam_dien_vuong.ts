@@ -43,28 +43,28 @@ export const khoiDaDienTamDienVuongQuestions: Question[] = [
     "chapterName": "Chương 4: Hình học không gian cổ điển",
     "topicId": "khoi_da_dien_tam_dien_vuong",
     "topicName": "Khối đa diện & Khối chóp tam diện vuông",
-    "content": "Thể tích khối chóp tứ giác đều có cạnh đáy bằng $a$ và chiều cao bằng $2a$ là:",
+    "content": "Cho khối chóp tứ giác đều $S.ABCD$ có cạnh đáy bằng $a$, góc giữa mặt bên và mặt phẳng đáy bằng $60^\\circ$. Thể tích của khối chóp $S.ABCD$ bằng:",
     "options": [
       {
         "key": "A",
-        "content": "$\\frac{2}{3}a^3$"
+        "content": "$\\frac{a^3\\sqrt{3}}{6}$"
       },
       {
         "key": "B",
-        "content": "$2a^3$"
+        "content": "$\\frac{a^3\\sqrt{3}}{2}$"
       },
       {
         "key": "C",
-        "content": "$\\frac{1}{3}a^3$"
+        "content": "$\\frac{a^3\\sqrt{3}}{3}$"
       },
       {
         "key": "D",
-        "content": "$\\frac{4}{3}a^3$"
+        "content": "$\\frac{a^3\\sqrt{3}}{12}$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Diện tích đáy: $S = a^2$. Chiều cao $h = 2a$.\nThể tích $V = \\frac{1}{3} S h = \\frac{1}{3} a^2 (2a) = \\frac{2}{3}a^3$.",
-    "socraticHint": "Công thức thể tích hình chóp $V = \\frac{1}{3}Bh$.",
+    "detailedSolution": "Gọi $O$ là tâm của hình vuông đáy $ABCD$, suy ra $SO \\perp (ABCD)$.\nGọi $M$ là trung điểm của cạnh $CD$, ta có $OM \\perp CD$ và $SM \\perp CD$.\nGóc giữa mặt bên $(SCD)$ và đáy là góc $\\widehat{SMO} = 60^\\circ$.\nVì $ABCD$ là hình vuông cạnh $a$ nên $OM = \\frac{a}{2}$.\nChiều cao của khối chóp:\n$$SO = OM \\cdot \\tan 60^\\circ = \\frac{a}{2} \\cdot \\sqrt{3} = \\frac{a\\sqrt{3}}{2}.$$\nDiện tích đáy $S_{ABCD} = a^2$.\nThể tích khối chóp:\n$$V = \\frac{1}{3} S_{ABCD} \\cdot SO = \\frac{1}{3} \\cdot a^2 \\cdot \\frac{a\\sqrt{3}}{2} = \\frac{a^3\\sqrt{3}}{6}.$$",
+    "socraticHint": "Xác định góc giữa mặt bên và mặt đáy qua trung điểm cạnh đáy để tính chiều cao $SO$.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
@@ -77,14 +77,15 @@ export const khoiDaDienTamDienVuongQuestions: Question[] = [
     "chapterName": "Chương 4: Hình học không gian cổ điển",
     "topicId": "khoi_da_dien_tam_dien_vuong",
     "topicName": "Khối đa diện & Khối chóp tam diện vuông",
-    "content": "Tứ diện $OABC$ có $OA, OB, OC$ đôi một vuông góc tại $O$. Biết $OA = 3, OB = 4, OC = 5$. Thể tích khối tứ diện bằng bao nhiêu?",
-    "correctAnswer": "10",
+    "content": "Cho tứ diện $OABC$ có $OA, OB, OC$ đôi một vuông góc với nhau tại $O$. Biết $OA = 3, OB = 4, OC = 12$. Tính bán kính $R$ của mặt cầu ngoại tiếp tứ diện $OABC$.",
+    "correctAnswer": "6.5",
     "acceptableAnswers": [
-      "10",
-      "10.0"
+      "6.5",
+      "6,5",
+      "13/2"
     ],
-    "detailedSolution": "Thể tích tứ diện vuông có 3 cạnh đôi một vuông góc: $V = \\frac{1}{6} OA \\cdot OB \\cdot OC = \\frac{1}{6}(3 \\times 4 \\times 5) = 10$.",
-    "socraticHint": "Công thức tính thể tích góc tam diện vuông $V = \\frac{1}{6}abc$.",
+    "detailedSolution": "Đối với tứ diện vuông $OABC$ có ba cạnh $OA, OB, OC$ đôi một vuông góc tại $O$, bán kính mặt cầu ngoại tiếp được tính theo công thức:\n$$R = \\frac{\\sqrt{OA^2 + OB^2 + OC^2}}{2}.$$\nThay số:\n$$R = \\frac{\\sqrt{3^2 + 4^2 + 12^2}}{2} = \\frac{\\sqrt{9 + 16 + 144}}{2} = \\frac{\\sqrt{169}}{2} = \\frac{13}{2} = 6{,}5.$$",
+    "socraticHint": "Tứ diện vuông tại một đỉnh nội tiếp trong hình hộp chữ nhật có ba kích thước chính là độ dài ba cạnh bên vuông góc.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
@@ -97,28 +98,28 @@ export const khoiDaDienTamDienVuongQuestions: Question[] = [
     "chapterName": "Chương 4: Hình học không gian cổ điển",
     "topicId": "khoi_da_dien_tam_dien_vuong",
     "topicName": "Khối đa diện & Khối chóp tam diện vuông",
-    "content": "Cho hình lăng trụ đứng tam giác có diện tích đáy bằng $6\\text{ cm}^2$ và chiều cao $5\\text{ cm}$. Thể tích của khối lăng trụ bằng:",
+    "content": "Cho hình chóp $S.ABC$ có đáy $ABC$ là tam giác vuông cân tại $B$ với $AB = a$, cạnh bên $SA \\perp (ABC)$ và $SA = a\\sqrt{2}$. Gọi $M$ là trung điểm của cạnh $SC$. Mặt phẳng $(\\alpha)$ đi qua $A$ và $M$, song song với đường thẳng $BC$, cắt cạnh $SB$ tại điểm $N$. Thể tích của khối tứ diện $SAMN$ bằng:",
     "options": [
       {
         "key": "A",
-        "content": "$30\\text{ cm}^3$"
+        "content": "$\\frac{a^3 \\sqrt{2}}{24}$"
       },
       {
         "key": "B",
-        "content": "$10\\text{ cm}^3$"
+        "content": "$\\frac{a^3 \\sqrt{2}}{12}$"
       },
       {
         "key": "C",
-        "content": "$15\\text{ cm}^3$"
+        "content": "$\\frac{a^3 \\sqrt{2}}{8}$"
       },
       {
         "key": "D",
-        "content": "$60\\text{ cm}^3$"
+        "content": "$\\frac{a^3 \\sqrt{2}}{16}$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Thể tích lăng trụ: $V = S_{\a} \\cdot h = 6 \\times 5 = 30\\text{ cm}^3$.",
-    "socraticHint": "Thể tích hình lăng trụ $V = Bh$.",
+    "detailedSolution": "Vì $(\\alpha) \\parallel BC$ và chứa $M \\in SC$, giao tuyến của $(\\alpha)$ với mặt phẳng $(SBC)$ là đường thẳng qua $M$ song song với $BC$, cắt $SB$ tại $N$.\nDo đó $N$ là trung điểm của $SB$.\nÁp dụng công thức tỉ số thể tích Simson cho khối chóp tam giác:\n$$\\frac{V_{S.AMN}}{V_{S.ABC}} = \\frac{SA}{SA} \\cdot \\frac{SN}{SB} \\cdot \\frac{SM}{SC} = 1 \\cdot \\frac{1}{2} \\cdot \\frac{1}{2} = \\frac{1}{4}.$$\nThể tích khối chóp $S.ABC$:\n$$V_{S.ABC} = \\frac{1}{3} S_{ABC} \\cdot SA = \\frac{1}{3} \\left( \\frac{1}{2} a^2 \\right) (a\\sqrt{2}) = \\frac{a^3 \\sqrt{2}}{6}.$$\nVậy thể tích khối tứ diện $SAMN$ là:\n$$V_{S.AMN} = \\frac{1}{4} V_{S.ABC} = \\frac{a^3 \\sqrt{2}}{24}.$$",
+    "socraticHint": "Xác định vị trí điểm $N$ bằng tính chất đường thẳng song song trong mặt phẳng, sau đó dùng công thức tỉ số thể tích Simson.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
@@ -131,29 +132,29 @@ export const khoiDaDienTamDienVuongQuestions: Question[] = [
     "chapterName": "Chương 4: Hình học không gian cổ điển",
     "topicId": "khoi_da_dien_tam_dien_vuong",
     "topicName": "Khối đa diện & Khối chóp tam diện vuông",
-    "content": "Thể tích của khối lập phương có cạnh bằng $3$ là:",
+    "content": "Cho hình chóp $S.ABCD$ có đáy $ABCD$ là hình chữ nhật, $AB = a, AD = a\\sqrt{3}$. Mặt bên $SAB$ là tam giác đều và nằm trong mặt phẳng vuông góc với đáy. Khoảng cách từ điểm $A$ đến mặt phẳng $(SCD)$ bằng:",
     "options": [
       {
         "key": "A",
-        "content": "$27$"
+        "content": "$\\frac{a\\sqrt{15}}{5}$"
       },
       {
         "key": "B",
-        "content": "$9$"
+        "content": "$\\frac{a\\sqrt{3}}{2}$"
       },
       {
         "key": "C",
-        "content": "$18$"
+        "content": "$\\frac{a\\sqrt{5}}{5}$"
       },
       {
         "key": "D",
-        "content": "$54$"
+        "content": "$\\frac{a\\sqrt{15}}{3}$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "$V = a^3 = 3^3 = 27$.",
-    "socraticHint": "Thể tích hình lập phương $V = a^3$.",
-    "difficulty": "Vận dụng",
+    "detailedSolution": "Gọi $H$ là trung điểm cạnh $AB$. Vì tam giác $SAB$ đều và $(SAB) \\perp (ABCD)$ nên $SH \\perp (ABCD)$ và $SH = \\frac{a\\sqrt{3}}{2}$.\nVì $AB \\parallel CD$ nên $AB \\parallel (SCD)$, do đó $d(A, (SCD)) = d(H, (SCD))$.\nGọi $K$ là trung điểm của $CD$, ta có $HK \\perp CD$ và $HK = AD = a\\sqrt{3}$.\nKẻ $HE \\perp SK$ tại $E$. Khi đó $HE \\perp (SCD)$, suy ra $d(H, (SCD)) = HE$.\nTam giác $SHK$ vuông tại $H$:\n$$\\frac{1}{HE^2} = \\frac{1}{SH^2} + \\frac{1}{HK^2} = \\frac{1}{\\frac{3a^2}{4}} + \\frac{1}{3a^2} = \\frac{4}{3a^2} + \\frac{1}{3a^2} = \\frac{5}{3a^2}.$$\nDo đó:\n$$HE = \\sqrt{\\frac{3a^2}{5}} = \\frac{a\\sqrt{15}}{5}.$$",
+    "socraticHint": "Chuyển khoảng cách từ điểm $A$ về chân đường cao $H$ nhờ đường thẳng song song $AB \\parallel (SCD)$.",
+    "difficulty": "Vận dụng cao",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -165,15 +166,14 @@ export const khoiDaDienTamDienVuongQuestions: Question[] = [
     "chapterName": "Chương 4: Hình học không gian cổ điển",
     "topicId": "khoi_da_dien_tam_dien_vuong",
     "topicName": "Khối đa diện & Khối chóp tam diện vuông",
-    "content": "Diện tích toàn phần của hình lập phương có cạnh bằng $2$ bằng bao nhiêu?",
-    "correctAnswer": "24",
+    "content": "Cho khối lăng trụ tam giác đều $ABC.A'B'C'$ có cạnh đáy bằng $4$ và thể tích bằng $20\\sqrt{3}$. Tính chiều cao $h$ của khối lăng trụ.",
+    "correctAnswer": "5",
     "acceptableAnswers": [
-      "24",
-      "24.0"
+      "5"
     ],
-    "detailedSolution": "Hình lập phương có 6 mặt hình vuông: $S_{\\text{tp}} = 6 a^2 = 6(2^2) = 24$.",
-    "socraticHint": "Hình lập phương có 6 mặt vuông bằng nhau.",
-    "difficulty": "Vận dụng cao",
+    "detailedSolution": "Đáy là tam giác đều cạnh $a = 4$. Diện tích đáy là:\n$$S_{\\text{đáy}} = \\frac{a^2\\sqrt{3}}{4} = \\frac{4^2\\sqrt{3}}{4} = 4\\sqrt{3}.$$\nThể tích của khối lăng trụ đứng là:\n$$V = S_{\\text{đáy}} \\cdot h \\iff 20\\sqrt{3} = 4\\sqrt{3} \\cdot h \\iff h = \\frac{20\\sqrt{3}}{4\\sqrt{3}} = 5.$$",
+    "socraticHint": "Áp dụng công thức thể tích lăng trụ $V = S_{\\text{đáy}} \\cdot h$ với đáy là tam giác đều.",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
     ]
@@ -259,7 +259,7 @@ export const khoiDaDienTamDienVuongQuestions: Question[] = [
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Đáy $ABCD$ là hình vuông cạnh $a \\implies S_{\a} = a^2$.\nĐường chéo $AC = a\\sqrt{2} \\implies OA = \\frac{a\\sqrt{2}}{2}$.\nChiều cao của khối chóp:\n$$SO = \\sqrt{SA^2 - OA^2} = \\sqrt{(a\\sqrt{2})^2 - l\\left(\\frac{a\\sqrt{2}}{2}\\right)^2} = \\sqrt{2a^2 - \\frac{a^2}{2}} = \\sqrt{\\frac{3a^2}{2}} = \\frac{a\\sqrt{6}}{2}$$\nThể tích khối chóp:\n$$V = \\frac{1}{3} S_{\a} \\cdot SO = \\frac{1}{3} a^2 \\cdot \\frac{a\\sqrt{6}}{2} = \\frac{a^3\\sqrt{6}}{6}$$.",
+    "detailedSolution": "Đáy $ABCD$ là hình vuông cạnh $a \\implies S_{a} = a^2$.\nĐường chéo $AC = a\\sqrt{2} \\implies OA = \\frac{a\\sqrt{2}}{2}$.\nChiều cao của khối chóp:\n$$SO = \\sqrt{SA^2 - OA^2} = \\sqrt{(a\\sqrt{2})^2 - l\\left(\\frac{a\\sqrt{2}}{2}\\right)^2} = \\sqrt{2a^2 - \\frac{a^2}{2}} = \\sqrt{\\frac{3a^2}{2}} = \\frac{a\\sqrt{6}}{2}$$\nThể tích khối chóp:\n$$V = \\frac{1}{3} S_{a} \\cdot SO = \\frac{1}{3} a^2 \\cdot \\frac{a\\sqrt{6}}{2} = \\frac{a^3\\sqrt{6}}{6}$$.",
     "socraticHint": "Tính nửa đường chéo đáy $OA$, dùng định lý Pytago tìm chiều cao $SO = \\sqrt{SA^2 - OA^2}$.",
     "difficulty": "Vận dụng cao",
     "examSets": [

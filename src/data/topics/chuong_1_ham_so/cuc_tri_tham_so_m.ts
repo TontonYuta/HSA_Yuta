@@ -30,7 +30,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "correctAnswer": "A",
     "detailedSolution": "Đạo hàm: $y' = 3x^2 - 6x = 3x(x - 2) = 0 \\iff x = 0$ hoặc $x = 2$.\n- $x = 0 \\implies y = 2 \\implies A(0; 2)$.\n- $x = 2 \\implies y = -2 \\implies B(2; -2)$.\nKhoảng cách $AB = \\sqrt{(2 - 0)^2 + (-2 - 2)^2} = \\sqrt{4 + 16} = 2\\sqrt{5}$.",
     "socraticHint": "Tìm hoành độ cực trị qua $y' = 0$, tính tung độ tương ứng rồi dùng công thức khoảng cách giữa 2 điểm.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan",
       "de_03_cap_toc"
@@ -111,14 +111,13 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "Giá trị cực tiểu của hàm số $y = x^2 - 4x + 7$ bằng bao nhiêu?",
-    "correctAnswer": "3",
+    "content": "Đồ thị hàm số $y = |x^4 - 4x^2 + 3|$ có tất cả bao nhiêu điểm cực trị?",
+    "correctAnswer": "7",
     "acceptableAnswers": [
-      "3",
-      "3.0"
+      "7"
     ],
-    "detailedSolution": "Đạo hàm $y' = 2x - 4 = 0 \\iff x = 2$.\nGiá trị cực tiểu: $y(2) = 2^2 - 4(2) + 7 = 3$.",
-    "socraticHint": "Tìm điểm cực tiểu từ nghiệm $y' = 0$ rồi thay vào hàm số.",
+    "detailedSolution": "Xét hàm số $f(x) = x^4 - 4x^2 + 3$.\nĐạo hàm: $f'(x) = 4x^3 - 8x = 4x(x^2 - 2) = 0 \\iff x = 0$ hoặc $x = \\pm\\sqrt{2}$.\nSố điểm cực trị của $f(x)$ là $a = 3$.\nCác giá trị cực trị tương ứng:\n- $f(0) = 3 > 0$.\n- $f(\\pm\\sqrt{2}) = (\\sqrt{2})^4 - 4(\\sqrt{2})^2 + 3 = 4 - 8 + 3 = -1 < 0$.\nPhương trình hoành độ giao điểm $f(x) = 0 \\iff (x^2 - 1)(x^2 - 3) = 0 \\iff x = \\pm 1$ hoặc $x = \\pm\\sqrt{3}$.\nPhương trình có $b = 4$ nghiệm đơn phân biệt.\nSố điểm cực trị của hàm số trị tuyệt đối $y = |f(x)|$ bằng tổng số điểm cực trị của $f(x)$ cộng với số nghiệm đơn của phương trình $f(x) = 0$:\n$$N = a + b = 3 + 4 = 7.$$",
+    "socraticHint": "Số cực trị của hàm $y = |f(x)|$ bằng số điểm cực trị của $f(x)$ cộng số nghiệm đơn của $f(x) = 0$.",
     "difficulty": "Vận dụng cao",
     "examSets": [
       "de_02_thuc_chien"
@@ -242,7 +241,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "correctAnswer": "B",
     "detailedSolution": "Từ hình dáng đồ thị hàm số:\n- Đồ thị đổi chiều từ tăng sang giảm khi đi qua điểm có hoành độ $x = 2$, do đó hàm số đạt cực đại tại điểm $x = 2$.\n- Đồ thị đổi chiều từ giảm sang tăng khi đi qua điểm có hoành độ $x = 7$, do đó hàm số đạt cực tiểu tại điểm $x = 7$.\n- Hàm số chỉ có $2$ điểm cực trị là $x = 2$ và $x = 7$.\n- Giá trị cực đại $f(2)$ lớn hơn giá trị cực tiểu $f(7)$.\nDo đó khẳng định đúng duy nhất là: Hàm số $f(x)$ đạt cực đại tại $x = 2$.",
     "socraticHint": "Quan sát vị trí đỉnh lồi (cực đại) và đáy lõm (cực tiểu) của đồ thị hàm số.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
     ]
@@ -276,7 +275,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "correctAnswer": "3",
     "detailedSolution": "Điểm cực trị của hàm số là điểm mà tại đó đạo hàm đổi dấu khi biến số $x$ đi qua.\nTheo giả thiết, $f'(x)$ đổi dấu khi đi qua 3 điểm $x = -2, x = 0, x = 3$.\nTại $x = 5$, $f'(x)$ triệt tiêu nhưng không đổi dấu nên $x = 5$ không phải là điểm cực trị.\nVậy hàm số $y = f(x)$ có đúng 3 điểm cực trị.",
     "socraticHint": "Đếm số lần đạo hàm đổi dấu (từ dương sang âm hoặc từ âm sang dương) qua các nghiệm.",
-    "difficulty": "Thông hiểu",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_07_hsa36"
     ],

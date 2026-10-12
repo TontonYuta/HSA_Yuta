@@ -82,29 +82,29 @@ export const tiepTuyenQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "tiep_tuyen_do_thi",
     "topicName": "Phương trình tiếp tuyến đồ thị hàm số",
-    "content": "Phương trình tiếp tuyến của đồ thị hàm số $y = x^3 - 3x + 2$ tại điểm có hoành độ $x_0 = 2$ là:",
+    "content": "Cho hàm số $y = \\frac{2x + 1}{x - 1}$ có đồ thị $(C)$. Có bao nhiêu tiếp tuyến của đồ thị $(C)$ tạo với hai trục tọa độ $Ox, Oy$ một tam giác vuông cân?",
     "options": [
       {
         "key": "A",
-        "content": "$y = 9x - 14$"
+        "content": "$2$"
       },
       {
         "key": "B",
-        "content": "$y = 9x + 4$"
+        "content": "$1$"
       },
       {
         "key": "C",
-        "content": "$y = 3x - 2$"
+        "content": "$4$"
       },
       {
         "key": "D",
-        "content": "$y = 9x - 22$"
+        "content": "$0$"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Tọa độ tiếp điểm: $x_0 = 2 \\implies y_0 = 2^3 - 3(2) + 2 = 8 - 6 + 2 = 4$.\nĐạo hàm $y' = 3x^2 - 3 \\implies k = y'(2) = 3(2^2) - 3 = 9$.\nPhương trình tiếp tuyến: $y = 9(x - 2) + 4 = 9x - 18 + 4 = 9x - 14$.",
-    "socraticHint": "Công thức phương trình tiếp tuyến tại điểm: $y = y'(x_0)(x - x_0) + y(x_0)$.",
-    "difficulty": "Thông hiểu",
+    "detailedSolution": "Đạo hàm: $y' = \\frac{-3}{(x - 1)^2} < 0, \\forall x \\ne 1$.\nTiếp tuyến của đồ thị tạo với hai trục tọa độ tam giác vuông cân khi và chỉ khi hệ số góc của tiếp tuyến có độ lớn bằng $1$:\n$$|y'(x_0)| = 1 \\iff \\left| \\frac{-3}{(x_0 - 1)^2} \\right| = 1 \\iff (x_0 - 1)^2 = 3 \\iff x_0 = 1 \\pm \\sqrt{3}.$$\n- Với $x_0 = 1 + \\sqrt{3}$: $y_0 = \\frac{2(1 + \\sqrt{3}) + 1}{\\sqrt{3}} = 2 + \\sqrt{3}$. Phương trình tiếp tuyến là $y = -(x - 1 - \\sqrt{3}) + 2 + \\sqrt{3} = -x + 3 + 2\\sqrt{3}$. Tiếp tuyến này không đi qua gốc tọa độ nên tạo với hai trục một tam giác vuông cân.\n- Với $x_0 = 1 - \\sqrt{3}$: tương tự cũng cho một tiếp tuyến không qua gốc tọa độ.\nVậy có đúng 2 tiếp tuyến thỏa mãn.",
+    "socraticHint": "Đường thẳng tạo với hai trục tọa độ một tam giác vuông cân có hệ số góc bằng $1$ hoặc $-1$ và không đi qua gốc tọa độ.",
+    "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
     ]
