@@ -1,16 +1,20 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Navbar, AppMode } from './components/Navbar';
+import { AppSidebar } from './components/AppSidebar';
+import { StudentNameModal } from './components/StudentNameModal';
+import { WebhookModal } from './components/WebhookModal';
 import { ExamIntro } from './components/ExamIntro';
 import { ExamSimulation } from './components/ExamSimulation';
 import { ExamResults } from './components/ExamResults';
 import { TopicPractice } from './components/TopicPractice';
 import { QuestionBankView } from './components/QuestionBankView';
 import { ExamTimer } from './components/ExamTimer';
-import { HSA_QUESTIONS_DATABASE, HSA_EXAM_SETS } from './data/topics/index';
+import { HSA_QUESTIONS_DATABASE, HSA_EXAM_SETS, CHAPTERS_METADATA } from './data/topics/index';
 import { UserAnswer, ExamReport, TopicId } from './types/exam';
 import { generateExamReport } from './utils/scoring';
 import { prepareExamQuestions } from './utils/questionRandomizer';
 import { TrafficBadge } from './components/TrafficBadge';
+import { notifyStudentJoined } from './utils/trafficTracker';
 
 export default function App() {
   // Theme state: dark or light mode
@@ -57,6 +61,11 @@ export default function App() {
     return typeof window !== 'undefined' ? window.innerWidth >= 768 : true;
   });
 
+  // Global Sidebar & Navigation states
+  const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState<boolean>(false);
+  const [isCollapsedDesktop, setIsCollapsedDesktop] = useState<boolean>(false);
+  const [isWebhookModalOpen, setIsWebhookModalOpen] = useState<boolean>(false);
+
   // Result report state
   const [examReport, setExamReport] = useState<ExamReport | null>(null);
 
@@ -66,7 +75,10 @@ export default function App() {
   const DEFAULT_TEACHER_EMAIL = 'huyhoang6altt@gmail.com';
 
   const [studentName, setStudentName] = useState<string>(() => {
-    return localStorage.getItem('hsa_student_name') || 'Học sinh HSA';
+    return localStorage.getItem('hsa_student_name') || '';
+  });
+  const [studentSchool, setStudentSchool] = useState<string>(() => {
+    return localStorage.getItem('hsa_student_school') || '';
   });
   const [studentEmail, setStudentEmail] = useState<string>(() => {
     return localStorage.getItem('hsa_student_email') || '';
@@ -78,10 +90,26 @@ export default function App() {
     return localStorage.getItem('hsa_webhook_url') || DEFAULT_GAS_WEBHOOK_URL;
   });
 
+  // Student onboarding gate modal: open on entrance if student not registered
+  const [isNameModalOpen, setIsNameModalOpen] = useState<boolean>(() => {
+    if (typeof window === 'undefined') return false;
+    const registered = localStorage.getItem('hsa_student_registered');
+    const storedName = localStorage.getItem('hsa_student_name');
+    return !registered || !storedName || storedName.trim() === '' || storedName.trim() === 'Học sinh HSA';
+  });
+
   // Save changes to localStorage
   useEffect(() => {
-    localStorage.setItem('hsa_student_name', studentName);
+    if (studentName) {
+      localStorage.setItem('hsa_student_name', studentName);
+    }
   }, [studentName]);
+
+  useEffect(() => {
+    if (studentSchool) {
+      localStorage.setItem('hsa_student_school', studentSchool);
+    }
+  }, [studentSchool]);
 
   useEffect(() => {
     localStorage.setItem('hsa_student_email', studentEmail);
@@ -186,6 +214,36 @@ export default function App() {
     setCurrentMode('practice');
   };
 
+  // Select whole chapter from sidebar
+  const handleSelectChapter = (chapterId: string) => {
+    const chapter = CHAPTERS_METADATA.find((c) => c.id === chapterId);
+    if (chapter && chapter.topics.length > 0) {
+      setPracticeTopic(chapter.topics[0].id);
+    } else {
+      setPracticeTopic(undefined);
+    }
+    setExamReport(null);
+    setCurrentMode('practice');
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  // Save student onboarding information
+  const handleSaveStudentInfo = (name: string, school: string, email: string) => {
+    setStudentName(name);
+    setStudentSchool(school);
+    if (email) setStudentEmail(email);
+    localStorage.setItem('hsa_student_name', name);
+    localStorage.setItem('hsa_student_school', school);
+    if (email) localStorage.setItem('hsa_student_email', email);
+    localStorage.setItem('hsa_student_registered', 'true');
+    setIsNameModalOpen(false);
+
+    // Automatically send notification to teacher
+    notifyStudentJoined(name, school, email, teacherEmail, webhookUrl);
+  };
+
   // Exit exam confirmation
   const handleExitExam = () => {
     const confirmed = window.confirm(
@@ -287,83 +345,143 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-[#09090b] text-slate-900 dark:text-[#f4f4f5] flex flex-col font-sans transition-colors duration-200">
-      {/* Unified Single Header (Sticky Topbar - 52px) */}
-      <Navbar
-        currentMode={
-          currentMode === 'intro' || currentMode === 'results' ? 'exam' : currentMode
-        }
-        onHomeClick={handleGoHome}
-        onSelectMode={(mode) => {
-          if (isExamActive && mode !== 'exam') {
-            handleExitExam();
-            return;
-          }
-          if (mode === 'exam') {
-            if (!isExamActive) {
-              setExamReport(null);
-              setCurrentMode('intro');
-            } else {
-              setCurrentMode('exam');
-            }
-          } else {
+    <div className="min-h-screen bg-slate-50 dark:bg-[#09090b] text-slate-900 dark:text-[#f4f4f5] flex font-sans transition-colors duration-200">
+      {/* 1. Global Navigation Sidebar for Desktop & Mobile (Hidden during active 75-minute CBT exam) */}
+      {!isExamActive && (
+        <AppSidebar
+          currentMode={currentMode}
+          onSelectMode={(mode) => {
             setExamReport(null);
             if (mode === 'practice') {
               setPracticeTopic(undefined);
             }
             setCurrentMode(mode);
-          }
-        }}
-        onStartExam={() => handleStartExam()}
-        isExamInProgress={isExamActive}
-        onSubmitExamClick={() => setIsConfirmSubmitOpen(true)}
-        onExitExamClick={handleExitExam}
-        theme={theme}
-        onToggleTheme={toggleTheme}
-        isSidebarOpen={isSidebarOpen}
-        onToggleSidebar={() => setIsSidebarOpen((prev) => !prev)}
-        answeredCount={answeredCount}
-        totalQuestions={activeQuestions.length}
-        examTimerSlot={
-          isExamActive ? (
-            <ExamTimer
-              initialSeconds={currentExamSet.timeMinutes * 60}
-              isRunning={true}
-              onTimeUp={handleTimeUp}
-            />
-          ) : undefined
-        }
-      />
-
-      {/* Main Container - Fullscreen CBT in exam and practice mode, Padded in intro/results */}
-      <main className={(isExamActive || currentMode === 'practice') ? 'flex-1 overflow-hidden' : 'flex-1 px-3 sm:px-6 pt-4 sm:pt-6 pb-20 md:pb-6'}>
-        {renderMainContent()}
-      </main>
-
-      {/* Footer - Only shown when NOT inside active CBT exam or practice studio */}
-      {!isExamActive && currentMode !== 'practice' && (
-        <footer className="border-t border-slate-200 dark:border-zinc-800 bg-white dark:bg-[#09090b] py-5 mb-14 md:mb-0 text-xs text-slate-500 dark:text-zinc-500 transition-colors">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-            <div className="flex items-center gap-2.5">
-              <img src="/avt.png" alt="TontonYuta" className="w-5 h-5 rounded-full object-cover ring-1 ring-sky-500/40" />
-              <span className="font-bold text-slate-800 dark:text-zinc-200">
-                Luyện thi HSA cùng TontonYuta
-              </span>
-              <span>·</span>
-              <span>Hệ Thống Luyện Thi ĐGNL ĐHQGHN (Toán Học & Tư Duy Định Lượng)</span>
-            </div>
-
-            <div className="flex items-center gap-3 text-[11px] text-slate-400 dark:text-zinc-500">
-              <span>Chuẩn đề thi ĐGNL HSA ĐHQGHN</span>
-              <span>·</span>
-              <span>Cấu trúc 50 câu (35 Trắc nghiệm + 15 Điền số)</span>
-            </div>
-          </div>
-        </footer>
+            if (typeof window !== 'undefined') {
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+          }}
+          onSelectChapter={handleSelectChapter}
+          studentName={studentName}
+          studentSchool={studentSchool}
+          onEditStudentName={() => setIsNameModalOpen(true)}
+          isExamInProgress={isExamActive}
+          isOpenMobile={isMobileSidebarOpen}
+          onCloseMobile={() => setIsMobileSidebarOpen(false)}
+          isCollapsedDesktop={isCollapsedDesktop}
+          onToggleCollapseDesktop={() => setIsCollapsedDesktop((prev) => !prev)}
+          theme={theme}
+          onToggleTheme={toggleTheme}
+          onOpenWebhookModal={() => setIsWebhookModalOpen(true)}
+        />
       )}
 
+      {/* 2. Main Content Flow Column */}
+      <div className="flex-1 flex flex-col min-w-0">
+        {/* Unified Topbar - 52px */}
+        <Navbar
+          currentMode={
+            currentMode === 'intro' || currentMode === 'results' ? 'exam' : currentMode
+          }
+          onHomeClick={handleGoHome}
+          onSelectMode={(mode) => {
+            if (isExamActive && mode !== 'exam') {
+              handleExitExam();
+              return;
+            }
+            if (mode === 'exam') {
+              if (!isExamActive) {
+                setExamReport(null);
+                setCurrentMode('intro');
+              } else {
+                setCurrentMode('exam');
+              }
+            } else {
+              setExamReport(null);
+              if (mode === 'practice') {
+                setPracticeTopic(undefined);
+              }
+              setCurrentMode(mode);
+            }
+          }}
+          onStartExam={() => handleStartExam()}
+          isExamInProgress={isExamActive}
+          onSubmitExamClick={() => setIsConfirmSubmitOpen(true)}
+          onExitExamClick={handleExitExam}
+          theme={theme}
+          onToggleTheme={toggleTheme}
+          isSidebarOpen={isSidebarOpen}
+          onToggleSidebar={() => setIsSidebarOpen((prev) => !prev)}
+          answeredCount={answeredCount}
+          totalQuestions={activeQuestions.length}
+          onToggleMobileSidebar={() => setIsMobileSidebarOpen((prev) => !prev)}
+          studentName={studentName}
+          onEditStudentName={() => setIsNameModalOpen(true)}
+          examTimerSlot={
+            isExamActive ? (
+              <ExamTimer
+                initialSeconds={currentExamSet.timeMinutes * 60}
+                isRunning={true}
+                onTimeUp={handleTimeUp}
+              />
+            ) : undefined
+          }
+        />
+
+        {/* Main View Area */}
+        <main className={(isExamActive || currentMode === 'practice') ? 'flex-1 overflow-hidden' : 'flex-1 px-3 sm:px-6 pt-4 sm:pt-6 pb-20 md:pb-6'}>
+          {renderMainContent()}
+        </main>
+
+        {/* Footer */}
+        {!isExamActive && currentMode !== 'practice' && (
+          <footer className="border-t border-slate-200 dark:border-zinc-800 bg-white dark:bg-[#09090b] py-5 mb-14 md:mb-0 text-xs text-slate-500 dark:text-zinc-500 transition-colors">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+              <div className="flex items-center gap-2.5">
+                <img src="/avt.png" alt="TontonYuta" className="w-5 h-5 rounded-full object-cover ring-1 ring-sky-500/40" />
+                <span className="font-bold text-slate-800 dark:text-zinc-200">
+                  Luyện thi HSA cùng TontonYuta
+                </span>
+                <span>·</span>
+                <span>Hệ Thống Luyện Thi ĐGNL ĐHQGHN (Toán Học & Tư Duy Định Lượng)</span>
+              </div>
+
+              <div className="flex items-center gap-3 text-[11px] text-slate-400 dark:text-zinc-500">
+                <span>Chuẩn đề thi ĐGNL HSA ĐHQGHN</span>
+                <span>·</span>
+                <span>Cấu trúc 50 câu (35 Trắc nghiệm + 15 Điền số)</span>
+              </div>
+            </div>
+          </footer>
+        )}
+      </div>
+
       {/* Real-time Traffic Statistics Floating Corner Badge */}
-      <TrafficBadge webhookUrl={webhookUrl} isExamActive={isExamActive} />
+      <TrafficBadge webhookUrl={webhookUrl} isExamActive={isExamActive} studentName={studentName} />
+
+      {/* Mandatory Onboarding / Edit Name Modal */}
+      <StudentNameModal
+        isOpen={isNameModalOpen}
+        onSave={handleSaveStudentInfo}
+        initialName={studentName}
+        initialSchool={studentSchool}
+        initialEmail={studentEmail}
+        teacherEmail={teacherEmail}
+        isFirstVisit={typeof window !== 'undefined' ? !localStorage.getItem('hsa_student_registered') : false}
+      />
+
+      {/* Webhook Configuration Modal */}
+      <WebhookModal
+        isOpen={isWebhookModalOpen}
+        onClose={() => setIsWebhookModalOpen(false)}
+        webhookUrl={webhookUrl}
+        onSaveWebhookUrl={setWebhookUrl}
+        studentEmail={studentEmail}
+        onSaveStudentEmail={setStudentEmail}
+        studentName={studentName}
+        onSaveStudentName={setStudentName}
+        teacherEmail={teacherEmail}
+        onSaveTeacherEmail={setTeacherEmail}
+      />
     </div>
   );
 }

@@ -81,7 +81,51 @@ function doPost(e) {
       } catch (err) {}
     }
 
-    // 2. Ghi kết quả vào Google Sheet "KetQua_HSA_TontonYuta"
+    // 2. Xử lý trường hợp Học sinh mới tham gia / Cập nhật tên (STUDENT_JOINED)
+    if (data.type === "STUDENT_JOINED") {
+      const ss = SpreadsheetApp.getActiveSpreadsheet();
+      let sheetStudents = ss.getSheetByName("DanhSach_HocSinh");
+      if (!sheetStudents) {
+        sheetStudents = ss.insertSheet("DanhSach_HocSinh");
+        sheetStudents.appendRow(["Thời Gian", "Họ Tên Học Sinh", "Lớp / Trường THPT", "Email Học Sinh", "Trình Duyệt"]);
+        sheetStudents.getRange(1, 1, 1, 5).setFontWeight("bold").setBackground("#0284c7").setFontColor("#ffffff");
+      }
+      sheetStudents.appendRow([
+        new Date().toLocaleString("vi-VN"),
+        data.studentName || "Chưa rõ",
+        data.school || "Chưa cung cấp",
+        data.studentEmail || "Chưa cung cấp",
+        data.userAgent || ""
+      ]);
+      lock.releaseLock();
+
+      // Gửi email thông báo cho Giáo viên
+      if (teacherEmail && teacherEmail.indexOf("@") !== -1) {
+        MailApp.sendEmail({
+          to: teacherEmail,
+          subject: "[HSA TontonYuta] Học sinh mới tham gia: " + (data.studentName || "Học sinh mới"),
+          htmlBody: "<div style='font-family: Arial, sans-serif; padding: 20px; border: 1px solid #e2e8f0; border-radius: 12px; max-width: 600px;'>" +
+            "<h3 style='color: #0284c7; margin-top: 0;'>🎉 Học sinh mới vừa tham gia hệ thống luyện thi HSA!</h3>" +
+            "<p><strong>Họ và tên:</strong> " + (data.studentName || "") + "</p>" +
+            "<p><strong>Lớp / Trường:</strong> " + (data.school || "Chưa cung cấp") + "</p>" +
+            "<p><strong>Email học sinh:</strong> " + (data.studentEmail || "Chưa cung cấp") + "</p>" +
+            "<p><strong>Thời gian:</strong> " + (data.joinedAt || new Date().toLocaleString("vi-VN")) + "</p>" +
+            "<hr style='border: none; border-top: 1px solid #e2e8f0; margin: 15px 0;'/>" +
+            "<p style='font-size: 12px; color: #64748b;'>Hệ thống Luyện thi HSA cùng TontonYuta (Email mặc định: " + teacherEmail + ")</p>" +
+            "</div>",
+          name: "Luyện thi HSA cùng TontonYuta"
+        });
+      }
+      return ContentService.createTextOutput(JSON.stringify({ status: "success", type: "STUDENT_JOINED" })).setMimeType(ContentService.MimeType.JSON);
+    }
+
+    // 3. Xử lý Ping lưu lượng (TRAFFIC_PING)
+    if (data.type === "TRAFFIC_PING") {
+      lock.releaseLock();
+      return ContentService.createTextOutput(JSON.stringify({ status: "success", type: "TRAFFIC_PING" })).setMimeType(ContentService.MimeType.JSON);
+    }
+
+    // 4. Ghi kết quả bài thi vào Google Sheet "KetQua_HSA_TontonYuta"
     const ss = SpreadsheetApp.getActiveSpreadsheet();
     let sheet = ss.getSheetByName("KetQua_HSA_TontonYuta");
     if (!sheet) {

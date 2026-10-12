@@ -5,9 +5,10 @@ import { getStoredTrafficStats, recordPageVisit, TrafficStats } from '../utils/t
 interface TrafficBadgeProps {
   webhookUrl?: string;
   isExamActive?: boolean;
+  studentName?: string;
 }
 
-export const TrafficBadge: React.FC<TrafficBadgeProps> = ({ webhookUrl, isExamActive }) => {
+export const TrafficBadge: React.FC<TrafficBadgeProps> = ({ webhookUrl, isExamActive, studentName }) => {
   const [stats, setStats] = useState<TrafficStats>(() => getStoredTrafficStats());
   const [isOpen, setIsOpen] = useState(false);
 
@@ -37,7 +38,7 @@ export const TrafficBadge: React.FC<TrafficBadgeProps> = ({ webhookUrl, isExamAc
       {/* Popover Details Window */}
       {isOpen && (
         <div className="mb-2 p-3.5 w-64 rounded-2xl bg-white/95 dark:bg-zinc-900/95 backdrop-blur-md border border-slate-200 dark:border-zinc-800 shadow-xl text-slate-800 dark:text-zinc-200 text-xs animate-in fade-in slide-in-from-bottom-2 duration-150">
-          <div className="flex items-center justify-between pb-2 mb-2.5 border-b border-slate-100 dark:border-zinc-800">
+          <div className="flex items-center justify-between pb-2 mb-2 border-b border-slate-100 dark:border-zinc-800">
             <div className="flex items-center gap-1.5 font-bold text-slate-900 dark:text-zinc-100">
               <Activity className="w-3.5 h-3.5 text-sky-500" />
               <span>Thống kê lưu lượng HSA</span>
@@ -51,6 +52,13 @@ export const TrafficBadge: React.FC<TrafficBadgeProps> = ({ webhookUrl, isExamAc
               <ChevronDown className="w-3.5 h-3.5" />
             </button>
           </div>
+
+          {studentName && studentName !== 'Học sinh HSA' && (
+            <div className="mb-2 px-2.5 py-1.5 rounded-xl bg-sky-50 dark:bg-sky-950/40 border border-sky-200/60 dark:border-sky-800/60 text-[11px] text-sky-800 dark:text-sky-300 flex items-center justify-between">
+              <span className="truncate">Học sinh: <strong className="font-semibold text-slate-900 dark:text-zinc-100">{studentName}</strong></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0 animate-pulse"></span>
+            </div>
+          )}
 
           <div className="space-y-2">
             <div className="flex items-center justify-between p-2 rounded-xl bg-slate-50 dark:bg-zinc-800/60">
