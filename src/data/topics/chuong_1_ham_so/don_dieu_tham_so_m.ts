@@ -338,7 +338,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Có bao nhiêu giá trị nguyên của tham số m sao cho hàm số f (x) = \frac{1}{3}x^3 + mx^2 + 4 x + 3 đồng biến trên $\\mathbb{R}$ .",
+    "content": "Có bao nhiêu giá trị nguyên của tham số $m$ sao cho hàm số $f(x) = \\frac{1}{3}x^3 + mx^2 + 4x + 3$ đồng biến trên $\\mathbb{R}$?",
     "options": [
       {
         "key": "A",
@@ -358,7 +358,7 @@ export const donDieuThamSoMQuestions: Question[] = [
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Ta có f'(x) = x^2 + 2 mx + 4 .\nHàm số đã cho đồng biến trên \\mathbb{R} khi và chỉ khi f'(x) \\ge 0, \\forall x \\in \\mathbb{R} (Dấu ‘=’ xảy ra tại hữu hạn\nđiểm).\nTa có f'(x) \\ge 0, \\forall x \\in \\mathbb{R} \\iff \\\\Delta' \\le 0\n\\iff \\\\Delta' = m^2 - 4 \\le 0\n\\iff -2 \\le m \\le ^2 .\nVì m\\in ' nên m \\in \\{-2; - 1; 0;1; 2\\} , vậy có 5 giá trị nguyên của m thỏa mãn.",
+    "detailedSolution": "Tập xác định: $D = \\mathbb{R}$.\nĐạo hàm: $f'(x) = x^2 + 2mx + 4$.\nHàm số đã cho đồng biến trên $\\mathbb{R}$ khi và chỉ khi $f'(x) \\ge 0, \\forall x \\in \\mathbb{R}$.\n$$\\iff \\Delta' = m^2 - 4 \\le 0 \\iff -2 \\le m \\le 2$$\nVì $m \\in \\mathbb{Z}$ nên $m \\in \\{-2; -1; 0; 1; 2\\}$. Vậy có 5 giá trị nguyên của $m$ thỏa mãn yêu cầu bài toán.",
     "socraticHint": "Hàm số đồng biến (nghịch biến) khi và chỉ khi đạo hàm $y' \\ge 0$ ($y' \\le 0$) với mọi $x$ thuộc tập xác định. Xét dấu tam thức bậc hai hoặc cô lập tham số $m$.",
     "difficulty": "Vận dụng"
   },
@@ -1392,7 +1392,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Có bao nhiêu số nguyên m 1 f (x) = \frac{2}{3}x^3 - mx^2 + (m + 6) x + đồng biến trên khoảng $(0; +\\infty)$ ? 3",
+    "content": "Có bao nhiêu số nguyên $m$ để hàm số $f(x) = \\frac{1}{3}x^3 - mx^2 + (m + 6)x + \\frac{1}{3}$ đồng biến trên khoảng $(0; +\\infty)$?",
     "options": [
       {
         "key": "A",
@@ -1412,7 +1412,7 @@ export const donDieuThamSoMQuestions: Question[] = [
       }
     ],
     "correctAnswer": "B",
-    "detailedSolution": ".\nChọn B\nTa có f'(x) = x^2 - 2mx + (m + 6)\nđể hàm số\n1\nHàm số f (x) = \frac{2}{3}x^3 - mx^2 + (m + 6) x + đồng biến trên khoảng (0; +\\infty) khi và chỉ khi^3\nf'(x) \\ge 0, \\forall x \\in (0; +\\infty) .\nXét hàm số y = f'(x) = x^2 - 2mx + (m + 6) trong^3 trường hợp:\nTrường hợp 1: m = 0\ny = f'(x) = x^2 + 6 > 0, \\forall x \\in \\mathbb{R} . Lúc này hàm số f (x) đồng biến trên \\mathbb{R} nên cũng đồng biến trên\n(0; +\\infty) (1) .\nTrường hợp^2: m < 0 , ta có bảng biến thiên của hàm số y = f'(x) = x^2 - 2mx + (m + 6) như sau:\nm + 6 \\ge 0\nf'(x) \\ge 0, \\forall x \\in (0; +\\infty) \\iff \\iff -6 \\le m < 0 (2) .\nm < 0\nTrường hợp^3: m > 0 , ta có bảng biến thiên của hàm số y = f'(x) = x^2 - 2mx + (m + 6) như sau:\n-m^2 + m + 6 \\ge 0\nf'(x) \\ge 0, \\forall x \\in (0; +\\infty) \\iff \\iff 0 < m \\le ^3 (3) .\nm > 0\n1\nTừ (1) , (2) và (3) suy ra có 10 giá trị nguyên của m để hàm số f (x) = \frac{2}{3}x^3 - mx^2 + (m + 6) x +\n3\nđồng biến trên khoảng (0; +\\infty) .",
+    "detailedSolution": "Ta có: $f'(x) = x^2 - 2mx + (m + 6)$.\nHàm số $f(x)$ đồng biến trên $(0; +\\infty) \\iff f'(x) \\ge 0, \\forall x \\in (0; +\\infty)$.\nXét $\\Delta' = m^2 - (m + 6) = m^2 - m - 6 = (m - 3)(m + 2)$.\n- Trường hợp 1: $\\Delta' \\le 0 \\iff -2 \\le m \\le 3$. Khi đó $f'(x) \\ge 0, \\forall x \\in \\mathbb{R}$, thỏa mãn bài toán.\n- Trường hợp 2: $\\Delta' > 0 \\iff m < -2$ hoặc $m > 3$. Khi đó $f'(x) = 0$ có hai nghiệm phân biệt $x_1 < x_2$. Để $f'(x) \\ge 0, \\forall x > 0$ thì hai nghiệm phải thỏa mãn $x_1 < x_2 \\le 0$:\n$$\\begin{cases} x_1 + x_2 < 0 \\\\ x_1 x_2 \\ge 0 \\end{cases} \\iff \\begin{cases} 2m < 0 \\\\ m + 6 \\ge 0 \\end{cases} \\iff -6 \\le m < 0$$\nKết hợp với $m < -2$ ta được $-6 \\le m < -2$.\nKết hợp cả hai trường hợp: $-6 \\le m \\le 3$.\nVì $m \\in \\mathbb{Z}$ nên $m \\in \\{-6; -5; -4; -3; -2; -1; 0; 1; 2; 3\\}$, có 10 giá trị nguyên thỏa mãn.",
     "socraticHint": "Hàm số đồng biến (nghịch biến) khi và chỉ khi đạo hàm $y' \\ge 0$ ($y' \\le 0$) với mọi $x$ thuộc tập xác định. Xét dấu tam thức bậc hai hoặc cô lập tham số $m$.",
     "difficulty": "Vận dụng"
   },
@@ -1423,7 +1423,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Cho hàm số $y = x^3$ - (m - 1) x^2 + 3 (m - 1) x + 1 . Số các giá trị nguyên của^3 m để hàm số đồng biến trên $(1;+\\infty)$ là",
+    "content": "Cho hàm số $y = \\frac{1}{3}x^3 - (m - 1)x^2 + 3(m - 1)x + 1$. Số các giá trị nguyên của $m$ để hàm số đồng biến trên khoảng $(1; +\\infty)$ là:",
     "options": [
       {
         "key": "A",
@@ -1443,7 +1443,7 @@ export const donDieuThamSoMQuestions: Question[] = [
       }
     ],
     "correctAnswer": "C",
-    "detailedSolution": "D. 6.\nChọn C\nTa có: y' = x^2 - 2 (m - 1) x + 3 (m - 1) .\nYcbt \\iff x^2 - 2 (m - 1) x + 3 (m - 1) \\ge 0, \\forall x \\in (1; +\\infty)\n2\n\\\\Delta' = [- (m - 1) ] - 3 (m - 1) = m^2 - 5m + 4 .\nTrường hợp 1: \\\\Delta' \\le 0 \\iff m^2 - 5m + 4 \\le 0 \\iff m \\in [1; 4] . Ta được^4 giá trị nguyên của m .\nTrường hợp^2:\n[m < 1\n\\\\Delta' > 0 \\iff m^2 - 5m + 4 > 0 \\iff [\n. Khi đó phương trình x^2 - 2 (m - 1) x + 3 (m - 1) = 0 có hai\n[m > 4\nnghiệm phân biệt x1 < x^2 \\le 1\n(x1 - 1) + (x^2 - 1) < 0\n(x1 + x^2) - 2 < 0\n2 (m - 1) - 2 < 0\n\\iff \\iff \\iff (x1 - 1)(x^2 - 1) \\ge 0\nx1 x^2 - (x1 + x^2) + 1 \\ge 0\n3 (m - 1) - 2 (m - 1) + 1 \\ge 0\n\\iff 0\\le m< 2.\nKết hợp với điều kiện ta được 0 \\le m < 1 . Khi đó có 1 giá trị nguyên của m .\nVậy có 5 giá trị nguyên của m .",
+    "detailedSolution": "Ta có: $y' = x^2 - 2(m - 1)x + 3(m - 1)$.\nHàm số đồng biến trên $(1; +\\infty) \\iff y' \\ge 0, \\forall x \\in (1; +\\infty)$.\nXét $\\Delta' = (m - 1)^2 - 3(m - 1) = m^2 - 5m + 4$.\n- Trường hợp 1: $\\Delta' \\le 0 \\iff m^2 - 5m + 4 \\le 0 \\iff 1 \\le m \\le 4$.\nKhi đó $y' \\ge 0, \\forall x \\in \\mathbb{R}$, thỏa mãn điều kiện. Ta có 4 giá trị nguyên $m \\in \\{1; 2; 3; 4\\}$.\n- Trường hợp 2: $\\Delta' > 0 \\iff m < 1$ hoặc $m > 4$.\nĐể $y' \\ge 0, \\forall x \\in (1; +\\infty)$ thì phương trình $y' = 0$ có hai nghiệm phân biệt thỏa mãn $x_1 < x_2 \\le 1$:\n$$\\begin{cases} (x_1 - 1) + (x_2 - 1) < 0 \\\\ (x_1 - 1)(x_2 - 1) \\ge 0 \\end{cases} \\iff \\begin{cases} 2(m - 1) - 2 < 0 \\\\ 3(m - 1) - 2(m - 1) + 1 \\ge 0 \\end{cases} \\iff \\begin{cases} m < 2 \\\\ m \\ge 0 \\end{cases} \\iff 0 \\le m < 2$$\nKết hợp với điều kiện $m < 1$ ta được $0 \\le m < 1$. Do $m \\in \\mathbb{Z}$ nên $m = 0$ (1 giá trị nguyên).\nVậy tổng cộng có $4 + 1 = 5$ giá trị nguyên của $m$ thỏa mãn.",
     "socraticHint": "Hàm số đồng biến (nghịch biến) khi và chỉ khi đạo hàm $y' \\ge 0$ ($y' \\le 0$) với mọi $x$ thuộc tập xác định. Xét dấu tam thức bậc hai hoặc cô lập tham số $m$.",
     "difficulty": "Vận dụng"
   },

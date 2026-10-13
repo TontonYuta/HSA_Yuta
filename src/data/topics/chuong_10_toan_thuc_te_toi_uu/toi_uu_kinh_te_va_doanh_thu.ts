@@ -121,23 +121,23 @@ export const toiUuKinhTeQuestions: Question[] = [
     "options": [
       {
         "key": "A",
-        "content": "$1150(triệu đồng)$"
+        "content": "$1150$ triệu đồng"
       },
       {
         "key": "B",
-        "content": "$1250(triệu đồng)$"
+        "content": "$1250$ triệu đồng"
       },
       {
         "key": "C",
-        "content": "$1050(triệu đồng)$"
+        "content": "$1050$ triệu đồng"
       },
       {
         "key": "D",
-        "content": "$1400(triệu đồng)$"
+        "content": "$1400$ triệu đồng"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Doanh thu từ việc bán $x$ sản phẩm:\n$$R(x) = x \\cdot p(x) = x(120 - x) = 120x - x^2$$\nLợi nhuận của doanh nghiệp:\n$$P(x) = R(x) - C(x) = (120x - x^2) - (x^2 + 20x + 100) = -2x^2 + 100x - 100$$\nHàm lợi nhuận là một tam thức bậc hai có bề lõm quay xuống dưới ($a = -2 < 0$), đạt giá trị lớn nhất tại hoành độ đỉnh:\n$$x = -\\frac{100}{2(-2)} = 25$$\nGiá trị lợi nhuận lớn nhất:\n$$P(25) = -2(25^2) + 100(25) - 100 = -1250 + 2500 - 100 = 1150(triệu đồng)$$.",
+    "detailedSolution": "Doanh thu từ việc bán $x$ sản phẩm:\n$$R(x) = x \\cdot p(x) = x(120 - x) = 120x - x^2$$\nLợi nhuận của doanh nghiệp:\n$$P(x) = R(x) - C(x) = (120x - x^2) - (x^2 + 20x + 100) = -2x^2 + 100x - 100$$\nHàm lợi nhuận là một tam thức bậc hai có bề lõm quay xuống dưới ($a = -2 < 0$), đạt giá trị lớn nhất tại hoành độ đỉnh:\n$$x = -\\frac{100}{2(-2)} = 25$$\nGiá trị lợi nhuận lớn nhất:\n$$P(25) = -2(25^2) + 100(25) - 100 = -1250 + 2500 - 100 = 1150\\text{ (triệu đồng)}$$.",
     "socraticHint": "Lập hàm lợi nhuận $P(x) = R(x) - C(x)$ rồi tìm đỉnh của parabol bậc hai.",
     "difficulty": "Vận dụng",
     "examSets": [
@@ -209,19 +209,19 @@ export const toiUuKinhTeQuestions: Question[] = [
     "options": [
       {
         "key": "A",
-        "content": "$1.800.000(đồng)$"
+        "content": "$1.800.000$ đồng"
       },
       {
         "key": "B",
-        "content": "$1.600.000(đồng)$"
+        "content": "$1.600.000$ đồng"
       },
       {
         "key": "C",
-        "content": "$1.500.000(đồng)$"
+        "content": "$1.500.000$ đồng"
       },
       {
         "key": "D",
-        "content": "$2.000.000(đồng)$"
+        "content": "$2.000.000$ đồng"
       }
     ],
     "correctAnswer": "A",
@@ -245,7 +245,7 @@ export const toiUuKinhTeQuestions: Question[] = [
       "1061",
       "1061.0"
     ],
-    "detailedSolution": "Khoảng thời gian từ năm 2020 đến năm 2025 là $n = 2025 - 2020 = 5$ năm.\nTheo công thức tăng trưởng dân số:\n$$N = N_0(1 + r)^n = 1000 \\times (1 + 0.012)^5 = 1000 \\times (1.012)^5$$\nTa tính:\n$$1.012^5 \\approx 1.06145$$\n$$N \\approx 1000 \\times 1.06145 = 1061.45(nghìn người)$$\nLàm tròn đến hàng đơn vị nghìn người ta được 1061 nghìn người.",
+    "detailedSolution": "Khoảng thời gian từ năm 2020 đến năm 2025 là $n = 2025 - 2020 = 5$ năm.\nTheo công thức tăng trưởng dân số:\n$$N = N_0(1 + r)^n = 1000 \\times (1 + 0.012)^5 = 1000 \\times (1.012)^5$$\nTa tính:\n$$1.012^5 \\approx 1.06145$$\n$$N \\approx 1000 \\times 1.06145 = 1061{,}45\\text{ (nghìn người)}$$\nLàm tròn đến hàng đơn vị nghìn người ta được 1061 nghìn người.",
     "socraticHint": "Áp dụng công thức tăng trưởng $N = N_0(1+r)^n$ với $n = 5$ năm và làm tròn kết quả.",
     "difficulty": "Vận dụng",
     "examSets": [
@@ -347,7 +347,7 @@ export const toiUuKinhTeQuestions: Question[] = [
       }
     ],
     "correctAnswer": "D",
-    "detailedSolution": "Tổng số quả cam mà bốn cô vợ đã ăn:\n$$S_{vo} = 3 + 2 + 4 + 1 = 10(quả)$$\nTổng số quả cam mà bốn anh chồng đã ăn:\n$$S_{chong} = 32 - 10 = 22(quả)$$\nGọi $w_M, w_N, w_P, w_Q$ lần lượt là số quả cam mà các cô vợ của các anh $M, N, P, Q$ đã ăn.\nTheo bài ra:\n- Anh $M$ ăn bằng vợ: $1 \\cdot w_M$.\n- Anh $N$ ăn gấp 2 vợ: $2 \\cdot w_N$.\n- Anh $P$ ăn gấp 3 vợ: $3 \\cdot w_P$.\n- Anh $Q$ ăn gấp 4 vợ: $4 \\cdot w_Q$.\nTổng cam của các anh chồng:\n$$w_M + 2w_N + 3w_P + 4w_Q = 22$$\nTrong đó $(w_M, w_N, w_P, w_Q)$ là một hoán vị của tập hợp $\\{1; 2; 3; 4\\}$.\nThử các trường hợp với các hệ số lớn:\n- $w_Q$ nhân với 4, nên $w_Q$ không thể bằng 4 (vì $4 \\times 4 = 16$, phần còn lại $22 - 16 = 6$ quá nhỏ đối với các hệ số $1, 2, 3$ với ba số $1, 2, 3$: $1 \\times 3 + 2 \\times 2 + 3 \\times 1 = 10 > 6$).\n- Nếu $w_Q = 2$:\n  $$w_M + 2w_N + 3w_P = 22 - 4 \\times 2 = 14$$\n  Ba giá trị còn lại là $\\{1; 3; 4\\}$.\n  Thử $w_P = 1$: $w_M + 2w_N = 14 - 3(1) = 11$. Với $\\{3; 4\\}$: $3 + 2(4) = 11$ (thỏa mãn với $w_M = 3, w_N = 4$)!\nKiểm tra lại hoán vị:\n- Anh $M$ lấy cô $A$ (ăn 3 quả): anh $M$ ăn $1 \\times 3 = 3$ quả.\n- Anh $N$ lấy cô $C$ (ăn 4 quả): anh $N$ ăn $2 \\times 4 = 8$ quả.\n- Anh $P$ lấy cô $D$ (ăn 1 quả): anh $P$ ăn $3 \\times 1 = 3$ quả.\n- Anh $Q$ lấy cô $B$ (ăn 2 quả): anh $Q$ ăn $4 \\times 2 = 8$ quả.\nTổng số cam các anh chồng: $3 + 8 + 3 + 8 = 22$ quả (chính xác).\nVậy vợ của anh $P$ là Cô $D$.",
+    "detailedSolution": "Tổng số quả cam mà bốn cô vợ đã ăn:\n$$S_{vo} = 3 + 2 + 4 + 1 = 10\\text{ (quả)}$$\nTổng số quả cam mà bốn anh chồng đã ăn:\n$$S_{chong} = 32 - 10 = 22\\text{ (quả)}$$\nGọi $w_M, w_N, w_P, w_Q$ lần lượt là số quả cam mà các cô vợ của các anh $M, N, P, Q$ đã ăn.\nTheo bài ra:\n- Anh $M$ ăn bằng vợ: $1 \\cdot w_M$.\n- Anh $N$ ăn gấp 2 vợ: $2 \\cdot w_N$.\n- Anh $P$ ăn gấp 3 vợ: $3 \\cdot w_P$.\n- Anh $Q$ ăn gấp 4 vợ: $4 \\cdot w_Q$.\nTổng cam của các anh chồng:\n$$w_M + 2w_N + 3w_P + 4w_Q = 22$$\nTrong đó $(w_M, w_N, w_P, w_Q)$ là một hoán vị của tập hợp $\\{1; 2; 3; 4\\}$.\nThử các trường hợp với các hệ số lớn:\n- $w_Q$ nhân với 4, nên $w_Q$ không thể bằng 4 (vì $4 \\times 4 = 16$, phần còn lại $22 - 16 = 6$ quá nhỏ đối với các hệ số $1, 2, 3$ với ba số $1, 2, 3$: $1 \\times 3 + 2 \\times 2 + 3 \\times 1 = 10 > 6$).\n- Nếu $w_Q = 2$:\n  $$w_M + 2w_N + 3w_P = 22 - 4 \\times 2 = 14$$\n  Ba giá trị còn lại là $\\{1; 3; 4\\}$.\n  Thử $w_P = 1$: $w_M + 2w_N = 14 - 3(1) = 11$. Với $\\{3; 4\\}$: $3 + 2(4) = 11$ (thỏa mãn với $w_M = 3, w_N = 4$)!\nKiểm tra lại hoán vị:\n- Anh $M$ lấy cô $A$ (ăn 3 quả): anh $M$ ăn $1 \\times 3 = 3$ quả.\n- Anh $N$ lấy cô $C$ (ăn 4 quả): anh $N$ ăn $2 \\times 4 = 8$ quả.\n- Anh $P$ lấy cô $D$ (ăn 1 quả): anh $P$ ăn $3 \\times 1 = 3$ quả.\n- Anh $Q$ lấy cô $B$ (ăn 2 quả): anh $Q$ ăn $4 \\times 2 = 8$ quả.\nTổng số cam các anh chồng: $3 + 8 + 3 + 8 = 22$ quả (chính xác).\nVậy vợ của anh $P$ là Cô $D$.",
     "socraticHint": "Tính tổng số cam các anh chồng ăn là $32 - 10 = 22$, thiết lập phương trình nghiệm nguyên $w_M + 2w_N + 3w_P + 4w_Q = 22$.",
     "difficulty": "Vận dụng",
     "examSets": [

@@ -28,7 +28,7 @@ export const tapHopVennQuestions: Question[] = [
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Áp dụng công thức số phần tử của hợp 3 tập hợp:\n$$|A \\cup B \\cup C| = |A| + |B| + |C| - (|A \\cap B| + |B \\cap C| + |C \\cap A|) + |A \\cap B \\cap C|$$\nThay số:\n$$|A \\cup B \\cup C| = 15 + 12 + 10 - (5 + 4 + 3) + 2 = 37 - 12 + 2 = 27$$\nSố học sinh không chơi môn nào trong ba môn trên là:\n$$30 - 27 = 3\(học sinh)$$.",
+    "detailedSolution": "Áp dụng công thức số phần tử của hợp 3 tập hợp:\n$$|A \\cup B \\cup C| = |A| + |B| + |C| - (|A \\cap B| + |B \\cap C| + |C \\cap A|) + |A \\cap B \\cap C|$$\nThay số:\n$$|A \\cup B \\cup C| = 15 + 12 + 10 - (5 + 4 + 3) + 2 = 37 - 12 + 2 = 27$$\nSố học sinh không chơi môn nào trong ba môn trên là:\n$$30 - 27 = 3\\text{ (học sinh)}$$.",
     "socraticHint": "Sử dụng công thức nguyên lý bù trừ cho 3 tập hợp rồi lấy tổng số trừ đi số phần tử của hợp.",
     "difficulty": "Vận dụng",
     "examSets": [

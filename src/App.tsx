@@ -16,6 +16,7 @@ import { generateExamReport } from './utils/scoring';
 import { prepareExamQuestions } from './utils/questionRandomizer';
 import { TrafficBadge } from './components/TrafficBadge';
 import { notifyStudentJoined } from './utils/trafficTracker';
+import { ResumeExamModal, SavedExamState } from './components/ResumeExamModal';
 import { GraduationCap } from 'lucide-react';
 
 export default function App() {
@@ -100,6 +101,90 @@ export default function App() {
     return !registered || !storedName || storedName.trim() === '' || storedName.trim() === 'Học sinh HSA';
   });
 
+  // Saved exam state persistence & recovery
+  const [savedExamState, setSavedExamState] = useState<SavedExamState | null>(null);
+  const [isResumeModalOpen, setIsResumeModalOpen] = useState<boolean>(false);
+  const [timerInitialSeconds, setTimerInitialSeconds] = useState<number>(() => currentExamSet.timeMinutes * 60);
+
+  // Check and restore ongoing exam on mount
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem('hsa_active_exam_state');
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        if (parsed && parsed.startTime && parsed.totalSeconds) {
+          const elapsed = Math.floor((Date.now() - parsed.startTime) / 1000);
+          const remaining = parsed.totalSeconds - elapsed;
+          if (remaining > 0) {
+            setSavedExamState({
+              ...parsed,
+              timeRemainingSeconds: remaining,
+            });
+            setIsResumeModalOpen(true);
+          } else {
+            localStorage.removeItem('hsa_active_exam_state');
+          }
+        }
+      }
+    } catch (e) {
+      console.error('Failed to read saved exam state', e);
+    }
+  }, []);
+
+  // Warn student before closing or reloading tab during active exam
+  useEffect(() => {
+    if (!isExamActive) return;
+    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
+      e.preventDefault();
+      e.returnValue = '';
+    };
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    return () => window.removeEventListener('beforeunload', handleBeforeUnload);
+  }, [isExamActive]);
+
+  // Auto-save exam state to localStorage whenever answers or questions change
+  useEffect(() => {
+    if (!isExamActive || activeQuestions.length === 0) return;
+    try {
+      const stateToSave: SavedExamState = {
+        examSetId: selectedExamSetId,
+        examSetTitle: currentExamSet.title,
+        activeQuestions,
+        userAnswers,
+        currentQuestionIndex,
+        startTime: examStartTimeRef.current,
+        totalSeconds: currentExamSet.timeMinutes * 60,
+        timeRemainingSeconds: Math.max(0, currentExamSet.timeMinutes * 60 - Math.floor((Date.now() - examStartTimeRef.current) / 1000)),
+        lastSavedAt: Date.now(),
+      };
+      localStorage.setItem('hsa_active_exam_state', JSON.stringify(stateToSave));
+    } catch (e) {
+      console.error('Failed to auto-save exam state', e);
+    }
+  }, [isExamActive, selectedExamSetId, currentExamSet.title, currentExamSet.timeMinutes, activeQuestions, userAnswers, currentQuestionIndex]);
+
+  // Handler to resume saved exam
+  const handleResumeSavedExam = () => {
+    if (!savedExamState) return;
+    setSelectedExamSetId(savedExamState.examSetId);
+    setActiveQuestions(savedExamState.activeQuestions);
+    setUserAnswers(savedExamState.userAnswers || {});
+    setCurrentQuestionIndex(savedExamState.currentQuestionIndex || 0);
+    examStartTimeRef.current = savedExamState.startTime;
+    setTimerInitialSeconds(savedExamState.timeRemainingSeconds);
+    setIsExamActive(true);
+    setIsSidebarOpen(typeof window !== 'undefined' ? window.innerWidth >= 768 : true);
+    setCurrentMode('exam');
+    setIsResumeModalOpen(false);
+  };
+
+  // Handler to discard saved exam
+  const handleDiscardSavedExam = () => {
+    localStorage.removeItem('hsa_active_exam_state');
+    setSavedExamState(null);
+    setIsResumeModalOpen(false);
+  };
+
   // Save changes to localStorage
   useEffect(() => {
     if (studentName) {
@@ -131,6 +216,12 @@ export default function App() {
     const targetSet = HSA_EXAM_SETS.find((s) => s.id === targetSetId) || HSA_EXAM_SETS[0];
     const targetQuestionIdSet = new Set(targetSet.questionIds);
     const questionsForSet = HSA_QUESTIONS_DATABASE.filter((q) => targetQuestionIdSet.has(q.id));
+
+    // Clear any previous saved state
+    localStorage.removeItem('hsa_active_exam_state');
+    setSavedExamState(null);
+    setIsResumeModalOpen(false);
+    setTimerInitialSeconds(targetSet.timeMinutes * 60);
 
     // Randomize choices and within-tier questions, sorted strictly from easy to hard
     const randomizedQuestions = prepareExamQuestions(questionsForSet);
@@ -189,6 +280,11 @@ export default function App() {
     );
     setExamReport(report);
     setCurrentMode('results');
+
+    // Clear active exam auto-save state
+    localStorage.removeItem('hsa_active_exam_state');
+    setSavedExamState(null);
+    setIsResumeModalOpen(false);
 
     // Save completed exam record to localStorage for Dashboard statistics
     try {
@@ -277,6 +373,9 @@ export default function App() {
       'Bài thi đang diễn ra! Bạn có chắc chắn muốn rời khỏi phòng thi không?'
     );
     if (confirmed) {
+      localStorage.removeItem('hsa_active_exam_state');
+      setSavedExamState(null);
+      setIsResumeModalOpen(false);
       setIsExamActive(false);
       setCurrentMode('intro');
     }
@@ -487,7 +586,7 @@ export default function App() {
           examTimerSlot={
             isExamActive ? (
               <ExamTimer
-                initialSeconds={currentExamSet.timeMinutes * 60}
+                initialSeconds={timerInitialSeconds}
                 isRunning={true}
                 onTimeUp={handleTimeUp}
               />
@@ -523,8 +622,23 @@ export default function App() {
         )}
       </div>
 
-      {/* Real-time Traffic Statistics Floating Corner Badge */}
-      <TrafficBadge webhookUrl={webhookUrl} isExamActive={isExamActive} studentName={studentName} />
+      {/* Real-time Traffic Statistics Floating Corner Badge (Only visible on Dashboard, completely hidden during exam & practice) */}
+      {!isExamActive && currentMode === 'intro' && (
+        <TrafficBadge
+          webhookUrl={webhookUrl}
+          isExamActive={isExamActive}
+          studentName={studentName}
+          currentMode={currentMode}
+        />
+      )}
+
+      {/* Resume Ongoing Exam Session Modal */}
+      <ResumeExamModal
+        isOpen={isResumeModalOpen}
+        savedExam={savedExamState}
+        onResume={handleResumeSavedExam}
+        onDiscard={handleDiscardSavedExam}
+      />
 
       {/* Mandatory Onboarding / Edit Name Modal */}
       <StudentNameModal

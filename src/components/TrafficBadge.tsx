@@ -6,9 +6,10 @@ interface TrafficBadgeProps {
   webhookUrl?: string;
   isExamActive?: boolean;
   studentName?: string;
+  currentMode?: string;
 }
 
-export const TrafficBadge: React.FC<TrafficBadgeProps> = ({ webhookUrl, isExamActive, studentName }) => {
+export const TrafficBadge: React.FC<TrafficBadgeProps> = ({ webhookUrl, isExamActive, studentName, currentMode }) => {
   const [stats, setStats] = useState<TrafficStats>(() => getStoredTrafficStats());
   const [isOpen, setIsOpen] = useState(false);
 
@@ -25,8 +26,9 @@ export const TrafficBadge: React.FC<TrafficBadgeProps> = ({ webhookUrl, isExamAc
     return () => clearInterval(interval);
   }, [webhookUrl]);
 
-  // If user is inside high-focus CBT exam simulation, hide or minimize to not distract
-  if (isExamActive) {
+  // Strictly hide during any exam, topic practice, bank lookup, or results screen
+  // to guarantee 100% unobstructed view for students
+  if (isExamActive || (currentMode && currentMode !== 'intro')) {
     return null;
   }
 

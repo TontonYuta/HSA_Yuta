@@ -883,7 +883,7 @@ export const hsa558ExamQuestions: Question[] = [
     chapterName: 'Chương 4: Hình học không gian & Thể tích khối đa diện',
     topicId: 'ti_so_the_tich_khoi_chop_lang_tru',
     topicName: 'Tỉ số thể tích khối lăng trụ & Hình hộp',
-    content: 'Cho hình hộp $ABCD.A\'B\'C\'D\'. Trên cạnh $AA\', BB\', CC\'$ lần lượt lấy ba điểm $M, N, P$ sao cho $\\frac{AM}{AA\'} = \\frac{3}{4}$, $\\frac{BN}{BB\'} = \\frac{1}{2}$, $\\frac{CP}{CC\'} = \\frac{1}{3}$. Biết rằng mặt phẳng $(MNP)$ cắt cạnh $DD\'$ tại $Q$. Tỷ số $\\frac{D\'Q}{D\'D}$ bằng:',
+    content: 'Cho hình hộp $ABCD.A\'B\'C\'D\'$. Trên các cạnh $AA\', BB\', CC\'$ lần lượt lấy ba điểm $M, N, P$ sao cho $\\frac{AM}{AA\'} = \\frac{3}{4}$, $\\frac{BN}{BB\'} = \\frac{1}{2}$, $\\frac{CP}{CC\'} = \\frac{1}{3}$. Biết rằng mặt phẳng $(MNP)$ cắt cạnh $DD\'$ tại $Q$. Tỷ số $\\frac{D\'Q}{D\'D}$ bằng:',
     options: [
       { key: 'A', content: '$\\frac{5}{12}$' },
       { key: 'B', content: '$\\frac{7}{12}$' },
@@ -891,7 +891,7 @@ export const hsa558ExamQuestions: Question[] = [
       { key: 'D', content: '$\\frac{1}{2}$' }
     ],
     correctAnswer: 'A',
-    detailedSolution: 'Trong hình hộp $ABCD.A\'B\'C\'D\', thiết diện cắt 4 cạnh bên tại bốn điểm $M, N, P, Q$ đồng phẳng khi và chỉ khi:\n$$\\frac{AM}{AA\'} + \\frac{CP}{CC\'} = \\frac{BN}{BB\'} + \\frac{DQ}{DD\'}$$\nThay các tỉ số đã cho vào hệ thức:\n$$\\frac{3}{4} + \\frac{1}{3} = \\frac{1}{2} + \\frac{DQ}{DD\'} \\iff \\frac{DQ}{DD\'} = \\frac{3}{4} + \\frac{1}{3} - \\frac{1}{2} = \\frac{9 + 4 - 6}{12} = \\frac{7}{12}$$\nVì $Q$ nằm trên cạnh $DD\'$ nên:\n$$\\frac{D\'Q}{D\'D} = 1 - \\frac{DQ}{DD\'} = 1 - \\frac{7}{12} = \\frac{5}{12}$$\nVậy tỷ số $\\frac{D\'Q}{D\'D} = \\frac{5}{12}$.',
+    detailedSolution: 'Trong hình hộp $ABCD.A\'B\'C\'D\'$, thiết diện cắt 4 cạnh bên tại bốn điểm $M, N, P, Q$ đồng phẳng khi và chỉ khi:\n$$\\frac{AM}{AA\'} + \\frac{CP}{CC\'} = \\frac{BN}{BB\'} + \\frac{DQ}{DD\'}$$\nThay các tỉ số đã cho vào hệ thức:\n$$\\frac{3}{4} + \\frac{1}{3} = \\frac{1}{2} + \\frac{DQ}{DD\'} \\iff \\frac{DQ}{DD\'} = \\frac{3}{4} + \\frac{1}{3} - \\frac{1}{2} = \\frac{9 + 4 - 6}{12} = \\frac{7}{12}$$\nVì $Q$ nằm trên cạnh $DD\'$ nên:\n$$\\frac{D\'Q}{D\'D} = 1 - \\frac{DQ}{DD\'} = 1 - \\frac{7}{12} = \\frac{5}{12}$$\nVậy tỷ số $\\frac{D\'Q}{D\'D} = \\frac{5}{12}$.',
     socraticHint: 'Sử dụng công thức đồng phẳng trên 4 cạnh bên hình hộp: $\\frac{AM}{AA\'} + \\frac{CP}{CC\'} = \\frac{BN}{BB\'} + \\frac{DQ}{DD\'}$.',
     difficulty: 'Vận dụng',
     examSets: ['de_08_hsa558']

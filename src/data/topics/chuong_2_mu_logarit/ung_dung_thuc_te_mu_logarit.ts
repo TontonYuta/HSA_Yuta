@@ -66,23 +66,23 @@ export const ungDungMuLogQuestions: Question[] = [
     "options": [
       {
         "key": "A",
-        "content": "$2(giờ)$"
+        "content": "$2$ giờ"
       },
       {
         "key": "B",
-        "content": "$1(giờ)$"
+        "content": "$1$ giờ"
       },
       {
         "key": "C",
-        "content": "$4(giờ)$"
+        "content": "$4$ giờ"
       },
       {
         "key": "D",
-        "content": "$3(giờ)$"
+        "content": "$3$ giờ"
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Xét hàm $C(t)$ với $t > 0$:\n$$C(t) = \\frac{4}{t + \\frac{4}{t}}$$\nTheo bất đẳng thức AM-GM: $t + \\frac{4}{t} \\ge 2\\sqrt{t \\cdot \\frac{4}{t}} = 4$.\nDo đó: $C(t) \\le \\frac{4}{4} = 1\\text{ mg/L}$.\nDấu bằng xảy ra khi $t = \\frac{4}{t} \\iff t^2 = 4 \\iff t = 2(giờ)$ (vì $t > 0$).\nVậy sau 2 giờ nồng độ thuốc trong máu đạt mức cao nhất.",
+    "detailedSolution": "Xét hàm $C(t)$ với $t > 0$:\n$$C(t) = \\frac{4}{t + \\frac{4}{t}}$$\nTheo bất đẳng thức AM-GM: $t + \\frac{4}{t} \\ge 2\\sqrt{t \\cdot \\frac{4}{t}} = 4$.\nDo đó: $C(t) \\le \\frac{4}{4} = 1\\text{ mg/L}$.\nDấu bằng xảy ra khi $t = \\frac{4}{t} \\iff t^2 = 4 \\iff t = 2$ (giờ) (vì $t > 0$).\nVậy sau 2 giờ nồng độ thuốc trong máu đạt mức cao nhất.",
     "socraticHint": "Chia cả tử và mẫu cho $t$ rồi dùng bất đẳng thức AM-GM ở mẫu số, hoặc khảo sát đạo hàm $C'(t) = 0$.",
     "difficulty": "Vận dụng",
     "examSets": [
