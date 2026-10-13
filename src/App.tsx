@@ -4,6 +4,7 @@ import { AppSidebar } from './components/AppSidebar';
 import { StudentNameModal } from './components/StudentNameModal';
 import { WebhookModal } from './components/WebhookModal';
 import { ExamIntro } from './components/ExamIntro';
+import { DashboardView } from './components/DashboardView';
 import { ExamSimulation } from './components/ExamSimulation';
 import { ExamResults } from './components/ExamResults';
 import { TopicPractice } from './components/TopicPractice';
@@ -15,6 +16,7 @@ import { generateExamReport } from './utils/scoring';
 import { prepareExamQuestions } from './utils/questionRandomizer';
 import { TrafficBadge } from './components/TrafficBadge';
 import { notifyStudentJoined } from './utils/trafficTracker';
+import { GraduationCap } from 'lucide-react';
 
 export default function App() {
   // Theme state: light by default, can toggle to dark
@@ -188,6 +190,31 @@ export default function App() {
     setExamReport(report);
     setCurrentMode('results');
 
+    // Save completed exam record to localStorage for Dashboard statistics
+    try {
+      const raw = localStorage.getItem('hsa_exam_history');
+      const history = raw ? JSON.parse(raw) : [];
+      const newEntry = {
+        id: 'exam_' + Date.now(),
+        examSetId: selectedExamSetId,
+        examSetTitle: currentExamSet.title,
+        studentName,
+        completedAt: new Date().toISOString(),
+        score: report.totalScore,
+        maxScore: report.maxScore,
+        mcqScore: report.mcqScore,
+        mcqTotal: report.mcqTotal,
+        fillScore: report.fillScore,
+        fillTotal: report.fillTotal,
+        timeSpentSeconds: calculatedSeconds,
+        percentage: Math.round((report.totalScore / (report.maxScore || 1)) * 100),
+      };
+      const updatedHistory = [newEntry, ...(Array.isArray(history) ? history : [])].slice(0, 25);
+      localStorage.setItem('hsa_exam_history', JSON.stringify(updatedHistory));
+    } catch (e) {
+      console.error('Failed to save exam history', e);
+    }
+
     // Automatically dispatch result report to teacher email huyhoang6altt@gmail.com
     const targetUrl = webhookUrl?.trim() || DEFAULT_GAS_WEBHOOK_URL;
     if (targetUrl) {
@@ -331,15 +358,57 @@ export default function App() {
       );
     }
 
-    // Bulletproof Fallback: Always render ExamIntro! Never leaves <main> empty
+    if (currentMode === 'intro') {
+      return (
+        <DashboardView
+          studentName={studentName}
+          studentSchool={studentSchool}
+          onEditStudentProfile={() => setIsNameModalOpen(true)}
+          onStartExamMode={() => {
+            setExamReport(null);
+            setCurrentMode('exam');
+          }}
+          onStartSpecificExam={(setId) => handleStartExam(setId)}
+          onPracticeMode={() => {
+            setPracticeTopic(undefined);
+            setCurrentMode('practice');
+          }}
+          onSelectChapter={(chapId) => handleSelectChapter(chapId)}
+          onQuestionBankMode={() => setCurrentMode('bank')}
+        />
+      );
+    }
+
+    if (currentMode === 'exam' && !isExamActive) {
+      return (
+        <ExamIntro
+          onStartExam={(setId) => handleStartExam(setId)}
+          onSelectTopicPractice={handleSelectTopicPractice}
+          studentName={studentName}
+          setStudentName={setStudentName}
+          selectedExamSetId={selectedExamSetId}
+          setSelectedExamSetId={setSelectedExamSetId}
+        />
+      );
+    }
+
+    // Bulletproof Fallback: Always render DashboardView
     return (
-      <ExamIntro
-        onStartExam={(setId) => handleStartExam(setId)}
-        onSelectTopicPractice={handleSelectTopicPractice}
+      <DashboardView
         studentName={studentName}
-        setStudentName={setStudentName}
-        selectedExamSetId={selectedExamSetId}
-        setSelectedExamSetId={setSelectedExamSetId}
+        studentSchool={studentSchool}
+        onEditStudentProfile={() => setIsNameModalOpen(true)}
+        onStartExamMode={() => {
+          setExamReport(null);
+          setCurrentMode('exam');
+        }}
+        onStartSpecificExam={(setId) => handleStartExam(setId)}
+        onPracticeMode={() => {
+          setPracticeTopic(undefined);
+          setCurrentMode('practice');
+        }}
+        onSelectChapter={(chapId) => handleSelectChapter(chapId)}
+        onQuestionBankMode={() => setCurrentMode('bank')}
       />
     );
   };
@@ -437,7 +506,7 @@ export default function App() {
           <footer className="border-t border-slate-200 dark:border-zinc-800 bg-white dark:bg-[#09090b] py-6 text-xs text-slate-500 dark:text-zinc-500 transition-colors">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-3">
               <div className="flex items-center gap-2.5">
-                <img src="/avt.png" alt="TontonYuta" className="w-5 h-5 rounded-full object-cover ring-1 ring-sky-500/40" />
+                <GraduationCap className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0" />
                 <span className="font-bold text-slate-800 dark:text-zinc-200">
                   Luyện thi HSA cùng TontonYuta
                 </span>

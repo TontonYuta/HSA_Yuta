@@ -1,7 +1,7 @@
 import React from 'react';
 import { Play, Sun, Moon, GraduationCap, LayoutGrid, CheckSquare, BookOpen, Search, LogOut, Menu, User } from 'lucide-react';
 
-export type AppMode = 'exam' | 'practice' | 'bank';
+export type AppMode = 'intro' | 'exam' | 'practice' | 'bank';
 
 interface NavbarProps {
   currentMode: AppMode;
@@ -70,18 +70,14 @@ export const Navbar: React.FC<NavbarProps> = ({
               } else if (onHomeClick) {
                 onHomeClick();
               } else {
-                onSelectMode('exam');
+                onSelectMode('intro');
               }
             }}
             className="flex items-center gap-2 group cursor-pointer text-left"
             title="Trang chủ Luyện thi HSA"
           >
-            <div className="relative w-8 h-8 rounded-full overflow-hidden ring-2 ring-sky-500/30 dark:ring-sky-400/30 shadow-xs shrink-0 group-hover:ring-sky-500 transition">
-              <img
-                src="/avt.png"
-                alt="TontonYuta"
-                className="w-full h-full object-cover"
-              />
+            <div className="w-8 h-8 rounded-lg bg-sky-500/10 border border-sky-500/20 text-sky-600 dark:text-sky-400 flex items-center justify-center shrink-0 shadow-xs group-hover:bg-sky-500/20 transition">
+              <GraduationCap className="w-4 h-4" />
             </div>
             <div className="flex flex-col">
               <div className="flex items-center gap-1.5">

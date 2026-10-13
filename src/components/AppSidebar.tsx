@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { 
   Home, 
+  LayoutDashboard,
   BookOpen, 
   CheckSquare, 
   Search, 
@@ -62,10 +63,10 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
     {
       id: 'intro',
       label: 'Trang Chủ',
-      desc: 'Tổng quan cấu trúc & phòng thi',
-      icon: Home,
-      badge: 'HSA',
-      action: () => onSelectMode('exam'),
+      desc: 'Bảng thống kê & tiến độ học tập',
+      icon: LayoutDashboard,
+      badge: 'Tổng quan',
+      action: () => onSelectMode('intro'),
       isActive: currentMode === 'intro',
     },
     {

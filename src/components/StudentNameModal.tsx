@@ -58,10 +58,10 @@ export const StudentNameModal: React.FC<StudentNameModalProps> = ({
         <div className="absolute -top-16 -right-16 w-36 h-36 bg-sky-500/15 rounded-full blur-2xl pointer-events-none" />
         <div className="absolute -bottom-16 -left-16 w-36 h-36 bg-indigo-500/15 rounded-full blur-2xl pointer-events-none" />
 
-        {/* Header with avatar */}
+        {/* Header with icon */}
         <div className="flex items-center gap-3.5 mb-5">
-          <div className="w-14 h-14 rounded-2xl overflow-hidden ring-2 ring-sky-500/30 dark:ring-sky-400/30 shadow-md shrink-0 bg-sky-50 dark:bg-zinc-800">
-            <img src="/avt.png" alt="TontonYuta" className="w-full h-full object-cover" />
+          <div className="w-12 h-12 rounded-2xl bg-sky-500/10 border border-sky-500/20 text-sky-600 dark:text-sky-400 flex items-center justify-center shadow-xs shrink-0">
+            <User className="w-6 h-6" />
           </div>
           <div>
             <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950/80 text-sky-700 dark:text-sky-300 text-[10px] font-bold uppercase tracking-wider mb-1 border border-sky-200/80 dark:border-sky-800/80">

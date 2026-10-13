@@ -31,8 +31,8 @@ export const ExamIntro: React.FC<ExamIntroProps> = ({
     <div className="max-w-4xl mx-auto space-y-6 pb-16 animate-fade-in text-slate-900 dark:text-zinc-100 font-sans">
       {/* Header Banner - Chuyên nghiệp, tập trung cho học sinh */}
       <div className="rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 p-5 sm:p-6 shadow-sm flex flex-col sm:flex-row items-center gap-4 transition-colors">
-        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl overflow-hidden ring-2 ring-sky-500/30 shrink-0 bg-sky-50 dark:bg-zinc-800 shadow-xs">
-          <img src="/avt.png" alt="TontonYuta" className="w-full h-full object-cover" />
+        <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-sky-500/10 border border-sky-500/20 text-sky-600 dark:text-sky-400 flex items-center justify-center shrink-0 shadow-xs">
+          <FileCheck2 className="w-6 h-6 sm:w-7 sm:h-7" />
         </div>
         <div className="flex-1 text-center sm:text-left space-y-1">
           <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
