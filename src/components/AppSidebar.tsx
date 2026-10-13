@@ -16,7 +16,7 @@ import {
   X,
 } from 'lucide-react';
 import { AppMode } from './Navbar';
-import { CHAPTERS_METADATA } from '../data/topics/index';
+import { CHAPTERS_METADATA, HSA_EXAM_SETS } from '../data/topics/index';
 
 interface AppSidebarProps {
   currentMode: AppMode | 'intro' | 'results';
@@ -78,9 +78,9 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
     {
       id: 'exam',
       label: 'Thi Thử 75 Phút',
-      desc: '8 bộ đề thi thực chiến chuẩn form',
+      desc: `${HSA_EXAM_SETS.length} bộ đề thi thực chiến chuẩn form`,
       icon: CheckSquare,
-      badge: '8 Đề',
+      badge: `${HSA_EXAM_SETS.length} Đề`,
       action: () => onSelectMode('exam'),
       isActive: currentMode === 'exam',
     },

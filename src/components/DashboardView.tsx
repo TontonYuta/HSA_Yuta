@@ -175,7 +175,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
               <span className="text-slate-300 dark:text-zinc-700">·</span>
               <div className="flex items-center gap-1.5">
                 <Layers className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-indigo-500" />
-                <span>8 Bộ Đề Chuẩn</span>
+                <span>{HSA_EXAM_SETS.length} Bộ Đề Chuẩn</span>
               </div>
               <span className="text-slate-300 dark:text-zinc-700">·</span>
               <div className="flex items-center gap-1.5">
@@ -233,7 +233,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                 Đề đã luyện
               </span>
               <div className="text-lg font-black text-slate-900 dark:text-zinc-100 font-mono mt-0.5 tabular-nums">
-                {distinctExamSetsCount} <span className="text-[10px] font-normal text-slate-400">/ 8</span>
+                {distinctExamSetsCount} <span className="text-[10px] font-normal text-slate-400">/ {HSA_EXAM_SETS.length}</span>
               </div>
             </div>
 

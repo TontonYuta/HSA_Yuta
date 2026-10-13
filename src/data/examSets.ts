@@ -1,7 +1,9 @@
 import { ExamSet } from '../types/exam';
 
-// Exam sets definition (Standardized HSA formats)
 export const HSA_EXAM_SETS: ExamSet[] = [
+  // =========================================================================
+  // NHÓM 1: CÁC ĐỀ CHUẨN THAM KHẢO & ĐỀ GỐC ĐHQGHN (ĐỀ 01 - 08)
+  // =========================================================================
   {
     id: 'de_01_chuan',
     title: 'Đề 01: Chuẩn Tham Khảo ĐHQGHN 2025',
@@ -97,5 +99,222 @@ export const HSA_EXAM_SETS: ExamSet[] = [
     badge: 'Đề gốc 558',
     description: 'Bộ đề thi thực chiến mã 558 trên cổng luyện thi HSA VNU: bài toán tiếp tuyến tam giác diện tích S=25, hàm đặc trưng, logistic, tư duy logic bàn tròn, chùm câu hỏi sinh thái học và tỷ số hình hộp.',
     questionIds: Array.from({ length: 50 }, (_, i) => i + 301),
+  },
+
+  // =========================================================================
+  // NHÓM 2: ĐỀ CHUYÊN SÂU TỪNG KHỐI KIẾN THỨC PHÂN HÓA (ĐỀ 09 - 15)
+  // =========================================================================
+  {
+    id: 'de_09_ham_so_chuyen_sau',
+    title: 'Đề 09: Chuyên Sâu Giải Tích & Đơn Điệu Hàm Số Chứa Tham Số',
+    subtitle: '50 câu phân hóa chuyên sâu về tính đơn điệu và tiếp tuyến',
+    timeMinutes: 75,
+    questionCount: 50,
+    mcqCount: 35,
+    fillCount: 15,
+    badge: 'Chuyên sâu Hàm số',
+    description: 'Đào sâu các bài toán tham số m trong khảo sát hàm số, đơn điệu trên khoảng/nửa khoảng, tiệm cận đứng, ngang, xiên và phương trình tiếp tuyến.',
+    questionIds: [
+      351, 352, 353, 354, 355, 356, 357, 358, 359, 360, 361, 362, 363, 364, 365,
+      366, 367, 368, 369, 370, 371, 372, 373, 374, 375, 376, 377, 378, 379, 380,
+      381, 382, 383, 384, 385,
+      36, 37, 38, 39, 40, 86, 87, 88, 89, 90, 136, 137, 138, 139, 140
+    ],
+  },
+  {
+    id: 'de_10_cuc_tri_van_dung_cao',
+    title: 'Đề 10: Đột Phá Cực Trị Hàm Số & Min - Max Vận Dụng Cao',
+    subtitle: '50 câu cực trị tham số m và tối ưu giá trị lớn nhất - nhỏ nhất',
+    timeMinutes: 75,
+    questionCount: 50,
+    mcqCount: 35,
+    fillCount: 15,
+    badge: 'Phân hóa 85+',
+    description: 'Chuyên đề giải quyết triệt để các bài toán cực trị hàm đa thức bậc 3, bậc 4, hàm chứa căn thức, GTLN-GTNN trên đoạn và ứng dụng đồ thị đạo hàm f\'(x).',
+    questionIds: [
+      411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 421, 422, 423, 424, 425,
+      426, 427, 428, 429, 430, 431, 432, 433, 434, 435, 436, 437, 438, 439, 440,
+      441, 442, 443, 444, 445,
+      86, 87, 88, 89, 90, 186, 187, 188, 189, 190, 48, 49, 50, 98, 99
+    ],
+  },
+  {
+    id: 'de_11_tuong_giao_ham_hop',
+    title: 'Đề 11: Chuyên Sâu Tương Giao Đồ Thị & Hàm Hợp Phân Hóa 85+',
+    subtitle: '50 câu tương giao nghiệm kép, hàm trị tuyệt đối và hàm hợp',
+    timeMinutes: 75,
+    questionCount: 50,
+    mcqCount: 35,
+    fillCount: 15,
+    badge: 'Tương giao hàm hợp',
+    description: 'Chinh phục bài toán biện luận số nghiệm phương trình f(u(x)) = k, đồ thị hàm số chứa dấu giá trị tuyệt đối |f(x)|, f(|x|) và tương giao nghiệm nguyên.',
+    questionIds: [
+      483, 484, 485, 486, 487, 488, 489, 490, 491, 492, 493, 494, 495, 496, 497,
+      498, 499, 500, 501, 502, 503, 504, 505, 506, 507, 508, 509, 510, 511, 512,
+      513, 514, 515, 465, 466,
+      36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 141, 142, 143, 144, 145
+    ],
+  },
+  {
+    id: 'de_12_hinh_hoc_oxyz',
+    title: 'Đề 12: Chuyên Sâu Hình Học Không Gian & Tọa Độ Oxyz Thực Tế',
+    subtitle: '50 câu góc, khoảng cách, khối tròn xoay và mô hình tọa độ hóa',
+    timeMinutes: 75,
+    questionCount: 50,
+    mcqCount: 35,
+    fillCount: 15,
+    badge: 'Oxyz & Không Gian',
+    description: 'Tổng hợp góc và khoảng cách hai đường chéo nhau, thể tích khối đa diện, nón - trụ - cầu và các mô hình tọa độ hóa Oxyz trạm thu phát radar, máy bay, vệ tinh quỹ đạo.',
+    questionIds: [
+      // 35 MCQ (20 Ch4 + 15 Ch5)
+      15, 16, 17, 18, 65, 66, 67, 68, 115, 116, 117, 118, 165, 166, 167, 168, 215, 216, 217, 218,
+      19, 20, 21, 69, 70, 71, 119, 120, 121, 169, 170, 171, 271, 220, 221,
+      // 15 Fill (7 Ch4 + 7 Ch5 + 1 Ch10 thực tế hình học)
+      46, 96, 146, 196, 213, 239, 290,
+      40, 90, 140, 190, 240, 270, 274,
+      50
+    ],
+  },
+  {
+    id: 'de_13_xac_suat_thong_ke',
+    title: 'Đề 13: Chuyên Sâu Xác Suất - Thống Kê & Toán Rời Rạc Hiện Đại',
+    subtitle: '50 câu xác suất Bayes, mẫu số liệu ghép nhóm và cấp số',
+    timeMinutes: 75,
+    questionCount: 50,
+    mcqCount: 35,
+    fillCount: 15,
+    badge: 'Xác suất & Bayes',
+    description: 'Bao quát công thức xác suất toàn phần, công thức Bayes chẩn đoán bệnh, quy tắc nhân, mẫu số liệu ghép nhóm (phương sai, độ lệch chuẩn), cấp số cộng và cấp số nhân.',
+    questionIds: [
+      // 35 MCQ (20 Ch8 + 10 Ch7 + 5 Ch6)
+      26, 27, 28, 29, 76, 77, 78, 79, 126, 127, 128, 129, 176, 177, 178, 179, 227, 228, 229, 282,
+      23, 24, 25, 73, 74, 75, 123, 124, 125, 173,
+      22, 72, 122, 172, 284,
+      // 15 Fill (10 Ch8 + 5 Ch7)
+      44, 45, 95, 142, 145, 149, 192, 195, 199, 219,
+      43, 94, 144, 194, 206
+    ],
+  },
+  {
+    id: 'de_14_mu_log_tich_phan',
+    title: 'Đề 14: Chuyên Sâu Mũ - Logarit & Tích Phân Thực Tế',
+    subtitle: '50 câu hàm đặc trưng, diện tích hình phẳng và chuyển động v(t)',
+    timeMinutes: 75,
+    questionCount: 50,
+    mcqCount: 35,
+    fillCount: 15,
+    badge: 'Mũ - Log & Tích phân',
+    description: 'Chuyên đề trọng tâm phương trình/bất phương trình mũ - logarit, nghiệm nguyên, phương pháp hàm đặc trưng, diện tích hình phẳng parabol/elip và tích phân bài toán vật lý.',
+    questionIds: [
+      // 35 MCQ (18 Ch2 + 17 Ch3)
+      7, 8, 9, 10, 57, 58, 59, 60, 107, 108, 109, 110, 157, 158, 159, 160, 265, 208,
+      11, 12, 13, 14, 61, 62, 63, 64, 111, 112, 113, 114, 161, 162, 163, 164, 211,
+      // 15 Fill (10 Ch2 + 5 Ch3)
+      38, 88, 97, 99, 138, 188, 210, 232, 283, 288,
+      41, 91, 141, 191, 264
+    ],
+  },
+  {
+    id: 'de_15_toan_thuc_te_toi_uu',
+    title: 'Đề 15: Chuyên Sâu Toán Ứng Dụng Thực Tế & Tối Ưu Hóa Kinh Tế',
+    subtitle: '50 câu chi phí, doanh thu, quy hoạch tuyến tính và bài toán đời sống',
+    timeMinutes: 75,
+    questionCount: 50,
+    mcqCount: 35,
+    fillCount: 15,
+    badge: 'Toán thực tế HSA',
+    description: 'Tập trung các bài toán tối ưu hóa chi phí sản xuất, doanh thu và lợi nhuận cực đại, quy hoạch tuyến tính hai ẩn miền đa giác, dao động lượng giác và lãi suất ngân hàng.',
+    questionIds: [
+      33, 34, 35, 83, 84, 85, 133, 134, 135, 183, 184, 185, 233,
+      30, 31, 32, 80, 81, 82, 130, 131, 132, 180, 181, 182,
+      22, 72, 122, 172, 222, 272,
+      1, 2, 3, 4,
+      49, 50, 99, 100, 149, 150, 199, 200, 249, 250,
+      47, 48, 97, 98, 148
+    ],
+  },
+
+  // =========================================================================
+  // NHÓM 3: ĐỀ THI THỬ TOÀN DIỆN MA TRẬN CHUẨN & PHÂN HÓA CHIẾN LƯỢC (ĐỀ 16 - 20)
+  // =========================================================================
+  {
+    id: 'de_16_ma_tran_chuan_01',
+    title: 'Đề 16: Đề Thi Thử Toàn Diện Ma Trận Chuẩn ĐHQGHN Số 01',
+    subtitle: '50 câu chuẩn ma trận 10 chương mô phỏng kỳ thi thực tế',
+    timeMinutes: 75,
+    questionCount: 50,
+    mcqCount: 35,
+    fillCount: 15,
+    badge: 'Ma trận chuẩn 1',
+    description: 'Bộ đề thi tổng hợp bao phủ toàn diện 10 chương với tỷ lệ câu hỏi cân đối hoàn hảo, phân bổ từ mức độ Thông hiểu đến Vận dụng cao chuẩn kỳ thi chính thức.',
+    questionIds: [
+      11, 12, 13, 14, 51, 52, 53, 54, 57, 58, 59, 61, 62, 63, 65, 66, 67, 68, 69, 70, 71,
+      73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 101,
+      36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50
+    ],
+  },
+  {
+    id: 'de_17_ma_tran_chuan_02',
+    title: 'Đề 17: Đề Thi Thử Toàn Diện Ma Trận Chuẩn ĐHQGHN Số 02',
+    subtitle: '50 câu thực chiến tổng hợp rèn luyện tư duy định lượng',
+    timeMinutes: 75,
+    questionCount: 50,
+    mcqCount: 35,
+    fillCount: 15,
+    badge: 'Ma trận chuẩn 2',
+    description: 'Bộ đề thi thử số 2 với các câu hỏi đối xứng, rèn luyện kỹ năng phân bổ thời gian và giải quyết trọn vẹn 50 câu hỏi trong 75 phút không mệt mỏi.',
+    questionIds: [
+      102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120,
+      121, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 151, 152,
+      86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100
+    ],
+  },
+  {
+    id: 'de_18_toc_do_phan_xa',
+    title: 'Đề 18: Luyện Tốc Độ Phản Xạ 35 Câu Cấp Tốc (50 Phút)',
+    subtitle: '35 câu then chốt rèn tốc độ xử lý nhanh và độ chính xác',
+    timeMinutes: 50,
+    questionCount: 35,
+    mcqCount: 25,
+    fillCount: 10,
+    badge: 'Cấp tốc 50 phút',
+    description: 'Dành riêng cho học sinh muốn rèn luyện kỹ năng giải nhanh, bấm máy tính CASIO chuẩn xác và tránh bẫy đề thi trong áp lực thời gian cao.',
+    questionIds: [
+      153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170,
+      171, 173, 174, 175, 176, 177, 178,
+      136, 137, 138, 139, 140, 141, 142, 143, 144, 145
+    ],
+  },
+  {
+    id: 'de_19_chien_luoc_90_plus',
+    title: 'Đề 19: Đột Phá Chiến Lược Chinh Phục Điểm 90+',
+    subtitle: '50 câu mức độ Vận dụng & Vận dụng cao phân loại thí sinh giỏi',
+    timeMinutes: 75,
+    questionCount: 50,
+    mcqCount: 35,
+    fillCount: 15,
+    badge: 'Mục tiêu 90+',
+    description: 'Bộ đề thi thách thức tư duy logic, phân hóa điểm cao dành cho thí sinh target 90+ để xét tuyển các trường đại học top 1 (Bách Khoa, Kinh Tế Quốc Dân, ĐHQGHN).',
+    questionIds: [
+      201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220,
+      221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 401,
+      235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249
+    ],
+  },
+  {
+    id: 'de_20_ve_dich_thu_khoa',
+    title: 'Đề 20: Đề Tổng Ôn Về Đích - Đỉnh Cao Phân Loại Thủ Khoa 100+',
+    subtitle: '50 câu phân loại đỉnh cao hội tụ các bài toán tinh hoa HSA',
+    timeMinutes: 75,
+    questionCount: 50,
+    mcqCount: 35,
+    fillCount: 15,
+    badge: 'Về đích 100+',
+    description: 'Bộ đề thi về đích hoàn hảo với đầy đủ các bài toán cực trị đa biến, xác suất Bayes nhiều tầng, mô hình không gian Oxyz và suy luận phản biện phức tạp nhất.',
+    questionIds: [
+      251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270,
+      271, 272, 273, 274, 275, 276, 277, 278, 279, 280, 281, 282, 283, 284, 441,
+      285, 286, 287, 288, 289, 290, 291, 292, 293, 294, 295, 296, 297, 298, 299
+    ],
   },
 ];

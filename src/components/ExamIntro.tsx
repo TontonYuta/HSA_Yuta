@@ -40,31 +40,31 @@ export const ExamIntro: React.FC<ExamIntroProps> = ({
               Thi Thử 75 Phút · Toán Học & Tư Duy Định Lượng HSA
             </h1>
             <span className="px-2 py-0.5 text-[10px] font-mono font-bold rounded bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-300 border border-sky-200/60 dark:border-sky-800/60">
-              8 BỘ ĐỀ
+              {HSA_EXAM_SETS.length} BỘ ĐỀ
             </span>
           </div>
           <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400">
-            Cấu trúc 50 câu (35 trắc nghiệm + 15 điền đáp số), thời gian làm bài 75 phút theo định dạng đề thi ĐHQGHN.
+            Hệ thống {HSA_EXAM_SETS.length} bộ đề chuẩn hóa HSA ĐHQGHN: gồm các đề gốc tham khảo, đề chuyên sâu từng chuyên đề và đề phân hóa cao 90+.
           </p>
         </div>
       </div>
 
       {/* Phòng thi thử - Chọn đề & Vào thi */}
       <div className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-2xl p-5 sm:p-7 shadow-sm space-y-5 transition-colors">
-        <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-zinc-800/80">
+        <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-zinc-800/80 flex-wrap gap-2">
           <div className="flex items-center gap-2">
             <FileCheck2 className="w-5 h-5 text-sky-600 dark:text-sky-400" />
             <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-zinc-100">
-              Chọn bộ đề thi thực chiến
+              Chọn bộ đề thi thực chiến ({HSA_EXAM_SETS.length} Đề)
             </h2>
           </div>
           <span className="text-xs font-mono text-slate-500 dark:text-zinc-400">
-            8 Đề thi có sẵn
+            {HSA_EXAM_SETS.length} Đề thi có sẵn
           </span>
         </div>
 
-        {/* Danh sách 8 đề thi */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
+        {/* Danh sách 20 đề thi */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 max-h-[520px] overflow-y-auto p-1 scrollbar-thin scrollbar-thumb-slate-300 dark:scrollbar-thumb-zinc-700">
           {HSA_EXAM_SETS.map((set) => {
             const isSelected = selectedExamSetId === set.id;
             return (
