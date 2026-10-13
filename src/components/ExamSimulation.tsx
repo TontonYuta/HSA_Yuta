@@ -17,8 +17,7 @@ import {
   EyeOff,
   Eye,
   Type,
-  LayoutGrid,
-  Mail
+  LayoutGrid
 } from 'lucide-react';
 import { Question, UserAnswer, ExamSet } from '../types/exam';
 import { MathRenderer } from './MathRenderer';

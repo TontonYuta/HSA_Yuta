@@ -387,7 +387,7 @@ export const TopicPractice: React.FC<TopicPracticeProps> = ({
   }
 
   return (
-    <div className="h-[calc(100vh-52px)] flex overflow-hidden bg-slate-50 dark:bg-[#09090b] text-slate-900 dark:text-zinc-100 select-none">
+    <div className="h-[calc(100vh-52px)] md:h-screen flex overflow-hidden bg-slate-50 dark:bg-[#09090b] text-slate-900 dark:text-zinc-100 select-none">
       {/* 1. LEFT SIDEBAR */}
       <TopicPracticeSidebar
         isSidebarOpen={isSidebarOpen}
@@ -495,7 +495,7 @@ export const TopicPractice: React.FC<TopicPracticeProps> = ({
               <span className="hidden xl:inline">Xem giải</span>
             </button>
 
-            {/* Submit & Auto-Email Button */}
+            {/* Submit Button */}
             <button
               type="button"
               onClick={handleOpenSubmitModal}

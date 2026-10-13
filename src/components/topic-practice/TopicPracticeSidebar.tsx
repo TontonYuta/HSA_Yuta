@@ -57,7 +57,7 @@ export const TopicPracticeSidebar: React.FC<TopicPracticeSidebarProps> = ({
       )}
 
       <aside
-        className={`fixed lg:static top-[52px] bottom-0 left-0 z-40 w-72 lg:w-80 shrink-0 bg-white dark:bg-[#101014] border-r border-slate-200 dark:border-zinc-800 flex flex-col transition-transform duration-200 ease-in-out ${
+        className={`fixed lg:static top-[52px] md:top-0 bottom-0 left-0 z-40 w-72 lg:w-80 shrink-0 bg-white dark:bg-[#101014] border-r border-slate-200 dark:border-zinc-800 flex flex-col transition-transform duration-200 ease-in-out ${
           isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:hidden'
         }`}
       >

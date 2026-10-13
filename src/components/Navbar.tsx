@@ -45,7 +45,9 @@ export const Navbar: React.FC<NavbarProps> = ({
   onEditStudentName,
 }) => {
   return (
-    <header className="sticky top-0 z-40 h-[52px] bg-white dark:bg-[#09090b] border-b border-slate-200 dark:border-zinc-800 transition-colors select-none">
+    <header className={`sticky top-0 z-40 h-[52px] bg-white dark:bg-[#09090b] border-b border-slate-200 dark:border-zinc-800 transition-colors select-none ${
+      !isExamInProgress ? 'md:hidden' : ''
+    }`}>
       <div className="w-full h-full flex items-center justify-between px-3 sm:px-5">
         {/* Left Zone: Brand Logo & Title */}
         <div className="flex items-center gap-2 shrink-0">

@@ -17,9 +17,9 @@ import { TrafficBadge } from './components/TrafficBadge';
 import { notifyStudentJoined } from './utils/trafficTracker';
 
 export default function App() {
-  // Theme state: dark or light mode
+  // Theme state: light by default, can toggle to dark
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
-    return (localStorage.getItem('hsa_theme') as 'dark' | 'light') || 'dark';
+    return (localStorage.getItem('hsa_theme') as 'dark' | 'light') || 'light';
   });
 
   useEffect(() => {

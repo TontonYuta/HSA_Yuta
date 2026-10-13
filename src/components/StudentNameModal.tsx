@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { User, School, Mail, Sparkles, CheckCircle2, ShieldCheck, ArrowRight } from 'lucide-react';
+import { User, School, Sparkles, ArrowRight } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 interface StudentNameModalProps {

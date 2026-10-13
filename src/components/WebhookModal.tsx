@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Copy, Check, Send, Sparkles, ExternalLink, ShieldCheck, Mail, User, Globe } from 'lucide-react';
+import { X, Copy, Check, Send, Sparkles, ExternalLink, ShieldCheck, User, Globe } from 'lucide-react';
 
 import { generateGasScript } from '../data/gasScriptTemplate';
 
@@ -65,14 +65,14 @@ export const WebhookModal: React.FC<WebhookModalProps> = ({
     }
 
     setTestStatus('testing');
-    setTestMessage('Đang gửi tín hiệu kiểm tra kèm email báo cáo thử nghiệm...');
+    setTestMessage('Đang gửi tín hiệu kiểm tra đồng bộ dữ liệu...');
 
     try {
       const payload = {
         teacherEmail: localTeacherEmail || '',
         studentName: localStudentName || 'Thí sinh thử nghiệm',
         studentEmail: localStudentEmail || '',
-        examSetTitle: 'Đề 01: Chuẩn Tham Khảo ĐHQGHN (Test Email)',
+        examSetTitle: 'Đề 01: Chuẩn Tham Khảo ĐHQGHN (Đồng bộ Google Sheet)',
         completedAt: new Date().toISOString(),
         totalTimeSpentSeconds: 4320,
         totalScore: 42,
@@ -105,7 +105,7 @@ export const WebhookModal: React.FC<WebhookModalProps> = ({
       });
 
       setTestStatus('success');
-      setTestMessage(`Đã gửi dữ liệu thử nghiệm thành công! Hãy kiểm tra Google Sheet và hộp thư ${localTeacherEmail ? `(${localTeacherEmail})` : 'của bạn'}.`);
+      setTestMessage('Đã đồng bộ dữ liệu thử nghiệm thành công! Hãy kiểm tra bảng tính Google Sheet của bạn.');
     } catch (err: any) {
       setTestStatus('error');
       setTestMessage(`Không thể gửi tới URL: ${err?.message || 'Lỗi kết nối mạng hoặc sai đường link Webhook'}`);
@@ -119,24 +119,24 @@ export const WebhookModal: React.FC<WebhookModalProps> = ({
         <div className="flex items-center justify-between px-6 py-4 border-b border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950/60">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-lg bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-600 dark:text-sky-400">
-              <Mail className="w-4 h-4" />
+              <Globe className="w-4 h-4" />
             </div>
             <div>
               <h2 className="text-base font-semibold text-zinc-900 dark:text-zinc-100 flex items-center gap-2">
-                <span>Tự Động Gửi Email & Lưu Google Sheet</span>
+                <span>Đồng Bộ Google Sheets & Webhook</span>
                 <span className="text-[10px] px-2 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-300 font-normal">
                   Google Apps Script
                 </span>
               </h2>
               <p className="text-xs text-zinc-500 dark:text-zinc-400">
-                Tự động gửi email báo cáo chi tiết về cho bạn mỗi khi học sinh nộp bài
+                Tự động lưu trữ điểm số và bảng phân tích bài làm vào Google Sheet của bạn
               </p>
             </div>
           </div>
           <button
             type="button"
             onClick={onClose}
-            className="p-1.5 text-zinc-500 hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-lg transition"
+            className="p-1.5 text-zinc-500 hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-lg transition cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -147,18 +147,18 @@ export const WebhookModal: React.FC<WebhookModalProps> = ({
           <button
             type="button"
             onClick={() => setActiveTab('config')}
-            className={`px-4 py-2 text-xs font-medium border-b-2 transition ${
+            className={`px-4 py-2 text-xs font-medium border-b-2 transition cursor-pointer ${
               activeTab === 'config'
                 ? 'border-sky-500 text-sky-600 dark:text-sky-400 font-semibold'
                 : 'border-transparent text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200'
             }`}
           >
-            Cấu hình Webhook & Email
+            Cấu hình Webhook
           </button>
           <button
             type="button"
             onClick={() => setActiveTab('code')}
-            className={`px-4 py-2 text-xs font-medium border-b-2 transition ${
+            className={`px-4 py-2 text-xs font-medium border-b-2 transition cursor-pointer ${
               activeTab === 'code'
                 ? 'border-sky-500 text-sky-600 dark:text-sky-400 font-semibold'
                 : 'border-transparent text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200'
@@ -169,7 +169,7 @@ export const WebhookModal: React.FC<WebhookModalProps> = ({
           <button
             type="button"
             onClick={() => setActiveTab('guide')}
-            className={`px-4 py-2 text-xs font-medium border-b-2 transition ${
+            className={`px-4 py-2 text-xs font-medium border-b-2 transition cursor-pointer ${
               activeTab === 'guide'
                 ? 'border-sky-500 text-sky-600 dark:text-sky-400 font-semibold'
                 : 'border-transparent text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200'
@@ -183,24 +183,6 @@ export const WebhookModal: React.FC<WebhookModalProps> = ({
         <div className="p-6 overflow-y-auto space-y-5 text-sm text-zinc-700 dark:text-zinc-300">
           {activeTab === 'config' && (
             <div className="space-y-4">
-              {/* Teacher Email - Key user request: gửi mail về cho tôi */}
-              <div className="p-4 rounded-xl bg-sky-50/70 dark:bg-sky-950/30 border border-sky-200 dark:border-sky-800/60 space-y-2">
-                <label className="block text-xs font-bold text-sky-950 dark:text-sky-200 flex items-center gap-1.5">
-                  <Mail className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400" />
-                  <span>Email của bạn (Giáo viên / Admin) — Nhận mail báo cáo kết quả:</span>
-                </label>
-                <input
-                  type="email"
-                  placeholder="Ví dụ: email_cua_ban@gmail.com"
-                  value={localTeacherEmail}
-                  onChange={(e) => setLocalTeacherEmail(e.target.value)}
-                  className="w-full px-3.5 py-2.5 bg-white dark:bg-zinc-950 border border-sky-300 dark:border-sky-800 rounded-lg text-sm text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 focus:outline-none focus:border-sky-500 font-medium"
-                />
-                <p className="text-[11px] text-sky-800 dark:text-sky-300 leading-relaxed">
-                  Mỗi khi học sinh hoàn thành bài thi, hệ thống sẽ tự động gửi email báo cáo chi tiết (kèm điểm số, bảng phân tích chuyên đề, và danh sách câu sai) về email này.
-                </p>
-              </div>
-
               {/* Webhook URL */}
               <div>
                 <label className="block text-xs font-medium text-zinc-700 dark:text-zinc-300 mb-1.5 flex items-center gap-1.5">
@@ -250,33 +232,18 @@ export const WebhookModal: React.FC<WebhookModalProps> = ({
               )}
 
               {/* Student info */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
-                <div>
-                  <label className="block text-xs font-medium text-zinc-700 dark:text-zinc-300 mb-1.5 flex items-center gap-1.5">
-                    <User className="w-3.5 h-3.5 text-zinc-500" />
-                    <span>Họ và tên thí sinh (mặc định)</span>
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Nguyễn Văn A"
-                    value={localStudentName}
-                    onChange={(e) => setLocalStudentName(e.target.value)}
-                    className="w-full px-3.5 py-2.5 bg-white dark:bg-zinc-950 border border-zinc-300 dark:border-zinc-800 rounded-lg text-sm text-zinc-900 dark:text-zinc-200 placeholder-zinc-400 dark:placeholder-zinc-600 focus:outline-none focus:border-sky-500"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-medium text-zinc-700 dark:text-zinc-300 mb-1.5 flex items-center gap-1.5">
-                    <Mail className="w-3.5 h-3.5 text-zinc-500" />
-                    <span>Email thí sinh (tùy chọn gửi kèm cho học sinh)</span>
-                  </label>
-                  <input
-                    type="email"
-                    placeholder="hocsinh@example.com"
-                    value={localStudentEmail}
-                    onChange={(e) => setLocalStudentEmail(e.target.value)}
-                    className="w-full px-3.5 py-2.5 bg-white dark:bg-zinc-950 border border-zinc-300 dark:border-zinc-800 rounded-lg text-sm text-zinc-900 dark:text-zinc-200 placeholder-zinc-400 dark:placeholder-zinc-600 focus:outline-none focus:border-sky-500"
-                  />
-                </div>
+              <div>
+                <label className="block text-xs font-medium text-zinc-700 dark:text-zinc-300 mb-1.5 flex items-center gap-1.5">
+                  <User className="w-3.5 h-3.5 text-zinc-500" />
+                  <span>Họ và tên thí sinh (mặc định)</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="Nguyễn Văn A"
+                  value={localStudentName}
+                  onChange={(e) => setLocalStudentName(e.target.value)}
+                  className="w-full px-3.5 py-2.5 bg-white dark:bg-zinc-950 border border-zinc-300 dark:border-zinc-800 rounded-lg text-sm text-zinc-900 dark:text-zinc-200 placeholder-zinc-400 dark:placeholder-zinc-600 focus:outline-none focus:border-sky-500"
+                />
               </div>
             </div>
           )}
@@ -344,11 +311,11 @@ export const WebhookModal: React.FC<WebhookModalProps> = ({
                   <br />
                   - Chọn loại: <strong>Ứng dụng web (Web app)</strong>.
                   <br />
-                  - Thực thi dưới dạng (Execute as): <strong>Tôi (Me / email của bạn)</strong>.
+                  - Thực thi dưới dạng (Execute as): <strong>Tôi (Me)</strong>.
                   <br />
                   - Ai có quyền truy cập (Who has access): <strong>Bất kỳ ai (Anyone)</strong>.
                   <br />
-                  - Nhấn <strong>Triển khai</strong>, chọn tài khoản Google của bạn và nhấn <strong>Cho phép (Authorize / Allow)</strong> để cấp quyền gửi mail qua Gmail và ghi Google Sheet.
+                  - Nhấn <strong>Triển khai</strong>, chọn tài khoản Google của bạn và nhấn <strong>Cho phép (Authorize / Allow)</strong> để cấp quyền ghi dữ liệu vào Google Sheet.
                   <br />
                   - Sao chép <strong>URL Ứng dụng web</strong> và dán vào ô Webhook URL ở tab Cấu hình.
                 </p>

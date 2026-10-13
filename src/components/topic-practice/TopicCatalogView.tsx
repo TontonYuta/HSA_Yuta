@@ -41,7 +41,7 @@ export const TopicCatalogView: React.FC<TopicCatalogViewProps> = ({
   onSelectTopic,
 }) => {
   return (
-    <div className="h-[calc(100vh-52px)] overflow-y-auto bg-slate-50 dark:bg-[#09090b] text-slate-900 dark:text-zinc-100 p-3 sm:p-6 lg:p-8 select-none">
+    <div className="h-[calc(100vh-52px)] md:h-screen overflow-y-auto bg-slate-50 dark:bg-[#09090b] text-slate-900 dark:text-zinc-100 p-3 sm:p-6 lg:p-8 select-none">
       <div className="max-w-6xl mx-auto space-y-6 pb-20">
         {/* Header Hero Banner */}
         <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-sky-500/10 via-indigo-500/5 to-purple-500/10 dark:from-sky-950/40 dark:via-zinc-900/60 dark:to-indigo-950/30 border border-sky-200/60 dark:border-sky-900/40 p-5 sm:p-6">

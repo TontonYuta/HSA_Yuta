@@ -13,7 +13,6 @@ import {
   Sun, 
   Moon, 
   X, 
-  Mail,
   ShieldCheck
 } from 'lucide-react';
 import { AppMode } from './Navbar';
