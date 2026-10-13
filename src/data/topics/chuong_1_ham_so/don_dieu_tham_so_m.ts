@@ -400,7 +400,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Tìm điều kiện của tham số thực m để hàm số $y = x^3 - 3x^2 + 3 (m + 1) x + 2 đồng biến trên \\mathbb{R}$.",
+    "content": "Tìm tất cả các giá trị thực của tham số $m$ để hàm số $y = x^3 - 3x^2 + 3(m + 1)x + 2$ đồng biến trên $\\mathbb{R}$.",
     "options": [
       {
         "key": "A",
@@ -431,7 +431,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Tìm tập hợp tất cả các giá trị của tham số thực m để hàm số $y = x^3 + mx^2 + 4 x - m đồng biến^3$ trên khoảng $(-\\infty ; +\\infty)$ .",
+    "content": "Có bao nhiêu giá trị nguyên của tham số $m$ sao cho hàm số $y = \\frac{1}{3}x^3 + mx^2 + 4x - m$ đồng biến trên $\\mathbb{R}$?",
     "options": [
       {
         "key": "A",
@@ -462,7 +462,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Hỏi có tất cả bao nhiêu giá trị nguyên của tham số m để hàm số hàm số $y = (m^2 - m) x^3 + 2mx^2 + 3 x - 2 đồng biến trên khoảng $(-\\infty$; + \\infty)$ ?",
+    "content": "Tìm tất cả các giá trị thực của tham số $m$ để hàm số $y = (m^2 - m)x^3 + 2mx^2 + 3x - 2$ đồng biến trên khoảng $(-\\infty; +\\infty)$.",
     "options": [
       {
         "key": "A",
@@ -493,7 +493,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Tìm tất cả các giá trị của m để hàm số $y = (m - 1) x - 3 (m - 1) x^2 + 3x + 2 đồng biến biến trên \\mathbb{R}$?",
+    "content": "Có bao nhiêu giá trị nguyên của tham số $m$ để hàm số $y = (m - 1)x^3 - 3(m - 1)x^2 + 3x + 2$ đồng biến trên $\\mathbb{R}$?",
     "options": [
       {
         "key": "A",
@@ -524,7 +524,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Số giá trị nguyên của m để hàm số $y = (4 - m^2) x^3 + (m - 2) x^2 + x + m - 1 (1) đồng biến trên $\\mathbb{R}$ bằng$.",
+    "content": "Số giá trị nguyên của tham số $m$ để hàm số $y = (4 - m^2)x^3 + (m - 2)x^2 + x + m - 1$ đồng biến trên $\\mathbb{R}$ bằng:",
     "options": [
       {
         "key": "A",
@@ -555,7 +555,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Số các giá trị nguyên của tham số m trong đoạn $[ -100;100]$ để hàm số $y = mx^3 + mx^2 + (m + 1) x - 3 nghịch biến trên $\\mathbb{R}$ là:$",
+    "content": "Tất cả các giá trị thực của tham số $m$ để hàm số $y = mx^3 + mx^2 + (m + 1)x - 3$ nghịch biến trên $\\mathbb{R}$ là:",
     "options": [
       {
         "key": "A",
@@ -586,7 +586,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Tổng bình phương của tất cả các giá trị nguyên của tham số m để hàm số $y = (3m^2 - 12) x^3 + 3 (m - 2) x^2 - x + 2 nghịch biến trên $\\mathbb{R}$ là$?",
+    "content": "Tìm tất cả các giá trị của tham số $m$ để hàm số $y = (3m^2 - 12)x^3 + 3(m - 2)x^2 - x + 2$ nghịch biến trên $\\mathbb{R}$.",
     "options": [
       {
         "key": "A",
@@ -617,7 +617,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Hỏi có bao nhiêu số nguyên m để hàm số $y = (m^2 - 1) x^3 + (m - 1) x^2 - x + 4 nghịch biến trên khoảng $(-\\infty$; +\\infty)$ .",
+    "content": "Tập hợp tất cả các giá trị thực của tham số $m$ để hàm số $y = (m^2 - 1)x^3 + (m - 1)x^2 - x + 4$ nghịch biến trên khoảng $(-\\infty; +\\infty)$ là:",
     "options": [
       {
         "key": "A",
@@ -648,7 +648,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Cho hàm số $y = y' =$ -m^2 + 2 m + 3 (x - m) 2 hàm số đồng biến trên khoảng xác định khi -1 < m < 3 nên có 3 giá trị của m nguyên mx + 4m với m là tham số. Gọi S là tập hợp tất cả các giá trị x+m nguyên của m để hàm số nghịch biến trên các khoảng xác định. Tìm số phần tử của S .",
+    "content": "Tìm tất cả các giá trị thực của tham số $m$ để hàm số $y = \\frac{x + 4}{x + m}$ đồng biến trên khoảng $(-\\infty; -7)$.",
     "options": [
       {
         "key": "A",
@@ -679,7 +679,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Cho hàm số f (x) = mx - 4 (m là tham số thực). Có bao nhiêu x-m giá trị nguyên của m để hàm số đã cho đồng biến trên khoảng $(0;+ \\infty)$ ?",
+    "content": "Tìm tất cả các giá trị thực của tham số $m$ để hàm số $y = \\frac{x - 2}{x - m}$ đồng biến trên khoảng $(-\\infty; 4)$.",
     "options": [
       {
         "key": "A",
@@ -710,7 +710,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Tập hợp tất cả các giá trị thực của tham số m để hàm số $y = x+4$ x+m đồng biến trên khoảng $(-\\infty ; - 7)$ là",
+    "content": "Tìm tất cả các giá trị thực của tham số $m$ để hàm số $y = \\frac{x + 4}{x + m}$ đồng biến trên khoảng $(-\\infty; -7)$.",
     "options": [
       {
         "key": "A",
@@ -741,7 +741,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Tập hợp tất cả các giá trị thực của tham số m để hàm số $y = x+5$ x+m đồng biến trên khoảng $(-\\infty ; -8)$ là",
+    "content": "Tập hợp tất cả các giá trị thực của tham số $m$ để hàm số $y = \\frac{x + 5}{x + m}$ đồng biến trên khoảng $(-\\infty; -8)$ là:",
     "options": [
       {
         "key": "A",
@@ -772,7 +772,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Tập hợp tất cả các giá trị thực của tham số m để hàm số $y = x+2$ x+m đồng biến trên khoảng $(-\\infty ; -5)$",
+    "content": "Tập hợp tất cả các giá trị thực của tham số $m$ để hàm số $y = \\frac{x + 2}{x + m}$ đồng biến trên khoảng $(-\\infty; -5)$ là:",
     "options": [
       {
         "key": "A",
@@ -803,7 +803,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Tập hợp tất cả các giá trị thực của tham số m để hàm số $y = x+3$ x+m đồng biến trên khoảng $(-\\infty ; -6)$ là",
+    "content": "Tập hợp tất cả các giá trị thực của tham số $m$ để hàm số $y = \\frac{x + 3}{x + m}$ đồng biến trên khoảng $(-\\infty; -6)$ là:",
     "options": [
       {
         "key": "A",
@@ -834,7 +834,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Có bao nhiêu giá trị nguyên của tham số m để hàm số $y = x +1$ nghịch biến x + 3m trên khoảng $(6; +\\infty)$ ?",
+    "content": "Có bao nhiêu giá trị nguyên của tham số $m$ để hàm số $y = \\frac{x + 1}{x + 3m}$ nghịch biến trên khoảng $(6; +\\infty)$?",
     "options": [
       {
         "key": "A",
@@ -865,7 +865,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Có bao nhiêu giá trị nguyên của tham số m để hàm số $y = x+6$ nghịch biến x + 5m trên khoảng $(10; +\\infty)$ ?",
+    "content": "Có bao nhiêu giá trị nguyên của tham số $m$ để hàm số $y = \\frac{x + 6}{x + 5m}$ nghịch biến trên khoảng $(10; +\\infty)$?",
     "options": [
       {
         "key": "A",
@@ -896,7 +896,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Tìm tất cả các giá trị thực của tham số m mx - 1 1 để hàm số $y = nghịch biến trên khoảng - \\infty$; . m - 4x^4",
+    "content": "Tìm tất cả các giá trị thực của tham số $m$ để hàm số $y = \\frac{mx - 1}{m - 4x}$ nghịch biến trên khoảng $\\left(-\\infty; \\frac{1}{4}\\right)$.",
     "options": [
       {
         "key": "A",
@@ -927,7 +927,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Cho hàm số $y = với m là tham số$. Gọi S là tập hợp x+m tất cả các giá trị nguyên của m để hàm số nghịch biến trên khoảng $(2;+ \\infty)$ . Tìm số phần tử của S.",
+    "content": "Cho hàm số $y = \\frac{mx - 2m + 3}{x + m}$ với $m$ là tham số. Gọi $S$ là tập hợp tất cả các giá trị nguyên của $m$ để hàm số nghịch biến trên khoảng $(2; +\\infty)$. Tìm số phần tử của $S$.",
     "options": [
       {
         "key": "A",
@@ -958,7 +958,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Có bao nhiêu giá trị nguyên của tham số m để hàm số $y = x + 18$ x + 4m nghịch biến trên khoảng $(2; +\\infty)$ ?",
+    "content": "Có bao nhiêu giá trị nguyên của tham số $m$ để hàm số $y = \\frac{x + 18}{x + 4m}$ nghịch biến trên khoảng $(2; +\\infty)$?",
     "options": [
       {
         "key": "A",
@@ -989,7 +989,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Có bao nhiêu giá trị nguyên của tham số m để hàm số $y = mx + 9$ nghịch 4x + m biến trên khoảng (0;4) ?",
+    "content": "Có bao nhiêu giá trị nguyên của tham số $m$ để hàm số $y = \\frac{mx + 9}{4x + m}$ nghịch biến trên khoảng $(0; 4)$?",
     "options": [
       {
         "key": "A",
@@ -1020,7 +1020,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Có bao nhiêu giá trị nguyên của tham số 3x + 18 m \\in (-2020;2020) sao cho hàm số $y = nghịch biến trên khoảng $(-\\infty$; -3)$ ? x-m",
+    "content": "Có bao nhiêu giá trị nguyên của tham số $m \\in (-2020; 2020)$ sao cho hàm số $y = \\frac{3x + 18}{x - m}$ nghịch biến trên khoảng $(-\\infty; -3)$?",
     "options": [
       {
         "key": "A",
@@ -1051,7 +1051,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Có bao nhiêu giá trị nguyên của tham số m để hàm số mx + 4 $y= nghịch biến trên khoảng $(0$; +\\infty)$ ? x+m",
+    "content": "Có bao nhiêu giá trị nguyên của tham số $m$ để hàm số $y = \\frac{mx + 4}{x + m}$ nghịch biến trên khoảng $(0; +\\infty)$?",
     "options": [
       {
         "key": "A",
@@ -1082,7 +1082,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Tập hợp tất cả các giá trị thực của tham số m để hàm số $y = x^3 - 3 x^2 + (4 - m) x đồng biến trên khoảng $(2$; +\\infty)$ là",
+    "content": "Tập hợp tất cả các giá trị thực của tham số $m$ để hàm số $y = x^3 - 3x^2 + (4 - m)x$ đồng biến trên khoảng $(2; +\\infty)$ là:",
     "options": [
       {
         "key": "A",
@@ -1113,7 +1113,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Tập hợp tất cả các giá trị của tham số m để hàm số $y = x^3 - 3x^2 + (5 - m) x đồng biến trên khoảng $(2$;+\\infty)$ là",
+    "content": "Tập hợp tất cả các giá trị thực của tham số $m$ để hàm số $y = x^3 - 3x^2 + (5 - m)x$ đồng biến trên khoảng $(2; +\\infty)$ là:",
     "options": [
       {
         "key": "A",
@@ -1144,7 +1144,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Tập hợp tất cả các giá trị thực của tham số m để hàm số $y = x^3 - 3 x^2 + (2 - m) x đồng biến trên khoảng $(2$; +\\infty)$ là",
+    "content": "Tìm tất cả các giá trị thực của tham số $m$ để hàm số $y = x^3 - 3x^2 + (2 - m)x$ đồng biến trên khoảng $(0; +\\infty)$.",
     "options": [
       {
         "key": "A",
@@ -1175,7 +1175,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Tập hợp tất cả các giá trị thực của tham số m để hàm số $y = x^3 - 3 x^2 + (1 - m) x đồng biến trên khoảng $(2$; +\\infty)$ là",
+    "content": "Tìm tất cả các giá trị thực của tham số $m$ để hàm số $y = x^3 - 3x^2 + (1 - m)x$ đồng biến trên khoảng $(1; +\\infty)$.",
     "options": [
       {
         "key": "A",
@@ -1237,7 +1237,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Tìm tất cả các giá trị của tham số m để hàm số $y = \\frac{1}{2}x^3 + 3 x^2 - mx + 1 đồng biến trên khoảng $(-\\infty$;0)$ .",
+    "content": "Tìm tất cả các giá trị thực của tham số $m$ để hàm số $y = \\frac{1}{3}x^3 + 3x^2 - mx + 1$ đồng biến trên khoảng $(0; +\\infty)$.",
     "options": [
       {
         "key": "A",
@@ -1268,7 +1268,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Tập hợp tất cả các giá trị của tham số m để hàm số $y = x^3 - mx^2 - (m - 6) x + 1 đồng biến trên$ khoảng (0; 4) là:",
+    "content": "Tìm tất cả các giá trị thực của tham số $m$ để hàm số $y = x^3 - mx^2 - (m - 6)x + 1$ đồng biến trên khoảng $(0; 4)$.",
     "options": [
       {
         "key": "A",
@@ -1299,7 +1299,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Tìm tất cả các giá trị thực của tham số m sao cho hàm số $y = x^3 - 6 x^2 + mx + 1 đồng biến trên$ khoảng $(0; +\\infty)$ ?",
+    "content": "Tìm tất cả các giá trị thực của tham số $m$ để hàm số $y = x^3 - 6x^2 + mx + 1$ đồng biến trên khoảng $(0; +\\infty)$.",
     "options": [
       {
         "key": "A",
@@ -1330,7 +1330,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Tìm m để hàm số $y = - x^3 + 3x^2 + 3mx + m - 1 nghịch biến trên $(0$; +\\infty)$ .",
+    "content": "Tìm tất cả các giá trị thực của tham số $m$ để hàm số $y = -x^3 + 3x^2 + 3mx + m - 1$ nghịch biến trên khoảng $(0; +\\infty)$.",
     "options": [
       {
         "key": "A",
@@ -1361,7 +1361,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Gọi S là tập hợp các giá trị nguyên dương của m để hàm số $y = x^3 - 3 (2m + 1) x^2 + (12 m + 5) x + 2 đồng biến trên khoảng $(2$; + \\infty)$ . Số phần tử của S bằng",
+    "content": "Tập hợp tất cả các giá trị của tham số $m$ để hàm số $y = x^3 - 3(2m + 1)x^2 + (12m + 5)x + 2$ đồng biến trên khoảng $(2; +\\infty)$ là:",
     "options": [
       {
         "key": "A",
@@ -1454,7 +1454,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Số giá trị nguyên thuộc khoảng (-2020; 2020) của tham số m để hàm số $y = x^3 - 3x^2 - mx + 2019 đồng biến trên $(0$;+\\infty)$ là",
+    "content": "Tìm tất cả các giá trị của tham số $m$ để hàm số $y = x^3 - 3x^2 - mx + 2019$ đồng biến trên khoảng $(-\\infty; 0)$.",
     "options": [
       {
         "key": "A",
@@ -1516,7 +1516,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Gọi S là tập hợp tất cả các giá trị nguyên của tham số m thuộc (-2020; 2020) sao cho hàm số $y = 2 x^3 + mx^2 + 2 x đồng biến trên khoảng (-2$; 0) . Tính số phần tử của tập hợp S .",
+    "content": "Tìm tất cả các giá trị của tham số $m$ để hàm số $y = 2x^3 + mx^2 + 2x$ đồng biến trên khoảng $(-2; 0)$.",
     "options": [
       {
         "key": "A",
@@ -1547,7 +1547,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Với mọi giá trị m \\ge a b , (a , b \\in ') thì hàm số $y = 2 x^3 - mx^2 + 2 x + 5 đồng biến trên khoảng (-2$;0) . Khi đó a - b bằng",
+    "content": "Tìm tất cả các giá trị của tham số $m$ để hàm số $y = 2x^3 - mx^2 + 2x + 5$ đồng biến trên khoảng $(-2; 0)$.",
     "options": [
       {
         "key": "A",
@@ -1578,7 +1578,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Có bao nhiêu giá trị nguyên âm của tham số m để hàm số 1 $y = x^3 + mx - 5 đồng biến trên khoảng $(0$;+\\infty)$ 5x",
+    "content": "Tìm tất cả các giá trị của tham số $m$ để hàm số $y = x^3 + mx - 5$ đồng biến trên khoảng $(0; +\\infty)$.",
     "options": [
       {
         "key": "A",
@@ -1702,7 +1702,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Có bao nhiêu giá trị nguyên âm của tham số m để hàm số 3 $y = \frac{9}{4}x^4 - x^2 + (2m + 15) x - 3m + 1 đồng biến trên khoảng $(0$; +\\infty)$ ? 2",
+    "content": "Tìm tất cả các giá trị thực của tham số $m$ để hàm số $y = \\frac{9}{4}x^4 - x^2 + (2m + 15)x - 3m + 1$ đồng biến trên khoảng $(0; +\\infty)$.",
     "options": [
       {
         "key": "A",
@@ -1764,7 +1764,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Có bao nhiêu số nguyên âm m $y = cos^3 x - 4cot x - (m + 1) cos x đồng biến trên khoảng (0$; \\pi) ?",
+    "content": "Tìm tất cả các giá trị của tham số $m$ để hàm số $y = \\cos^3 x - 4\\cot x - (m + 1)\\cos x$ đồng biến trên khoảng $\\left(0; \\frac{\\pi}{2}\\right)$.",
     "options": [
       {
         "key": "A",
@@ -1826,7 +1826,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Có bao nhiêu giá trị nguyên dương của tham số m để hàm số 3 $y = \frac{1}{4}x^4 - (m - 1) x^2 - 4 đồng biến trên khoảng $(0$; +\\infty)$ . 4x",
+    "content": "Tìm tất cả các giá trị của tham số $m$ để hàm số $y = \\frac{1}{4}x^4 - (m - 1)x^2 - 4$ đồng biến trên khoảng $(0; +\\infty)$.",
     "options": [
       {
         "key": "A",
@@ -1857,7 +1857,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "(Chuyên Vinh - 2018) Có bao nhiêu giá trị nguyên m \\in (-10;10) để hàm số $y = m^2 x^4 - 2 (4m - 1) x^2 + 1 đồng biến trên khoảng $(1$; +\\infty)$ ?",
+    "content": "Có bao nhiêu giá trị nguyên của tham số $m$ để hàm số $y = m^2 x^4 - 2(4m - 1)x^2 + 1$ đồng biến trên khoảng $(1; +\\infty)$?",
     "options": [
       {
         "key": "A",
@@ -1888,7 +1888,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Có bao nhiêu giá trị nguyên của tham số m \\in $[ -2018; 2018]$ để hàm số $y = x^2 + 1 - mx - 1 đồng biến trên $(-\\infty$; + \\infty)$ .",
+    "content": "Tìm tất cả các giá trị thực của tham số $m$ để hàm số $y = \\sqrt{x^2 + 1} - mx - 1$ đồng biến trên $\\mathbb{R}$.",
     "options": [
       {
         "key": "A",
@@ -1981,7 +1981,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Có bao nhiêu giá trị nguyên dương của m để hàm số ln x - 6 $y= đồng biến trên khoảng (1$; e) ? ln x - 2m",
+    "content": "Có bao nhiêu giá trị nguyên dương của $m$ để hàm số $y = \\frac{\\ln x - 6}{\\ln x - 2m}$ đồng biến trên khoảng $(1; e)$?",
     "options": [
       {
         "key": "A",
@@ -2043,7 +2043,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Có tất cả bao nhiêu giá trị nguyên của m để hàm số $y = x^3 - mx^2 + 12 x + 2m luôn đồng biến trên khoảng $(1$;+\\infty)$ ?",
+    "content": "Có tất cả bao nhiêu giá trị nguyên của $m$ để hàm số $y = x^3 - mx^2 + 12x + 2m$ luôn đồng biến trên khoảng $(1; +\\infty)$?",
     "options": [
       {
         "key": "A",
@@ -2074,7 +2074,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Có bao nhiêu giá trị nguyên của tham số m thuộc khoảng (-8;8) sao cho hàm số $y = -2 x^3 + 3mx - 2 đồng biến trên khoảng $(1$;+\\infty)$ ?",
+    "content": "Có bao nhiêu giá trị nguyên của tham số $m$ thuộc khoảng $(-8; 8)$ sao cho hàm số $y = -2x^3 + 3mx - 2$ đồng biến trên khoảng $(1; +\\infty)$?",
     "options": [
       {
         "key": "A",
@@ -2105,7 +2105,7 @@ export const donDieuThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "don_dieu_tham_so_m",
     "topicName": "Tính đơn điệu của hàm số",
-    "content": "Gọi T là tập hợp tất cả các giá trị nguyên dương của tham số m để hàm số $y = x^4 - 2mx^2 + 1 đồng biến trên khoảng $(3$; +\\infty)$ . Tổng giá trị các phần tử của T bằng",
+    "content": "Gọi $T$ là tập hợp tất cả các giá trị nguyên dương của tham số $m$ để hàm số $y = x^4 - 2mx^2 + 1$ đồng biến trên khoảng $(3; +\\infty)$. Tổng giá trị các phần tử của $T$ bằng:",
     "options": [
       {
         "key": "A",
@@ -2187,7 +2187,7 @@ export const donDieuThamSoMQuestions: Question[] = [
       }
     ],
     "correctAnswer": "B",
-    "detailedSolution": "D. m < -1 .\nChọn B^3\n2\nTa có: y' = (3 x^2 - 2 x + m) .2 x - x + mx +1.ln^2\nHàm số đồng biến trên (1; 2) \\iff y' \\ge 0 , \\forall x \\in (1; 2)\n3\n2\n\\iff (3 x^2 - 2 x + m) .2 x - x + mx+1.ln^2 \\ge 0 , \\forall x \\in (1; 2)\n\\iff 3x^2 - 2 x + m \\ge 0 , \\forall x \\in (1; 2)\n\\iff m \\ge -3x^2 + 2 x , \\forall x \\in (1; 2)\n\\iff m \\ge max (-3 x^2 + 2 x) .\n(1;2)\nXét hàm số f (x) = -3 x^2 + 2 x , với x \\in (1; 2) .\nTa có: f'(x) = -6 x + 2 .\nCho f'(x) = 0 \\iff -6 x + 2 = 0 \\iff x =\n1\n.\n3\nBảng biến thiên:\nVậy m \\ge -1 thỏa yêu cầu bài toán.\nTheo dõi Fanpage: Nguyễn Bảo Vương https://www.facebook.com/tracnghiemtoanthpt489/\nHoặc Facebook: Nguyễn Vương https://www.facebook.com/phong.baovuong\nTham gia ngay: Nhóm Nguyễn Bào Vương (TÀI LIỆU TOÁN) https://www.facebook.com/groups/703546230477890/\nẤn sub kênh Youtube: Nguyễn Vương\nhttps://www.youtube.com/channel/UCQ4u2J5gIEI1iRUbT3nwJfA?view_as=subscriber\nTải nhiều tài liệu hơn tại: https://nguyenbaovuong.blogspot.com/\nĐỂ NHẬN TÀI LIỆU SỚM NHẤT NHÉ!",
+    "detailedSolution": "Ta có: $y' = (3x^2 - 2x + m) \\cdot 2^{x^3 - x^2 + mx + 1} \\ln 2$.\nHàm số đồng biến trên $(1; 2) \\iff y' \\ge 0, \\, \\forall x \\in (1; 2)$\n$$\\iff 3x^2 - 2x + m \\ge 0, \\, \\forall x \\in (1; 2) \\iff m \\ge -3x^2 + 2x, \\, \\forall x \\in (1; 2)$$\n$$\\iff m \\ge \\max_{[1; 2]} (-3x^2 + 2x)$$\nXét hàm số $f(x) = -3x^2 + 2x$ trên $[1; 2]$. Ta có $f'(x) = -6x + 2 < 0, \\, \\forall x \\in [1; 2]$.\nDo đó hàm số nghịch biến trên $[1; 2]$, suy ra $\\max_{[1; 2]} f(x) = f(1) = -1$.\nVậy $m \\ge -1$.\nChọn B.",
     "socraticHint": "Hàm số đồng biến (nghịch biến) khi và chỉ khi đạo hàm $y' \\ge 0$ ($y' \\le 0$) với mọi $x$ thuộc tập xác định. Xét dấu tam thức bậc hai hoặc cô lập tham số $m$.",
     "difficulty": "Vận dụng"
   }

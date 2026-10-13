@@ -358,11 +358,11 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "Tìm m để hàm số $y = x^3 - 2mx^2 + mx + 1 đạt cực tiểu tại x = 1$",
+    "content": "Tìm $m$ để hàm số $y = x^3 - 2mx^2 + mx + 1$ đạt cực tiểu tại $x = 1$.",
     "options": [
       {
         "key": "A",
-        "content": "không tồn tại m"
+        "content": "Không tồn tại $m$"
       },
       {
         "key": "B",
@@ -389,7 +389,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "Tìm tất cả các giá trị của tham số m để hàm số $y = x^3 - 3 x^2 + mx + 1 đạt cực tiểu tại x = 2$.",
+    "content": "Tìm tất cả các giá trị của tham số $m$ để hàm số $y = x^3 - 3x^2 + mx + 1$ đạt cực tiểu tại $x = 2$.",
     "options": [
       {
         "key": "A",
@@ -420,7 +420,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "Tìm các giá trị thực của tham số m để hàm số $y = \frac{1}{3}x^3 - mx^2 + (m^2 - 4) x + 3 đạt cực đại tại x = 3$.",
+    "content": "Tìm các giá trị thực của tham số $m$ để hàm số $y = \\frac{1}{3}x^3 - mx^2 + (m^2 - 4)x + 3$ đạt cực đại tại $x = 3$.",
     "options": [
       {
         "key": "A",
@@ -439,8 +439,8 @@ export const cucTriThamSoMQuestions: Question[] = [
         "content": "$m = -1$"
       }
     ],
-    "correctAnswer": "C",
-    "detailedSolution": "Tập xác định \\mathbb{R} .\nTa có y' = x^2 - 2 mx + m^2 - 4, y'' = 2 x - 2m.\nĐể hàm số y =\n1 3\nx - mx^2 + (m^2 - 4) x + 3 đạt cực đại tại x = 3 thì\n3\n[m = 5\ny' (3) = 0\nm^2 - 6 m + 5 = 0 [\n\\iff \\iff [ m = 1 \\iff m = 5. .\ny'' (3) < 0 6 - 2m < 0\n3 < m",
+    "correctAnswer": "B",
+    "detailedSolution": "Tập xác định: $D = \\mathbb{R}$.\nTa có: $y' = x^2 - 2mx + m^2 - 4, \\, y'' = 2x - 2m$.\nĐể hàm số đạt cực đại tại $x = 3$ thì:\n$$\\left\\{\\begin{array}{l} y'(3) = 0 \\\\ y''(3) < 0 \\end{array}\\right. \\iff \\left\\{\\begin{array}{l} 3^2 - 6m + m^2 - 4 = 0 \\\\ 6 - 2m < 0 \\end{array}\\right. \\iff \\left\\{\\begin{array}{l} m^2 - 6m + 5 = 0 \\\\ m > 3 \\end{array}\\right. \\iff \\left\\{\\begin{array}{l} m = 1 \\text{ hoặc } m = 5 \\\\ m > 3 \\end{array}\\right. \\iff m = 5$$\nChọn B.",
     "socraticHint": "Điểm cực trị $x_0$ thỏa mãn $y'(x_0) = 0$. Kiểm tra dấu của $y''(x_0)$ ($y'' > 0$ đạt cực tiểu, $y'' < 0$ đạt cực đại) hoặc lập bảng biến thiên.",
     "difficulty": "Vận dụng"
   },
@@ -451,7 +451,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "Tìm tập hợp tất cả các giá trị của m để hàm số $y = x^3 + (3m - 1) x^2 + m^2 x - 3 đạt cực tiểu tại x = -1$.",
+    "content": "Tìm tập hợp tất cả các giá trị của $m$ để hàm số $y = x^3 + (3m - 1)x^2 + m^2 x - 3$ đạt cực tiểu tại $x = -1$.",
     "options": [
       {
         "key": "A",
@@ -482,7 +482,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "Tập hợp các số thực m để hàm số $y = x^3 - 3mx^2 + (m + 2) x - m đạt cực tiểu tại $x = 1$ là$.",
+    "content": "Tập hợp các số thực $m$ để hàm số $y = x^3 - 3mx^2 + (m + 2)x - m$ đạt cực tiểu tại $x = 1$ là:",
     "options": [
       {
         "key": "A",
@@ -502,7 +502,7 @@ export const cucTriThamSoMQuestions: Question[] = [
       }
     ],
     "correctAnswer": "C",
-    "detailedSolution": "y' = 3 x^2 - 6mx + m + 2\ny'' = 6 x - 6m\ny'(1) = 0\n-5m + 5 = 0\nm = 1\nHàm số đạt cực tiểu tại x = 1 khi\n\\iff \\iff không có giá trị của m .\ny''(1) > 0\n6 - 6 m > 0\nm < 1\nDạng 1.2 Hàm số đa thức bậc cao, hàm căn thức …",
+    "detailedSolution": "Ta có: $y' = 3x^2 - 6mx + m + 2, \\, y'' = 6x - 6m$.\nĐể hàm số đạt cực tiểu tại $x = 1$ thì:\n$$\\left\\{\\begin{array}{l} y'(1) = 0 \\\\ y''(1) > 0 \\end{array}\\right. \\iff \\left\\{\\begin{array}{l} 3 - 6m + m + 2 = 0 \\\\ 6 - 6m > 0 \\end{array}\\right. \\iff \\left\\{\\begin{array}{l} -5m + 5 = 0 \\\\ m < 1 \\end{array}\\right. \\iff \\left\\{\\begin{array}{l} m = 1 \\\\ m < 1 \\end{array}\\right. \\text{ (vô nghiệm)}$$\nVậy không có giá trị nào của $m$ thỏa mãn.\nChọn C.",
     "socraticHint": "Điểm cực trị $x_0$ thỏa mãn $y'(x_0) = 0$. Kiểm tra dấu của $y''(x_0)$ ($y'' > 0$ đạt cực tiểu, $y'' < 0$ đạt cực đại) hoặc lập bảng biến thiên.",
     "difficulty": "Vận dụng"
   },
@@ -513,7 +513,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "Xác định tham số m sao cho hàm số $y = x + m x đạt cực trị$ tại $x = 1$ .",
+    "content": "Xác định tham số $m$ sao cho hàm số $y = x + m\\sqrt{x}$ đạt cực trị tại $x = 1$.",
     "options": [
       {
         "key": "A",
@@ -533,7 +533,7 @@ export const cucTriThamSoMQuestions: Question[] = [
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "y' = f'(x) = 1 +\nm\n, (x > 0)\n2 x\nĐể hàm số đạt cực trị tại x = 1 thì f'(1) = 0 \\iff 1 +\nm\n= 0 \\iff m = -2 .\n2\nThử lại với m = -2 , hàm số y = x - 2 x có cực tiểu tại x = 1 , do đó m = -2 thỏa mãn yêu cầu đề\nbài.",
+    "detailedSolution": "Tập xác định: $D = [0; +\\infty)$.\nĐạo hàm: $y' = 1 + \\frac{m}{2\\sqrt{x}}$ với $x > 0$.\nĐể hàm số đạt cực trị tại $x = 1$ thì:\n$$y'(1) = 0 \\iff 1 + \\frac{m}{2} = 0 \\iff m = -2$$\nThử lại với $m = -2$: $y = x - 2\\sqrt{x} \\implies y' = 1 - \\frac{1}{\\sqrt{x}} = \\frac{\\sqrt{x} - 1}{\\sqrt{x}}$.\nĐạo hàm đổi dấu từ âm sang dương khi qua $x = 1$, do đó hàm số đạt cực tiểu tại $x = 1$.\nVậy $m = -2$.\nChọn A.",
     "socraticHint": "Điểm cực trị $x_0$ thỏa mãn $y'(x_0) = 0$. Kiểm tra dấu của $y''(x_0)$ ($y'' > 0$ đạt cực tiểu, $y'' < 0$ đạt cực đại) hoặc lập bảng biến thiên.",
     "difficulty": "Vận dụng"
   },
@@ -544,7 +544,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "Tìm tất cả tham số thực m để hàm số $y = (m - 1) x^4 - (m^2 - 2) x^2 + 2019 đạt cực tiểu tại x = -1$.",
+    "content": "Tìm tất cả tham số thực $m$ để hàm số $y = (m - 1)x^4 - (m^2 - 2)x^2 + 2019$ đạt cực tiểu tại $x = -1$.",
     "options": [
       {
         "key": "A",
@@ -575,7 +575,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "Cho hàm số $y = f (x) xác định trên tập số thực $\\mathbb{R}$ và có$ (đạo hàm f'(x) = (x - sin x)(x - m - 3) x - 9 - m^2 3) \\forall x \\in $\\mathbb{R}$ (m là tham số). Có bao nhiêu giá trị nguyên của m để hàm số $y = f (x) đạt cực tiểu tại x = 0$?",
+    "content": "Cho hàm số $y = f(x)$ xác định trên tập số thực $\\mathbb{R}$ và có đạo hàm $f'(x) = (x - \\sin x)(x - m - 3)(x - \\sqrt{9 - m^2})^3, \\forall x \\in \\mathbb{R}$ ($m$ là tham số). Có bao nhiêu giá trị nguyên của $m$ để hàm số $y = f(x)$ đạt cực tiểu tại $x = 0$?",
     "options": [
       {
         "key": "A",
@@ -595,7 +595,7 @@ export const cucTriThamSoMQuestions: Question[] = [
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "D. 4\nĐiều kiện^9 - m^2 \\ge 0 \\iff -3 \\le m \\le ^3\nTH 1: 0 \\le m < 3 ta có BTT\nTH^2: -3 \\le m < 0 ta có BTT\nTH^2: m = 3 ta có BTT\nTừ đó suy ra -3 \\le m < 3 \\implies có 6 giá trị nguyên của m thỏa mãn.",
+    "detailedSolution": "Điều kiện xác định của căn thức: $9 - m^2 \\ge 0 \\iff -3 \\le m \\le 3$.\nVì $x - \\sin x$ cùng dấu với $x^3$ khi $x \\to 0$, nên $x = 0$ là nghiệm bội ba của thừa số $(x - \\sin x)$.\nĐể hàm số đạt cực tiểu tại $x = 0$ thì $f'(x)$ phải đổi dấu từ âm sang dương khi qua $x = 0$.\nĐiều này dẫn đến điều kiện $-3 \\le m < 3$.\nVì $m \\in \\mathbb{Z}$ nên $m \\in \\{-3, -2, -1, 0, 1, 2\\}$, có 6 giá trị nguyên của $m$.\nChọn A.",
     "socraticHint": "Điểm cực trị $x_0$ thỏa mãn $y'(x_0) = 0$. Kiểm tra dấu của $y''(x_0)$ ($y'' > 0$ đạt cực tiểu, $y'' < 0$ đạt cực đại) hoặc lập bảng biến thiên.",
     "difficulty": "Vận dụng cao"
   },
@@ -606,7 +606,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "Tất cả các giá trị thực của tham số m để hàm số x^5 mx^4 $y= -$ + 2 đạt cực đại tại $x = 0$ là: 5 4",
+    "content": "Tất cả các giá trị thực của tham số $m$ để hàm số $y = -\\frac{x^5}{5} + \\frac{mx^4}{4} + 2$ đạt cực đại tại $x = 0$ là:",
     "options": [
       {
         "key": "A",
@@ -637,7 +637,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "Có bao nhiêu giá trị nguyên của tham số m để hàm số $y = x12 + (m - 5) x^7 + (m^2 - 25) x^6 + 1 đạt cực$ đại tại $x = 0$ ?",
+    "content": "Có bao nhiêu giá trị nguyên của tham số $m$ để hàm số $y = x^{12} + (m - 5)x^7 + (m^2 - 25)x^6 + 1$ đạt cực đại tại $x = 0$?",
     "options": [
       {
         "key": "A",
@@ -657,7 +657,7 @@ export const cucTriThamSoMQuestions: Question[] = [
       }
     ],
     "correctAnswer": "B",
-    "detailedSolution": "Ta có y' = 12 x11 + 7(m - 5) x^6 + 6(m^2 - 25) x^5\nTH1: m = 5 \\implies y' = 12 x11 . Khi đó y' = 0 \\iff x = 0 là nghiệm bội lẻ, đồng thời dấu của y’ đổi từ\nâm sang dương, nên x = 0 là điểm cực tiểu của hàm số,do đó không thỏa mãn, m = 5 loại.\nTH^2: m = -5 \\implies y' = x^6 (12 x^5 - 70) = 0 \\implies x = 0 là nghiệm bội chẵn, do đó y’ không đổi dấu khi\nđi qua x = 0 , m = -5 loại.\nTH^3: m \\ne \\pm ^5 \\implies y' = x^5 [12 x^6 + 7(m - 5) x + 6(m^2 - 25) ] = x^5 .g (x)\nVới g (x) = 12 x^6 + 7(m - 5) x + 6(m^2 - 25) , ta thấy x = 0 không là nghiệm của g (x) .\nĐể hàm số đạt cực đại tại x = 0 thì y’ phải đổi dấu từ dương sang âm khi đi qua x = 0 , xảy ra khi\nlim- g (x) < 0\nvà chỉ khi x \\to 0\n\\iff ^6(m^2 - 25) < 0 \\iff -5 < m < 5\nlim\ng\n(x)\n<\n0\nx \\to 0+\nVì m nguyên nên m = \\{-4; -3;...;3;4\\} , vậy có 9 giá trị của m thỏa mãn bài toán.\nCâu49. Cho hàm số y = x^6 + (4 + m) x^5 + (16 - m^2) x^4 + 2 . Gọi S là tập hợp các gia trị m nguyên dương để\nhàm số đã cho đạt cực tiểu tại x = 0 . Tổng các phần tử của S bằng\nA. 10.\nB. 9.\nC. 6.\nD. 3.\nLời giải.\nChọn C\nTa có y' = 6 x^5 + 5 (4 + m) x^4 + 4 (16 - m^2) x^3 = x^3 (6 x^2 + 5 (4 + m) x + 16 - m^2) .\nx^3 = 0\ny' = 0 \\iff ^2\n.\n2\n6 x + 5 (4 + m) x + 16 - m = 0 (*)\n(*) có \\\\Delta = (4 + m)(49m + 4) .\n\\\\Delta > 0\nVới mọi m nguyên dương thì -5 (4 + m)\ndo đó ta xét các trường hợp sau:\n<0\n6\n2\nTrường hợp 1: 16 - m > 0 \\iff 0 < m < 4 : (*) có hai nghiệm âm phân biệt x1 , x^2 (x1 < x^2) , ta có\nbảng xét dấu y' như sau:\nLúc này x = 0 là điểm cực tiểu.\nTrường hợp^2: 16 - m^2 < 0 \\iff m > 4 : (*) có hai nghiệm trái dấu x1 , x^2 (x1 < 0 < x^2) , ta có bảng\nxét dấu y' như sau:\nTừ đây suy ra x = 0 là điểm cực đại (không thỏa mãn).\nTrường hợp^3: (*) có một nghiệm bằng 0 và một nghiệm âm, lúc này x = 0 là nghiệm bội^4 của\nđạo hàm nên không phải là điểm cực trị.\nVậy có ba giá trị nguyên dương của m thỏa mãn yêu cầu bài toán là 1, 2, 3. Tổng các phần tử của\nS bằng^6.",
+    "detailedSolution": "Ta có: $y' = 12x^{11} + 7(m - 5)x^6 + 6(m^2 - 25)x^5 = x^5 [12x^6 + 7(m - 5)x + 6(m^2 - 25)]$.\n- Với $m = 5$: $y' = 12x^{11}$, đạo hàm đổi dấu từ âm sang dương khi qua $x = 0$, nên $x = 0$ là điểm cực tiểu (loại).\n- Với $m = -5$: $y' = x^6(12x^5 - 70)$, $x = 0$ là nghiệm bội chẵn nên không phải điểm cực trị (loại).\n- Với $m \\ne \\pm 5$: Đặt $g(x) = 12x^6 + 7(m - 5)x + 6(m^2 - 25)$. Khi $x \\to 0$ thì $g(x) \\to 6(m^2 - 25) \\ne 0$.\nĐể $x = 0$ là điểm cực đại thì $y'$ phải đổi dấu từ dương sang âm, do đó $6(m^2 - 25) < 0 \\iff -5 < m < 5$.\nVì $m$ nguyên nên $m \\in \\{-4, -3, -2, -1, 0, 1, 2, 3, 4\\}$, có 9 giá trị.\nChọn B.",
     "socraticHint": "Điểm cực trị $x_0$ thỏa mãn $y'(x_0) = 0$. Kiểm tra dấu của $y''(x_0)$ ($y'' > 0$ đạt cực tiểu, $y'' < 0$ đạt cực đại) hoặc lập bảng biến thiên.",
     "difficulty": "Vận dụng"
   },
@@ -668,7 +668,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "Có bao nhiêu giá trị nguyên của tham số m $y = x^8 + (m - 1) x^5 - (m^2 - 1) x^4 + 1 đạt cực tiểu tại x = 0$?",
+    "content": "Có bao nhiêu giá trị nguyên của tham số $m$ để hàm số $y = x^8 + (m - 1)x^5 - (m^2 - 1)x^4 + 1$ đạt cực tiểu tại $x = 0$?",
     "options": [
       {
         "key": "A",
@@ -688,7 +688,7 @@ export const cucTriThamSoMQuestions: Question[] = [
       }
     ],
     "correctAnswer": "B",
-    "detailedSolution": "Ta có: y' = 8 x^7 + 5(m - 1) x^4 - 4(m^2 - 1) x^3 + 1 = x^3 8 x^4 + 5 (m - 1) x - 4 (m^2 - 1)\n(để hàm số)\n[x = 0\ny' = 0 \\iff [ 4\n2\n(1)\n[8 x + 5 (m - 1) x - 4 (m - 1) = 0\n*Nếu m = 1 thì y' = 8 x^7 , suy ra hàm số đạt cực tiểu tại x = 0 .\n[x = 0\n[x = 0\n*Nếu m = -1 thì y' = 0 \\iff [ 4\n\\iff [\n, nhưng x = 0 là nghiệm bội chẵn nên\n[x = 3 5\n8\nx\n-\n10\nx\n=\n0\n[\n[\n4\nkhông phải cực trị.\n*Nếu m \\ne \\pm 1 : khi đó x = 0 là nghiệm bội lẻ. Xét g (x) = 8x^4 + 5 (m - 1) x - 4 (m^2 - 1) . Để x = 0\nlà điểm cực tiểu thì lim- g (x) = -4(m^2 - 1) > 0 \\iff m^2 - 1 < 0 \\iff -1 < m < 1 . Vì m nguyên nên chỉ\nx \\to 0\ncó giá trị m = 0 .\nVậy chỉ có hai tham số m nguyên để hàm số đạt cực tiểu tại x = 0 là m = 0 và m = 1 .\nDạng^2. Tìm m để hàm số có n cực trị\n Hàm số có n cực trị \\iff y' = 0 có n nghiệm phân biệt.\n Xét hàm số bậc ba y = ax^3 + bx^2 + cx + d :\na \\ne 0\n+ Hàm số có hai điểm cực trị khi^2\n.\nb\n-\n3\nac\n>\n0\n+ Hàm số không có cực trị khi y' = 0 vô nghiệm hoặc có nghiệm kép.\n Xét hàm số bậc bốn trùng phương y = ax^4 + bx^2 + c.\n+ Hàm số có ba cực trị khi ab < 0. + Hàm số có 1 cực trị khi ab \\ge 0.",
+    "detailedSolution": "Ta có: $y' = 8x^7 + 5(m - 1)x^4 - 4(m^2 - 1)x^3 = x^3 [8x^4 + 5(m - 1)x - 4(m^2 - 1)]$.\n- Nếu $m = 1$: $y' = 8x^7$, hàm số đạt cực tiểu tại $x = 0$ (thỏa mãn).\n- Nếu $m = -1$: $y' = x^4(8x^3 - 10)$, $x = 0$ là nghiệm bội chẵn nên không phải cực trị (loại).\n- Nếu $m \\ne \\pm 1$: Đặt $g(x) = 8x^4 + 5(m - 1)x - 4(m^2 - 1)$. Khi $x \\to 0$ thì $g(x) \\to -4(m^2 - 1)$.\nĐể $x = 0$ là điểm cực tiểu thì $y'$ đổi dấu từ âm sang dương, tức là $-4(m^2 - 1) > 0 \\iff m^2 - 1 < 0 \\iff -1 < m < 1$.\nVì $m \\in \\mathbb{Z}$ nên $m = 0$.\nVậy có 2 giá trị nguyên của $m$ là $m = 0$ và $m = 1$.\nChọn B.",
     "socraticHint": "Điểm cực trị $x_0$ thỏa mãn $y'(x_0) = 0$. Kiểm tra dấu của $y''(x_0)$ ($y'' > 0$ đạt cực tiểu, $y'' < 0$ đạt cực đại) hoặc lập bảng biến thiên.",
     "difficulty": "Vận dụng"
   },
@@ -699,7 +699,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "(THPT Hai Bà Trưng - Huế - 2019) Tìm tất cả các giá trị của tham số thực m để hàm số $y = mx^3 - 2mx^2 + (m - 2) x +1 không có cực trị$",
+    "content": "Tìm tất cả các giá trị của tham số thực $m$ để hàm số $y = mx^3 - 2mx^2 + (m - 2)x + 1$ không có cực trị.",
     "options": [
       {
         "key": "A",
@@ -730,11 +730,11 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "Tìm tất cả các giá trị thực của tham số m để hàm số $y = (m - 1) x^4 - 2 (m - 3) x^2 + 1 không có cực đại$?",
+    "content": "Tìm tất cả các giá trị thực của tham số $m$ để hàm số $y = (m - 1)x^4 - 2(m - 3)x^2 + 1$ không có cực đại.",
     "options": [
       {
         "key": "A",
-        "content": "$1 < m \\le ^3$"
+        "content": "$1 < m \\le 3$"
       },
       {
         "key": "B",
@@ -746,7 +746,7 @@ export const cucTriThamSoMQuestions: Question[] = [
       },
       {
         "key": "D",
-        "content": "$1 \\le m \\le ^3$"
+        "content": "$1 \\le m \\le 3$"
       }
     ],
     "correctAnswer": "D",
@@ -761,11 +761,11 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "Để đồ thị hàm số $y = - x^4 - (m - 3) x^2 + m + 1 có điểm cực đại$ mà không có điểm cực tiểu thì tất cả các giá trị thực của tham số m là",
+    "content": "Để đồ thị hàm số $y = -x^4 - (m - 3)x^2 + m + 1$ có điểm cực đại mà không có điểm cực tiểu thì tất cả các giá trị thực của tham số $m$ là:",
     "options": [
       {
         "key": "A",
-        "content": "$m \\ge ^3$"
+        "content": "$m \\ge 3$"
       },
       {
         "key": "B",
@@ -777,7 +777,7 @@ export const cucTriThamSoMQuestions: Question[] = [
       },
       {
         "key": "D",
-        "content": "$m \\le ^3$"
+        "content": "$m \\le 3$"
       }
     ],
     "correctAnswer": "A",
@@ -823,7 +823,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "Có bao nhiêu giá trị nguyên của tham số m để hàm số $y = m^2 x^4 - (m^2 - 2019m) x^2 - 1 có đúng một cực trị$?",
+    "content": "Có bao nhiêu giá trị nguyên của tham số $m$ để hàm số $y = m^2 x^4 - (m^2 - 2019m)x^2 - 1$ có đúng một cực trị?",
     "options": [
       {
         "key": "A",
@@ -947,7 +947,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "(THPT Nguyễn Khuyến 2019) Tìm tất cả các giá trị thực của tham số m để hàm số $y = mx^4 + (m - 1) x^2 + 1 - 2m có một cực trị$.",
+    "content": "Tìm tất cả các giá trị thực của tham số $m$ để hàm số $y = mx^4 + (m - 1)x^2 + 1 - 2m$ có một cực trị.",
     "options": [
       {
         "key": "A",
@@ -963,7 +963,7 @@ export const cucTriThamSoMQuestions: Question[] = [
       },
       {
         "key": "D",
-        "content": "$m \\le 0 \\cup m \\ge 1$"
+        "content": "$m \\le 0 \\text{ hoặc } m \\ge 1$"
       }
     ],
     "correctAnswer": "D",
@@ -978,7 +978,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "Đồ thị hàm số $y = x^3 - 3x^2 - 9 x + 1 có hai cực trị A và B$. Điểm nào dưới đây thuộc đường thẳng AB ?",
+    "content": "Đồ thị hàm số $y = x^3 - 3x^2 - 9x + 1$ có hai cực trị $A$ và $B$. Điểm nào dưới đây thuộc đường thẳng $AB$?",
     "options": [
       {
         "key": "A",
@@ -1009,7 +1009,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "Đồ thị của hàm số $y = x^3 - 3x^2 - 9 x + 1 có hai điểm cực trị A và B$. Điểm nào dưới đây thuộc đường thẳng AB .",
+    "content": "Đồ thị của hàm số $y = x^3 - 3x^2 - 9x + 1$ có hai điểm cực trị $A$ và $B$. Điểm nào dưới đây thuộc đường thẳng $AB$?",
     "options": [
       {
         "key": "A",
@@ -1040,7 +1040,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "Biết đồ thị hàm số $y = x^3 - 3 x + 1 có hai điểm cực trị A$, B . Khi đó phương trình đường thẳng AB là",
+    "content": "Biết đồ thị hàm số $y = x^3 - 3x + 1$ có hai điểm cực trị $A, B$. Khi đó phương trình đường thẳng $AB$ là:",
     "options": [
       {
         "key": "A",
@@ -1071,7 +1071,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "Tìm tất cả các giá trị của tham số m để đồ thị hàm số $y = x^3 + 2 x^2 + (m - 3) x + m có hai điểm cực trị và điểm M (9$; - 5) nằm trên đường thẳng đi qua hai điểm cực trị của đồ thị.",
+    "content": "Tìm tất cả các giá trị của tham số $m$ để đồ thị hàm số $y = x^3 + 2x^2 + (m - 3)x + m$ có hai điểm cực trị và điểm $M(9; -5)$ nằm trên đường thẳng đi qua hai điểm cực trị của đồ thị.",
     "options": [
       {
         "key": "A",
@@ -1102,7 +1102,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "Đường thẳng nối hai điểm cực đại và cực tiểu của đồ thị hàm số $y = x^3 - 2 x + m đi qua điểm M (-3$;7) khi m bằng bao nhiêu?",
+    "content": "Đường thẳng nối hai điểm cực đại và cực tiểu của đồ thị hàm số $y = x^3 - 2x + m$ đi qua điểm $M(-3; 7)$ khi $m$ bằng bao nhiêu?",
     "options": [
       {
         "key": "A",
@@ -1133,7 +1133,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "(Đề Tham Khảo 2017) Gọi S là tập hợp tất cả các giá trị thực của tham số m để đồ thị của hàm số $y = \frac{1}{3}x^3 - mx^2 + m^2 - 1 x có hai điểm cực trị A và B sao cho A$, B nằm khác phía và cách đều đường thẳng d : $y = 5 x - 9$. Tính tổng tất cả các phần tử của S .",
+    "content": "Gọi $S$ là tập hợp tất cả các giá trị thực của tham số $m$ để đồ thị của hàm số $y = \\frac{1}{3}x^3 - mx^2 + (m^2 - 1)x$ có hai điểm cực trị $A$ và $B$ sao cho $A, B$ nằm khác phía và cách đều đường thẳng $d: y = 5x - 9$. Tính tổng tất cả các phần tử của $S$.",
     "options": [
       {
         "key": "A",
@@ -1164,7 +1164,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "Có tất cả bao nhiêu giá trị thực của tham số m để đồ thị 2 2 hàm số $y = x^3 - mx^2 - 2 (3m^2 - 1) x +$ có hai điểm cực trị có hoành độ x 1 , x^2 sao cho^3 3 x1 x^2 + 2 (x1 + x^2) = 1 .",
+    "content": "Có tất cả bao nhiêu giá trị thực của tham số $m$ để đồ thị hàm số $y = \\frac{2}{3}x^3 - mx^2 - 2(3m^2 - 1)x + \\frac{2}{3}$ có hai điểm cực trị có hoành độ $x_1, x_2$ sao cho $x_1 x_2 + 2(x_1 + x_2) = 1$?",
     "options": [
       {
         "key": "A",
@@ -1195,7 +1195,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "Có bao nhiêu giá trị nguyên của tham số m để đồ thị hàm số $y = mx^3 - (2m - 1) x^2 + 2mx - m - 1 có hai điểm cực trị nằm về hai phía của trục hoành$?",
+    "content": "Có bao nhiêu giá trị nguyên của tham số $m$ để đồ thị hàm số $y = mx^3 - (2m - 1)x^2 + 2mx - m - 1$ có hai điểm cực trị nằm về hai phía của trục hoành?",
     "options": [
       {
         "key": "A",
@@ -1226,7 +1226,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "Cho hàm số $y = - x^3 + 3mx^2 - 3m - 1 với m là một tham$ số thực. Giá trị của m thuộc tập hợp nào sau đây để đồ thị hàm số đã cho có hai điểm cực trị đối xứng nhau qua đường thẳng d : x + 8 y - 74 = 0 .",
+    "content": "Cho hàm số $y = -x^3 + 3mx^2 - 3m - 1$ với $m$ là một tham số thực. Giá trị của $m$ thuộc tập hợp nào sau đây để đồ thị hàm số đã cho có hai điểm cực trị đối xứng nhau qua đường thẳng $d: x + 8y - 74 = 0$?",
     "options": [
       {
         "key": "A",
@@ -1319,7 +1319,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "Có bao nhiêu giá trị nguyên của tham số m để đồ thị của hàm số $y = x^3 - (m + 1) x^2 + (m^2 - 2) x - m^2 + 3 có hai điểm cực trị và hai điểm cực trị đó nằm về hai phía$ khác nhau đối với trục hoành?",
+    "content": "Có bao nhiêu giá trị nguyên của tham số $m$ để đồ thị của hàm số $y = x^3 - (m + 1)x^2 + (m^2 - 2)x - m^2 + 3$ có hai điểm cực trị và hai điểm cực trị đó nằm về hai phía khác nhau đối với trục hoành?",
     "options": [
       {
         "key": "A",
@@ -1381,7 +1381,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "Cho hàm số $y = 2 x^3 + 3 (m - 1) x^2 + 6 (m - 2) x - 1 với m là tham số$ thực. Tìm tất cả các giá trị của m để hàm số có điểm cực đại và điểm cực tiểu nằm trong khoảng (-2;3) .",
+    "content": "Cho hàm số $y = 2x^3 + 3(m - 1)x^2 + 6(m - 2)x - 1$ với $m$ là tham số thực. Tìm tất cả các giá trị của $m$ để hàm số có điểm cực đại và điểm cực tiểu nằm trong khoảng $(-2; 3)$.",
     "options": [
       {
         "key": "A",
@@ -1412,7 +1412,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "Cho hàm số $y = x^3 - 3mx^2 + 4m^2 - 2 có đồ thị (C) và điểm$ C (1; 4) . Tính tổng các giá trị nguyên dương của m để (C) có hai điểm cực trị A, B sao cho tam giác ABC có diện tích bằng^4.",
+    "content": "Cho hàm số $y = x^3 - 3mx^2 + 4m^2 - 2$ có đồ thị $(C)$ và điểm $C(1; 4)$. Tính tổng các giá trị nguyên dương của $m$ để $(C)$ có hai điểm cực trị $A, B$ sao cho tam giác $ABC$ có diện tích bằng $4$.",
     "options": [
       {
         "key": "A",
@@ -1443,7 +1443,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "Tổng tất cả các giá trị thực của tham số m để hàm số: $y = 3x^3 + 2 (m + 1) x^2 - 3mx + m - 5 có hai điểm cực trị x1$; x^2 đồng thời y (x1) . y (x^2) = 0 là:",
+    "content": "Tổng tất cả các giá trị thực của tham số $m$ để hàm số $y = 3x^3 + 2(m + 1)x^2 - 3mx + m - 5$ có hai điểm cực trị $x_1, x_2$ đồng thời $y(x_1) \\cdot y(x_2) = 0$ là:",
     "options": [
       {
         "key": "A",
@@ -1474,7 +1474,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "Gọi S là tập các giá trị dương của tham số m sao cho hàm số $y = x^3 - 3mx^2 + 27 x + 3m - 2 đạt cực trị tại x1$, x^2 thỏa mãn x1 - x^2 \\le ^5 . Biết S = (a; b] . Tính T = 2b - a .",
+    "content": "Gọi $S$ là tập các giá trị dương của tham số $m$ sao cho hàm số $y = x^3 - 3mx^2 + 27x + 3m - 2$ đạt cực trị tại $x_1, x_2$ thỏa mãn $|x_1 - x_2| \\le 5$. Biết $S = (a; b]$. Tính $T = 2b - a$.",
     "options": [
       {
         "key": "A",
@@ -1505,7 +1505,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "Gọi S là tập hợp các giá trị nguyên của tham số m để hàm số x^3 $y = - 2 x^2 + mx + 3 có hai điểm cực trị x1$, x^2 \\le ^4 . Số phần tử của S bằng^3",
+    "content": "Gọi $S$ là tập hợp các giá trị nguyên của tham số $m$ để hàm số $y = \\frac{x^3}{3} - 2x^2 + mx + 3$ có hai điểm cực trị $x_1, x_2 \\le 4$. Số phần tử của $S$ bằng:",
     "options": [
       {
         "key": "A",
@@ -1536,7 +1536,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "Có bao nhiêu giá trị nguyên của tham số m để điểm M (2m^3 ; m) tạo với hai điểm cực đại, cực tiểu của đồ thị hàm số $y = 2 x^3 - 3(2m + 1) x^2 + 6m(m + 1) x + 1 (C) một tam giác có diện tích nhỏ$ nhất?",
+    "content": "Có bao nhiêu giá trị nguyên của tham số $m$ để điểm $M(2m^3; m)$ tạo với hai điểm cực đại, cực tiểu của đồ thị hàm số $y = 2x^3 - 3(2m + 1)x^2 + 6m(m + 1)x + 1$ một tam giác có diện tích nhỏ nhất?",
     "options": [
       {
         "key": "A",
@@ -1567,7 +1567,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "Cho hàm số $y = x^3 - 6mx + 4 có đồ thị (Cm)$. Gọi m0 là giá trị của m để đường thẳng đi qua điểm cực đại, điểm cực tiểu của (Cm) cắt đường tròn tâm I (1; 0) , bán kính^2 tại hai điểm phân biệt A, B sao cho tam giác IAB có diện tích lớn nhất. Chọn khẳng định đúng",
+    "content": "Cho hàm số $y = x^3 - 6mx + 4$ có đồ thị $(C_m)$. Gọi $m_0$ là giá trị của $m$ để đường thẳng đi qua điểm cực đại, điểm cực tiểu của $(C_m)$ cắt đường tròn tâm $I(1; 0)$, bán kính $2$ tại hai điểm phân biệt $A, B$ sao cho tam giác $IAB$ có diện tích lớn nhất. Chọn khẳng định đúng.",
     "options": [
       {
         "key": "A",
@@ -1598,7 +1598,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "Biết rằng đồ thị hàm số f (x) = \\frac{1}{1}x^3 - mx^2 + x - 2 3 2 có giá trị tuyệt đối của hoành độ hai điểm cực trị là độ dài hai cạnh của tam giác vuông có cạnh huyền là 7 . Hỏi có mấy giá trị của m ?",
+    "content": "Biết rằng đồ thị hàm số $f(x) = \\frac{1}{3}x^3 - mx^2 + \\frac{3}{2}x - 2$ có giá trị tuyệt đối của hoành độ hai điểm cực trị là độ dài hai cạnh của tam giác vuông có cạnh huyền là $\\sqrt{7}$. Hỏi có mấy giá trị của $m$?",
     "options": [
       {
         "key": "A",
@@ -1629,7 +1629,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "Gọi S là tập hợp tất cả các giá trị nguyên của tham số m để điểm cực tiểu của đồ thị hàm số $y = x^3 + x^2 + mx - 1 nằm bên phải trục tung$. Tìm số phần tử của tập hợp (-5;6) \\cap S .",
+    "content": "Gọi $S$ là tập hợp tất cả các giá trị nguyên của tham số $m$ để điểm cực tiểu của đồ thị hàm số $y = x^3 + x^2 + mx - 1$ nằm bên phải trục tung. Tìm số phần tử của tập hợp $(-5; 6) \\cap S$.",
     "options": [
       {
         "key": "A",
@@ -1691,7 +1691,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "Tìm tất cả các giá trị thực của tham số m để đồ thị của hàm số $y = x^4 - 2mx^2 có$ ba điểm cực trị tạo thành một tam giác có diện tích nhỏ hơn 1 .",
+    "content": "Tìm tất cả các giá trị thực của tham số $m$ để đồ thị của hàm số $y = x^4 - 2mx^2$ có ba điểm cực trị tạo thành một tam giác có diện tích nhỏ hơn $1$.",
     "options": [
       {
         "key": "A",
@@ -1722,7 +1722,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "Gọi S là tập hợp tất cả các giá trị của tham số m để đồ thị hàm số $y = x^4 - 2 (m + 1) x^2 + m^2 có ba điểm cực trị tạo thành ba đỉnh của một tam giác vuông$. Số phần tử của tập hợp S là",
+    "content": "Gọi $S$ là tập hợp tất cả các giá trị của tham số $m$ để đồ thị hàm số $y = x^4 - 2(m + 1)x^2 + m^2$ có ba điểm cực trị tạo thành ba đỉnh của một tam giác vuông. Số phần tử của tập hợp $S$ là:",
     "options": [
       {
         "key": "A",
@@ -1753,7 +1753,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "Tìm m để đồ thị hàm số $y = x^4 - 2m^2 x^2 + 1 có 3$ điểm cực trị lập thành một tam giác vuông cân.",
+    "content": "Tìm $m$ để đồ thị hàm số $y = x^4 - 2m^2 x^2 + 1$ có 3 điểm cực trị lập thành một tam giác vuông cân.",
     "options": [
       {
         "key": "A",
@@ -1784,7 +1784,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "(Chuyên Lương Văn Chánh - Phú Yên - 2018) Gọi S là tập hợp tất cả các giá trị thực của tham số m để đồ thị (C) của hàm số $y = x^4 - 2m^2 x^2 + m^4 + 5 có ba điểm cực trị$, đồng thời ba điểm cực trị đó cùng với gốc tọa độ O tạo thành một tứ giác nội tiếp. Tìm số phần tử của S .",
+    "content": "Gọi $S$ là tập hợp tất cả các giá trị thực của tham số $m$ để đồ thị $(C)$ của hàm số $y = x^4 - 2m^2 x^2 + m^4 + 5$ có ba điểm cực trị, đồng thời ba điểm cực trị đó cùng với gốc tọa độ $O$ tạo thành một tứ giác nội tiếp. Tìm số phần tử của $S$.",
     "options": [
       {
         "key": "A",
@@ -1815,7 +1815,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "Cho hàm số $y = - x^4 + 2mx^2 + 2 có đồ thị (Cm)$. Tìm m để đồ thị hàm số có ba điểm cực trị tạo thành một tam giác vuông.",
+    "content": "Cho hàm số $y = -x^4 + 2mx^2 + 2$ có đồ thị $(C_m)$. Tìm $m$ để đồ thị hàm số có ba điểm cực trị tạo thành một tam giác vuông.",
     "options": [
       {
         "key": "A",
@@ -1877,7 +1877,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "Tìm tất cả các giá trị thực của tham số m để đồ thị của hàm số $y = x^4 - 2mx^2 có ba điểm cực trị tạo thành một tam giác có diện tích nhỏ hơn 1$.",
+    "content": "Tìm tất cả các giá trị thực của tham số $m$ để đồ thị của hàm số $y = x^4 - 2mx^2$ có ba điểm cực trị tạo thành một tam giác có diện tích nhỏ hơn $1$.",
     "options": [
       {
         "key": "A",
@@ -1908,7 +1908,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "Điều kiện của tham số m để hàm số $y = x^2 - mx$ có cực đại và cực tiểu 1- x là",
+    "content": "Điều kiện của tham số $m$ để hàm số $y = \\frac{x^2 - mx}{1 - x}$ có cực đại và cực tiểu là:",
     "options": [
       {
         "key": "A",
@@ -1939,7 +1939,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "Gọi S là tập hợp tất cả các giá trị thực của tham số m để đồ x^2 + mx + 2m thị hàm số $y = có$ x +1 hai điểm cực trị A , B và tam giác OAB vuông tại O . Tổng tất cả các phần tử của S bằng",
+    "content": "Gọi $S$ là tập hợp tất cả các giá trị thực của tham số $m$ để đồ thị hàm số $y = \\frac{x^2 + mx + 2m}{x + 1}$ có hai điểm cực trị $A, B$ và tam giác $OAB$ vuông tại $O$. Tổng tất cả các phần tử của $S$ bằng:",
     "options": [
       {
         "key": "A",
@@ -1970,7 +1970,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "Cho hàm số $y = x - m x+4$ x- m . Biết rằng đồ thị hàm số có hai điểm cực trị phân biệt là A , B . Tìm số giá trị m sao cho ba điểm A , B , C (4; 2) phân biệt và thẳng hàng.",
+    "content": "Cho hàm số $y = \\frac{x^2 - mx + 4}{x - m}$. Biết rằng đồ thị hàm số có hai điểm cực trị phân biệt là $A, B$. Tìm số giá trị của $m$ sao cho ba điểm $A, B, C(4; 2)$ phân biệt và thẳng hàng.",
     "options": [
       {
         "key": "A",
@@ -1990,7 +1990,7 @@ export const cucTriThamSoMQuestions: Question[] = [
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "D. 3 .\nTập xác định D = \\mathbb{R} \\ \\{ m \\} .\nTa có y =\ny' = 1 -\nx^2 - m x + 4\nx- m\n= x+\n4\n.\nx- m\n[x = 2 + m\n, \\forall x \\in D , y' = 0 \\iff [\n.\nx\n=\n-\n2\n+\nm\nx\n-\nm\n[\n()\n[\n4\n2\nTọa độ hai điểm cực trị là B (2 + m ; 4 + m) , A (-2 + m ; -4 + m) .\n\\cup\\cup\\cup\\to\n\\cup\\cup\\cup\\to\nAB = (4;8) , AC = (6 - m ;6 - m) .",
+    "detailedSolution": "Tập xác định: $D = \\mathbb{R} \\setminus \\{m\\}$.\nTa có: $y = \\frac{x^2 - mx + 4}{x - m} = x + \\frac{4}{x - m}$.\nĐạo hàm: $y' = 1 - \\frac{4}{(x - m)^2} = 0 \\iff (x - m)^2 = 4 \\iff x = m + 2$ hoặc $x = m - 2$.\nTọa độ hai điểm cực trị là $B(m + 2; m + 4), \\, A(m - 2; m - 4)$.\nTa có $\\vec{AB} = (4; 8), \\, \\vec{AC} = (6 - m; 6 - m)$.\nBa điểm $A, B, C(4; 2)$ phân biệt và thẳng hàng khi và chỉ khi:\n$$\\vec{AC} = k\\vec{AB} \\iff \\left\\{\\begin{array}{l} 6 - m = 4k \\\\ 6 - m = 8k \\\\ 6 - m \\ne 0 \\end{array}\\right. \\implies 4k = 8k \\iff k = 0 \\implies 6 - m = 0 \\text{ (mâu thuẫn)}$$\nVậy không có giá trị nào của $m$ thỏa mãn.\nChọn A.",
     "socraticHint": "Điểm cực trị $x_0$ thỏa mãn $y'(x_0) = 0$. Kiểm tra dấu của $y''(x_0)$ ($y'' > 0$ đạt cực tiểu, $y'' < 0$ đạt cực đại) hoặc lập bảng biến thiên.",
     "difficulty": "Vận dụng cao"
   },
@@ -2001,7 +2001,7 @@ export const cucTriThamSoMQuestions: Question[] = [
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
     "topicId": "cuc_tri_tham_so_m",
     "topicName": "Cực trị của hàm số",
-    "content": "6 - m = 4k \\cup\\cup\\cup\\to \\cup\\cup\\cup\\to  AC = k AB Ba điểm A , B , C (4; 2) phân biệt và thẳng hàng \\iff \\iff ^6 - m = 8k (vô nghiệm). 6 - m \\ne 0 6 - m \\ne 0 Vậy không có giá trị m nào thỏa mãn. x^2 + mx + 1 (THCS - THPT Nguyễn Khuyến - 2018) Giá trị của tham số m để hàm số $y = đạt$ x+m cực đại tại điểm x0 = 2 là:",
+    "content": "Giá trị của tham số $m$ để hàm số $y = \\frac{x^2 + mx + 1}{x + m}$ đạt cực đại tại điểm $x_0 = 2$ là:",
     "options": [
       {
         "key": "A",
@@ -2021,7 +2021,7 @@ export const cucTriThamSoMQuestions: Question[] = [
       }
     ],
     "correctAnswer": "B",
-    "detailedSolution": "1\n2\n.\ny' = 1-\n; y'' =\n2\n3\n(x + m)\n(x + m)\n1\n=0\n2\n1 -\ny'\n2\n=\n0\n2\n+\nm\n()\n()\nx + mx + 1\nHàm số y =\nđạt cực đại tại điểm x0 = 2 khi\n\\iff x+m\ny'' (2) < 0\n2\n<0\n(2 + m)3\n[ m = -1\n\\iff [ m = -3 \\iff m = -3 . Thử lại thấy thỏa mãn.\nm < -2\n2",
+    "detailedSolution": "Ta có: $y' = 1 - \\frac{1}{(x + m)^2}, \\, y'' = \\frac{2}{(x + m)^3}$.\nHàm số đạt cực đại tại điểm $x_0 = 2$ khi và chỉ khi:\n$$\\left\\{\\begin{array}{l} y'(2) = 0 \\\\ y''(2) < 0 \\end{array}\\right. \\iff \\left\\{\\begin{array}{l} 1 - \\frac{1}{(2 + m)^2} = 0 \\\\ \\frac{2}{(2 + m)^3} < 0 \\end{array}\\right. \\iff \\left\\{\\begin{array}{l} (2 + m)^2 = 1 \\\\ 2 + m < 0 \\end{array}\\right. \\iff \\left\\{\\begin{array}{l} 2 + m = \\pm 1 \\\\ m < -2 \\end{array}\\right. \\iff m = -3$$\nThử lại với $m = -3$: hàm số đạt cực đại tại điểm $x_0 = 2$.\nChọn B.",
     "socraticHint": "Điểm cực trị $x_0$ thỏa mãn $y'(x_0) = 0$. Kiểm tra dấu của $y''(x_0)$ ($y'' > 0$ đạt cực tiểu, $y'' < 0$ đạt cực đại) hoặc lập bảng biến thiên.",
     "difficulty": "Vận dụng cao"
   }
