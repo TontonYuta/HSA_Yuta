@@ -195,7 +195,7 @@ export const TopicSubmitModal: React.FC<TopicSubmitModalProps> = ({
               <button
                 type="button"
                 onClick={onClose}
-                className="w-full sm:w-auto px-4 py-2 rounded-xl bg-slate-100 dark:bg-zinc-800 text-slate-800 dark:text-zinc-200 text-xs font-semibold hover:bg-slate-200 transition cursor-pointer"
+                className="w-full sm:w-auto px-4 py-2 rounded-xl bg-slate-100 dark:bg-zinc-800 text-slate-800 dark:text-zinc-200 text-xs font-semibold hover:bg-slate-200 dark:hover:bg-zinc-700 transition cursor-pointer"
               >
                 Xem lại bài làm
               </button>

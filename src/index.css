@@ -5,7 +5,11 @@
 
 /* Base Body Font and Dynamic Theme Background */
 html {
-  color-scheme: light dark;
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
 }
 
 body {

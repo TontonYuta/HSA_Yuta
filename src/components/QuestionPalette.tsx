@@ -106,7 +106,7 @@ export const QuestionPalette: React.FC<QuestionPaletteProps> = ({
             className={`py-1 px-0.5 rounded-md transition text-center cursor-pointer ${
               activeFilter === 'all'
                 ? 'bg-white dark:bg-zinc-900 text-slate-900 dark:text-white font-bold shadow-xs'
-                : 'text-slate-600 dark:text-zinc-400 hover:text-slate-900'
+                : 'text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-100'
             }`}
           >
             Tất cả ({totalQuestions})

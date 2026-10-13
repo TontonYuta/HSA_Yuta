@@ -276,7 +276,7 @@ export const TopicQuestionWorkspace: React.FC<TopicQuestionWorkspaceProps> = ({
             type="button"
             onClick={onPrev}
             disabled={currentIdx === 0}
-            className="px-3.5 py-2 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 text-slate-700 dark:text-zinc-300 hover:bg-slate-100 text-xs font-semibold transition disabled:opacity-30 inline-flex items-center gap-1.5 cursor-pointer shadow-xs"
+            className="px-3.5 py-2 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 text-slate-700 dark:text-zinc-300 hover:bg-slate-100 dark:hover:bg-zinc-800 text-xs font-semibold transition disabled:opacity-30 inline-flex items-center gap-1.5 cursor-pointer shadow-xs"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>Câu trước</span>

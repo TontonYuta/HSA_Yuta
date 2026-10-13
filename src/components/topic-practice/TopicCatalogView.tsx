@@ -207,7 +207,7 @@ export const TopicCatalogView: React.FC<TopicCatalogViewProps> = ({
                   const ch = CHAPTERS_METADATA.find((c) => c.id === e.target.value);
                   setQuickTopicId(ch?.topics[0]?.id || '__all__');
                 }}
-                className="w-full appearance-none pl-3 pr-8 py-2 rounded-xl border border-slate-200 dark:border-zinc-700 bg-slate-50 dark:bg-zinc-850 text-xs font-semibold text-slate-800 dark:text-zinc-200 focus:outline-none focus:ring-2 focus:ring-sky-500 transition cursor-pointer shadow-2xs"
+                className="w-full appearance-none pl-3 pr-8 py-2 rounded-xl border border-slate-200 dark:border-zinc-700 bg-slate-50 dark:bg-zinc-900 text-xs font-semibold text-slate-800 dark:text-zinc-200 focus:outline-none focus:ring-2 focus:ring-sky-500 transition cursor-pointer shadow-2xs"
               >
                 {CHAPTERS_METADATA.map((ch, idx) => (
                   <option key={ch.id} value={ch.id} className="dark:bg-zinc-900 text-slate-900 dark:text-zinc-100">
@@ -223,7 +223,7 @@ export const TopicCatalogView: React.FC<TopicCatalogViewProps> = ({
               <select
                 value={quickTopicId}
                 onChange={(e) => setQuickTopicId(e.target.value)}
-                className="w-full appearance-none pl-3 pr-8 py-2 rounded-xl border border-slate-200 dark:border-zinc-700 bg-slate-50 dark:bg-zinc-850 text-xs font-semibold text-slate-800 dark:text-zinc-200 focus:outline-none focus:ring-2 focus:ring-sky-500 transition cursor-pointer shadow-2xs"
+                className="w-full appearance-none pl-3 pr-8 py-2 rounded-xl border border-slate-200 dark:border-zinc-700 bg-slate-50 dark:bg-zinc-900 text-xs font-semibold text-slate-800 dark:text-zinc-200 focus:outline-none focus:ring-2 focus:ring-sky-500 transition cursor-pointer shadow-2xs"
               >
                 <option value="__all__" className="dark:bg-zinc-900 font-bold text-sky-600 dark:text-sky-400">
                   🌟 Toàn bộ chương

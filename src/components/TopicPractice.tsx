@@ -473,7 +473,7 @@ export const TopicPractice: React.FC<TopicPracticeProps> = ({
               <select
                 value={selectedChapterId}
                 onChange={(e) => handleSelectChapter(e.target.value)}
-                className="w-full appearance-none pl-2 sm:pl-2.5 pr-5 py-1.5 rounded-lg border border-slate-200 dark:border-zinc-800 bg-slate-100/90 dark:bg-zinc-850 hover:bg-slate-200/60 dark:hover:bg-zinc-800 text-xs font-bold text-slate-800 dark:text-zinc-200 focus:outline-none focus:ring-2 focus:ring-sky-500 transition cursor-pointer truncate shadow-2xs"
+                className="w-full appearance-none pl-2 sm:pl-2.5 pr-5 py-1.5 rounded-lg border border-slate-200 dark:border-zinc-800 bg-slate-100/90 dark:bg-zinc-900 hover:bg-slate-200/60 dark:hover:bg-zinc-800 text-xs font-bold text-slate-800 dark:text-zinc-200 focus:outline-none focus:ring-2 focus:ring-sky-500 transition cursor-pointer truncate shadow-2xs"
                 title="Chọn chương GDPT 2018"
               >
                 {CHAPTERS_METADATA.map((ch, idx) => (

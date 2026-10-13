@@ -75,7 +75,7 @@ export const ExamIntro: React.FC<ExamIntroProps> = ({
                 className={`p-3.5 rounded-xl border text-left transition-all duration-150 flex flex-col justify-between cursor-pointer ${
                   isSelected
                     ? 'bg-sky-50 dark:bg-sky-950/40 border-sky-500 ring-1 ring-sky-500/40 text-slate-950 dark:text-white shadow-xs'
-                    : 'bg-slate-50/70 dark:bg-zinc-950/40 border-slate-200 dark:border-zinc-800 text-slate-700 dark:text-zinc-400 hover:border-slate-300 dark:hover:border-zinc-700 hover:bg-slate-100/50'
+                    : 'bg-slate-50/70 dark:bg-zinc-950/40 border-slate-200 dark:border-zinc-800 text-slate-700 dark:text-zinc-400 hover:border-slate-300 dark:hover:border-zinc-700 hover:bg-slate-100/50 dark:hover:bg-zinc-900/60'
                 }`}
               >
                 <div>
@@ -123,7 +123,7 @@ export const ExamIntro: React.FC<ExamIntroProps> = ({
           <button
             type="button"
             onClick={() => onStartExam(selectedExamSetId)}
-            className="w-full py-3.5 px-5 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white text-white font-bold text-xs sm:text-sm shadow-md transition-all active:scale-[0.99] flex items-center justify-center gap-2 cursor-pointer"
+            className="w-full py-3.5 px-5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs sm:text-sm shadow-md shadow-sky-600/20 transition-all active:scale-[0.99] flex items-center justify-center gap-2 cursor-pointer"
           >
             <Play className="w-4 h-4 fill-current" />
             <span>Vào thi ngay: {currentExamSet.title} ({currentExamSet.timeMinutes} phút)</span>

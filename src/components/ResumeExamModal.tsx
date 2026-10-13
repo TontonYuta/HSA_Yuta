@@ -84,7 +84,7 @@ export const ResumeExamModal: React.FC<ResumeExamModalProps> = ({
             </div>
 
             <div className="grid grid-cols-2 gap-2 text-xs">
-              <div className="flex items-center gap-2 p-2 rounded-xl bg-white dark:bg-zinc-850 border border-slate-100 dark:border-zinc-800/60">
+              <div className="flex items-center gap-2 p-2 rounded-xl bg-white dark:bg-zinc-900 border border-slate-100 dark:border-zinc-800/60">
                 <Clock className="w-4 h-4 text-sky-500 shrink-0" />
                 <div className="min-w-0">
                   <div className="text-[10px] text-slate-400 dark:text-zinc-500">Thời gian còn lại</div>
@@ -94,7 +94,7 @@ export const ResumeExamModal: React.FC<ResumeExamModalProps> = ({
                 </div>
               </div>
 
-              <div className="flex items-center gap-2 p-2 rounded-xl bg-white dark:bg-zinc-850 border border-slate-100 dark:border-zinc-800/60">
+              <div className="flex items-center gap-2 p-2 rounded-xl bg-white dark:bg-zinc-900 border border-slate-100 dark:border-zinc-800/60">
                 <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
                 <div className="min-w-0">
                   <div className="text-[10px] text-slate-400 dark:text-zinc-500">Tiến độ làm bài</div>

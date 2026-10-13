@@ -351,7 +351,7 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({
                 className={`px-2.5 py-1 rounded-lg border text-xs font-medium inline-flex items-center gap-1 transition cursor-pointer ${
                   showScratchpad
                     ? 'bg-violet-600 text-white border-violet-600'
-                    : 'border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-slate-600 dark:text-zinc-300 hover:bg-slate-100'
+                    : 'border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-slate-600 dark:text-zinc-300 hover:bg-slate-100 dark:hover:bg-zinc-800'
                 }`}
                 title="Mở sổ tay nháp nhanh"
               >

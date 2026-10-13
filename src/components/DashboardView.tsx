@@ -444,7 +444,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
               return (
                 <div
                   key={item.id}
-                  className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 rounded-2xl border border-slate-100 dark:border-zinc-800/60 bg-slate-50/50 dark:bg-zinc-900/40 hover:bg-white dark:hover:bg-zinc-850 hover:shadow-xs transition gap-3"
+                  className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 rounded-2xl border border-slate-100 dark:border-zinc-800/60 bg-slate-50/50 dark:bg-zinc-900/40 hover:bg-white dark:hover:bg-zinc-800 hover:shadow-xs transition gap-3"
                 >
                   <div className="space-y-1">
                     <div className="flex items-center gap-2 flex-wrap">
