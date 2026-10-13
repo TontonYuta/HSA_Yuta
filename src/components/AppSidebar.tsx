@@ -13,8 +13,7 @@ import {
   ChevronDown, 
   Sun, 
   Moon, 
-  X, 
-  ShieldCheck
+  X,
 } from 'lucide-react';
 import { AppMode } from './Navbar';
 import { CHAPTERS_METADATA } from '../data/topics/index';
@@ -33,7 +32,6 @@ interface AppSidebarProps {
   onToggleCollapseDesktop: () => void;
   theme: 'dark' | 'light';
   onToggleTheme: () => void;
-  onOpenWebhookModal?: () => void;
 }
 
 export const AppSidebar: React.FC<AppSidebarProps> = ({
@@ -50,7 +48,6 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
   onToggleCollapseDesktop,
   theme,
   onToggleTheme,
-  onOpenWebhookModal,
 }) => {
   const [isChaptersOpen, setIsChaptersOpen] = useState(true);
 
@@ -102,12 +99,12 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
     return (
       <>
         {/* 1. Header & Logo */}
-        <div className="h-14 px-3.5 border-b border-slate-200 dark:border-zinc-800/80 flex items-center justify-between shrink-0 bg-slate-50/60 dark:bg-zinc-900/40">
-          <div className="flex items-center gap-2.5 overflow-hidden">
-            <div className="w-8 h-8 rounded-full overflow-hidden ring-2 ring-sky-500/30 dark:ring-sky-400/30 shrink-0 bg-sky-50 dark:bg-zinc-800 shadow-xs">
-              <img src="/avt.png" alt="TontonYuta" className="w-full h-full object-cover" />
-            </div>
-            {!isCollapsed && (
+        {!isCollapsed ? (
+          <div className="h-14 px-3.5 border-b border-slate-200 dark:border-zinc-800/80 flex items-center justify-between shrink-0 bg-slate-50/60 dark:bg-zinc-900/40">
+            <div className="flex items-center gap-2.5 overflow-hidden">
+              <div className="w-8 h-8 rounded-full overflow-hidden ring-2 ring-sky-500/30 dark:ring-sky-400/30 shrink-0 bg-sky-50 dark:bg-zinc-800 shadow-xs">
+                <img src="/avt.png" alt="TontonYuta" className="w-full h-full object-cover" />
+              </div>
               <div className="flex flex-col truncate">
                 <span className="text-xs font-black tracking-tight text-slate-900 dark:text-zinc-100 flex items-center gap-1 truncate">
                   <span>HSA TontonYuta</span>
@@ -117,34 +114,54 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
                   Toán Học & Tư Duy Định Lượng
                 </span>
               </div>
-            )}
-          </div>
+            </div>
 
-          <div className="flex items-center gap-1">
-            {isMobile ? (
-              <button
-                type="button"
-                onClick={onCloseMobile}
-                className="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 dark:hover:text-zinc-200 cursor-pointer"
-                title="Đóng menu"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            ) : (
-              <button
-                type="button"
-                onClick={onToggleCollapseDesktop}
-                className="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 dark:hover:text-zinc-200 hover:bg-slate-100 dark:hover:bg-zinc-800/60 cursor-pointer transition"
-                title={isCollapsed ? 'Mở rộng sidebar' : 'Thu gọn sidebar'}
-              >
-                {isCollapsed ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
-              </button>
-            )}
+            <div className="flex items-center gap-1">
+              {isMobile ? (
+                <button
+                  type="button"
+                  onClick={onCloseMobile}
+                  className="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 dark:hover:text-zinc-200 cursor-pointer"
+                  title="Đóng menu"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  onClick={onToggleCollapseDesktop}
+                  className="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 dark:hover:text-zinc-200 hover:bg-slate-100 dark:hover:bg-zinc-800/60 cursor-pointer transition"
+                  title="Thu gọn sidebar"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+              )}
+            </div>
           </div>
-        </div>
+        ) : (
+          /* Collapsed Header: Centered avatar button that cleanly expands the sidebar */
+          <div className="h-14 flex items-center justify-center shrink-0 border-b border-slate-200 dark:border-zinc-800/80 bg-slate-50/60 dark:bg-zinc-900/40">
+            <button
+              type="button"
+              onClick={onToggleCollapseDesktop}
+              className="w-10 h-10 rounded-xl hover:bg-slate-100 dark:hover:bg-zinc-800/80 flex items-center justify-center transition cursor-pointer relative group"
+              title="Mở rộng menu (Bấm để xem đầy đủ)"
+            >
+              <div className="w-8 h-8 rounded-full overflow-hidden ring-2 ring-sky-500/30 dark:ring-sky-400/30 group-hover:ring-sky-500 transition shadow-xs">
+                <img src="/avt.png" alt="TontonYuta" className="w-full h-full object-cover" />
+              </div>
+              {/* Floating Tooltip */}
+              <div className="absolute left-full ml-3 top-1/2 -translate-y-1/2 px-2.5 py-1 bg-slate-900 dark:bg-zinc-800 text-white text-[11px] font-semibold rounded-lg shadow-xl whitespace-nowrap opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-150 z-50 flex items-center gap-1.5">
+                <span>Mở rộng menu</span>
+                <ChevronRight className="w-3.5 h-3.5 text-sky-400" />
+                <div className="absolute right-full top-1/2 -translate-y-1/2 border-4 border-transparent border-r-slate-900 dark:border-r-zinc-800" />
+              </div>
+            </button>
+          </div>
+        )}
 
         {/* 2. Student Identity Card */}
-        {!isCollapsed && (
+        {!isCollapsed ? (
           <div className="p-3 border-b border-slate-100 dark:border-zinc-800/60 bg-gradient-to-r from-sky-50/50 via-indigo-50/30 to-purple-50/40 dark:from-sky-950/20 dark:via-zinc-900/40 dark:to-indigo-950/10 shrink-0">
             <div className="flex items-center justify-between gap-2">
               <div className="flex items-center gap-2 truncate">
@@ -177,12 +194,30 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
               </button>
             </div>
           </div>
+        ) : (
+          /* Collapsed Student Icon: Exactly w-10 h-10 matching all icon buttons */
+          <div className="h-13 border-b border-slate-100 dark:border-zinc-800/60 flex items-center justify-center shrink-0">
+            <button
+              type="button"
+              onClick={onEditStudentName}
+              className="w-10 h-10 rounded-xl bg-sky-500/10 hover:bg-sky-500/20 text-sky-600 dark:text-sky-400 flex items-center justify-center transition cursor-pointer relative group"
+              title={`Học sinh: ${studentName || 'Học sinh HSA'}`}
+            >
+              <User className="w-4 h-4" />
+              {/* Tooltip */}
+              <div className="absolute left-full ml-3 top-1/2 -translate-y-1/2 px-2.5 py-1 bg-slate-900 dark:bg-zinc-800 text-white text-[11px] font-semibold rounded-lg shadow-xl whitespace-nowrap opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-150 z-50">
+                <span>{studentName || 'Học sinh HSA'}</span>
+                {studentSchool && <span className="block text-[10px] text-slate-300 font-normal">{studentSchool}</span>}
+                <div className="absolute right-full top-1/2 -translate-y-1/2 border-4 border-transparent border-r-slate-900 dark:border-r-zinc-800" />
+              </div>
+            </button>
+          </div>
         )}
 
-        {/* 3. Navigation Links List */}
-        <div className="flex-1 overflow-y-auto px-2 py-3 space-y-4 scrollbar-thin">
+        {/* 3. Navigation Links List - No horizontal scrollbar */}
+        <div className={`flex-1 overflow-x-hidden overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden ${isCollapsed ? 'py-3 flex flex-col items-center space-y-2' : 'px-2 py-3 space-y-4'}`}>
           {/* Main Functions Menu */}
-          <div className="space-y-1">
+          <div className={isCollapsed ? 'space-y-1.5 flex flex-col items-center w-full' : 'space-y-1'}>
             {!isCollapsed && (
               <div className="px-2 pb-1 text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-zinc-500">
                 Menu Chức Năng
@@ -191,6 +226,35 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
 
             {navItems.map((item) => {
               const Icon = item.icon;
+              if (isCollapsed) {
+                return (
+                  <button
+                    key={item.id}
+                    type="button"
+                    onClick={() => {
+                      item.action();
+                      if (isMobile) onCloseMobile();
+                    }}
+                    className={`w-10 h-10 rounded-xl flex items-center justify-center transition cursor-pointer relative group ${
+                      item.isActive
+                        ? 'bg-sky-50 dark:bg-sky-950/70 text-sky-600 dark:text-sky-300 border border-sky-300/80 dark:border-sky-700/80 shadow-xs font-bold'
+                        : 'text-slate-500 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-800/60 hover:text-slate-900 dark:hover:text-zinc-200 border border-transparent'
+                    }`}
+                    title={item.label}
+                  >
+                    <Icon className="w-4 h-4 shrink-0" />
+                    {/* Floating Tooltip */}
+                    <div className="absolute left-full ml-3 top-1/2 -translate-y-1/2 px-2.5 py-1 bg-slate-900 dark:bg-zinc-800 text-white text-[11px] font-semibold rounded-lg shadow-xl whitespace-nowrap opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-150 z-50 flex items-center gap-1.5">
+                      <span>{item.label}</span>
+                      <span className="text-[9px] px-1 py-0.2 rounded bg-sky-500/20 text-sky-300 font-mono">
+                        {item.badge}
+                      </span>
+                      <div className="absolute right-full top-1/2 -translate-y-1/2 border-4 border-transparent border-r-slate-900 dark:border-r-zinc-800" />
+                    </div>
+                  </button>
+                );
+              }
+
               return (
                 <button
                   key={item.id}
@@ -213,29 +277,27 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
                         : 'text-slate-400 dark:text-zinc-500 group-hover:text-slate-700 dark:group-hover:text-zinc-300'
                     }`}
                   />
-                  {!isCollapsed && (
-                    <div className="flex-1 flex items-center justify-between truncate">
-                      <div className="truncate">
-                        <div className="text-xs truncate">{item.label}</div>
-                      </div>
-                      <span
-                        className={`text-[9px] px-1.5 py-0.5 rounded font-mono font-medium shrink-0 ml-1.5 ${
-                          item.isActive
-                            ? 'bg-sky-200/80 dark:bg-sky-900 text-sky-800 dark:text-sky-200'
-                            : 'bg-slate-100 dark:bg-zinc-800 text-slate-500 dark:text-zinc-400'
-                        }`}
-                      >
-                        {item.badge}
-                      </span>
+                  <div className="flex-1 flex items-center justify-between truncate">
+                    <div className="truncate">
+                      <div className="text-xs truncate">{item.label}</div>
                     </div>
-                  )}
+                    <span
+                      className={`text-[9px] px-1.5 py-0.5 rounded font-mono font-medium shrink-0 ml-1.5 ${
+                        item.isActive
+                          ? 'bg-sky-200/80 dark:bg-sky-900 text-sky-800 dark:text-sky-200'
+                          : 'bg-slate-100 dark:bg-zinc-800 text-slate-500 dark:text-zinc-400'
+                      }`}
+                    >
+                      {item.badge}
+                    </span>
+                  </div>
                 </button>
               );
             })}
           </div>
 
           {/* 10 Chapters Quick Navigation */}
-          {!isCollapsed && (
+          {!isCollapsed ? (
             <div className="space-y-1.5 pt-2 border-t border-slate-100 dark:border-zinc-800/60">
               <button
                 type="button"
@@ -287,59 +349,89 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
                 </div>
               )}
             </div>
+          ) : (
+            /* Collapsed Chapters Icon Trigger */
+            <div className="pt-2 border-t border-slate-100 dark:border-zinc-800/60 flex flex-col items-center w-full">
+              <button
+                type="button"
+                onClick={() => {
+                  onToggleCollapseDesktop();
+                }}
+                className="w-10 h-10 rounded-xl flex items-center justify-center text-slate-500 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-800/60 hover:text-sky-600 transition cursor-pointer relative group"
+                title="10 Chương GDPT (Bấm để mở danh mục)"
+              >
+                <Layers className="w-4 h-4 text-sky-500" />
+                {/* Tooltip */}
+                <div className="absolute left-full ml-3 top-1/2 -translate-y-1/2 px-2.5 py-1 bg-slate-900 dark:bg-zinc-800 text-white text-[11px] font-semibold rounded-lg shadow-xl whitespace-nowrap opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-150 z-50 flex items-center gap-1">
+                  <span>10 Chương GDPT (30 chuyên đề)</span>
+                  <ChevronRight className="w-3 h-3 text-sky-400" />
+                  <div className="absolute right-full top-1/2 -translate-y-1/2 border-4 border-transparent border-r-slate-900 dark:border-r-zinc-800" />
+                </div>
+              </button>
+            </div>
           )}
         </div>
 
-        {/* 4. Bottom Footer: Theme Toggle & Settings */}
-        <div className="p-3 border-t border-slate-200 dark:border-zinc-800/80 bg-slate-50/50 dark:bg-zinc-900/40 shrink-0 flex items-center gap-2">
-          {/* Quick Theme Toggle */}
-          <button
-            type="button"
-            onClick={onToggleTheme}
-            className="flex-1 py-1.5 px-2 rounded-lg border border-slate-200 dark:border-zinc-800 text-xs font-semibold text-slate-600 dark:text-zinc-400 hover:bg-white dark:hover:bg-zinc-800 hover:text-slate-900 dark:hover:text-zinc-200 transition flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
-            title="Chuyển chế độ sáng / tối"
-          >
-            {theme === 'dark' ? (
-              <>
-                <Sun className="w-3.5 h-3.5 text-amber-500" />
-                {!isCollapsed && <span>Giao diện sáng</span>}
-              </>
-            ) : (
-              <>
-                <Moon className="w-3.5 h-3.5 text-indigo-500" />
-                {!isCollapsed && <span>Giao diện tối</span>}
-              </>
-            )}
-          </button>
-
-          {/* Optional Subtle Webhook Settings Button */}
-          {onOpenWebhookModal && !isCollapsed && (
+        {/* 4. Bottom Footer: Theme Toggle Only (No gg script / webhook info) */}
+        {!isCollapsed ? (
+          <div className="p-3 border-t border-slate-200 dark:border-zinc-800/80 bg-slate-50/50 dark:bg-zinc-900/40 shrink-0">
             <button
               type="button"
-              onClick={onOpenWebhookModal}
-              className="p-1.5 rounded-lg border border-slate-200 dark:border-zinc-800 text-slate-400 hover:text-slate-700 dark:hover:text-zinc-200 hover:bg-white dark:hover:bg-zinc-800 transition cursor-pointer"
-              title="Cài đặt kết nối hệ thống (Webhook)"
+              onClick={onToggleTheme}
+              className="w-full py-1.5 px-2 rounded-lg border border-slate-200 dark:border-zinc-800 text-xs font-semibold text-slate-600 dark:text-zinc-400 hover:bg-white dark:hover:bg-zinc-800 hover:text-slate-900 dark:hover:text-zinc-200 transition flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
+              title="Chuyển chế độ sáng / tối"
             >
-              <ShieldCheck className="w-3.5 h-3.5 text-sky-500" />
+              {theme === 'dark' ? (
+                <>
+                  <Sun className="w-3.5 h-3.5 text-amber-500" />
+                  <span>Giao diện sáng</span>
+                </>
+              ) : (
+                <>
+                  <Moon className="w-3.5 h-3.5 text-indigo-500" />
+                  <span>Giao diện tối</span>
+                </>
+              )}
             </button>
-          )}
-        </div>
+          </div>
+        ) : (
+          /* Collapsed Theme Toggle */
+          <div className="h-14 border-t border-slate-200 dark:border-zinc-800/80 bg-slate-50/50 dark:bg-zinc-900/40 shrink-0 flex items-center justify-center">
+            <button
+              type="button"
+              onClick={onToggleTheme}
+              className="w-10 h-10 rounded-xl border border-slate-200 dark:border-zinc-800 text-slate-600 dark:text-zinc-400 hover:bg-white dark:hover:bg-zinc-800 hover:text-slate-900 dark:hover:text-zinc-200 transition flex items-center justify-center cursor-pointer shadow-xs relative group"
+              title={theme === 'dark' ? 'Chuyển giao diện sáng' : 'Chuyển giao diện tối'}
+            >
+              {theme === 'dark' ? (
+                <Sun className="w-4 h-4 text-amber-500" />
+              ) : (
+                <Moon className="w-4 h-4 text-indigo-500" />
+              )}
+              {/* Tooltip */}
+              <div className="absolute left-full ml-3 top-1/2 -translate-y-1/2 px-2.5 py-1 bg-slate-900 dark:bg-zinc-800 text-white text-[11px] font-semibold rounded-lg shadow-xl whitespace-nowrap opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-150 z-50">
+                <span>{theme === 'dark' ? 'Chuyển sang giao diện sáng' : 'Chuyển sang giao diện tối'}</span>
+                <div className="absolute right-full top-1/2 -translate-y-1/2 border-4 border-transparent border-r-slate-900 dark:border-r-zinc-800" />
+              </div>
+            </button>
+          </div>
+        )}
       </>
     );
   };
 
   return (
     <>
-      {/* 1. Desktop Sidebar - Luôn hiển thị trên màn hình laptop/desktop, không bao giờ bị collapse mất */}
+      {/* 1. Desktop Sidebar - w-16 when collapsed, w-64/w-72 when expanded */}
       <aside
         className={`hidden md:flex flex-col shrink-0 sticky top-0 h-screen z-30 bg-white dark:bg-[#0c0c0e] border-r border-slate-200 dark:border-zinc-800/80 transition-all duration-200 select-none ${
-          isCollapsedDesktop ? 'w-20' : 'w-64 lg:w-72'
+          isCollapsedDesktop ? 'w-16' : 'w-64 lg:w-72'
         }`}
       >
         {renderSidebarBody(isCollapsedDesktop, false)}
       </aside>
 
-      {/* 2. Mobile Drawer - Trượt mượt mà trên điện thoại */}
+      {/* 2. Mobile Drawer */}
       <div className="md:hidden">
         {isOpenMobile && (
           <div

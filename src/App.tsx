@@ -440,7 +440,6 @@ export default function App() {
           onToggleCollapseDesktop={() => setIsCollapsedDesktop((prev) => !prev)}
           theme={theme}
           onToggleTheme={toggleTheme}
-          onOpenWebhookModal={() => setIsWebhookModalOpen(true)}
         />
       )}
 
