@@ -17,7 +17,9 @@ import {
   EyeOff,
   Eye,
   Type,
-  LayoutGrid
+  LayoutGrid,
+  ShieldAlert,
+  ShieldCheck
 } from 'lucide-react';
 import { Question, UserAnswer, ExamSet } from '../types/exam';
 import { MathRenderer } from './MathRenderer';
@@ -40,6 +42,9 @@ interface ExamSimulationProps {
   setIsConfirmSubmitOpen: (open: boolean) => void;
   isSidebarOpen: boolean;
   setIsSidebarOpen: (open: boolean | ((prev: boolean) => boolean)) => void;
+  tabSwitchCount?: number;
+  onTabSwitchCountChange?: (count: number) => void;
+  studentName?: string;
 }
 
 type FontSizeOption = 'sm' | 'base' | 'lg' | 'xl';
@@ -57,6 +62,9 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({
   setIsConfirmSubmitOpen,
   isSidebarOpen,
   setIsSidebarOpen,
+  tabSwitchCount = 0,
+  onTabSwitchCountChange,
+  studentName = 'Học sinh HSA',
 }) => {
   const currentQ = questions[currentQuestionIndex] || questions[0];
   const currentAns = userAnswers[currentQ?.id];
@@ -64,6 +72,69 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({
   const isFlagged = currentAns?.isFlagged || false;
 
   const mainScrollRef = React.useRef<HTMLElement>(null);
+
+  // Proctoring & Anti-Cheat State
+  const [internalTabSwitchCount, setInternalTabSwitchCount] = useState<number>(tabSwitchCount);
+  const [isTabViolationAlertOpen, setIsTabViolationAlertOpen] = useState<boolean>(false);
+  const [securityToast, setSecurityToast] = useState<string | null>(null);
+  const lastViolationTimeRef = React.useRef<number>(0);
+  const toastTimeoutRef = React.useRef<any>(null);
+
+  const showSecurityToast = React.useCallback((message: string) => {
+    if (toastTimeoutRef.current) clearTimeout(toastTimeoutRef.current);
+    setSecurityToast(message);
+    toastTimeoutRef.current = setTimeout(() => {
+      setSecurityToast(null);
+    }, 3200);
+  }, []);
+
+  // Sync external tabSwitchCount if updated
+  useEffect(() => {
+    if (typeof tabSwitchCount === 'number') {
+      setInternalTabSwitchCount(tabSwitchCount);
+    }
+  }, [tabSwitchCount]);
+
+  // Tab switch & focus loss proctoring violation handler
+  const handleViolation = React.useCallback(() => {
+    const now = Date.now();
+    // Debounce violation triggers (within 1.2 seconds)
+    if (now - lastViolationTimeRef.current < 1200) return;
+    lastViolationTimeRef.current = now;
+
+    setInternalTabSwitchCount((prev) => {
+      const next = prev + 1;
+      onTabSwitchCountChange?.(next);
+      return next;
+    });
+
+    setIsTabViolationAlertOpen(true);
+  }, [onTabSwitchCountChange]);
+
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        handleViolation();
+      }
+    };
+
+    const handleWindowBlur = () => {
+      handleViolation();
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    window.addEventListener('blur', handleWindowBlur);
+
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      window.removeEventListener('blur', handleWindowBlur);
+    };
+  }, [handleViolation]);
+
+  const handlePreventCopy = (e: React.SyntheticEvent, actionName: string) => {
+    e.preventDefault();
+    showSecurityToast(`Thao tác ${actionName} bị vô hiệu hóa trong phòng thi để bảo mật đề thi.`);
+  };
 
   // Auto scroll question view to top when navigating between questions
   useEffect(() => {
@@ -164,6 +235,18 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({
   // Keyboard shortcut listener
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      // Anti-Inspection & DevTools blocking
+      if (
+        e.key === 'F12' ||
+        ((e.ctrlKey || e.metaKey) && e.shiftKey && ['I', 'J', 'C'].includes(e.key.toUpperCase())) ||
+        ((e.ctrlKey || e.metaKey) && ['U', 'S', 'P'].includes(e.key.toUpperCase()))
+      ) {
+        e.preventDefault();
+        e.stopPropagation();
+        showSecurityToast('Phím tắt hệ thống / thanh tra mã nguồn bị vô hiệu hóa trong phòng thi.');
+        return;
+      }
+
       // Don't intercept if student is typing inside an input/textarea
       const target = e.target as HTMLElement;
       const isInput = target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA');
@@ -200,7 +283,7 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [currentQuestionIndex, currentQ, onAnswerQuestion, onToggleFlag, eliminatedOptions]);
+  }, [currentQuestionIndex, currentQ, onAnswerQuestion, onToggleFlag, eliminatedOptions, showSecurityToast]);
 
   const currentEliminated = eliminatedOptions[currentQ.id] || [];
 
@@ -223,6 +306,29 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({
               <span className="text-xs font-mono text-slate-500 dark:text-zinc-500 hidden sm:inline">
                 {currentQ.type === 'mcq' ? 'Trắc nghiệm 4 lựa chọn' : 'Điền đáp số ngắn'}
               </span>
+
+              {/* Proctoring & Integrity Badge */}
+              <div
+                className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold border transition ${
+                  internalTabSwitchCount === 0
+                    ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300'
+                    : 'bg-amber-50 dark:bg-amber-950/40 border-amber-300 dark:border-amber-800 text-amber-700 dark:text-amber-300'
+                }`}
+                title={
+                  internalTabSwitchCount === 0
+                    ? 'Phòng thi bảo mật: Đang duy trì trạng thái tập trung'
+                    : `Hệ thống ghi nhận ${internalTabSwitchCount} lần rời khỏi màn hình bài thi`
+                }
+              >
+                {internalTabSwitchCount === 0 ? (
+                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+                ) : (
+                  <ShieldAlert className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />
+                )}
+                <span className="text-[11px] font-mono">
+                  {internalTabSwitchCount === 0 ? 'Phòng thi bảo mật' : `${internalTabSwitchCount} lần rời tab`}
+                </span>
+              </div>
             </div>
 
             {/* Student Utility Toolbar: Formulas, Scratchpad, Zoom, Hints, Flag */}
@@ -343,15 +449,24 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({
           )}
 
           {/* Question Text Box with Clear KaTeX Styling & Adjustable Font */}
-          <div className="bg-white dark:bg-[#121216] border border-slate-200 dark:border-zinc-800 rounded-2xl p-5 sm:p-7 shadow-xs">
-            <div className={`${fontContentClass} leading-relaxed select-text font-normal text-slate-900 dark:text-zinc-100 transition-all`}>
+          <div
+            onCopy={(e) => handlePreventCopy(e, 'sao chép câu hỏi')}
+            onCut={(e) => handlePreventCopy(e, 'cắt nội dung')}
+            onContextMenu={(e) => handlePreventCopy(e, 'menu chuột phải')}
+            className="bg-white dark:bg-[#121216] border border-slate-200 dark:border-zinc-800 rounded-2xl p-5 sm:p-7 shadow-xs select-none"
+          >
+            <div className={`${fontContentClass} leading-relaxed select-none font-normal text-slate-900 dark:text-zinc-100 transition-all`}>
               <MathRenderer content={currentQ.content} />
             </div>
           </div>
 
           {/* Answer Interaction Area */}
           {currentQ.type === 'mcq' && currentQ.options && (
-            <div className="space-y-3">
+            <div 
+              onCopy={(e) => handlePreventCopy(e, 'sao chép phương án')}
+              onContextMenu={(e) => handlePreventCopy(e, 'menu chuột phải')}
+              className="space-y-3 select-none"
+            >
               <div className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-zinc-400 flex items-center justify-between flex-wrap gap-2">
                 <span>Chọn 1 trong 4 đáp án (Phím tắt: A, B, C, D):</span>
                 <div className="flex items-center gap-3">
@@ -676,6 +791,84 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({
         unansweredIndices={unansweredIndices}
         onSelectQuestion={onSelectQuestion}
       />
+
+      {/* ============================================================== */}
+      {/* BACKGROUND SECURITY WATERMARK                                  */}
+      {/* ============================================================== */}
+      <div 
+        aria-hidden="true" 
+        className="pointer-events-none fixed inset-0 z-0 overflow-hidden select-none opacity-[0.025] dark:opacity-[0.02] flex flex-wrap items-center justify-around gap-16 p-6 rotate-[-15deg] scale-125"
+      >
+        {Array.from({ length: 16 }).map((_, i) => (
+          <div key={i} className="text-[11px] font-mono font-bold tracking-widest text-slate-900 dark:text-white uppercase whitespace-nowrap">
+            {studentName} • HSA PROCTOR SECURE SESSION
+          </div>
+        ))}
+      </div>
+
+      {/* ============================================================== */}
+      {/* TAB VIOLATION ALERT MODAL (Anti-Cheat & Proctoring)            */}
+      {/* ============================================================== */}
+      {isTabViolationAlertOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in font-sans select-none">
+          <div
+            className="w-full max-w-md rounded-3xl bg-white dark:bg-[#121217] border border-rose-300 dark:border-rose-900/60 shadow-2xl p-6 sm:p-7 relative overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="absolute -top-16 -right-16 w-36 h-36 bg-rose-500/20 rounded-full blur-2xl pointer-events-none" />
+            <div className="relative z-10 space-y-4">
+              <div className="flex items-center gap-3.5">
+                <div className="w-12 h-12 rounded-2xl bg-rose-500/15 border border-rose-500/30 text-rose-600 dark:text-rose-400 flex items-center justify-center shadow-xs shrink-0">
+                  <ShieldAlert className="w-6 h-6 animate-pulse" />
+                </div>
+                <div>
+                  <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wide uppercase bg-rose-100 dark:bg-rose-950/80 text-rose-700 dark:text-rose-300 border border-rose-200 dark:border-rose-800">
+                    Cảnh báo giám sát thi HSA
+                  </span>
+                  <h3 className="text-base sm:text-lg font-black text-slate-900 dark:text-zinc-100">
+                    Phát hiện rời màn hình làm bài
+                  </h3>
+                </div>
+              </div>
+
+              <div className="p-3.5 rounded-2xl bg-rose-50 dark:bg-rose-950/30 border border-rose-200 dark:border-rose-900/50 text-xs text-rose-900 dark:text-rose-200 space-y-1.5 leading-relaxed">
+                <div className="font-bold flex items-center justify-between">
+                  <span>Số lần rời tab ghi nhận:</span>
+                  <span className="text-xs font-mono font-black text-rose-600 dark:text-rose-400 px-2 py-0.5 rounded-lg bg-rose-100 dark:bg-rose-900/50">
+                    Lần thứ {internalTabSwitchCount}
+                  </span>
+                </div>
+                <p className="text-[11px] text-rose-700 dark:text-rose-300">
+                  Hệ thống giám sát đã ghi nhận việc chuyển tab hoặc mở ứng dụng khác. Số lần vi phạm sẽ được lưu trữ trong Báo cáo phân tích năng lực để đảm bảo tính minh bạch.
+                </p>
+              </div>
+
+              <p className="text-xs text-slate-500 dark:text-zinc-400 leading-relaxed">
+                Vui lòng tiếp tục làm bài trong cửa sổ này để đảm bảo kết quả đánh giá trung thực và chính xác nhất.
+              </p>
+
+              <button
+                type="button"
+                onClick={() => setIsTabViolationAlertOpen(false)}
+                className="w-full py-3 px-4 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs sm:text-sm transition shadow-lg shadow-rose-600/20 active:scale-98 cursor-pointer flex items-center justify-center gap-2"
+              >
+                <span>Tôi đã hiểu & Quay lại làm bài</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ============================================================== */}
+      {/* SECURITY NOTICE FLOATING TOAST                                 */}
+      {/* ============================================================== */}
+      {securityToast && (
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-slate-900/95 dark:bg-zinc-800/95 text-white text-xs font-semibold shadow-2xl border border-slate-700/80 backdrop-blur-md animate-bounce-in max-w-[90vw]">
+          <ShieldAlert className="w-4 h-4 text-amber-400 shrink-0" />
+          <span>{securityToast}</span>
+        </div>
+      )}
     </div>
   );
 

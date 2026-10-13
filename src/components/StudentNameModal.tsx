@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { User, School, Sparkles, ArrowRight } from 'lucide-react';
+import { User, School, Sparkles, ArrowRight, ShieldCheck } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import { validateStudentName, sanitizeInput } from '../utils/security';
 
 interface StudentNameModalProps {
   isOpen: boolean;
@@ -30,9 +31,9 @@ export const StudentNameModal: React.FC<StudentNameModalProps> = ({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const trimmedName = name.trim();
-    if (!trimmedName || trimmedName.length < 2) {
-      setError('Vui lòng nhập họ và tên thật của bạn (tối thiểu 2 ký tự)');
+    const validation = validateStudentName(name);
+    if (!validation.isValid) {
+      setError(validation.error || 'Vui lòng nhập họ và tên hợp lệ (tối thiểu 2 ký tự)');
       return;
     }
 
@@ -45,7 +46,9 @@ export const StudentNameModal: React.FC<StudentNameModalProps> = ({
       });
     } catch {}
 
-    onSave(trimmedName, school.trim(), email.trim());
+    const cleanSchool = sanitizeInput(school, 80);
+    const cleanEmail = sanitizeInput(email, 100);
+    onSave(validation.cleanName, cleanSchool, cleanEmail);
   };
 
   return (

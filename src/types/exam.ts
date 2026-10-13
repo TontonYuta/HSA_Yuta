@@ -102,4 +102,8 @@ export interface ExamReport {
     topicName: string;
     type: QuestionType;
   }[];
+  // Anti-cheat & Security integrity metrics
+  tabSwitchCount?: number;
+  integrityStatus?: 'clean' | 'suspicious' | 'flagged';
+  integrityChecksum?: string;
 }

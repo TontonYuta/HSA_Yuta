@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
-import { X, Copy, Check, Send, Sparkles, ExternalLink, ShieldCheck, User, Globe } from 'lucide-react';
+import { X, Copy, Check, Send, Sparkles, ExternalLink, ShieldCheck, User, Globe, AlertTriangle } from 'lucide-react';
 
 import { generateGasScript } from '../data/gasScriptTemplate';
+import { 
+  isAllowedWebhookUrl, 
+  sanitizeInput, 
+  checkSubmissionCooldown, 
+  recordSubmissionTime 
+} from '../utils/security';
 
 interface WebhookModalProps {
   isOpen: boolean;
@@ -42,10 +48,21 @@ export const WebhookModal: React.FC<WebhookModalProps> = ({
   if (!isOpen) return null;
 
   const handleSave = () => {
-    onSaveWebhookUrl(localUrl.trim());
-    if (onSaveTeacherEmail) onSaveTeacherEmail(localTeacherEmail.trim());
-    onSaveStudentEmail(localStudentEmail.trim());
-    onSaveStudentName(localStudentName.trim());
+    const trimmedUrl = localUrl.trim();
+    if (trimmedUrl && !isAllowedWebhookUrl(trimmedUrl)) {
+      setTestStatus('error');
+      setTestMessage('URL không an toàn hoặc không hợp lệ! Vui lòng nhập URL HTTPS chuẩn của Google Apps Script.');
+      return;
+    }
+
+    const cleanStudentName = sanitizeInput(localStudentName, 60);
+    const cleanStudentEmail = sanitizeInput(localStudentEmail, 100);
+    const cleanTeacherEmail = sanitizeInput(localTeacherEmail, 100);
+
+    onSaveWebhookUrl(trimmedUrl);
+    if (onSaveTeacherEmail) onSaveTeacherEmail(cleanTeacherEmail);
+    onSaveStudentEmail(cleanStudentEmail);
+    onSaveStudentName(cleanStudentName);
     onClose();
   };
 
@@ -58,11 +75,26 @@ export const WebhookModal: React.FC<WebhookModalProps> = ({
   };
 
   const handleTestPing = async () => {
-    if (!localUrl.trim()) {
+    const trimmedUrl = localUrl.trim();
+    if (!trimmedUrl) {
       setTestStatus('error');
       setTestMessage('Vui lòng nhập URL Google Apps Script Web App trước khi kiểm tra.');
       return;
     }
+
+    if (!isAllowedWebhookUrl(trimmedUrl)) {
+      setTestStatus('error');
+      setTestMessage('URL không an toàn hoặc không hợp lệ. Webhook bắt buộc phải dùng giao thức HTTPS.');
+      return;
+    }
+
+    const cooldown = checkSubmissionCooldown('test_webhook_ping', 5);
+    if (!cooldown.canSubmit) {
+      setTestStatus('error');
+      setTestMessage(`Vui lòng đợi ${cooldown.waitSeconds} giây trước khi gửi kiểm tra lại.`);
+      return;
+    }
+    recordSubmissionTime('test_webhook_ping');
 
     setTestStatus('testing');
     setTestMessage('Đang gửi tín hiệu kiểm tra đồng bộ dữ liệu...');

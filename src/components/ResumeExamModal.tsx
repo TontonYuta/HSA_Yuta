@@ -12,6 +12,8 @@ export interface SavedExamState {
   totalSeconds: number;
   timeRemainingSeconds: number;
   lastSavedAt: number;
+  checksum?: string;
+  tabSwitchCount?: number;
 }
 
 interface ResumeExamModalProps {

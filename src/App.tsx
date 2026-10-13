@@ -17,6 +17,13 @@ import { prepareExamQuestions } from './utils/questionRandomizer';
 import { TrafficBadge } from './components/TrafficBadge';
 import { notifyStudentJoined } from './utils/trafficTracker';
 import { ResumeExamModal, SavedExamState } from './components/ResumeExamModal';
+import { 
+  generateTamperProofHash, 
+  checkSubmissionCooldown, 
+  recordSubmissionTime, 
+  isAllowedWebhookUrl, 
+  sanitizeInput 
+} from './utils/security';
 import { GraduationCap } from 'lucide-react';
 
 export default function App() {
@@ -105,6 +112,7 @@ export default function App() {
   const [savedExamState, setSavedExamState] = useState<SavedExamState | null>(null);
   const [isResumeModalOpen, setIsResumeModalOpen] = useState<boolean>(false);
   const [timerInitialSeconds, setTimerInitialSeconds] = useState<number>(() => currentExamSet.timeMinutes * 60);
+  const [tabSwitchCount, setTabSwitchCount] = useState<number>(0);
 
   // Check and restore ongoing exam on mount
   useEffect(() => {
@@ -116,6 +124,19 @@ export default function App() {
           const elapsed = Math.floor((Date.now() - parsed.startTime) / 1000);
           const remaining = parsed.totalSeconds - elapsed;
           if (remaining > 0) {
+            // Validate tamper-proof checksum if present
+            if (parsed.checksum) {
+              const expectedHash = generateTamperProofHash({
+                examSetId: parsed.examSetId,
+                startTime: parsed.startTime,
+                totalSeconds: parsed.totalSeconds,
+                userAnswers: parsed.userAnswers,
+                tabSwitchCount: parsed.tabSwitchCount || 0,
+              });
+              if (expectedHash !== parsed.checksum) {
+                console.warn('⚠️ Cảnh báo bảo mật: Dữ liệu bài thi lưu trữ đã bị can thiệp bên ngoài!');
+              }
+            }
             setSavedExamState({
               ...parsed,
               timeRemainingSeconds: remaining,
@@ -142,7 +163,7 @@ export default function App() {
     return () => window.removeEventListener('beforeunload', handleBeforeUnload);
   }, [isExamActive]);
 
-  // Auto-save exam state to localStorage whenever answers or questions change
+  // Auto-save exam state to localStorage with anti-tamper checksum
   useEffect(() => {
     if (!isExamActive || activeQuestions.length === 0) return;
     try {
@@ -156,12 +177,20 @@ export default function App() {
         totalSeconds: currentExamSet.timeMinutes * 60,
         timeRemainingSeconds: Math.max(0, currentExamSet.timeMinutes * 60 - Math.floor((Date.now() - examStartTimeRef.current) / 1000)),
         lastSavedAt: Date.now(),
+        tabSwitchCount,
+        checksum: generateTamperProofHash({
+          examSetId: selectedExamSetId,
+          startTime: examStartTimeRef.current,
+          totalSeconds: currentExamSet.timeMinutes * 60,
+          userAnswers,
+          tabSwitchCount,
+        }),
       };
       localStorage.setItem('hsa_active_exam_state', JSON.stringify(stateToSave));
     } catch (e) {
       console.error('Failed to auto-save exam state', e);
     }
-  }, [isExamActive, selectedExamSetId, currentExamSet.title, currentExamSet.timeMinutes, activeQuestions, userAnswers, currentQuestionIndex]);
+  }, [isExamActive, selectedExamSetId, currentExamSet.title, currentExamSet.timeMinutes, activeQuestions, userAnswers, currentQuestionIndex, tabSwitchCount]);
 
   // Handler to resume saved exam
   const handleResumeSavedExam = () => {
@@ -172,6 +201,7 @@ export default function App() {
     setCurrentQuestionIndex(savedExamState.currentQuestionIndex || 0);
     examStartTimeRef.current = savedExamState.startTime;
     setTimerInitialSeconds(savedExamState.timeRemainingSeconds);
+    setTabSwitchCount(savedExamState.tabSwitchCount || 0);
     setIsExamActive(true);
     setIsSidebarOpen(typeof window !== 'undefined' ? window.innerWidth >= 768 : true);
     setCurrentMode('exam');
@@ -222,6 +252,7 @@ export default function App() {
     setSavedExamState(null);
     setIsResumeModalOpen(false);
     setTimerInitialSeconds(targetSet.timeMinutes * 60);
+    setTabSwitchCount(0);
 
     // Randomize choices and within-tier questions, sorted strictly from easy to hard
     const randomizedQuestions = prepareExamQuestions(questionsForSet);
@@ -276,7 +307,8 @@ export default function App() {
       studentEmail,
       calculatedSeconds,
       currentExamSet.title,
-      DEFAULT_TEACHER_EMAIL
+      DEFAULT_TEACHER_EMAIL,
+      tabSwitchCount
     );
     setExamReport(report);
     setCurrentMode('results');
@@ -304,6 +336,9 @@ export default function App() {
         fillTotal: report.fillTotal,
         timeSpentSeconds: calculatedSeconds,
         percentage: Math.round((report.totalScore / (report.maxScore || 1)) * 100),
+        tabSwitchCount,
+        integrityStatus: report.integrityStatus,
+        integrityChecksum: report.integrityChecksum,
       };
       const updatedHistory = [newEntry, ...(Array.isArray(history) ? history : [])].slice(0, 25);
       localStorage.setItem('hsa_exam_history', JSON.stringify(updatedHistory));
@@ -311,18 +346,24 @@ export default function App() {
       console.error('Failed to save exam history', e);
     }
 
-    // Automatically dispatch result report to teacher email huyhoang6altt@gmail.com
+    // Automatically dispatch result report with throttling and domain validation
     const targetUrl = webhookUrl?.trim() || DEFAULT_GAS_WEBHOOK_URL;
-    if (targetUrl) {
-      fetch(targetUrl, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'text/plain' },
-        body: JSON.stringify({
-          ...report,
-          teacherEmail: DEFAULT_TEACHER_EMAIL,
-        }),
-      }).catch(() => {});
+    if (targetUrl && isAllowedWebhookUrl(targetUrl)) {
+      const cooldown = checkSubmissionCooldown('hsa_exam_submission', 10);
+      if (cooldown.canSubmit) {
+        recordSubmissionTime('hsa_exam_submission');
+        fetch(targetUrl, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain' },
+          body: JSON.stringify({
+            ...report,
+            studentName: sanitizeInput(studentName, 60),
+            studentEmail: sanitizeInput(studentEmail, 100),
+            teacherEmail: DEFAULT_TEACHER_EMAIL,
+          }),
+        }).catch(() => {});
+      }
     }
   };
 
@@ -354,17 +395,20 @@ export default function App() {
 
   // Save student onboarding information
   const handleSaveStudentInfo = (name: string, school: string, email: string) => {
-    setStudentName(name);
-    setStudentSchool(school);
-    if (email) setStudentEmail(email);
-    localStorage.setItem('hsa_student_name', name);
-    localStorage.setItem('hsa_student_school', school);
-    if (email) localStorage.setItem('hsa_student_email', email);
+    const cleanName = sanitizeInput(name, 60);
+    const cleanSchool = sanitizeInput(school, 80);
+    const cleanEmail = sanitizeInput(email, 100);
+    setStudentName(cleanName);
+    setStudentSchool(cleanSchool);
+    if (cleanEmail) setStudentEmail(cleanEmail);
+    localStorage.setItem('hsa_student_name', cleanName);
+    localStorage.setItem('hsa_student_school', cleanSchool);
+    if (cleanEmail) localStorage.setItem('hsa_student_email', cleanEmail);
     localStorage.setItem('hsa_student_registered', 'true');
     setIsNameModalOpen(false);
 
     // Automatically send notification to teacher
-    notifyStudentJoined(name, school, email, teacherEmail, webhookUrl);
+    notifyStudentJoined(cleanName, cleanSchool, cleanEmail, teacherEmail, webhookUrl);
   };
 
   // Exit exam confirmation
@@ -415,6 +459,9 @@ export default function App() {
           setIsConfirmSubmitOpen={setIsConfirmSubmitOpen}
           isSidebarOpen={isSidebarOpen}
           setIsSidebarOpen={setIsSidebarOpen}
+          tabSwitchCount={tabSwitchCount}
+          onTabSwitchCountChange={setTabSwitchCount}
+          studentName={studentName}
         />
       );
     }

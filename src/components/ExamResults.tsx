@@ -12,7 +12,9 @@ import {
   ChevronDown,
   ChevronUp,
   Award,
-  Home
+  Home,
+  ShieldCheck,
+  ShieldAlert
 } from 'lucide-react';
 import { ExamReport, Question, TopicId } from '../types/exam';
 import { MathRenderer } from './MathRenderer';
@@ -74,7 +76,10 @@ export const ExamResults: React.FC<ExamResultsProps> = ({
 
   const handleCopySummary = () => {
     const timeSpentMin = Math.round(report.totalTimeSpentSeconds / 60);
-    const summaryText = `[KẾT QUẢ THI HSA - TONTONYUTA]\nThí sinh: ${report.studentName}\nBộ đề: ${report.examSetTitle}\nTổng điểm: ${report.totalScore}/${report.maxScore} (Trắc nghiệm: ${report.mcqScore}/${report.mcqTotal}, Điền số: ${report.fillScore}/${report.fillTotal})\nThời gian làm: ${timeSpentMin} phút\nChuyên đề cần cải thiện: ${report.weakestTopic.topicName} (${report.weakestTopic.percentage}%)\nHệ thống Luyện thi HSA cùng TontonYuta.`;
+    const integrityLabel = report.integrityStatus === 'clean'
+      ? '100% Nghiêm túc (0 lần rời tab)'
+      : `Ghi nhận ${report.tabSwitchCount || 0} lần rời màn hình`;
+    const summaryText = `[KẾT QUẢ THI HSA - TONTONYUTA]\nThí sinh: ${report.studentName}\nBộ đề: ${report.examSetTitle}\nTổng điểm: ${report.totalScore}/${report.maxScore} (Trắc nghiệm: ${report.mcqScore}/${report.mcqTotal}, Điền số: ${report.fillScore}/${report.fillTotal})\nThời gian làm: ${timeSpentMin} phút\nChuyên đề cần cải thiện: ${report.weakestTopic.topicName} (${report.weakestTopic.percentage}%)\nGiám sát thi: ${integrityLabel} (Checksum: #${report.integrityChecksum || 'N/A'})\nHệ thống Luyện thi HSA cùng TontonYuta.`;
     navigator.clipboard.writeText(summaryText);
     setCopiedSummary(true);
     setTimeout(() => setCopiedSummary(false), 2500);
@@ -196,6 +201,46 @@ export const ExamResults: React.FC<ExamResultsProps> = ({
               Tỉ lệ đúng: <span className="text-amber-600 dark:text-amber-400 font-bold font-mono">{report.fillTotal > 0 ? Math.round((report.fillScore / report.fillTotal) * 100) : 0}%</span>
             </div>
           </div>
+        </div>
+
+        {/* Security & Proctoring Integrity Verification Bar */}
+        <div className="mt-5 pt-4 border-t border-slate-100 dark:border-zinc-800/80 flex flex-wrap items-center justify-between gap-3 text-xs">
+          <div className="flex items-center gap-2.5">
+            <div className={`p-1.5 rounded-lg ${
+              report.integrityStatus === 'clean'
+                ? 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-400'
+                : 'bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-400'
+            }`}>
+              {report.integrityStatus === 'clean' ? (
+                <ShieldCheck className="w-4 h-4" />
+              ) : (
+                <ShieldAlert className="w-4 h-4" />
+              )}
+            </div>
+            <div>
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                Kiểm định tính toàn vẹn phòng thi:&nbsp;
+              </span>
+              <span className={`font-semibold ${
+                report.integrityStatus === 'clean'
+                  ? 'text-emerald-600 dark:text-emerald-400'
+                  : 'text-amber-600 dark:text-amber-400'
+              }`}>
+                {report.integrityStatus === 'clean'
+                  ? 'Chuẩn mực tuyệt đối (0 lần chuyển tab)'
+                  : `Ghi nhận ${report.tabSwitchCount || 0} lần rời màn hình làm bài`}
+              </span>
+            </div>
+          </div>
+
+          {report.integrityChecksum && (
+            <div className="flex items-center gap-2 font-mono text-[11px] text-slate-500 dark:text-zinc-400 bg-slate-100 dark:bg-zinc-800/60 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-zinc-700/60">
+              <span className="text-slate-400">Mã băm toàn vẹn:</span>
+              <span className="text-sky-600 dark:text-sky-400 font-bold select-all">
+                #{report.integrityChecksum}
+              </span>
+            </div>
+          )}
         </div>
       </div>
 

@@ -1,5 +1,6 @@
 import { Question, UserAnswer, ExamReport, TopicId } from '../types/exam';
 import { CHAPTERS_METADATA, MICRO_TOPICS_METADATA } from '../data/topics/index';
+import { generateTamperProofHash } from './security';
 
 // Color map per chapter
 const CHAPTER_COLORS: Record<string, string> = {
@@ -141,7 +142,8 @@ export function generateExamReport(
   studentEmail = '',
   totalTimeSpentSeconds = 0,
   examSetTitle = 'Đề Thi Chuẩn HSA',
-  teacherEmail = ''
+  teacherEmail = '',
+  tabSwitchCount = 0
 ): ExamReport {
   let totalScore = 0;
   let mcqScore = 0;
@@ -207,12 +209,25 @@ export function generateExamReport(
     percentage: 0,
   };
 
+  const completedAt = new Date().toISOString();
+  const integrityStatus: 'clean' | 'suspicious' | 'flagged' =
+    tabSwitchCount === 0 ? 'clean' : tabSwitchCount <= 2 ? 'suspicious' : 'flagged';
+
+  const integrityChecksum = generateTamperProofHash({
+    studentName,
+    examSetTitle,
+    totalScore,
+    maxScore: questions.length,
+    tabSwitchCount,
+    completedAt,
+  });
+
   return {
     studentName,
     studentEmail,
     teacherEmail,
     examSetTitle,
-    completedAt: new Date().toISOString(),
+    completedAt,
     totalTimeSpentSeconds,
     totalScore,
     maxScore: questions.length,
@@ -227,5 +242,8 @@ export function generateExamReport(
       percentage: weakest.percentage,
     },
     answers: detailedAnswers,
+    tabSwitchCount,
+    integrityStatus,
+    integrityChecksum,
   };
 }

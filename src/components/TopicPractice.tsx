@@ -17,6 +17,12 @@ import { Question, TopicId, ChapterInfo, UserAnswer } from '../types/exam';
 import { checkAnswerCorrectness, generateExamReport } from '../utils/scoring';
 import { prepareTopicPracticeQuestions } from '../utils/questionRandomizer';
 import { CHAPTERS_METADATA } from '../data/chaptersMetadata';
+import { 
+  isAllowedWebhookUrl, 
+  checkSubmissionCooldown, 
+  recordSubmissionTime, 
+  sanitizeInput 
+} from '../utils/security';
 
 import { TopicCatalogView } from './topic-practice/TopicCatalogView';
 import { TopicPracticeSidebar } from './topic-practice/TopicPracticeSidebar';
@@ -341,8 +347,8 @@ export const TopicPractice: React.FC<TopicPracticeProps> = ({
       };
     });
 
-    const nameToUse = localStudentName.trim() || 'Học sinh HSA';
-    const emailToUse = localStudentEmail.trim();
+    const nameToUse = sanitizeInput(localStudentName.trim() || 'Học sinh HSA', 60);
+    const emailToUse = sanitizeInput(localStudentEmail.trim(), 100);
 
     if (setStudentName) setStudentName(nameToUse);
     if (setStudentEmail) setStudentEmail(emailToUse);
@@ -366,16 +372,20 @@ export const TopicPractice: React.FC<TopicPracticeProps> = ({
       'https://script.google.com/macros/s/AKfycbydbnEnhDyyS4zkTvZhm6P2kRLLznrpIVSmwSt0YJBa4n3YJLKdNQ4k_zgzHyDox6Rmiw/exec';
 
     try {
-      if (targetUrl) {
-        await fetch(targetUrl, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'text/plain' },
-          body: JSON.stringify({
-            ...report,
-            teacherEmail: FIXED_TEACHER_EMAIL,
-          }),
-        });
+      if (targetUrl && isAllowedWebhookUrl(targetUrl)) {
+        const cooldown = checkSubmissionCooldown('hsa_practice_submission', 10);
+        if (cooldown.canSubmit) {
+          recordSubmissionTime('hsa_practice_submission');
+          await fetch(targetUrl, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'text/plain' },
+            body: JSON.stringify({
+              ...report,
+              teacherEmail: FIXED_TEACHER_EMAIL,
+            }),
+          });
+        }
       }
 
       confetti({
