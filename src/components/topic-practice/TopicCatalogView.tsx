@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Sparkles,
   BookOpen,
@@ -11,6 +11,8 @@ import {
   ChevronRight,
   ArrowRight,
   Home,
+  FolderOpen,
+  Target,
 } from 'lucide-react';
 import { Question, ChapterInfo } from '../../types/exam';
 import { CHAPTERS_METADATA } from '../../data/chaptersMetadata';
@@ -40,6 +42,11 @@ export const TopicCatalogView: React.FC<TopicCatalogViewProps> = ({
   onBackToExam,
   onSelectTopic,
 }) => {
+  const [quickChapterId, setQuickChapterId] = useState<string>(CHAPTERS_METADATA[0].id);
+  const [quickTopicId, setQuickTopicId] = useState<string>('__all__');
+  const currentQuickChapter =
+    CHAPTERS_METADATA.find((c) => c.id === quickChapterId) || CHAPTERS_METADATA[0];
+
   return (
     <div className="h-[calc(100vh-52px)] md:h-screen overflow-y-auto bg-slate-50 dark:bg-[#09090b] text-slate-900 dark:text-zinc-100 p-3 sm:p-6 lg:p-8 select-none">
       <div className="max-w-6xl mx-auto space-y-6 pb-20">
@@ -167,6 +174,77 @@ export const TopicCatalogView: React.FC<TopicCatalogViewProps> = ({
               }`}
             >
               Hình Học & Oxyz
+            </button>
+          </div>
+        </div>
+
+        {/* Quick Jump 2-Level Options Dropdowns (Khu vực 1) */}
+        <div className="p-3.5 sm:p-4 rounded-2xl bg-white dark:bg-[#121216] border border-sky-200/80 dark:border-sky-900/50 shadow-xs flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
+          <div className="flex items-center gap-2.5 shrink-0">
+            <span className="p-2 rounded-xl bg-sky-100/80 dark:bg-sky-950/80 text-sky-600 dark:text-sky-400 border border-sky-200/60 dark:border-sky-800/60">
+              <FolderOpen className="w-4 h-4" />
+            </span>
+            <div>
+              <div className="text-xs font-bold text-slate-800 dark:text-zinc-200 flex items-center gap-1.5">
+                <span>Chọn nhanh theo Options</span>
+                <span className="px-1.5 py-0.2 rounded bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-300 text-[10px] font-mono font-bold">
+                  2 Cấp
+                </span>
+              </div>
+              <div className="text-[11px] text-slate-500 dark:text-zinc-400">
+                Chuyển ngay tới chuyên đề mà không cần cuộn tìm
+              </div>
+            </div>
+          </div>
+
+          <div className="flex-1 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5">
+            {/* Dropdown 1: Chương */}
+            <div className="relative flex-1">
+              <select
+                value={quickChapterId}
+                onChange={(e) => {
+                  setQuickChapterId(e.target.value);
+                  const ch = CHAPTERS_METADATA.find((c) => c.id === e.target.value);
+                  setQuickTopicId(ch?.topics[0]?.id || '__all__');
+                }}
+                className="w-full appearance-none pl-3 pr-8 py-2 rounded-xl border border-slate-200 dark:border-zinc-700 bg-slate-50 dark:bg-zinc-850 text-xs font-semibold text-slate-800 dark:text-zinc-200 focus:outline-none focus:ring-2 focus:ring-sky-500 transition cursor-pointer shadow-2xs"
+              >
+                {CHAPTERS_METADATA.map((ch, idx) => (
+                  <option key={ch.id} value={ch.id} className="dark:bg-zinc-900 text-slate-900 dark:text-zinc-100">
+                    Chương {idx + 1}: {ch.shortName}
+                  </option>
+                ))}
+              </select>
+              <ChevronDown className="w-4 h-4 text-slate-400 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+            </div>
+
+            {/* Dropdown 2: Chuyên đề */}
+            <div className="relative flex-1">
+              <select
+                value={quickTopicId}
+                onChange={(e) => setQuickTopicId(e.target.value)}
+                className="w-full appearance-none pl-3 pr-8 py-2 rounded-xl border border-slate-200 dark:border-zinc-700 bg-slate-50 dark:bg-zinc-850 text-xs font-semibold text-slate-800 dark:text-zinc-200 focus:outline-none focus:ring-2 focus:ring-sky-500 transition cursor-pointer shadow-2xs"
+              >
+                <option value="__all__" className="dark:bg-zinc-900 font-bold text-sky-600 dark:text-sky-400">
+                  🌟 Toàn bộ chương
+                </option>
+                {currentQuickChapter.topics.map((t, idx) => (
+                  <option key={t.id} value={t.id} className="dark:bg-zinc-900 text-slate-900 dark:text-zinc-100">
+                    {idx + 1}. {t.name}
+                  </option>
+                ))}
+              </select>
+              <ChevronDown className="w-4 h-4 text-slate-400 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+            </div>
+
+            {/* Nút Vào luyện ngay */}
+            <button
+              type="button"
+              onClick={() => onSelectTopic(quickChapterId, quickTopicId === '__all__' ? null : quickTopicId)}
+              className="px-4 py-2 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs shadow-xs transition flex items-center justify-center gap-1.5 cursor-pointer shrink-0 active:scale-95"
+            >
+              <span>Vào luyện ngay</span>
+              <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>
         </div>

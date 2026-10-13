@@ -4,6 +4,9 @@ import {
   ChevronLeft,
   LayoutGrid,
   Home,
+  FolderOpen,
+  Target,
+  ChevronDown,
 } from 'lucide-react';
 import { Question } from '../../types/exam';
 import { CHAPTERS_METADATA } from '../../data/chaptersMetadata';
@@ -46,6 +49,10 @@ export const TopicPracticeSidebar: React.FC<TopicPracticeSidebarProps> = ({
   answeredCount,
   correctCount,
 }) => {
+  const currentChapter =
+    CHAPTERS_METADATA.find((ch) => ch.id === selectedChapterId) || CHAPTERS_METADATA[0];
+  const chTotalQuestions = questions.filter((q) => q.chapterId === selectedChapterId).length;
+
   return (
     <>
       {/* Mobile Backdrop */}
@@ -99,86 +106,72 @@ export const TopicPracticeSidebar: React.FC<TopicPracticeSidebarProps> = ({
             </span>
           </button>
 
-          {/* Chapter Selector Accordion */}
-          <div className="space-y-1.5 pb-3">
-            <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-zinc-500 px-1">
-              Chọn Chương (10 Chương GDPT 2018)
+          {/* Chapter & Topic 2-Level Options Dropdowns (Khu vực 1) */}
+          <div className="space-y-2.5 pb-2">
+            <div className="flex items-center justify-between px-1">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-zinc-500">
+                Bộ chọn chuyên đề
+              </span>
+              <span className="text-[10px] font-mono font-bold text-sky-600 dark:text-sky-400 bg-sky-50 dark:bg-sky-950/60 px-1.5 py-0.5 rounded border border-sky-200/60 dark:border-sky-800/60">
+                {filteredQuestions.length} câu
+              </span>
             </div>
+
+            {/* 1. Chọn Chương Dropdown */}
             <div className="space-y-1">
-              {CHAPTERS_METADATA.map((ch, idx) => {
-                const isChSelected = selectedChapterId === ch.id;
-                const chTotalQuestions = questions.filter((q) => q.chapterId === ch.id).length;
+              <label className="text-[11px] font-semibold text-slate-600 dark:text-zinc-400 flex items-center gap-1.5 px-0.5">
+                <FolderOpen className="w-3.5 h-3.5 text-sky-500" />
+                <span>1. Chọn Chương:</span>
+              </label>
+              <div className="relative">
+                <select
+                  value={selectedChapterId}
+                  onChange={(e) => {
+                    onSelectChapter(e.target.value);
+                  }}
+                  className="w-full appearance-none pl-3 pr-8 py-2 rounded-xl border border-slate-200 dark:border-zinc-700 bg-slate-50 dark:bg-zinc-800/90 text-xs font-semibold text-slate-800 dark:text-zinc-200 focus:outline-none focus:ring-2 focus:ring-sky-500 transition cursor-pointer shadow-2xs"
+                >
+                  {CHAPTERS_METADATA.map((ch, idx) => {
+                    const count = questions.filter((q) => q.chapterId === ch.id).length;
+                    return (
+                      <option key={ch.id} value={ch.id} className="dark:bg-zinc-900 text-slate-900 dark:text-zinc-100">
+                        Chương {idx + 1}: {ch.shortName} ({count} câu)
+                      </option>
+                    );
+                  })}
+                </select>
+                <ChevronDown className="w-4 h-4 text-slate-400 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+              </div>
+            </div>
 
-                return (
-                  <div key={ch.id} className="space-y-1">
-                    <button
-                      type="button"
-                      onClick={() => onSelectChapter(ch.id)}
-                      className={`w-full px-2.5 py-1.5 rounded-xl text-left text-xs font-semibold flex items-center justify-between transition cursor-pointer ${
-                        isChSelected
-                          ? 'bg-sky-50 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 border border-sky-300 dark:border-sky-800/80'
-                          : 'text-slate-700 dark:text-zinc-300 hover:bg-slate-100 dark:hover:bg-zinc-800/60 border border-transparent'
-                      }`}
-                    >
-                      <div className="flex items-center gap-2 truncate">
-                        <span className="w-4 h-4 rounded-md bg-slate-200/80 dark:bg-zinc-800 text-[10px] font-bold flex items-center justify-center font-mono shrink-0">
-                          {idx + 1}
-                        </span>
-                        <span className="truncate">{ch.shortName}</span>
-                      </div>
-                      <span className="text-[10px] font-mono opacity-60 shrink-0">
-                        {chTotalQuestions}
-                      </span>
-                    </button>
-
-                    {/* Sub-topics list when chapter is selected */}
-                    {isChSelected && (
-                      <div className="pl-6 pr-1 space-y-1 pt-0.5 animate-fade-in">
-                        <button
-                          type="button"
-                          onClick={() => {
-                            onSelectTopic(null);
-                            if (window.innerWidth < 1024) setIsSidebarOpen(false);
-                          }}
-                          className={`w-full px-2 py-1 rounded-lg text-left text-[11px] transition cursor-pointer flex items-center justify-between ${
-                            selectedTopicId === null
-                              ? 'bg-sky-600 text-white font-bold'
-                              : 'text-slate-600 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-800'
-                          }`}
-                        >
-                          <span>Toàn bộ chương</span>
-                          <span className="text-[10px] font-mono opacity-80">{chTotalQuestions} câu</span>
-                        </button>
-                        {ch.topics.map((t) => {
-                          const isTopicSelected = selectedTopicId === t.id;
-                          const tCount = questions.filter((q) => q.topicId === t.id).length;
-
-                          return (
-                            <button
-                              key={t.id}
-                              type="button"
-                              onClick={() => {
-                                onSelectTopic(t.id);
-                                if (window.innerWidth < 1024) setIsSidebarOpen(false);
-                              }}
-                              className={`w-full px-2 py-1 rounded-lg text-left text-[11px] transition cursor-pointer flex items-center justify-between ${
-                                isTopicSelected
-                                  ? 'bg-sky-600 text-white font-bold shadow-xs'
-                                  : 'text-slate-600 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-800'
-                              }`}
-                            >
-                              <span className="truncate">{t.name}</span>
-                              <span className="text-[10px] font-mono opacity-80 shrink-0 ml-1">
-                                {tCount}
-                              </span>
-                            </button>
-                          );
-                        })}
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
+            {/* 2. Chọn Chuyên đề Dropdown */}
+            <div className="space-y-1">
+              <label className="text-[11px] font-semibold text-slate-600 dark:text-zinc-400 flex items-center gap-1.5 px-0.5">
+                <Target className="w-3.5 h-3.5 text-emerald-500" />
+                <span>2. Chọn Chuyên đề:</span>
+              </label>
+              <div className="relative">
+                <select
+                  value={selectedTopicId || '__all__'}
+                  onChange={(e) => {
+                    onSelectTopic(e.target.value === '__all__' ? null : e.target.value);
+                  }}
+                  className="w-full appearance-none pl-3 pr-8 py-2 rounded-xl border border-slate-200 dark:border-zinc-700 bg-slate-50 dark:bg-zinc-800/90 text-xs font-semibold text-slate-800 dark:text-zinc-200 focus:outline-none focus:ring-2 focus:ring-sky-500 transition cursor-pointer shadow-2xs"
+                >
+                  <option value="__all__" className="dark:bg-zinc-900 font-bold text-sky-600 dark:text-sky-400">
+                    🌟 Toàn bộ chương ({chTotalQuestions} câu)
+                  </option>
+                  {currentChapter.topics.map((t, idx) => {
+                    const count = questions.filter((q) => q.topicId === t.id).length;
+                    return (
+                      <option key={t.id} value={t.id} className="dark:bg-zinc-900 text-slate-900 dark:text-zinc-100">
+                        {idx + 1}. {t.name} ({count} câu)
+                      </option>
+                    );
+                  })}
+                </select>
+                <ChevronDown className="w-4 h-4 text-slate-400 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+              </div>
             </div>
           </div>
 

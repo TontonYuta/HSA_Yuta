@@ -61,6 +61,10 @@ export const TopicQuestionWorkspace: React.FC<TopicQuestionWorkspaceProps> = ({
               {/* Micro Metadata */}
               <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-zinc-800/80 text-xs text-slate-500 dark:text-zinc-400">
                 <div className="flex items-center gap-2">
+                  <span className="font-bold text-sky-600 dark:text-sky-400 font-mono">
+                    Câu {currentIdx + 1}/{totalQuestions}
+                  </span>
+                  <span>·</span>
                   <span className="font-semibold text-slate-700 dark:text-zinc-300">
                     {currentQ.topicName}
                   </span>

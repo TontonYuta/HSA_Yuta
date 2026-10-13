@@ -7,6 +7,10 @@ import {
   Lightbulb,
   Eye,
   Send,
+  MoreVertical,
+  SlidersHorizontal,
+  BookOpen,
+  RotateCcw,
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { Question, TopicId, ChapterInfo, UserAnswer } from '../types/exam';
@@ -18,6 +22,7 @@ import { TopicCatalogView } from './topic-practice/TopicCatalogView';
 import { TopicPracticeSidebar } from './topic-practice/TopicPracticeSidebar';
 import { TopicQuestionWorkspace } from './topic-practice/TopicQuestionWorkspace';
 import { TopicSubmitModal } from './topic-practice/TopicSubmitModal';
+import { FormulaSheetModal } from './FormulaSheetModal';
 
 interface TopicPracticeProps {
   questions: Question[];
@@ -80,6 +85,33 @@ export const TopicPractice: React.FC<TopicPracticeProps> = ({
   const [checkedStatus, setCheckedStatus] = useState<Record<number, boolean>>({});
   const [showSolution, setShowSolution] = useState<Record<number, boolean>>({});
   const [showHint, setShowHint] = useState<Record<number, boolean>>({});
+
+  // Options popover & Formula Sheet Modal states (Khu vực 2)
+  const [isOptionsOpen, setIsOptionsOpen] = useState<boolean>(false);
+  const [showFormulaModal, setShowFormulaModal] = useState<boolean>(false);
+  const optionsRef = useRef<HTMLDivElement>(null);
+
+  // Close options popover when clicking outside or pressing Escape
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (optionsRef.current && !optionsRef.current.contains(event.target as Node)) {
+        setIsOptionsOpen(false);
+      }
+    };
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsOptionsOpen(false);
+      }
+    };
+    if (isOptionsOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('keydown', handleKeyDown);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOptionsOpen]);
 
   // Session timing
   const practiceStartTimeRef = useRef<number>(Date.now());
@@ -411,100 +443,242 @@ export const TopicPractice: React.FC<TopicPracticeProps> = ({
       {/* 2. MAIN WORKSPACE */}
       <div className="flex-1 flex flex-col h-full overflow-hidden">
         {/* Sticky Compact Topbar */}
-        <header className="h-12 border-b border-slate-200 dark:border-zinc-800 bg-white dark:bg-[#101014] px-3 sm:px-4 flex items-center justify-between gap-2 shrink-0 z-20">
-          {/* Left: Sidebar Toggle, Catalog Button & Topic Badge */}
-          <div className="flex items-center gap-1.5 sm:gap-2 truncate">
-            <button
-              type="button"
-              onClick={() => setIsBrowsingCatalog(true)}
-              className="px-2 sm:px-2.5 py-1.5 rounded-lg border border-slate-200 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-900 hover:bg-slate-100 dark:hover:bg-zinc-800 text-xs font-semibold text-slate-700 dark:text-zinc-300 transition flex items-center gap-1 cursor-pointer shrink-0"
-              title="Quay lại danh mục 30 chuyên đề"
-            >
-              <LayoutGrid className="w-3.5 h-3.5 text-sky-500" />
-              <span className="hidden sm:inline text-[11px] font-bold">Chọn CĐ khác</span>
-              <span className="sm:hidden text-[11px] font-bold">Đổi CĐ</span>
-            </button>
-
+        <header className="h-12 border-b border-slate-200 dark:border-zinc-800 bg-white dark:bg-[#101014] px-2 sm:px-4 flex items-center justify-between gap-1.5 sm:gap-2 shrink-0 z-20 overflow-hidden">
+          {/* Left: Khu vực 1 - Bộ chọn Dropdown Options 2 Cấp (Chương & Chuyên đề) + Nút Bảng câu */}
+          <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
+            {/* Nút Bảng câu hỏi */}
             <button
               type="button"
               onClick={() => setIsSidebarOpen((prev) => !prev)}
-              className="px-2 sm:px-2.5 py-1.5 rounded-lg border border-slate-200 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-900 hover:bg-slate-100 dark:hover:bg-zinc-800 text-xs font-semibold text-slate-700 dark:text-zinc-300 transition flex items-center gap-1 cursor-pointer shrink-0"
+              className="p-1.5 sm:px-2 rounded-lg border border-slate-200 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-900 hover:bg-slate-100 dark:hover:bg-zinc-800 text-xs font-semibold text-slate-700 dark:text-zinc-300 transition flex items-center gap-1 cursor-pointer shrink-0"
               title="Mở bảng câu hỏi"
               aria-label="Mở bảng câu hỏi"
             >
               <Layers className="w-3.5 h-3.5 text-sky-500" />
-              <span className="hidden xs:inline text-[11px] font-bold">Bảng câu</span>
-              <ChevronDown className="w-3 h-3 text-slate-400" />
+              <span className="hidden lg:inline text-[11px] font-bold">Bảng câu</span>
             </button>
 
-            <div className="truncate text-xs font-bold text-slate-800 dark:text-zinc-200 flex items-center gap-1.5">
-              <span className="truncate">{currentTopicName}</span>
+            {/* Dropdown 1: Chọn Chương (Options Cấp 1) */}
+            <div className="relative shrink-0 w-28 sm:w-32 md:w-36">
+              <select
+                value={selectedChapterId}
+                onChange={(e) => handleSelectChapter(e.target.value)}
+                className="w-full appearance-none pl-2 sm:pl-2.5 pr-5 py-1.5 rounded-lg border border-slate-200 dark:border-zinc-800 bg-slate-100/90 dark:bg-zinc-850 hover:bg-slate-200/60 dark:hover:bg-zinc-800 text-xs font-bold text-slate-800 dark:text-zinc-200 focus:outline-none focus:ring-2 focus:ring-sky-500 transition cursor-pointer truncate shadow-2xs"
+                title="Chọn chương GDPT 2018"
+              >
+                {CHAPTERS_METADATA.map((ch, idx) => (
+                  <option key={ch.id} value={ch.id} className="dark:bg-zinc-900 text-slate-900 dark:text-zinc-100 font-medium">
+                    C.{idx + 1}: {ch.shortName}
+                  </option>
+                ))}
+              </select>
+              <ChevronDown className="w-3.5 h-3.5 text-slate-400 absolute right-1 top-1/2 -translate-y-1/2 pointer-events-none" />
+            </div>
+
+            {/* Dropdown 2: Chọn Chuyên đề (Options Cấp 2) */}
+            <div className="relative shrink-0 w-32 sm:w-36 md:w-44">
+              <select
+                value={selectedTopicId || '__all__'}
+                onChange={(e) => handleSelectTopic(e.target.value === '__all__' ? null : e.target.value)}
+                className="w-full appearance-none pl-2 sm:pl-2.5 pr-5 py-1.5 rounded-lg border border-sky-200 dark:border-sky-800/80 bg-sky-50/90 dark:bg-sky-950/60 hover:bg-sky-100/90 dark:hover:bg-sky-900/60 text-xs font-bold text-sky-800 dark:text-sky-300 focus:outline-none focus:ring-2 focus:ring-sky-500 transition cursor-pointer truncate shadow-2xs"
+                title="Chọn chuyên đề làm bài"
+              >
+                <option value="__all__" className="dark:bg-zinc-900 font-bold text-sky-600 dark:text-sky-400">
+                  🌟 Toàn bộ ({questions.filter((q) => q.chapterId === selectedChapterId).length} câu)
+                </option>
+                {currentChapter.topics.map((t, idx) => {
+                  const count = questions.filter((q) => q.topicId === t.id).length;
+                  return (
+                    <option key={t.id} value={t.id} className="dark:bg-zinc-900 text-slate-900 dark:text-zinc-100 font-medium">
+                      {idx + 1}. {t.name} ({count} câu)
+                    </option>
+                  );
+                })}
+              </select>
+              <ChevronDown className="w-3.5 h-3.5 text-sky-500 absolute right-1 top-1/2 -translate-y-1/2 pointer-events-none" />
             </div>
           </div>
 
-          {/* Center: Progress & Counter */}
-          <div className="flex items-center gap-2 shrink-0">
-            <span className="px-2.5 py-1 rounded-md bg-sky-600 text-white font-mono text-xs font-bold shadow-xs">
-              Câu {currentIdx + 1} / {filteredQuestions.length}
+          {/* Right: Khu vực 2 - Tinh gọn còn: [Tiến độ], [Nộp bài], [••• Tùy chọn] */}
+          <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+            {/* Tiến độ câu hỏi (Hiện trên màn hình từ sm trở lên) */}
+            <span className="hidden sm:inline-flex px-2 sm:px-2.5 py-1 rounded-md bg-sky-600 text-white font-mono text-[11px] sm:text-xs font-bold shadow-2xs">
+              {currentIdx + 1}/{filteredQuestions.length}
             </span>
-            <span className="hidden md:inline-flex text-xs font-mono text-slate-500 dark:text-zinc-400">
-              Đã làm: <strong className="text-slate-800 dark:text-zinc-200 ml-1">{answeredCount}</strong>/{filteredQuestions.length}
-            </span>
-            <span className="hidden md:inline-flex text-xs font-mono text-emerald-600 dark:text-emerald-400 font-bold">
-              Đúng: {correctCount}
-            </span>
-          </div>
 
-          {/* Right: Actions & Submit Button */}
-          <div className="flex items-center gap-1.5 shrink-0">
-            <button
-              type="button"
-              onClick={handleReshuffle}
-              className="p-1.5 sm:px-2.5 sm:py-1 rounded-lg border border-slate-200 dark:border-zinc-800 hover:bg-slate-100 dark:hover:bg-zinc-800 text-xs font-medium text-slate-600 dark:text-zinc-300 transition flex items-center gap-1 cursor-pointer"
-              title="Xáo trộn câu hỏi"
-            >
-              <Shuffle className="w-3.5 h-3.5 text-sky-500" />
-              <span className="hidden xl:inline">Xáo trộn</span>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => setShowHint((prev) => ({ ...prev, [currentQ?.id]: !prev[currentQ?.id] }))}
-              className={`p-1.5 sm:px-2.5 sm:py-1 rounded-lg border text-xs font-medium transition flex items-center gap-1 cursor-pointer ${
-                isHintVisible
-                  ? 'bg-amber-500 text-white border-amber-600'
-                  : 'border-slate-200 dark:border-zinc-800 text-slate-600 dark:text-zinc-300 hover:bg-slate-100 dark:hover:bg-zinc-800'
-              }`}
-              title="Gợi ý tư duy"
-            >
-              <Lightbulb className="w-3.5 h-3.5 text-amber-500" />
-              <span className="hidden xl:inline">Gợi ý</span>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => setShowSolution((prev) => ({ ...prev, [currentQ?.id]: !prev[currentQ?.id] }))}
-              className={`p-1.5 sm:px-2.5 sm:py-1 rounded-lg border text-xs font-medium transition flex items-center gap-1 cursor-pointer ${
-                isSolutionVisible
-                  ? 'bg-sky-600 text-white border-sky-600'
-                  : 'border-slate-200 dark:border-zinc-800 text-slate-600 dark:text-zinc-300 hover:bg-slate-100 dark:hover:bg-zinc-800'
-              }`}
-              title="Xem lời giải chi tiết"
-            >
-              <Eye className="w-3.5 h-3.5 text-sky-500" />
-              <span className="hidden xl:inline">Xem giải</span>
-            </button>
-
-            {/* Submit Button */}
+            {/* Nút Nộp bài (Hành động cốt lõi) */}
             <button
               type="button"
               onClick={handleOpenSubmitModal}
-              className="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-xs transition flex items-center gap-1.5 active:scale-95 cursor-pointer ml-1"
-              title="Nộp bài"
+              className="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-xs transition flex items-center gap-1 active:scale-95 cursor-pointer"
+              title="Nộp bài hoàn thành chuyên đề"
             >
               <Send className="w-3.5 h-3.5" />
-              <span>Nộp bài</span>
+              <span className="hidden xs:inline">Nộp bài</span>
             </button>
+
+            {/* Menu [••• Tùy chọn] Gom tất cả các tính năng bổ trợ */}
+            <div className="relative" ref={optionsRef}>
+              <button
+                type="button"
+                onClick={() => setIsOptionsOpen((prev) => !prev)}
+                className={`p-1.5 sm:px-2.5 sm:py-1.5 rounded-lg border text-xs font-semibold transition flex items-center gap-1 cursor-pointer ${
+                  isOptionsOpen
+                    ? 'border-sky-500 bg-sky-50 dark:bg-sky-950/60 text-sky-600 dark:text-sky-300'
+                    : 'border-slate-200 dark:border-zinc-800 hover:bg-slate-100 dark:hover:bg-zinc-800 text-slate-700 dark:text-zinc-300'
+                }`}
+                title="Tùy chọn bổ trợ (Lời giải, Xáo trộn, Gợi ý, Công thức...)"
+                aria-label="Tùy chọn bổ trợ"
+                aria-expanded={isOptionsOpen}
+              >
+                <MoreVertical className="w-4 h-4" />
+                <span className="hidden xs:inline text-xs font-bold">Tùy chọn</span>
+              </button>
+
+              {/* Popover Dropdown Menu */}
+              {isOptionsOpen && (
+                <div className="absolute right-0 top-full mt-2 w-64 rounded-2xl bg-white dark:bg-[#141418] border border-slate-200 dark:border-zinc-800 shadow-xl py-2 z-50 animate-fade-in text-slate-800 dark:text-zinc-200">
+                  <div className="px-3 py-1.5 border-b border-slate-100 dark:border-zinc-800/80 mb-1 flex items-center justify-between text-[11px] font-bold text-slate-400 dark:text-zinc-500 uppercase tracking-wider">
+                    <span>Tùy chọn làm bài</span>
+                    <SlidersHorizontal className="w-3.5 h-3.5" />
+                  </div>
+
+                  {/* Lời giải chi tiết (Hiện trên mobile) */}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setShowSolution((prev) => ({ ...prev, [currentQ?.id]: !prev[currentQ?.id] }));
+                    }}
+                    className="w-full px-3 py-2 text-left text-xs hover:bg-slate-50 dark:hover:bg-zinc-800 flex items-center justify-between cursor-pointer transition md:hidden"
+                  >
+                    <div className="flex items-center gap-2.5">
+                      <div className="p-1.5 rounded-lg bg-sky-50 dark:bg-sky-950/60 text-sky-600 dark:text-sky-400 border border-sky-200/60 dark:border-sky-800/60">
+                        <Eye className="w-3.5 h-3.5" />
+                      </div>
+                      <div>
+                        <div className="font-bold text-slate-900 dark:text-zinc-100">Lời giải chi tiết</div>
+                        <div className="text-[10px] text-slate-500 dark:text-zinc-400">Xem giải từng bước</div>
+                      </div>
+                    </div>
+                    <span
+                      className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
+                        isSolutionVisible
+                          ? 'bg-sky-600 text-white'
+                          : 'bg-slate-100 dark:bg-zinc-800 text-slate-500 dark:text-zinc-400'
+                      }`}
+                    >
+                      {isSolutionVisible ? 'Đang mở' : 'Tắt'}
+                    </span>
+                  </button>
+
+                  {/* 1. Xáo trộn thứ tự câu hỏi */}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      handleReshuffle();
+                      setIsOptionsOpen(false);
+                    }}
+                    className="w-full px-3 py-2 text-left text-xs hover:bg-slate-50 dark:hover:bg-zinc-800 flex items-center justify-between cursor-pointer transition"
+                  >
+                    <div className="flex items-center gap-2.5">
+                      <div className="p-1.5 rounded-lg bg-sky-50 dark:bg-sky-950/60 text-sky-600 dark:text-sky-400 border border-sky-200/60 dark:border-sky-800/60">
+                        <Shuffle className="w-3.5 h-3.5" />
+                      </div>
+                      <div>
+                        <div className="font-bold text-slate-900 dark:text-zinc-100">Xáo trộn câu hỏi</div>
+                        <div className="text-[10px] text-slate-500 dark:text-zinc-400">Đảo ngẫu nhiên thứ tự</div>
+                      </div>
+                    </div>
+                  </button>
+
+                  {/* 2. Gợi ý tư duy Socratic (Bật / Tắt) */}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setShowHint((prev) => ({ ...prev, [currentQ?.id]: !prev[currentQ?.id] }));
+                    }}
+                    className="w-full px-3 py-2 text-left text-xs hover:bg-slate-50 dark:hover:bg-zinc-800 flex items-center justify-between cursor-pointer transition"
+                  >
+                    <div className="flex items-center gap-2.5">
+                      <div className="p-1.5 rounded-lg bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 border border-amber-200/60 dark:border-amber-800/60">
+                        <Lightbulb className="w-3.5 h-3.5" />
+                      </div>
+                      <div>
+                        <div className="font-bold text-slate-900 dark:text-zinc-100">Gợi ý tư duy</div>
+                        <div className="text-[10px] text-slate-500 dark:text-zinc-400">Định hướng giải quyết</div>
+                      </div>
+                    </div>
+                    <span
+                      className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
+                        isHintVisible
+                          ? 'bg-amber-500 text-white'
+                          : 'bg-slate-100 dark:bg-zinc-800 text-slate-500 dark:text-zinc-400'
+                      }`}
+                    >
+                      {isHintVisible ? 'Đang bật' : 'Tắt'}
+                    </span>
+                  </button>
+
+                  {/* 3. Bảng công thức toán học giải nhanh */}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setShowFormulaModal(true);
+                      setIsOptionsOpen(false);
+                    }}
+                    className="w-full px-3 py-2 text-left text-xs hover:bg-slate-50 dark:hover:bg-zinc-800 flex items-center justify-between cursor-pointer transition"
+                  >
+                    <div className="flex items-center gap-2.5">
+                      <div className="p-1.5 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 border border-emerald-200/60 dark:border-emerald-800/60">
+                        <BookOpen className="w-3.5 h-3.5" />
+                      </div>
+                      <div>
+                        <div className="font-bold text-slate-900 dark:text-zinc-100">Bảng công thức toán</div>
+                        <div className="text-[10px] text-slate-500 dark:text-zinc-400">Tra cứu nhanh GDPT 2018</div>
+                      </div>
+                    </div>
+                  </button>
+
+                  <div className="my-1.5 border-t border-slate-100 dark:border-zinc-800/80" />
+
+                  {/* 4. Làm lại từ đầu chuyên đề này */}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      resetQuestionState();
+                      setIsOptionsOpen(false);
+                    }}
+                    className="w-full px-3 py-2 text-left text-xs hover:bg-slate-50 dark:hover:bg-zinc-800 flex items-center gap-2.5 cursor-pointer transition text-slate-600 dark:text-zinc-300"
+                  >
+                    <div className="p-1.5 rounded-lg bg-slate-100 dark:bg-zinc-800 text-slate-500 dark:text-zinc-400">
+                      <RotateCcw className="w-3.5 h-3.5" />
+                    </div>
+                    <div>
+                      <div className="font-semibold">Làm lại chuyên đề này</div>
+                      <div className="text-[10px] text-slate-400 dark:text-zinc-500">Xóa các đáp án đã chọn</div>
+                    </div>
+                  </button>
+
+                  {/* 5. Xem danh mục 30 Chuyên đề */}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsBrowsingCatalog(true);
+                      setIsOptionsOpen(false);
+                    }}
+                    className="w-full px-3 py-2 text-left text-xs hover:bg-slate-50 dark:hover:bg-zinc-800 flex items-center gap-2.5 cursor-pointer transition text-slate-600 dark:text-zinc-300"
+                  >
+                    <div className="p-1.5 rounded-lg bg-slate-100 dark:bg-zinc-800 text-slate-500 dark:text-zinc-400">
+                      <LayoutGrid className="w-3.5 h-3.5" />
+                    </div>
+                    <div>
+                      <div className="font-semibold">Kho 30 Chuyên Đề</div>
+                      <div className="text-[10px] text-slate-400 dark:text-zinc-500">Mở danh mục dạng thẻ lớn</div>
+                    </div>
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
         </header>
 
@@ -550,6 +724,12 @@ export const TopicPractice: React.FC<TopicPracticeProps> = ({
           setIsSubmitModalOpen(false);
           onBackToExam();
         }}
+      />
+
+      {/* 4. FORMULA SHEET MODAL */}
+      <FormulaSheetModal
+        isOpen={showFormulaModal}
+        onClose={() => setShowFormulaModal(false)}
       />
     </div>
   );
