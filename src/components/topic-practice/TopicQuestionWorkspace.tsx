@@ -49,17 +49,17 @@ export const TopicQuestionWorkspace: React.FC<TopicQuestionWorkspaceProps> = ({
 }) => {
   return (
     <>
-      {/* Question Workspace - Scrollable within card */}
+      {/* Question Workspace - Scrollable within card (Only scrolls if content is very long) */}
       <main
         ref={mainScrollRef}
-        className="flex-1 overflow-y-auto p-3.5 sm:p-5 lg:p-6 pb-24 sm:pb-6 flex flex-col justify-between"
+        className="flex-1 min-h-0 overflow-y-auto p-3.5 sm:p-5 lg:p-6 pb-24 sm:pb-6 scrollbar-thin scrollbar-thumb-slate-300 dark:scrollbar-thumb-zinc-700"
       >
         {currentQ ? (
-          <div className="w-full max-w-4xl mx-auto space-y-4">
+          <div className="w-full max-w-4xl mx-auto space-y-3.5">
             {/* Question Card */}
-            <div className="bg-white dark:bg-[#121216] border border-slate-200 dark:border-zinc-800 rounded-2xl p-4 sm:p-6 shadow-xs space-y-4 transition-colors">
+            <div className="bg-white dark:bg-[#121216] border border-slate-200 dark:border-zinc-800 rounded-2xl p-4 sm:p-5 shadow-xs space-y-3.5 transition-colors">
               {/* Micro Metadata */}
-              <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-zinc-800/80 text-xs text-slate-500 dark:text-zinc-400">
+              <div className="flex items-center justify-between pb-2.5 border-b border-slate-100 dark:border-zinc-800/80 text-xs text-slate-500 dark:text-zinc-400">
                 <div className="flex items-center gap-2">
                   <span className="font-bold text-sky-600 dark:text-sky-400 font-mono">
                     Câu {currentIdx + 1}/{totalQuestions}
@@ -80,7 +80,7 @@ export const TopicQuestionWorkspace: React.FC<TopicQuestionWorkspaceProps> = ({
 
               {/* Socratic Hint Box */}
               {isHintVisible && currentQ.socraticHint && (
-                <div className="p-3.5 rounded-xl bg-amber-50/80 dark:bg-amber-950/20 border border-amber-200/80 dark:border-amber-900/40 text-amber-900 dark:text-amber-200 text-xs sm:text-sm flex items-start gap-2.5 animate-fade-in">
+                <div className="p-3 rounded-xl bg-amber-50/80 dark:bg-amber-950/20 border border-amber-200/80 dark:border-amber-900/40 text-amber-900 dark:text-amber-200 text-xs sm:text-sm flex items-start gap-2.5 animate-fade-in">
                   <Lightbulb className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
                   <div>
                     <strong className="block text-amber-800 dark:text-amber-300 font-bold mb-0.5">
@@ -100,7 +100,7 @@ export const TopicQuestionWorkspace: React.FC<TopicQuestionWorkspaceProps> = ({
 
               {/* Answers Interaction */}
               {currentQ.type === 'mcq' && currentQ.options ? (
-                <div className="grid grid-cols-1 gap-2 pt-2">
+                <div className="grid grid-cols-1 gap-2 pt-1.5">
                   {currentQ.options.map((opt) => {
                     const isSelected = currentAnswer === opt.key;
                     const isRightOpt = currentQ.correctAnswer === opt.key;
@@ -128,7 +128,7 @@ export const TopicQuestionWorkspace: React.FC<TopicQuestionWorkspaceProps> = ({
                         key={opt.key}
                         type="button"
                         onClick={() => onSelectOption(opt.key)}
-                        className={`p-3 rounded-xl border text-left transition flex items-start gap-3 cursor-pointer ${optStyle}`}
+                        className={`p-2.5 sm:p-3 rounded-xl border text-left transition flex items-start gap-3 cursor-pointer ${optStyle}`}
                       >
                         <span className="w-6.5 h-6.5 rounded-lg bg-white dark:bg-zinc-900 border border-slate-300 dark:border-zinc-700 flex items-center justify-center font-mono text-xs font-bold shrink-0 text-slate-800 dark:text-zinc-200">
                           {opt.key}

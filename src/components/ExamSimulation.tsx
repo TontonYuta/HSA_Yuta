@@ -290,12 +290,12 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({
   return (
     <div className="h-[calc(100vh-52px)] flex overflow-hidden bg-slate-50 dark:bg-[#09090b] text-slate-900 dark:text-zinc-100 transition-colors">
       {/* ============================================================== */}
-      {/* MAIN QUESTION WORKSPACE (Left / Center - Scrollable)            */}
+      {/* MAIN QUESTION WORKSPACE COLUMN (3-Tier CBT Layout: No-Scroll)   */}
       {/* ============================================================== */}
-      <main ref={mainScrollRef} className="flex-1 overflow-y-auto flex flex-col justify-between p-3.5 sm:p-6 lg:p-8 pb-24 sm:pb-8">
-        <div className={`w-full mx-auto space-y-5 transition-all duration-200 ${isSidebarOpen ? 'max-w-4xl' : 'max-w-4xl lg:max-w-5xl'}`}>
-          {/* Question Metadata & CBT Control Bar */}
-          <div className="flex items-center justify-between pb-3.5 border-b border-slate-200 dark:border-zinc-800 flex-wrap gap-2.5">
+      <div className="flex-1 flex flex-col h-full min-h-0 overflow-hidden">
+        {/* TIER 1: FIXED TOPBAR (Question Metadata & CBT Control Bar) */}
+        <header className="shrink-0 bg-white/95 dark:bg-[#101014]/95 backdrop-blur-xs border-b border-slate-200 dark:border-zinc-800 px-3.5 sm:px-6 py-2.5 z-10 transition-colors shadow-2xs">
+          <div className={`w-full mx-auto flex items-center justify-between gap-2.5 flex-wrap ${isSidebarOpen ? 'max-w-4xl' : 'max-w-4xl lg:max-w-5xl'}`}>
             <div className="flex items-center gap-2 flex-wrap">
               <span className="px-3 py-1 rounded-lg bg-sky-600 text-white font-mono text-xs font-bold shadow-xs">
                 Câu {currentQuestionIndex + 1} / {questions.length}
@@ -421,10 +421,17 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({
               </button>
             </div>
           </div>
+        </header>
 
-          {/* Collapsible Quick Scratchpad Notepad */}
-          {showScratchpad && (
-            <div className="bg-amber-50/70 dark:bg-amber-950/20 border border-amber-200/80 dark:border-amber-900/50 rounded-2xl p-4 space-y-2 shadow-xs animate-fade-in">
+        {/* TIER 2: INTERNAL SCROLLABLE QUESTION WORKSPACE (Only scrolls if content is very tall) */}
+        <main
+          ref={mainScrollRef}
+          className="flex-1 min-h-0 overflow-y-auto p-3.5 sm:p-5 lg:p-6 pb-20 sm:pb-6 scrollbar-thin scrollbar-thumb-slate-300 dark:scrollbar-thumb-zinc-700"
+        >
+          <div className={`w-full mx-auto space-y-4 transition-all duration-200 ${isSidebarOpen ? 'max-w-4xl' : 'max-w-4xl lg:max-w-5xl'}`}>
+            {/* Collapsible Quick Scratchpad Notepad */}
+            {showScratchpad && (
+              <div className="bg-amber-50/70 dark:bg-amber-950/20 border border-amber-200/80 dark:border-amber-900/50 rounded-2xl p-4 space-y-2 shadow-xs animate-fade-in">
               <div className="flex items-center justify-between text-xs font-bold text-amber-800 dark:text-amber-300">
                 <span className="flex items-center gap-1.5">
                   <Edit3 className="w-3.5 h-3.5" />
@@ -602,55 +609,58 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({
               )}
             </div>
           )}
-        </div>
+          </div>
+        </main>
 
-        {/* Desktop Bottom Question Navigation Bar (Hidden on mobile) */}
-        <div className={`w-full mx-auto pt-5 mt-5 border-t border-slate-200 dark:border-zinc-800 hidden sm:flex items-center justify-between gap-3 transition-all duration-200 ${isSidebarOpen ? 'max-w-4xl' : 'max-w-4xl lg:max-w-5xl'}`}>
-          <button
-            type="button"
-            onClick={handlePrev}
-            disabled={currentQuestionIndex === 0}
-            className="px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 text-slate-700 dark:text-zinc-300 hover:bg-slate-100 dark:hover:bg-zinc-800 text-xs sm:text-sm font-semibold transition disabled:opacity-30 inline-flex items-center gap-1 sm:gap-1.5 cursor-pointer shadow-xs"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            <span className="hidden sm:inline">Câu trước</span>
-            <span className="sm:hidden">Trước</span>
-          </button>
+        {/* TIER 3: FIXED BOTTOM NAVIGATION BAR (Desktop Pinned Footer: Zero-scroll) */}
+        <footer className="shrink-0 bg-white/95 dark:bg-[#0c0c0e]/95 backdrop-blur-xs border-t border-slate-200 dark:border-zinc-800 px-3.5 sm:px-6 py-2.5 sm:py-3 z-10 transition-colors hidden sm:block">
+          <div className={`w-full mx-auto flex items-center justify-between gap-3 transition-all duration-200 ${isSidebarOpen ? 'max-w-4xl' : 'max-w-4xl lg:max-w-5xl'}`}>
+            <button
+              type="button"
+              onClick={handlePrev}
+              disabled={currentQuestionIndex === 0}
+              className="px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 text-slate-700 dark:text-zinc-300 hover:bg-slate-100 dark:hover:bg-zinc-800 text-xs sm:text-sm font-semibold transition disabled:opacity-30 inline-flex items-center gap-1 sm:gap-1.5 cursor-pointer shadow-xs active:scale-95"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              <span>Câu trước</span>
+            </button>
 
-          <div className="flex items-center gap-2 sm:gap-3">
-            {currentValue && (
-              <button
-                type="button"
-                onClick={() => onAnswerQuestion(currentQ.id, '')}
-                className="px-2 sm:px-3 py-1.5 text-[11px] sm:text-xs text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 transition cursor-pointer font-medium"
-              >
-                <span className="hidden sm:inline">Xóa lựa chọn</span>
-                <span className="sm:hidden">Bỏ chọn</span>
-              </button>
-            )}
+            <div className="flex items-center gap-2 sm:gap-3">
+              {currentValue && (
+                <button
+                  type="button"
+                  onClick={() => onAnswerQuestion(currentQ.id, '')}
+                  className="px-2 sm:px-3 py-1.5 text-xs text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 transition cursor-pointer font-medium"
+                >
+                  Xóa lựa chọn
+                </button>
+              )}
+              <span className="hidden lg:inline text-[11px] font-mono text-slate-400 dark:text-zinc-500">
+                Phím tắt: [← Trước] [Tiếp →] [F Cờ] [1-4 / A-D Chọn]
+              </span>
+            </div>
 
             {currentQuestionIndex < questions.length - 1 ? (
               <button
                 type="button"
                 onClick={handleNext}
-                className="px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white text-white text-xs sm:text-sm font-semibold shadow-sm transition inline-flex items-center gap-1 sm:gap-1.5 cursor-pointer"
+                className="px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white text-white text-xs sm:text-sm font-semibold shadow-sm transition inline-flex items-center gap-1 sm:gap-1.5 cursor-pointer active:scale-95"
               >
-                <span className="hidden sm:inline">Câu tiếp theo</span>
-                <span className="sm:hidden">Tiếp theo</span>
+                <span>Câu tiếp theo</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             ) : (
               <button
                 type="button"
                 onClick={() => setIsConfirmSubmitOpen(true)}
-                className="px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white text-xs sm:text-sm font-semibold shadow-md transition inline-flex items-center gap-1 sm:gap-1.5 cursor-pointer"
+                className="px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white text-xs sm:text-sm font-semibold shadow-md transition inline-flex items-center gap-1 sm:gap-1.5 cursor-pointer active:scale-95 animate-pulse"
               >
                 <span>Nộp bài thi</span>
                 <Check className="w-4 h-4" />
               </button>
             )}
           </div>
-        </div>
+        </footer>
 
         {/* Mobile Fixed Bottom Action Bar (Cố định ở đáy điện thoại, tối ưu 1 ngón tay cái) */}
         <div className="sm:hidden fixed bottom-0 left-0 right-0 z-30 bg-white/95 dark:bg-[#0e0e12]/95 backdrop-blur-md border-t border-slate-200 dark:border-zinc-800 px-3 py-2 pb-[max(0.625rem,env(safe-area-inset-bottom))] shadow-lg flex items-center justify-between gap-2 touch-manipulation">
@@ -716,7 +726,7 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({
             </button>
           )}
         </div>
-      </main>
+      </div>
 
       {/* ============================================================== */}
       {/* RIGHT SIDEBAR (Collapsible Questions Palette)                   */}
