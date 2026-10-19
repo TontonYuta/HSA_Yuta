@@ -5,8 +5,8 @@ export const daoDongLuongGiacThucTeQuestions: Question[] = [
     "id": 101,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": "chuong_9_luong_giac",
-    "chapterName": "Chương 9: Lượng giác & Phương trình lượng giác (Lớp 11)",
+    "chapterId": 'chuong_9_luong_giac',
+    "chapterName": 'Chuyên đề 9: Lượng giác & Phương trình lượng giác (Toán 11)',
     "topicId": "mo_hinh_dao_dong_luong_giac_thuc_te",
     "topicName": "Mô hình dao động lượng giác thực tế",
     "content": "Một cabin của vòng quay mặt trời chuyển động tròn đều có độ cao $h(t)$ (tính bằng mét) so với mặt đất tại thời điểm $t$ giây được cho bởi công thức $h(t) = 25 - 20cosl\\left(\\frac{\\pi t}{20}\\right)$. Thời điểm đầu tiên kể từ lúc bắt đầu quay ($t = 0$) mà cabin đạt độ cao $35\\text{ m}$ là:",
@@ -50,7 +50,7 @@ export const daoDongLuongGiacThucTeQuestions: Question[] = [
       "de_07_hsa36"
     ],
     "topicName": "Mô hình dao động lượng giác thực tế",
-    "chapterId": "chuong_9_luong_giac",
-    "chapterName": "Chương 9: Lượng giác & Phương trình lượng giác (Lớp 11)"
+    "chapterId": 'chuong_9_luong_giac',
+    "chapterName": 'Chuyên đề 9: Lượng giác & Phương trình lượng giác (Toán 11)'
   }
 ];

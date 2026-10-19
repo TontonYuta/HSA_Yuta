@@ -241,18 +241,19 @@ export const TopicPractice: React.FC<TopicPracticeProps> = ({
     if (catalogFilter === '12') {
       const g12Ids = [
         'chuong_1_ham_so',
-        'chuong_2_mu_logarit',
-        'chuong_3_nguyen_ham_tich_phan',
         'chuong_5_toa_do_oxyz',
-        'chuong_10_toan_thuc_te_toi_uu',
+        'chuong_thong_ke_ghep_nhom',
+        'chuong_3_nguyen_ham_tich_phan',
+        'chuong_xac_suat_bayes',
       ];
       list = list.filter((c) => g12Ids.includes(c.id));
     } else if (catalogFilter === '11_10') {
       const g1110Ids = [
-        'chuong_6_toan_lop_10',
+        'chuong_2_mu_logarit',
         'chuong_7_day_so_cap_so',
-        'chuong_8_xac_suat_thong_ke',
+        'chuong_4_hinh_hoc_khong_gian',
         'chuong_9_luong_giac',
+        'chuong_6_toan_lop_10',
       ];
       list = list.filter((c) => g1110Ids.includes(c.id));
     } else if (catalogFilter === 'geometry') {

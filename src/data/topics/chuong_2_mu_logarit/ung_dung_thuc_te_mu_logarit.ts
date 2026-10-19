@@ -5,8 +5,8 @@ export const ungDungMuLogQuestions: Question[] = [
     "id": 80,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": "chuong_2_mu_logarit",
-    "chapterName": "Chương 2: Hàm số mũ & Hàm số Logarit",
+    "chapterId": 'chuong_2_mu_logarit',
+    "chapterName": 'Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)',
     "topicId": "ung_dung_thuc_te_mu_logarit",
     "topicName": "Ứng dụng thực tế mũ & logarit",
     "content": "Một chất phóng xạ có chu kỳ bán rã là 14 ngày (sau mỗi 14 ngày khối lượng chất phóng xạ giảm đi một nửa). Giả sử ban đầu có $100\\text{ gam}$ chất phóng xạ. Hỏi sau bao nhiêu ngày thì khối lượng chất phóng xạ còn lại đúng $12{,}5\\text{ gam}$?",
@@ -40,8 +40,8 @@ export const ungDungMuLogQuestions: Question[] = [
     "id": 97,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": "chuong_2_mu_logarit",
-    "chapterName": "Chương 2: Hàm số mũ & Hàm số Logarit",
+    "chapterId": 'chuong_2_mu_logarit',
+    "chapterName": 'Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)',
     "topicId": "ung_dung_thuc_te_mu_logarit",
     "topicName": "Ứng dụng thực tế mũ & logarit",
     "content": "Một người gửi 200 triệu đồng vào ngân hàng với lãi suất kép $6\\%/\\text{năm}$, tiền lãi nhập gốc hàng năm. Sau 4 năm, tổng số tiền (cả gốc lẫn lãi) người đó nhận được là bao nhiêu triệu đồng (làm tròn đến một chữ số thập phân)?",
@@ -61,8 +61,8 @@ export const ungDungMuLogQuestions: Question[] = [
     "id": 182,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": "chuong_2_mu_logarit",
-    "chapterName": "Chương 2: Hàm số mũ & Hàm số Logarit",
+    "chapterId": 'chuong_2_mu_logarit',
+    "chapterName": 'Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)',
     "topicId": "ung_dung_thuc_te_mu_logarit",
     "topicName": "Ứng dụng thực tế mũ & logarit",
     "content": "Nồng độ của một loại thuốc trong máu bệnh nhân sau $t$ giờ kể từ khi tiêm được cho bởi hàm số $C(t) = \\frac{4t}{t^2 + 4}$ (đơn vị: mg/L). Sau bao nhiêu giờ thì nồng độ thuốc trong máu đạt mức cao nhất?",
@@ -106,7 +106,7 @@ export const ungDungMuLogQuestions: Question[] = [
       "de_07_hsa36"
     ],
     "topicName": "Ứng dụng thực tế mũ & logarit",
-    "chapterId": "chuong_2_mu_logarit",
-    "chapterName": "Chương 2: Hàm số mũ & Hàm số Logarit"
+    "chapterId": 'chuong_2_mu_logarit',
+    "chapterName": 'Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)'
   }
 ];
