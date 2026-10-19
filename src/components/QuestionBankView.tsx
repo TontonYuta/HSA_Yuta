@@ -4,6 +4,7 @@ import { Question } from '../types/exam';
 import { MathRenderer } from './MathRenderer';
 import { MICRO_TOPICS_METADATA } from '../data/topics/index';
 import { ExamTrack, isParametricMQuestion, isPracticalMathQuestion } from '../utils/trackFilter';
+import { getTargetExamYear } from '../utils/timeUtils';
 
 interface QuestionBankViewProps {
   questions: Question[];
@@ -18,6 +19,8 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
   currentTrack = 'THPTQG',
   onSelectTrack,
 }) => {
+  const isTHPT = currentTrack === 'THPTQG';
+  const targetYear = getTargetExamYear();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTopic, setSelectedTopic] = useState<string>('all');
   const [selectedType, setSelectedType] = useState<string>('all');
@@ -80,25 +83,29 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
   };
 
   return (
-    <div className="max-w-5xl mx-auto space-y-6 pb-16 animate-fade-in text-slate-900 dark:text-zinc-100">
+    <div className="max-w-5xl mx-auto space-y-4 sm:space-y-6 pb-16 animate-fade-in text-slate-900 dark:text-zinc-100">
       {/* Search and Filters Card */}
-      <div className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm space-y-4 transition-colors">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-3 border-b border-slate-100 dark:border-zinc-800/80">
+      <div className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-2xl p-4 sm:p-6 shadow-sm space-y-4 transition-colors">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 pb-3 border-b border-slate-100 dark:border-zinc-800/80">
           <div>
             <div className="flex items-center gap-2">
-              <h1 className="text-xl font-bold text-slate-900 dark:text-zinc-100">
-                Ngân Hàng {questions.length} Câu Hỏi Toán HSA
+              <h1 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-zinc-100">
+                Ngân Hàng {questions.length} Câu Hỏi {isTHPT ? `THPTQG ${targetYear}` : `HSA ${targetYear}`}
               </h1>
             </div>
             <p className="text-xs text-slate-500 dark:text-zinc-400 mt-1">
-              Tra cứu và rèn luyện câu hỏi theo 10 chương và 30 chuyên đề phân hóa chuẩn form HSA ĐHQGHN.
+              {isTHPT
+                ? 'Toán thực tế & các chuyên đề GDPT 2018 đã lược bỏ tham số m'
+                : 'Tra cứu và rèn luyện câu hỏi theo 10 chương và 30 chuyên đề phân hóa chuẩn form HSA ĐHQGHN.'}
             </p>
           </div>
 
           <button
             type="button"
             onClick={onStartExam}
-            className="px-4 py-2 bg-sky-600 hover:bg-sky-500 text-white rounded-xl text-xs font-semibold transition shrink-0 shadow-xs cursor-pointer"
+            className={`px-4 py-2 text-white rounded-xl text-xs font-semibold transition shrink-0 shadow-xs cursor-pointer ${
+              isTHPT ? 'bg-rose-600 hover:bg-rose-500' : 'bg-sky-600 hover:bg-sky-500'
+            }`}
           >
             Vào thi thử ngay
           </button>
@@ -155,13 +162,13 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
           </select>
         </div>
 
-        {/* Track Filter Pills */}
-        <div className="flex items-center gap-2 flex-wrap pt-3 border-t border-slate-100 dark:border-zinc-800">
-          <span className="text-[11px] font-bold text-slate-500 dark:text-zinc-400 mr-1">Bộ lọc định hướng:</span>
+        {/* Track Filter Pills (Mobile friendly horizontal scroll) */}
+        <div className="flex items-center gap-2 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden py-1 pt-3 border-t border-slate-100 dark:border-zinc-800">
+          <span className="text-[11px] font-bold text-slate-500 dark:text-zinc-400 mr-1 shrink-0">Bộ lọc:</span>
           <button
             type="button"
             onClick={() => handleFilterChange(setTrackFilter as any, 'all')}
-            className={`px-3 py-1 rounded-full text-xs font-semibold transition cursor-pointer ${
+            className={`px-3 py-1 rounded-full text-xs font-semibold transition cursor-pointer shrink-0 whitespace-nowrap ${
               trackFilter === 'all'
                 ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-xs'
                 : 'bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 hover:bg-slate-200 dark:hover:bg-zinc-700'
@@ -172,7 +179,7 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
           <button
             type="button"
             onClick={() => handleFilterChange(setTrackFilter as any, 'practical')}
-            className={`px-3 py-1 rounded-full text-xs font-semibold transition cursor-pointer flex items-center gap-1 ${
+            className={`px-3 py-1 rounded-full text-xs font-semibold transition cursor-pointer flex items-center gap-1 shrink-0 whitespace-nowrap ${
               trackFilter === 'practical'
                 ? 'bg-emerald-600 text-white shadow-xs'
                 : 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 hover:bg-emerald-100 dark:hover:bg-emerald-900/60'
@@ -183,7 +190,7 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
           <button
             type="button"
             onClick={() => handleFilterChange(setTrackFilter as any, 'thptqg')}
-            className={`px-3 py-1 rounded-full text-xs font-semibold transition cursor-pointer flex items-center gap-1 ${
+            className={`px-3 py-1 rounded-full text-xs font-semibold transition cursor-pointer flex items-center gap-1 shrink-0 whitespace-nowrap ${
               trackFilter === 'thptqg'
                 ? 'bg-rose-600 text-white shadow-xs'
                 : 'bg-rose-50 dark:bg-rose-950/40 text-rose-700 dark:text-rose-300 border border-rose-200 dark:border-rose-800 hover:bg-rose-100 dark:hover:bg-rose-900/60'
@@ -194,7 +201,7 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
           <button
             type="button"
             onClick={() => handleFilterChange(setTrackFilter as any, 'hsa_m')}
-            className={`px-3 py-1 rounded-full text-xs font-semibold transition cursor-pointer flex items-center gap-1 ${
+            className={`px-3 py-1 rounded-full text-xs font-semibold transition cursor-pointer flex items-center gap-1 shrink-0 whitespace-nowrap ${
               trackFilter === 'hsa_m'
                 ? 'bg-sky-600 text-white shadow-xs'
                 : 'bg-sky-50 dark:bg-sky-950/40 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800 hover:bg-sky-100 dark:hover:bg-sky-900/60'

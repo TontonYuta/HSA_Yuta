@@ -9,6 +9,7 @@ import {
 import { TopicId, ExamSet } from '../types/exam';
 import { HSA_EXAM_SETS, THPTQG_EXAM_SETS } from '../data/topics/index';
 import { ExamTrack, TRACK_METADATA } from '../utils/trackFilter';
+import { getTargetExamYear } from '../utils/timeUtils';
 
 interface ExamIntroProps {
   onStartExam: (examSetId: string) => void;
@@ -31,13 +32,14 @@ export const ExamIntro: React.FC<ExamIntroProps> = ({
   examSets,
 }) => {
   const isTHPT = currentTrack === 'THPTQG';
+  const targetYear = getTargetExamYear();
   const targetExamSets = examSets || (isTHPT ? THPTQG_EXAM_SETS : HSA_EXAM_SETS);
   const currentExamSet = targetExamSets.find((s) => s.id === selectedExamSetId) || targetExamSets[0];
 
   return (
-    <div className="max-w-4xl mx-auto space-y-6 pb-16 animate-fade-in text-slate-900 dark:text-zinc-100 font-sans">
+    <div className="max-w-4xl mx-auto space-y-4 sm:space-y-6 pb-16 animate-fade-in text-slate-900 dark:text-zinc-100 font-sans">
       {/* Header Banner - Chuyên nghiệp, tập trung cho học sinh */}
-      <div className="rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 p-5 sm:p-6 shadow-xs flex flex-col sm:flex-row items-center gap-4 transition-colors">
+      <div className="rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 p-4 sm:p-6 shadow-xs flex flex-col sm:flex-row items-center gap-4 transition-colors">
         <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center shrink-0 shadow-xs ${
           isTHPT 
             ? 'bg-rose-500/10 border border-rose-500/20 text-rose-600 dark:text-rose-400'
@@ -47,10 +49,10 @@ export const ExamIntro: React.FC<ExamIntroProps> = ({
         </div>
         <div className="flex-1 text-center sm:text-left space-y-1">
           <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
-            <h1 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-zinc-100">
+            <h1 className="text-base sm:text-xl font-bold text-slate-900 dark:text-zinc-100">
               {isTHPT 
-                ? 'Phòng Thi Thử Tốt Nghiệp THPT Quốc Gia (GDPT 2018)' 
-                : 'Thi Thử 75 Phút · Toán Học & Tư Duy Định Lượng HSA'}
+                ? `Phòng Thi Thử Tốt Nghiệp THPT Quốc Gia ${targetYear} (GDPT 2018)` 
+                : `Thi Thử 75 Phút · Toán Học & Tư Duy Định Lượng HSA ${targetYear}`}
             </h1>
             <span className={`px-2 py-0.5 text-[10px] font-mono font-bold rounded border ${
               isTHPT
@@ -62,8 +64,8 @@ export const ExamIntro: React.FC<ExamIntroProps> = ({
           </div>
           <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400">
             {isTHPT
-              ? `Hệ thống ${targetExamSets.length} bộ đề thi chuẩn hóa theo định hướng mới của Bộ GD&ĐT: Loại bỏ hoàn toàn câu hỏi chứa tham số m, tăng cường bài toán thực tế & ứng dụng đời sống.`
-              : `Hệ thống ${targetExamSets.length} bộ đề chuẩn hóa HSA ĐHQGHN: gồm các đề gốc tham khảo, đề chuyên sâu từng chuyên đề và đề phân hóa cao 90+.`}
+              ? `Hệ thống ${targetExamSets.length} bộ đề thi chuẩn hóa theo định hướng mới của Bộ GD&ĐT ${targetYear}: Loại bỏ hoàn toàn câu hỏi chứa tham số m, tăng cường bài toán thực tế & ứng dụng đời sống.`
+              : `Hệ thống ${targetExamSets.length} bộ đề chuẩn hóa HSA ĐHQGHN ${targetYear}: gồm các đề gốc tham khảo, đề chuyên sâu từng chuyên đề và đề phân hóa cao 90+.`}
           </p>
         </div>
       </div>
@@ -82,8 +84,8 @@ export const ExamIntro: React.FC<ExamIntroProps> = ({
           </span>
         </div>
 
-        {/* Danh sách đề thi */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 max-h-[520px] overflow-y-auto p-1 scrollbar-thin scrollbar-thumb-slate-300 dark:scrollbar-thumb-zinc-700">
+        {/* Danh sách đề thi (Responsive max-h) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5 sm:gap-3 max-h-[380px] sm:max-h-[480px] overflow-y-auto p-1 scrollbar-thin scrollbar-thumb-slate-300 dark:scrollbar-thumb-zinc-700">
           {targetExamSets.map((set) => {
             const isSelected = selectedExamSetId === set.id;
             return (
@@ -146,7 +148,11 @@ export const ExamIntro: React.FC<ExamIntroProps> = ({
           <button
             type="button"
             onClick={() => onStartExam(selectedExamSetId)}
-            className="w-full py-3.5 px-5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs sm:text-sm shadow-md shadow-sky-600/20 transition-all active:scale-[0.99] flex items-center justify-center gap-2 cursor-pointer"
+            className={`w-full py-3.5 px-5 rounded-xl text-white font-bold text-xs sm:text-sm shadow-md transition-all active:scale-[0.99] flex items-center justify-center gap-2 cursor-pointer ${
+              isTHPT
+                ? 'bg-rose-600 hover:bg-rose-500 shadow-rose-600/20'
+                : 'bg-sky-600 hover:bg-sky-500 shadow-sky-600/20'
+            }`}
           >
             <Play className="w-4 h-4 fill-current" />
             <span>Vào thi ngay: {currentExamSet.title} ({currentExamSet.timeMinutes} phút)</span>

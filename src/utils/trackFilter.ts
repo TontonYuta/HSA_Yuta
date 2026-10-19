@@ -1,4 +1,7 @@
 import { Question, ExamSet, ExamTrack, ChapterInfo } from '../types/exam';
+import { getTargetExamYear } from './timeUtils';
+
+const TARGET_YEAR = getTargetExamYear();
 
 export type { ExamTrack };
 
@@ -149,29 +152,29 @@ export interface TrackMeta {
 export const TRACK_METADATA: Record<ExamTrack, TrackMeta> = {
   THPTQG: {
     id: 'THPTQG',
-    title: 'Tốt Nghiệp THPT Quốc Gia (GDPT 2018)',
-    shortTitle: 'THPT Quốc Gia',
+    title: `Tốt Nghiệp THPT Quốc Gia ${TARGET_YEAR} (GDPT 2018)`,
+    shortTitle: `THPTQG ${TARGET_YEAR}`,
     badge: 'Chuẩn GDPT 2018',
-    subtitle: 'Đề thi bám sát định dạng Bộ GD&ĐT 2025: Lược bỏ tham số m, bứt phá Toán Thực Tế',
+    subtitle: `Đề thi bám sát định dạng Bộ GD&ĐT ${TARGET_YEAR}: Lược bỏ tham số m, bứt phá Toán Thực Tế`,
     examDurationMinutes: 90,
     questionCount: 50,
     description:
-      'Hệ thống luyện thi Tốt nghiệp THPT Quốc gia theo chương trình mới GDPT 2018. Lược bỏ hoàn toàn các bài toán tìm tham số m trừu tượng; tập trung chuyên sâu vào Toán thực tế, mô hình hóa đời sống, tối ưu kinh tế, tích phân chuyển động, xác suất Bayes và thống kê ghép nhóm.',
+      `Hệ thống luyện thi Tốt nghiệp THPT Quốc gia ${TARGET_YEAR} theo chương trình mới GDPT 2018. Lược bỏ hoàn toàn các bài toán tìm tham số m trừu tượng; tập trung chuyên sâu vào Toán thực tế, mô hình hóa đời sống, tối ưu kinh tế, tích phân chuyển động, xác suất Bayes và thống kê ghép nhóm.`,
     highlightText: 'Đã loại bỏ tham số m · Tăng cường 100+ bài toán thực tế đời sống',
     badgeColor: 'bg-rose-50 text-rose-700 border-rose-200 dark:bg-rose-950/40 dark:text-rose-300 dark:border-rose-800',
     activeColor: 'from-rose-600 to-amber-600 text-white shadow-rose-500/25',
   },
   HSA: {
     id: 'HSA',
-    title: 'Đánh Giá Năng Lực ĐHQGHN (HSA)',
-    shortTitle: 'ĐGNL HSA',
-    badge: 'Chuẩn ĐHQGHN',
-    subtitle: 'Toán học & Tư duy định lượng: 50 câu (35 Trắc nghiệm + 15 Điền số) trong 75 phút',
+    title: `Đánh Giá Năng Lực ĐHQGHN (HSA ${TARGET_YEAR})`,
+    shortTitle: `ĐGNL HSA ${TARGET_YEAR}`,
+    badge: `Chuẩn HSA ${TARGET_YEAR}`,
+    subtitle: `Toán học & Tư duy định lượng HSA ${TARGET_YEAR}: 50 câu (35 Trắc nghiệm + 15 Điền số) trong 75 phút`,
     examDurationMinutes: 75,
     questionCount: 50,
     description:
-      'Hệ thống luyện thi Đánh giá năng lực ĐHQGHN (HSA) môn Toán & Tư duy định lượng. Cấu trúc chuẩn 50 câu phân tầng nhận biết đến vận dụng cao, bao quát toàn diện giải tích, hình học, xác suất và tư duy số học.',
-    highlightText: 'Đầy đủ 50 câu (35 TN + 15 Điền số) · 20 bộ đề thực chiến ĐHQGHN',
+      `Hệ thống luyện thi Đánh giá năng lực ĐHQGHN (HSA ${TARGET_YEAR}) môn Toán & Tư duy định lượng. Cấu trúc chuẩn 50 câu phân tầng nhận biết đến vận dụng cao, bao quát toàn diện giải tích, hình học, xác suất và tư duy số học.`,
+    highlightText: `Đầy đủ 50 câu (35 TN + 15 Điền số) · 20 bộ đề thực chiến HSA ${TARGET_YEAR}`,
     badgeColor: 'bg-sky-50 text-sky-700 border-sky-200 dark:bg-sky-950/40 dark:text-sky-300 dark:border-sky-800',
     activeColor: 'from-sky-600 to-indigo-600 text-white shadow-sky-500/25',
   },

@@ -14,10 +14,13 @@ import {
   Sun, 
   Moon, 
   X,
+  Clock,
+  Zap,
 } from 'lucide-react';
 import { AppMode } from './Navbar';
 import { CHAPTERS_METADATA, HSA_EXAM_SETS, THPTQG_EXAM_SETS } from '../data/topics/index';
 import { ExamTrack, TRACK_METADATA } from '../utils/trackFilter';
+import { useRealtimeClock } from '../utils/timeUtils';
 
 interface AppSidebarProps {
   currentMode: AppMode | 'intro' | 'results';
@@ -57,6 +60,7 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
   availableQuestionsCount = 535,
 }) => {
   const [isChaptersOpen, setIsChaptersOpen] = useState(true);
+  const { targetYear, formattedDate, formattedTime, daysToTHPTQG, daysToHSA } = useRealtimeClock();
 
   // If in active 75-minute CBT exam, hide sidebar completely
   if (isExamInProgress) {
@@ -70,9 +74,9 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
     {
       id: 'intro',
       label: 'Trang Chủ',
-      desc: currentTrack === 'THPTQG' ? 'Bảng điều khiển luyện thi THPTQG' : 'Bảng điều khiển luyện thi HSA',
+      desc: currentTrack === 'THPTQG' ? `Bảng điều khiển luyện thi THPTQG ${targetYear}` : `Bảng điều khiển luyện thi HSA ${targetYear}`,
       icon: LayoutDashboard,
-      badge: currentTrack === 'THPTQG' ? 'THPTQG' : 'HSA',
+      badge: currentTrack === 'THPTQG' ? `THPTQG ${targetYear}` : `HSA ${targetYear}`,
       action: () => onSelectMode('intro'),
       isActive: currentMode === 'intro',
     },
@@ -88,7 +92,7 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
     {
       id: 'exam',
       label: `Thi Thử ${trackExamTime}`,
-      desc: `${trackExamSetsCount} bộ đề thi thực chiến ${currentTrack === 'THPTQG' ? 'THPTQG 2025' : 'chuẩn HSA'}`,
+      desc: `${trackExamSetsCount} bộ đề thi thực chiến ${currentTrack === 'THPTQG' ? `THPTQG ${targetYear}` : `chuẩn HSA ${targetYear}`}`,
       icon: CheckSquare,
       badge: `${trackExamSetsCount} Đề`,
       action: () => onSelectMode('exam'),
@@ -118,7 +122,7 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
               <div className="flex flex-col truncate">
                 <span className="text-xs font-black tracking-tight text-slate-900 dark:text-zinc-100 flex items-center gap-1 truncate">
                   <span>HSA TontonYuta</span>
-                  <span className="text-[9px] px-1 py-0.2 rounded bg-sky-100 dark:bg-sky-950 text-sky-600 dark:text-sky-300 font-mono font-bold">2025</span>
+                  <span className="text-[9px] px-1 py-0.2 rounded bg-sky-100 dark:bg-sky-950 text-sky-600 dark:text-sky-300 font-mono font-bold">{targetYear}</span>
                 </span>
                 <span className="text-[10px] text-slate-400 dark:text-zinc-500 truncate">
                   Toán Học & Tư Duy Định Lượng
@@ -443,9 +447,28 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
           )}
         </div>
 
-        {/* 4. Bottom Footer: Theme Toggle Only (No gg script / webhook info) */}
+        {/* 4. Bottom Footer: Realtime countdown + Theme Toggle */}
         {!isCollapsed ? (
-          <div className="p-3 border-t border-slate-200 dark:border-zinc-800/80 bg-slate-50/50 dark:bg-zinc-900/40 shrink-0">
+          <div className="p-3 border-t border-slate-200 dark:border-zinc-800/80 bg-slate-50/50 dark:bg-zinc-900/40 shrink-0 space-y-2">
+            {/* Realtime Countdown Card */}
+            <div className="px-2.5 py-1.5 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 text-[10px] space-y-1">
+              <div className="flex items-center justify-between text-slate-500 dark:text-zinc-400 font-mono">
+                <span className="flex items-center gap-1 font-semibold">
+                  <Clock className="w-3 h-3 text-sky-500" />
+                  <span>{formattedTime}</span>
+                </span>
+                <span>{formattedDate.split(', ')[1]}</span>
+              </div>
+              <div className="pt-0.5 flex items-center justify-between font-bold">
+                <span className={currentTrack === 'THPTQG' ? 'text-rose-600 dark:text-rose-400' : 'text-sky-600 dark:text-sky-400'}>
+                  {currentTrack === 'THPTQG' ? `Thi THPTQG ${targetYear}:` : `Thi HSA ${targetYear}:`}
+                </span>
+                <span className="font-mono text-[11px] text-slate-800 dark:text-zinc-200">
+                  Còn <span className="text-amber-600 dark:text-amber-400 font-black">{currentTrack === 'THPTQG' ? daysToTHPTQG : daysToHSA}</span> ngày
+                </span>
+              </div>
+            </div>
+
             <button
               type="button"
               onClick={onToggleTheme}
@@ -467,7 +490,23 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
           </div>
         ) : (
           /* Collapsed Theme Toggle */
-          <div className="h-14 border-t border-slate-200 dark:border-zinc-800/80 bg-slate-50/50 dark:bg-zinc-900/40 shrink-0 flex items-center justify-center">
+          <div className="py-2.5 border-t border-slate-200 dark:border-zinc-800/80 bg-slate-50/50 dark:bg-zinc-900/40 shrink-0 flex flex-col items-center gap-1.5">
+            {/* Collapsed Countdown Pill with Tooltip */}
+            <div
+              className={`w-10 h-10 rounded-xl flex items-center justify-center font-mono text-[10px] font-black cursor-default relative group ${
+                currentTrack === 'THPTQG'
+                  ? 'bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20'
+                  : 'bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20'
+              }`}
+              title={`Đếm ngược: Còn ${currentTrack === 'THPTQG' ? daysToTHPTQG : daysToHSA} ngày thi`}
+            >
+              <span>{currentTrack === 'THPTQG' ? daysToTHPTQG : daysToHSA}d</span>
+              <div className="absolute left-full ml-3 top-1/2 -translate-y-1/2 px-2.5 py-1 bg-slate-900 dark:bg-zinc-800 text-white text-[11px] font-semibold rounded-lg shadow-xl whitespace-nowrap opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-150 z-50">
+                <span>{currentTrack === 'THPTQG' ? `Kỳ thi THPTQG ${targetYear}` : `Kỳ thi HSA ${targetYear}`}: Còn {currentTrack === 'THPTQG' ? daysToTHPTQG : daysToHSA} ngày</span>
+                <div className="absolute right-full top-1/2 -translate-y-1/2 border-4 border-transparent border-r-slate-900 dark:border-r-zinc-800" />
+              </div>
+            </div>
+
             <button
               type="button"
               onClick={onToggleTheme}

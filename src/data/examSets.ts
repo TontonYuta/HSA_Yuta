@@ -1,4 +1,7 @@
 import { ExamSet } from '../types/exam';
+import { getTargetExamYear } from '../utils/timeUtils';
+
+const TARGET_YEAR = getTargetExamYear();
 
 export const HSA_EXAM_SETS: ExamSet[] = [
   // =========================================================================
@@ -6,7 +9,7 @@ export const HSA_EXAM_SETS: ExamSet[] = [
   // =========================================================================
   {
     id: 'de_01_chuan',
-    title: 'Đề 01: Chuẩn Tham Khảo ĐHQGHN 2025',
+    title: `Đề 01: Chuẩn Tham Khảo ĐHQGHN ${TARGET_YEAR}`,
     subtitle: 'Đầy đủ 50 câu (35 trắc nghiệm + 15 điền số)',
     timeMinutes: 75,
     questionCount: 50,
@@ -36,7 +39,7 @@ export const HSA_EXAM_SETS: ExamSet[] = [
     questionCount: 50,
     mcqCount: 35,
     fillCount: 15,
-    badge: 'Dạng mới 2025',
+    badge: `Dạng mới ${TARGET_YEAR}`,
     description: 'Tập trung các dạng toán mới: biểu đồ Venn, BPT hai ẩn miền nghiệm đa giác, định lý Cosin thực tế, tiếp tuyến, tiệm cận xiên, tích phân chuyển động, tam diện vuông, tọa độ hóa rada, số hạng chung CSC, công thức Bayes và thống kê ghép nhóm.',
     questionIds: Array.from({ length: 50 }, (_, i) => i + 101),
   },
@@ -327,7 +330,7 @@ export const THPTQG_EXAM_SETS: ExamSet[] = [
   {
     id: 'thptqg_01_chuan',
     track: 'THPTQG',
-    title: 'Đề 01: Chuẩn Cấu Trúc Minh Họa THPTQG 2025',
+    title: `Đề 01: Chuẩn Cấu Trúc Minh Họa THPTQG ${TARGET_YEAR}`,
     subtitle: '50 câu chuẩn GDPT 2018 (Không tham số m, trọng tâm Toán thực tế)',
     timeMinutes: 90,
     questionCount: 50,
@@ -395,7 +398,7 @@ export const THPTQG_EXAM_SETS: ExamSet[] = [
   {
     id: 'thptqg_05_tong_hop',
     track: 'THPTQG',
-    title: 'Đề 05: Thực Chiến Tổng Hợp Phân Hóa THPTQG 2025',
+    title: `Đề 05: Thực Chiến Tổng Hợp Phân Hóa THPTQG ${TARGET_YEAR}`,
     subtitle: '50 câu toàn diện rèn luyện tư duy phản xạ không tham số m',
     timeMinutes: 90,
     questionCount: 50,
