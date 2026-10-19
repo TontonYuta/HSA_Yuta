@@ -471,9 +471,7 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
     "examSets": [
       "de_07_hsa36"
     ],
-    "topicName": "Đại số tổ hợp & Xác suất cổ điển",
-    "chapterId": "chuong_6_toan_lop_10",
-    "chapterName": "Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)"
+    "topicName": "Đại số tổ hợp & Xác suất cổ điển"
   },
   {
     "id": 295,
@@ -508,9 +506,7 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
     "examSets": [
       "de_07_hsa36"
     ],
-    "topicName": "Đại số tổ hợp & Xác suất cổ điển",
-    "chapterId": "chuong_6_toan_lop_10",
-    "chapterName": "Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)"
+    "topicName": "Đại số tổ hợp & Xác suất cổ điển"
   },
   {
     "id": 296,

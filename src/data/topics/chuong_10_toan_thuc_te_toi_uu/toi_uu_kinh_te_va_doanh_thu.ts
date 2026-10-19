@@ -399,8 +399,6 @@ export const toiUuKinhTeQuestions: Question[] = [
     "examSets": [
       "de_07_hsa36"
     ],
-    "topicName": "Tối ưu hóa kinh tế, Chi phí & Doanh thu",
-    "chapterId": "chuong_1_ham_so",
-    "chapterName": "Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)"
+    "topicName": "Tối ưu hóa kinh tế, Chi phí & Doanh thu"
   }
 ];

@@ -432,6 +432,7 @@ export const TopicPractice: React.FC<TopicPracticeProps> = ({
         questions={trackBaseQuestions}
         onBackToExam={onBackToExam}
         onSelectTopic={handleSelectTopicFromCatalog}
+        currentTrack={currentTrack}
       />
     );
   }

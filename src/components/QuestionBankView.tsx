@@ -19,7 +19,9 @@ import {
   Eye,
   EyeOff,
   Layers,
-  Hash
+  Hash,
+  Compass,
+  Check
 } from 'lucide-react';
 import { Question, TopicId } from '../types/exam';
 import { MathRenderer } from './MathRenderer';
@@ -28,6 +30,7 @@ import { ExamTrack, isParametricMQuestion, isPracticalMathQuestion } from '../ut
 import { getTargetExamYear } from '../utils/timeUtils';
 import { parseQuestionSource } from '../utils/questionSource';
 import { QuestionSourceBadge } from './QuestionSourceBadge';
+import { formatMathSnippet } from '../utils/mathSnippet';
 
 interface QuestionBankViewProps {
   questions: Question[];
@@ -69,7 +72,7 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
   const [fillInput, setFillInput] = useState<string>('');
   const [isAnswerChecked, setIsAnswerChecked] = useState<boolean>(false);
   const [showHint, setShowHint] = useState<boolean>(false);
-  const [showSolution, setShowSolution] = useState<boolean>(false);
+  const [showSolution, setShowSolution] = useState<boolean>(true); // Default open on desktop side-panel
   const [hideQuestionSource, setHideQuestionSource] = useState<boolean>(false);
 
   // In List Mode: expanded solutions map and pagination
@@ -136,7 +139,6 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
     setFillInput('');
     setIsAnswerChecked(false);
     setShowHint(false);
-    setShowSolution(false);
     if (stageScrollRef.current) {
       stageScrollRef.current.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -199,15 +201,15 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
   return (
     <div className="h-full flex flex-col overflow-hidden text-slate-900 dark:text-zinc-100 font-sans select-none animate-fade-in">
       {/* =================================================================== */}
-      {/* 1. ULTRA-COMPACT TOOLBAR (Single Row - Height ~52px)                */}
+      {/* 1. CLEAN TOOLBAR (Single-Bar on Desktop, Zero Orphan Rows)         */}
       {/* =================================================================== */}
-      <div className="shrink-0 bg-white dark:bg-[#101014] border-b border-slate-200 dark:border-zinc-800 px-3 sm:px-5 py-2.5 flex flex-wrap items-center justify-between gap-2.5 z-20">
+      <div className="shrink-0 bg-white dark:bg-[#101014] border-b border-slate-200 dark:border-zinc-800 px-3 sm:px-5 py-2.5 flex items-center justify-between gap-3 z-20 overflow-x-auto scrollbar-none">
         {/* Left: Title, Count & View Mode Switcher */}
-        <div className="flex items-center gap-2.5 flex-wrap">
+        <div className="flex items-center gap-2.5 shrink-0">
           <div className="flex items-center gap-2">
-            <span className="font-black text-xs sm:text-sm tracking-tight text-slate-900 dark:text-zinc-100 flex items-center gap-1.5">
+            <span className="font-black text-xs sm:text-sm tracking-tight text-slate-900 dark:text-zinc-100 flex items-center gap-1.5 whitespace-nowrap">
               <span>Ngân Hàng Câu Hỏi</span>
-              <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded-full font-bold ${
+              <span className={`text-[10px] font-mono px-2 py-0.5 rounded-full font-bold ${
                 isTHPT ? 'bg-rose-100 dark:bg-rose-950 text-rose-700 dark:text-rose-300' : 'bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-300'
               }`}>
                 {filtered.length} / {questions.length}
@@ -215,14 +217,14 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
             </span>
           </div>
 
-          <div className="h-4 w-[1px] bg-slate-200 dark:bg-zinc-800 hidden sm:block" />
+          <div className="h-4 w-[1px] bg-slate-200 dark:border-zinc-800 hidden sm:block" />
 
           {/* Mode Switcher Toggle */}
-          <div className="flex items-center bg-slate-100 dark:bg-zinc-900 p-0.5 rounded-lg border border-slate-200/80 dark:border-zinc-800 text-[11px] font-semibold">
+          <div className="flex items-center bg-slate-100 dark:bg-zinc-900 p-0.5 rounded-lg border border-slate-200/80 dark:border-zinc-800 text-[11px] font-semibold shrink-0">
             <button
               type="button"
               onClick={() => setViewMode('focus')}
-              className={`px-2.5 py-1 rounded-md transition flex items-center gap-1.5 cursor-pointer ${
+              className={`px-2.5 py-1 rounded-md transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
                 viewMode === 'focus'
                   ? 'bg-white dark:bg-zinc-800 text-sky-600 dark:text-sky-400 shadow-xs font-bold'
                   : 'text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-200'
@@ -235,7 +237,7 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
             <button
               type="button"
               onClick={() => setViewMode('list')}
-              className={`px-2.5 py-1 rounded-md transition flex items-center gap-1.5 cursor-pointer ${
+              className={`px-2.5 py-1 rounded-md transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
                 viewMode === 'list'
                   ? 'bg-white dark:bg-zinc-800 text-sky-600 dark:text-sky-400 shadow-xs font-bold'
                   : 'text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-200'
@@ -248,10 +250,10 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
           </div>
         </div>
 
-        {/* Center / Right: Compact Inline Filters */}
-        <div className="flex items-center gap-2 flex-wrap flex-1 justify-end max-w-3xl">
+        {/* Right: Inline Search, Topic Filter & Track Pills */}
+        <div className="flex items-center gap-2 shrink-0 ml-auto">
           {/* Quick Search */}
-          <div className="relative min-w-[140px] sm:min-w-[190px] max-w-[220px]">
+          <div className="relative w-36 sm:w-44 lg:w-48 xl:w-56 shrink-0">
             <Search className="w-3.5 h-3.5 absolute left-2.5 top-1/2 -translate-y-1/2 text-slate-400" />
             <input
               type="text"
@@ -266,7 +268,7 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
           <select
             value={selectedTopic}
             onChange={(e) => handleFilterChange(setSelectedTopic, e.target.value)}
-            className="px-2 py-1 bg-slate-50 dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800 rounded-lg text-xs text-slate-800 dark:text-zinc-200 focus:outline-none focus:border-sky-500 font-medium max-w-[150px] sm:max-w-[170px] truncate"
+            className="px-2 py-1 bg-slate-50 dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800 rounded-lg text-xs text-slate-800 dark:text-zinc-200 focus:outline-none focus:border-sky-500 font-medium w-32 sm:w-40 truncate shrink-0"
           >
             <option value="all">Tất cả chuyên đề</option>
             {MICRO_TOPICS_METADATA.map((t) => (
@@ -277,11 +279,11 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
           </select>
 
           {/* Track Filter Pills */}
-          <div className="hidden lg:flex items-center gap-1 text-[11px]">
+          <div className="hidden xl:flex items-center gap-1 text-[11px] shrink-0">
             <button
               type="button"
               onClick={() => handleFilterChange(setTrackFilter as any, 'all')}
-              className={`px-2 py-0.8 rounded-md font-semibold transition cursor-pointer ${
+              className={`px-2 py-1 rounded-md font-semibold transition cursor-pointer whitespace-nowrap ${
                 trackFilter === 'all'
                   ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-xs'
                   : 'bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 hover:bg-slate-200'
@@ -292,7 +294,7 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
             <button
               type="button"
               onClick={() => handleFilterChange(setTrackFilter as any, 'practical')}
-              className={`px-2 py-0.8 rounded-md font-semibold transition cursor-pointer flex items-center gap-1 ${
+              className={`px-2 py-1 rounded-md font-semibold transition cursor-pointer flex items-center gap-1 whitespace-nowrap ${
                 trackFilter === 'practical'
                   ? 'bg-emerald-600 text-white shadow-xs'
                   : 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/60'
@@ -303,7 +305,7 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
             <button
               type="button"
               onClick={() => handleFilterChange(setTrackFilter as any, 'thptqg')}
-              className={`px-2 py-0.8 rounded-md font-semibold transition cursor-pointer flex items-center gap-1 ${
+              className={`px-2 py-1 rounded-md font-semibold transition cursor-pointer flex items-center gap-1 whitespace-nowrap ${
                 trackFilter === 'thptqg'
                   ? 'bg-rose-600 text-white shadow-xs'
                   : 'bg-rose-50 dark:bg-rose-950/40 text-rose-700 dark:text-rose-300 border border-rose-200 dark:border-rose-800/60'
@@ -317,7 +319,7 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
           <button
             type="button"
             onClick={onStartExam}
-            className={`px-2.5 py-1 text-white rounded-lg text-xs font-bold transition shrink-0 shadow-xs cursor-pointer ${
+            className={`px-3 py-1.5 text-white rounded-lg text-xs font-bold transition shrink-0 shadow-xs cursor-pointer whitespace-nowrap ${
               isTHPT ? 'bg-rose-600 hover:bg-rose-500' : 'bg-sky-600 hover:bg-sky-500'
             }`}
           >
@@ -327,7 +329,7 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
       </div>
 
       {/* =================================================================== */}
-      {/* 2. BODY CONTENT: FOCUS MODE (MASTER-DETAIL ZERO-SCROLL)             */}
+      {/* 2. BODY CONTENT: FOCUS MODE (MASTER-DETAIL DUAL-ZONE WORKSPACE)     */}
       {/* =================================================================== */}
       {viewMode === 'focus' ? (
         <div className="flex-1 flex overflow-hidden relative">
@@ -348,7 +350,7 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
                 <button
                   type="button"
                   onClick={() => setNavigatorMode('list')}
-                  className={`px-1.5 py-0.5 rounded ${navigatorMode === 'list' ? 'bg-white dark:bg-zinc-700 shadow-xs text-sky-600 dark:text-sky-300 font-bold' : 'text-slate-500'}`}
+                  className={`px-2 py-0.5 rounded ${navigatorMode === 'list' ? 'bg-white dark:bg-zinc-700 shadow-xs text-sky-600 dark:text-sky-300 font-bold' : 'text-slate-500'}`}
                   title="Danh sách tóm tắt"
                 >
                   List
@@ -356,7 +358,7 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
                 <button
                   type="button"
                   onClick={() => setNavigatorMode('grid')}
-                  className={`px-1.5 py-0.5 rounded ${navigatorMode === 'grid' ? 'bg-white dark:bg-zinc-700 shadow-xs text-sky-600 dark:text-sky-300 font-bold' : 'text-slate-500'}`}
+                  className={`px-2 py-0.5 rounded ${navigatorMode === 'grid' ? 'bg-white dark:bg-zinc-700 shadow-xs text-sky-600 dark:text-sky-300 font-bold' : 'text-slate-500'}`}
                   title="Ma trận số"
                 >
                   Ma trận
@@ -371,7 +373,7 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
                   Không tìm thấy câu hỏi phù hợp với bộ lọc hiện tại.
                 </div>
               ) : navigatorMode === 'list' ? (
-                /* 1. Compact Card Items */
+                /* 1. Compact Card Items with Clean Math Snippets (No ugly [...]) */
                 filtered.map((q, idx) => {
                   const isActive = q.id === activeQuestion?.id;
                   const isPractical = isPracticalMathQuestion(q);
@@ -418,19 +420,19 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
                       <div className="text-[11px] text-slate-500 dark:text-zinc-400 truncate font-sans">
                         {q.topicName}
                       </div>
-                      <div className="text-[11.5px] text-slate-700 dark:text-zinc-300 line-clamp-2 leading-snug">
-                        {q.content.replace(/\$[^$]*\$/g, ' [...] ')}
+                      {/* Clean Math Excerpt replacing ugly [...] */}
+                      <div className="text-[11.5px] text-slate-700 dark:text-zinc-300 line-clamp-2 leading-snug font-sans">
+                        {formatMathSnippet(q.content, 110)}
                       </div>
                     </button>
                   );
                 })
               ) : (
-                /* 2. Compact Grid Number Matrix (Ultra-Dense Palette) */
+                /* 2. Compact Grid Number Matrix (Dense Palette) */
                 <div className="grid grid-cols-5 gap-1.5 p-1">
                   {filtered.map((q, idx) => {
                     const isActive = q.id === activeQuestion?.id;
                     const isPractical = isPracticalMathQuestion(q);
-                    const isVDC = q.difficulty === 'Vận dụng cao';
                     return (
                       <button
                         key={q.id}
@@ -468,7 +470,7 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
             )}
           </div>
 
-          {/* B. RIGHT STAGE: FOCUSED QUESTION WORKSPACE (100% Focused, Zero-Scroll Viewport) */}
+          {/* B. RIGHT STAGE: FOCUSED DUAL-ZONE WORKSPACE (100% Focused, Zero-Void Layout) */}
           <div className="flex-1 flex flex-col h-full overflow-hidden bg-white dark:bg-[#09090b]">
             {activeQuestion ? (
               <>
@@ -548,231 +550,305 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
                   </div>
                 </div>
 
-                {/* Stage Scrollable Body (Only this inner container scrolls if text is long) */}
+                {/* Stage Scrollable Body with Responsive Dual-Zone Grid on Desktop */}
                 <div 
                   ref={stageScrollRef}
-                  className="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8 space-y-5 scrollbar-thin scrollbar-thumb-slate-300 dark:scrollbar-thumb-zinc-700"
+                  className="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-7 scrollbar-thin scrollbar-thumb-slate-300 dark:scrollbar-thumb-zinc-700"
                 >
-                  {/* Question Source Badge (if available) */}
-                  {(() => {
-                    const { sourceTag, cleanContent } = parseQuestionSource(activeQuestion.content);
-                    return (
-                      <div className="space-y-3">
-                        {sourceTag && (
-                          <div className="flex items-center justify-between">
-                            <QuestionSourceBadge source={sourceTag} showHideButton={false} />
-                            <button
-                              type="button"
-                              onClick={() => setHideQuestionSource((prev) => !prev)}
-                              className="text-[11px] text-slate-400 hover:text-slate-600 dark:hover:text-zinc-300 transition flex items-center gap-1 cursor-pointer"
-                            >
-                              {hideQuestionSource ? <Eye className="w-3 h-3" /> : <EyeOff className="w-3 h-3" />}
-                              <span>{hideQuestionSource ? 'Hiện nguồn' : 'Ẩn nguồn'}</span>
-                            </button>
+                  <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 items-start">
+                    {/* ========================================================= */}
+                    {/* ZONE 1 (PROBLEM & ANSWER CHOICES - xl:col-span-7)         */}
+                    {/* ========================================================= */}
+                    <div className="xl:col-span-7 space-y-4">
+                      {/* Question Source Badge (if available) */}
+                      {(() => {
+                        const { sourceTag, cleanContent } = parseQuestionSource(activeQuestion.content);
+                        return (
+                          <div className="space-y-3">
+                            {sourceTag && (
+                              <div className="flex items-center justify-between">
+                                <QuestionSourceBadge source={sourceTag} showHideButton={false} />
+                                <button
+                                  type="button"
+                                  onClick={() => setHideQuestionSource((prev) => !prev)}
+                                  className="text-[11px] text-slate-400 hover:text-slate-600 dark:hover:text-zinc-300 transition flex items-center gap-1 cursor-pointer"
+                                >
+                                  {hideQuestionSource ? <Eye className="w-3 h-3" /> : <EyeOff className="w-3 h-3" />}
+                                  <span>{hideQuestionSource ? 'Hiện nguồn' : 'Ẩn nguồn'}</span>
+                                </button>
+                              </div>
+                            )}
+
+                            {/* Question Content */}
+                            <div className="text-[15.5px] sm:text-[17px] text-slate-800 dark:text-zinc-100 leading-relaxed font-sans select-text">
+                              <MathRenderer content={cleanContent} />
+                            </div>
                           </div>
-                        )}
+                        );
+                      })()}
 
-                        {/* Question Content */}
-                        <div className="text-[15.5px] sm:text-[17px] text-slate-800 dark:text-zinc-100 leading-relaxed font-sans select-text">
-                          <MathRenderer content={cleanContent} />
+                      {/* Options & Interactive Tester */}
+                      {activeQuestion.type === 'mcq' && activeQuestion.options && (
+                        <div className="space-y-2.5 pt-2">
+                          <div className="text-xs font-bold text-slate-500 dark:text-zinc-400 uppercase tracking-wider">
+                            Chọn một phương án để tự kiểm tra kiến thức:
+                          </div>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-[15px] sm:text-[16px]">
+                            {activeQuestion.options.map((opt) => {
+                              const isSelected = testedAnswer === opt.key;
+                              const isCorrect = isAnswerChecked && opt.key === activeQuestion.correctAnswer;
+                              const isWrong = isAnswerChecked && isSelected && opt.key !== activeQuestion.correctAnswer;
+
+                              return (
+                                <button
+                                  key={opt.key}
+                                  type="button"
+                                  onClick={() => {
+                                    setTestedAnswer(opt.key);
+                                    setIsAnswerChecked(true);
+                                  }}
+                                  className={`p-3.5 rounded-xl border text-left transition-all duration-150 flex items-start gap-3 cursor-pointer ${
+                                    isCorrect
+                                      ? 'bg-emerald-50 dark:bg-emerald-950/50 border-emerald-500 text-emerald-950 dark:text-emerald-100 font-semibold ring-1 ring-emerald-500/40 shadow-xs'
+                                      : isWrong
+                                      ? 'bg-rose-50 dark:bg-rose-950/50 border-rose-500 text-rose-950 dark:text-rose-100 font-semibold ring-1 ring-rose-500/40 shadow-xs'
+                                      : isSelected
+                                      ? 'bg-sky-50 dark:bg-sky-950/40 border-sky-500 text-sky-950 dark:text-sky-100 font-semibold shadow-xs'
+                                      : 'bg-slate-50/70 dark:bg-zinc-900/60 border-slate-200 dark:border-zinc-800 text-slate-800 dark:text-zinc-200 hover:bg-slate-100/70 dark:hover:bg-zinc-800/80 hover:border-slate-300'
+                                  }`}
+                                >
+                                  <span className={`w-6 h-6 rounded-lg font-mono text-xs font-bold flex items-center justify-center shrink-0 border ${
+                                    isCorrect
+                                      ? 'bg-emerald-600 text-white border-emerald-600'
+                                      : isWrong
+                                      ? 'bg-rose-600 text-white border-rose-600'
+                                      : isSelected
+                                      ? 'bg-sky-600 text-white border-sky-600'
+                                      : 'bg-white dark:bg-zinc-800 border-slate-200 dark:border-zinc-700 text-slate-600 dark:text-zinc-400'
+                                  }`}>
+                                    {opt.key}
+                                  </span>
+
+                                  <div className="flex-1 select-text">
+                                    <MathRenderer content={opt.content} />
+                                  </div>
+
+                                  {isCorrect && (
+                                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                                  )}
+                                  {isWrong && (
+                                    <XCircle className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
+                                  )}
+                                </button>
+                              );
+                            })}
+                          </div>
                         </div>
-                      </div>
-                    );
-                  })()}
+                      )}
 
-                  {/* Options & Interactive Tester */}
-                  {activeQuestion.type === 'mcq' && activeQuestion.options && (
-                    <div className="space-y-2 pt-2">
-                      <div className="text-xs font-bold text-slate-500 dark:text-zinc-400 uppercase tracking-wider">
-                        Chọn một phương án để tự kiểm tra kiến thức:
-                      </div>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-[15px] sm:text-[16px]">
-                        {activeQuestion.options.map((opt) => {
-                          const isSelected = testedAnswer === opt.key;
-                          const isCorrect = isAnswerChecked && opt.key === activeQuestion.correctAnswer;
-                          const isWrong = isAnswerChecked && isSelected && opt.key !== activeQuestion.correctAnswer;
-
-                          return (
+                      {/* Fill in Blank Question Tester */}
+                      {activeQuestion.type === 'fill' && (
+                        <div className="p-4 rounded-xl bg-slate-50 dark:bg-zinc-900/70 border border-slate-200 dark:border-zinc-800 space-y-3">
+                          <div className="text-xs font-bold text-slate-600 dark:text-zinc-300">
+                            Điền kết quả dạng số thập phân hoặc số nguyên:
+                          </div>
+                          <div className="flex items-center gap-2 max-w-sm">
+                            <input
+                              type="text"
+                              placeholder="Nhập đáp số..."
+                              value={fillInput}
+                              onChange={(e) => setFillInput(e.target.value)}
+                              className="flex-1 px-3.5 py-2 bg-white dark:bg-zinc-950 border border-slate-300 dark:border-zinc-700 rounded-xl text-sm font-mono text-slate-900 dark:text-zinc-100 focus:outline-none focus:border-sky-500 font-bold"
+                            />
                             <button
-                              key={opt.key}
                               type="button"
                               onClick={() => {
-                                setTestedAnswer(opt.key);
+                                setTestedAnswer(fillInput.trim());
                                 setIsAnswerChecked(true);
                               }}
-                              className={`p-3.5 rounded-xl border text-left transition-all duration-150 flex items-start gap-3 cursor-pointer ${
-                                isCorrect
-                                  ? 'bg-emerald-50 dark:bg-emerald-950/50 border-emerald-500 text-emerald-950 dark:text-emerald-100 font-semibold ring-1 ring-emerald-500/40 shadow-xs'
-                                  : isWrong
-                                  ? 'bg-rose-50 dark:bg-rose-950/50 border-rose-500 text-rose-950 dark:text-rose-100 font-semibold ring-1 ring-rose-500/40 shadow-xs'
-                                  : isSelected
-                                  ? 'bg-sky-50 dark:bg-sky-950/40 border-sky-500 text-sky-950 dark:text-sky-100 font-semibold shadow-xs'
-                                  : 'bg-slate-50/70 dark:bg-zinc-900/60 border-slate-200 dark:border-zinc-800 text-slate-800 dark:text-zinc-200 hover:bg-slate-100/70 dark:hover:bg-zinc-800/80 hover:border-slate-300'
-                              }`}
+                              className="px-4 py-2 bg-sky-600 hover:bg-sky-500 text-white rounded-xl text-xs font-bold transition cursor-pointer"
                             >
-                              <span className={`w-6 h-6 rounded-lg font-mono text-xs font-bold flex items-center justify-center shrink-0 border ${
-                                isCorrect
-                                  ? 'bg-emerald-600 text-white border-emerald-600'
-                                  : isWrong
-                                  ? 'bg-rose-600 text-white border-rose-600'
-                                  : isSelected
-                                  ? 'bg-sky-600 text-white border-sky-600'
-                                  : 'bg-white dark:bg-zinc-800 border-slate-200 dark:border-zinc-700 text-slate-600 dark:text-zinc-400'
-                              }`}>
-                                {opt.key}
-                              </span>
-
-                              <div className="flex-1 select-text">
-                                <MathRenderer content={opt.content} />
-                              </div>
-
-                              {isCorrect && (
-                                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                              )}
-                              {isWrong && (
-                                <XCircle className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
-                              )}
+                              Kiểm tra
                             </button>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  )}
+                          </div>
 
-                  {/* Fill in Blank Question Tester */}
-                  {activeQuestion.type === 'fill' && (
-                    <div className="p-4 rounded-xl bg-slate-50 dark:bg-zinc-900/70 border border-slate-200 dark:border-zinc-800 space-y-3">
-                      <div className="text-xs font-bold text-slate-600 dark:text-zinc-300">
-                        Điền kết quả dạng số thập phân hoặc số nguyên:
-                      </div>
-                      <div className="flex items-center gap-2 max-w-sm">
-                        <input
-                          type="text"
-                          placeholder="Nhập đáp số..."
-                          value={fillInput}
-                          onChange={(e) => setFillInput(e.target.value)}
-                          className="flex-1 px-3.5 py-2 bg-white dark:bg-zinc-950 border border-slate-300 dark:border-zinc-700 rounded-xl text-sm font-mono text-slate-900 dark:text-zinc-100 focus:outline-none focus:border-sky-500 font-bold"
-                        />
-                        <button
-                          type="button"
-                          onClick={() => {
-                            setTestedAnswer(fillInput.trim());
-                            setIsAnswerChecked(true);
-                          }}
-                          className="px-4 py-2 bg-sky-600 hover:bg-sky-500 text-white rounded-xl text-xs font-bold transition cursor-pointer"
-                        >
-                          Kiểm tra
-                        </button>
-                      </div>
-
-                      {isAnswerChecked && (
-                        <div className={`p-3 rounded-lg text-xs font-mono font-bold flex items-center gap-2 ${
-                          testedAnswer.replace(',', '.') === activeQuestion.correctAnswer.replace(',', '.')
-                            ? 'bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300'
-                            : 'bg-rose-100 dark:bg-rose-950 text-rose-800 dark:text-rose-300'
-                        }`}>
-                          {testedAnswer.replace(',', '.') === activeQuestion.correctAnswer.replace(',', '.') ? (
-                            <>
-                              <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                              <span>Chính xác! Đáp số là: {activeQuestion.correctAnswer}</span>
-                            </>
-                          ) : (
-                            <>
-                              <XCircle className="w-4 h-4 text-rose-600" />
-                              <span>Chưa chính xác. Đáp số chuẩn: {activeQuestion.correctAnswer}</span>
-                            </>
+                          {isAnswerChecked && (
+                            <div className={`p-3 rounded-lg text-xs font-mono font-bold flex items-center gap-2 ${
+                              testedAnswer.replace(',', '.') === activeQuestion.correctAnswer.replace(',', '.')
+                                ? 'bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300'
+                                : 'bg-rose-100 dark:bg-rose-950 text-rose-800 dark:text-rose-300'
+                            }`}>
+                              {testedAnswer.replace(',', '.') === activeQuestion.correctAnswer.replace(',', '.') ? (
+                                <>
+                                  <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                                  <span>Chính xác! Đáp số là: {activeQuestion.correctAnswer}</span>
+                                </>
+                              ) : (
+                                <>
+                                  <XCircle className="w-4 h-4 text-rose-600" />
+                                  <span>Chưa chính xác. Đáp số chuẩn: {activeQuestion.correctAnswer}</span>
+                                </>
+                              )}
+                            </div>
                           )}
                         </div>
                       )}
+
+                      {/* Action Bar (Reset, Practice Topic) */}
+                      <div className="pt-2 flex flex-wrap items-center justify-between gap-2 border-t border-slate-100 dark:border-zinc-800/80">
+                        <div className="flex items-center gap-2">
+                          {isAnswerChecked && (
+                            <button
+                              type="button"
+                              onClick={() => {
+                                setTestedAnswer('');
+                                setFillInput('');
+                                setIsAnswerChecked(false);
+                              }}
+                              className="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-900 text-slate-700 dark:text-zinc-300 hover:bg-slate-100 text-xs font-semibold transition flex items-center gap-1.5 cursor-pointer"
+                            >
+                              <RotateCcw className="w-3.5 h-3.5" />
+                              <span>Làm lại câu này</span>
+                            </button>
+                          )}
+
+                          {/* Mobile/Tablet button toggles (hidden on large desktop) */}
+                          <button
+                            type="button"
+                            onClick={() => setShowHint((prev) => !prev)}
+                            className={`xl:hidden px-3 py-1.5 rounded-lg border text-xs font-semibold transition flex items-center gap-1.5 cursor-pointer ${
+                              showHint
+                                ? 'bg-amber-100 dark:bg-amber-950/60 border-amber-300 text-amber-900 dark:text-amber-200'
+                                : 'bg-slate-50 dark:bg-zinc-900 border-slate-200 dark:border-zinc-800 text-slate-700 dark:text-zinc-300'
+                            }`}
+                          >
+                            <Lightbulb className="w-3.5 h-3.5 text-amber-500" />
+                            <span>{showHint ? 'Ẩn gợi ý' : 'Gợi ý Socratic'}</span>
+                          </button>
+
+                          <button
+                            type="button"
+                            onClick={() => setShowSolution((prev) => !prev)}
+                            className={`xl:hidden px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
+                              showSolution
+                                ? 'bg-sky-600 text-white'
+                                : 'bg-sky-50 dark:bg-sky-950/40 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800/60'
+                            }`}
+                          >
+                            <BookOpen className="w-3.5 h-3.5" />
+                            <span>{showSolution ? 'Ẩn lời giải' : 'Xem lời giải'}</span>
+                          </button>
+                        </div>
+
+                        {onSelectTopicPractice && (
+                          <button
+                            type="button"
+                            onClick={() => onSelectTopicPractice(activeQuestion.topicId as TopicId)}
+                            className="px-3 py-1.5 rounded-lg bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-800/60 text-indigo-700 dark:text-indigo-300 text-xs font-semibold hover:bg-indigo-100 transition flex items-center gap-1.5 cursor-pointer ml-auto"
+                          >
+                            <span>Luyện chuyên đề này</span>
+                            <ArrowRight className="w-3.5 h-3.5" />
+                          </button>
+                        )}
+                      </div>
+
+                      {/* Accordions for Mobile/Tablet (< xl screens) */}
+                      <div className="xl:hidden space-y-3">
+                        {showHint && (
+                          <div className="p-4 rounded-xl bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800/40 text-amber-900 dark:text-amber-200 flex items-start gap-2.5 animate-fade-in">
+                            <Lightbulb className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
+                            <div className="space-y-1">
+                              <strong className="block text-amber-800 dark:text-amber-300 font-bold text-xs uppercase tracking-wider">
+                                Định hướng tư duy giải quyết vấn đề:
+                              </strong>
+                              <div className="text-[14px] leading-relaxed select-text font-sans">
+                                <MathRenderer content={activeQuestion.socraticHint} />
+                              </div>
+                            </div>
+                          </div>
+                        )}
+
+                        {showSolution && (
+                          <div className="p-4 rounded-xl bg-slate-50 dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800 space-y-2 animate-fade-in">
+                            <div className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-slate-800 dark:text-zinc-200 pb-2 border-b border-slate-200/60 dark:border-zinc-800/60">
+                              <span>Lời giải chi tiết từng bước:</span>
+                              <span className="font-mono text-[11px] text-emerald-600 dark:text-emerald-400 font-bold">
+                                Đáp án đúng: {activeQuestion.correctAnswer}
+                              </span>
+                            </div>
+                            <div className="text-[14.5px] text-slate-800 dark:text-zinc-200 leading-relaxed font-sans select-text pt-1">
+                              <MathRenderer content={activeQuestion.detailedSolution} />
+                            </div>
+                          </div>
+                        )}
+                      </div>
                     </div>
-                  )}
 
-                  {/* Action Bar: Toggle Hint, Toggle Solution, Practice Button */}
-                  <div className="pt-2 flex flex-wrap items-center justify-between gap-2 border-t border-slate-100 dark:border-zinc-800/80">
-                    <div className="flex items-center gap-2">
-                      <button
-                        type="button"
-                        onClick={() => setShowHint((prev) => !prev)}
-                        className={`px-3 py-1.5 rounded-lg border text-xs font-semibold transition flex items-center gap-1.5 cursor-pointer ${
-                          showHint
-                            ? 'bg-amber-100 dark:bg-amber-950/60 border-amber-300 dark:border-amber-800 text-amber-900 dark:text-amber-200'
-                            : 'bg-slate-50 dark:bg-zinc-900 border-slate-200 dark:border-zinc-800 text-slate-700 dark:text-zinc-300 hover:bg-slate-100'
-                        }`}
-                      >
-                        <Lightbulb className="w-3.5 h-3.5 text-amber-500" />
-                        <span>{showHint ? 'Ẩn gợi ý tư duy' : 'Gợi ý tư duy Socratic'}</span>
-                      </button>
-
-                      <button
-                        type="button"
-                        onClick={() => setShowSolution((prev) => !prev)}
-                        className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
-                          showSolution
-                            ? 'bg-sky-600 text-white shadow-xs'
-                            : 'bg-sky-50 dark:bg-sky-950/40 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800/60 hover:bg-sky-100'
-                        }`}
-                      >
-                        <BookOpen className="w-3.5 h-3.5" />
-                        <span>{showSolution ? 'Ẩn lời giải' : 'Xem lời giải chi tiết'}</span>
-                      </button>
-
-                      {isAnswerChecked && (
-                        <button
-                          type="button"
-                          onClick={() => {
-                            setTestedAnswer('');
-                            setFillInput('');
-                            setIsAnswerChecked(false);
-                          }}
-                          className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-zinc-300 transition cursor-pointer"
-                          title="Làm lại câu này"
-                        >
-                          <RotateCcw className="w-3.5 h-3.5" />
-                        </button>
-                      )}
-                    </div>
-
-                    {onSelectTopicPractice && (
-                      <button
-                        type="button"
-                        onClick={() => onSelectTopicPractice(activeQuestion.topicId as TopicId)}
-                        className="px-3 py-1.5 rounded-lg bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-800/60 text-indigo-700 dark:text-indigo-300 text-xs font-semibold hover:bg-indigo-100 transition flex items-center gap-1.5 cursor-pointer ml-auto"
-                      >
-                        <span>Luyện chuyên đề này</span>
-                        <ArrowRight className="w-3.5 h-3.5" />
-                      </button>
-                    )}
-                  </div>
-
-                  {/* Accordion: Socratic Hint */}
-                  {showHint && (
-                    <div className="p-4 rounded-xl bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800/40 text-amber-900 dark:text-amber-200 flex items-start gap-2.5 animate-fade-in">
-                      <Lightbulb className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
-                      <div className="space-y-1">
-                        <strong className="block text-amber-800 dark:text-amber-300 font-bold text-xs uppercase tracking-wider">
-                          Định hướng tư duy giải quyết vấn đề:
-                        </strong>
-                        <div className="text-[14px] sm:text-[15px] leading-relaxed select-text font-sans">
+                    {/* ========================================================= */}
+                    {/* ZONE 2 (INTEGRATED LEARNING & SOLUTION HUB - xl:col-span-5) */}
+                    {/* Eliminates the giant white empty void on desktop!         */}
+                    {/* ========================================================= */}
+                    <div className="hidden xl:flex flex-col space-y-4 xl:col-span-5 sticky top-0">
+                      {/* 1. Socratic Thinking Strategy Card */}
+                      <div className="p-4 rounded-2xl bg-amber-50/70 dark:bg-amber-950/20 border border-amber-200/90 dark:border-amber-900/40 space-y-2 shadow-xs">
+                        <div className="flex items-center justify-between text-xs font-bold text-amber-900 dark:text-amber-200">
+                          <div className="flex items-center gap-1.5">
+                            <Lightbulb className="w-4 h-4 text-amber-500" />
+                            <span>Định Hướng Tư Duy (Socratic):</span>
+                          </div>
+                          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-200/60 dark:bg-amber-900/60 text-amber-800 dark:text-amber-200 font-bold">
+                            PHẢN XẠ NHANH
+                          </span>
+                        </div>
+                        <div className="text-[13.5px] text-amber-950 dark:text-amber-100 leading-relaxed select-text font-sans">
                           <MathRenderer content={activeQuestion.socraticHint} />
                         </div>
                       </div>
-                    </div>
-                  )}
 
-                  {/* Accordion: Detailed Solution */}
-                  {showSolution && (
-                    <div className="p-4 sm:p-5 rounded-xl bg-slate-50 dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800 space-y-2 animate-fade-in">
-                      <div className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-slate-800 dark:text-zinc-200 pb-2 border-b border-slate-200/60 dark:border-zinc-800/60">
-                        <span>Lời giải chi tiết từng bước:</span>
-                        <span className="font-mono text-[11px] text-emerald-600 dark:text-emerald-400 font-bold">
-                          Đáp án đúng: {activeQuestion.correctAnswer}
-                        </span>
+                      {/* 2. Step-by-Step LaTeX Detailed Solution Card */}
+                      <div className="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800 space-y-2.5 shadow-xs">
+                        <div className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-slate-800 dark:text-zinc-200 pb-2 border-b border-slate-200/80 dark:border-zinc-800/80">
+                          <div className="flex items-center gap-1.5">
+                            <BookOpen className="w-4 h-4 text-sky-500" />
+                            <span>Lời Giải Chi Tiết:</span>
+                          </div>
+                          <span className="font-mono text-xs text-emerald-600 dark:text-emerald-400 font-bold bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-200 dark:border-emerald-800/60">
+                            Đáp án: {activeQuestion.correctAnswer}
+                          </span>
+                        </div>
+
+                        <div className="text-[14px] text-slate-800 dark:text-zinc-200 leading-relaxed font-sans select-text pt-1 max-h-[380px] overflow-y-auto pr-1 scrollbar-thin scrollbar-thumb-slate-300 dark:scrollbar-thumb-zinc-700">
+                          <MathRenderer content={activeQuestion.detailedSolution} />
+                        </div>
                       </div>
-                      <div className="text-[14.5px] sm:text-[16px] text-slate-800 dark:text-zinc-200 leading-relaxed font-sans select-text pt-1">
-                        <MathRenderer content={activeQuestion.detailedSolution} />
+
+                      {/* 3. Knowledge Profile & GDPT 2018 Specs Card */}
+                      <div className="p-3.5 rounded-xl bg-white dark:bg-zinc-900/60 border border-slate-200 dark:border-zinc-800 text-xs space-y-2">
+                        <div className="font-bold text-slate-700 dark:text-zinc-300 flex items-center justify-between">
+                          <span>Hồ sơ chuyên đề câu hỏi:</span>
+                          <span className="text-[10px] font-mono text-slate-400 font-normal">#{activeQuestion.id}</span>
+                        </div>
+                        <div className="space-y-1 text-slate-600 dark:text-zinc-400 text-[11.5px]">
+                          <div className="flex justify-between">
+                            <span className="text-slate-400">Chuyên đề:</span>
+                            <span className="font-semibold text-slate-800 dark:text-zinc-200 truncate max-w-[200px]">{activeQuestion.topicName}</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-slate-400">Độ khó:</span>
+                            <span className="font-semibold text-slate-800 dark:text-zinc-200">{activeQuestion.difficulty}</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-slate-400">Dạng thức:</span>
+                            <span className="font-semibold text-slate-800 dark:text-zinc-200">{activeQuestion.type === 'mcq' ? 'Trắc nghiệm 4 phương án' : 'Điền đáp số ngắn'}</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-slate-400">Tham số m:</span>
+                            <span className="font-semibold text-emerald-600 dark:text-emerald-400">{isParametricMQuestion(activeQuestion) ? 'Có chứa m' : '100% Không tham số m'}</span>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  )}
+                  </div>
                 </div>
 
                 {/* Stage Footer: Keybinding hint */}
@@ -781,7 +857,7 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
                     Mẹo: Dùng phím mũi tên <strong>←</strong> và <strong>→</strong> trên bàn phím để chuyển câu nhanh.
                   </span>
                   <span className="font-mono text-slate-500 dark:text-zinc-400 ml-auto">
-                    {activeQuestion.topicName} · Đề chuẩn {isTHPT ? 'THPTQG 2027' : 'HSA'}
+                    {activeQuestion.topicName} · Đề chuẩn {isTHPT ? 'THPTQG' : 'HSA'}
                   </span>
                 </div>
               </>

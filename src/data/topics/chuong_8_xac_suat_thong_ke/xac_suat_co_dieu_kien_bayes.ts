@@ -230,8 +230,6 @@ export const xacSuatBayesQuestions: Question[] = [
     "examSets": [
       "de_07_hsa36"
     ],
-    "topicName": "Xác suất có điều kiện & Công thức Bayes",
-    "chapterId": "chuong_xac_suat_bayes",
-    "chapterName": "Chuyên đề 5: Xác suất có điều kiện & Công thức Bayes (Toán 12)"
+    "topicName": "Xác suất có điều kiện & Công thức Bayes"
   }
 ];

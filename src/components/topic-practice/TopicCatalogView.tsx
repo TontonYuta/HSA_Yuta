@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import { Question, ChapterInfo } from '../../types/exam';
 import { CHAPTERS_METADATA } from '../../data/chaptersMetadata';
+import { ExamTrack } from '../../utils/trackFilter';
 
 interface TopicCatalogViewProps {
   catalogSearch: string;
@@ -28,6 +29,7 @@ interface TopicCatalogViewProps {
   questions: Question[];
   onBackToExam: () => void;
   onSelectTopic: (chId: string, tId: string | null) => void;
+  currentTrack?: ExamTrack;
 }
 
 export const TopicCatalogView: React.FC<TopicCatalogViewProps> = ({
@@ -41,7 +43,9 @@ export const TopicCatalogView: React.FC<TopicCatalogViewProps> = ({
   questions,
   onBackToExam,
   onSelectTopic,
+  currentTrack = 'THPTQG',
 }) => {
+  const isTHPT = currentTrack === 'THPTQG';
   const [quickChapterId, setQuickChapterId] = useState<string>(CHAPTERS_METADATA[0].id);
   const [quickTopicId, setQuickTopicId] = useState<string>('__all__');
   const currentQuickChapter =
@@ -54,19 +58,29 @@ export const TopicCatalogView: React.FC<TopicCatalogViewProps> = ({
         <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-sky-500/10 via-indigo-500/5 to-purple-500/10 dark:from-sky-950/40 dark:via-zinc-900/60 dark:to-indigo-950/30 border border-sky-200/60 dark:border-sky-900/40 p-3.5 sm:p-4">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-sky-500/10 border border-sky-500/20 text-sky-600 dark:text-sky-400 flex items-center justify-center shrink-0 shadow-xs">
+              <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center shrink-0 shadow-xs ${
+                isTHPT 
+                  ? 'bg-rose-500/10 border border-rose-500/20 text-rose-600 dark:text-rose-400' 
+                  : 'bg-sky-500/10 border border-sky-500/20 text-sky-600 dark:text-sky-400'
+              }`}>
                 <BookOpen className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
               <div>
-                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950/80 text-sky-700 dark:text-sky-300 text-[11px] font-bold uppercase tracking-wider mb-1.5 border border-sky-200 dark:border-sky-800">
+                <div className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider mb-1.5 border ${
+                  isTHPT 
+                    ? 'bg-rose-100 dark:bg-rose-950/80 text-rose-700 dark:text-rose-300 border-rose-200 dark:border-rose-800'
+                    : 'bg-sky-100 dark:bg-sky-950/80 text-sky-700 dark:text-sky-300 border-sky-200 dark:border-sky-800'
+                }`}>
                   <Sparkles className="w-3 h-3" />
-                  <span>Hệ Thống 10 Chương & 30 Chuyên Đề HSA</span>
+                  <span>{isTHPT ? 'Hệ Thống 10 Chương & 30 Chuyên Đề GDPT 2018' : 'Hệ Thống 10 Chương & 30 Chuyên Đề HSA'}</span>
                 </div>
                 <h1 className="text-lg sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">
-                  Trung Tâm Luyện Chuyên Đề Toán HSA
+                  {isTHPT ? 'Trung Tâm Luyện Chuyên Đề Tốt Nghiệp THPT' : 'Trung Tâm Luyện Chuyên Đề Toán HSA'}
                 </h1>
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 mt-1 max-w-2xl leading-relaxed">
-                  Chọn chuyên đề bạn muốn ôn luyện. Hệ thống cung cấp câu hỏi phân hóa từ Nhận biết đến Vận dụng cao, kiểm tra đáp án tức thì và lời giải chi tiết từng bước.
+                  {isTHPT 
+                    ? 'Luyện tập theo chuyên đề chuẩn GDPT 2018 (100% không chứa tham số m). Phân hóa từ Nhận biết đến Vận dụng cao, kiểm tra đáp án tức thì và lời giải chi tiết.'
+                    : 'Chọn chuyên đề bạn muốn ôn luyện. Hệ thống cung cấp câu hỏi phân hóa từ Nhận biết đến Vận dụng cao, kiểm tra đáp án tức thì và lời giải chi tiết từng bước.'}
                 </p>
               </div>
             </div>
@@ -94,13 +108,13 @@ export const TopicCatalogView: React.FC<TopicCatalogViewProps> = ({
               <Layers className="w-4 h-4 text-indigo-500" />
               <div>
                 <div className="font-bold text-slate-900 dark:text-zinc-100">30 Chuyên Đề</div>
-                <div className="text-[10px] text-slate-500 dark:text-zinc-400">Trọng tâm thi HSA</div>
+                <div className="text-[10px] text-slate-500 dark:text-zinc-400">{isTHPT ? 'Bám sát GDPT 2018' : 'Trọng tâm thi HSA'}</div>
               </div>
             </div>
             <div className="p-2 rounded-xl bg-white/60 dark:bg-zinc-900/60 border border-slate-200/50 dark:border-zinc-800/50 flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-emerald-500" />
               <div>
-                <div className="font-bold text-slate-900 dark:text-zinc-100">515 Câu Hỏi</div>
+                <div className="font-bold text-slate-900 dark:text-zinc-100">{questions.length} Câu Hỏi</div>
                 <div className="text-[10px] text-slate-500 dark:text-zinc-400">Có đáp án & lời giải</div>
               </div>
             </div>

@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { 
   Play, 
   Clock, 
@@ -10,7 +10,11 @@ import {
   Sparkles,
   BookOpen,
   ArrowRight,
-  Filter
+  Filter,
+  Award,
+  BarChart3,
+  Check,
+  GraduationCap
 } from 'lucide-react';
 import { TopicId, ExamSet } from '../types/exam';
 import { HSA_EXAM_SETS, THPTQG_EXAM_SETS } from '../data/topics/index';
@@ -42,67 +46,115 @@ export const ExamIntro: React.FC<ExamIntroProps> = ({
   const targetExamSets = examSets || (isTHPT ? THPTQG_EXAM_SETS : HSA_EXAM_SETS);
 
   // Category Filter for Exam Sets
-  const [filterCategory, setFilterCategory] = useState<'all' | 'official' | 'so' | 'quick'>('all');
+  const [filterCategory, setFilterCategory] = useState<'all' | 'official' | 'so' | 'practical' | 'quick'>('all');
 
   const filteredSets = useMemo(() => {
     return targetExamSets.filter((set) => {
       if (filterCategory === 'all') return true;
+      const lowerId = set.id.toLowerCase();
+      const lowerBadge = set.badge.toLowerCase();
+      const lowerTitle = set.title.toLowerCase();
+
       if (filterCategory === 'official') {
-        return set.id === 'thpt_2027_chuan_1' || set.id === 'thpt_2027_chuan_2' || set.id === 'hsa_standard_1' || set.id === 'hsa_standard_2';
+        return (
+          lowerId.includes('chuan') ||
+          lowerBadge.includes('chuẩn') ||
+          lowerTitle.includes('chuẩn') ||
+          lowerBadge.includes('đhqghn')
+        );
       }
       if (filterCategory === 'so') {
-        return set.id.startsWith('thpt_2027_so_') || set.title.toLowerCase().includes('sở gd&đt');
+        return (
+          lowerId.includes('so_') ||
+          lowerBadge.includes('sở') ||
+          lowerTitle.includes('sở gd&đt')
+        );
+      }
+      if (filterCategory === 'practical') {
+        return (
+          lowerBadge.includes('thực tế') ||
+          lowerTitle.includes('thực tế') ||
+          lowerBadge.includes('9+') ||
+          lowerBadge.includes('phân hóa')
+        );
       }
       if (filterCategory === 'quick') {
-        return set.timeMinutes <= 45 || set.title.toLowerCase().includes('cấp tốc') || set.title.toLowerCase().includes('luyện nhanh');
+        return (
+          set.timeMinutes <= 45 ||
+          lowerBadge.includes('cấp tốc') ||
+          lowerTitle.includes('cấp tốc') ||
+          lowerTitle.includes('luyện nhanh')
+        );
       }
       return true;
     });
   }, [targetExamSets, filterCategory]);
 
-  const currentExamSet = targetExamSets.find((s) => s.id === selectedExamSetId) || targetExamSets[0];
+  // Selected Exam Set
+  const currentExamSet = useMemo(() => {
+    return targetExamSets.find((s) => s.id === selectedExamSetId) || targetExamSets[0];
+  }, [targetExamSets, selectedExamSetId]);
+
+  // Keyboard shortcut: Press Enter to start exam (when not typing in an input)
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Enter') {
+        const target = e.target as HTMLElement;
+        if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA')) {
+          return;
+        }
+        if (currentExamSet) {
+          onStartExam(currentExamSet.id);
+        }
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [currentExamSet, onStartExam]);
 
   return (
-    <div className="max-w-6xl mx-auto h-full flex flex-col justify-between space-y-3 sm:space-y-4 animate-fade-in text-slate-900 dark:text-zinc-100 font-sans select-none pb-4 sm:pb-6">
-      {/* 1. COMPACT TOP HEADER BAR (Saves 100px compared to old banner) */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-2.5 border-b border-slate-200 dark:border-zinc-800 shrink-0">
-        <div className="flex items-center gap-2.5">
-          <div className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 shadow-xs ${
+    <div className="max-w-[1360px] mx-auto min-h-full flex flex-col space-y-4 animate-fade-in text-slate-900 dark:text-zinc-100 font-sans select-none pb-8">
+      {/* =================================================================== */}
+      {/* 1. TOP HEADER & CATEGORY FILTER BAR                                */}
+      {/* =================================================================== */}
+      <div className="bg-white dark:bg-[#101014] border border-slate-200 dark:border-zinc-800 rounded-2xl p-4 sm:p-5 shadow-xs flex flex-col lg:flex-row lg:items-center justify-between gap-4 shrink-0">
+        <div className="flex items-center gap-3">
+          <div className={`w-11 h-11 rounded-2xl flex items-center justify-center shrink-0 shadow-xs ${
             isTHPT 
               ? 'bg-rose-500/10 border border-rose-500/20 text-rose-600 dark:text-rose-400' 
               : 'bg-sky-500/10 border border-sky-500/20 text-sky-600 dark:text-sky-400'
           }`}>
-            <FileCheck2 className="w-5 h-5" />
+            <GraduationCap className="w-6 h-6" />
           </div>
           <div>
-            <div className="flex items-center gap-2 flex-wrap">
-              <h1 className="text-base sm:text-lg font-bold text-slate-900 dark:text-zinc-100">
+            <div className="flex items-center gap-2.5 flex-wrap">
+              <h1 className="text-base sm:text-lg xl:text-xl font-black text-slate-900 dark:text-zinc-100 tracking-tight">
                 {isTHPT 
                   ? `Ngân Hàng Đề Thi Thử Tốt Nghiệp THPT Quốc Gia ${targetYear}` 
-                  : `Phòng Thi Thử Đánh Giá Năng Lực HSA ${targetYear}`}
+                  : `Hệ Thống Đề Thi Thử Đánh Giá Năng Lực HSA ${targetYear}`}
               </h1>
-              <span className={`px-2 py-0.2 text-[10px] font-mono font-bold rounded-full border ${
+              <span className={`px-2.5 py-0.5 text-[11px] font-mono font-bold rounded-full border ${
                 isTHPT
                   ? 'bg-rose-100 dark:bg-rose-950 text-rose-700 dark:text-rose-300 border-rose-200/60'
                   : 'bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-300 border-sky-200/60'
               }`}>
-                {targetExamSets.length} BỘ ĐỀ
+                {targetExamSets.length} BỘ ĐỀ CHÍNH THỨC
               </span>
             </div>
-            <p className="text-xs text-slate-500 dark:text-zinc-400">
+            <p className="text-xs text-slate-500 dark:text-zinc-400 mt-0.5 leading-relaxed">
               {isTHPT 
-                ? 'Đề thi chuẩn hóa GDPT 2018: 100% không chứa tham số m, cấu trúc 3 phần bám sát định dạng Bộ GD&ĐT.' 
-                : 'Đề thi chuẩn hóa 50 câu (35 trắc nghiệm + 15 điền số), bấm giờ 75 phút, chấm tự động tức thì.'}
+                ? 'Đề thi chuẩn hóa GDPT 2018: 100% không chứa tham số m, cấu trúc bám sát định dạng Bộ GD&ĐT & các Sở GD&ĐT 2025–2026.' 
+                : 'Đề thi chuẩn hóa 50 câu (35 trắc nghiệm + 15 điền số), bấm giờ 75 phút, chấm điểm tự động và phân tích năng lực tức thì.'}
             </p>
           </div>
         </div>
 
         {/* Category Filter Tabs */}
-        <div className="flex items-center gap-1 bg-slate-100 dark:bg-zinc-900 p-1 rounded-xl border border-slate-200/80 dark:border-zinc-800 text-[11px] font-semibold shrink-0 self-start sm:self-center">
+        <div className="flex items-center gap-1 bg-slate-100 dark:bg-zinc-900 p-1.5 rounded-xl border border-slate-200/80 dark:border-zinc-800 text-xs font-semibold shrink-0 overflow-x-auto scrollbar-none">
           <button
             type="button"
             onClick={() => setFilterCategory('all')}
-            className={`px-2.5 py-1 rounded-lg transition cursor-pointer ${
+            className={`px-3 py-1.5 rounded-lg transition cursor-pointer whitespace-nowrap ${
               filterCategory === 'all'
                 ? 'bg-white dark:bg-zinc-800 text-slate-900 dark:text-zinc-100 shadow-xs font-bold'
                 : 'text-slate-500 hover:text-slate-900 dark:hover:text-zinc-200'
@@ -113,7 +165,7 @@ export const ExamIntro: React.FC<ExamIntroProps> = ({
           <button
             type="button"
             onClick={() => setFilterCategory('official')}
-            className={`px-2.5 py-1 rounded-lg transition cursor-pointer ${
+            className={`px-2.5 py-1.5 rounded-lg transition cursor-pointer whitespace-nowrap ${
               filterCategory === 'official'
                 ? 'bg-white dark:bg-zinc-800 text-slate-900 dark:text-zinc-100 shadow-xs font-bold'
                 : 'text-slate-500 hover:text-slate-900 dark:hover:text-zinc-200'
@@ -124,7 +176,7 @@ export const ExamIntro: React.FC<ExamIntroProps> = ({
           <button
             type="button"
             onClick={() => setFilterCategory('so')}
-            className={`px-2.5 py-1 rounded-lg transition cursor-pointer ${
+            className={`px-2.5 py-1.5 rounded-lg transition cursor-pointer whitespace-nowrap ${
               filterCategory === 'so'
                 ? 'bg-white dark:bg-zinc-800 text-slate-900 dark:text-zinc-100 shadow-xs font-bold'
                 : 'text-slate-500 hover:text-slate-900 dark:hover:text-zinc-200'
@@ -134,8 +186,19 @@ export const ExamIntro: React.FC<ExamIntroProps> = ({
           </button>
           <button
             type="button"
+            onClick={() => setFilterCategory('practical')}
+            className={`px-2.5 py-1.5 rounded-lg transition cursor-pointer whitespace-nowrap ${
+              filterCategory === 'practical'
+                ? 'bg-white dark:bg-zinc-800 text-slate-900 dark:text-zinc-100 shadow-xs font-bold'
+                : 'text-slate-500 hover:text-slate-900 dark:hover:text-zinc-200'
+            }`}
+          >
+            Thực Tế / 9+
+          </button>
+          <button
+            type="button"
             onClick={() => setFilterCategory('quick')}
-            className={`px-2.5 py-1 rounded-lg transition cursor-pointer ${
+            className={`px-2.5 py-1.5 rounded-lg transition cursor-pointer whitespace-nowrap ${
               filterCategory === 'quick'
                 ? 'bg-white dark:bg-zinc-800 text-slate-900 dark:text-zinc-100 shadow-xs font-bold'
                 : 'text-slate-500 hover:text-slate-900 dark:hover:text-zinc-200'
@@ -146,162 +209,258 @@ export const ExamIntro: React.FC<ExamIntroProps> = ({
         </div>
       </div>
 
-      {/* 2. SPLIT WORKSPACE: LEFT LIST (62%) + RIGHT STICKY COMMAND CENTER (38%) */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-4 flex-1 min-h-0 items-start">
+      {/* =================================================================== */}
+      {/* 2. MAIN 2-COLUMN WORKSPACE: 2-COL CARD GRID (LEFT) + COMMAND HUB (RIGHT) */}
+      {/* =================================================================== */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start flex-1">
         {/* =================================================================== */}
-        {/* LEFT ZONE: EXAM SETS LIST (Scrollable, Compact Cards)              */}
+        {/* LEFT ZONE: RICH EXAM CARD GRID (lg:col-span-7 xl:col-span-7)       */}
         {/* =================================================================== */}
-        <div className="lg:col-span-7 flex flex-col h-full bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-2xl p-3.5 sm:p-4 shadow-xs">
-          <div className="flex items-center justify-between pb-2.5 border-b border-slate-100 dark:border-zinc-800/80 mb-2.5">
-            <span className="text-xs font-bold text-slate-700 dark:text-zinc-300">
-              Chọn đề thi ({filteredSets.length} đề hiển thị)
+        <div className="lg:col-span-7 flex flex-col space-y-3">
+          <div className="flex items-center justify-between px-1">
+            <span className="text-xs font-bold text-slate-700 dark:text-zinc-300 flex items-center gap-2">
+              <span>Danh Sách Đề Thi ({filteredSets.length} đề hiển thị)</span>
+              <span className="text-[10px] text-slate-400 font-normal">Click để chọn đề và xem chi tiết cấu trúc</span>
             </span>
-            <span className="text-[11px] font-mono text-slate-400">
-              Thời gian: {isTHPT ? '90 Phút' : '75 Phút'}
+            <span className="text-[11px] font-mono text-slate-500 dark:text-zinc-400">
+              Thời lượng chuẩn: {isTHPT ? '90 Phút' : '75 Phút'}
             </span>
           </div>
 
-          {/* Grid of Compact Exam Cards */}
-          <div className="flex-1 overflow-y-auto max-h-[460px] sm:max-h-[500px] p-0.5 space-y-2 scrollbar-thin scrollbar-thumb-slate-300 dark:scrollbar-thumb-zinc-700">
-            {filteredSets.map((set) => {
+          {/* 2-Column Responsive Card Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {filteredSets.map((set, index) => {
               const isSelected = selectedExamSetId === set.id;
+              const isSo = set.badge.toLowerCase().includes('sở') || set.title.toLowerCase().includes('sở');
+              const isChuan = set.badge.toLowerCase().includes('chuẩn');
+              const isPractical = set.badge.toLowerCase().includes('thực tế');
+
               return (
-                <button
+                <div
                   key={set.id}
-                  type="button"
                   onClick={() => setSelectedExamSetId(set.id)}
-                  className={`w-full p-3 rounded-xl border text-left transition-all duration-150 flex items-center justify-between gap-3 cursor-pointer ${
+                  className={`p-4 rounded-2xl border text-left transition-all duration-200 cursor-pointer flex flex-col justify-between relative group ${
                     isSelected
                       ? isTHPT
-                        ? 'bg-rose-50 dark:bg-rose-950/40 border-rose-500 ring-1 ring-rose-500/40 shadow-xs'
-                        : 'bg-sky-50 dark:bg-sky-950/40 border-sky-500 ring-1 ring-sky-500/40 shadow-xs'
-                      : 'bg-slate-50/70 dark:bg-zinc-950/40 border-slate-200 dark:border-zinc-800 text-slate-700 dark:text-zinc-400 hover:border-slate-300 hover:bg-slate-100/50 dark:hover:bg-zinc-800/60'
+                        ? 'bg-gradient-to-br from-rose-50/80 via-white to-rose-50/30 dark:from-rose-950/30 dark:via-zinc-900 dark:to-zinc-900 border-rose-500 ring-2 ring-rose-500/30 shadow-md'
+                        : 'bg-gradient-to-br from-sky-50/80 via-white to-sky-50/30 dark:from-sky-950/30 dark:via-zinc-900 dark:to-zinc-900 border-sky-500 ring-2 ring-sky-500/30 shadow-md'
+                      : 'bg-white dark:bg-zinc-900 border-slate-200 dark:border-zinc-800 text-slate-700 dark:text-zinc-300 hover:border-slate-300 dark:hover:border-zinc-700 hover:shadow-sm'
                   }`}
                 >
-                  <div className="space-y-1 flex-1 min-w-0">
-                    <div className="flex items-center gap-2">
-                      <span className={`text-[10px] font-mono px-2 py-0.2 rounded font-bold shrink-0 ${
-                        isSelected
-                          ? isTHPT ? 'bg-rose-200 dark:bg-rose-900 text-rose-800 dark:text-rose-200' : 'bg-sky-200 dark:bg-sky-900 text-sky-800 dark:text-sky-200'
-                          : 'bg-slate-200 dark:bg-zinc-800 text-slate-700 dark:text-zinc-300'
-                      }`}>
-                        {set.badge}
-                      </span>
-                      <span className="text-[11px] font-mono text-slate-400 truncate">
-                        {set.timeMinutes} phút · {set.questionCount} câu
-                      </span>
+                  {/* Top Badge Strip */}
+                  <div className="flex items-center justify-between gap-2 mb-2.5">
+                    <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded-md uppercase tracking-wider shrink-0 ${
+                      isSelected
+                        ? isTHPT
+                          ? 'bg-rose-600 text-white shadow-xs'
+                          : 'bg-sky-600 text-white shadow-xs'
+                        : isSo
+                        ? 'bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300'
+                        : isChuan
+                        ? 'bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300'
+                        : isPractical
+                        ? 'bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300'
+                        : 'bg-slate-100 dark:bg-zinc-800 text-slate-700 dark:text-zinc-300'
+                    }`}>
+                      {set.badge}
+                    </span>
+
+                    <span className="text-[11px] font-mono text-slate-400 font-semibold flex items-center gap-1 shrink-0">
+                      <Clock className="w-3 h-3" />
+                      <span>{set.timeMinutes}p</span>
+                    </span>
+                  </div>
+
+                  {/* Title */}
+                  <h3 className={`font-bold text-xs sm:text-sm line-clamp-2 leading-snug mb-1.5 ${
+                    isSelected 
+                      ? isTHPT ? 'text-rose-700 dark:text-rose-300' : 'text-sky-700 dark:text-sky-300'
+                      : 'text-slate-900 dark:text-zinc-100 group-hover:text-slate-950 dark:group-hover:text-white'
+                  }`}>
+                    {set.title}
+                  </h3>
+
+                  {/* Subtitle / Description Snippet */}
+                  <p className="text-[11.5px] text-slate-500 dark:text-zinc-400 line-clamp-2 leading-relaxed mb-3">
+                    {set.subtitle || set.description}
+                  </p>
+
+                  {/* Bottom Meta & Selection State */}
+                  <div className="pt-2.5 border-t border-slate-100 dark:border-zinc-800/80 flex items-center justify-between mt-auto">
+                    <div className="text-[10.5px] font-mono text-slate-500 dark:text-zinc-400 flex items-center gap-2">
+                      <span>{set.questionCount} câu</span>
+                      <span>·</span>
+                      <span>{set.mcqCount} TN + {set.fillCount} Điền</span>
                     </div>
 
-                    <h3 className="font-semibold text-xs sm:text-sm text-slate-900 dark:text-zinc-100 truncate">
-                      {set.title}
-                    </h3>
+                    <div className="flex items-center gap-1">
+                      {isSelected ? (
+                        <span className={`text-[10.5px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1 ${
+                          isTHPT ? 'bg-rose-100 dark:bg-rose-950 text-rose-700 dark:text-rose-300' : 'bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-300'
+                        }`}>
+                          <CheckCircle2 className="w-3.5 h-3.5 fill-current" />
+                          <span>Đang chọn</span>
+                        </span>
+                      ) : (
+                        <span className="text-[10.5px] text-slate-400 group-hover:text-slate-600 dark:group-hover:text-zinc-300 transition">
+                          Chọn đề →
+                        </span>
+                      )}
+                    </div>
                   </div>
-
-                  <div className="shrink-0">
-                    {isSelected ? (
-                      <div className={`w-6 h-6 rounded-full flex items-center justify-center text-white ${
-                        isTHPT ? 'bg-rose-600' : 'bg-sky-600'
-                      }`}>
-                        <CheckCircle2 className="w-4 h-4 fill-current text-white" />
-                      </div>
-                    ) : (
-                      <div className="w-5 h-5 rounded-full border border-slate-300 dark:border-zinc-700 hover:border-sky-500" />
-                    )}
-                  </div>
-                </button>
+                </div>
               );
             })}
           </div>
         </div>
 
         {/* =================================================================== */}
-        {/* RIGHT ZONE: STICKY COMMAND CENTER & PRIMARY CTA (ALWAYS AT EYE LEVEL) */}
+        {/* RIGHT ZONE: STICKY EXAM COMMAND HUB (lg:col-span-5 xl:col-span-5)  */}
         {/* =================================================================== */}
-        <div className="lg:col-span-5 flex flex-col justify-between bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-2xl p-4 sm:p-5 shadow-xs space-y-4">
-          <div className="space-y-3">
-            {/* Selected Exam Highlight Card */}
-            <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-zinc-950/70 border border-slate-200 dark:border-zinc-800/80 space-y-2">
+        <div className="lg:col-span-5 flex flex-col space-y-3.5 sticky top-4">
+          <div className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-2xl p-5 shadow-xs space-y-4">
+            {/* Header: Selected Exam Title & Badge */}
+            <div className="space-y-2">
               <div className="flex items-center justify-between">
-                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
-                  Đề thi đang chọn:
+                <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
+                  <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+                  <span>Chi tiết đề thi đang chọn:</span>
                 </span>
-                <span className={`text-[10px] font-mono px-2 py-0.5 rounded font-bold ${
+                <span className={`text-[10px] font-mono px-2 py-0.5 rounded-md font-bold uppercase ${
                   isTHPT ? 'bg-rose-100 dark:bg-rose-950 text-rose-700 dark:text-rose-300' : 'bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-300'
                 }`}>
                   {currentExamSet.badge}
                 </span>
               </div>
 
-              <h2 className="text-sm sm:text-base font-bold text-slate-900 dark:text-zinc-100 leading-snug">
+              <h2 className="text-base sm:text-lg font-black text-slate-900 dark:text-zinc-100 leading-snug">
                 {currentExamSet.title}
               </h2>
 
-              <p className="text-xs text-slate-600 dark:text-zinc-400 leading-relaxed line-clamp-3">
+              <p className="text-xs text-slate-600 dark:text-zinc-400 leading-relaxed">
                 {currentExamSet.description}
               </p>
+            </div>
 
-              {/* Spec Strips */}
-              <div className="grid grid-cols-3 gap-2 pt-2 border-t border-slate-200/60 dark:border-zinc-800/60 text-center font-mono">
-                <div className="p-1.5 rounded-lg bg-white dark:bg-zinc-900 border border-slate-100 dark:border-zinc-800">
-                  <div className="text-[10px] text-slate-400">Thời gian</div>
-                  <div className="text-xs font-bold text-slate-800 dark:text-zinc-200">{currentExamSet.timeMinutes} Phút</div>
+            {/* Spec Strips (4-Grid) */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center font-mono">
+              <div className="p-2 rounded-xl bg-slate-50 dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800">
+                <div className="text-[10px] text-slate-400">Thời gian</div>
+                <div className="text-xs font-bold text-slate-900 dark:text-zinc-100">{currentExamSet.timeMinutes} Phút</div>
+              </div>
+              <div className="p-2 rounded-xl bg-slate-50 dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800">
+                <div className="text-[10px] text-slate-400">Số câu hỏi</div>
+                <div className="text-xs font-bold text-slate-900 dark:text-zinc-100">{currentExamSet.questionCount} Câu</div>
+              </div>
+              <div className="p-2 rounded-xl bg-slate-50 dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800">
+                <div className="text-[10px] text-slate-400">Cấu trúc</div>
+                <div className="text-xs font-bold text-slate-900 dark:text-zinc-100">{currentExamSet.mcqCount}TN + {currentExamSet.fillCount}Điền</div>
+              </div>
+              <div className="p-2 rounded-xl bg-slate-50 dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800">
+                <div className="text-[10px] text-slate-400">Chấm điểm</div>
+                <div className="text-xs font-bold text-emerald-600 dark:text-emerald-400">Tức thì 100%</div>
+              </div>
+            </div>
+
+            {/* Ma Trận Cấu Trúc Đề Thi GDPT 2018 (Fills space meaningfully!) */}
+            <div className="p-3.5 rounded-xl bg-slate-50/80 dark:bg-zinc-950/60 border border-slate-200/80 dark:border-zinc-800 space-y-2">
+              <div className="flex items-center justify-between text-xs font-bold text-slate-800 dark:text-zinc-200">
+                <div className="flex items-center gap-1.5">
+                  <BarChart3 className="w-3.5 h-3.5 text-indigo-500" />
+                  <span>Ma trận kiến thức & Dạng toán trọng tâm:</span>
                 </div>
-                <div className="p-1.5 rounded-lg bg-white dark:bg-zinc-900 border border-slate-100 dark:border-zinc-800">
-                  <div className="text-[10px] text-slate-400">Số câu hỏi</div>
-                  <div className="text-xs font-bold text-slate-800 dark:text-zinc-200">{currentExamSet.questionCount} Câu</div>
+                <span className="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 font-bold">
+                  GDPT 2018 MỚI
+                </span>
+              </div>
+
+              <div className="space-y-1.5 text-[11.5px] text-slate-600 dark:text-zinc-400">
+                <div className="flex items-center justify-between">
+                  <span className="flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-rose-500" />
+                    <span>Khảo sát hàm số & Ứng dụng đạo hàm:</span>
+                  </span>
+                  <span className="font-mono font-bold text-slate-700 dark:text-zinc-300">~25% - 30%</span>
                 </div>
-                <div className="p-1.5 rounded-lg bg-white dark:bg-zinc-900 border border-slate-100 dark:border-zinc-800">
-                  <div className="text-[10px] text-slate-400">Chấm điểm</div>
-                  <div className="text-xs font-bold text-emerald-600 dark:text-emerald-400">Tức thì</div>
+                <div className="flex items-center justify-between">
+                  <span className="flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-sky-500" />
+                    <span>Phương pháp tọa độ Oxyz & Hình không gian:</span>
+                  </span>
+                  <span className="font-mono font-bold text-slate-700 dark:text-zinc-300">~20% - 25%</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+                    <span>Xác suất có điều kiện & Công thức Bayes:</span>
+                  </span>
+                  <span className="font-mono font-bold text-slate-700 dark:text-zinc-300">~15% - 18%</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                    <span>Mẫu số liệu ghép nhóm & Thống kê hiện đại:</span>
+                  </span>
+                  <span className="font-mono font-bold text-slate-700 dark:text-zinc-300">~12% - 15%</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-purple-500" />
+                    <span>Toán ứng dụng thực tế & Tối ưu kinh tế:</span>
+                  </span>
+                  <span className="font-mono font-bold text-slate-700 dark:text-zinc-300">~20% - 25%</span>
                 </div>
               </div>
             </div>
 
             {/* Student Name Confirmation */}
-            <div>
-              <label className="block text-xs font-bold text-slate-700 dark:text-zinc-300 mb-1">
-                Họ và tên thí sinh:
+            <div className="space-y-1.5">
+              <label className="block text-xs font-bold text-slate-700 dark:text-zinc-300">
+                Họ và tên thí sinh dự thi:
               </label>
               <div className="relative">
-                <User className="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+                <User className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
                 <input
                   type="text"
                   placeholder="Nhập họ và tên thí sinh..."
                   value={studentName}
                   onChange={(e) => setStudentName(e.target.value)}
-                  className="w-full pl-8 pr-3 py-2 bg-slate-50 dark:bg-zinc-950 border border-slate-300 dark:border-zinc-700 rounded-xl text-xs sm:text-sm font-semibold text-slate-900 dark:text-zinc-100 focus:outline-none focus:border-sky-500 transition"
+                  className="w-full pl-9 pr-3 py-2 bg-slate-50 dark:bg-zinc-950 border border-slate-300 dark:border-zinc-700 rounded-xl text-xs sm:text-sm font-semibold text-slate-900 dark:text-zinc-100 focus:outline-none focus:border-rose-500 dark:focus:border-sky-500 transition shadow-inner"
                 />
               </div>
             </div>
 
-            {/* Essential Exam Rules Badge */}
-            <div className="p-3 rounded-xl bg-slate-50 dark:bg-zinc-950/40 border border-slate-100 dark:border-zinc-800/60 space-y-1.5 text-[11px] text-slate-600 dark:text-zinc-400">
+            {/* CBT Exam Rules */}
+            <div className="p-3 rounded-xl bg-slate-50 dark:bg-zinc-950/60 border border-slate-200/80 dark:border-zinc-800 space-y-1.5 text-[11px] text-slate-600 dark:text-zinc-400">
               <div className="flex items-center gap-1.5 font-bold text-slate-800 dark:text-zinc-200">
                 <ShieldCheck className="w-3.5 h-3.5 text-sky-500" />
-                <span>Quy chế phòng thi CBT trực tuyến:</span>
+                <span>Quy chế thi CBT trực tuyến:</span>
               </div>
               <ul className="space-y-1 pl-4 list-disc text-slate-500 dark:text-zinc-400">
-                <li>Đồng hồ đếm ngược tự động khóa bài khi hết giờ.</li>
-                <li>Hệ thống lưu trạng thái tự động và cảnh báo khi rời tab.</li>
-                <li>Xem ngay lời giải chi tiết và biểu đồ phân tích năng lực sau nộp.</li>
+                <li>Đồng hồ đếm ngược tự động khóa bài khi hết {currentExamSet.timeMinutes} phút.</li>
+                <li>Tự động lưu bài làm và cảnh báo nếu thí sinh chuyển tab hoặc mở ứng dụng khác.</li>
+                <li>Nhận ngay bảng điểm chi tiết, biểu đồ năng lực và lời giải sau khi nộp.</li>
               </ul>
             </div>
-          </div>
 
-          {/* PRIMARY CTA: VÀO THI NGAY (ALWAYS VISIBLE AT EYE-LEVEL - ZERO SCROLL) */}
-          <div className="pt-2">
-            <button
-              type="button"
-              onClick={() => onStartExam(selectedExamSetId)}
-              className={`w-full py-3.5 px-5 rounded-xl text-white font-bold text-xs sm:text-sm shadow-md transition-all active:scale-[0.99] flex items-center justify-center gap-2 cursor-pointer ${
-                isTHPT
-                  ? 'bg-rose-600 hover:bg-rose-500 shadow-rose-600/25'
-                  : 'bg-sky-600 hover:bg-sky-500 shadow-sky-600/25'
-              }`}
-            >
-              <Play className="w-4 h-4 fill-current" />
-              <span>Vào thi ngay: {currentExamSet.title}</span>
-            </button>
+            {/* PRIMARY CTA: VÀO THI NGAY */}
+            <div className="pt-2">
+              <button
+                type="button"
+                onClick={() => onStartExam(currentExamSet.id)}
+                className={`w-full py-4 px-5 rounded-2xl text-white font-black text-sm sm:text-base shadow-lg transition-all active:scale-[0.99] flex items-center justify-center gap-2.5 cursor-pointer ${
+                  isTHPT
+                    ? 'bg-gradient-to-r from-rose-600 via-rose-500 to-rose-600 hover:from-rose-500 hover:to-rose-500 shadow-rose-600/30'
+                    : 'bg-gradient-to-r from-sky-600 via-sky-500 to-sky-600 hover:from-sky-500 hover:to-sky-500 shadow-sky-600/30'
+                }`}
+              >
+                <Play className="w-5 h-5 fill-current" />
+                <span>VÀO THI NGAY: {currentExamSet.title.split(':')[0]}</span>
+              </button>
+              <div className="text-center mt-2 text-[10.5px] text-slate-400 font-mono">
+                Nhấn <kbd className="px-1.5 py-0.5 rounded bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-slate-600 dark:text-zinc-300 font-bold">Enter ↵</kbd> để bắt đầu tính giờ làm bài
+              </div>
+            </div>
           </div>
         </div>
       </div>
