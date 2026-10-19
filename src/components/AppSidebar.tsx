@@ -16,7 +16,8 @@ import {
   X,
 } from 'lucide-react';
 import { AppMode } from './Navbar';
-import { CHAPTERS_METADATA, HSA_EXAM_SETS } from '../data/topics/index';
+import { CHAPTERS_METADATA, HSA_EXAM_SETS, THPTQG_EXAM_SETS } from '../data/topics/index';
+import { ExamTrack, TRACK_METADATA } from '../utils/trackFilter';
 
 interface AppSidebarProps {
   currentMode: AppMode | 'intro' | 'results';
@@ -32,6 +33,9 @@ interface AppSidebarProps {
   onToggleCollapseDesktop: () => void;
   theme: 'dark' | 'light';
   onToggleTheme: () => void;
+  currentTrack?: ExamTrack;
+  onSelectTrack?: (track: ExamTrack) => void;
+  availableQuestionsCount?: number;
 }
 
 export const AppSidebar: React.FC<AppSidebarProps> = ({
@@ -48,6 +52,9 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
   onToggleCollapseDesktop,
   theme,
   onToggleTheme,
+  currentTrack = 'THPTQG',
+  onSelectTrack,
+  availableQuestionsCount = 535,
 }) => {
   const [isChaptersOpen, setIsChaptersOpen] = useState(true);
 
@@ -56,40 +63,43 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
     return null;
   }
 
+  const trackExamSetsCount = currentTrack === 'THPTQG' ? THPTQG_EXAM_SETS.length : HSA_EXAM_SETS.length;
+  const trackExamTime = currentTrack === 'THPTQG' ? '90 Phút' : '75 Phút';
+
   const navItems = [
     {
       id: 'intro',
       label: 'Trang Chủ',
-      desc: 'Bảng thống kê & tiến độ học tập',
+      desc: currentTrack === 'THPTQG' ? 'Bảng điều khiển luyện thi THPTQG' : 'Bảng điều khiển luyện thi HSA',
       icon: LayoutDashboard,
-      badge: 'Tổng quan',
+      badge: currentTrack === 'THPTQG' ? 'THPTQG' : 'HSA',
       action: () => onSelectMode('intro'),
       isActive: currentMode === 'intro',
     },
     {
       id: 'practice',
-      label: '30 Chuyên Đề',
-      desc: '10 chương · 30 dạng toán trọng tâm',
+      label: currentTrack === 'THPTQG' ? 'Luyện Chuyên Đề' : '30 Chuyên Đề HSA',
+      desc: currentTrack === 'THPTQG' ? 'Toán thực tế & 10 chương không tham số m' : '10 chương · 30 dạng toán trọng tâm',
       icon: BookOpen,
-      badge: '515 câu',
+      badge: currentTrack === 'THPTQG' ? 'Toán thực tế' : `${availableQuestionsCount} câu`,
       action: () => onSelectMode('practice'),
       isActive: currentMode === 'practice',
     },
     {
       id: 'exam',
-      label: 'Thi Thử 75 Phút',
-      desc: `${HSA_EXAM_SETS.length} bộ đề thi thực chiến chuẩn form`,
+      label: `Thi Thử ${trackExamTime}`,
+      desc: `${trackExamSetsCount} bộ đề thi thực chiến ${currentTrack === 'THPTQG' ? 'THPTQG 2025' : 'chuẩn HSA'}`,
       icon: CheckSquare,
-      badge: `${HSA_EXAM_SETS.length} Đề`,
+      badge: `${trackExamSetsCount} Đề`,
       action: () => onSelectMode('exam'),
       isActive: currentMode === 'exam',
     },
     {
       id: 'bank',
       label: 'Ngân Hàng Câu Hỏi',
-      desc: 'Tra cứu theo chuyên đề & mức độ',
+      desc: currentTrack === 'THPTQG' ? 'Đã lọc sạch m · Tăng cường thực tế' : 'Tra cứu toàn bộ chuyên đề HSA',
       icon: Search,
-      badge: '515 câu',
+      badge: `${availableQuestionsCount} câu`,
       action: () => onSelectMode('bank'),
       isActive: currentMode === 'bank',
     },
@@ -208,6 +218,67 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
               <div className="absolute left-full ml-3 top-1/2 -translate-y-1/2 px-2.5 py-1 bg-slate-900 dark:bg-zinc-800 text-white text-[11px] font-semibold rounded-lg shadow-xl whitespace-nowrap opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-150 z-50">
                 <span>{studentName || 'Học sinh HSA'}</span>
                 {studentSchool && <span className="block text-[10px] text-slate-300 font-normal">{studentSchool}</span>}
+                <div className="absolute right-full top-1/2 -translate-y-1/2 border-4 border-transparent border-r-slate-900 dark:border-r-zinc-800" />
+              </div>
+            </button>
+          </div>
+        )}
+
+        {/* 2.5. Track Switcher (THPTQG vs HSA) */}
+        {!isCollapsed ? (
+          <div className="p-2 border-b border-slate-100 dark:border-zinc-800/60 bg-slate-100/50 dark:bg-zinc-900/50">
+            <div className="flex items-center justify-between mb-1.5 px-1">
+              <span className="text-[10px] font-black uppercase tracking-wider text-slate-500 dark:text-zinc-400">
+                Mục tiêu thi
+              </span>
+              <span className="text-[9px] font-mono px-1.5 py-0.2 rounded font-semibold bg-white dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-slate-600 dark:text-zinc-300">
+                {currentTrack === 'THPTQG' ? 'GDPT 2018' : 'ĐHQGHN'}
+              </span>
+            </div>
+            <div className="grid grid-cols-2 gap-1 p-0.5 rounded-lg bg-slate-200/70 dark:bg-zinc-800/80 border border-slate-200/60 dark:border-zinc-700/60">
+              <button
+                type="button"
+                onClick={() => onSelectTrack && onSelectTrack('THPTQG')}
+                className={`py-1.5 px-2 rounded-md text-[11px] font-bold transition flex items-center justify-center gap-1.5 cursor-pointer ${
+                  currentTrack === 'THPTQG'
+                    ? 'bg-gradient-to-r from-rose-600 to-amber-600 text-white shadow-xs'
+                    : 'text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-100'
+                }`}
+                title="Luyện thi Tốt nghiệp THPT Quốc Gia (Không tham số m, nhiều Toán thực tế)"
+              >
+                <span>🎓 THPTQG</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => onSelectTrack && onSelectTrack('HSA')}
+                className={`py-1.5 px-2 rounded-md text-[11px] font-bold transition flex items-center justify-center gap-1.5 cursor-pointer ${
+                  currentTrack === 'HSA'
+                    ? 'bg-gradient-to-r from-sky-600 to-indigo-600 text-white shadow-xs'
+                    : 'text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-100'
+                }`}
+                title="Luyện thi Đánh giá năng lực ĐHQGHN (Đầy đủ 50 câu, 75 phút)"
+              >
+                <span>🏛️ HSA</span>
+              </button>
+            </div>
+          </div>
+        ) : (
+          /* Collapsed Track Toggle Button */
+          <div className="py-2 border-b border-slate-100 dark:border-zinc-800/60 flex items-center justify-center shrink-0">
+            <button
+              type="button"
+              onClick={() => onSelectTrack && onSelectTrack(currentTrack === 'THPTQG' ? 'HSA' : 'THPTQG')}
+              className={`w-10 h-10 rounded-xl flex items-center justify-center transition cursor-pointer relative group text-sm font-bold ${
+                currentTrack === 'THPTQG'
+                  ? 'bg-rose-500/15 text-rose-600 dark:text-rose-400 border border-rose-500/30'
+                  : 'bg-sky-500/15 text-sky-600 dark:text-sky-400 border border-sky-500/30'
+              }`}
+              title={`Chế độ: ${currentTrack === 'THPTQG' ? 'THPT Quốc Gia' : 'HSA ĐHQGHN'} (Bấm để đổi)`}
+            >
+              <span>{currentTrack === 'THPTQG' ? '🎓' : '🏛️'}</span>
+              <div className="absolute left-full ml-3 top-1/2 -translate-y-1/2 px-2.5 py-1 bg-slate-900 dark:bg-zinc-800 text-white text-[11px] font-semibold rounded-lg shadow-xl whitespace-nowrap opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-150 z-50">
+                <span>{currentTrack === 'THPTQG' ? 'THPT Quốc Gia' : 'HSA ĐHQGHN'}</span>
+                <span className="block text-[10px] text-slate-300 font-normal">Bấm để chuyển chế độ</span>
                 <div className="absolute right-full top-1/2 -translate-y-1/2 border-4 border-transparent border-r-slate-900 dark:border-r-zinc-800" />
               </div>
             </button>

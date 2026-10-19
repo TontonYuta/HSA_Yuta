@@ -3,23 +3,52 @@ import { Search, ChevronDown, ChevronUp, BookOpen, Lightbulb, Filter, ChevronLef
 import { Question } from '../types/exam';
 import { MathRenderer } from './MathRenderer';
 import { MICRO_TOPICS_METADATA } from '../data/topics/index';
+import { ExamTrack, isParametricMQuestion, isPracticalMathQuestion } from '../utils/trackFilter';
 
 interface QuestionBankViewProps {
   questions: Question[];
   onStartExam: () => void;
+  currentTrack?: ExamTrack;
+  onSelectTrack?: (track: ExamTrack) => void;
 }
 
-export const QuestionBankView: React.FC<QuestionBankViewProps> = ({ questions, onStartExam }) => {
+export const QuestionBankView: React.FC<QuestionBankViewProps> = ({ 
+  questions, 
+  onStartExam,
+  currentTrack = 'THPTQG',
+  onSelectTrack,
+}) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTopic, setSelectedTopic] = useState<string>('all');
   const [selectedType, setSelectedType] = useState<string>('all');
   const [selectedDifficulty, setSelectedDifficulty] = useState<string>('all');
+  const [trackFilter, setTrackFilter] = useState<'all' | 'practical' | 'thptqg' | 'hsa_m'>(() => {
+    return currentTrack === 'THPTQG' ? 'thptqg' : 'all';
+  });
   const [expandedId, setExpandedId] = useState<number | null>(null);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const PAGE_SIZE = 12;
 
+  // Counts for pills
+  const counts = useMemo(() => {
+    let practical = 0;
+    let nonM = 0;
+    let hasM = 0;
+    for (const q of questions) {
+      if (isPracticalMathQuestion(q)) practical++;
+      if (isParametricMQuestion(q)) hasM++;
+      else nonM++;
+    }
+    return { practical, nonM, hasM, total: questions.length };
+  }, [questions]);
+
   const filtered = useMemo(() => {
     return questions.filter((q) => {
+      // Track filter
+      if (trackFilter === 'practical' && !isPracticalMathQuestion(q)) return false;
+      if (trackFilter === 'thptqg' && isParametricMQuestion(q)) return false;
+      if (trackFilter === 'hsa_m' && !isParametricMQuestion(q)) return false;
+
       if (selectedTopic !== 'all' && q.topicId !== selectedTopic) return false;
       if (selectedType !== 'all' && q.type !== selectedType) return false;
       if (selectedDifficulty !== 'all' && q.difficulty !== selectedDifficulty) return false;
@@ -32,7 +61,7 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({ questions, o
       }
       return true;
     });
-  }, [questions, selectedTopic, selectedType, selectedDifficulty, searchTerm]);
+  }, [questions, trackFilter, selectedTopic, selectedType, selectedDifficulty, searchTerm]);
 
   // Reset to page 1 when filter changes
   const handleFilterChange = (setter: (val: string) => void, val: string) => {
@@ -125,6 +154,55 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({ questions, o
             <option value="Thông hiểu">Thông hiểu (TH)</option>
           </select>
         </div>
+
+        {/* Track Filter Pills */}
+        <div className="flex items-center gap-2 flex-wrap pt-3 border-t border-slate-100 dark:border-zinc-800">
+          <span className="text-[11px] font-bold text-slate-500 dark:text-zinc-400 mr-1">Bộ lọc định hướng:</span>
+          <button
+            type="button"
+            onClick={() => handleFilterChange(setTrackFilter as any, 'all')}
+            className={`px-3 py-1 rounded-full text-xs font-semibold transition cursor-pointer ${
+              trackFilter === 'all'
+                ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-xs'
+                : 'bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 hover:bg-slate-200 dark:hover:bg-zinc-700'
+            }`}
+          >
+            Tất cả ({counts.total})
+          </button>
+          <button
+            type="button"
+            onClick={() => handleFilterChange(setTrackFilter as any, 'practical')}
+            className={`px-3 py-1 rounded-full text-xs font-semibold transition cursor-pointer flex items-center gap-1 ${
+              trackFilter === 'practical'
+                ? 'bg-emerald-600 text-white shadow-xs'
+                : 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 hover:bg-emerald-100 dark:hover:bg-emerald-900/60'
+            }`}
+          >
+            <span>🎯 Toán Thực Tế ({counts.practical})</span>
+          </button>
+          <button
+            type="button"
+            onClick={() => handleFilterChange(setTrackFilter as any, 'thptqg')}
+            className={`px-3 py-1 rounded-full text-xs font-semibold transition cursor-pointer flex items-center gap-1 ${
+              trackFilter === 'thptqg'
+                ? 'bg-rose-600 text-white shadow-xs'
+                : 'bg-rose-50 dark:bg-rose-950/40 text-rose-700 dark:text-rose-300 border border-rose-200 dark:border-rose-800 hover:bg-rose-100 dark:hover:bg-rose-900/60'
+            }`}
+          >
+            <span>🎓 Chuẩn THPTQG - Bỏ m ({counts.nonM})</span>
+          </button>
+          <button
+            type="button"
+            onClick={() => handleFilterChange(setTrackFilter as any, 'hsa_m')}
+            className={`px-3 py-1 rounded-full text-xs font-semibold transition cursor-pointer flex items-center gap-1 ${
+              trackFilter === 'hsa_m'
+                ? 'bg-sky-600 text-white shadow-xs'
+                : 'bg-sky-50 dark:bg-sky-950/40 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800 hover:bg-sky-100 dark:hover:bg-sky-900/60'
+            }`}
+          >
+            <span>🏛️ Dạng bài tham số m ({counts.hasM})</span>
+          </button>
+        </div>
       </div>
 
       {/* Questions list */}
@@ -136,6 +214,8 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({ questions, o
 
         {currentQuestions.map((q) => {
           const isExpanded = expandedId === q.id;
+          const isPractical = isPracticalMathQuestion(q);
+          const hasM = isParametricMQuestion(q);
 
           return (
             <div
@@ -166,6 +246,16 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({ questions, o
                   >
                     {q.difficulty}
                   </span>
+                  {isPractical && (
+                    <span className="text-[10px] px-2 py-0.5 rounded-md bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300 font-bold border border-emerald-300/60 dark:border-emerald-800/60">
+                      🎯 Toán thực tế
+                    </span>
+                  )}
+                  {hasM && (
+                    <span className="text-[10px] px-2 py-0.5 rounded-md bg-purple-100 dark:bg-purple-950/80 text-purple-800 dark:text-purple-300 font-bold border border-purple-300/60 dark:border-purple-800/60">
+                      Tham số m
+                    </span>
+                  )}
                 </div>
 
                 <button

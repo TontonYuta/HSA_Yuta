@@ -72,6 +72,11 @@ export const TopicQuestionWorkspace: React.FC<TopicQuestionWorkspaceProps> = ({
                   <span className="px-2 py-0.5 rounded bg-slate-100 dark:bg-zinc-800 text-[11px] font-medium text-slate-600 dark:text-zinc-300">
                     {currentQ.difficulty}
                   </span>
+                  {currentQ.isPracticalMath && (
+                    <span className="px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950/80 text-[10px] font-bold text-emerald-700 dark:text-emerald-300 border border-emerald-300/60 dark:border-emerald-800/60 flex items-center gap-1">
+                      🎯 Toán thực tế
+                    </span>
+                  )}
                 </div>
                 <span className="text-[11px] font-mono opacity-70">
                   ID #{currentQ.id}

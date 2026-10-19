@@ -166,5 +166,5 @@ export const HSA_QUESTIONS_DATABASE: Question[] = [
 
 // Re-export chapter metadata and exam sets from dedicated modular files
 export { CHAPTERS_METADATA, MICRO_TOPICS_METADATA } from '../chaptersMetadata';
-export { HSA_EXAM_SETS } from '../examSets';
+export { HSA_EXAM_SETS, THPTQG_EXAM_SETS, ALL_EXAM_SETS } from '../examSets';
 

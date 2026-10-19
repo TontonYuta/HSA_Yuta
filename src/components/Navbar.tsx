@@ -1,6 +1,8 @@
 import React from 'react';
 import { Play, Sun, Moon, GraduationCap, LayoutGrid, CheckSquare, BookOpen, Search, LogOut, Menu, User } from 'lucide-react';
 
+import { ExamTrack, TRACK_METADATA } from '../utils/trackFilter';
+
 export type AppMode = 'intro' | 'exam' | 'practice' | 'bank';
 
 interface NavbarProps {
@@ -13,6 +15,8 @@ interface NavbarProps {
   theme: 'dark' | 'light';
   onToggleTheme: () => void;
   onHomeClick?: () => void;
+  currentTrack?: ExamTrack;
+  onSelectTrack?: (track: ExamTrack) => void;
   // Exam CBT header controls
   examTimerSlot?: React.ReactNode;
   isSidebarOpen?: boolean;
@@ -35,6 +39,8 @@ export const Navbar: React.FC<NavbarProps> = ({
   onHomeClick,
   theme,
   onToggleTheme,
+  currentTrack = 'THPTQG',
+  onSelectTrack,
   examTimerSlot,
   isSidebarOpen,
   onToggleSidebar,
@@ -44,6 +50,8 @@ export const Navbar: React.FC<NavbarProps> = ({
   studentName,
   onEditStudentName,
 }) => {
+  const isTHPT = currentTrack === 'THPTQG';
+
   return (
     <header className={`sticky top-0 z-40 h-[52px] bg-white dark:bg-[#09090b] border-b border-slate-200 dark:border-zinc-800 transition-colors select-none ${
       !isExamInProgress ? 'md:hidden' : ''
@@ -74,19 +82,27 @@ export const Navbar: React.FC<NavbarProps> = ({
               }
             }}
             className="flex items-center gap-2 group cursor-pointer text-left"
-            title="Trang chủ Luyện thi HSA"
+            title="Trang chủ Luyện thi"
           >
-            <div className="w-8 h-8 rounded-lg bg-sky-500/10 border border-sky-500/20 text-sky-600 dark:text-sky-400 flex items-center justify-center shrink-0 shadow-xs group-hover:bg-sky-500/20 transition">
+            <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 shadow-xs transition ${
+              isTHPT 
+                ? 'bg-rose-500/10 border border-rose-500/20 text-rose-600 dark:text-rose-400 group-hover:bg-rose-500/20' 
+                : 'bg-sky-500/10 border border-sky-500/20 text-sky-600 dark:text-sky-400 group-hover:bg-sky-500/20'
+            }`}>
               <GraduationCap className="w-4 h-4" />
             </div>
             <div className="flex flex-col">
               <div className="flex items-center gap-1.5">
-                <span className="text-xs sm:text-sm font-bold tracking-tight text-slate-900 dark:text-zinc-100 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition whitespace-nowrap">
+                <span className="text-xs sm:text-sm font-bold tracking-tight text-slate-900 dark:text-zinc-100 transition whitespace-nowrap">
                   <span className="hidden sm:inline">Luyện thi cùng TontonYuta</span>
-                  <span className="sm:hidden font-bold">HSA Yuta</span>
+                  <span className="sm:hidden font-bold">{isTHPT ? 'THPTQG 2025' : 'HSA ĐHQGHN'}</span>
                 </span>
-                <span className="hidden lg:inline-flex items-center px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wider rounded bg-sky-100 dark:bg-sky-950/70 text-sky-700 dark:text-sky-300 border border-sky-200/60 dark:border-sky-800/60">
-                  HSA 2025
+                <span className={`inline-flex items-center px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wider rounded border ${
+                  isTHPT 
+                    ? 'bg-rose-100 dark:bg-rose-950/70 text-rose-700 dark:text-rose-300 border-rose-200/60 dark:border-rose-800/60'
+                    : 'bg-sky-100 dark:bg-sky-950/70 text-sky-700 dark:text-sky-300 border-sky-200/60 dark:border-sky-800/60'
+                }`}>
+                  {isTHPT ? 'GDPT 2018' : 'HSA 2025'}
                 </span>
               </div>
             </div>

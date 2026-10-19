@@ -1,5 +1,7 @@
 export type QuestionType = 'mcq' | 'fill';
 
+export type ExamTrack = 'THPTQG' | 'HSA';
+
 export type TopicId = string;
 
 export interface MicroTopicInfo {
@@ -47,10 +49,14 @@ export interface Question {
   socraticHint: string; // Intuitive hint guiding student's critical thinking
   difficulty: 'Nhận biết' | 'Thông hiểu' | 'Vận dụng' | 'Vận dụng cao';
   examSets?: string[]; // IDs of exam sets this question belongs to
+  isPracticalMath?: boolean; // Real-world practical application question
+  hasParametricM?: boolean;  // Question contains parameter m
+  track?: ExamTrack | 'BOTH'; // Which track this question primarily targets
 }
 
 export interface ExamSet {
   id: string;
+  track?: ExamTrack; // 'THPTQG' or 'HSA'
   title: string;
   subtitle: string;
   timeMinutes: number;
@@ -73,6 +79,7 @@ export interface ExamReport {
   studentName: string;
   studentEmail: string;
   teacherEmail?: string;
+  track?: ExamTrack;
   examSetTitle: string;
   completedAt: string;
   totalTimeSpentSeconds: number;

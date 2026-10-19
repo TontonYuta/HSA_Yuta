@@ -10,8 +10,8 @@ import { ExamResults } from './components/ExamResults';
 import { TopicPractice } from './components/TopicPractice';
 import { QuestionBankView } from './components/QuestionBankView';
 import { ExamTimer } from './components/ExamTimer';
-import { HSA_QUESTIONS_DATABASE, HSA_EXAM_SETS, CHAPTERS_METADATA } from './data/topics/index';
-import { UserAnswer, ExamReport, TopicId } from './types/exam';
+import { HSA_QUESTIONS_DATABASE, HSA_EXAM_SETS, THPTQG_EXAM_SETS, ALL_EXAM_SETS, CHAPTERS_METADATA } from './data/topics/index';
+import { UserAnswer, ExamReport, TopicId, ExamTrack } from './types/exam';
 import { generateExamReport } from './utils/scoring';
 import { prepareExamQuestions } from './utils/questionRandomizer';
 import { TrafficBadge } from './components/TrafficBadge';
@@ -24,6 +24,7 @@ import {
   isAllowedWebhookUrl, 
   sanitizeInput 
 } from './utils/security';
+import { filterExamSetsByTrack, filterQuestionsByTrack, TRACK_METADATA } from './utils/trackFilter';
 import { GraduationCap } from 'lucide-react';
 
 export default function App() {
@@ -45,13 +46,60 @@ export default function App() {
     setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
   };
 
+  // Exam Track Mode: THPTQG (GDPT 2018 - Không tham số m, nhiều Toán thực tế) vs HSA (ĐGNL ĐHQGHN)
+  const [currentTrack, setCurrentTrack] = useState<ExamTrack>(() => {
+    return (localStorage.getItem('hsa_exam_track') as ExamTrack) || 'THPTQG';
+  });
+
+  useEffect(() => {
+    localStorage.setItem('hsa_exam_track', currentTrack);
+  }, [currentTrack]);
+
+  // Filtered Exam Sets & Questions for the selected track
+  const availableExamSets = React.useMemo(() => {
+    return filterExamSetsByTrack(ALL_EXAM_SETS, currentTrack);
+  }, [currentTrack]);
+
+  const trackQuestionsDatabase = React.useMemo(() => {
+    return filterQuestionsByTrack(HSA_QUESTIONS_DATABASE, currentTrack);
+  }, [currentTrack]);
+
   // Navigation & View state
   const [currentMode, setCurrentMode] = useState<AppMode | 'intro' | 'results'>('intro');
   const [practiceTopic, setPracticeTopic] = useState<TopicId | undefined>(undefined);
 
   // Exam Selection state
-  const [selectedExamSetId, setSelectedExamSetId] = useState<string>('de_01_chuan');
-  const currentExamSet = HSA_EXAM_SETS.find((s) => s.id === selectedExamSetId) || HSA_EXAM_SETS[0];
+  const [selectedExamSetId, setSelectedExamSetId] = useState<string>(() => {
+    return currentTrack === 'THPTQG' ? 'thptqg_01_chuan' : 'de_01_chuan';
+  });
+
+  const currentExamSet = React.useMemo(() => {
+    return ALL_EXAM_SETS.find((s) => s.id === selectedExamSetId) || availableExamSets[0];
+  }, [selectedExamSetId, availableExamSets]);
+
+  // Switch Track Handler
+  const handleSelectTrack = (newTrack: ExamTrack) => {
+    if (newTrack === currentTrack) return;
+    if (isExamActive) {
+      const confirmSwitch = window.confirm(
+        'Bài thi đang diễn ra! Bạn có chắc chắn muốn chuyển đổi chế độ và kết thúc lượt thi này?'
+      );
+      if (!confirmSwitch) return;
+      setIsExamActive(false);
+      localStorage.removeItem('hsa_active_exam_state');
+    }
+    setCurrentTrack(newTrack);
+    const newSets = filterExamSetsByTrack(ALL_EXAM_SETS, newTrack);
+    const defaultSet = newSets[0];
+    setSelectedExamSetId(defaultSet.id);
+
+    const questionIdSet = new Set(defaultSet.questionIds);
+    const questionsForSet = HSA_QUESTIONS_DATABASE.filter((q) => questionIdSet.has(q.id));
+    setActiveQuestions(prepareExamQuestions(questionsForSet));
+    setUserAnswers({});
+    setCurrentQuestionIndex(0);
+    setExamReport(null);
+  };
 
   // Active questions for the current exam session
   const [activeQuestions, setActiveQuestions] = useState(() => {
@@ -243,7 +291,7 @@ export default function App() {
   // Handler to start official exam with selected set
   const handleStartExam = (examSetId?: string) => {
     const targetSetId = examSetId || selectedExamSetId;
-    const targetSet = HSA_EXAM_SETS.find((s) => s.id === targetSetId) || HSA_EXAM_SETS[0];
+    const targetSet = ALL_EXAM_SETS.find((s) => s.id === targetSetId) || availableExamSets[0];
     const targetQuestionIdSet = new Set(targetSet.questionIds);
     const questionsForSet = HSA_QUESTIONS_DATABASE.filter((q) => targetQuestionIdSet.has(q.id));
 
@@ -491,6 +539,7 @@ export default function App() {
           setStudentEmail={setStudentEmail}
           teacherEmail={teacherEmail}
           webhookUrl={webhookUrl}
+          currentTrack={currentTrack}
         />
       );
     }
@@ -500,6 +549,8 @@ export default function App() {
         <QuestionBankView
           questions={HSA_QUESTIONS_DATABASE}
           onStartExam={() => handleStartExam()}
+          currentTrack={currentTrack}
+          onSelectTrack={handleSelectTrack}
         />
       );
     }
@@ -521,6 +572,10 @@ export default function App() {
           }}
           onSelectChapter={(chapId) => handleSelectChapter(chapId)}
           onQuestionBankMode={() => setCurrentMode('bank')}
+          currentTrack={currentTrack}
+          onSelectTrack={handleSelectTrack}
+          questions={trackQuestionsDatabase}
+          examSets={availableExamSets}
         />
       );
     }
@@ -534,6 +589,8 @@ export default function App() {
           setStudentName={setStudentName}
           selectedExamSetId={selectedExamSetId}
           setSelectedExamSetId={setSelectedExamSetId}
+          currentTrack={currentTrack}
+          examSets={availableExamSets}
         />
       );
     }
@@ -555,6 +612,10 @@ export default function App() {
         }}
         onSelectChapter={(chapId) => handleSelectChapter(chapId)}
         onQuestionBankMode={() => setCurrentMode('bank')}
+        currentTrack={currentTrack}
+        onSelectTrack={handleSelectTrack}
+        questions={trackQuestionsDatabase}
+        examSets={availableExamSets}
       />
     );
   };
@@ -586,6 +647,9 @@ export default function App() {
           onToggleCollapseDesktop={() => setIsCollapsedDesktop((prev) => !prev)}
           theme={theme}
           onToggleTheme={toggleTheme}
+          currentTrack={currentTrack}
+          onSelectTrack={handleSelectTrack}
+          availableQuestionsCount={trackQuestionsDatabase.length}
         />
       )}
 
@@ -596,6 +660,8 @@ export default function App() {
           currentMode={
             currentMode === 'intro' || currentMode === 'results' ? 'exam' : currentMode
           }
+          currentTrack={currentTrack}
+          onSelectTrack={handleSelectTrack}
           onHomeClick={handleGoHome}
           onSelectMode={(mode) => {
             if (isExamActive && mode !== 'exam') {

@@ -1,0 +1,178 @@
+import { Question, ExamSet, ExamTrack, ChapterInfo } from '../types/exam';
+
+export type { ExamTrack };
+
+/**
+ * Kiểm tra câu hỏi có chứa tham số m hay không.
+ * Theo định hướng kỳ thi tốt nghiệp THPT mới từ 2025 (GDPT 2018), các bài toán
+ * hàn lâm tìm tham số m để hàm số đơn điệu, cực trị, max/min... được lược bỏ
+ * để nhường chỗ cho các câu hỏi ứng dụng thực tế và tư duy định lượng đời sống.
+ */
+export function isParametricMQuestion(q: Question): boolean {
+  if (q.hasParametricM !== undefined) {
+    return q.hasParametricM;
+  }
+
+  const content = q.content || '';
+  const solution = q.detailedSolution || '';
+  const fullText = `${content} ${solution}`;
+
+  // Patterns indicating parametric m questions
+  const mPatterns = [
+    /tham\s+số\s*\$?m\$?/i,
+    /giá\s+trị(?:\s+thực|\s+nguyên)?\s+của\s*\$?m\$?/i,
+    /tất\s+cả\s+các\s+giá\s+trị\s+của\s*\$?m\$?/i,
+    /tập\s+hợp\s+tất\s+cả\s+các\s+giá\s+trị\s+của\s*\$?m\$?/i,
+    /tìm\s*(?:tất\s+cả\s+)?(?:các\s+)?(?:giá\s+trị\s+)?(?:thực\s+|nguyên\s+)?của\s*\$?m\$?\b/i,
+    /có\s+bao\s+nhiêu\s+giá\s+trị\s+nguyên\s+của\s*\$?m\$?/i,
+    /với\s*\$?m\$?\s*là\s+tham\s+số/i,
+    /chứa\s+tham\s+số\s*\$?m\$?/i,
+    /\bm\s*\\in\s*\[/i,
+    /\bm\s*\\in\s*\(/i,
+    /\bm\s*\\in\s*\\mathbb\{R\}/i,
+    /\bm\s*\\in\s*\\mathbb\{Z\}/i,
+  ];
+
+  // Specific check for parametric m topics
+  const isMTopic = [
+    'don_dieu_tham_so_m',
+    'cuc_tri_tham_so_m',
+    'max_min_tham_so_m',
+  ].includes(q.topicId);
+
+  if (isMTopic) {
+    for (const pat of mPatterns) {
+      if (pat.test(fullText)) return true;
+    }
+    // Also if question content itself asks for m
+    if (/\b[m]\b/.test(content) && /tìm|giá trị|nguyên|thực/i.test(content)) {
+      return true;
+    }
+  }
+
+  for (const pat of mPatterns) {
+    if (pat.test(content)) return true;
+  }
+
+  return false;
+}
+
+/**
+ * Kiểm tra câu hỏi có thuộc nhóm Toán Thực Tế / Ứng dụng đời sống hay không.
+ */
+export function isPracticalMathQuestion(q: Question): boolean {
+  if (q.isPracticalMath !== undefined) {
+    return q.isPracticalMath;
+  }
+
+  if (q.chapterId === 'chuong_10_toan_thuc_te_toi_uu') {
+    return true;
+  }
+
+  const practicalTopics = [
+    'toi_uu_kinh_te_va_doanh_thu',
+    'toi_uu_hinh_hoc_va_vat_lieu',
+    'toan_thuc_te_thptqg_mo_hinh_hoa',
+    'ung_dung_thuc_te_mu_logarit',
+    'chuyen_dong_tich_phan_thuc_te',
+    'ung_dung_tich_phan_dien_tich_the_tich',
+    'mo_hinh_oxyz_thuc_te',
+    'quy_hoach_tuyen_tinh',
+    'thong_ke_ghep_nhom',
+    'xac_suat_bayes_thuc_te',
+    'dao_dong_luong_giac_thuc_te',
+  ];
+
+  if (practicalTopics.includes(q.topicId)) {
+    return true;
+  }
+
+  const text = `${q.content} ${q.topicName || ''}`.toLowerCase();
+  const practicalRegex =
+    /thực tế|kinh tế|chi phí|lợi nhuận|doanh thu|vận tốc|quãng đường|gia tốc|vi khuẩn|nhiễm khuẩn|phóng xạ|rada|radar|máy bay|bể nước|bể bơi|hồ bơi|đo đạc|người ta|bác |chú |kỹ sư|công ty|nhà máy|doanh nghiệp|lãi suất|tiền gửi|thống kê|ghép nhóm|trung vị|tứ phân vị|tần số|xét nghiệm|bệnh nhân|hải đăng|cột cờ|vòm cầu|sóng âm|decibel|nồng độ|liều lượng|dân số|động đất|richter|quang hợp|lưu lượng/;
+
+  return practicalRegex.test(text);
+}
+
+/**
+ * Lọc danh sách câu hỏi theo Track
+ * - HSA: Lấy toàn bộ (bao gồm cả tư duy logic, tham số m và toán thực tế)
+ * - THPTQG: Bỏ hoàn toàn câu hỏi chứa tham số m, ưu tiên và làm giàu toán thực tế
+ */
+export function filterQuestionsByTrack(questions: Question[], track: ExamTrack): Question[] {
+  if (track === 'HSA') {
+    return questions.map((q) => ({
+      ...q,
+      isPracticalMath: isPracticalMathQuestion(q),
+      hasParametricM: isParametricMQuestion(q),
+    }));
+  }
+
+  // THPTQG: Loại bỏ toàn bộ câu hỏi chứa tham số m
+  return questions
+    .filter((q) => !isParametricMQuestion(q))
+    .map((q) => ({
+      ...q,
+      isPracticalMath: isPracticalMathQuestion(q),
+      hasParametricM: false,
+    }));
+}
+
+/**
+ * Lọc bộ đề thi theo Track
+ */
+export function filterExamSetsByTrack(examSets: ExamSet[], track: ExamTrack): ExamSet[] {
+  return examSets.filter((s) => {
+    if (s.track) return s.track === track;
+    // Default fallback: sets with id starting with thptqg are for THPTQG, else HSA
+    return track === 'THPTQG' ? s.id.startsWith('thptqg') : !s.id.startsWith('thptqg');
+  });
+}
+
+/**
+ * Cấu hình thông tin chi tiết từng chế độ
+ */
+export interface TrackMeta {
+  id: ExamTrack;
+  title: string;
+  shortTitle: string;
+  badge: string;
+  subtitle: string;
+  examDurationMinutes: number;
+  questionCount: number;
+  description: string;
+  highlightText: string;
+  badgeColor: string;
+  activeColor: string;
+}
+
+export const TRACK_METADATA: Record<ExamTrack, TrackMeta> = {
+  THPTQG: {
+    id: 'THPTQG',
+    title: 'Tốt Nghiệp THPT Quốc Gia (GDPT 2018)',
+    shortTitle: 'THPT Quốc Gia',
+    badge: 'Chuẩn GDPT 2018',
+    subtitle: 'Đề thi bám sát định dạng Bộ GD&ĐT 2025: Lược bỏ tham số m, bứt phá Toán Thực Tế',
+    examDurationMinutes: 90,
+    questionCount: 50,
+    description:
+      'Hệ thống luyện thi Tốt nghiệp THPT Quốc gia theo chương trình mới GDPT 2018. Lược bỏ hoàn toàn các bài toán tìm tham số m trừu tượng; tập trung chuyên sâu vào Toán thực tế, mô hình hóa đời sống, tối ưu kinh tế, tích phân chuyển động, xác suất Bayes và thống kê ghép nhóm.',
+    highlightText: 'Đã loại bỏ tham số m · Tăng cường 100+ bài toán thực tế đời sống',
+    badgeColor: 'bg-rose-50 text-rose-700 border-rose-200 dark:bg-rose-950/40 dark:text-rose-300 dark:border-rose-800',
+    activeColor: 'from-rose-600 to-amber-600 text-white shadow-rose-500/25',
+  },
+  HSA: {
+    id: 'HSA',
+    title: 'Đánh Giá Năng Lực ĐHQGHN (HSA)',
+    shortTitle: 'ĐGNL HSA',
+    badge: 'Chuẩn ĐHQGHN',
+    subtitle: 'Toán học & Tư duy định lượng: 50 câu (35 Trắc nghiệm + 15 Điền số) trong 75 phút',
+    examDurationMinutes: 75,
+    questionCount: 50,
+    description:
+      'Hệ thống luyện thi Đánh giá năng lực ĐHQGHN (HSA) môn Toán & Tư duy định lượng. Cấu trúc chuẩn 50 câu phân tầng nhận biết đến vận dụng cao, bao quát toàn diện giải tích, hình học, xác suất và tư duy số học.',
+    highlightText: 'Đầy đủ 50 câu (35 TN + 15 Điền số) · 20 bộ đề thực chiến ĐHQGHN',
+    badgeColor: 'bg-sky-50 text-sky-700 border-sky-200 dark:bg-sky-950/40 dark:text-sky-300 dark:border-sky-800',
+    activeColor: 'from-sky-600 to-indigo-600 text-white shadow-sky-500/25',
+  },
+};

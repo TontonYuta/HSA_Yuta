@@ -23,6 +23,7 @@ import {
   recordSubmissionTime, 
   sanitizeInput 
 } from '../utils/security';
+import { ExamTrack, filterQuestionsByTrack, TRACK_METADATA } from '../utils/trackFilter';
 
 import { TopicCatalogView } from './topic-practice/TopicCatalogView';
 import { TopicPracticeSidebar } from './topic-practice/TopicPracticeSidebar';
@@ -40,6 +41,7 @@ interface TopicPracticeProps {
   setStudentEmail?: (email: string) => void;
   teacherEmail?: string;
   webhookUrl?: string;
+  currentTrack?: ExamTrack;
 }
 
 export const TopicPractice: React.FC<TopicPracticeProps> = ({
@@ -52,7 +54,12 @@ export const TopicPractice: React.FC<TopicPracticeProps> = ({
   setStudentEmail,
   teacherEmail = 'huyhoang6altt@gmail.com',
   webhookUrl,
+  currentTrack = 'THPTQG',
 }) => {
+  // Filter questions base pool by track
+  const trackBaseQuestions = useMemo(() => {
+    return filterQuestionsByTrack(questions, currentTrack);
+  }, [questions, currentTrack]);
   // Find initial chapter
   const defaultChapter = useMemo(() => {
     if (initialTopicId) {
@@ -158,16 +165,16 @@ export const TopicPractice: React.FC<TopicPracticeProps> = ({
     return CHAPTERS_METADATA.find((c) => c.id === selectedChapterId) || CHAPTERS_METADATA[0];
   }, [selectedChapterId]);
 
-  // Filtered & randomized questions
+  // Filtered & randomized questions (track-aware)
   const filteredQuestions = useMemo(() => {
     let list: Question[] = [];
     if (selectedTopicId) {
-      list = questions.filter((q) => q.topicId === selectedTopicId);
+      list = trackBaseQuestions.filter((q) => q.topicId === selectedTopicId);
     } else {
-      list = questions.filter((q) => q.chapterId === selectedChapterId);
+      list = trackBaseQuestions.filter((q) => q.chapterId === selectedChapterId);
     }
     return prepareTopicPracticeQuestions(list);
-  }, [questions, selectedChapterId, selectedTopicId, randomSeed]);
+  }, [trackBaseQuestions, selectedChapterId, selectedTopicId, randomSeed]);
 
   const currentQ = filteredQuestions[currentIdx] || filteredQuestions[0];
 
@@ -421,7 +428,7 @@ export const TopicPractice: React.FC<TopicPracticeProps> = ({
         expandedChapterId={expandedChapterId}
         setExpandedChapterId={setExpandedChapterId}
         catalogChapters={catalogChapters}
-        questions={questions}
+        questions={trackBaseQuestions}
         onBackToExam={onBackToExam}
         onSelectTopic={handleSelectTopicFromCatalog}
       />
@@ -440,7 +447,7 @@ export const TopicPractice: React.FC<TopicPracticeProps> = ({
         selectedTopicId={selectedTopicId}
         onSelectChapter={handleSelectChapter}
         onSelectTopic={handleSelectTopic}
-        questions={questions}
+        questions={trackBaseQuestions}
         filteredQuestions={filteredQuestions}
         currentIdx={currentIdx}
         onSelectQuestionIdx={setCurrentIdx}
@@ -494,10 +501,10 @@ export const TopicPractice: React.FC<TopicPracticeProps> = ({
                 title="Chọn chuyên đề làm bài"
               >
                 <option value="__all__" className="dark:bg-zinc-900 font-bold text-sky-600 dark:text-sky-400">
-                  🌟 Toàn bộ ({questions.filter((q) => q.chapterId === selectedChapterId).length} câu)
+                  🌟 Toàn bộ ({trackBaseQuestions.filter((q) => q.chapterId === selectedChapterId).length} câu)
                 </option>
                 {currentChapter.topics.map((t, idx) => {
-                  const count = questions.filter((q) => q.topicId === t.id).length;
+                  const count = trackBaseQuestions.filter((q) => q.topicId === t.id).length;
                   return (
                     <option key={t.id} value={t.id} className="dark:bg-zinc-900 text-slate-900 dark:text-zinc-100 font-medium">
                       {idx + 1}. {t.name} ({count} câu)

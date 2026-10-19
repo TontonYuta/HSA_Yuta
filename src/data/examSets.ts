@@ -317,4 +317,118 @@ export const HSA_EXAM_SETS: ExamSet[] = [
       285, 286, 287, 288, 289, 290, 291, 292, 293, 294, 295, 296, 297, 298, 299
     ],
   },
+].map((s) => ({ ...s, track: 'HSA' as const }));
+
+// =========================================================================
+// BỘ ĐỀ THI TỐT NGHIỆP THPT QUỐC GIA (GDPT 2018)
+// LƯỢC BỎ HOÀN TOÀN THAM SỐ M - TẬP TRUNG TOÁN THỰC TẾ & MÔ HÌNH HÓA ĐỜI SỐNG
+// =========================================================================
+export const THPTQG_EXAM_SETS: ExamSet[] = [
+  {
+    id: 'thptqg_01_chuan',
+    track: 'THPTQG',
+    title: 'Đề 01: Chuẩn Cấu Trúc Minh Họa THPTQG 2025',
+    subtitle: '50 câu chuẩn GDPT 2018 (Không tham số m, trọng tâm Toán thực tế)',
+    timeMinutes: 90,
+    questionCount: 50,
+    mcqCount: 35,
+    fillCount: 15,
+    badge: 'Chuẩn GDPT 2018',
+    description: 'Bám sát định dạng đề thi Tốt nghiệp THPT mới của Bộ GD&ĐT: Loại bỏ hoàn toàn các bài toán tìm tham số m trừu tượng; tích hợp 20+ bài toán thực tế, tối ưu kinh tế, tích phân chuyển động và thống kê ghép nhóm.',
+    questionIds: [
+      24, 28, 29, 30, 31, 32, 68, 69, 74, 79, 80, 101, 111, 117, 120, 1, 2, 3, 6, 7,
+      8, 9, 11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 22, 23, 25,
+      42, 46, 47, 48, 96, 97, 137, 140, 36, 37, 38, 39, 40, 41, 43
+    ],
+  },
+  {
+    id: 'thptqg_02_toan_thuc_te',
+    track: 'THPTQG',
+    title: 'Đề 02: Đại Chiến Toán Thực Tế & Mô Hình Hóa Đời Sống',
+    subtitle: '50 câu thực chiến 100% ứng dụng đời sống, kinh tế, y học & kỹ thuật',
+    timeMinutes: 90,
+    questionCount: 50,
+    mcqCount: 35,
+    fillCount: 15,
+    badge: '100% Toán Thực Tế',
+    description: 'Chuyên đề đột phá dành riêng cho học sinh muốn làm chủ toàn bộ các câu hỏi mô hình hóa thực tế: chi phí sản xuất, lãi kép, động đất Richter, cáp treo, trạm radar và phân tích số liệu y khoa.',
+    questionIds: [
+      123, 126, 128, 129, 130, 131, 132, 152, 178, 179, 180, 181, 182, 204, 211, 218, 220, 228, 236, 237,
+      238, 246, 249, 260, 313, 327, 338, 342, 516, 518, 520, 522, 524, 526, 528,
+      141, 142, 145, 147, 149, 150, 192, 197, 199, 200, 203, 206, 240, 250, 262
+    ],
+  },
+  {
+    id: 'thptqg_03_xac_suat_thong_ke',
+    track: 'THPTQG',
+    title: 'Đề 03: Đột Phá Xác Suất Bayes & Thống Kê Ghép Nhóm',
+    subtitle: '50 câu chuyên sâu xác suất có điều kiện, Bayes & số liệu ghép nhóm',
+    timeMinutes: 90,
+    questionCount: 50,
+    mcqCount: 35,
+    fillCount: 15,
+    badge: 'Xác suất & Thống kê',
+    description: 'Đào sâu các nội dung trọng tâm mới của chương trình 2018: công thức xác suất toàn phần, công thức Bayes, trung vị, tứ phân vị, mốt và quy hoạch tuyến tính hai ẩn.',
+    questionIds: [
+      21, 25, 26, 27, 28, 29, 30, 32, 65, 67, 68, 69, 76, 78, 79, 120, 125, 126, 127, 128,
+      129, 130, 131, 132, 152, 170, 171, 175, 176, 177, 178, 179, 180, 181, 204,
+      42, 43, 46, 47, 48, 49, 93, 95, 96, 137, 142, 143, 145, 147, 148
+    ],
+  },
+  {
+    id: 'thptqg_04_oxyz_khong_gian',
+    track: 'THPTQG',
+    title: 'Đề 04: Mô Hình Hóa Hình Học Không Gian & Tọa Độ Oxyz',
+    subtitle: '50 câu hình học không gian, góc, khoảng cách & tọa độ hóa thực tế',
+    timeMinutes: 90,
+    questionCount: 50,
+    mcqCount: 35,
+    fillCount: 15,
+    badge: 'Hình học & Oxyz',
+    description: 'Tổng hợp các bài toán hình học thực tế: mái che parabol, bể chứa tròn xoay, hệ thống vệ tinh GPS, trạm thu phát tín hiệu và khoảng cách an toàn hàng không.',
+    questionIds: [
+      11, 12, 13, 14, 15, 16, 17, 18, 19, 31, 33, 34, 59, 60, 61, 62, 63, 64, 73, 74,
+      75, 84, 85, 111, 112, 113, 114, 115, 116, 117, 118, 119, 134, 135, 161,
+      39, 40, 41, 50, 90, 91, 92, 140, 141, 146, 190, 191, 196, 213, 239
+    ],
+  },
+  {
+    id: 'thptqg_05_tong_hop',
+    track: 'THPTQG',
+    title: 'Đề 05: Thực Chiến Tổng Hợp Phân Hóa THPTQG 2025',
+    subtitle: '50 câu toàn diện rèn luyện tư duy phản xạ không tham số m',
+    timeMinutes: 90,
+    questionCount: 50,
+    mcqCount: 35,
+    fillCount: 15,
+    badge: 'Thực chiến 9+',
+    description: 'Đề thi rèn luyện phản xạ nhanh với các dạng bài phân hóa năng lực tư duy, ứng dụng đạo hàm, tích phân, số phức/lượng giác và đại số thực tiễn.',
+    questionIds: [
+      26, 27, 33, 34, 35, 52, 54, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 70, 71,
+      73, 75, 76, 77, 78, 123, 126, 128, 129, 130, 131, 132, 152, 178, 179,
+      44, 45, 49, 50, 86, 88, 89, 90, 91, 92, 141, 142, 145, 147, 149
+    ],
+  },
+  {
+    id: 'thptqg_06_cap_toc',
+    track: 'THPTQG',
+    title: 'Đề 06: Luyện Nhanh Trọng Điểm Toán Thực Tế (25 Câu / 40 Phút)',
+    subtitle: '25 câu then chốt làm nhanh trong 40 phút',
+    timeMinutes: 40,
+    questionCount: 25,
+    mcqCount: 18,
+    fillCount: 7,
+    badge: 'Cấp tốc 40 phút',
+    description: 'Dành cho học sinh muốn kiểm tra nhanh kiến thức Toán thực tế và tư duy định lượng trọng tâm trước giờ thi.',
+    questionIds: [
+      24, 28, 29, 30, 31, 32, 68, 69, 74, 79, 80, 101, 111, 117, 120, 123, 126, 128,
+      42, 46, 47, 48, 96, 97, 137
+    ],
+  },
 ];
+
+export const ALL_EXAM_SETS: ExamSet[] = [
+  ...HSA_EXAM_SETS,
+  ...THPTQG_EXAM_SETS,
+];
+
