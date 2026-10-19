@@ -90,6 +90,16 @@ import { hsa558ExamQuestions } from './de_thi_hsa_558';
 // Selected 2024-2027 questions from Toanmath (GDPT 2018 format)
 import { toanmathSelectedQuestions } from './toanmath_2024_2027_selected';
 
+// Official & Mock Exams 2025-2026 from Provincial Departments (Ha Noi, Nam Dinh, Nghe An, Hai Phong, TP.HCM)
+import {
+  deThiCacSoQuestions,
+  soHanoi2025Questions,
+  soNamDinh2025Questions,
+  soNgheAn2025Questions,
+  soHaiPhong2025Questions,
+  nguyenKhuyenTphcm2026Questions,
+} from './de_thi_cac_so_2025_2026';
+
 // Re-export micro-topics for modular consumption
 export {
   // Chuong 1
@@ -151,6 +161,12 @@ export {
   chuong_9_luong_giacQuestions,
   chuong_10_toan_thuc_te_toi_uuQuestions,
   toanmathSelectedQuestions,
+  deThiCacSoQuestions,
+  soHanoi2025Questions,
+  soNamDinh2025Questions,
+  soNgheAn2025Questions,
+  soHaiPhong2025Questions,
+  nguyenKhuyenTphcm2026Questions,
 };
 
 // Aggregate all 30 micro-topics into master questions database
@@ -167,6 +183,7 @@ export const HSA_QUESTIONS_DATABASE: Question[] = [
   ...chuong_10_toan_thuc_te_toi_uuQuestions,
   ...toanmathSelectedQuestions,
   ...hsa558ExamQuestions,
+  ...deThiCacSoQuestions,
 ].sort((a, b) => a.id - b.id);
 
 // Re-export chapter metadata and exam sets from dedicated modular files
