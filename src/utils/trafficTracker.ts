@@ -123,22 +123,34 @@ export function recordPageVisit(webhookUrl?: string): TrafficStats {
       };
     } catch {}
 
-    // Dispatch async ping to Google Apps Script Webhook
+    // Dispatch async visit notification to Google Apps Script Webhook
     const targetUrl = webhookUrl?.trim() || localStorage.getItem('hsa_webhook_url')?.trim();
     if (targetUrl) {
       try {
+        const storedName = localStorage.getItem('hsa_student_name') || 'Học sinh mới truy cập';
+        const storedSchool = localStorage.getItem('hsa_student_school') || 'Chưa cung cấp';
+        const storedEmail = localStorage.getItem('hsa_student_email') || '';
+        const storedTrack = localStorage.getItem('hsa_exam_track') || 'THPTQG';
+        const teacherEmail = localStorage.getItem('hsa_teacher_email') || 'huyhoang6altt@gmail.com';
+
         fetch(targetUrl, {
           method: 'POST',
           mode: 'no-cors',
           headers: { 'Content-Type': 'text/plain' },
           body: JSON.stringify({
-            type: 'TRAFFIC_PING',
+            type: 'STUDENT_VISIT',
+            studentName: storedName,
+            school: storedSchool,
+            studentEmail: storedEmail,
+            track: storedTrack === 'THPTQG' ? 'THPTQG 2027' : 'HSA ĐHQGHN',
+            teacherEmail: teacherEmail,
+            visitedAt: new Date().toLocaleString('vi-VN'),
             timestamp: new Date().toISOString(),
             screen: typeof window !== 'undefined' ? `${window.innerWidth}x${window.innerHeight}` : 'unknown',
             referrer: typeof document !== 'undefined' ? (document.referrer || 'direct') : 'direct',
+            userAgent: typeof navigator !== 'undefined' ? navigator.userAgent : 'Web Browser',
             totalVisits: stats.totalVisits,
             todayVisits: stats.todayVisits,
-            studentName: localStorage.getItem('hsa_student_name') || 'Khách vãng lai',
           }),
         }).catch(() => {});
       } catch {}

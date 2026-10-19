@@ -1,7 +1,8 @@
 /**
  * Google Apps Script Webhook Template Generator
- * Handles Google Sheets auto-recording and automated email dispatch
- * Fully supports dual tracks: THPTQG 2027 (GDPT 2018) & HSA (VNU Hanoi)
+ * Handles Google Sheets auto-recording, automated email dispatch,
+ * dual tracks (THPTQG 2027 & HSA), duplicate email prevention,
+ * and real-time student visit notifications.
  */
 export function generateGasScript(teacherEmail: string = ''): string {
   const safeTeacherEmail = teacherEmail || '';
@@ -9,6 +10,7 @@ export function generateGasScript(teacherEmail: string = ''): string {
  * ========================================================================================
  * HỆ THỐNG WEBHOOK GOOGLE APPS SCRIPT ĐỒNG BỘ GOOGLE SHEETS & EMAIL BÁO CÁO KẾT QUẢ THI
  * DỰ ÁN: LUYỆN THI TOÁN THPT QUỐC GIA 2027 & ĐGNL HSA ĐHQGHN - TONTONYUTA
+ * Phiên bản: v2.2 (Sửa lỗi gửi trùng email & Bổ sung thông báo học sinh truy cập web)
  * ========================================================================================
  * 
  * 📋 HƯỚNG DẪN CÀI ĐẶT 5 BƯỚC CỰC KỲ ĐƠN GIẢN:
@@ -19,15 +21,15 @@ export function generateGasScript(teacherEmail: string = ''): string {
  *    khởi tạo sẵn các Sheet đẹp mắt.
  * 5. Nhấn "Triển khai" (Deploy) -> "Tùy chọn triển khai mới" (New deployment):
  *    - Chọn loại: "Ứng dụng web" (Web app)
- *    - Mô tả: "HSA & THPTQG Webhook v2.0"
+ *    - Mô tả: "HSA & THPTQG Webhook v2.2"
  *    - Thực thi dưới dạng (Execute as): "Tôi" (Me)
- *    - Ai có quyền truy cập (Who has access): "Bất kỳ ai" (Anyone) -> RẤT QUAN TRỌNG!
+ *    - Ai có quyền truy cập (Who has access): "Bất kỳ ai" (Anyone) -> BẮT BUỘC!
  * 6. Bấm "Triển khai", cấp quyền cho tài khoản Google của bạn và SAO CHÉP URL Web App.
  * 7. Dán URL này vào mục "Đồng bộ Webhook" trên ứng dụng Webtest.
  * ========================================================================================
  */
 
-// EMAIL GIÁO VIÊN / ADMIN MẶC ĐỊNH NHẬN KẾT QUẢ (Nếu để trống script sẽ lấy email Google của bạn)
+// EMAIL GIÁO VIÊN / ADMIN MẶC ĐỊNH NHẬN KẾT QUẢ & THÔNG BÁO TRUY CẬP
 const DEFAULT_TEACHER_EMAIL = "${safeTeacherEmail}";
 
 /**
@@ -108,6 +110,7 @@ function doPost(e) {
 
     const rawData = e.postData.contents;
     const data = JSON.parse(rawData);
+    const cache = CacheService.getScriptCache();
 
     // 2.1. Xác định Email nhận báo cáo của Giáo viên
     let teacherEmail = (data.teacherEmail && data.teacherEmail.trim()) || DEFAULT_TEACHER_EMAIL.trim();
@@ -150,7 +153,7 @@ function doPost(e) {
       if (teacherEmail && teacherEmail.indexOf("@") !== -1) {
         MailApp.sendEmail({
           to: teacherEmail,
-          subject: "[TontonYuta] Học sinh mới tham gia: " + (data.studentName || "Học sinh mới") + " (" + (data.school || "THPT") + ")",
+          subject: "[TontonYuta] 🎉 Học sinh mới đăng ký: " + (data.studentName || "Học sinh mới") + " (" + (data.school || "THPT") + ")",
           htmlBody: buildStudentJoinedEmail(data, teacherEmail),
           name: "Luyện thi Toán TontonYuta"
         });
@@ -159,29 +162,71 @@ function doPost(e) {
       return jsonResponse({ status: "success", type: "STUDENT_JOINED", message: "Đã ghi nhận học sinh tham gia." });
     }
 
-    // 2.3. XỬ LÝ PING LƯU LƯỢNG TRUY CẬP (TRAFFIC_PING)
-    if (data.type === "TRAFFIC_PING") {
+    // 2.3. XỬ LÝ SỰ KIỆN HỌC SINH TRUY CẬP WEB (STUDENT_VISIT hoặc TRAFFIC_PING)
+    if (data.type === "STUDENT_VISIT" || data.type === "TRAFFIC_PING") {
       let sheetTraffic = ss.getSheetByName("LuuLuong_TruyCap");
       if (!sheetTraffic) {
         sheetTraffic = ss.insertSheet("LuuLuong_TruyCap");
-        sheetTraffic.appendRow(["Thời Gian", "Thí Sinh", "Tổng Lượt Xem", "Hôm Nay", "Độ Phân Giải", "Nguồn Đến (Referrer)"]);
-        formatHeaderRow(sheetTraffic, 6, "#7c3aed"); // Tím Violet
+        sheetTraffic.appendRow([
+          "Thời Gian",
+          "Họ Tên Thí Sinh",
+          "Trường / Lớp",
+          "Chế Độ Quan Tâm",
+          "Thiết Bị / Trình Duyệt",
+          "Nguồn Đến (Referrer)",
+          "Lượt Hôm Nay",
+          "Tổng Lượt Xem"
+        ]);
+        formatHeaderRow(sheetTraffic, 8, "#7c3aed"); // Tím Violet
       }
 
       sheetTraffic.appendRow([
-        new Date().toLocaleString("vi-VN"),
-        data.studentName || "Khách vãng lai",
-        data.totalVisits || 1,
+        data.visitedAt || new Date().toLocaleString("vi-VN"),
+        data.studentName || "Khách truy cập",
+        data.school || "Chưa cung cấp",
+        data.track || "THPTQG 2027",
+        data.userAgent || "Web Browser",
+        data.referrer || "direct",
         data.todayVisits || 1,
-        data.screen || "N/A",
-        data.referrer || "direct"
+        data.totalVisits || 1
       ]);
 
+      // Debounce: Mỗi học sinh/thiết bị chỉ gửi email thông báo 1 lần trong vòng 15 phút (900 giây) để tránh ngập hộp thư
+      const visitKey = "visit_" + (data.studentName || "guest") + "_" + (data.school || "none");
+      const alreadyNotified = cache.get(visitKey);
+
+      if (!alreadyNotified && teacherEmail && teacherEmail.indexOf("@") !== -1) {
+        cache.put(visitKey, "1", 900); // 15 phút cooldown
+
+        const visitSubject = "[TontonYuta] 🔔 Có học sinh vừa truy cập: " + (data.studentName || "Khách mới") + (data.school && data.school !== "Chưa cung cấp" ? (" (" + data.school + ")") : "");
+        const visitHtml = buildStudentVisitEmail(data, teacherEmail);
+
+        MailApp.sendEmail({
+          to: teacherEmail,
+          subject: visitSubject,
+          htmlBody: visitHtml,
+          name: "Luyện thi Toán TontonYuta"
+        });
+      }
+
       lock.releaseLock();
-      return jsonResponse({ status: "success", type: "TRAFFIC_PING" });
+      return jsonResponse({ status: "success", type: "STUDENT_VISIT", emailNotified: !alreadyNotified });
     }
 
     // 2.4. XỬ LÝ GHI NHẬN KẾT QUẢ BÀI THI (EXAM SUBMISSION)
+    // CHỐNG GỬI TRÙNG LẶP EMAIL: Dùng Cache kiểm tra xem bài thi này vừa được gửi trong 5 phút qua hay chưa
+    const submissionId = "sub_" + (data.integrityChecksum || (data.studentName + "_" + data.totalScore + "_" + (data.completedAt || "")));
+    if (cache.get(submissionId)) {
+      lock.releaseLock();
+      return jsonResponse({
+        status: "success",
+        duplicateIgnored: true,
+        message: "Kết quả bài thi này đã được gửi trước đó, bỏ qua để tránh trùng lặp email."
+      });
+    }
+    // Đánh dấu đã nhận bài thi trong 5 phút (300 giây)
+    cache.put(submissionId, "1", 300);
+
     const isTHPT = (data.track === "THPTQG") || (data.examSetTitle && data.examSetTitle.indexOf("THPT") !== -1);
     const targetSheetName = isTHPT ? "KetQua_THPTQG" : "KetQua_HSA";
     const headerColor = isTHPT ? "#e11d48" : "#0284c7"; // Đỏ ruby cho THPTQG, Xanh dương cho HSA
@@ -279,7 +324,7 @@ function doPost(e) {
 
     let sentCount = 0;
 
-    // Gửi email cho Giáo viên
+    // 1. Gửi email duy nhất cho Giáo viên / Admin
     if (teacherEmail && teacherEmail.indexOf("@") !== -1) {
       MailApp.sendEmail({
         to: teacherEmail,
@@ -290,10 +335,14 @@ function doPost(e) {
       sentCount++;
     }
 
-    // Gửi bản sao phiếu điểm điện tử cho Thí sinh
-    if (data.studentEmail && data.studentEmail.indexOf("@") !== -1 && data.studentEmail.toLowerCase() !== teacherEmail.toLowerCase()) {
+    // 2. Gửi bản sao phiếu điểm điện tử cho Thí sinh NẾU email thí sinh khác email giáo viên
+    const isStudentEmailDifferent = data.studentEmail && 
+      data.studentEmail.indexOf("@") !== -1 && 
+      data.studentEmail.trim().toLowerCase() !== teacherEmail.trim().toLowerCase();
+
+    if (isStudentEmailDifferent) {
       MailApp.sendEmail({
-        to: data.studentEmail,
+        to: data.studentEmail.trim(),
         subject: "[Phiếu Báo Điểm Điện Tử] " + emailSubject,
         htmlBody: emailHtmlBody,
         name: isTHPT ? "Hệ Thống Luyện Thi THPTQG 2027" : "Hệ Thống Luyện Thi HSA TontonYuta"
@@ -303,10 +352,10 @@ function doPost(e) {
 
     return jsonResponse({
       status: "success",
-      message: "Đã đồng bộ Google Sheets thành công và gửi email báo cáo tới " + sentCount + " địa chỉ!",
+      message: "Đã đồng bộ Google Sheets thành công và gửi email báo cáo (duy nhất 1 email cho mỗi người nhận)!",
       sheetRecorded: targetSheetName,
       teacherEmailSent: teacherEmail,
-      studentEmailSent: data.studentEmail || null
+      studentEmailSent: isStudentEmailDifferent ? data.studentEmail : null
     });
 
   } catch (error) {
@@ -344,8 +393,8 @@ function setupSheets() {
   // Tab 4: Lưu Lượng
   let s4 = ss.getSheetByName("LuuLuong_TruyCap") || ss.insertSheet("LuuLuong_TruyCap");
   if (s4.getLastRow() === 0) {
-    s4.appendRow(["Thời Gian", "Thí Sinh", "Tổng Lượt Xem", "Hôm Nay", "Độ Phân Giải", "Nguồn Đến (Referrer)"]);
-    formatHeaderRow(s4, 6, "#7c3aed");
+    s4.appendRow(["Thời Gian", "Họ Tên Thí Sinh", "Trường / Lớp", "Chế Độ Quan Tâm", "Thiết Bị / Trình Duyệt", "Nguồn Đến (Referrer)", "Lượt Hôm Nay", "Tổng Lượt Xem"]);
+    formatHeaderRow(s4, 8, "#7c3aed");
   }
 
   Logger.log("✅ Đã khởi tạo hoàn tất toàn bộ cấu trúc bảng tính Google Sheets!");
@@ -382,18 +431,46 @@ function jsonResponse(obj) {
 function buildStudentJoinedEmail(data, teacherEmail) {
   return "<div style='font-family: Arial, sans-serif; padding: 24px; border: 1px solid #e2e8f0; border-radius: 14px; max-width: 600px; margin: 0 auto; background: #ffffff;'>" +
     "<div style='background: linear-gradient(135deg, #059669, #047857); padding: 18px 20px; border-radius: 10px; color: #ffffff; text-align: center; margin-bottom: 20px;'>" +
-    "<h2 style='margin: 0; font-size: 18px;'>🎉 HỌC SINH MỚI THAM GIA HỆ THỐNG</h2>" +
-    "<p style='margin: 4px 0 0; font-size: 13px; opacity: 0.9;'>Nền tảng Luyện Thi Toán THPTQG 2027 & HSA TontonYuta</p>" +
+    "<h2 style='margin: 0; font-size: 18px; color: #ffffff;'>🎉 HỌC SINH MỚI THAM GIA HỆ THỐNG</h2>" +
+    "<p style='margin: 4px 0 0; font-size: 13px; opacity: 0.9; color: #ffffff;'>Nền tảng Luyện Thi Toán THPTQG 2027 & HSA TontonYuta</p>" +
     "</div>" +
     "<table style='width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.8;'>" +
     "<tr><td style='color: #64748b; width: 140px;'>Họ và tên:</td><td style='font-weight: bold; color: #0f172a;'>" + (data.studentName || "Chưa rõ") + "</td></tr>" +
     "<tr><td style='color: #64748b;'>Trường / Lớp:</td><td style='font-weight: bold; color: #0284c7;'>" + (data.school || "Chưa cung cấp") + "</td></tr>" +
-    "<tr><td style='color: #64748b;'>Email liên hệ:</td><td>" + (data.studentEmail || "Chưa cung cấp") + "</td></tr>" +
+    (data.studentEmail ? ("<tr><td style='color: #64748b;'>Email liên hệ:</td><td>" + data.studentEmail + "</td></tr>") : "") +
     "<tr><td style='color: #64748b;'>Mục tiêu luyện thi:</td><td style='font-weight: bold; color: #e11d48;'>" + (data.track || "THPTQG 2027") + "</td></tr>" +
     "<tr><td style='color: #64748b;'>Thời gian đăng ký:</td><td>" + (data.joinedAt || new Date().toLocaleString("vi-VN")) + "</td></tr>" +
     "</table>" +
     "<hr style='border: none; border-top: 1px solid #f1f5f9; margin: 20px 0;'/>" +
     "<p style='font-size: 12px; color: #94a3b8; text-align: center; margin: 0;'>Dữ liệu tự động đồng bộ về Google Sheet của: " + teacherEmail + "</p>" +
+    "</div>";
+}
+
+/**
+ * Helper: Tạo template HTML Email thông báo học sinh truy cập web
+ */
+function buildStudentVisitEmail(data, teacherEmail) {
+  const brandGradient = "linear-gradient(135deg, #7c3aed, #4f46e5)";
+  return "<div style='font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; line-height: 1.6; color: #1e293b; padding: 24px; border: 1px solid #e2e8f0; border-radius: 16px; background-color: #ffffff;'>" +
+    "<div style='background: " + brandGradient + "; padding: 20px; border-radius: 12px; color: #ffffff; margin-bottom: 20px; text-align: center;'>" +
+    "<h2 style='margin: 0; font-size: 19px; font-weight: 800; color: #ffffff;'>🔔 THÔNG BÁO HỌC SINH TRUY CẬP WEB</h2>" +
+    "<p style='margin: 4px 0 0; font-size: 13px; opacity: 0.95; color: #ffffff;'>Hệ thống Luyện thi Toán THPTQG 2027 & ĐGNL HSA TontonYuta</p>" +
+    "</div>" +
+    "<p style='font-size: 14.5px;'>Kính gửi Thầy/Cô,</p>" +
+    "<p style='font-size: 14px; color: #475569;'>Hệ thống vừa ghi nhận một lượt truy cập mới vào nền tảng ôn luyện:</p>" +
+    "<div style='background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 18px; margin: 18px 0;'>" +
+    "<table style='width: 100%; border-collapse: collapse; font-size: 13.5px; line-height: 1.8;'>" +
+    "<tr><td style='color: #64748b; width: 140px;'>Họ và tên:</td><td style='font-weight: bold; color: #0f172a;'>" + (data.studentName || "Khách truy cập") + "</td></tr>" +
+    "<tr><td style='color: #64748b;'>Trường / Lớp:</td><td style='font-weight: 600; color: #0284c7;'>" + (data.school || "Chưa cung cấp") + "</td></tr>" +
+    (data.studentEmail ? ("<tr><td style='color: #64748b;'>Email:</td><td>" + data.studentEmail + "</td></tr>") : "") +
+    "<tr><td style='color: #64748b;'>Chế độ quan tâm:</td><td style='font-weight: bold; color: #e11d48;'>" + (data.track || "THPTQG 2027") + "</td></tr>" +
+    "<tr><td style='color: #64748b;'>Thời gian truy cập:</td><td style='font-weight: 600;'>" + (data.visitedAt || new Date().toLocaleString("vi-VN")) + "</td></tr>" +
+    "<tr><td style='color: #64748b;'>Thiết bị / Màn hình:</td><td style='color: #64748b; font-size: 12px;'>" + (data.screen ? (data.screen + " · ") : "") + (data.userAgent || "Web Browser") + "</td></tr>" +
+    "</table>" +
+    "</div>" +
+    "<p style='font-size: 12px; color: #94a3b8; text-align: center; margin: 20px 0 0; border-top: 1px solid #f1f5f9; padding-top: 12px;'>" +
+    "Thông báo tự động gửi về: " + teacherEmail + " · Hệ thống tự động gộp (cooldown 15 phút) để tránh spam hộp thư." +
+    "</p>" +
     "</div>";
 }
 

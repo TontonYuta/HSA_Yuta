@@ -51,20 +51,6 @@ export const ExamResults: React.FC<ExamResultsProps> = ({
         colors: ['#0284c7', '#0ea5e9', '#10b981', '#f59e0b'],
       });
     }
-
-    // Silent background sync if webhook was previously configured
-    if (webhookUrl && webhookUrl.trim() !== '') {
-      const payload = {
-        ...report,
-        teacherEmail: report.teacherEmail || localStorage.getItem('hsa_teacher_email') || '',
-      };
-      fetch(webhookUrl.trim(), {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'text/plain' },
-        body: JSON.stringify(payload),
-      }).catch(() => {});
-    }
   }, []);
 
   const toggleSolution = (qId: number) => {
