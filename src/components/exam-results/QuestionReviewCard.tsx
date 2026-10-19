@@ -2,6 +2,8 @@ import React from 'react';
 import { Check, XCircle, ChevronDown, ChevronUp, BookOpen } from 'lucide-react';
 import { Question, ExamReport } from '../../types/exam';
 import { MathRenderer } from '../MathRenderer';
+import { parseQuestionSource } from '../../utils/questionSource';
+import { QuestionSourceBadge } from '../QuestionSourceBadge';
 
 export type ExamAnswerItem = ExamReport['answers'][number];
 
@@ -20,6 +22,8 @@ export const QuestionReviewCard: React.FC<QuestionReviewCardProps> = ({
   isExpanded,
   onToggleSolution,
 }) => {
+  const { sourceTag, cleanContent } = parseQuestionSource(originalQ?.content || '');
+
   return (
     <div
       className={`p-4 sm:p-5 rounded-xl border transition-colors ${
@@ -43,8 +47,15 @@ export const QuestionReviewCard: React.FC<QuestionReviewCardProps> = ({
                 {item.type === 'mcq' ? 'Trắc nghiệm' : 'Điền đáp số'}
               </span>
             </div>
-            <div className="mt-2 text-sm text-slate-800 dark:text-zinc-200">
-              <MathRenderer content={originalQ?.content || ''} />
+
+            {sourceTag && (
+              <div className="mt-2 mb-1.5">
+                <QuestionSourceBadge source={sourceTag} showHideButton={false} />
+              </div>
+            )}
+
+            <div className="mt-1 text-sm text-slate-800 dark:text-zinc-200">
+              <MathRenderer content={cleanContent} />
             </div>
           </div>
         </div>

@@ -26,8 +26,9 @@ import { MathRenderer } from './MathRenderer';
 import { VirtualMathKeyboard } from './VirtualMathKeyboard';
 import { QuestionPalette } from './QuestionPalette';
 import { FormulaSheetModal } from './FormulaSheetModal';
-import { ExamHintModal } from './exam-simulation/ExamHintModal';
 import { ExamConfirmSubmitModal } from './exam-simulation/ExamConfirmSubmitModal';
+import { parseQuestionSource } from '../utils/questionSource';
+import { QuestionSourceBadge } from './QuestionSourceBadge';
 
 interface ExamSimulationProps {
   questions: Question[];
@@ -45,6 +46,8 @@ interface ExamSimulationProps {
   tabSwitchCount?: number;
   onTabSwitchCountChange?: (count: number) => void;
   studentName?: string;
+  hideQuestionSource?: boolean;
+  onToggleHideQuestionSource?: () => void;
 }
 
 type FontSizeOption = 'sm' | 'base' | 'lg' | 'xl';
@@ -65,6 +68,8 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({
   tabSwitchCount = 0,
   onTabSwitchCountChange,
   studentName = 'Học sinh HSA',
+  hideQuestionSource = false,
+  onToggleHideQuestionSource,
 }) => {
   const currentQ = questions[currentQuestionIndex] || questions[0];
   const currentAns = userAnswers[currentQ?.id];
@@ -144,7 +149,6 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({
   }, [currentQuestionIndex]);
 
   const [showKeyboard, setShowKeyboard] = useState(true);
-  const [showHintModal, setShowHintModal] = useState(false);
   const [showFormulaModal, setShowFormulaModal] = useState(false);
   const [showScratchpad, setShowScratchpad] = useState(false);
   const [scratchpadText, setScratchpadText] = useState('');
@@ -392,16 +396,30 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({
                 </button>
               </div>
 
-              {/* Socratic Hint */}
-              {currentQ.socraticHint && (
+              {/* Toggle Question Source Tag (Hiện / Ẩn Nguồn Đề Thi) */}
+              {onToggleHideQuestionSource && (
                 <button
                   type="button"
-                  onClick={() => setShowHintModal(true)}
-                  className="px-2.5 py-1 rounded-lg border border-amber-200 dark:border-amber-900/60 bg-amber-50 dark:bg-amber-950/30 text-amber-700 dark:text-amber-300 hover:bg-amber-100 text-xs font-medium inline-flex items-center gap-1 transition cursor-pointer"
-                  title="Xem gợi ý tư duy cho câu hỏi này"
+                  onClick={onToggleHideQuestionSource}
+                  className={`px-2.5 py-1 rounded-lg border text-xs font-medium inline-flex items-center gap-1 transition cursor-pointer ${
+                    !hideQuestionSource
+                      ? 'bg-indigo-50 dark:bg-indigo-950/40 border-indigo-200 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300'
+                      : 'border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-slate-500 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-800'
+                  }`}
+                  title={
+                    hideQuestionSource
+                      ? 'Hiện nguồn câu hỏi (Sở GD&ĐT / Bộ GD&ĐT)'
+                      : 'Ẩn nguồn câu hỏi để thi thử như thi thật'
+                  }
                 >
-                  <Lightbulb className="w-3.5 h-3.5 text-amber-500" />
-                  <span className="hidden sm:inline">Gợi ý</span>
+                  {hideQuestionSource ? (
+                    <EyeOff className="w-3.5 h-3.5 text-slate-400" />
+                  ) : (
+                    <Eye className="w-3.5 h-3.5 text-indigo-500" />
+                  )}
+                  <span className="hidden sm:inline">
+                    {hideQuestionSource ? 'Hiện nguồn' : 'Nguồn đề'}
+                  </span>
                 </button>
               )}
 
@@ -456,16 +474,31 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({
           )}
 
           {/* Question Text Box with Clear KaTeX Styling & Adjustable Font */}
-          <div
-            onCopy={(e) => handlePreventCopy(e, 'sao chép câu hỏi')}
-            onCut={(e) => handlePreventCopy(e, 'cắt nội dung')}
-            onContextMenu={(e) => handlePreventCopy(e, 'menu chuột phải')}
-            className="bg-white dark:bg-[#121216] border border-slate-200 dark:border-zinc-800 rounded-2xl p-5 sm:p-7 shadow-xs select-none"
-          >
-            <div className={`${fontContentClass} leading-relaxed select-none font-normal text-slate-900 dark:text-zinc-100 transition-all`}>
-              <MathRenderer content={currentQ.content} />
-            </div>
-          </div>
+          {(() => {
+            const { sourceTag, cleanContent } = parseQuestionSource(currentQ.content);
+            return (
+              <div
+                onCopy={(e) => handlePreventCopy(e, 'sao chép câu hỏi')}
+                onCut={(e) => handlePreventCopy(e, 'cắt nội dung')}
+                onContextMenu={(e) => handlePreventCopy(e, 'menu chuột phải')}
+                className="bg-white dark:bg-[#121216] border border-slate-200 dark:border-zinc-800 rounded-2xl p-5 sm:p-7 shadow-xs select-none"
+              >
+                {/* Question Source Badge (Nổi bật, sang trọng, có thể ẩn nhanh) */}
+                {sourceTag && !hideQuestionSource && (
+                  <div className="mb-3.5">
+                    <QuestionSourceBadge
+                      source={sourceTag}
+                      onHide={onToggleHideQuestionSource}
+                    />
+                  </div>
+                )}
+
+                <div className={`${fontContentClass} leading-relaxed select-none font-normal text-slate-900 dark:text-zinc-100 transition-all`}>
+                  <MathRenderer content={cleanContent} />
+                </div>
+              </div>
+            );
+          })()}
 
           {/* Answer Interaction Area */}
           {currentQ.type === 'mcq' && currentQ.options && (
@@ -774,16 +807,6 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({
       <FormulaSheetModal
         isOpen={showFormulaModal}
         onClose={() => setShowFormulaModal(false)}
-      />
-
-      {/* ============================================================== */}
-      {/* SOCRATIC / PEDAGOGICAL HINT MODAL                              */}
-      {/* ============================================================== */}
-      <ExamHintModal
-        isOpen={showHintModal}
-        onClose={() => setShowHintModal(false)}
-        questionIndex={currentQuestionIndex}
-        hintContent={currentQ.socraticHint}
       />
 
       {/* ============================================================== */}

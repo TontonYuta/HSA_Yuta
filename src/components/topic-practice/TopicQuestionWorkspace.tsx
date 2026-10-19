@@ -11,6 +11,8 @@ import {
 import { Question } from '../../types/exam';
 import { MathRenderer } from '../MathRenderer';
 import { VirtualMathKeyboard } from '../VirtualMathKeyboard';
+import { parseQuestionSource } from '../../utils/questionSource';
+import { QuestionSourceBadge } from '../QuestionSourceBadge';
 
 interface TopicQuestionWorkspaceProps {
   currentQ: Question | undefined;
@@ -98,10 +100,22 @@ export const TopicQuestionWorkspace: React.FC<TopicQuestionWorkspaceProps> = ({
                 </div>
               )}
 
-              {/* Question Stem with KaTeX */}
-              <div className="text-sm sm:text-base text-slate-900 dark:text-zinc-100 leading-relaxed font-sans">
-                <MathRenderer content={currentQ.content} />
-              </div>
+              {/* Question Stem with KaTeX & Source Badge */}
+              {(() => {
+                const { sourceTag, cleanContent } = parseQuestionSource(currentQ.content);
+                return (
+                  <div>
+                    {sourceTag && (
+                      <div className="mb-2.5">
+                        <QuestionSourceBadge source={sourceTag} showHideButton={false} />
+                      </div>
+                    )}
+                    <div className="text-sm sm:text-base text-slate-900 dark:text-zinc-100 leading-relaxed font-sans">
+                      <MathRenderer content={cleanContent} />
+                    </div>
+                  </div>
+                );
+              })()}
 
               {/* Answers Interaction */}
               {currentQ.type === 'mcq' && currentQ.options ? (

@@ -5,6 +5,8 @@ import { MathRenderer } from './MathRenderer';
 import { MICRO_TOPICS_METADATA } from '../data/topics/index';
 import { ExamTrack, isParametricMQuestion, isPracticalMathQuestion } from '../utils/trackFilter';
 import { getTargetExamYear } from '../utils/timeUtils';
+import { parseQuestionSource } from '../utils/questionSource';
+import { QuestionSourceBadge } from './QuestionSourceBadge';
 
 interface QuestionBankViewProps {
   questions: Question[];
@@ -275,10 +277,22 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
                 </button>
               </div>
 
-              {/* Content */}
-              <div className="mt-3 text-sm text-slate-800 dark:text-zinc-200 leading-relaxed font-sans">
-                <MathRenderer content={q.content} />
-              </div>
+              {/* Content with Question Source Badge */}
+              {(() => {
+                const { sourceTag, cleanContent } = parseQuestionSource(q.content);
+                return (
+                  <div>
+                    {sourceTag && (
+                      <div className="mt-2.5 mb-1.5">
+                        <QuestionSourceBadge source={sourceTag} showHideButton={false} />
+                      </div>
+                    )}
+                    <div className="mt-2 text-sm text-slate-800 dark:text-zinc-200 leading-relaxed font-sans">
+                      <MathRenderer content={cleanContent} />
+                    </div>
+                  </div>
+                );
+              })()}
 
               {/* Options */}
               {q.type === 'mcq' && q.options && (

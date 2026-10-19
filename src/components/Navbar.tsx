@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sun, Moon, GraduationCap, LayoutGrid, Menu } from 'lucide-react';
+import { Sun, Moon, GraduationCap, LayoutGrid, Menu, LogOut, Eye, EyeOff } from 'lucide-react';
 import { ExamTrack } from '../utils/trackFilter';
 import { getTargetExamYear } from '../utils/timeUtils';
 
@@ -18,11 +18,14 @@ interface NavbarProps {
   currentTrack?: ExamTrack;
   onSelectTrack?: (track: ExamTrack) => void;
   // Exam CBT header controls
+  examTitle?: string;
   examTimerSlot?: React.ReactNode;
   isSidebarOpen?: boolean;
   onToggleSidebar?: () => void;
   answeredCount?: number;
   totalQuestions?: number;
+  hideQuestionSource?: boolean;
+  onToggleHideQuestionSource?: () => void;
   // Global sidebar & student profile
   onToggleMobileSidebar?: () => void;
   studentName?: string;
@@ -40,11 +43,14 @@ export const Navbar: React.FC<NavbarProps> = ({
   onToggleTheme,
   currentTrack = 'THPTQG',
   onSelectTrack,
+  examTitle,
   examTimerSlot,
   isSidebarOpen,
   onToggleSidebar,
   answeredCount = 0,
   totalQuestions = 50,
+  hideQuestionSource = false,
+  onToggleHideQuestionSource,
   onToggleMobileSidebar,
 }) => {
   const isTHPT = currentTrack === 'THPTQG';
@@ -55,49 +61,81 @@ export const Navbar: React.FC<NavbarProps> = ({
       !isExamInProgress ? 'md:hidden' : ''
     }`}>
       <div className="w-full h-full flex items-center justify-between px-2.5 sm:px-4">
-        {/* Left Zone: Brand Logo & Title */}
+        {/* Left Zone: Brand Logo (outside exam) OR Focus Exam Controls (inside exam) */}
         <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
-          {!isExamInProgress && onToggleMobileSidebar && (
-            <button
-              type="button"
-              onClick={onToggleMobileSidebar}
-              className="md:hidden p-2 rounded-lg border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-slate-700 dark:text-zinc-300 hover:bg-slate-100 dark:hover:bg-zinc-800 transition cursor-pointer"
-              title="Mục lục & Tổng quan hệ thống"
-              aria-label="Toggle Sidebar Menu"
-            >
-              <Menu className="w-4 h-4" />
-            </button>
+          {isExamInProgress ? (
+            /* Inside Exam: Professional Exit Exam Button & Exam Title (Hidden all unrelated navigation) */
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={onExitExamClick}
+                className="px-2.5 py-1.5 rounded-lg border border-rose-200 dark:border-rose-900/60 bg-rose-50 dark:bg-rose-950/30 text-rose-700 dark:text-rose-300 hover:bg-rose-100 dark:hover:bg-rose-900/50 text-xs font-semibold flex items-center gap-1.5 transition cursor-pointer shadow-xs active:scale-95"
+                title="Rời khỏi phòng thi (Hệ thống sẽ hỏi xác nhận)"
+              >
+                <LogOut className="w-3.5 h-3.5" />
+                <span className="hidden sm:inline">Rời phòng thi</span>
+                <span className="sm:hidden">Thoát</span>
+              </button>
+
+              {examTitle && (
+                <div className="hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-zinc-800/80 text-xs font-medium text-slate-700 dark:text-zinc-300 max-w-[260px] lg:max-w-[340px] truncate border border-slate-200 dark:border-zinc-700/60">
+                  <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded shrink-0 ${
+                    isTHPT 
+                      ? 'bg-rose-100 dark:bg-rose-950 text-rose-700 dark:text-rose-300 border border-rose-200 dark:border-rose-800/60'
+                      : 'bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800/60'
+                  }`}>
+                    {isTHPT ? 'THPTQG' : 'HSA'}
+                  </span>
+                  <span className="truncate" title={examTitle}>
+                    {examTitle}
+                  </span>
+                </div>
+              )}
+            </div>
+          ) : (
+            /* Outside Exam: Brand Logo & Mobile Sidebar Trigger */
+            <>
+              {onToggleMobileSidebar && (
+                <button
+                  type="button"
+                  onClick={onToggleMobileSidebar}
+                  className="md:hidden p-2 rounded-lg border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-slate-700 dark:text-zinc-300 hover:bg-slate-100 dark:hover:bg-zinc-800 transition cursor-pointer"
+                  title="Mục lục & Tổng quan hệ thống"
+                  aria-label="Toggle Sidebar Menu"
+                >
+                  <Menu className="w-4 h-4" />
+                </button>
+              )}
+              <button
+                type="button"
+                onClick={() => {
+                  if (onHomeClick) {
+                    onHomeClick();
+                  } else {
+                    onSelectMode('intro');
+                  }
+                }}
+                className="flex items-center gap-1.5 sm:gap-2 group cursor-pointer text-left"
+                title="Trang chủ Luyện thi"
+              >
+                <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 shadow-xs transition ${
+                  isTHPT 
+                    ? 'bg-rose-500/10 border border-rose-500/20 text-rose-600 dark:text-rose-400' 
+                    : 'bg-sky-500/10 border border-sky-500/20 text-sky-600 dark:text-sky-400'
+                }`}>
+                  <GraduationCap className="w-4 h-4" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-xs sm:text-sm font-black tracking-tight text-slate-900 dark:text-zinc-100 whitespace-nowrap">
+                    TontonYuta <span className="font-mono text-[10px] text-sky-600 dark:text-sky-400 font-bold">{targetYear}</span>
+                  </span>
+                  <span className="text-[9px] text-slate-400 dark:text-zinc-500 font-medium">
+                    {isTHPT ? 'GDPT 2018' : 'ĐGNL HSA'}
+                  </span>
+                </div>
+              </button>
+            </>
           )}
-          <button
-            type="button"
-            onClick={() => {
-              if (isExamInProgress && onExitExamClick) {
-                onExitExamClick();
-              } else if (onHomeClick) {
-                onHomeClick();
-              } else {
-                onSelectMode('intro');
-              }
-            }}
-            className="flex items-center gap-1.5 sm:gap-2 group cursor-pointer text-left"
-            title="Trang chủ Luyện thi"
-          >
-            <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 shadow-xs transition ${
-              isTHPT 
-                ? 'bg-rose-500/10 border border-rose-500/20 text-rose-600 dark:text-rose-400' 
-                : 'bg-sky-500/10 border border-sky-500/20 text-sky-600 dark:text-sky-400'
-            }`}>
-              <GraduationCap className="w-4 h-4" />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-xs sm:text-sm font-black tracking-tight text-slate-900 dark:text-zinc-100 whitespace-nowrap">
-                TontonYuta <span className="font-mono text-[10px] text-sky-600 dark:text-sky-400 font-bold">{targetYear}</span>
-              </span>
-              <span className="text-[9px] text-slate-400 dark:text-zinc-500 font-medium">
-                {isTHPT ? 'GDPT 2018' : 'ĐGNL HSA'}
-              </span>
-            </div>
-          </button>
         </div>
 
         {/* Center Zone: Mode Dependent */}
@@ -125,6 +163,33 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
           {isExamInProgress ? (
             <>
+              {/* Toggle Question Source Tag (Hiện / Ẩn Nguồn Đề Thi) */}
+              {onToggleHideQuestionSource && (
+                <button
+                  type="button"
+                  onClick={onToggleHideQuestionSource}
+                  className={`px-2 sm:px-2.5 py-1.5 rounded-lg border text-xs font-medium transition items-center gap-1.5 cursor-pointer shadow-xs ${
+                    !hideQuestionSource
+                      ? 'bg-indigo-50 dark:bg-indigo-950/40 border-indigo-300 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300'
+                      : 'bg-white dark:bg-zinc-900 border-slate-200 dark:border-zinc-800 text-slate-600 dark:text-zinc-400 hover:bg-slate-50 dark:hover:bg-zinc-800'
+                  }`}
+                  title={
+                    hideQuestionSource
+                      ? 'Hiện nguồn câu hỏi (Sở GD&ĐT / Bộ GD&ĐT)'
+                      : 'Ẩn nguồn câu hỏi để thi thử như thi thật'
+                  }
+                >
+                  {hideQuestionSource ? (
+                    <EyeOff className="w-3.5 h-3.5 text-slate-400" />
+                  ) : (
+                    <Eye className="w-3.5 h-3.5 text-indigo-500" />
+                  )}
+                  <span className="hidden lg:inline text-[11px]">
+                    {hideQuestionSource ? 'Hiện nguồn' : 'Nguồn đề'}
+                  </span>
+                </button>
+              )}
+
               {/* Toggle Sidebar Button [📋 50 câu] */}
               <button
                 type="button"

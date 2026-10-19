@@ -25,6 +25,7 @@ import {
   sanitizeInput 
 } from './utils/security';
 import { filterExamSetsByTrack, filterQuestionsByTrack, TRACK_METADATA } from './utils/trackFilter';
+import { getHideQuestionSourcePref, setHideQuestionSourcePref } from './utils/questionSource';
 import { GraduationCap } from 'lucide-react';
 
 export default function App() {
@@ -32,6 +33,19 @@ export default function App() {
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
     return (localStorage.getItem('hsa_theme') as 'dark' | 'light') || 'light';
   });
+
+  // Question Source Display Preference (Hiện / Ẩn nguồn câu hỏi)
+  const [hideQuestionSource, setHideQuestionSource] = useState<boolean>(() => {
+    return getHideQuestionSourcePref();
+  });
+
+  const toggleHideQuestionSource = () => {
+    setHideQuestionSource((prev) => {
+      const next = !prev;
+      setHideQuestionSourcePref(next);
+      return next;
+    });
+  };
 
   useEffect(() => {
     localStorage.setItem('hsa_theme', theme);
@@ -510,6 +524,8 @@ export default function App() {
           tabSwitchCount={tabSwitchCount}
           onTabSwitchCountChange={setTabSwitchCount}
           studentName={studentName}
+          hideQuestionSource={hideQuestionSource}
+          onToggleHideQuestionSource={toggleHideQuestionSource}
         />
       );
     }
@@ -693,6 +709,9 @@ export default function App() {
           onToggleSidebar={() => setIsSidebarOpen((prev) => !prev)}
           answeredCount={answeredCount}
           totalQuestions={activeQuestions.length}
+          examTitle={isExamActive ? currentExamSet.title : undefined}
+          hideQuestionSource={hideQuestionSource}
+          onToggleHideQuestionSource={toggleHideQuestionSource}
           onToggleMobileSidebar={() => setIsMobileSidebarOpen((prev) => !prev)}
           studentName={studentName}
           onEditStudentName={() => setIsNameModalOpen(true)}
