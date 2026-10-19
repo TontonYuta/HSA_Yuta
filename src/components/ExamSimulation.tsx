@@ -221,19 +221,19 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({
     onAnswerQuestion(currentQ.id, optKey);
   };
 
-  // Font size class mapper
+  // Font size class mapper (Optimized ergonomic typography scale for Desktop & Mobile)
   const fontContentClass = {
-    sm: 'text-sm sm:text-base',
-    base: 'text-base sm:text-lg',
-    lg: 'text-lg sm:text-xl',
-    xl: 'text-xl sm:text-2xl',
+    sm: 'text-[15px] sm:text-base leading-relaxed',
+    base: 'text-[16.5px] sm:text-[18px] lg:text-[18.5px] leading-relaxed',
+    lg: 'text-[18px] sm:text-[20px] leading-relaxed',
+    xl: 'text-[20px] sm:text-[22px] leading-relaxed',
   }[fontSize];
 
   const fontOptionClass = {
-    sm: 'text-xs sm:text-sm',
-    base: 'text-sm sm:text-base',
-    lg: 'text-base sm:text-lg',
-    xl: 'text-lg sm:text-xl',
+    sm: 'text-[14px] sm:text-[15px] leading-normal',
+    base: 'text-[15.5px] sm:text-[16.5px] lg:text-[17px] leading-normal',
+    lg: 'text-[17px] sm:text-[18.5px] leading-normal',
+    xl: 'text-[18.5px] sm:text-[20px] leading-normal',
   }[fontSize];
 
   // Keyboard shortcut listener
@@ -550,7 +550,7 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({
                         className="flex-1 flex items-start gap-3.5 text-left cursor-pointer"
                       >
                         <span
-                          className={`w-7 h-7 rounded-lg font-mono text-xs font-bold flex items-center justify-center shrink-0 border transition ${
+                          className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg font-mono text-xs sm:text-sm font-bold flex items-center justify-center shrink-0 border transition ${
                             isSelected
                               ? 'bg-sky-600 border-sky-600 text-white'
                               : isEliminated
@@ -618,7 +618,7 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({
                     placeholder="Gõ kết quả hoặc bấm bàn phím ảo bên dưới..."
                     value={currentValue}
                     onChange={(e) => onAnswerQuestion(currentQ.id, e.target.value)}
-                    className="flex-1 px-4 py-2.5 bg-slate-50 dark:bg-zinc-950 border border-slate-300 dark:border-zinc-700 rounded-xl text-base text-slate-900 dark:text-zinc-100 placeholder-slate-400 dark:placeholder-zinc-600 focus:outline-none focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 font-mono tracking-wide font-medium"
+                    className="flex-1 px-4 py-2.5 bg-slate-50 dark:bg-zinc-950 border border-slate-300 dark:border-zinc-700 rounded-xl text-base sm:text-lg text-slate-900 dark:text-zinc-100 placeholder-slate-400 dark:placeholder-zinc-600 focus:outline-none focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 font-mono tracking-wide font-medium"
                     autoFocus
                   />
                   <button

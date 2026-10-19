@@ -287,7 +287,7 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
                         <QuestionSourceBadge source={sourceTag} showHideButton={false} />
                       </div>
                     )}
-                    <div className="mt-2 text-sm text-slate-800 dark:text-zinc-200 leading-relaxed font-sans">
+                    <div className="mt-2 text-[15px] sm:text-[16.5px] text-slate-800 dark:text-zinc-200 leading-relaxed font-sans">
                       <MathRenderer content={cleanContent} />
                     </div>
                   </div>
@@ -296,7 +296,7 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
 
               {/* Options */}
               {q.type === 'mcq' && q.options && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-3 pt-3 border-t border-slate-100 dark:border-zinc-800 text-xs text-slate-700 dark:text-zinc-300">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-3 pt-3 border-t border-slate-100 dark:border-zinc-800 text-[14.5px] sm:text-[15.5px] text-slate-700 dark:text-zinc-300">
                   {q.options.map((opt) => (
                     <div
                       key={opt.key}
@@ -316,19 +316,19 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
               )}
 
               {q.type === 'fill' && isExpanded && (
-                <div className="mt-3 p-3 rounded-lg bg-slate-50 dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800 text-xs font-mono text-slate-800 dark:text-zinc-300">
+                <div className="mt-3 p-3 rounded-lg bg-slate-50 dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800 text-sm font-mono text-slate-800 dark:text-zinc-300">
                   Đáp số: <strong className="text-emerald-600 dark:text-emerald-400 font-bold">{q.correctAnswer}</strong>
                 </div>
               )}
 
               {/* Detailed Solution Accordion */}
               {isExpanded && (
-                <div className="mt-4 pt-4 border-t border-slate-100 dark:border-zinc-800 space-y-3 text-xs animate-fade-in">
+                <div className="mt-4 pt-4 border-t border-slate-100 dark:border-zinc-800 space-y-3 text-xs sm:text-sm animate-fade-in">
                   <div className="p-3.5 rounded-xl bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800/40 text-amber-900 dark:text-amber-200 flex items-start gap-2.5">
                     <Lightbulb className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
                     <div>
                       <strong className="block text-amber-800 dark:text-amber-300 font-bold mb-0.5">Gợi ý định hướng tư duy:</strong>
-                      <div className="leading-relaxed">
+                      <div className="leading-relaxed text-[14px] sm:text-[15px]">
                         <MathRenderer content={q.socraticHint} />
                       </div>
                     </div>
@@ -338,7 +338,7 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
                     <div className="font-bold text-xs uppercase tracking-wider text-slate-800 dark:text-zinc-200">
                       Lời giải chi tiết:
                     </div>
-                    <div className="text-sm text-slate-700 dark:text-zinc-300 leading-relaxed">
+                    <div className="text-[14px] sm:text-[15.5px] text-slate-700 dark:text-zinc-300 leading-relaxed font-sans">
                       <MathRenderer content={q.detailedSolution} />
                     </div>
                   </div>

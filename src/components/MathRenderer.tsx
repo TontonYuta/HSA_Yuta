@@ -81,7 +81,7 @@ export const MathRenderer: React.FC<MathRendererProps> = ({ content, className =
           trust: false,
           strict: false,
         });
-        parts.push(isDisplay ? `<div class="my-2 overflow-x-auto py-1 text-center">${html}</div>` : `<span class="inline-block px-0.5">${html}</span>`);
+        parts.push(isDisplay ? `<div class="my-2.5 overflow-x-auto py-1 text-center scrollbar-thin max-w-full">${html}</div>` : `<span class="inline-block px-0.5">${html}</span>`);
       } catch (e) {
         parts.push(`<span class="text-rose-500 font-mono text-sm">${escapeHtml(rawFormula)}</span>`);
       }

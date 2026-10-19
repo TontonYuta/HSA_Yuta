@@ -98,7 +98,7 @@ export const soHanoi2025Questions: Question[] = [
     "examSets": [
       "thptqg_so_hanoi_2025_2026"
     ],
-    "content": "[Đề khảo sát Sở GD&ĐT Hà Nội 2025] Bảng thống kê thu nhập bình quân đầu người/tháng của người dân Hà Nội (đơn vị: triệu đồng) từ năm 2018 đến 2024 lần lượt là: $5{,}901$; $6{,}403$; $6{,}203$; $6{,}002$; $6{,}423$; $6{,}896$; $7{,}546$. Mẫu số liệu thống kê trên có khoảng biến thiên bằng bao nhiêu triệu đồng?",
+    "content": "[Đề khảo sát Sở GD&ĐT Hà Nội 2025] Bảng thống kê thu nhập bình quân đầu người/tháng của người dân Hà Nội (đơn vị: triệu đồng) từ năm 2018 đến 2024 như sau:\n\n$$\\begin{array}{|c|c|c|c|c|c|c|c|}\\hline \\text{Năm} & 2018 & 2019 & 2020 & 2021 & 2022 & 2023 & 2024 \\\\ \\hline \\text{Thu nhập (triệu đồng)} & 5{,}901 & 6{,}403 & 6{,}203 & 6{,}002 & 6{,}423 & 6{,}896 & 7{,}546 \\\\ \\hline \\end{array}$$\n\nMẫu số liệu thống kê trên có khoảng biến thiên bằng bao nhiêu triệu đồng?",
     "options": [
       {
         "key": "A",
@@ -303,7 +303,7 @@ export const soHanoi2025Questions: Question[] = [
     "examSets": [
       "thptqg_so_hanoi_2025_2026"
     ],
-    "content": "[Đề khảo sát Sở GD&ĐT Hà Nội 2025] Cân nặng (kg) của 50 quả mít trong đợt thu hoạch của một trang trại được thống kê:\\n- $[4; 6)$: 6 quả (giá trị đại diện 5)\\n- $[6; 8)$: 12 quả (giá trị đại diện 7)\\n- $[8; 10)$: 19 quả (giá trị đại diện 9)\\n- $[10; 12)$: 9 quả (giá trị đại diện 11)\\n- $[12; 14)$: 4 quả (giá trị đại diện 13)\\nKhối lượng trung bình của 50 quả mít trên bằng bao nhiêu?",
+    "content": "[Đề khảo sát Sở GD&ĐT Hà Nội 2025] Cân nặng (kg) của 50 quả mít trong đợt thu hoạch của một trang trại được cho trong bảng tần số ghép nhóm sau:\n\n$$\\begin{array}{|c|c|c|c|c|c|}\\hline \\text{Cân nặng (kg)} & [4; 6) & [6; 8) & [8; 10) & [10; 12) & [12; 14) \\\\ \\hline \\text{Giá trị đại diện } (c_i) & 5 & 7 & 9 & 11 & 13 \\\\ \\hline \\text{Số quả } (n_i) & 6 & 12 & 19 & 9 & 4 \\\\ \\hline \\end{array}$$\n\nKhối lượng trung bình của 50 quả mít trên bằng bao nhiêu?",
     "options": [
       {
         "key": "A",
@@ -861,7 +861,7 @@ export const soNamDinh2025Questions: Question[] = [
     "examSets": [
       "thptqg_so_namdinh_2025_2026"
     ],
-    "content": "[Đề thi thử Sở GD&ĐT Nam Định 2025] Cho mẫu số liệu ghép nhóm có bảng tần số ghép nhóm:\\n- $[0; 2)$: tần số 1 (đại diện 1)\\n- $[2; 4)$: tần số 2 (đại diện 3)\\n- $[4; 6)$: tần số 10 (đại diện 5)\\n- $[6; 8)$: tần số 15 (đại diện 7)\\n- $[8; 10]$: tần số 2 (đại diện 9)\\nPhương sai của mẫu số liệu ghép nhóm trên bằng bao nhiêu? (kết quả làm tròn đến hàng phần trăm).",
+    "content": "[Đề thi thử Sở GD&ĐT Nam Định 2025] Cho mẫu số liệu ghép nhóm có bảng tần số ghép nhóm sau:\n\n$$\\begin{array}{|c|c|c|c|c|c|}\\hline \\text{Nhóm số liệu} & [0; 2) & [2; 4) & [4; 6) & [6; 8) & [8; 10] \\\\ \\hline \\text{Giá trị đại diện } (c_i) & 1 & 3 & 5 & 7 & 9 \\\\ \\hline \\text{Tần số } (n_i) & 1 & 2 & 10 & 15 & 2 \\\\ \\hline \\end{array}$$\n\nPhương sai của mẫu số liệu ghép nhóm trên bằng bao nhiêu? (kết quả làm tròn đến hàng phần trăm).",
     "options": [
       {
         "key": "A",
@@ -1419,7 +1419,7 @@ export const soNgheAn2025Questions: Question[] = [
     "examSets": [
       "thptqg_so_nghean_2025_2026"
     ],
-    "content": "[Đề thi thử Sở GD&ĐT Nghệ An 2025] Thời gian chạy bộ mỗi ngày (phút) của anh A được thống kê:\\n- $[20; 25)$: 4 ngày\\n- $[25; 30)$: 6 ngày\\n- $[30; 35)$: 10 ngày\\n- $[35; 40)$: 6 ngày\\n- $[40; 45)$: 4 ngày\\nĐộ lệch chuẩn của mẫu số liệu ghép nhóm trên bằng bao nhiêu phút? (kết quả làm tròn đến hàng phần mười).",
+    "content": "[Đề thi thử Sở GD&ĐT Nghệ An 2025] Thời gian chạy bộ mỗi ngày (phút) của anh A được cho trong bảng tần số ghép nhóm sau:\n\n$$\\begin{array}{|c|c|c|c|c|c|}\\hline \\text{Thời gian (phút)} & [20; 25) & [25; 30) & [30; 35) & [35; 40) & [40; 45) \\\\ \\hline \\text{Số ngày} & 4 & 6 & 10 & 6 & 4 \\\\ \\hline \\end{array}$$\n\nĐộ lệch chuẩn của mẫu số liệu ghép nhóm trên bằng bao nhiêu phút? (kết quả làm tròn đến hàng phần mười).",
     "options": [
       {
         "key": "A",
@@ -2306,7 +2306,7 @@ export const soHaiPhong2025Questions: Question[] = [
     "examSets": [
       "thptqg_so_haiphong_2025_2026"
     ],
-    "content": "[Đề khảo sát liên trường Hải Phòng 2026] Khảo sát thu nhập (triệu đồng) theo tháng của người lao động tại một doanh nghiệp:\\n- $[5; 8)$: 10 người\\n- $[8; 11)$: 25 người\\n- $[11; 14)$: 12 người\\n- $[14; 17)$: 3 người\\nTrung vị của mẫu số liệu ghép nhóm trên bằng bao nhiêu triệu đồng?",
+    "content": "[Đề khảo sát liên trường Hải Phòng 2026] Khảo sát thu nhập (triệu đồng) theo tháng của người lao động tại một doanh nghiệp được cho trong bảng sau:\n\n$$\\begin{array}{|c|c|c|c|c|}\\hline \\text{Thu nhập (triệu đồng)} & [5; 8) & [8; 11) & [11; 14) & [14; 17) \\\\ \\hline \\text{Số người} & 10 & 25 & 12 & 3 \\\\ \\hline \\end{array}$$\n\nTrung vị của mẫu số liệu ghép nhóm trên bằng bao nhiêu triệu đồng?",
     "options": [
       {
         "key": "A",

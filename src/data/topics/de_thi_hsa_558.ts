@@ -721,7 +721,7 @@ export const hsa558ExamQuestions: Question[] = [
     chapterName: 'Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)',
     topicId: 'thong_ke_mau_so_lieu_ghep_nhom',
     topicName: 'Mẫu số liệu ghép nhóm & Tứ phân vị',
-    content: 'Một vườn thú ghi lại tuổi thọ (năm) của $20$ con khỉ và thu được bảng tần số ghép nhóm:\n$[10; 15): 3$, $[15; 20): 5$, $[20; 25): 7$, $[25; 30): 4$, $[30; 35): 1$.\nNhóm chứa tứ phân vị thứ ba $Q_3$ là nhóm nào?',
+    content: 'Một vườn thú ghi lại tuổi thọ (năm) của $20$ con khỉ và thu được bảng tần số ghép nhóm sau:\n\n$$\\begin{array}{|c|c|c|c|c|c|}\\hline \\text{Tuổi thọ (năm)} & [10; 15) & [15; 20) & [20; 25) & [25; 30) & [30; 35) \\\\ \\hline \\text{Số lượng} & 3 & 5 & 7 & 4 & 1 \\\\ \\hline \\end{array}$$\n\nNhóm chứa tứ phân vị thứ ba $Q_3$ là nhóm nào?',
     options: [
       { key: 'A', content: '$[20; 25)$' },
       { key: 'B', content: '$[25; 30)$' },

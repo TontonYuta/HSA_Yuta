@@ -110,7 +110,7 @@ export const TopicQuestionWorkspace: React.FC<TopicQuestionWorkspaceProps> = ({
                         <QuestionSourceBadge source={sourceTag} showHideButton={false} />
                       </div>
                     )}
-                    <div className="text-sm sm:text-base text-slate-900 dark:text-zinc-100 leading-relaxed font-sans">
+                    <div className="text-[15.5px] sm:text-[17.5px] text-slate-900 dark:text-zinc-100 leading-relaxed font-sans">
                       <MathRenderer content={cleanContent} />
                     </div>
                   </div>
@@ -119,7 +119,7 @@ export const TopicQuestionWorkspace: React.FC<TopicQuestionWorkspaceProps> = ({
 
               {/* Answers Interaction */}
               {currentQ.type === 'mcq' && currentQ.options ? (
-                <div className="grid grid-cols-1 gap-2 pt-1.5">
+                <div className="grid grid-cols-1 gap-2.5 pt-1.5">
                   {currentQ.options.map((opt) => {
                     const isSelected = currentAnswer === opt.key;
                     const isRightOpt = currentQ.correctAnswer === opt.key;
@@ -147,12 +147,12 @@ export const TopicQuestionWorkspace: React.FC<TopicQuestionWorkspaceProps> = ({
                         key={opt.key}
                         type="button"
                         onClick={() => onSelectOption(opt.key)}
-                        className={`p-2.5 sm:p-3 rounded-xl border text-left transition flex items-start gap-3 cursor-pointer ${optStyle}`}
+                        className={`p-3 sm:p-3.5 rounded-xl border text-left transition flex items-start gap-3 cursor-pointer ${optStyle}`}
                       >
-                        <span className="w-6.5 h-6.5 rounded-lg bg-white dark:bg-zinc-900 border border-slate-300 dark:border-zinc-700 flex items-center justify-center font-mono text-xs font-bold shrink-0 text-slate-800 dark:text-zinc-200">
+                        <span className="w-7 h-7 rounded-lg bg-white dark:bg-zinc-900 border border-slate-300 dark:border-zinc-700 flex items-center justify-center font-mono text-xs sm:text-sm font-bold shrink-0 text-slate-800 dark:text-zinc-200">
                           {opt.key}
                         </span>
-                        <div className="flex-1 text-xs sm:text-sm pt-0.5 leading-relaxed">
+                        <div className="flex-1 text-[15px] sm:text-base pt-0.5 leading-relaxed">
                           <MathRenderer content={opt.content} />
                         </div>
                       </button>
@@ -162,7 +162,7 @@ export const TopicQuestionWorkspace: React.FC<TopicQuestionWorkspaceProps> = ({
               ) : (
                 <div className="space-y-3 pt-2">
                   <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800 space-y-2">
-                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-zinc-400">
+                    <label className="block text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-700 dark:text-zinc-400">
                       Nhập đáp số (Số nguyên, số thập phân hoặc phân số):
                     </label>
                     <div className="flex gap-2">
@@ -171,12 +171,12 @@ export const TopicQuestionWorkspace: React.FC<TopicQuestionWorkspaceProps> = ({
                         placeholder="Ví dụ: 2.5, -4, 5/2..."
                         value={currentAnswer}
                         onChange={(e) => onSelectOption(e.target.value)}
-                        className="flex-1 px-3.5 py-2 bg-white dark:bg-zinc-900 border border-slate-300 dark:border-zinc-700 rounded-xl text-xs sm:text-sm text-slate-900 dark:text-zinc-100 placeholder-slate-400 focus:outline-none focus:border-sky-500 font-mono font-medium"
+                        className="flex-1 px-3.5 py-2.5 bg-white dark:bg-zinc-900 border border-slate-300 dark:border-zinc-700 rounded-xl text-sm sm:text-base text-slate-900 dark:text-zinc-100 placeholder-slate-400 focus:outline-none focus:border-sky-500 font-mono font-medium"
                       />
                       <button
                         type="button"
                         onClick={onCheckAnswer}
-                        className="px-4 py-2 bg-sky-600 hover:bg-sky-500 text-white rounded-xl text-xs font-semibold transition cursor-pointer shadow-xs"
+                        className="px-4 py-2 bg-sky-600 hover:bg-sky-500 text-white rounded-xl text-xs sm:text-sm font-semibold transition cursor-pointer shadow-xs"
                       >
                         Kiểm tra
                       </button>
@@ -225,11 +225,11 @@ export const TopicQuestionWorkspace: React.FC<TopicQuestionWorkspaceProps> = ({
               {/* Detailed Solution Box with KaTeX */}
               {isSolutionVisible && (
                 <div className="p-4 rounded-xl bg-slate-50 dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800 space-y-2 animate-fade-in">
-                  <div className="font-bold text-xs uppercase tracking-wider text-slate-700 dark:text-zinc-300 flex items-center gap-1.5">
+                  <div className="font-bold text-xs sm:text-sm uppercase tracking-wider text-slate-700 dark:text-zinc-300 flex items-center gap-1.5">
                     <BookOpen className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400" />
                     <span>Lời giải chi tiết từng bước:</span>
                   </div>
-                  <div className="text-xs sm:text-sm text-slate-800 dark:text-zinc-200 leading-relaxed font-sans">
+                  <div className="text-[14.5px] sm:text-[16px] text-slate-800 dark:text-zinc-200 leading-relaxed font-sans">
                     <MathRenderer content={currentQ.detailedSolution} />
                   </div>
                 </div>

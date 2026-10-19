@@ -9,7 +9,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "chapterName": 'Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)',
     "topicId": "thong_ke_mau_so_lieu_ghep_nhom",
     "topicName": "Thống kê & Mẫu số liệu ghép nhóm",
-    "content": "Thống kê điểm thi khảo sát của 50 học sinh được cho bởi bảng tần số ghép nhóm: $[0; 4)$ có 5 học sinh; $[4; 6)$ có 15 học sinh; $[6; 8)$ có 20 học sinh; $[8; 10)$ có 10 học sinh. Mốt của mẫu số liệu ghép nhóm này bằng:",
+    "content": "Thống kê điểm thi khảo sát của 50 học sinh được cho trong bảng tần số ghép nhóm sau:\n\n$$\\begin{array}{|c|c|c|c|c|}\\hline \\text{Điểm thi} & [0; 4) & [4; 6) & [6; 8) & [8; 10) \\\\ \\hline \\text{Số học sinh} & 5 & 15 & 20 & 10 \\\\ \\hline \\end{array}$$\n\nMốt của mẫu số liệu ghép nhóm này bằng:",
     "options": [
       {
         "key": "A",
@@ -45,7 +45,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "chapterName": 'Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)',
     "topicId": "thong_ke_mau_so_lieu_ghep_nhom",
     "topicName": "Thống kê & Mẫu số liệu ghép nhóm",
-    "content": "Mẫu số liệu ghép nhóm về thời gian hoàn thành một bài test (đơn vị: phút) của 40 học sinh: $[10; 15)$ có 6 học sinh; $[15; 20)$ có 14 học sinh; $[20; 25)$ có 12 học sinh; $[25; 30)$ có 8 học sinh. Khoảng biến thiên của mẫu số liệu ghép nhóm này bằng:",
+    "content": "Mẫu số liệu ghép nhóm về thời gian hoàn thành một bài test (đơn vị: phút) của 40 học sinh được cho trong bảng sau:\n\n$$\\begin{array}{|c|c|c|c|c|}\\hline \\text{Thời gian (phút)} & [10; 15) & [15; 20) & [20; 25) & [25; 30) \\\\ \\hline \\text{Số học sinh} & 6 & 14 & 12 & 8 \\\\ \\hline \\end{array}$$\n\nKhoảng biến thiên của mẫu số liệu ghép nhóm này bằng:",
     "options": [
       {
         "key": "A",
@@ -80,7 +80,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "chapterName": 'Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)',
     "topicId": "thong_ke_mau_so_lieu_ghep_nhom",
     "topicName": "Thống kê & Mẫu số liệu ghép nhóm",
-    "content": "Khảo sát thời gian hoàn thành một sản phẩm của 20 công nhân thu được mẫu số liệu ghép nhóm: $[10; 20)$ có 5 công nhân; $[20; 30)$ có 10 công nhân; $[30; 40)$ có 5 công nhân. Tính số trung bình của mẫu số liệu ghép nhóm này.",
+    "content": "Khảo sát thời gian hoàn thành một sản phẩm của 20 công nhân thu được mẫu số liệu ghép nhóm trong bảng sau:\n\n$$\\begin{array}{|c|c|c|c|}\\hline \\text{Thời gian (phút)} & [10; 20) & [20; 30) & [30; 40) \\\\ \\hline \\text{Số công nhân} & 5 & 10 & 5 \\\\ \\hline \\end{array}$$\n\nTính số trung bình của mẫu số liệu ghép nhóm này.",
     "correctAnswer": "25",
     "acceptableAnswers": [
       "25"
@@ -100,7 +100,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "chapterName": 'Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)',
     "topicId": "thong_ke_mau_so_lieu_ghep_nhom",
     "topicName": "Thống kê & Mẫu số liệu ghép nhóm",
-    "content": "Thống kê thời gian tự học mỗi ngày của 100 học sinh lớp 12 thu được bảng số liệu ghép nhóm: $[2; 4)$ có 15 học sinh; $[4; 6)$ có 35 học sinh; $[6; 8)$ có 30 học sinh; $[8; 10)$ có 20 học sinh. Khoảng tứ phân vị $\\Delta_Q = Q_3 - Q_1$ của mẫu số liệu ghép nhóm này bằng:",
+    "content": "Thống kê thời gian tự học mỗi ngày của 100 học sinh lớp 12 thu được bảng số liệu ghép nhóm sau:\n\n$$\\begin{array}{|c|c|c|c|c|}\\hline \\text{Thời gian (giờ)} & [2; 4) & [4; 6) & [6; 8) & [8; 10) \\\\ \\hline \\text{Số học sinh} & 15 & 35 & 30 & 20 \\\\ \\hline \\end{array}$$\n\nKhoảng tứ phân vị $\\Delta_Q = Q_3 - Q_1$ của mẫu số liệu ghép nhóm này bằng:",
     "options": [
       {
         "key": "A",
@@ -135,7 +135,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "chapterName": 'Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)',
     "topicId": "thong_ke_mau_so_lieu_ghep_nhom",
     "topicName": "Thống kê & Mẫu số liệu ghép nhóm",
-    "content": "Khảo sát thu nhập hàng tháng (đơn vị: triệu đồng) của 50 nhân viên một công ty thu được mẫu số liệu ghép nhóm: $[10; 15)$ có 8 nhân viên; $[15; 20)$ có 18 nhân viên; $[20; 25)$ có 16 nhân viên; $[25; 30)$ có 8 nhân viên. Phương sai $s^2$ của mẫu số liệu ghép nhóm này bằng:",
+    "content": "Khảo sát thu nhập hàng tháng (đơn vị: triệu đồng) của 50 nhân viên một công ty thu được mẫu số liệu ghép nhóm trong bảng sau:\n\n$$\\begin{array}{|c|c|c|c|c|}\\hline \\text{Thu nhập (triệu đồng)} & [10; 15) & [15; 20) & [20; 25) & [25; 30) \\\\ \\hline \\text{Số nhân viên} & 8 & 18 & 16 & 8 \\\\ \\hline \\end{array}$$\n\nPhương sai $s^2$ của mẫu số liệu ghép nhóm này bằng:",
     "options": [
       {
         "key": "A",
@@ -170,7 +170,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "chapterName": 'Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)',
     "topicId": "thong_ke_mau_so_lieu_ghep_nhom",
     "topicName": "Thống kê & Mẫu số liệu ghép nhóm",
-    "content": "Khảo sát mẫu số liệu ghép nhóm về điểm kiểm tra của 40 học sinh: $[4; 6)$ có 8 học sinh; $[6; 8)$ có 20 học sinh; $[8; 10)$ có 12 học sinh. Tính trung vị $M_e$ của mẫu số liệu ghép nhóm này (làm tròn đến một chữ số thập phân).",
+    "content": "Khảo sát mẫu số liệu ghép nhóm về điểm kiểm tra của 40 học sinh được cho trong bảng sau:\n\n$$\\begin{array}{|c|c|c|c|}\\hline \\text{Điểm kiểm tra} & [4; 6) & [6; 8) & [8; 10) \\\\ \\hline \\text{Số học sinh} & 8 & 20 & 12 \\\\ \\hline \\end{array}$$\n\nTính trung vị $M_e$ của mẫu số liệu ghép nhóm này (làm tròn đến một chữ số thập phân).",
     "correctAnswer": "7.2",
     "acceptableAnswers": [
       "7.2",
@@ -191,7 +191,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "chapterName": 'Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)',
     "topicId": "thong_ke_mau_so_lieu_ghep_nhom",
     "topicName": "Thống kê & Mẫu số liệu ghép nhóm",
-    "content": "Một mẫu số liệu ghép nhóm về thời gian hoàn thành bài tập của 40 học sinh có phân bố: $[0; 5)$ có 4 hs, $[5; 10)$ có 12 hs, $[10; 15)$ có 16 hs, $[15; 20)$ có 8 hs. Khoảng tứ phân vị $Delta_Q = Q_3 - Q_1$ của mẫu ghép nhóm bằng:",
+    "content": "Một mẫu số liệu ghép nhóm về thời gian hoàn thành bài tập của 40 học sinh có phân bố trong bảng sau:\n\n$$\\begin{array}{|c|c|c|c|c|}\\hline \\text{Thời gian (phút)} & [0; 5) & [5; 10) & [10; 15) & [15; 20) \\\\ \\hline \\text{Số học sinh} & 4 & 12 & 16 & 8 \\\\ \\hline \\end{array}$$\n\nKhoảng tứ phân vị $\\Delta_Q = Q_3 - Q_1$ của mẫu ghép nhóm bằng:",
     "options": [
       {
         "key": "A",
@@ -211,8 +211,8 @@ export const thongKeGhepNhomQuestions: Question[] = [
       }
     ],
     "correctAnswer": "A",
-    "detailedSolution": "Cỡ mẫu $n = 40$. Tần số tích lũy: $cf_1 = 4, cf_2 = 16, cf_3 = 32, cf_4 = 40$.\n- Tứ phân vị thứ nhất $Q_1$: vị trí $\\frac{n}{4} = 10$. Nhóm chứa $Q_1$ là $[5; 10)$:\n$$Q_1 = 5 + \\frac{10 - 4}{12} \\times (10 - 5) = 5 + \\frac{6}{12} \\times 5 = 5 + 2.5 = 7.5$$\n- Tứ phân vị thứ ba $Q_3$: vị trí $\\frac{3n}{4} = 30$. Nhóm chứa $Q_3$ là $[10; 15)$:\n$$Q_3 = 10 + \\frac{30 - 16}{16} \\times (15 - 10) = 10 + \\frac{14}{16} \\times 5 = 10 + 4.375 = 14.375$$\nKhoảng tứ phân vị:\n$$Delta_Q = Q_3 - Q_1 = 14.375 - 7.5 = 6.875$$.",
-    "socraticHint": "Tính $Q_1$ và $Q_3$ theo công thức tứ phân vị mẫu số liệu ghép nhóm rồi lấy hiệu $Delta_Q = Q_3 - Q_1$.",
+    "detailedSolution": "Cỡ mẫu $n = 40$. Tần số tích lũy: $cf_1 = 4, cf_2 = 16, cf_3 = 32, cf_4 = 40$.\n- Tứ phân vị thứ nhất $Q_1$: vị trí $\\frac{n}{4} = 10$. Nhóm chứa $Q_1$ là $[5; 10)$:\n$$Q_1 = 5 + \\frac{10 - 4}{12} \\times (10 - 5) = 5 + \\frac{6}{12} \\times 5 = 5 + 2.5 = 7.5$$\n- Tứ phân vị thứ ba $Q_3$: vị trí $\\frac{3n}{4} = 30$. Nhóm chứa $Q_3$ là $[10; 15)$:\n$$Q_3 = 10 + \\frac{30 - 16}{16} \\times (15 - 10) = 10 + \\frac{14}{16} \\times 5 = 10 + 4.375 = 14.375$$\nKhoảng tứ phân vị:\n$$\\Delta_Q = Q_3 - Q_1 = 14.375 - 7.5 = 6.875$$.",
+    "socraticHint": "Tính $Q_1$ và $Q_3$ theo công thức tứ phân vị mẫu số liệu ghép nhóm rồi lấy hiệu $\\Delta_Q = Q_3 - Q_1$.",
     "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
@@ -226,7 +226,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "chapterName": 'Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)',
     "topicId": "thong_ke_mau_so_lieu_ghep_nhom",
     "topicName": "Thống kê & Mẫu số liệu ghép nhóm",
-    "content": "Cho mẫu số liệu ghép nhóm về điểm thi của 30 học sinh: nhóm $[4; 6)$ có 6 học sinh, nhóm $[6; 8)$ có 15 học sinh, nhóm $[8; 10]$ có 9 học sinh. Số trung bình cộng $\\bar{x}$ của mẫu số liệu ghép nhóm này bằng:",
+    "content": "Cho mẫu số liệu ghép nhóm về điểm thi của 30 học sinh trong bảng sau:\n\n$$\\begin{array}{|c|c|c|c|}\\hline \\text{Điểm thi} & [4; 6) & [6; 8) & [8; 10] \\\\ \\hline \\text{Số học sinh} & 6 & 15 & 9 \\\\ \\hline \\end{array}$$\n\nSố trung bình cộng $\\bar{x}$ của mẫu số liệu ghép nhóm này bằng:",
     "options": [
       {
         "key": "A",
@@ -261,7 +261,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "chapterName": 'Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)',
     "topicId": "thong_ke_mau_so_lieu_ghep_nhom",
     "topicName": "Thống kê & Mẫu số liệu ghép nhóm",
-    "content": "Khảo sát số giờ tự học mỗi tuần của 20 học sinh thu được bảng số liệu ghép nhóm: $[0; 2)$ có 2 hs; $[2; 4)$ có 6 hs; $[4; 6)$ có 8 hs; $[6; 8)$ có 4 hs. Phương sai $s^2$ của mẫu số liệu ghép nhóm này bằng bao nhiêu?",
+    "content": "Khảo sát số giờ tự học mỗi tuần của 20 học sinh thu được bảng số liệu ghép nhóm sau:\n\n$$\\begin{array}{|c|c|c|c|c|}\\hline \\text{Thời gian (giờ)} & [0; 2) & [2; 4) & [4; 6) & [6; 8) \\\\ \\hline \\text{Số học sinh} & 2 & 6 & 8 & 4 \\\\ \\hline \\end{array}$$\n\nPhương sai $s^2$ của mẫu số liệu ghép nhóm này bằng bao nhiêu?",
     "correctAnswer": "3.24",
     "acceptableAnswers": [
       "3.24",
@@ -282,7 +282,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "chapterName": 'Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)',
     "topicId": "thong_ke_mau_so_lieu_ghep_nhom",
     "topicName": "Thống kê & Mẫu số liệu ghép nhóm",
-    "content": "Cho bảng tần số ghép nhóm về chiều cao của 40 cây non: nhóm $[10; 20)$ có 6 cây; nhóm $[20; 30)$ có 14 cây; nhóm $[30; 40)$ có 12 cây; nhóm $[40; 50)$ có 8 cây. Trung vị $M_e$ của mẫu ghép nhóm bằng bao nhiêu?",
+    "content": "Cho bảng tần số ghép nhóm về chiều cao của 40 cây non như sau:\n\n$$\\begin{array}{|c|c|c|c|c|}\\hline \\text{Chiều cao (cm)} & [10; 20) & [20; 30) & [30; 40) & [40; 50) \\\\ \\hline \\text{Số cây} & 6 & 14 & 12 & 8 \\\\ \\hline \\end{array}$$\n\nTrung vị $M_e$ của mẫu ghép nhóm bằng bao nhiêu?",
     "correctAnswer": "30",
     "acceptableAnswers": [
       "30",
@@ -303,7 +303,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "chapterName": 'Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)',
     "topicId": "thong_ke_mau_so_lieu_ghep_nhom",
     "topicName": "Thống kê & Mẫu số liệu ghép nhóm",
-    "content": "Cho mẫu số liệu ghép nhóm về thời gian hoàn thành một công việc: $[10; 20)$ có 5 người, $[20; 30)$ có 18 người, $[30; 40)$ có 12 người, $[40; 50)$ có 5 người. Nhóm chứa mốt của mẫu số liệu ghép nhóm là:",
+    "content": "Cho mẫu số liệu ghép nhóm về thời gian hoàn thành một công việc trong bảng sau:\n\n$$\\begin{array}{|c|c|c|c|c|}\\hline \\text{Thời gian (phút)} & [10; 20) & [20; 30) & [30; 40) & [40; 50) \\\\ \\hline \\text{Số người} & 5 & 18 & 12 & 5 \\\\ \\hline \\end{array}$$\n\nNhóm chứa mốt của mẫu số liệu ghép nhóm là:",
     "options": [
       {
         "key": "A",
@@ -338,7 +338,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "chapterName": 'Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)',
     "topicId": "thong_ke_mau_so_lieu_ghep_nhom",
     "topicName": "Thống kê & Mẫu số liệu ghép nhóm",
-    "content": "Cho mẫu số liệu ghép nhóm về năng suất lúa (đơn vị: tạ/ha) của 120 thửa ruộng: $[40; 45)$ có 15 thửa; $[45; 50)$ có 40 thửa; $[50; 55)$ có 45 thửa; $[55; 60)$ có 20 thửa. Tứ phân vị thứ hai (trung vị $Q_2$) của mẫu số liệu ghép nhóm này bằng:",
+    "content": "Cho mẫu số liệu ghép nhóm về năng suất lúa (đơn vị: tạ/ha) của 120 thửa ruộng trong bảng sau:\n\n$$\\begin{array}{|c|c|c|c|c|}\\hline \\text{Năng suất (tạ/ha)} & [40; 45) & [45; 50) & [50; 55) & [55; 60) \\\\ \\hline \\text{Số thửa ruộng} & 15 & 40 & 45 & 20 \\\\ \\hline \\end{array}$$\n\nTứ phân vị thứ hai (trung vị $Q_2$) của mẫu số liệu ghép nhóm này bằng:",
     "options": [
       {
         "key": "A",
@@ -373,7 +373,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "chapterName": 'Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)',
     "topicId": "thong_ke_mau_so_lieu_ghep_nhom",
     "topicName": "Thống kê & Mẫu số liệu ghép nhóm",
-    "content": "Khảo sát chiều cao của 40 học sinh thu được bảng số liệu: $[150; 155)$ có 5 học sinh; $[155; 160)$ có 12 học sinh; $[160; 165)$ có 15 học sinh; $[165; 170)$ có 8 học sinh. Số trung bình cộng của mẫu ghép nhóm bằng bao nhiêu?",
+    "content": "Khảo sát chiều cao của 40 học sinh thu được bảng số liệu sau:\n\n$$\\begin{array}{|c|c|c|c|c|}\\hline \\text{Chiều cao (cm)} & [150; 155) & [155; 160) & [160; 165) & [165; 170) \\\\ \\hline \\text{Số học sinh} & 5 & 12 & 15 & 8 \\\\ \\hline \\end{array}$$\n\nSố trung bình cộng của mẫu ghép nhóm bằng bao nhiêu?",
     "correctAnswer": "160.75",
     "acceptableAnswers": [
       "160.75",
@@ -394,7 +394,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "chapterName": 'Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)',
     "topicId": "thong_ke_mau_so_lieu_ghep_nhom",
     "topicName": "Thống kê & Mẫu số liệu ghép nhóm",
-    "content": "Cho bảng số liệu ghép nhóm về điểm kiểm tra của học sinh: nhóm $[0; 4)$ có 2 em; nhóm $[4; 7)$ có 10 em; nhóm $[7; 10]$ có 8 em. Khoảng biến thiên của mẫu số liệu ghép nhóm này bằng bao nhiêu?",
+    "content": "Cho bảng số liệu ghép nhóm về điểm kiểm tra của học sinh như sau:\n\n$$\\begin{array}{|c|c|c|c|}\\hline \\text{Khoảng điểm} & [0; 4) & [4; 7) & [7; 10] \\\\ \\hline \\text{Số học sinh} & 2 & 10 & 8 \\\\ \\hline \\end{array}$$\n\nKhoảng biến thiên của mẫu số liệu ghép nhóm này bằng bao nhiêu?",
     "correctAnswer": "10",
     "acceptableAnswers": [
       "10",
@@ -517,7 +517,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "latexVerified": true,
     "type": "fill",
     "topicId": "thong_ke_mau_so_lieu_ghep_nhom",
-    "content": "Bảng thống kê thời gian đi làm bằng xe buýt của 100 lần di chuyển:\n$[15; 18): 22, \\quad [18; 21): 38, \\quad [21; 24): 27, \\quad [24; 27): 8, \\quad [27; 30): 4, \\quad [30; 33): 1$.\nTính khoảng tứ phân vị $\\Delta_Q = Q_3 - Q_1$ của mẫu số liệu ghép nhóm trên? (Làm tròn kết quả đến hàng đơn vị).",
+    "content": "Bảng thống kê thời gian đi làm bằng xe buýt của 100 lần di chuyển được cho như sau:\n\n$$\\begin{array}{|c|c|c|c|c|c|c|}\\hline \\text{Thời gian (phút)} & [15; 18) & [18; 21) & [21; 24) & [24; 27) & [27; 30) & [30; 33) \\\\ \\hline \\text{Số lần di chuyển} & 22 & 38 & 27 & 8 & 4 & 1 \\\\ \\hline \\end{array}$$\n\nTính khoảng tứ phân vị $\\Delta_Q = Q_3 - Q_1$ của mẫu số liệu ghép nhóm trên? (Làm tròn kết quả đến hàng đơn vị).",
     "correctAnswer": "4",
     "detailedSolution": "Tổng số quan sát $n = 100$.\n- Tìm $Q_1$: vị trí $\\frac{n}{4} = 25$. Tần số tích lũy: nhóm 1 có 22, nhóm 2 có $22 + 38 = 60$. Vậy nhóm chứa $Q_1$ là $[18; 21)$.\n  $$Q_1 = 18 + \\frac{25 - 22}{38} \\times (21 - 18) = 18 + \\frac{9}{38} \\approx 18{,}237$$\n- Tìm $Q_3$: vị trí $\\frac{3n}{4} = 75$. Tần số tích lũy nhóm 3 là $60 + 27 = 87$. Vậy nhóm chứa $Q_3$ là $[21; 24)$.\n  $$Q_3 = 21 + \\frac{75 - 60}{27} \\times (24 - 21) = 21 + \\frac{15}{27} \\times 3 = 21 + \\frac{5}{3} \\approx 22{,}667$$\n- Khoảng tứ phân vị:\n  $$\\Delta_Q = Q_3 - Q_1 = 22{,}667 - 18{,}237 = 4{,}43$$\nLàm tròn đến hàng đơn vị: $4$.",
     "socraticHint": "Xác định nhóm chứa $Q_1$ và nhóm chứa $Q_3$ theo tần số tích lũy rồi áp dụng công thức nội suy tứ phân vị.",

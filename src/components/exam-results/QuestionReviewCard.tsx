@@ -54,7 +54,7 @@ export const QuestionReviewCard: React.FC<QuestionReviewCardProps> = ({
               </div>
             )}
 
-            <div className="mt-1 text-sm text-slate-800 dark:text-zinc-200">
+            <div className="mt-1 text-[15px] sm:text-[16.5px] text-slate-800 dark:text-zinc-200 leading-relaxed font-sans">
               <MathRenderer content={cleanContent} />
             </div>
           </div>
@@ -76,7 +76,7 @@ export const QuestionReviewCard: React.FC<QuestionReviewCardProps> = ({
       </div>
 
       {/* User Answer vs Correct Answer */}
-      <div className="mt-3.5 pt-3 border-t border-slate-200/60 dark:border-zinc-800/60 flex flex-wrap items-center justify-between gap-3 text-xs">
+      <div className="mt-3.5 pt-3 border-t border-slate-200/60 dark:border-zinc-800/60 flex flex-wrap items-center justify-between gap-3 text-xs sm:text-sm">
         <div className="flex items-center gap-4 flex-wrap font-mono">
           <div>
             <span className="text-slate-500 dark:text-zinc-400">Đáp án của bạn: </span>
@@ -112,18 +112,18 @@ export const QuestionReviewCard: React.FC<QuestionReviewCardProps> = ({
       {/* Collapsible Detailed Solution */}
       {isExpanded && originalQ && (
         <div className="mt-3.5 p-4 rounded-xl bg-white dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800 space-y-3 animate-fade-in text-xs sm:text-sm">
-          <div className="font-bold text-slate-800 dark:text-zinc-200 flex items-center gap-1.5 text-xs uppercase tracking-wider">
+          <div className="font-bold text-slate-800 dark:text-zinc-200 flex items-center gap-1.5 text-xs sm:text-sm uppercase tracking-wider">
             <BookOpen className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400" />
             <span>Hướng dẫn giải chi tiết:</span>
           </div>
-          <div className="text-slate-700 dark:text-zinc-300 leading-relaxed">
+          <div className="text-[14.5px] sm:text-[15.5px] text-slate-700 dark:text-zinc-300 leading-relaxed font-sans">
             <MathRenderer content={originalQ.detailedSolution} />
           </div>
 
           {originalQ.socraticHint && (
-            <div className="mt-2.5 p-3 rounded-lg bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900/40 text-xs">
+            <div className="mt-2.5 p-3 rounded-lg bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900/40 text-xs sm:text-sm">
               <strong className="text-amber-800 dark:text-amber-300 block mb-0.5">Phương pháp tư duy nhanh:</strong>
-              <div className="text-slate-600 dark:text-zinc-400">
+              <div className="text-[13.5px] sm:text-[14.5px] text-slate-600 dark:text-zinc-400 leading-relaxed">
                 <MathRenderer content={originalQ.socraticHint} />
               </div>
             </div>

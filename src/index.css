@@ -50,15 +50,16 @@ html.dark body {
 
 /* KaTeX formula typography styling */
 .katex {
-  font-size: 1.05em;
+  font-size: 1.09em;
   color: inherit;
 }
 
 .katex-display {
-  margin: 0.75em 0 !important;
+  margin: 0.85em 0 !important;
   overflow-x: auto;
   overflow-y: hidden;
-  padding: 0.25rem 0;
+  padding: 0.35rem 0;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Micro-animations */
