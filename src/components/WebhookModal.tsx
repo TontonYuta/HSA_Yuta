@@ -101,30 +101,35 @@ export const WebhookModal: React.FC<WebhookModalProps> = ({
 
     try {
       const payload = {
+        type: 'EXAM_SUBMISSION',
+        track: 'THPTQG',
         teacherEmail: localTeacherEmail || '',
         studentName: localStudentName || 'Thí sinh thử nghiệm',
+        school: 'THPT Chuyên Hà Nội - Amsterdam',
         studentEmail: localStudentEmail || '',
-        examSetTitle: 'Đề 01: Chuẩn Tham Khảo ĐHQGHN (Đồng bộ Google Sheet)',
+        examSetTitle: 'Đề 01: Chuẩn THPTQG 2027 (Đồng bộ Google Sheets)',
         completedAt: new Date().toISOString(),
         totalTimeSpentSeconds: 4320,
-        totalScore: 42,
+        totalScore: 45,
         maxScore: 50,
-        mcqScore: 30,
+        mcqScore: 33,
         mcqTotal: 35,
         fillScore: 12,
         fillTotal: 15,
         topicBreakdown: [
-          { topicName: 'Hàm số & Tính đơn điệu chứa tham số', correctCount: 5, totalCount: 5, percentage: 100 },
-          { topicName: 'Cực trị hàm số chứa tham số m', correctCount: 4, totalCount: 5, percentage: 80 },
-          { topicName: 'Xác suất có điều kiện & Công thức Bayes', correctCount: 3, totalCount: 4, percentage: 75 },
-          { topicName: 'Toán thực tế & Tối ưu hóa', correctCount: 2, totalCount: 4, percentage: 50 },
+          { topicName: 'Toán thực tế & Tối ưu hóa', correctCount: 5, totalCount: 5, percentage: 100 },
+          { topicName: 'Xác suất có điều kiện & Công thức Bayes', correctCount: 4, totalCount: 4, percentage: 100 },
+          { topicName: 'Thống kê mẫu số liệu ghép nhóm', correctCount: 3, totalCount: 4, percentage: 75 },
+          { topicName: 'Nguyên hàm & Tích phân', correctCount: 3, totalCount: 4, percentage: 75 },
         ],
-        weakestTopic: { topicName: 'Toán thực tế & Tối ưu hóa', percentage: 50 },
+        weakestTopic: { topicName: 'Thống kê mẫu số liệu ghép nhóm', percentage: 75 },
         answers: [
-          { questionId: 7, topicName: 'Cực trị hàm số', userAnswer: 'B', correctAnswer: 'D', isCorrect: false, type: 'mcq' },
-          { questionId: 19, topicName: 'Công thức Bayes', userAnswer: 'C', correctAnswer: 'A', isCorrect: false, type: 'mcq' },
-          { questionId: 38, topicName: 'Toán thực tế', userAnswer: '12', correctAnswer: '15', isCorrect: false, type: 'fill' }
-        ]
+          { questionId: 19, topicName: 'Thống kê ghép nhóm', userAnswer: 'B', correctAnswer: 'D', isCorrect: false, type: 'mcq' },
+          { questionId: 38, topicName: 'Nguyên hàm', userAnswer: '12', correctAnswer: '15', isCorrect: false, type: 'fill' }
+        ],
+        tabSwitchCount: 0,
+        integrityStatus: 'clean',
+        integrityChecksum: 'VERIFIED_GAS_2027',
       };
 
       await fetch(localUrl.trim(), {
@@ -318,7 +323,7 @@ export const WebhookModal: React.FC<WebhookModalProps> = ({
               <div className="p-3 bg-zinc-50 dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800 rounded-lg space-y-1">
                 <div className="font-semibold text-sky-600 dark:text-sky-400">Bước 1: Mở Google Sheets mới</div>
                 <p className="text-zinc-600 dark:text-zinc-400">
-                  Truy cập <a href="https://sheets.new" target="_blank" rel="noreferrer" className="text-sky-600 dark:text-sky-300 underline inline-flex items-center gap-0.5">sheets.new <ExternalLink className="w-3 h-3" /></a> để tạo bảng tính mới, đặt tên bảng tính là <strong>HSA_Ket_Qua_TontonYuta</strong>.
+                  Truy cập <a href="https://sheets.new" target="_blank" rel="noreferrer" className="text-sky-600 dark:text-sky-300 underline inline-flex items-center gap-0.5">sheets.new <ExternalLink className="w-3 h-3" /></a> để tạo bảng tính mới, đặt tên bảng tính là <strong>Ket_Qua_Thi_THPTQG_HSA_2027</strong>.
                 </p>
               </div>
 
@@ -330,14 +335,21 @@ export const WebhookModal: React.FC<WebhookModalProps> = ({
               </div>
 
               <div className="p-3 bg-zinc-50 dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800 rounded-lg space-y-1">
-                <div className="font-semibold text-sky-600 dark:text-sky-400">Bước 3: Dán mã nguồn & Nhấn Lưu</div>
+                <div className="font-semibold text-sky-600 dark:text-sky-400">Bước 3: Dán mã nguồn & Lưu</div>
                 <p className="text-zinc-600 dark:text-zinc-400">
                   Xóa toàn bộ mã mặc định trong file <code>Code.gs</code>, dán toàn bộ đoạn mã ở tab <strong>"Mã Nguồn Google Apps Script Mẫu"</strong> và nhấn biểu tượng Lưu (Ctrl+S).
                 </p>
               </div>
 
               <div className="p-3 bg-zinc-50 dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800 rounded-lg space-y-1">
-                <div className="font-semibold text-sky-600 dark:text-sky-400">Bước 4: Triển khai Web App (Deploy) & Cấp quyền</div>
+                <div className="font-semibold text-emerald-600 dark:text-emerald-400">Bước 4 (Tùy chọn): Chạy hàm setupSheets để tạo sẵn bảng</div>
+                <p className="text-zinc-600 dark:text-zinc-400">
+                  Ở thanh công cụ trên cùng của Apps Script, chọn hàm <code>setupSheets</code> rồi bấm <strong>Chạy (Run)</strong>. Bảng tính sẽ tự động tạo sẵn 4 tab: <code>KetQua_THPTQG</code>, <code>KetQua_HSA</code>, <code>DanhSach_HocSinh</code> và <code>LuuLuong_TruyCap</code> với giao diện cực đẹp.
+                </p>
+              </div>
+
+              <div className="p-3 bg-zinc-50 dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800 rounded-lg space-y-1">
+                <div className="font-semibold text-sky-600 dark:text-sky-400">Bước 5: Triển khai Web App (Deploy) & Cấp quyền</div>
                 <p className="text-zinc-600 dark:text-zinc-400">
                   - Bấm nút <strong>Triển khai (Deploy)</strong> màu xanh ở góc trên bên phải &gt; <strong>Tùy chọn triển khai mới (New deployment)</strong>.
                   <br />
@@ -345,11 +357,11 @@ export const WebhookModal: React.FC<WebhookModalProps> = ({
                   <br />
                   - Thực thi dưới dạng (Execute as): <strong>Tôi (Me)</strong>.
                   <br />
-                  - Ai có quyền truy cập (Who has access): <strong>Bất kỳ ai (Anyone)</strong>.
+                  - Ai có quyền truy cập (Who has access): <strong>Bất kỳ ai (Anyone)</strong> <em>(Bắt buộc)</em>.
                   <br />
                   - Nhấn <strong>Triển khai</strong>, chọn tài khoản Google của bạn và nhấn <strong>Cho phép (Authorize / Allow)</strong> để cấp quyền ghi dữ liệu vào Google Sheet.
                   <br />
-                  - Sao chép <strong>URL Ứng dụng web</strong> và dán vào ô Webhook URL ở tab Cấu hình.
+                  - Sao chép <strong>URL Ứng dụng web</strong> (đuôi <code>/exec</code>) và dán vào ô Webhook URL ở tab Cấu hình.
                 </p>
               </div>
             </div>

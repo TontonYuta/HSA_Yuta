@@ -362,16 +362,20 @@ export default function App() {
       Math.round((Date.now() - examStartTimeRef.current) / 1000)
     );
     setTimeSpentSeconds(calculatedSeconds);
-    const report = generateExamReport(
+    const generatedReport = generateExamReport(
       activeQuestions,
       userAnswers,
       studentName,
       studentEmail,
       calculatedSeconds,
       currentExamSet.title,
-      DEFAULT_TEACHER_EMAIL,
+      teacherEmail || DEFAULT_TEACHER_EMAIL,
       tabSwitchCount
     );
+    const report: ExamReport = {
+      ...generatedReport,
+      track: currentTrack,
+    };
     setExamReport(report);
     setCurrentMode('results');
 
@@ -388,7 +392,9 @@ export default function App() {
         id: 'exam_' + Date.now(),
         examSetId: selectedExamSetId,
         examSetTitle: currentExamSet.title,
+        track: currentTrack,
         studentName,
+        school: studentSchool,
         completedAt: new Date().toISOString(),
         score: report.totalScore,
         maxScore: report.maxScore,
@@ -420,9 +426,11 @@ export default function App() {
           headers: { 'Content-Type': 'text/plain' },
           body: JSON.stringify({
             ...report,
+            track: currentTrack,
+            school: sanitizeInput(studentSchool, 100),
             studentName: sanitizeInput(studentName, 60),
             studentEmail: sanitizeInput(studentEmail, 100),
-            teacherEmail: DEFAULT_TEACHER_EMAIL,
+            teacherEmail: teacherEmail || DEFAULT_TEACHER_EMAIL,
           }),
         }).catch(() => {});
       }
