@@ -122,7 +122,7 @@ function doPost(e) {
 
     const ss = SpreadsheetApp.getActiveSpreadsheet();
 
-    // 2.2. XỬ LÝ SỰ KIỆN HỌC SINH MỚI THAM GIA (STUDENT_JOINED)
+    // 2.2. XỬ LÝ SỰ KIỆN HỌC SINH MỚI THAM GIA & KHẢO SÁT (STUDENT_JOINED)
     if (data.type === "STUDENT_JOINED") {
       let sheetStudents = ss.getSheetByName("DanhSach_HocSinh");
       if (!sheetStudents) {
@@ -131,17 +131,25 @@ function doPost(e) {
           "Thời Gian Đăng Ký",
           "Họ Và Tên Học Sinh",
           "Trường / Lớp THPT",
+          "Biết Qua Đâu",
+          "Đánh Giá Kênh TikTok",
+          "Thắc Mắc / Góp Ý",
+          "Nội Dung Lời Nhắn",
           "Email Học Sinh",
-          "Chế Độ Quan Tâm",
+          "Mục Tiêu Ôn Thi",
           "Thiết Bị / Trình Duyệt"
         ]);
-        formatHeaderRow(sheetStudents, 6, "#059669"); // Xanh lục Emerald
+        formatHeaderRow(sheetStudents, 10, "#059669"); // Xanh lục Emerald
       }
 
       sheetStudents.appendRow([
         data.joinedAt || new Date().toLocaleString("vi-VN"),
         data.studentName || "Chưa rõ",
         data.school || "Chưa cung cấp",
+        data.source || "Chưa cung cấp",
+        data.tiktokRating || "Chưa đánh giá",
+        data.hasFeedback || "Không",
+        data.feedbackMessage || "",
         data.studentEmail || "Chưa cung cấp",
         data.track || "THPTQG 2027",
         data.userAgent || "Web Browser"
@@ -149,17 +157,17 @@ function doPost(e) {
 
       lock.releaseLock();
 
-      // Gửi email thông báo tức thì cho Giáo viên
+      // Gửi email thông báo tức thì cho Giáo viên kèm kết quả khảo sát
       if (teacherEmail && teacherEmail.indexOf("@") !== -1) {
         MailApp.sendEmail({
           to: teacherEmail,
-          subject: "[TontonYuta] 🎉 Học sinh mới đăng ký: " + (data.studentName || "Học sinh mới") + " (" + (data.school || "THPT") + ")",
+          subject: "[TontonYuta] 🎉 Học sinh mới đăng ký & khảo sát: " + (data.studentName || "Học sinh mới") + " (" + (data.school || "THPT") + ")",
           htmlBody: buildStudentJoinedEmail(data, teacherEmail),
           name: "Luyện thi Toán TontonYuta"
         });
       }
 
-      return jsonResponse({ status: "success", type: "STUDENT_JOINED", message: "Đã ghi nhận học sinh tham gia." });
+      return jsonResponse({ status: "success", type: "STUDENT_JOINED", message: "Đã ghi nhận học sinh và kết quả khảo sát." });
     }
 
     // 2.3. XỬ LÝ SỰ KIỆN HỌC SINH TRUY CẬP WEB (STUDENT_VISIT hoặc TRAFFIC_PING)
@@ -386,8 +394,19 @@ function setupSheets() {
   // Tab 3: Học Sinh
   let s3 = ss.getSheetByName("DanhSach_HocSinh") || ss.insertSheet("DanhSach_HocSinh");
   if (s3.getLastRow() === 0) {
-    s3.appendRow(["Thời Gian Đăng Ký", "Họ Và Tên Học Sinh", "Trường / Lớp THPT", "Email Học Sinh", "Chế Độ Quan Tâm", "Thiết Bị / Trình Duyệt"]);
-    formatHeaderRow(s3, 6, "#059669");
+    s3.appendRow([
+      "Thời Gian Đăng Ký",
+      "Họ Và Tên Học Sinh",
+      "Trường / Lớp THPT",
+      "Biết Qua Đâu",
+      "Đánh Giá Kênh TikTok",
+      "Thắc Mắc / Góp Ý",
+      "Nội Dung Lời Nhắn",
+      "Email Học Sinh",
+      "Mục Tiêu Ôn Thi",
+      "Thiết Bị / Trình Duyệt"
+    ]);
+    formatHeaderRow(s3, 10, "#059669");
   }
 
   // Tab 4: Lưu Lượng
@@ -429,18 +448,32 @@ function jsonResponse(obj) {
  * Helper: Tạo template HTML Email thông báo học sinh tham gia mới
  */
 function buildStudentJoinedEmail(data, teacherEmail) {
+  var feedbackHtml = "";
+  if (data.feedbackMessage && data.feedbackMessage.toString().trim() !== "") {
+    feedbackHtml = "<tr><td style='color: #4b5563;'>Nội dung lời nhắn:</td><td style='font-style: italic; color: #1e293b; background: #ffffff; padding: 6px 10px; border-radius: 6px; border: 1px dashed #cbd5e1;'>" + data.feedbackMessage + "</td></tr>";
+  }
+
   return "<div style='font-family: Arial, sans-serif; padding: 24px; border: 1px solid #e2e8f0; border-radius: 14px; max-width: 600px; margin: 0 auto; background: #ffffff;'>" +
     "<div style='background: linear-gradient(135deg, #059669, #047857); padding: 18px 20px; border-radius: 10px; color: #ffffff; text-align: center; margin-bottom: 20px;'>" +
-    "<h2 style='margin: 0; font-size: 18px; color: #ffffff;'>🎉 HỌC SINH MỚI THAM GIA HỆ THỐNG</h2>" +
+    "<h2 style='margin: 0; font-size: 18px; color: #ffffff;'>🎉 HỌC SINH MỚI THAM GIA & KHẢO SÁT</h2>" +
     "<p style='margin: 4px 0 0; font-size: 13px; opacity: 0.9; color: #ffffff;'>Nền tảng Luyện Thi Toán THPTQG 2027 & HSA TontonYuta</p>" +
     "</div>" +
     "<table style='width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.8;'>" +
-    "<tr><td style='color: #64748b; width: 140px;'>Họ và tên:</td><td style='font-weight: bold; color: #0f172a;'>" + (data.studentName || "Chưa rõ") + "</td></tr>" +
+    "<tr><td style='color: #64748b; width: 150px;'>Họ và tên:</td><td style='font-weight: bold; color: #0f172a;'>" + (data.studentName || "Chưa rõ") + "</td></tr>" +
     "<tr><td style='color: #64748b;'>Trường / Lớp:</td><td style='font-weight: bold; color: #0284c7;'>" + (data.school || "Chưa cung cấp") + "</td></tr>" +
     (data.studentEmail ? ("<tr><td style='color: #64748b;'>Email liên hệ:</td><td>" + data.studentEmail + "</td></tr>") : "") +
     "<tr><td style='color: #64748b;'>Mục tiêu luyện thi:</td><td style='font-weight: bold; color: #e11d48;'>" + (data.track || "THPTQG 2027") + "</td></tr>" +
     "<tr><td style='color: #64748b;'>Thời gian đăng ký:</td><td>" + (data.joinedAt || new Date().toLocaleString("vi-VN")) + "</td></tr>" +
     "</table>" +
+    "<div style='background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px; padding: 14px 16px; margin: 16px 0;'>" +
+    "<div style='font-weight: bold; color: #166534; font-size: 13.5px; margin-bottom: 8px;'>📊 KẾT QUẢ KHẢO SÁT HỌC SINH:</div>" +
+    "<table style='width: 100%; border-collapse: collapse; font-size: 13px; line-height: 1.7;'>" +
+    "<tr><td style='color: #4b5563; width: 150px;'>Biết tới qua đâu:</td><td style='font-weight: 600; color: #0284c7;'>" + (data.source || "Chưa cung cấp") + "</td></tr>" +
+    "<tr><td style='color: #4b5563;'>Đánh giá kênh TikTok:</td><td style='font-weight: bold; color: #d97706;'>" + (data.tiktokRating || "Chưa đánh giá") + "</td></tr>" +
+    "<tr><td style='color: #4b5563;'>Thắc mắc / Góp ý:</td><td style='font-weight: 600; color: #e11d48;'>" + (data.hasFeedback || "Không") + "</td></tr>" +
+    feedbackHtml +
+    "</table>" +
+    "</div>" +
     "<hr style='border: none; border-top: 1px solid #f1f5f9; margin: 20px 0;'/>" +
     "<p style='font-size: 12px; color: #94a3b8; text-align: center; margin: 0;'>Dữ liệu tự động đồng bộ về Google Sheet của: " + teacherEmail + "</p>" +
     "</div>";

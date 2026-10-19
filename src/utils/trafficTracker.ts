@@ -160,13 +160,20 @@ export function recordPageVisit(webhookUrl?: string): TrafficStats {
   return stats;
 }
 
-// Dispatch event when student joins or updates their name
+// Dispatch event when student joins or updates their name with survey data
 export async function notifyStudentJoined(
   studentName: string,
   school: string,
   studentEmail: string,
   teacherEmail: string = 'huyhoang6altt@gmail.com',
-  webhookUrl?: string
+  webhookUrl?: string,
+  surveyData?: {
+    source?: string;
+    tiktokRating?: string;
+    hasFeedback?: string;
+    feedbackMessage?: string;
+  },
+  track?: string
 ) {
   const targetUrl = webhookUrl?.trim() || localStorage.getItem('hsa_webhook_url')?.trim();
   if (!targetUrl) return;
@@ -180,8 +187,13 @@ export async function notifyStudentJoined(
         type: 'STUDENT_JOINED',
         studentName: studentName.trim(),
         school: school.trim() || 'Chưa cung cấp',
-        studentEmail: studentEmail.trim() || 'Chưa cung cấp',
+        studentEmail: studentEmail.trim() || '',
         teacherEmail: teacherEmail.trim(),
+        track: track === 'THPTQG' ? 'THPTQG 2027' : 'HSA ĐHQGHN',
+        source: surveyData?.source || 'Khách truy cập',
+        tiktokRating: surveyData?.tiktokRating || 'Chưa đánh giá',
+        hasFeedback: surveyData?.hasFeedback || 'Không',
+        feedbackMessage: surveyData?.feedbackMessage || '',
         joinedAt: new Date().toLocaleString('vi-VN'),
         timestamp: new Date().toISOString(),
         userAgent: typeof navigator !== 'undefined' ? navigator.userAgent : 'Web Browser',

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Navbar, AppMode } from './components/Navbar';
 import { AppSidebar } from './components/AppSidebar';
-import { StudentNameModal } from './components/StudentNameModal';
+import { StudentNameModal, StudentSurveyData } from './components/StudentNameModal';
 import { WebhookModal } from './components/WebhookModal';
 import { ExamIntro } from './components/ExamIntro';
 import { DashboardView } from './components/DashboardView';
@@ -463,8 +463,13 @@ export default function App() {
     }
   };
 
-  // Save student onboarding information
-  const handleSaveStudentInfo = (name: string, school: string, email: string) => {
+  // Save student onboarding information and survey results
+  const handleSaveStudentInfo = (
+    name: string, 
+    school: string, 
+    email: string, 
+    surveyData?: StudentSurveyData
+  ) => {
     const cleanName = sanitizeInput(name, 60);
     const cleanSchool = sanitizeInput(school, 80);
     const cleanEmail = sanitizeInput(email, 100);
@@ -475,10 +480,20 @@ export default function App() {
     localStorage.setItem('hsa_student_school', cleanSchool);
     if (cleanEmail) localStorage.setItem('hsa_student_email', cleanEmail);
     localStorage.setItem('hsa_student_registered', 'true');
+
+    if (surveyData) {
+      localStorage.setItem('hsa_survey_source', surveyData.source);
+      localStorage.setItem('hsa_survey_rating', surveyData.tiktokRating);
+      localStorage.setItem('hsa_survey_feedback', surveyData.hasFeedback);
+      if (surveyData.feedbackMessage) {
+        localStorage.setItem('hsa_survey_message', surveyData.feedbackMessage);
+      }
+    }
+
     setIsNameModalOpen(false);
 
     // Automatically send notification to teacher
-    notifyStudentJoined(cleanName, cleanSchool, cleanEmail, teacherEmail, webhookUrl);
+    notifyStudentJoined(cleanName, cleanSchool, cleanEmail, teacherEmail, webhookUrl, surveyData, currentTrack);
   };
 
   // Exit exam confirmation
