@@ -1,6 +1,27 @@
-import React, { useState, useMemo } from 'react';
-import { Search, ChevronDown, ChevronUp, BookOpen, Lightbulb, Filter, ChevronLeft, ChevronRight } from 'lucide-react';
-import { Question } from '../types/exam';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
+import { 
+  Search, 
+  ChevronDown, 
+  ChevronUp, 
+  BookOpen, 
+  Lightbulb, 
+  Filter, 
+  ChevronLeft, 
+  ChevronRight,
+  LayoutGrid,
+  List,
+  Target,
+  CheckCircle2,
+  XCircle,
+  RotateCcw,
+  Sparkles,
+  ArrowRight,
+  Eye,
+  EyeOff,
+  Layers,
+  Hash
+} from 'lucide-react';
+import { Question, TopicId } from '../types/exam';
 import { MathRenderer } from './MathRenderer';
 import { MICRO_TOPICS_METADATA } from '../data/topics/index';
 import { ExamTrack, isParametricMQuestion, isPracticalMathQuestion } from '../utils/trackFilter';
@@ -13,6 +34,7 @@ interface QuestionBankViewProps {
   onStartExam: () => void;
   currentTrack?: ExamTrack;
   onSelectTrack?: (track: ExamTrack) => void;
+  onSelectTopicPractice?: (topicId: TopicId) => void;
 }
 
 export const QuestionBankView: React.FC<QuestionBankViewProps> = ({ 
@@ -20,9 +42,12 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
   onStartExam,
   currentTrack = 'THPTQG',
   onSelectTrack,
+  onSelectTopicPractice,
 }) => {
   const isTHPT = currentTrack === 'THPTQG';
   const targetYear = getTargetExamYear();
+
+  // Search & Filter States
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTopic, setSelectedTopic] = useState<string>('all');
   const [selectedType, setSelectedType] = useState<string>('all');
@@ -30,11 +55,35 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
   const [trackFilter, setTrackFilter] = useState<'all' | 'practical' | 'thptqg' | 'hsa_m'>(() => {
     return currentTrack === 'THPTQG' ? 'thptqg' : 'all';
   });
+
+  // View Mode: 'focus' (Master-Detail Zero-Scroll) vs 'list' (Traditional compact list)
+  const [viewMode, setViewMode] = useState<'focus' | 'list'>('focus');
+  // In Focus mode: navigator submode ('list' cards vs 'grid' numbers palette)
+  const [navigatorMode, setNavigatorMode] = useState<'list' | 'grid'>('list');
+
+  // Active question in Focus Mode
+  const [activeQuestionId, setActiveQuestionId] = useState<number | null>(null);
+
+  // Self-testing state for Focus Mode
+  const [testedAnswer, setTestedAnswer] = useState<string>('');
+  const [fillInput, setFillInput] = useState<string>('');
+  const [isAnswerChecked, setIsAnswerChecked] = useState<boolean>(false);
+  const [showHint, setShowHint] = useState<boolean>(false);
+  const [showSolution, setShowSolution] = useState<boolean>(false);
+  const [hideQuestionSource, setHideQuestionSource] = useState<boolean>(false);
+
+  // In List Mode: expanded solutions map and pagination
   const [expandedId, setExpandedId] = useState<number | null>(null);
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const PAGE_SIZE = 12;
+  const PAGE_SIZE = 10;
 
-  // Counts for pills
+  // Mobile drawer for Navigator in Focus Mode
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState<boolean>(false);
+
+  // Refs for scrolling stage to top on question change
+  const stageScrollRef = useRef<HTMLDivElement>(null);
+
+  // Filter count statistics
   const counts = useMemo(() => {
     let practical = 0;
     let nonM = 0;
@@ -47,6 +96,7 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
     return { practical, nonM, hasM, total: questions.length };
   }, [questions]);
 
+  // Filtered Questions List
   const filtered = useMemo(() => {
     return questions.filter((q) => {
       // Track filter
@@ -62,77 +112,163 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
         const matchContent = q.content.toLowerCase().includes(lower);
         const matchTopic = q.topicName.toLowerCase().includes(lower);
         const matchSol = q.detailedSolution.toLowerCase().includes(lower);
-        if (!matchContent && !matchTopic && !matchSol) return false;
+        const matchId = `câu ${q.id}`.includes(lower) || `#${q.id}`.includes(lower);
+        if (!matchContent && !matchTopic && !matchSol && !matchId) return false;
       }
       return true;
     });
   }, [questions, trackFilter, selectedTopic, selectedType, selectedDifficulty, searchTerm]);
 
-  // Reset to page 1 when filter changes
+  // Keep activeQuestion in sync with filtered questions
+  useEffect(() => {
+    if (filtered.length > 0) {
+      if (!activeQuestionId || !filtered.some((q) => q.id === activeQuestionId)) {
+        setActiveQuestionId(filtered[0].id);
+      }
+    } else {
+      setActiveQuestionId(null);
+    }
+  }, [filtered, activeQuestionId]);
+
+  // Reset self-test state whenever active question changes
+  useEffect(() => {
+    setTestedAnswer('');
+    setFillInput('');
+    setIsAnswerChecked(false);
+    setShowHint(false);
+    setShowSolution(false);
+    if (stageScrollRef.current) {
+      stageScrollRef.current.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [activeQuestionId]);
+
+  // Active question object and its index
+  const activeIndex = useMemo(() => {
+    if (!activeQuestionId) return 0;
+    const idx = filtered.findIndex((q) => q.id === activeQuestionId);
+    return idx >= 0 ? idx : 0;
+  }, [filtered, activeQuestionId]);
+
+  const activeQuestion: Question | undefined = filtered[activeIndex] || filtered[0];
+
+  // Quick navigation handlers
+  const handlePrevQuestion = () => {
+    if (activeIndex > 0) {
+      setActiveQuestionId(filtered[activeIndex - 1].id);
+    }
+  };
+
+  const handleNextQuestion = () => {
+    if (activeIndex < filtered.length - 1) {
+      setActiveQuestionId(filtered[activeIndex + 1].id);
+    }
+  };
+
+  // Keyboard navigation shortcuts: ArrowLeft / ArrowRight
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (viewMode !== 'focus') return;
+      const target = e.target as HTMLElement;
+      if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.tagName === 'SELECT')) {
+        return;
+      }
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        handlePrevQuestion();
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        handleNextQuestion();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [viewMode, activeIndex, filtered]);
+
+  // List mode pagination
+  const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+  const currentQuestionsInList = useMemo(() => {
+    const start = (currentPage - 1) * PAGE_SIZE;
+    return filtered.slice(start, start + PAGE_SIZE);
+  }, [filtered, currentPage]);
+
   const handleFilterChange = (setter: (val: string) => void, val: string) => {
     setter(val);
     setCurrentPage(1);
   };
 
-  const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
-  const currentQuestions = useMemo(() => {
-    const start = (currentPage - 1) * PAGE_SIZE;
-    return filtered.slice(start, start + PAGE_SIZE);
-  }, [filtered, currentPage]);
-
-  const toggleExpand = (id: number) => {
-    setExpandedId((prev) => (prev === id ? null : id));
-  };
-
   return (
-    <div className="max-w-5xl mx-auto space-y-4 sm:space-y-6 pb-16 animate-fade-in text-slate-900 dark:text-zinc-100">
-      {/* Search and Filters Card */}
-      <div className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-2xl p-4 sm:p-6 shadow-sm space-y-4 transition-colors">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 pb-3 border-b border-slate-100 dark:border-zinc-800/80">
-          <div>
-            <div className="flex items-center gap-2">
-              <h1 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-zinc-100">
-                Ngân Hàng {questions.length} Câu Hỏi {isTHPT ? `THPTQG ${targetYear}` : `HSA ${targetYear}`}
-              </h1>
-            </div>
-            <p className="text-xs text-slate-500 dark:text-zinc-400 mt-1">
-              {isTHPT
-                ? 'Toán thực tế & các chuyên đề GDPT 2018 đã lược bỏ tham số m'
-                : 'Tra cứu và rèn luyện câu hỏi theo 10 chương và 30 chuyên đề phân hóa chuẩn form HSA ĐHQGHN.'}
-            </p>
+    <div className="h-full flex flex-col overflow-hidden text-slate-900 dark:text-zinc-100 font-sans select-none animate-fade-in">
+      {/* =================================================================== */}
+      {/* 1. ULTRA-COMPACT TOOLBAR (Single Row - Height ~52px)                */}
+      {/* =================================================================== */}
+      <div className="shrink-0 bg-white dark:bg-[#101014] border-b border-slate-200 dark:border-zinc-800 px-3 sm:px-5 py-2.5 flex flex-wrap items-center justify-between gap-2.5 z-20">
+        {/* Left: Title, Count & View Mode Switcher */}
+        <div className="flex items-center gap-2.5 flex-wrap">
+          <div className="flex items-center gap-2">
+            <span className="font-black text-xs sm:text-sm tracking-tight text-slate-900 dark:text-zinc-100 flex items-center gap-1.5">
+              <span>Ngân Hàng Câu Hỏi</span>
+              <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded-full font-bold ${
+                isTHPT ? 'bg-rose-100 dark:bg-rose-950 text-rose-700 dark:text-rose-300' : 'bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-300'
+              }`}>
+                {filtered.length} / {questions.length}
+              </span>
+            </span>
           </div>
 
-          <button
-            type="button"
-            onClick={onStartExam}
-            className={`px-4 py-2 text-white rounded-xl text-xs font-semibold transition shrink-0 shadow-xs cursor-pointer ${
-              isTHPT ? 'bg-rose-600 hover:bg-rose-500' : 'bg-sky-600 hover:bg-sky-500'
-            }`}
-          >
-            Vào thi thử ngay
-          </button>
+          <div className="h-4 w-[1px] bg-slate-200 dark:bg-zinc-800 hidden sm:block" />
+
+          {/* Mode Switcher Toggle */}
+          <div className="flex items-center bg-slate-100 dark:bg-zinc-900 p-0.5 rounded-lg border border-slate-200/80 dark:border-zinc-800 text-[11px] font-semibold">
+            <button
+              type="button"
+              onClick={() => setViewMode('focus')}
+              className={`px-2.5 py-1 rounded-md transition flex items-center gap-1.5 cursor-pointer ${
+                viewMode === 'focus'
+                  ? 'bg-white dark:bg-zinc-800 text-sky-600 dark:text-sky-400 shadow-xs font-bold'
+                  : 'text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-200'
+              }`}
+              title="Chế độ tập trung 1 câu (Không cuộn trang)"
+            >
+              <Target className="w-3.5 h-3.5" />
+              <span>Tập Trung</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => setViewMode('list')}
+              className={`px-2.5 py-1 rounded-md transition flex items-center gap-1.5 cursor-pointer ${
+                viewMode === 'list'
+                  ? 'bg-white dark:bg-zinc-800 text-sky-600 dark:text-sky-400 shadow-xs font-bold'
+                  : 'text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-200'
+              }`}
+              title="Chế độ danh sách thu gọn"
+            >
+              <List className="w-3.5 h-3.5" />
+              <span>Danh Sách</span>
+            </button>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 pt-1">
-          {/* Search bar */}
-          <div className="relative">
-            <Search className="w-4 h-4 absolute left-3.5 top-3 text-slate-400 dark:text-zinc-500" />
+        {/* Center / Right: Compact Inline Filters */}
+        <div className="flex items-center gap-2 flex-wrap flex-1 justify-end max-w-3xl">
+          {/* Quick Search */}
+          <div className="relative min-w-[140px] sm:min-w-[190px] max-w-[220px]">
+            <Search className="w-3.5 h-3.5 absolute left-2.5 top-1/2 -translate-y-1/2 text-slate-400" />
             <input
               type="text"
-              placeholder="Tìm kiếm nội dung, công thức..."
+              placeholder="Tìm câu hỏi, #id..."
               value={searchTerm}
               onChange={(e) => handleFilterChange(setSearchTerm, e.target.value)}
-              className="w-full pl-9 pr-3.5 py-2.5 bg-slate-50 dark:bg-zinc-950 border border-slate-300 dark:border-zinc-700 rounded-xl text-xs text-slate-800 dark:text-zinc-200 placeholder-slate-400 dark:placeholder-zinc-600 focus:outline-none focus:border-sky-500 font-medium"
+              className="w-full pl-8 pr-2.5 py-1 bg-slate-50 dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800 rounded-lg text-xs text-slate-800 dark:text-zinc-200 placeholder-slate-400 focus:outline-none focus:border-sky-500 font-medium transition"
             />
           </div>
 
-          {/* Filter 30 topics */}
+          {/* Micro Topics Selector */}
           <select
             value={selectedTopic}
             onChange={(e) => handleFilterChange(setSelectedTopic, e.target.value)}
-            className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-zinc-950 border border-slate-300 dark:border-zinc-700 rounded-xl text-xs text-slate-800 dark:text-zinc-300 focus:outline-none focus:border-sky-500 font-medium"
+            className="px-2 py-1 bg-slate-50 dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800 rounded-lg text-xs text-slate-800 dark:text-zinc-200 focus:outline-none focus:border-sky-500 font-medium max-w-[150px] sm:max-w-[170px] truncate"
           >
-            <option value="all">Tất cả 30 chuyên đề</option>
+            <option value="all">Tất cả chuyên đề</option>
             {MICRO_TOPICS_METADATA.map((t) => (
               <option key={t.id} value={t.id}>
                 {t.name}
@@ -140,249 +276,666 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
             ))}
           </select>
 
-          {/* Filter format */}
-          <select
-            value={selectedType}
-            onChange={(e) => handleFilterChange(setSelectedType, e.target.value)}
-            className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-zinc-950 border border-slate-300 dark:border-zinc-700 rounded-xl text-xs text-slate-800 dark:text-zinc-300 focus:outline-none focus:border-sky-500 font-medium"
-          >
-            <option value="all">Tất cả dạng câu</option>
-            <option value="mcq">Trắc nghiệm 4 lựa chọn</option>
-            <option value="fill">Điền đáp số ngắn</option>
-          </select>
+          {/* Track Filter Pills */}
+          <div className="hidden lg:flex items-center gap-1 text-[11px]">
+            <button
+              type="button"
+              onClick={() => handleFilterChange(setTrackFilter as any, 'all')}
+              className={`px-2 py-0.8 rounded-md font-semibold transition cursor-pointer ${
+                trackFilter === 'all'
+                  ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-xs'
+                  : 'bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 hover:bg-slate-200'
+              }`}
+            >
+              Tất cả
+            </button>
+            <button
+              type="button"
+              onClick={() => handleFilterChange(setTrackFilter as any, 'practical')}
+              className={`px-2 py-0.8 rounded-md font-semibold transition cursor-pointer flex items-center gap-1 ${
+                trackFilter === 'practical'
+                  ? 'bg-emerald-600 text-white shadow-xs'
+                  : 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/60'
+              }`}
+            >
+              <span>🎯 Thực tế ({counts.practical})</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => handleFilterChange(setTrackFilter as any, 'thptqg')}
+              className={`px-2 py-0.8 rounded-md font-semibold transition cursor-pointer flex items-center gap-1 ${
+                trackFilter === 'thptqg'
+                  ? 'bg-rose-600 text-white shadow-xs'
+                  : 'bg-rose-50 dark:bg-rose-950/40 text-rose-700 dark:text-rose-300 border border-rose-200 dark:border-rose-800/60'
+              }`}
+            >
+              <span>🎓 Bỏ m ({counts.nonM})</span>
+            </button>
+          </div>
 
-          {/* Filter difficulty */}
-          <select
-            value={selectedDifficulty}
-            onChange={(e) => handleFilterChange(setSelectedDifficulty, e.target.value)}
-            className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-zinc-950 border border-slate-300 dark:border-zinc-700 rounded-xl text-xs text-slate-800 dark:text-zinc-300 focus:outline-none focus:border-sky-500 font-medium"
-          >
-            <option value="all">Tất cả mức độ</option>
-            <option value="Vận dụng cao">Vận dụng cao (VDC)</option>
-            <option value="Vận dụng">Vận dụng (VD)</option>
-            <option value="Thông hiểu">Thông hiểu (TH)</option>
-          </select>
-        </div>
-
-        {/* Track Filter Pills (Mobile friendly horizontal scroll) */}
-        <div className="flex items-center gap-2 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden py-1 pt-3 border-t border-slate-100 dark:border-zinc-800">
-          <span className="text-[11px] font-bold text-slate-500 dark:text-zinc-400 mr-1 shrink-0">Bộ lọc:</span>
+          {/* Quick CTA Vào thi */}
           <button
             type="button"
-            onClick={() => handleFilterChange(setTrackFilter as any, 'all')}
-            className={`px-3 py-1 rounded-full text-xs font-semibold transition cursor-pointer shrink-0 whitespace-nowrap ${
-              trackFilter === 'all'
-                ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-xs'
-                : 'bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 hover:bg-slate-200 dark:hover:bg-zinc-700'
+            onClick={onStartExam}
+            className={`px-2.5 py-1 text-white rounded-lg text-xs font-bold transition shrink-0 shadow-xs cursor-pointer ${
+              isTHPT ? 'bg-rose-600 hover:bg-rose-500' : 'bg-sky-600 hover:bg-sky-500'
             }`}
           >
-            Tất cả ({counts.total})
-          </button>
-          <button
-            type="button"
-            onClick={() => handleFilterChange(setTrackFilter as any, 'practical')}
-            className={`px-3 py-1 rounded-full text-xs font-semibold transition cursor-pointer flex items-center gap-1 shrink-0 whitespace-nowrap ${
-              trackFilter === 'practical'
-                ? 'bg-emerald-600 text-white shadow-xs'
-                : 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 hover:bg-emerald-100 dark:hover:bg-emerald-900/60'
-            }`}
-          >
-            <span>🎯 Toán Thực Tế ({counts.practical})</span>
-          </button>
-          <button
-            type="button"
-            onClick={() => handleFilterChange(setTrackFilter as any, 'thptqg')}
-            className={`px-3 py-1 rounded-full text-xs font-semibold transition cursor-pointer flex items-center gap-1 shrink-0 whitespace-nowrap ${
-              trackFilter === 'thptqg'
-                ? 'bg-rose-600 text-white shadow-xs'
-                : 'bg-rose-50 dark:bg-rose-950/40 text-rose-700 dark:text-rose-300 border border-rose-200 dark:border-rose-800 hover:bg-rose-100 dark:hover:bg-rose-900/60'
-            }`}
-          >
-            <span>🎓 Chuẩn THPTQG - Bỏ m ({counts.nonM})</span>
-          </button>
-          <button
-            type="button"
-            onClick={() => handleFilterChange(setTrackFilter as any, 'hsa_m')}
-            className={`px-3 py-1 rounded-full text-xs font-semibold transition cursor-pointer flex items-center gap-1 shrink-0 whitespace-nowrap ${
-              trackFilter === 'hsa_m'
-                ? 'bg-sky-600 text-white shadow-xs'
-                : 'bg-sky-50 dark:bg-sky-950/40 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800 hover:bg-sky-100 dark:hover:bg-sky-900/60'
-            }`}
-          >
-            <span>🏛️ Dạng bài tham số m ({counts.hasM})</span>
+            Vào thi thử
           </button>
         </div>
       </div>
 
-      {/* Questions list */}
-      <div className="space-y-3">
-        <div className="flex items-center justify-between text-xs text-slate-500 dark:text-zinc-400 font-mono px-1">
-          <span>Tìm thấy {filtered.length} câu hỏi phù hợp</span>
-          <span>Trang {currentPage} / {totalPages}</span>
-        </div>
-
-        {currentQuestions.map((q) => {
-          const isExpanded = expandedId === q.id;
-          const isPractical = isPracticalMathQuestion(q);
-          const hasM = isParametricMQuestion(q);
-
-          return (
-            <div
-              key={q.id}
-              className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-xl p-5 hover:border-slate-400 dark:hover:border-zinc-700 transition shadow-xs"
-            >
-              <div className="flex items-start justify-between gap-4">
-                <div className="flex items-center gap-2 flex-wrap">
-                  <span className="px-2.5 py-0.5 rounded-md bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 font-mono text-xs font-bold text-sky-600 dark:text-sky-400">
-                    Câu #{q.id}
-                  </span>
-                  <span className="text-xs font-semibold text-slate-800 dark:text-zinc-200">
-                    {q.topicName}
-                  </span>
-                  <span className="text-slate-300 dark:text-zinc-700 text-xs">·</span>
-                  <span className="text-[11px] text-slate-500 dark:text-zinc-400 font-mono">
-                    {q.type === 'mcq' ? 'Trắc nghiệm 4 lựa chọn' : 'Điền đáp số'}
-                  </span>
-                  <span className="text-slate-300 dark:text-zinc-700 text-xs">·</span>
-                  <span
-                    className={`text-[11px] px-2 py-0.5 rounded-md border font-medium ${
-                      q.difficulty === 'Vận dụng cao'
-                        ? 'bg-rose-50 dark:bg-rose-950/40 border-rose-200 dark:border-rose-800/60 text-rose-700 dark:text-rose-400 font-bold'
-                        : q.difficulty === 'Vận dụng'
-                        ? 'bg-amber-50 dark:bg-amber-950/40 border-amber-200 dark:border-amber-800/60 text-amber-700 dark:text-amber-400 font-semibold'
-                        : 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-200 dark:border-emerald-800/60 text-emerald-700 dark:text-emerald-400 font-medium'
-                    }`}
-                  >
-                    {q.difficulty}
-                  </span>
-                  {isPractical && (
-                    <span className="text-[10px] px-2 py-0.5 rounded-md bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300 font-bold border border-emerald-300/60 dark:border-emerald-800/60">
-                      🎯 Toán thực tế
-                    </span>
-                  )}
-                  {hasM && (
-                    <span className="text-[10px] px-2 py-0.5 rounded-md bg-purple-100 dark:bg-purple-950/80 text-purple-800 dark:text-purple-300 font-bold border border-purple-300/60 dark:border-purple-800/60">
-                      Tham số m
-                    </span>
-                  )}
-                </div>
-
-                <button
-                  type="button"
-                  onClick={() => toggleExpand(q.id)}
-                  className="text-xs text-sky-600 dark:text-sky-400 hover:text-sky-700 font-semibold transition inline-flex items-center gap-1 shrink-0 cursor-pointer"
-                >
-                  <span>{isExpanded ? 'Ẩn lời giải' : 'Xem lời giải'}</span>
-                  {isExpanded ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
-                </button>
+      {/* =================================================================== */}
+      {/* 2. BODY CONTENT: FOCUS MODE (MASTER-DETAIL ZERO-SCROLL)             */}
+      {/* =================================================================== */}
+      {viewMode === 'focus' ? (
+        <div className="flex-1 flex overflow-hidden relative">
+          {/* A. LEFT NAVIGATOR PANEL (Desktop 320px, Mobile Drawer) */}
+          <div className={`
+            fixed md:static inset-y-0 left-0 z-30 w-72 sm:w-80 bg-slate-50/95 dark:bg-[#0c0c10] border-r border-slate-200 dark:border-zinc-800 flex flex-col shrink-0 transition-transform duration-200 md:translate-x-0
+            ${isMobileNavOpen ? 'translate-x-0 shadow-2xl' : '-translate-x-full md:translate-x-0'}
+          `}>
+            {/* Navigator Header */}
+            <div className="p-3 border-b border-slate-200 dark:border-zinc-800 flex items-center justify-between bg-white dark:bg-[#101014] shrink-0">
+              <div className="flex items-center gap-1.5 text-xs font-bold text-slate-800 dark:text-zinc-200">
+                <Hash className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400" />
+                <span>Danh Mục Câu Hỏi ({filtered.length})</span>
               </div>
 
-              {/* Content with Question Source Badge */}
-              {(() => {
-                const { sourceTag, cleanContent } = parseQuestionSource(q.content);
-                return (
-                  <div>
-                    {sourceTag && (
-                      <div className="mt-2.5 mb-1.5">
-                        <QuestionSourceBadge source={sourceTag} showHideButton={false} />
-                      </div>
-                    )}
-                    <div className="mt-2 text-[15px] sm:text-[16.5px] text-slate-800 dark:text-zinc-200 leading-relaxed font-sans">
-                      <MathRenderer content={cleanContent} />
-                    </div>
-                  </div>
-                );
-              })()}
+              {/* Submode Switcher: Cards vs Grid Palette */}
+              <div className="flex items-center bg-slate-100 dark:bg-zinc-800 p-0.5 rounded-md text-[10px] font-semibold">
+                <button
+                  type="button"
+                  onClick={() => setNavigatorMode('list')}
+                  className={`px-1.5 py-0.5 rounded ${navigatorMode === 'list' ? 'bg-white dark:bg-zinc-700 shadow-xs text-sky-600 dark:text-sky-300 font-bold' : 'text-slate-500'}`}
+                  title="Danh sách tóm tắt"
+                >
+                  List
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setNavigatorMode('grid')}
+                  className={`px-1.5 py-0.5 rounded ${navigatorMode === 'grid' ? 'bg-white dark:bg-zinc-700 shadow-xs text-sky-600 dark:text-sky-300 font-bold' : 'text-slate-500'}`}
+                  title="Ma trận số"
+                >
+                  Ma trận
+                </button>
+              </div>
+            </div>
 
-              {/* Options */}
-              {q.type === 'mcq' && q.options && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-3 pt-3 border-t border-slate-100 dark:border-zinc-800 text-[14.5px] sm:text-[15.5px] text-slate-700 dark:text-zinc-300">
-                  {q.options.map((opt) => (
-                    <div
-                      key={opt.key}
-                      className={`p-3 rounded-lg border flex items-start gap-2.5 ${
-                        isExpanded && opt.key === q.correctAnswer
-                          ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-400 dark:border-emerald-700 text-emerald-950 dark:text-emerald-200 font-medium'
-                          : 'bg-slate-50/60 dark:bg-zinc-950/40 border-slate-200 dark:border-zinc-800'
+            {/* Navigator List Container */}
+            <div className="flex-1 overflow-y-auto p-2 scrollbar-thin scrollbar-thumb-slate-300 dark:scrollbar-thumb-zinc-700 space-y-1.5">
+              {filtered.length === 0 ? (
+                <div className="p-6 text-center text-xs text-slate-400 dark:text-zinc-500">
+                  Không tìm thấy câu hỏi phù hợp với bộ lọc hiện tại.
+                </div>
+              ) : navigatorMode === 'list' ? (
+                /* 1. Compact Card Items */
+                filtered.map((q, idx) => {
+                  const isActive = q.id === activeQuestion?.id;
+                  const isPractical = isPracticalMathQuestion(q);
+                  const isVDC = q.difficulty === 'Vận dụng cao';
+                  return (
+                    <button
+                      key={q.id}
+                      type="button"
+                      onClick={() => {
+                        setActiveQuestionId(q.id);
+                        setIsMobileNavOpen(false);
+                      }}
+                      className={`w-full text-left p-2.5 rounded-xl border transition-all duration-150 cursor-pointer flex flex-col gap-1 ${
+                        isActive
+                          ? isTHPT
+                            ? 'bg-rose-50 dark:bg-rose-950/40 border-rose-400 dark:border-rose-700 ring-1 ring-rose-400/40'
+                            : 'bg-sky-50 dark:bg-sky-950/40 border-sky-400 dark:border-sky-700 ring-1 ring-sky-400/40'
+                          : 'bg-white dark:bg-zinc-900 border-slate-200 dark:border-zinc-800/80 hover:border-slate-300 dark:hover:border-zinc-700 hover:bg-slate-50/70'
                       }`}
                     >
-                      <span className="font-mono font-bold text-slate-500 shrink-0">{opt.key}.</span>
-                      <div className="flex-1">
-                        <MathRenderer content={opt.content} />
+                      <div className="flex items-center justify-between text-[11px]">
+                        <span className={`font-mono font-bold ${
+                          isActive
+                            ? isTHPT ? 'text-rose-600 dark:text-rose-400' : 'text-sky-600 dark:text-sky-400'
+                            : 'text-slate-700 dark:text-zinc-300'
+                        }`}>
+                          Câu #{q.id} <span className="text-[10px] text-slate-400 font-normal">({idx + 1}/{filtered.length})</span>
+                        </span>
+                        <div className="flex items-center gap-1">
+                          {isPractical && (
+                            <span className="text-[9px] px-1 py-0.2 rounded bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 font-semibold">
+                              🎯 Thực tế
+                            </span>
+                          )}
+                          <span className={`text-[9px] px-1 py-0.2 rounded font-semibold ${
+                            isVDC 
+                              ? 'bg-rose-100 dark:bg-rose-950 text-rose-700 dark:text-rose-300' 
+                              : 'bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400'
+                          }`}>
+                            {q.difficulty === 'Vận dụng cao' ? 'VDC' : q.difficulty === 'Vận dụng' ? 'VD' : 'TH'}
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                  ))}
-                </div>
-              )}
-
-              {q.type === 'fill' && isExpanded && (
-                <div className="mt-3 p-3 rounded-lg bg-slate-50 dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800 text-sm font-mono text-slate-800 dark:text-zinc-300">
-                  Đáp số: <strong className="text-emerald-600 dark:text-emerald-400 font-bold">{q.correctAnswer}</strong>
-                </div>
-              )}
-
-              {/* Detailed Solution Accordion */}
-              {isExpanded && (
-                <div className="mt-4 pt-4 border-t border-slate-100 dark:border-zinc-800 space-y-3 text-xs sm:text-sm animate-fade-in">
-                  <div className="p-3.5 rounded-xl bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800/40 text-amber-900 dark:text-amber-200 flex items-start gap-2.5">
-                    <Lightbulb className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
-                    <div>
-                      <strong className="block text-amber-800 dark:text-amber-300 font-bold mb-0.5">Gợi ý định hướng tư duy:</strong>
-                      <div className="leading-relaxed text-[14px] sm:text-[15px]">
-                        <MathRenderer content={q.socraticHint} />
+                      <div className="text-[11px] text-slate-500 dark:text-zinc-400 truncate font-sans">
+                        {q.topicName}
                       </div>
-                    </div>
-                  </div>
-
-                  <div className="p-4 rounded-xl bg-slate-50 dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800 space-y-1.5">
-                    <div className="font-bold text-xs uppercase tracking-wider text-slate-800 dark:text-zinc-200">
-                      Lời giải chi tiết:
-                    </div>
-                    <div className="text-[14px] sm:text-[15.5px] text-slate-700 dark:text-zinc-300 leading-relaxed font-sans">
-                      <MathRenderer content={q.detailedSolution} />
-                    </div>
-                  </div>
+                      <div className="text-[11.5px] text-slate-700 dark:text-zinc-300 line-clamp-2 leading-snug">
+                        {q.content.replace(/\$[^$]*\$/g, ' [...] ')}
+                      </div>
+                    </button>
+                  );
+                })
+              ) : (
+                /* 2. Compact Grid Number Matrix (Ultra-Dense Palette) */
+                <div className="grid grid-cols-5 gap-1.5 p-1">
+                  {filtered.map((q, idx) => {
+                    const isActive = q.id === activeQuestion?.id;
+                    const isPractical = isPracticalMathQuestion(q);
+                    const isVDC = q.difficulty === 'Vận dụng cao';
+                    return (
+                      <button
+                        key={q.id}
+                        type="button"
+                        onClick={() => {
+                          setActiveQuestionId(q.id);
+                          setIsMobileNavOpen(false);
+                        }}
+                        title={`Câu #${q.id} (${q.topicName})`}
+                        className={`h-9 rounded-lg border font-mono text-xs font-bold transition flex items-center justify-center relative cursor-pointer ${
+                          isActive
+                            ? isTHPT
+                              ? 'bg-rose-600 text-white border-rose-700 shadow-xs ring-2 ring-rose-400/50'
+                              : 'bg-sky-600 text-white border-sky-700 shadow-xs ring-2 ring-sky-400/50'
+                            : 'bg-white dark:bg-zinc-900 border-slate-200 dark:border-zinc-800 text-slate-700 dark:text-zinc-300 hover:border-slate-300 dark:hover:border-zinc-700'
+                        }`}
+                      >
+                        <span>{idx + 1}</span>
+                        {isPractical && (
+                          <span className="absolute top-0.5 right-0.5 w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                        )}
+                      </button>
+                    );
+                  })}
                 </div>
               )}
             </div>
-          );
-        })}
 
-        {/* Pagination Controls */}
-        {totalPages > 1 && (
-          <div className="pt-4 flex items-center justify-between gap-2">
-            <button
-              type="button"
-              disabled={currentPage <= 1}
-              onClick={() => {
-                setCurrentPage((p) => Math.max(1, p - 1));
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-              className="px-3.5 py-2 rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-xs font-semibold text-slate-700 dark:text-zinc-300 hover:bg-slate-50 dark:hover:bg-zinc-800 disabled:opacity-40 disabled:cursor-not-allowed transition flex items-center gap-1.5 cursor-pointer"
-            >
-              <ChevronLeft className="w-4 h-4" />
-              <span>Trang trước</span>
-            </button>
-
-            <span className="text-xs font-mono text-slate-600 dark:text-zinc-400">
-              Trang <strong>{currentPage}</strong> / {totalPages}
-            </span>
-
-            <button
-              type="button"
-              disabled={currentPage >= totalPages}
-              onClick={() => {
-                setCurrentPage((p) => Math.min(totalPages, p + 1));
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-              className="px-3.5 py-2 rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-xs font-semibold text-slate-700 dark:text-zinc-300 hover:bg-slate-50 dark:hover:bg-zinc-800 disabled:opacity-40 disabled:cursor-not-allowed transition flex items-center gap-1.5 cursor-pointer"
-            >
-              <span>Trang sau</span>
-              <ChevronRight className="w-4 h-4" />
-            </button>
+            {/* Mobile Close Backdrop */}
+            {isMobileNavOpen && (
+              <div 
+                className="fixed inset-0 bg-black/40 z-[-1] md:hidden"
+                onClick={() => setIsMobileNavOpen(false)}
+              />
+            )}
           </div>
-        )}
-      </div>
+
+          {/* B. RIGHT STAGE: FOCUSED QUESTION WORKSPACE (100% Focused, Zero-Scroll Viewport) */}
+          <div className="flex-1 flex flex-col h-full overflow-hidden bg-white dark:bg-[#09090b]">
+            {activeQuestion ? (
+              <>
+                {/* Stage Header Controls */}
+                <div className="shrink-0 px-4 sm:px-6 py-2.5 border-b border-slate-200 dark:border-zinc-800/80 bg-slate-50/60 dark:bg-zinc-900/40 flex items-center justify-between gap-3 flex-wrap">
+                  {/* Left: Mobile Navigator trigger & Question Info */}
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <button
+                      type="button"
+                      onClick={() => setIsMobileNavOpen(true)}
+                      className="md:hidden px-2.5 py-1 rounded-lg border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-xs font-semibold text-slate-700 dark:text-zinc-300 flex items-center gap-1 cursor-pointer"
+                    >
+                      <List className="w-3.5 h-3.5" />
+                      <span>DS Câu ({activeIndex + 1}/{filtered.length})</span>
+                    </button>
+
+                    <span className="px-2.5 py-0.5 rounded-md bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 font-mono text-xs font-bold text-sky-600 dark:text-sky-400">
+                      Câu #{activeQuestion.id}
+                    </span>
+
+                    <span className="text-xs font-bold text-slate-800 dark:text-zinc-200 hidden sm:inline">
+                      {activeQuestion.topicName}
+                    </span>
+
+                    <span className="text-slate-300 dark:text-zinc-700 text-xs hidden sm:inline">·</span>
+
+                    <span className={`text-[11px] px-2 py-0.5 rounded-md border font-semibold ${
+                      activeQuestion.difficulty === 'Vận dụng cao'
+                        ? 'bg-rose-50 dark:bg-rose-950/40 border-rose-200 dark:border-rose-800/60 text-rose-700 dark:text-rose-400 font-bold'
+                        : activeQuestion.difficulty === 'Vận dụng'
+                        ? 'bg-amber-50 dark:bg-amber-950/40 border-amber-200 dark:border-amber-800/60 text-amber-700 dark:text-amber-400'
+                        : 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-200 dark:border-emerald-800/60 text-emerald-700 dark:text-emerald-400'
+                    }`}>
+                      {activeQuestion.difficulty}
+                    </span>
+
+                    {isPracticalMathQuestion(activeQuestion) && (
+                      <span className="text-[10px] px-2 py-0.5 rounded-md bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300 font-bold border border-emerald-300/60 dark:border-emerald-800/60">
+                        🎯 Toán thực tế
+                      </span>
+                    )}
+
+                    {isParametricMQuestion(activeQuestion) && (
+                      <span className="text-[10px] px-2 py-0.5 rounded-md bg-purple-100 dark:bg-purple-950/80 text-purple-800 dark:text-purple-300 font-bold border border-purple-300/60 dark:border-purple-800/60">
+                        Tham số m
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Right: Stepper Prev / Next Controls */}
+                  <div className="flex items-center gap-1.5 ml-auto">
+                    <span className="text-xs font-mono text-slate-500 dark:text-zinc-400 hidden sm:inline mr-1">
+                      {activeIndex + 1} / {filtered.length}
+                    </span>
+
+                    <button
+                      type="button"
+                      disabled={activeIndex <= 0}
+                      onClick={handlePrevQuestion}
+                      className="px-2.5 py-1 rounded-lg border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-xs font-semibold text-slate-700 dark:text-zinc-300 hover:bg-slate-50 dark:hover:bg-zinc-800 disabled:opacity-40 disabled:cursor-not-allowed transition flex items-center gap-1 cursor-pointer shadow-xs active:scale-95"
+                      title="Câu trước (Phím ←)"
+                    >
+                      <ChevronLeft className="w-3.5 h-3.5" />
+                      <span className="hidden sm:inline">Trước</span>
+                    </button>
+
+                    <button
+                      type="button"
+                      disabled={activeIndex >= filtered.length - 1}
+                      onClick={handleNextQuestion}
+                      className="px-2.5 py-1 rounded-lg border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-xs font-semibold text-slate-700 dark:text-zinc-300 hover:bg-slate-50 dark:hover:bg-zinc-800 disabled:opacity-40 disabled:cursor-not-allowed transition flex items-center gap-1 cursor-pointer shadow-xs active:scale-95"
+                      title="Câu tiếp theo (Phím →)"
+                    >
+                      <span className="hidden sm:inline">Tiếp</span>
+                      <ChevronRight className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+                </div>
+
+                {/* Stage Scrollable Body (Only this inner container scrolls if text is long) */}
+                <div 
+                  ref={stageScrollRef}
+                  className="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8 space-y-5 scrollbar-thin scrollbar-thumb-slate-300 dark:scrollbar-thumb-zinc-700"
+                >
+                  {/* Question Source Badge (if available) */}
+                  {(() => {
+                    const { sourceTag, cleanContent } = parseQuestionSource(activeQuestion.content);
+                    return (
+                      <div className="space-y-3">
+                        {sourceTag && (
+                          <div className="flex items-center justify-between">
+                            <QuestionSourceBadge source={sourceTag} showHideButton={false} />
+                            <button
+                              type="button"
+                              onClick={() => setHideQuestionSource((prev) => !prev)}
+                              className="text-[11px] text-slate-400 hover:text-slate-600 dark:hover:text-zinc-300 transition flex items-center gap-1 cursor-pointer"
+                            >
+                              {hideQuestionSource ? <Eye className="w-3 h-3" /> : <EyeOff className="w-3 h-3" />}
+                              <span>{hideQuestionSource ? 'Hiện nguồn' : 'Ẩn nguồn'}</span>
+                            </button>
+                          </div>
+                        )}
+
+                        {/* Question Content */}
+                        <div className="text-[15.5px] sm:text-[17px] text-slate-800 dark:text-zinc-100 leading-relaxed font-sans select-text">
+                          <MathRenderer content={cleanContent} />
+                        </div>
+                      </div>
+                    );
+                  })()}
+
+                  {/* Options & Interactive Tester */}
+                  {activeQuestion.type === 'mcq' && activeQuestion.options && (
+                    <div className="space-y-2 pt-2">
+                      <div className="text-xs font-bold text-slate-500 dark:text-zinc-400 uppercase tracking-wider">
+                        Chọn một phương án để tự kiểm tra kiến thức:
+                      </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-[15px] sm:text-[16px]">
+                        {activeQuestion.options.map((opt) => {
+                          const isSelected = testedAnswer === opt.key;
+                          const isCorrect = isAnswerChecked && opt.key === activeQuestion.correctAnswer;
+                          const isWrong = isAnswerChecked && isSelected && opt.key !== activeQuestion.correctAnswer;
+
+                          return (
+                            <button
+                              key={opt.key}
+                              type="button"
+                              onClick={() => {
+                                setTestedAnswer(opt.key);
+                                setIsAnswerChecked(true);
+                              }}
+                              className={`p-3.5 rounded-xl border text-left transition-all duration-150 flex items-start gap-3 cursor-pointer ${
+                                isCorrect
+                                  ? 'bg-emerald-50 dark:bg-emerald-950/50 border-emerald-500 text-emerald-950 dark:text-emerald-100 font-semibold ring-1 ring-emerald-500/40 shadow-xs'
+                                  : isWrong
+                                  ? 'bg-rose-50 dark:bg-rose-950/50 border-rose-500 text-rose-950 dark:text-rose-100 font-semibold ring-1 ring-rose-500/40 shadow-xs'
+                                  : isSelected
+                                  ? 'bg-sky-50 dark:bg-sky-950/40 border-sky-500 text-sky-950 dark:text-sky-100 font-semibold shadow-xs'
+                                  : 'bg-slate-50/70 dark:bg-zinc-900/60 border-slate-200 dark:border-zinc-800 text-slate-800 dark:text-zinc-200 hover:bg-slate-100/70 dark:hover:bg-zinc-800/80 hover:border-slate-300'
+                              }`}
+                            >
+                              <span className={`w-6 h-6 rounded-lg font-mono text-xs font-bold flex items-center justify-center shrink-0 border ${
+                                isCorrect
+                                  ? 'bg-emerald-600 text-white border-emerald-600'
+                                  : isWrong
+                                  ? 'bg-rose-600 text-white border-rose-600'
+                                  : isSelected
+                                  ? 'bg-sky-600 text-white border-sky-600'
+                                  : 'bg-white dark:bg-zinc-800 border-slate-200 dark:border-zinc-700 text-slate-600 dark:text-zinc-400'
+                              }`}>
+                                {opt.key}
+                              </span>
+
+                              <div className="flex-1 select-text">
+                                <MathRenderer content={opt.content} />
+                              </div>
+
+                              {isCorrect && (
+                                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                              )}
+                              {isWrong && (
+                                <XCircle className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
+                              )}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Fill in Blank Question Tester */}
+                  {activeQuestion.type === 'fill' && (
+                    <div className="p-4 rounded-xl bg-slate-50 dark:bg-zinc-900/70 border border-slate-200 dark:border-zinc-800 space-y-3">
+                      <div className="text-xs font-bold text-slate-600 dark:text-zinc-300">
+                        Điền kết quả dạng số thập phân hoặc số nguyên:
+                      </div>
+                      <div className="flex items-center gap-2 max-w-sm">
+                        <input
+                          type="text"
+                          placeholder="Nhập đáp số..."
+                          value={fillInput}
+                          onChange={(e) => setFillInput(e.target.value)}
+                          className="flex-1 px-3.5 py-2 bg-white dark:bg-zinc-950 border border-slate-300 dark:border-zinc-700 rounded-xl text-sm font-mono text-slate-900 dark:text-zinc-100 focus:outline-none focus:border-sky-500 font-bold"
+                        />
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setTestedAnswer(fillInput.trim());
+                            setIsAnswerChecked(true);
+                          }}
+                          className="px-4 py-2 bg-sky-600 hover:bg-sky-500 text-white rounded-xl text-xs font-bold transition cursor-pointer"
+                        >
+                          Kiểm tra
+                        </button>
+                      </div>
+
+                      {isAnswerChecked && (
+                        <div className={`p-3 rounded-lg text-xs font-mono font-bold flex items-center gap-2 ${
+                          testedAnswer.replace(',', '.') === activeQuestion.correctAnswer.replace(',', '.')
+                            ? 'bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300'
+                            : 'bg-rose-100 dark:bg-rose-950 text-rose-800 dark:text-rose-300'
+                        }`}>
+                          {testedAnswer.replace(',', '.') === activeQuestion.correctAnswer.replace(',', '.') ? (
+                            <>
+                              <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                              <span>Chính xác! Đáp số là: {activeQuestion.correctAnswer}</span>
+                            </>
+                          ) : (
+                            <>
+                              <XCircle className="w-4 h-4 text-rose-600" />
+                              <span>Chưa chính xác. Đáp số chuẩn: {activeQuestion.correctAnswer}</span>
+                            </>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  )}
+
+                  {/* Action Bar: Toggle Hint, Toggle Solution, Practice Button */}
+                  <div className="pt-2 flex flex-wrap items-center justify-between gap-2 border-t border-slate-100 dark:border-zinc-800/80">
+                    <div className="flex items-center gap-2">
+                      <button
+                        type="button"
+                        onClick={() => setShowHint((prev) => !prev)}
+                        className={`px-3 py-1.5 rounded-lg border text-xs font-semibold transition flex items-center gap-1.5 cursor-pointer ${
+                          showHint
+                            ? 'bg-amber-100 dark:bg-amber-950/60 border-amber-300 dark:border-amber-800 text-amber-900 dark:text-amber-200'
+                            : 'bg-slate-50 dark:bg-zinc-900 border-slate-200 dark:border-zinc-800 text-slate-700 dark:text-zinc-300 hover:bg-slate-100'
+                        }`}
+                      >
+                        <Lightbulb className="w-3.5 h-3.5 text-amber-500" />
+                        <span>{showHint ? 'Ẩn gợi ý tư duy' : 'Gợi ý tư duy Socratic'}</span>
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={() => setShowSolution((prev) => !prev)}
+                        className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
+                          showSolution
+                            ? 'bg-sky-600 text-white shadow-xs'
+                            : 'bg-sky-50 dark:bg-sky-950/40 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800/60 hover:bg-sky-100'
+                        }`}
+                      >
+                        <BookOpen className="w-3.5 h-3.5" />
+                        <span>{showSolution ? 'Ẩn lời giải' : 'Xem lời giải chi tiết'}</span>
+                      </button>
+
+                      {isAnswerChecked && (
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setTestedAnswer('');
+                            setFillInput('');
+                            setIsAnswerChecked(false);
+                          }}
+                          className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-zinc-300 transition cursor-pointer"
+                          title="Làm lại câu này"
+                        >
+                          <RotateCcw className="w-3.5 h-3.5" />
+                        </button>
+                      )}
+                    </div>
+
+                    {onSelectTopicPractice && (
+                      <button
+                        type="button"
+                        onClick={() => onSelectTopicPractice(activeQuestion.topicId as TopicId)}
+                        className="px-3 py-1.5 rounded-lg bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-800/60 text-indigo-700 dark:text-indigo-300 text-xs font-semibold hover:bg-indigo-100 transition flex items-center gap-1.5 cursor-pointer ml-auto"
+                      >
+                        <span>Luyện chuyên đề này</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </button>
+                    )}
+                  </div>
+
+                  {/* Accordion: Socratic Hint */}
+                  {showHint && (
+                    <div className="p-4 rounded-xl bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800/40 text-amber-900 dark:text-amber-200 flex items-start gap-2.5 animate-fade-in">
+                      <Lightbulb className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
+                      <div className="space-y-1">
+                        <strong className="block text-amber-800 dark:text-amber-300 font-bold text-xs uppercase tracking-wider">
+                          Định hướng tư duy giải quyết vấn đề:
+                        </strong>
+                        <div className="text-[14px] sm:text-[15px] leading-relaxed select-text font-sans">
+                          <MathRenderer content={activeQuestion.socraticHint} />
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Accordion: Detailed Solution */}
+                  {showSolution && (
+                    <div className="p-4 sm:p-5 rounded-xl bg-slate-50 dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800 space-y-2 animate-fade-in">
+                      <div className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-slate-800 dark:text-zinc-200 pb-2 border-b border-slate-200/60 dark:border-zinc-800/60">
+                        <span>Lời giải chi tiết từng bước:</span>
+                        <span className="font-mono text-[11px] text-emerald-600 dark:text-emerald-400 font-bold">
+                          Đáp án đúng: {activeQuestion.correctAnswer}
+                        </span>
+                      </div>
+                      <div className="text-[14.5px] sm:text-[16px] text-slate-800 dark:text-zinc-200 leading-relaxed font-sans select-text pt-1">
+                        <MathRenderer content={activeQuestion.detailedSolution} />
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Stage Footer: Keybinding hint */}
+                <div className="shrink-0 px-4 py-2 border-t border-slate-100 dark:border-zinc-800/60 bg-slate-50/40 dark:bg-zinc-900/20 text-[11px] text-slate-400 flex items-center justify-between">
+                  <span className="hidden sm:inline">
+                    Mẹo: Dùng phím mũi tên <strong>←</strong> và <strong>→</strong> trên bàn phím để chuyển câu nhanh.
+                  </span>
+                  <span className="font-mono text-slate-500 dark:text-zinc-400 ml-auto">
+                    {activeQuestion.topicName} · Đề chuẩn {isTHPT ? 'THPTQG 2027' : 'HSA'}
+                  </span>
+                </div>
+              </>
+            ) : (
+              <div className="flex-1 flex items-center justify-center p-8 text-center text-slate-400">
+                Không có câu hỏi nào phù hợp với bộ lọc.
+              </div>
+            )}
+          </div>
+        </div>
+      ) : (
+        /* =================================================================== */
+        /* 3. BODY CONTENT: COMPACT LIST VIEW                                  */
+        /* =================================================================== */
+        <div className="flex-1 overflow-y-auto p-3 sm:p-6 max-w-5xl mx-auto w-full space-y-3 scrollbar-thin scrollbar-thumb-slate-300 dark:scrollbar-thumb-zinc-700">
+          <div className="flex items-center justify-between text-xs text-slate-500 font-mono px-1">
+            <span>Tìm thấy {filtered.length} câu hỏi</span>
+            <span>Trang {currentPage} / {totalPages}</span>
+          </div>
+
+          {currentQuestionsInList.map((q) => {
+            const isExpanded = expandedId === q.id;
+            const isPractical = isPracticalMathQuestion(q);
+            const { sourceTag, cleanContent } = parseQuestionSource(q.content);
+
+            return (
+              <div
+                key={q.id}
+                className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-xl p-4 sm:p-5 hover:border-slate-300 dark:hover:border-zinc-700 transition shadow-xs space-y-3"
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex items-center gap-2 flex-wrap text-xs">
+                    <span className="px-2 py-0.5 rounded-md bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 font-mono font-bold text-sky-600 dark:text-sky-400">
+                      Câu #{q.id}
+                    </span>
+                    <span className="font-semibold text-slate-800 dark:text-zinc-200">
+                      {q.topicName}
+                    </span>
+                    <span className="text-slate-300 dark:text-zinc-700">·</span>
+                    <span className="text-[11px] text-slate-500">
+                      {q.type === 'mcq' ? 'Trắc nghiệm' : 'Điền số'}
+                    </span>
+                    {isPractical && (
+                      <span className="text-[9px] px-1.5 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 font-bold">
+                        🎯 Thực tế
+                      </span>
+                    )}
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() => setExpandedId((prev) => (prev === q.id ? null : q.id))}
+                    className="text-xs text-sky-600 dark:text-sky-400 hover:text-sky-700 font-semibold transition inline-flex items-center gap-1 shrink-0 cursor-pointer"
+                  >
+                    <span>{isExpanded ? 'Ẩn lời giải' : 'Xem lời giải'}</span>
+                    {isExpanded ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+                  </button>
+                </div>
+
+                {sourceTag && (
+                  <div>
+                    <QuestionSourceBadge source={sourceTag} showHideButton={false} />
+                  </div>
+                )}
+
+                <div className="text-[15px] sm:text-[16px] text-slate-800 dark:text-zinc-200 leading-relaxed font-sans">
+                  <MathRenderer content={cleanContent} />
+                </div>
+
+                {/* MCQ Options */}
+                {q.type === 'mcq' && q.options && (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2 border-t border-slate-100 dark:border-zinc-800 text-[14px]">
+                    {q.options.map((opt) => (
+                      <div
+                        key={opt.key}
+                        className={`p-2.5 rounded-lg border flex items-start gap-2 ${
+                          isExpanded && opt.key === q.correctAnswer
+                            ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-400 dark:border-emerald-700 text-emerald-950 dark:text-emerald-200 font-semibold'
+                            : 'bg-slate-50/60 dark:bg-zinc-950/40 border-slate-200 dark:border-zinc-800'
+                        }`}
+                      >
+                        <span className="font-mono font-bold text-slate-500 shrink-0">{opt.key}.</span>
+                        <div className="flex-1">
+                          <MathRenderer content={opt.content} />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {/* Fill Answer Display when expanded */}
+                {q.type === 'fill' && isExpanded && (
+                  <div className="p-2.5 rounded-lg bg-slate-50 dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800 text-xs font-mono">
+                    Đáp số chuẩn: <strong className="text-emerald-600 font-bold">{q.correctAnswer}</strong>
+                  </div>
+                )}
+
+                {/* Solution Accordion */}
+                {isExpanded && (
+                  <div className="mt-3 pt-3 border-t border-slate-100 dark:border-zinc-800 space-y-2 text-xs sm:text-sm animate-fade-in">
+                    <div className="p-3 rounded-lg bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800/40 text-amber-900 dark:text-amber-200 flex items-start gap-2">
+                      <Lightbulb className="w-3.5 h-3.5 text-amber-500 shrink-0 mt-0.5" />
+                      <div>
+                        <strong className="block text-amber-800 dark:text-amber-300 font-bold text-xs mb-0.5">Gợi ý tư duy:</strong>
+                        <div className="text-[13.5px] leading-relaxed">
+                          <MathRenderer content={q.socraticHint} />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800 space-y-1">
+                      <div className="font-bold text-xs uppercase tracking-wider text-slate-800 dark:text-zinc-200">
+                        Lời giải chi tiết:
+                      </div>
+                      <div className="text-[14px] text-slate-700 dark:text-zinc-300 leading-relaxed font-sans">
+                        <MathRenderer content={q.detailedSolution} />
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+
+          {/* Pagination */}
+          {totalPages > 1 && (
+            <div className="pt-2 pb-6 flex items-center justify-between gap-2">
+              <button
+                type="button"
+                disabled={currentPage <= 1}
+                onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+                className="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-xs font-semibold text-slate-700 dark:text-zinc-300 hover:bg-slate-50 disabled:opacity-40 cursor-pointer flex items-center gap-1"
+              >
+                <ChevronLeft className="w-3.5 h-3.5" />
+                <span>Trang trước</span>
+              </button>
+
+              <span className="text-xs font-mono text-slate-600 dark:text-zinc-400">
+                Trang <strong>{currentPage}</strong> / {totalPages}
+              </span>
+
+              <button
+                type="button"
+                disabled={currentPage >= totalPages}
+                onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+                className="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-xs font-semibold text-slate-700 dark:text-zinc-300 hover:bg-slate-50 disabled:opacity-40 cursor-pointer flex items-center gap-1"
+              >
+                <span>Trang sau</span>
+                <ChevronRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 };

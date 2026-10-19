@@ -48,14 +48,14 @@ export const TopicCatalogView: React.FC<TopicCatalogViewProps> = ({
     CHAPTERS_METADATA.find((c) => c.id === quickChapterId) || CHAPTERS_METADATA[0];
 
   return (
-    <div className="h-[calc(100vh-52px)] md:h-screen overflow-y-auto bg-slate-50 dark:bg-[#09090b] text-slate-900 dark:text-zinc-100 p-3 sm:p-6 lg:p-8 select-none">
-      <div className="max-w-6xl mx-auto space-y-6 pb-20">
+    <div className="h-[calc(100vh-52px)] md:h-screen overflow-y-auto bg-slate-50 dark:bg-[#09090b] text-slate-900 dark:text-zinc-100 p-2.5 sm:p-4 select-none">
+      <div className="max-w-6xl mx-auto space-y-3 sm:space-y-4 pb-8">
         {/* Header Hero Banner */}
-        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-sky-500/10 via-indigo-500/5 to-purple-500/10 dark:from-sky-950/40 dark:via-zinc-900/60 dark:to-indigo-950/30 border border-sky-200/60 dark:border-sky-900/40 p-5 sm:p-6">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-sky-500/10 border border-sky-500/20 text-sky-600 dark:text-sky-400 flex items-center justify-center shrink-0 shadow-xs">
-                <BookOpen className="w-6 h-6 sm:w-7 sm:h-7" />
+        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-sky-500/10 via-indigo-500/5 to-purple-500/10 dark:from-sky-950/40 dark:via-zinc-900/60 dark:to-indigo-950/30 border border-sky-200/60 dark:border-sky-900/40 p-3.5 sm:p-4">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-sky-500/10 border border-sky-500/20 text-sky-600 dark:text-sky-400 flex items-center justify-center shrink-0 shadow-xs">
+                <BookOpen className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
               <div>
                 <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950/80 text-sky-700 dark:text-sky-300 text-[11px] font-bold uppercase tracking-wider mb-1.5 border border-sky-200 dark:border-sky-800">

@@ -148,7 +148,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
   };
 
   return (
-    <div className="max-w-6xl mx-auto space-y-4 sm:space-y-6 pb-20 animate-fade-in font-sans text-slate-900 dark:text-zinc-100 select-none">
+    <div className="max-w-6xl mx-auto space-y-3 sm:space-y-4 pb-8 animate-fade-in font-sans text-slate-900 dark:text-zinc-100 select-none">
       {/* =================================================================== */}
       {/* 1. TOP REALTIME STATUS & TRACK SWITCHER (Responsive & Clean)       */}
       {/* =================================================================== */}
@@ -204,9 +204,9 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
       {/* =================================================================== */}
       {/* 2. BENTO ROW 1: HERO CTA (2/3) + STATS RADAR (1/3)                  */}
       {/* =================================================================== */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-5">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 sm:gap-4">
         {/* HERO CARD (Spans 2 cols on lg) */}
-        <div className={`lg:col-span-2 relative overflow-hidden rounded-3xl p-5 sm:p-7 flex flex-col justify-between shadow-xs transition-all border ${
+        <div className={`lg:col-span-2 relative overflow-hidden rounded-2xl p-4 sm:p-6 flex flex-col justify-between shadow-xs transition-all border ${
           isTHPT
             ? 'bg-gradient-to-br from-rose-500/[0.08] via-amber-500/[0.04] to-transparent dark:from-rose-950/40 dark:via-zinc-900/40 dark:to-transparent border-rose-200/70 dark:border-zinc-800/80'
             : 'bg-gradient-to-br from-sky-500/[0.08] via-indigo-500/[0.04] to-transparent dark:from-sky-950/40 dark:via-zinc-900/40 dark:to-transparent border-sky-200/70 dark:border-zinc-800/80'
@@ -290,8 +290,8 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
         </div>
 
         {/* STATS RADAR CARD (1 col) */}
-        <div className="rounded-3xl bg-white dark:bg-[#121217] border border-slate-200/70 dark:border-zinc-800/80 p-6 flex flex-col justify-between shadow-xs transition-all">
-          <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-zinc-800/80">
+        <div className="rounded-2xl bg-white dark:bg-[#121217] border border-slate-200/70 dark:border-zinc-800/80 p-4 sm:p-5 flex flex-col justify-between shadow-xs transition-all">
+          <div className="flex items-center justify-between pb-2.5 border-b border-slate-100 dark:border-zinc-800/80">
             <div className="flex items-center gap-2">
               <div className="w-7 h-7 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center">
                 <Trophy className="w-3.5 h-3.5" />
@@ -304,7 +304,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
           </div>
 
           {/* 3 Clean Stat Tiles */}
-          <div className="grid grid-cols-2 gap-2.5 my-4">
+          <div className="grid grid-cols-2 gap-2 my-2.5">
             {/* Tile 1: Điểm cao nhất */}
             <div className="col-span-2 p-3.5 rounded-2xl bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-100 dark:border-zinc-800/60 flex items-center justify-between">
               <div>
@@ -362,34 +362,34 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
       {/* =================================================================== */}
       {/* BENTO ROW 2: 2 PRACTICE GATEWAYS (Chuyên Đề & Ngân Hàng)           */}
       {/* =================================================================== */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
         {/* Gateway 1: Luyện 30 Chuyên Đề */}
         <div
           onClick={onPracticeMode}
-          className="group rounded-3xl bg-white dark:bg-[#121217] border border-slate-200/70 dark:border-zinc-800/80 p-6 shadow-xs hover:border-indigo-400/70 dark:hover:border-indigo-500/50 hover:shadow-md transition-all cursor-pointer flex flex-col justify-between"
+          className="group rounded-2xl bg-white dark:bg-[#121217] border border-slate-200/70 dark:border-zinc-800/80 p-4 sm:p-5 shadow-xs hover:border-indigo-400/70 dark:hover:border-indigo-500/50 hover:shadow-md transition-all cursor-pointer flex flex-col justify-between"
         >
-          <div className="space-y-3">
+          <div className="space-y-2.5">
             <div className="flex items-center justify-between">
-              <div className="w-10 h-10 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-600 dark:text-indigo-400 flex items-center justify-center group-hover:scale-105 transition-transform">
-                <BookOpen className="w-5 h-5" />
+              <div className="w-9 h-9 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-600 dark:text-indigo-400 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <BookOpen className="w-4 h-4" />
               </div>
-              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold font-mono bg-indigo-100/80 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 border border-indigo-200/60 dark:border-indigo-800/60">
+              <span className="px-2 py-0.5 rounded-full text-[10px] font-bold font-mono bg-indigo-100/80 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 border border-indigo-200/60 dark:border-indigo-800/60">
                 30 CHUYÊN ĐỀ VI MÔ
               </span>
             </div>
 
             <div>
-              <h3 className="text-base font-bold text-slate-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition flex items-center gap-1.5">
+              <h3 className="text-sm sm:text-base font-bold text-slate-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition flex items-center gap-1.5">
                 <span>Luyện Tập Theo Dạng Toán</span>
                 <ChevronRight className="w-4 h-4 text-slate-400 group-hover:translate-x-1 transition-transform" />
               </h3>
-              <p className="text-xs text-slate-600 dark:text-zinc-400 mt-1 leading-relaxed">
+              <p className="text-xs text-slate-600 dark:text-zinc-400 mt-0.5 leading-relaxed">
                 Rèn sâu từng dạng bài có đáp án giải thích chi tiết, gợi ý tư duy Socratic và bộ lọc độ khó.
               </p>
             </div>
           </div>
 
-          <div className="pt-4 mt-3 border-t border-slate-100 dark:border-zinc-800/60 flex items-center justify-between text-xs font-semibold text-indigo-600 dark:text-indigo-400">
+          <div className="pt-3 mt-2 border-t border-slate-100 dark:border-zinc-800/60 flex items-center justify-between text-xs font-semibold text-indigo-600 dark:text-indigo-400">
             <span>Chọn dạng toán để bắt đầu</span>
             <span className="group-hover:translate-x-0.5 transition-transform">→</span>
           </div>
@@ -398,30 +398,30 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
         {/* Gateway 2: Ngân Hàng 515 Câu Hỏi */}
         <div
           onClick={onQuestionBankMode}
-          className="group rounded-3xl bg-white dark:bg-[#121217] border border-slate-200/70 dark:border-zinc-800/80 p-6 shadow-xs hover:border-emerald-400/70 dark:hover:border-emerald-500/50 hover:shadow-md transition-all cursor-pointer flex flex-col justify-between"
+          className="group rounded-2xl bg-white dark:bg-[#121217] border border-slate-200/70 dark:border-zinc-800/80 p-4 sm:p-5 shadow-xs hover:border-emerald-400/70 dark:hover:border-emerald-500/50 hover:shadow-md transition-all cursor-pointer flex flex-col justify-between"
         >
-          <div className="space-y-3">
+          <div className="space-y-2.5">
             <div className="flex items-center justify-between">
-              <div className="w-10 h-10 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center group-hover:scale-105 transition-transform">
-                <Search className="w-5 h-5" />
+              <div className="w-9 h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <Search className="w-4 h-4" />
               </div>
-              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold font-mono bg-emerald-100/80 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200/60 dark:border-emerald-800/60">
+              <span className="px-2 py-0.5 rounded-full text-[10px] font-bold font-mono bg-emerald-100/80 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200/60 dark:border-emerald-800/60">
                 {activeQuestions.length} CÂU HỎI
               </span>
             </div>
 
             <div>
-              <h3 className="text-base font-bold text-slate-900 dark:text-zinc-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition flex items-center gap-1.5">
+              <h3 className="text-sm sm:text-base font-bold text-slate-900 dark:text-zinc-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition flex items-center gap-1.5">
                 <span>Ngân Hàng Câu Hỏi Toàn Diện</span>
                 <ChevronRight className="w-4 h-4 text-slate-400 group-hover:translate-x-1 transition-transform" />
               </h3>
-              <p className="text-xs text-slate-600 dark:text-zinc-400 mt-1 leading-relaxed">
+              <p className="text-xs text-slate-600 dark:text-zinc-400 mt-0.5 leading-relaxed">
                 Tra cứu kho câu hỏi đầy đủ phân loại 4 cấp độ: Nhận biết, Thông hiểu, Vận dụng và Vận dụng cao.
               </p>
             </div>
           </div>
 
-          <div className="pt-4 mt-3 border-t border-slate-100 dark:border-zinc-800/60 flex items-center justify-between text-xs font-semibold text-emerald-600 dark:text-emerald-400">
+          <div className="pt-3 mt-2 border-t border-slate-100 dark:border-zinc-800/60 flex items-center justify-between text-xs font-semibold text-emerald-600 dark:text-emerald-400">
             <span>Duyệt câu hỏi theo mức độ</span>
             <span className="group-hover:translate-x-0.5 transition-transform">→</span>
           </div>
@@ -431,7 +431,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
       {/* =================================================================== */}
       {/* BENTO ROW 3: BẢN ĐỒ 10 CHƯƠNG TOÁN GDPT 2018 (Airy Tiles)           */}
       {/* =================================================================== */}
-      <div className="rounded-3xl bg-white dark:bg-[#121217] border border-slate-200/70 dark:border-zinc-800/80 p-5 sm:p-7 shadow-xs space-y-4 sm:space-y-5 transition-colors">
+      <div className="rounded-2xl bg-white dark:bg-[#121217] border border-slate-200/70 dark:border-zinc-800/80 p-4 sm:p-5 shadow-xs space-y-3 sm:space-y-4 transition-colors">
         <div className="flex items-center justify-between pb-3.5 border-b border-slate-100 dark:border-zinc-800/80">
           <div className="flex items-center gap-2.5">
             <div className="w-8 h-8 rounded-xl bg-sky-500/10 text-sky-600 dark:text-sky-400 flex items-center justify-center">
@@ -489,7 +489,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
       {/* =================================================================== */}
       {/* BENTO ROW 4: LỊCH SỬ THI & BÁO CÁO GẦN NHẤT                          */}
       {/* =================================================================== */}
-      <div className="rounded-3xl bg-white dark:bg-[#121217] border border-slate-200/70 dark:border-zinc-800/80 p-6 sm:p-7 shadow-xs space-y-4 transition-colors">
+      <div className="rounded-2xl bg-white dark:bg-[#121217] border border-slate-200/70 dark:border-zinc-800/80 p-4 sm:p-5 shadow-xs space-y-3 sm:space-y-4 transition-colors">
         <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-zinc-800/80">
           <div className="flex items-center gap-2.5">
             <div className="w-8 h-8 rounded-xl bg-sky-500/10 text-sky-600 dark:text-sky-400 flex items-center justify-center">
