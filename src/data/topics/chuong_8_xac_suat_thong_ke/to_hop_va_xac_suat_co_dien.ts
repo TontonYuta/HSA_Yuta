@@ -3,6 +3,7 @@ import { Question } from '../../../types/exam';
 export const toHopXacSuatCoDienQuestions: Question[] = [
   {
     "id": 25,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_8_xac_suat_thong_ke",
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
@@ -38,6 +39,7 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
   },
   {
     "id": 26,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_8_xac_suat_thong_ke",
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
@@ -72,6 +74,7 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
   },
   {
     "id": 27,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_8_xac_suat_thong_ke",
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
@@ -106,6 +109,7 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
   },
   {
     "id": 43,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_8_xac_suat_thong_ke",
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
@@ -128,6 +132,7 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
   },
   {
     "id": 67,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_8_xac_suat_thong_ke",
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
@@ -162,6 +167,7 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
   },
   {
     "id": 78,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_8_xac_suat_thong_ke",
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
@@ -196,6 +202,7 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
   },
   {
     "id": 95,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_8_xac_suat_thong_ke",
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
@@ -215,6 +222,7 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
   },
   {
     "id": 175,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_8_xac_suat_thong_ke",
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
@@ -249,6 +257,7 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
   },
   {
     "id": 176,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_8_xac_suat_thong_ke",
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
@@ -283,6 +292,7 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
   },
   {
     "id": 177,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_8_xac_suat_thong_ke",
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
@@ -317,6 +327,7 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
   },
   {
     "id": 195,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_8_xac_suat_thong_ke",
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
@@ -337,6 +348,7 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
   },
   {
     "id": 205,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_8_xac_suat_thong_ke",
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
@@ -371,6 +383,7 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
   },
   {
     "id": 219,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_8_xac_suat_thong_ke",
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
@@ -392,6 +405,7 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
   },
   {
     "id": 220,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_8_xac_suat_thong_ke",
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
@@ -426,6 +440,7 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
   },
   {
     "id": 294,
+    "latexVerified": true,
     "type": "mcq",
     "topicId": "to_hop_va_xac_suat_co_dien",
     "content": "Hai xạ thủ cùng bắn độc lập, mỗi người bắn hai viên đạn vào bia. Xác suất để người thứ nhất bắn trúng ở lượt 1 là $0{,}4$, lượt 2 là $0{,}3$. Người thứ hai có xác suất bắn trúng cả hai lượt lần lượt là $0{,}5$ và $0{,}4$. Tính xác suất để ở cả hai lượt bắn, mỗi lượt đều có đúng một người bắn trúng:",
@@ -460,6 +475,7 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
   },
   {
     "id": 295,
+    "latexVerified": true,
     "type": "mcq",
     "topicId": "to_hop_va_xac_suat_co_dien",
     "content": "Xác định hệ số của $x^6$ trong khai triển nhị thức Newton $\\left(x^3 - \\frac{1}{4x^5}\\right)^n$, biết $n$ thỏa mãn $3C_n^2 + C_n^3 = 405$:",
@@ -494,6 +510,7 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
   },
   {
     "id": 296,
+    "latexVerified": true,
     "type": "fill",
     "topicId": "to_hop_va_xac_suat_co_dien",
     "content": "Cho một đa giác đều gồm $8$ đỉnh. Ta chia đa giác thành các tam giác bằng cách vẽ các đường chéo không cắt nhau bên trong đa giác. Hỏi có bao nhiêu cách chia như vậy?",
@@ -510,6 +527,7 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
   },
   {
     "id": 298,
+    "latexVerified": true,
     "type": "mcq",
     "topicId": "to_hop_va_xac_suat_co_dien",
     "content": "Một tổ có 10 học sinh gồm 6 bạn nam và 4 bạn nữ. Chọn ngẫu nhiên một ban cán sự gồm 5 học sinh sao cho phải có ít nhất 2 bạn nữ và ít nhất 1 bạn nam. Số cách chọn là:",

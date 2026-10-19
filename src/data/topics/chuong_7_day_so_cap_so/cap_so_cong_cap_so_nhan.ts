@@ -3,6 +3,7 @@ import { Question } from '../../../types/exam';
 export const capSoCongNhanQuestions: Question[] = [
   {
     "id": 23,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_7_day_so_cap_so",
     "chapterName": "Chương 7: Dãy số, Cấp số cộng & Cấp số nhân",
@@ -37,6 +38,7 @@ export const capSoCongNhanQuestions: Question[] = [
   },
   {
     "id": 24,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_7_day_so_cap_so",
     "chapterName": "Chương 7: Dãy số, Cấp số cộng & Cấp số nhân",
@@ -71,6 +73,7 @@ export const capSoCongNhanQuestions: Question[] = [
   },
   {
     "id": 44,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_7_day_so_cap_so",
     "chapterName": "Chương 7: Dãy số, Cấp số cộng & Cấp số nhân",
@@ -90,6 +93,7 @@ export const capSoCongNhanQuestions: Question[] = [
   },
   {
     "id": 45,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_7_day_so_cap_so",
     "chapterName": "Chương 7: Dãy số, Cấp số cộng & Cấp số nhân",
@@ -110,6 +114,7 @@ export const capSoCongNhanQuestions: Question[] = [
   },
   {
     "id": 77,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_7_day_so_cap_so",
     "chapterName": "Chương 7: Dãy số, Cấp số cộng & Cấp số nhân",
@@ -144,6 +149,7 @@ export const capSoCongNhanQuestions: Question[] = [
   },
   {
     "id": 94,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_7_day_so_cap_so",
     "chapterName": "Chương 7: Dãy số, Cấp số cộng & Cấp số nhân",
@@ -163,6 +169,7 @@ export const capSoCongNhanQuestions: Question[] = [
   },
   {
     "id": 122,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_7_day_so_cap_so",
     "chapterName": "Chương 7: Dãy số, Cấp số cộng & Cấp số nhân",
@@ -197,6 +204,7 @@ export const capSoCongNhanQuestions: Question[] = [
   },
   {
     "id": 123,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_7_day_so_cap_so",
     "chapterName": "Chương 7: Dãy số, Cấp số cộng & Cấp số nhân",
@@ -231,6 +239,7 @@ export const capSoCongNhanQuestions: Question[] = [
   },
   {
     "id": 124,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_7_day_so_cap_so",
     "chapterName": "Chương 7: Dãy số, Cấp số cộng & Cấp số nhân",
@@ -265,6 +274,7 @@ export const capSoCongNhanQuestions: Question[] = [
   },
   {
     "id": 144,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_7_day_so_cap_so",
     "chapterName": "Chương 7: Dãy số, Cấp số cộng & Cấp số nhân",
@@ -285,6 +295,7 @@ export const capSoCongNhanQuestions: Question[] = [
   },
   {
     "id": 172,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_7_day_so_cap_so",
     "chapterName": "Chương 7: Dãy số, Cấp số cộng & Cấp số nhân",
@@ -319,6 +330,7 @@ export const capSoCongNhanQuestions: Question[] = [
   },
   {
     "id": 174,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_7_day_so_cap_so",
     "chapterName": "Chương 7: Dãy số, Cấp số cộng & Cấp số nhân",
@@ -353,6 +365,7 @@ export const capSoCongNhanQuestions: Question[] = [
   },
   {
     "id": 194,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_7_day_so_cap_so",
     "chapterName": "Chương 7: Dãy số, Cấp số cộng & Cấp số nhân",
@@ -372,6 +385,7 @@ export const capSoCongNhanQuestions: Question[] = [
   },
   {
     "id": 206,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_7_day_so_cap_so",
     "chapterName": "Chương 7: Dãy số, Cấp số cộng & Cấp số nhân",
@@ -393,6 +407,7 @@ export const capSoCongNhanQuestions: Question[] = [
   },
   {
     "id": 284,
+    "latexVerified": true,
     "type": "mcq",
     "topicId": "cap_so_cong_cap_so_nhan",
     "content": "Vào ngày sinh nhật, Lan nhận được $2$ triệu đồng tiền mặt và quyết định tiết kiệm. Cứ mỗi ngày trôi qua cho đến sinh nhật tiếp theo (giả sử năm không nhuận có $365$ ngày), cô bé bỏ thêm đều đặn $10$ nghìn đồng vào hũ tiết kiệm mỗi ngày. Tổng số tiền Lan tiết kiệm được ngay trước ngày sinh nhật tiếp theo là:",
@@ -427,6 +442,7 @@ export const capSoCongNhanQuestions: Question[] = [
   },
   {
     "id": 297,
+    "latexVerified": true,
     "type": "fill",
     "topicId": "cap_so_cong_cap_so_nhan",
     "content": "Điền một số thích hợp vào vị trí còn trống trong dãy quy luật sau: $1; 2; 3; 8; 19; 46; 111; \\dots$",

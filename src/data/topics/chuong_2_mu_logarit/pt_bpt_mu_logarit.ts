@@ -3,6 +3,7 @@ import { Question } from '../../../types/exam';
 export const ptBptMuLogaritQuestions: Question[] = [
   {
     "id": 9,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_2_mu_logarit",
     "chapterName": "Chương 2: Hàm số mũ & Hàm số Logarit",
@@ -38,6 +39,7 @@ export const ptBptMuLogaritQuestions: Question[] = [
   },
   {
     "id": 38,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_2_mu_logarit",
     "chapterName": "Chương 2: Hàm số mũ & Hàm số Logarit",
@@ -58,6 +60,7 @@ export const ptBptMuLogaritQuestions: Question[] = [
   },
   {
     "id": 57,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_2_mu_logarit",
     "chapterName": "Chương 2: Hàm số mũ & Hàm số Logarit",
@@ -92,6 +95,7 @@ export const ptBptMuLogaritQuestions: Question[] = [
   },
   {
     "id": 72,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_2_mu_logarit",
     "chapterName": "Chương 2: Hàm số mũ & Hàm số Logarit",
@@ -126,6 +130,7 @@ export const ptBptMuLogaritQuestions: Question[] = [
   },
   {
     "id": 83,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_2_mu_logarit",
     "chapterName": "Chương 2: Hàm số mũ & Hàm số Logarit",
@@ -160,6 +165,7 @@ export const ptBptMuLogaritQuestions: Question[] = [
   },
   {
     "id": 89,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_2_mu_logarit",
     "chapterName": "Chương 2: Hàm số mũ & Hàm số Logarit",
@@ -179,6 +185,7 @@ export const ptBptMuLogaritQuestions: Question[] = [
   },
   {
     "id": 99,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_2_mu_logarit",
     "chapterName": "Chương 2: Hàm số mũ & Hàm số Logarit",
@@ -198,6 +205,7 @@ export const ptBptMuLogaritQuestions: Question[] = [
   },
   {
     "id": 109,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_2_mu_logarit",
     "chapterName": "Chương 2: Hàm số mũ & Hàm số Logarit",
@@ -232,6 +240,7 @@ export const ptBptMuLogaritQuestions: Question[] = [
   },
   {
     "id": 159,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_2_mu_logarit",
     "chapterName": "Chương 2: Hàm số mũ & Hàm số Logarit",
@@ -266,6 +275,7 @@ export const ptBptMuLogaritQuestions: Question[] = [
   },
   {
     "id": 160,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_2_mu_logarit",
     "chapterName": "Chương 2: Hàm số mũ & Hàm số Logarit",
@@ -300,6 +310,7 @@ export const ptBptMuLogaritQuestions: Question[] = [
   },
   {
     "id": 188,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_2_mu_logarit",
     "chapterName": "Chương 2: Hàm số mũ & Hàm số Logarit",
@@ -320,6 +331,7 @@ export const ptBptMuLogaritQuestions: Question[] = [
   },
   {
     "id": 208,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_2_mu_logarit",
     "chapterName": "Chương 2: Hàm số mũ & Hàm số Logarit",
@@ -354,6 +366,7 @@ export const ptBptMuLogaritQuestions: Question[] = [
   },
   {
     "id": 209,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_2_mu_logarit",
     "chapterName": "Chương 2: Hàm số mũ & Hàm số Logarit",
@@ -388,6 +401,7 @@ export const ptBptMuLogaritQuestions: Question[] = [
   },
   {
     "id": 286,
+    "latexVerified": true,
     "type": "mcq",
     "topicId": "pt_bpt_mu_logarit",
     "content": "Cho các số thực dương $a, b, c$ thỏa mãn $a^{\\log_2 4} = 32, \\quad b^{\\log_3 5} = 27, \\quad c^{\\log_{11} 16} = 11$. Giá trị của biểu thức $T = a^2 + b^{\\log_3 25} + c^{\\log_{11} 256}$ là:",
@@ -422,6 +436,7 @@ export const ptBptMuLogaritQuestions: Question[] = [
   },
   {
     "id": 288,
+    "latexVerified": true,
     "type": "fill",
     "topicId": "pt_bpt_mu_logarit",
     "content": "Gọi $S$ là tập hợp các giá trị nguyên của tham số $m \\in (-2025; 2025)$ để bất phương trình $5^{\\log_3 x} + x^{\\log_3 5} \\ge 2m$ nghiệm đúng với mọi $x \\in [3; 9]$. Số phần tử của tập hợp $S$ là bao nhiêu?",
@@ -438,6 +453,7 @@ export const ptBptMuLogaritQuestions: Question[] = [
   },
   {
     "id": 299,
+    "latexVerified": true,
     "type": "mcq",
     "topicId": "pt_bpt_mu_logarit",
     "content": "Cho $a$ và $b$ là hai số thực dương thỏa mãn $\\log_3 a = \\log_9(ab)$. Mệnh đề nào dưới đây đúng?",

@@ -3,6 +3,7 @@ import { Question } from '../../../types/exam';
 export const khoiDaDienTamDienVuongQuestions: Question[] = [
   {
     "id": 15,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_4_hinh_hoc_khong_gian",
     "chapterName": "Chương 4: Hình học không gian cổ điển",
@@ -38,6 +39,7 @@ export const khoiDaDienTamDienVuongQuestions: Question[] = [
   },
   {
     "id": 16,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_4_hinh_hoc_khong_gian",
     "chapterName": "Chương 4: Hình học không gian cổ điển",
@@ -72,6 +74,7 @@ export const khoiDaDienTamDienVuongQuestions: Question[] = [
   },
   {
     "id": 41,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_4_hinh_hoc_khong_gian",
     "chapterName": "Chương 4: Hình học không gian cổ điển",
@@ -93,6 +96,7 @@ export const khoiDaDienTamDienVuongQuestions: Question[] = [
   },
   {
     "id": 61,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_4_hinh_hoc_khong_gian",
     "chapterName": "Chương 4: Hình học không gian cổ điển",
@@ -127,6 +131,7 @@ export const khoiDaDienTamDienVuongQuestions: Question[] = [
   },
   {
     "id": 85,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_4_hinh_hoc_khong_gian",
     "chapterName": "Chương 4: Hình học không gian cổ điển",
@@ -161,6 +166,7 @@ export const khoiDaDienTamDienVuongQuestions: Question[] = [
   },
   {
     "id": 91,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_4_hinh_hoc_khong_gian",
     "chapterName": "Chương 4: Hình học không gian cổ điển",
@@ -180,6 +186,7 @@ export const khoiDaDienTamDienVuongQuestions: Question[] = [
   },
   {
     "id": 114,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_4_hinh_hoc_khong_gian",
     "chapterName": "Chương 4: Hình học không gian cổ điển",
@@ -214,6 +221,7 @@ export const khoiDaDienTamDienVuongQuestions: Question[] = [
   },
   {
     "id": 146,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_4_hinh_hoc_khong_gian",
     "chapterName": "Chương 4: Hình học không gian cổ điển",
@@ -234,6 +242,7 @@ export const khoiDaDienTamDienVuongQuestions: Question[] = [
   },
   {
     "id": 184,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_4_hinh_hoc_khong_gian",
     "chapterName": "Chương 4: Hình học không gian cổ điển",
@@ -268,6 +277,7 @@ export const khoiDaDienTamDienVuongQuestions: Question[] = [
   },
   {
     "id": 216,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_4_hinh_hoc_khong_gian",
     "chapterName": "Chương 4: Hình học không gian cổ điển",
@@ -302,6 +312,7 @@ export const khoiDaDienTamDienVuongQuestions: Question[] = [
   },
   {
     "id": 217,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_4_hinh_hoc_khong_gian",
     "chapterName": "Chương 4: Hình học không gian cổ điển",
@@ -336,6 +347,7 @@ export const khoiDaDienTamDienVuongQuestions: Question[] = [
   },
   {
     "id": 293,
+    "latexVerified": true,
     "type": "mcq",
     "topicId": "khoi_da_dien_tam_dien_vuong",
     "content": "Cho hình chóp $S.ABCD$ có đáy là hình chữ nhật. Mặt bên $(SAB)$ là tam giác đều cạnh bằng $2a$ và nằm trong mặt phẳng vuông góc với đáy. Khoảng cách từ điểm $A$ đến mặt phẳng $(SCD)$ bằng $\\frac{2a\\sqrt{33}}{11}$. Tính thể tích khối chóp $S.ABCD$:",

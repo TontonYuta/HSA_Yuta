@@ -3,6 +3,7 @@ import { Question } from '../../../types/exam';
 export const congThucPtLuongGiacQuestions: Question[] = [
   {
     "id": 1,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_9_luong_giac",
     "chapterName": "Chương 9: Lượng giác & Phương trình lượng giác (Lớp 11)",
@@ -38,6 +39,7 @@ export const congThucPtLuongGiacQuestions: Question[] = [
   },
   {
     "id": 2,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_9_luong_giac",
     "chapterName": "Chương 9: Lượng giác & Phương trình lượng giác (Lớp 11)",
@@ -72,6 +74,7 @@ export const congThucPtLuongGiacQuestions: Question[] = [
   },
   {
     "id": 37,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_9_luong_giac",
     "chapterName": "Chương 9: Lượng giác & Phương trình lượng giác (Lớp 11)",
@@ -91,6 +94,7 @@ export const congThucPtLuongGiacQuestions: Question[] = [
   },
   {
     "id": 51,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_9_luong_giac",
     "chapterName": "Chương 9: Lượng giác & Phương trình lượng giác (Lớp 11)",
@@ -125,6 +129,7 @@ export const congThucPtLuongGiacQuestions: Question[] = [
   },
   {
     "id": 52,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_9_luong_giac",
     "chapterName": "Chương 9: Lượng giác & Phương trình lượng giác (Lớp 11)",
@@ -159,6 +164,7 @@ export const congThucPtLuongGiacQuestions: Question[] = [
   },
   {
     "id": 70,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_9_luong_giac",
     "chapterName": "Chương 9: Lượng giác & Phương trình lượng giác (Lớp 11)",
@@ -193,6 +199,7 @@ export const congThucPtLuongGiacQuestions: Question[] = [
   },
   {
     "id": 81,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_9_luong_giac",
     "chapterName": "Chương 9: Lượng giác & Phương trình lượng giác (Lớp 11)",
@@ -227,6 +234,7 @@ export const congThucPtLuongGiacQuestions: Question[] = [
   },
   {
     "id": 86,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_9_luong_giac",
     "chapterName": "Chương 9: Lượng giác & Phương trình lượng giác (Lớp 11)",
@@ -246,6 +254,7 @@ export const congThucPtLuongGiacQuestions: Question[] = [
   },
   {
     "id": 100,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_9_luong_giac",
     "chapterName": "Chương 9: Lượng giác & Phương trình lượng giác (Lớp 11)",
@@ -265,6 +274,7 @@ export const congThucPtLuongGiacQuestions: Question[] = [
   },
   {
     "id": 102,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_9_luong_giac",
     "chapterName": "Chương 9: Lượng giác & Phương trình lượng giác (Lớp 11)",
@@ -299,6 +309,7 @@ export const congThucPtLuongGiacQuestions: Question[] = [
   },
   {
     "id": 151,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_9_luong_giac",
     "chapterName": "Chương 9: Lượng giác & Phương trình lượng giác (Lớp 11)",
@@ -333,6 +344,7 @@ export const congThucPtLuongGiacQuestions: Question[] = [
   },
   {
     "id": 187,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_9_luong_giac",
     "chapterName": "Chương 9: Lượng giác & Phương trình lượng giác (Lớp 11)",
@@ -353,6 +365,7 @@ export const congThucPtLuongGiacQuestions: Question[] = [
   },
   {
     "id": 279,
+    "latexVerified": true,
     "type": "mcq",
     "topicId": "cong_thuc_va_pt_luong_giac",
     "content": "Phương trình $\\cos x = \\frac{x^2}{2} + x + 1$ có bao nhiêu nghiệm thực?",

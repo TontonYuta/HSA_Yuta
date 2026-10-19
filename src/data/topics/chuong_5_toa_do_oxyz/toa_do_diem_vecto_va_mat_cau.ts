@@ -3,6 +3,7 @@ import { Question } from '../../../types/exam';
 export const toaDoMatCauQuestions: Question[] = [
   {
     "id": 17,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_5_toa_do_oxyz",
     "chapterName": "Chương 5: Phương pháp tọa độ trong không gian Oxyz",
@@ -38,6 +39,7 @@ export const toaDoMatCauQuestions: Question[] = [
   },
   {
     "id": 40,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_5_toa_do_oxyz",
     "chapterName": "Chương 5: Phương pháp tọa độ trong không gian Oxyz",
@@ -58,6 +60,7 @@ export const toaDoMatCauQuestions: Question[] = [
   },
   {
     "id": 63,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_5_toa_do_oxyz",
     "chapterName": "Chương 5: Phương pháp tọa độ trong không gian Oxyz",
@@ -92,6 +95,7 @@ export const toaDoMatCauQuestions: Question[] = [
   },
   {
     "id": 75,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_5_toa_do_oxyz",
     "chapterName": "Chương 5: Phương pháp tọa độ trong không gian Oxyz",
@@ -126,6 +130,7 @@ export const toaDoMatCauQuestions: Question[] = [
   },
   {
     "id": 92,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_5_toa_do_oxyz",
     "chapterName": "Chương 5: Phương pháp tọa độ trong không gian Oxyz",
@@ -145,6 +150,7 @@ export const toaDoMatCauQuestions: Question[] = [
   },
   {
     "id": 169,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_5_toa_do_oxyz",
     "chapterName": "Chương 5: Phương pháp tọa độ trong không gian Oxyz",
@@ -179,6 +185,7 @@ export const toaDoMatCauQuestions: Question[] = [
   },
   {
     "id": 190,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_5_toa_do_oxyz",
     "chapterName": "Chương 5: Phương pháp tọa độ trong không gian Oxyz",
@@ -198,6 +205,7 @@ export const toaDoMatCauQuestions: Question[] = [
   },
   {
     "id": 242,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_5_toa_do_oxyz",
     "chapterName": "Chương 5: Phương pháp tọa độ trong không gian Oxyz",
@@ -232,6 +240,7 @@ export const toaDoMatCauQuestions: Question[] = [
   },
   {
     "id": 245,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_5_toa_do_oxyz",
     "chapterName": "Chương 5: Phương pháp tọa độ trong không gian Oxyz",
@@ -266,6 +275,7 @@ export const toaDoMatCauQuestions: Question[] = [
   },
   {
     "id": 266,
+    "latexVerified": true,
     "type": "mcq",
     "topicId": "toa_do_diem_vecto_va_mat_cau",
     "content": "Trong không gian $Oxyz$, cho ba điểm $A(2; -1; 1), B(0; 2; -3), C(1; 0; -1)$ và mặt phẳng $(P): x + 2y - 2z + 5 = 0$. Điểm $M(a; b; c) \\in (P)$ thỏa mãn $MA = MB = MC$. Tính giá trị của $T = 3a + 2b - c$?",
@@ -300,6 +310,7 @@ export const toaDoMatCauQuestions: Question[] = [
   },
   {
     "id": 272,
+    "latexVerified": true,
     "type": "mcq",
     "topicId": "toa_do_diem_vecto_va_mat_cau",
     "content": "Trong không gian $Oxyz$, cho mặt cầu $(S): x^2 + y^2 + z^2 - 2x - 4y + 6z - 2 = 0$ và mặt phẳng $(P): 3x - my + z + 2 - m = 0$. Gọi $S_m$ là tập hợp tất cả các giá trị thực của tham số $m$ để mặt phẳng $(P)$ cắt mặt cầu $(S)$ theo giao tuyến là đường tròn có chu vi bằng $6\\pi$. Tổng các phần tử của tập hợp $S_m$ bằng:",
@@ -334,6 +345,7 @@ export const toaDoMatCauQuestions: Question[] = [
   },
   {
     "id": 274,
+    "latexVerified": true,
     "type": "fill",
     "topicId": "toa_do_diem_vecto_va_mat_cau",
     "content": "Trong không gian $Oxyz$, cho ba điểm $A(2; 1; 3), B(0; -2; 1), C(-1; 4; 3)$ và mặt phẳng $(P): 2x + 2y - z + 6 = 0$. Gọi $M(x_0; y_0; z_0) \\in (P)$ sao cho biểu thức $T = |\\vec{MA} + \\vec{MB} + \\vec{MC}|$ đạt giá trị nhỏ nhất. Tính tổng $x_0 + y_0 + z_0$?",
@@ -350,6 +362,7 @@ export const toaDoMatCauQuestions: Question[] = [
   },
   {
     "id": 275,
+    "latexVerified": true,
     "type": "mcq",
     "topicId": "toa_do_diem_vecto_va_mat_cau",
     "content": "Trong không gian $Oxyz$, cho các điểm $A(a; 0; 0), B(0; b; 0), C(0; 0; c)$ di động trên các tia $Ox, Oy, Oz$ sao cho $a + 2b - c = 6$. Biết rằng khi $a, b, c$ thay đổi thì tâm mặt cầu ngoại tiếp tứ diện $OABC$ luôn thuộc một mặt phẳng $(\\alpha)$ cố định. Phương trình của mặt phẳng $(\\alpha)$ là:",

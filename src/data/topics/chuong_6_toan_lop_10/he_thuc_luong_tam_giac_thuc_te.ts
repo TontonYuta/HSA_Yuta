@@ -3,6 +3,7 @@ import { Question } from '../../../types/exam';
 export const heThucLuongTamGiacQuestions: Question[] = [
   {
     "id": 137,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_6_toan_lop_10",
     "chapterName": "Chương 6: Toán Lớp 10 & Hình học Oxy",
@@ -23,6 +24,7 @@ export const heThucLuongTamGiacQuestions: Question[] = [
   },
   {
     "id": 152,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_6_toan_lop_10",
     "chapterName": "Chương 6: Toán Lớp 10 & Hình học Oxy",

@@ -3,6 +3,7 @@ import { Question } from '../../../types/exam';
 export const tapHopVennQuestions: Question[] = [
   {
     "id": 120,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_6_toan_lop_10",
     "chapterName": "Chương 6: Toán Lớp 10 & Hình học Oxy",
@@ -37,6 +38,7 @@ export const tapHopVennQuestions: Question[] = [
   },
   {
     "id": 121,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_6_toan_lop_10",
     "chapterName": "Chương 6: Toán Lớp 10 & Hình học Oxy",
@@ -71,6 +73,7 @@ export const tapHopVennQuestions: Question[] = [
   },
   {
     "id": 201,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_6_toan_lop_10",
     "chapterName": "Chương 6: Toán Lớp 10 & Hình học Oxy",

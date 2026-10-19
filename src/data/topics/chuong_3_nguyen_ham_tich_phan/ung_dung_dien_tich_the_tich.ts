@@ -3,6 +3,7 @@ import { Question } from '../../../types/exam';
 export const ungDungDienTichTheTichQuestions: Question[] = [
   {
     "id": 13,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_3_nguyen_ham_tich_phan",
     "chapterName": "Chương 3: Nguyên hàm & Tích phân",
@@ -37,6 +38,7 @@ export const ungDungDienTichTheTichQuestions: Question[] = [
   },
   {
     "id": 60,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_3_nguyen_ham_tich_phan",
     "chapterName": "Chương 3: Nguyên hàm & Tích phân",
@@ -71,6 +73,7 @@ export const ungDungDienTichTheTichQuestions: Question[] = [
   },
   {
     "id": 112,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_3_nguyen_ham_tich_phan",
     "chapterName": "Chương 3: Nguyên hàm & Tích phân",
@@ -105,6 +108,7 @@ export const ungDungDienTichTheTichQuestions: Question[] = [
   },
   {
     "id": 113,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_3_nguyen_ham_tich_phan",
     "chapterName": "Chương 3: Nguyên hàm & Tích phân",
@@ -139,6 +143,7 @@ export const ungDungDienTichTheTichQuestions: Question[] = [
   },
   {
     "id": 162,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_3_nguyen_ham_tich_phan",
     "chapterName": "Chương 3: Nguyên hàm & Tích phân",
@@ -173,6 +178,7 @@ export const ungDungDienTichTheTichQuestions: Question[] = [
   },
   {
     "id": 264,
+    "latexVerified": true,
     "type": "fill",
     "topicId": "ung_dung_dien_tich_the_tich",
     "content": "Một mảnh vườn hình chữ nhật $ABCD$ có chiều rộng $6\\text{ m}$, chiều dài $10\\text{ m}$. Người ta thiết kế một bồn hoa hình parabol có đỉnh trùng với trung điểm cạnh trên và đi qua hai đỉnh cạnh dưới để trồng cỏ, phần diện tích còn lại được lát đá. Biết chi phí lát đá là $300.000$ đồng/$\\text{m}^2$. Tính tổng chi phí lát đá của mảnh vườn? (Đơn vị: triệu đồng).",
@@ -189,6 +195,7 @@ export const ungDungDienTichTheTichQuestions: Question[] = [
   },
   {
     "id": 265,
+    "latexVerified": true,
     "type": "mcq",
     "topicId": "ung_dung_dien_tich_the_tich",
     "content": "Thể tích khối tròn xoay tạo thành khi quay hình phẳng $(H)$ giới hạn bởi đồ thị hàm số $y = f(x)$, trục hoành $y = 0$ và hai đường thẳng $x = a, x = b$ ($a < b$) quanh trục hoành là:",

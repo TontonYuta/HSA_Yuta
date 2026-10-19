@@ -3,6 +3,7 @@ import { Question } from '../../../types/exam';
 export const nguyenHamCoBanQuestions: Question[] = [
   {
     "id": 11,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_3_nguyen_ham_tich_phan",
     "chapterName": "Chương 3: Nguyên hàm & Tích phân",
@@ -37,6 +38,7 @@ export const nguyenHamCoBanQuestions: Question[] = [
   },
   {
     "id": 34,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_3_nguyen_ham_tich_phan",
     "chapterName": "Chương 3: Nguyên hàm & Tích phân",
@@ -71,6 +73,7 @@ export const nguyenHamCoBanQuestions: Question[] = [
   },
   {
     "id": 50,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_3_nguyen_ham_tich_phan",
     "chapterName": "Chương 3: Nguyên hàm & Tích phân",
@@ -90,6 +93,7 @@ export const nguyenHamCoBanQuestions: Question[] = [
   },
   {
     "id": 59,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_3_nguyen_ham_tich_phan",
     "chapterName": "Chương 3: Nguyên hàm & Tích phân",
@@ -124,6 +128,7 @@ export const nguyenHamCoBanQuestions: Question[] = [
   },
   {
     "id": 73,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_3_nguyen_ham_tich_phan",
     "chapterName": "Chương 3: Nguyên hàm & Tích phân",
@@ -158,6 +163,7 @@ export const nguyenHamCoBanQuestions: Question[] = [
   },
   {
     "id": 84,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_3_nguyen_ham_tich_phan",
     "chapterName": "Chương 3: Nguyên hàm & Tích phân",
@@ -192,6 +198,7 @@ export const nguyenHamCoBanQuestions: Question[] = [
   },
   {
     "id": 90,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_3_nguyen_ham_tich_phan",
     "chapterName": "Chương 3: Nguyên hàm & Tích phân",
@@ -211,6 +218,7 @@ export const nguyenHamCoBanQuestions: Question[] = [
   },
   {
     "id": 163,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_3_nguyen_ham_tich_phan",
     "chapterName": "Chương 3: Nguyên hàm & Tích phân",
@@ -245,6 +253,7 @@ export const nguyenHamCoBanQuestions: Question[] = [
   },
   {
     "id": 233,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_3_nguyen_ham_tich_phan",
     "chapterName": "Chương 3: Nguyên hàm & Tích phân",
@@ -279,6 +288,7 @@ export const nguyenHamCoBanQuestions: Question[] = [
   },
   {
     "id": 276,
+    "latexVerified": true,
     "type": "mcq",
     "topicId": "nguyen_ham_va_tich_phan_co_ban",
     "content": "Có bao nhiêu số thực $a < -1$ để $\\int_0^1 \\frac{1}{x + a} dx = \\ln\\left(\\frac{1}{2}\\right)$?",

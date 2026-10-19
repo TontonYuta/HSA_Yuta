@@ -3,6 +3,7 @@ import { Question } from '../../types/exam';
 export const hsa558ExamQuestions: Question[] = [
   {
     id: 301,
+    "latexVerified": true,
     type: 'mcq',
     chapterId: 'chuong_1_ham_so',
     chapterName: 'Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm',
@@ -23,6 +24,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 302,
+    "latexVerified": true,
     type: 'mcq',
     chapterId: 'chuong_1_ham_so',
     chapterName: 'Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm',
@@ -43,6 +45,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 303,
+    "latexVerified": true,
     type: 'mcq',
     chapterId: 'chuong_1_ham_so',
     chapterName: 'Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm',
@@ -63,6 +66,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 304,
+    "latexVerified": true,
     type: 'fill',
     chapterId: 'chuong_2_mu_logarit',
     chapterName: 'Chương 2: Hàm số Mũ, Lũy thừa & Logarit',
@@ -78,6 +82,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 305,
+    "latexVerified": true,
     type: 'fill',
     chapterId: 'chuong_2_mu_logarit',
     chapterName: 'Chương 2: Hàm số Mũ, Lũy thừa & Logarit',
@@ -93,6 +98,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 306,
+    "latexVerified": true,
     type: 'mcq',
     chapterId: 'chuong_8_xac_suat_thong_ke',
     chapterName: 'Chương 8: Đại số tổ hợp, Xác suất & Thống kê',
@@ -113,6 +119,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 307,
+    "latexVerified": true,
     type: 'mcq',
     chapterId: 'chuong_4_hinh_hoc_khong_gian',
     chapterName: 'Chương 4: Hình học không gian & Thể tích khối đa diện',
@@ -133,6 +140,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 308,
+    "latexVerified": true,
     type: 'mcq',
     chapterId: 'chuong_4_hinh_hoc_khong_gian',
     chapterName: 'Chương 4: Hình học không gian & Thể tích khối đa diện',
@@ -153,6 +161,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 309,
+    "latexVerified": true,
     type: 'fill',
     chapterId: 'chuong_1_ham_so',
     chapterName: 'Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm',
@@ -168,6 +177,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 310,
+    "latexVerified": true,
     type: 'mcq',
     chapterId: 'chuong_1_ham_so',
     chapterName: 'Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm',
@@ -188,6 +198,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 311,
+    "latexVerified": true,
     type: 'mcq',
     chapterId: 'chuong_1_ham_so',
     chapterName: 'Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm',
@@ -208,6 +219,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 312,
+    "latexVerified": true,
     type: 'mcq',
     chapterId: 'chuong_1_ham_so',
     chapterName: 'Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm',
@@ -228,6 +240,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 313,
+    "latexVerified": true,
     type: 'mcq',
     chapterId: 'chuong_10_toan_thuc_te_toi_uu',
     chapterName: 'Chương 10: Mô hình toán học thực tế & Tối ưu hóa',
@@ -248,6 +261,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 314,
+    "latexVerified": true,
     type: 'fill',
     chapterId: 'chuong_1_ham_so',
     chapterName: 'Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm',
@@ -263,6 +277,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 315,
+    "latexVerified": true,
     type: 'mcq',
     chapterId: 'chuong_1_ham_so',
     chapterName: 'Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm',
@@ -283,6 +298,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 316,
+    "latexVerified": true,
     type: 'mcq',
     chapterId: 'chuong_1_ham_so',
     chapterName: 'Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm',
@@ -303,6 +319,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 317,
+    "latexVerified": true,
     type: 'mcq',
     chapterId: 'chuong_1_ham_so',
     chapterName: 'Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm',
@@ -323,6 +340,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 318,
+    "latexVerified": true,
     type: 'mcq',
     chapterId: 'chuong_1_ham_so',
     chapterName: 'Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm',
@@ -343,6 +361,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 319,
+    "latexVerified": true,
     type: 'fill',
     chapterId: 'chuong_1_ham_so',
     chapterName: 'Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm',
@@ -358,6 +377,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 320,
+    "latexVerified": true,
     type: 'fill',
     chapterId: 'chuong_7_day_so_cap_so',
     chapterName: 'Chương 7: Dãy số, Cấp số cộng & Cấp số nhân',
@@ -373,6 +393,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 321,
+    "latexVerified": true,
     type: 'fill',
     chapterId: 'chuong_10_toan_thuc_te_toi_uu',
     chapterName: 'Chương 10: Mô hình toán học thực tế & Tối ưu hóa',
@@ -388,6 +409,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 322,
+    "latexVerified": true,
     type: 'fill',
     chapterId: 'chuong_10_toan_thuc_te_toi_uu',
     chapterName: 'Chương 10: Mô hình toán học thực tế & Tối ưu hóa',
@@ -403,6 +425,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 323,
+    "latexVerified": true,
     type: 'fill',
     chapterId: 'chuong_2_mu_logarit',
     chapterName: 'Chương 2: Hàm số Mũ, Lũy thừa & Logarit',
@@ -418,6 +441,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 324,
+    "latexVerified": true,
     type: 'mcq',
     chapterId: 'chuong_8_xac_suat_thong_ke',
     chapterName: 'Chương 8: Đại số tổ hợp, Xác suất & Thống kê',
@@ -438,6 +462,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 325,
+    "latexVerified": true,
     type: 'mcq',
     chapterId: 'chuong_8_xac_suat_thong_ke',
     chapterName: 'Chương 8: Đại số tổ hợp, Xác suất & Thống kê',
@@ -458,6 +483,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 326,
+    "latexVerified": true,
     type: 'fill',
     chapterId: 'chuong_2_mu_logarit',
     chapterName: 'Chương 2: Hàm số Mũ, Lũy thừa & Logarit',
@@ -473,6 +499,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 327,
+    "latexVerified": true,
     type: 'mcq',
     chapterId: 'chuong_9_luong_giac',
     chapterName: 'Chương 9: Lượng giác & Phương trình lượng giác (Lớp 11)',
@@ -493,6 +520,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 328,
+    "latexVerified": true,
     type: 'mcq',
     chapterId: 'chuong_8_xac_suat_thong_ke',
     chapterName: 'Chương 8: Đại số tổ hợp, Xác suất & Thống kê',
@@ -513,6 +541,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 329,
+    "latexVerified": true,
     type: 'fill',
     chapterId: 'chuong_6_toan_lop_10',
     chapterName: 'Chương 6: Chuyên đề Toán Lớp 10 Thực Tế',
@@ -528,6 +557,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 330,
+    "latexVerified": true,
     type: 'fill',
     chapterId: 'chuong_8_xac_suat_thong_ke',
     chapterName: 'Chương 8: Đại số tổ hợp, Xác suất & Thống kê',
@@ -543,6 +573,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 331,
+    "latexVerified": true,
     type: 'mcq',
     chapterId: 'chuong_2_mu_logarit',
     chapterName: 'Chương 2: Hàm số Mũ, Lũy thừa & Logarit',
@@ -563,6 +594,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 332,
+    "latexVerified": true,
     type: 'mcq',
     chapterId: 'chuong_7_day_so_cap_so',
     chapterName: 'Chương 7: Dãy số, Cấp số cộng & Cấp số nhân',
@@ -583,6 +615,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 333,
+    "latexVerified": true,
     type: 'mcq',
     chapterId: 'chuong_4_hinh_hoc_khong_gian',
     chapterName: 'Chương 4: Hình học không gian & Thể tích khối đa diện',
@@ -603,6 +636,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 334,
+    "latexVerified": true,
     type: 'fill',
     chapterId: 'chuong_8_xac_suat_thong_ke',
     chapterName: 'Chương 8: Đại số tổ hợp, Xác suất & Thống kê',
@@ -618,6 +652,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 335,
+    "latexVerified": true,
     type: 'mcq',
     chapterId: 'chuong_9_luong_giac',
     chapterName: 'Chương 9: Lượng giác & Phương trình lượng giác (Lớp 11)',
@@ -638,6 +673,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 336,
+    "latexVerified": true,
     type: 'mcq',
     chapterId: 'chuong_7_day_so_cap_so',
     chapterName: 'Chương 7: Dãy số, Cấp số cộng & Cấp số nhân',
@@ -658,6 +694,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 337,
+    "latexVerified": true,
     type: 'mcq',
     chapterId: 'chuong_5_toa_do_oxyz',
     chapterName: 'Chương 5: Phương pháp Tọa độ trong Không gian Oxyz',
@@ -678,6 +715,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 338,
+    "latexVerified": true,
     type: 'mcq',
     chapterId: 'chuong_8_xac_suat_thong_ke',
     chapterName: 'Chương 8: Đại số tổ hợp, Xác suất & Thống kê',
@@ -698,6 +736,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 339,
+    "latexVerified": true,
     type: 'mcq',
     chapterId: 'chuong_4_hinh_hoc_khong_gian',
     chapterName: 'Chương 4: Hình học không gian & Thể tích khối đa diện',
@@ -718,6 +757,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 340,
+    "latexVerified": true,
     type: 'fill',
     chapterId: 'chuong_7_day_so_cap_so',
     chapterName: 'Chương 7: Dãy số, Cấp số cộng & Cấp số nhân',
@@ -733,6 +773,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 341,
+    "latexVerified": true,
     type: 'fill',
     chapterId: 'chuong_1_ham_so',
     chapterName: 'Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm',
@@ -748,6 +789,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 342,
+    "latexVerified": true,
     type: 'mcq',
     chapterId: 'chuong_8_xac_suat_thong_ke',
     chapterName: 'Chương 8: Đại số tổ hợp, Xác suất & Thống kê',
@@ -768,6 +810,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 343,
+    "latexVerified": true,
     type: 'fill',
     chapterId: 'chuong_2_mu_logarit',
     chapterName: 'Chương 2: Hàm số Mũ, Lũy thừa & Logarit',
@@ -783,6 +826,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 344,
+    "latexVerified": true,
     type: 'fill',
     chapterId: 'chuong_2_mu_logarit',
     chapterName: 'Chương 2: Hàm số Mũ, Lũy thừa & Logarit',
@@ -798,6 +842,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 345,
+    "latexVerified": true,
     type: 'fill',
     chapterId: 'chuong_8_xac_suat_thong_ke',
     chapterName: 'Chương 8: Đại số tổ hợp, Xác suất & Thống kê',
@@ -813,6 +858,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 346,
+    "latexVerified": true,
     type: 'mcq',
     chapterId: 'chuong_4_hinh_hoc_khong_gian',
     chapterName: 'Chương 4: Hình học không gian & Thể tích khối đa diện',
@@ -833,6 +879,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 347,
+    "latexVerified": true,
     type: 'fill',
     chapterId: 'chuong_2_mu_logarit',
     chapterName: 'Chương 2: Hàm số Mũ, Lũy thừa & Logarit',
@@ -848,6 +895,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 348,
+    "latexVerified": true,
     type: 'fill',
     chapterId: 'chuong_2_mu_logarit',
     chapterName: 'Chương 2: Hàm số Mũ, Lũy thừa & Logarit',
@@ -863,6 +911,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 349,
+    "latexVerified": true,
     type: 'fill',
     chapterId: 'chuong_2_mu_logarit',
     chapterName: 'Chương 2: Hàm số Mũ, Lũy thừa & Logarit',
@@ -878,6 +927,7 @@ export const hsa558ExamQuestions: Question[] = [
   },
   {
     id: 350,
+    "latexVerified": true,
     type: 'mcq',
     chapterId: 'chuong_4_hinh_hoc_khong_gian',
     chapterName: 'Chương 4: Hình học không gian & Thể tích khối đa diện',

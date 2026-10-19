@@ -3,6 +3,7 @@ import { Question } from '../../../types/exam';
 export const matPhangDuongThangQuestions: Question[] = [
   {
     "id": 18,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_5_toa_do_oxyz",
     "chapterName": "Chương 5: Phương pháp tọa độ trong không gian Oxyz",
@@ -37,6 +38,7 @@ export const matPhangDuongThangQuestions: Question[] = [
   },
   {
     "id": 19,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_5_toa_do_oxyz",
     "chapterName": "Chương 5: Phương pháp tọa độ trong không gian Oxyz",
@@ -71,6 +73,7 @@ export const matPhangDuongThangQuestions: Question[] = [
   },
   {
     "id": 33,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_5_toa_do_oxyz",
     "chapterName": "Chương 5: Phương pháp tọa độ trong không gian Oxyz",
@@ -105,6 +108,7 @@ export const matPhangDuongThangQuestions: Question[] = [
   },
   {
     "id": 64,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_5_toa_do_oxyz",
     "chapterName": "Chương 5: Phương pháp tọa độ trong không gian Oxyz",
@@ -139,6 +143,7 @@ export const matPhangDuongThangQuestions: Question[] = [
   },
   {
     "id": 118,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_5_toa_do_oxyz",
     "chapterName": "Chương 5: Phương pháp tọa độ trong không gian Oxyz",
@@ -173,6 +178,7 @@ export const matPhangDuongThangQuestions: Question[] = [
   },
   {
     "id": 119,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_5_toa_do_oxyz",
     "chapterName": "Chương 5: Phương pháp tọa độ trong không gian Oxyz",
@@ -207,6 +213,7 @@ export const matPhangDuongThangQuestions: Question[] = [
   },
   {
     "id": 135,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_5_toa_do_oxyz",
     "chapterName": "Chương 5: Phương pháp tọa độ trong không gian Oxyz",
@@ -241,6 +248,7 @@ export const matPhangDuongThangQuestions: Question[] = [
   },
   {
     "id": 167,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_5_toa_do_oxyz",
     "chapterName": "Chương 5: Phương pháp tọa độ trong không gian Oxyz",
@@ -275,6 +283,7 @@ export const matPhangDuongThangQuestions: Question[] = [
   },
   {
     "id": 168,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_5_toa_do_oxyz",
     "chapterName": "Chương 5: Phương pháp tọa độ trong không gian Oxyz",
@@ -309,6 +318,7 @@ export const matPhangDuongThangQuestions: Question[] = [
   },
   {
     "id": 185,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_5_toa_do_oxyz",
     "chapterName": "Chương 5: Phương pháp tọa độ trong không gian Oxyz",
@@ -343,6 +353,7 @@ export const matPhangDuongThangQuestions: Question[] = [
   },
   {
     "id": 241,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_5_toa_do_oxyz",
     "chapterName": "Chương 5: Phương pháp tọa độ trong không gian Oxyz",
@@ -377,6 +388,7 @@ export const matPhangDuongThangQuestions: Question[] = [
   },
   {
     "id": 243,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_5_toa_do_oxyz",
     "chapterName": "Chương 5: Phương pháp tọa độ trong không gian Oxyz",
@@ -411,6 +423,7 @@ export const matPhangDuongThangQuestions: Question[] = [
   },
   {
     "id": 244,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_5_toa_do_oxyz",
     "chapterName": "Chương 5: Phương pháp tọa độ trong không gian Oxyz",
@@ -445,6 +458,7 @@ export const matPhangDuongThangQuestions: Question[] = [
   },
   {
     "id": 270,
+    "latexVerified": true,
     "type": "fill",
     "topicId": "mat_phang_va_duong_thang",
     "content": "Trong không gian $Oxyz$, mặt phẳng $(\\alpha)$ đi qua điểm $M(2; -1; 0)$ và cắt các tia $Ox, Oy, Oz$ lần lượt tại $A, B, C$ sao cho các độ dài $OA, OB, OC$ theo thứ tự lập thành một cấp số cộng có công sai $d = 3$. Tính khoảng cách từ gốc tọa độ $O$ tới mặt phẳng $(\\alpha)$? (Làm tròn kết quả đến hàng đơn vị).",
@@ -461,6 +475,7 @@ export const matPhangDuongThangQuestions: Question[] = [
   },
   {
     "id": 271,
+    "latexVerified": true,
     "type": "mcq",
     "topicId": "mat_phang_va_duong_thang",
     "content": "Trong không gian $Oxyz$, cho hai đường thẳng $d_1: \\frac{x - 1}{1} = \\frac{y - 1}{2} = \\frac{z - 2}{1}$, $d_2: \\begin{cases} x = 2 + t \\\\ y = -1 - t \\\\ z = 2t \\end{cases}$ và điểm $M(1; -4; 3)$. Đường thẳng $\\Delta$ đi qua $M$ và cắt cả hai đường thẳng $d_1, d_2$ có phương trình chính tắc là:",
@@ -495,6 +510,7 @@ export const matPhangDuongThangQuestions: Question[] = [
   },
   {
     "id": 273,
+    "latexVerified": true,
     "type": "mcq",
     "topicId": "mat_phang_va_duong_thang",
     "content": "Trong không gian $Oxyz$, cho mặt cầu $(S): (x + 2)^2 + (y - 1)^2 + z^2 = 3$ và đường thẳng $d: \\begin{cases} x = 1 - 2t \\\\ y = -1 + 2t \\\\ z = t \\end{cases}$. Xác định phương trình mặt phẳng chứa đường thẳng $d$ và cắt mặt cầu $(S)$ theo một đường tròn có bán kính nhỏ nhất?",

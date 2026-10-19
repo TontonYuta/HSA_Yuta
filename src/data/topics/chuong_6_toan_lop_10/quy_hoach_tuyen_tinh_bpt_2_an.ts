@@ -3,6 +3,7 @@ import { Question } from '../../../types/exam';
 export const quyHoachTuyenTinhQuestions: Question[] = [
   {
     "id": 143,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_6_toan_lop_10",
     "chapterName": "Chương 6: Toán Lớp 10 & Hình học Oxy",
@@ -23,6 +24,7 @@ export const quyHoachTuyenTinhQuestions: Question[] = [
   },
   {
     "id": 202,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_6_toan_lop_10",
     "chapterName": "Chương 6: Toán Lớp 10 & Hình học Oxy",
@@ -57,6 +59,7 @@ export const quyHoachTuyenTinhQuestions: Question[] = [
   },
   {
     "id": 300,
+    "latexVerified": true,
     "type": "mcq",
     "topicId": "quy_hoach_tuyen_tinh_bpt_2_an",
     "content": "[Tư duy logic định lượng] Bạn đang đứng trước hai cánh cửa: một cánh cửa dẫn đến Thiên Đường, một cánh cửa dẫn đến Địa Ngục. Có hai người gác cổng đứng cạnh hai cánh cửa: một người luôn luôn nói thật, một người luôn luôn nói dối. Bạn không biết ai nói dối, ai nói thật, và cũng không biết cánh cửa nào dẫn đến đâu. Để chắc chắn bước vào Thiên Đường, bạn chỉ được hỏi đúng MỘT câu hỏi với một trong hai người. Bạn nên hỏi câu nào?",

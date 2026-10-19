@@ -3,6 +3,7 @@ import { Question } from '../../../types/exam';
 export const moHinhOxyzThucTeQuestions: Question[] = [
   {
     "id": 117,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_5_toa_do_oxyz",
     "chapterName": "Chương 5: Phương pháp tọa độ trong không gian Oxyz",
@@ -37,6 +38,7 @@ export const moHinhOxyzThucTeQuestions: Question[] = [
   },
   {
     "id": 140,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_5_toa_do_oxyz",
     "chapterName": "Chương 5: Phương pháp tọa độ trong không gian Oxyz",
@@ -57,6 +59,7 @@ export const moHinhOxyzThucTeQuestions: Question[] = [
   },
   {
     "id": 240,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_5_toa_do_oxyz",
     "chapterName": "Chương 5: Phương pháp tọa độ trong không gian Oxyz",

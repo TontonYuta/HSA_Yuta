@@ -3,6 +3,7 @@ import { Question } from '../../../types/exam';
 export const gocKhoangCachQuestions: Question[] = [
   {
     "id": 14,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_4_hinh_hoc_khong_gian",
     "chapterName": "Chương 4: Hình học không gian cổ điển",
@@ -37,6 +38,7 @@ export const gocKhoangCachQuestions: Question[] = [
   },
   {
     "id": 62,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_4_hinh_hoc_khong_gian",
     "chapterName": "Chương 4: Hình học không gian cổ điển",
@@ -71,6 +73,7 @@ export const gocKhoangCachQuestions: Question[] = [
   },
   {
     "id": 116,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_4_hinh_hoc_khong_gian",
     "chapterName": "Chương 4: Hình học không gian cổ điển",
@@ -105,6 +108,7 @@ export const gocKhoangCachQuestions: Question[] = [
   },
   {
     "id": 134,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_4_hinh_hoc_khong_gian",
     "chapterName": "Chương 4: Hình học không gian cổ điển",
@@ -139,6 +143,7 @@ export const gocKhoangCachQuestions: Question[] = [
   },
   {
     "id": 164,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_4_hinh_hoc_khong_gian",
     "chapterName": "Chương 4: Hình học không gian cổ điển",
@@ -173,6 +178,7 @@ export const gocKhoangCachQuestions: Question[] = [
   },
   {
     "id": 166,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_4_hinh_hoc_khong_gian",
     "chapterName": "Chương 4: Hình học không gian cổ điển",
@@ -207,6 +213,7 @@ export const gocKhoangCachQuestions: Question[] = [
   },
   {
     "id": 213,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_4_hinh_hoc_khong_gian",
     "chapterName": "Chương 4: Hình học không gian cổ điển",
@@ -228,6 +235,7 @@ export const gocKhoangCachQuestions: Question[] = [
   },
   {
     "id": 214,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_4_hinh_hoc_khong_gian",
     "chapterName": "Chương 4: Hình học không gian cổ điển",
@@ -262,6 +270,7 @@ export const gocKhoangCachQuestions: Question[] = [
   },
   {
     "id": 215,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_4_hinh_hoc_khong_gian",
     "chapterName": "Chương 4: Hình học không gian cổ điển",
@@ -296,6 +305,7 @@ export const gocKhoangCachQuestions: Question[] = [
   },
   {
     "id": 267,
+    "latexVerified": true,
     "type": "mcq",
     "topicId": "goc_va_khoang_cach",
     "content": "[Ngữ cảnh hình học không gian] Cho hình chóp $S.ABCD$ có đáy là hình bình hành. Gọi $M \\in SA$ sao cho $SM = \\frac{1}{3}SA$, $N \\in SB$ sao cho $SN = \\frac{2}{3}SB$, và $P$ là trung điểm của $SC$. Kẻ đường thẳng $AB$ cắt $MN$ tại $H$. Phân tích vectơ $\\vec{MH}$ theo ba vectơ $\\vec{AB}, \\vec{BC}$ và $\\vec{SA}$:",
@@ -330,6 +340,7 @@ export const gocKhoangCachQuestions: Question[] = [
   },
   {
     "id": 268,
+    "latexVerified": true,
     "type": "mcq",
     "topicId": "goc_va_khoang_cach",
     "content": "[Ngữ cảnh hình học không gian] Tiếp tục với hình chóp $S.ABCD$, đường thẳng $MP$ cắt $AC$ tại $K$. Phân tích vectơ $\\vec{MK}$ theo ba vectơ $\\vec{AB}, \\vec{BC}$ và $\\vec{SA}$:",
@@ -364,6 +375,7 @@ export const gocKhoangCachQuestions: Question[] = [
   },
   {
     "id": 269,
+    "latexVerified": true,
     "type": "mcq",
     "topicId": "goc_va_khoang_cach",
     "content": "[Ngữ cảnh hình học không gian] Tiếp tục với hình chóp $S.ABCD$, đường thẳng $NP$ cắt $BC$ kéo dài tại $I$. Phân tích vectơ $\\vec{MI}$ theo ba vectơ $\\vec{AB}, \\vec{BC}$ và $\\vec{SA}$:",
@@ -398,6 +410,7 @@ export const gocKhoangCachQuestions: Question[] = [
   },
   {
     "id": 291,
+    "latexVerified": true,
     "type": "mcq",
     "topicId": "goc_va_khoang_cach",
     "content": "Cho lăng trụ tam giác $ABC.A'B'C'$ có tất cả các cạnh đáy bằng $a$, góc tạo bởi cạnh bên và mặt phẳng đáy bằng $60^\\circ$. Hình chiếu vuông góc của $A$ lên mặt phẳng $(A'B'C')$ trùng với trung điểm của $B'C'$. Tính $\\tan$ của góc giữa đường thẳng $BC$ và mặt phẳng $(ACC'A')$:",
@@ -432,6 +445,7 @@ export const gocKhoangCachQuestions: Question[] = [
   },
   {
     "id": 292,
+    "latexVerified": true,
     "type": "mcq",
     "topicId": "goc_va_khoang_cach",
     "content": "Cho hình chóp $S.ABCD$ có đáy $ABCD$ là hình vuông cạnh $a$. Gọi $H$ là trung điểm của $AB$, $SH \\perp (ABCD)$ và $SH = a$. Tính $\\sin$ của góc giữa hai mặt phẳng $(SAC)$ và $(SBC)$:",

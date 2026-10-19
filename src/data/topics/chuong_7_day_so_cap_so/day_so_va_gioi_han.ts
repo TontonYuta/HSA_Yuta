@@ -3,6 +3,7 @@ import { Question } from '../../../types/exam';
 export const daySoGioiHanQuestions: Question[] = [
   {
     "id": 22,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_7_day_so_cap_so",
     "chapterName": "Chương 7: Dãy số, Cấp số cộng & Cấp số nhân",
@@ -38,6 +39,7 @@ export const daySoGioiHanQuestions: Question[] = [
   },
   {
     "id": 66,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_7_day_so_cap_so",
     "chapterName": "Chương 7: Dãy số, Cấp số cộng & Cấp số nhân",
@@ -72,6 +74,7 @@ export const daySoGioiHanQuestions: Question[] = [
   },
   {
     "id": 173,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_7_day_so_cap_so",
     "chapterName": "Chương 7: Dãy số, Cấp số cộng & Cấp số nhân",
@@ -106,6 +109,7 @@ export const daySoGioiHanQuestions: Question[] = [
   },
   {
     "id": 207,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_7_day_so_cap_so",
     "chapterName": "Chương 7: Dãy số, Cấp số cộng & Cấp số nhân",
@@ -129,6 +133,7 @@ export const daySoGioiHanQuestions: Question[] = [
   },
   {
     "id": 280,
+    "latexVerified": true,
     "type": "mcq",
     "topicId": "day_so_va_gioi_han",
     "content": "Cho dãy số $(u_n)$ xác định bởi $u_1 = 3$ và $u_{n+1} = \\frac{1}{2}\\left(u_n + \\frac{3}{u_n}\\right)$ với mọi $n \\in \\mathbb{N}^*$. Giới hạn $\\lim\\limits_{n \\to +\\infty} u_n$ bằng:",
@@ -163,6 +168,7 @@ export const daySoGioiHanQuestions: Question[] = [
   },
   {
     "id": 282,
+    "latexVerified": true,
     "type": "mcq",
     "topicId": "day_so_va_gioi_han",
     "content": "Cho hàm số $f(x) = \\begin{cases} \\frac{x^2 - 3x + 2}{x - 1} & \\text{khi } x > 1 \\\\ m & \\text{khi } x = 1 \\\\ 2x - 3 & \\text{khi } x < 1 \\end{cases}$. Giá trị của tham số $m$ để hàm số liên tục tại $x = 1$ là:",
@@ -197,6 +203,7 @@ export const daySoGioiHanQuestions: Question[] = [
   },
   {
     "id": 287,
+    "latexVerified": true,
     "type": "mcq",
     "topicId": "day_so_va_gioi_han",
     "content": "Cho đa thức $f(x)$ thỏa mãn $\\lim\\limits_{x \\to 1} \\frac{f(x) - 10}{x - 1} = 4$. Tính giới hạn $L = \\lim\\limits_{x \\to 1} \\frac{\\sqrt[3]{3f(x) + 34} - 4}{2x^2 - 3x + 1}$:",

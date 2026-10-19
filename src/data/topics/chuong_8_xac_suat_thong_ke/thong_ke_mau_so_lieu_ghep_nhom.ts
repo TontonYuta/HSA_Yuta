@@ -3,6 +3,7 @@ import { Question } from '../../../types/exam';
 export const thongKeGhepNhomQuestions: Question[] = [
   {
     "id": 28,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_8_xac_suat_thong_ke",
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
@@ -38,6 +39,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
   },
   {
     "id": 29,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_8_xac_suat_thong_ke",
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
@@ -72,6 +74,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
   },
   {
     "id": 42,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_8_xac_suat_thong_ke",
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
@@ -91,6 +94,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
   },
   {
     "id": 68,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_8_xac_suat_thong_ke",
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
@@ -125,6 +129,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
   },
   {
     "id": 79,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_8_xac_suat_thong_ke",
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
@@ -159,6 +164,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
   },
   {
     "id": 96,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_8_xac_suat_thong_ke",
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
@@ -179,6 +185,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
   },
   {
     "id": 128,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_8_xac_suat_thong_ke",
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
@@ -213,6 +220,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
   },
   {
     "id": 129,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_8_xac_suat_thong_ke",
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
@@ -247,6 +255,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
   },
   {
     "id": 142,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_8_xac_suat_thong_ke",
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
@@ -267,6 +276,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
   },
   {
     "id": 149,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_8_xac_suat_thong_ke",
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
@@ -287,6 +297,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
   },
   {
     "id": 178,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_8_xac_suat_thong_ke",
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
@@ -321,6 +332,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
   },
   {
     "id": 179,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_8_xac_suat_thong_ke",
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
@@ -355,6 +367,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
   },
   {
     "id": 192,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_8_xac_suat_thong_ke",
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
@@ -375,6 +388,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
   },
   {
     "id": 199,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_8_xac_suat_thong_ke",
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
@@ -395,6 +409,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
   },
   {
     "id": 204,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_8_xac_suat_thong_ke",
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
@@ -429,6 +444,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
   },
   {
     "id": 218,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_8_xac_suat_thong_ke",
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
@@ -463,6 +479,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
   },
   {
     "id": 246,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_8_xac_suat_thong_ke",
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
@@ -497,6 +514,7 @@ export const thongKeGhepNhomQuestions: Question[] = [
   },
   {
     "id": 285,
+    "latexVerified": true,
     "type": "fill",
     "topicId": "thong_ke_mau_so_lieu_ghep_nhom",
     "content": "Bảng thống kê thời gian đi làm bằng xe buýt của 100 lần di chuyển:\n$[15; 18): 22, \\quad [18; 21): 38, \\quad [21; 24): 27, \\quad [24; 27): 8, \\quad [27; 30): 4, \\quad [30; 33): 1$.\nTính khoảng tứ phân vị $\\Delta_Q = Q_3 - Q_1$ của mẫu số liệu ghép nhóm trên? (Làm tròn kết quả đến hàng đơn vị).",

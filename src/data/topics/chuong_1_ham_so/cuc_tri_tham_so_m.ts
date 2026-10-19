@@ -3,6 +3,7 @@ import { Question } from '../../../types/exam';
 export const cucTriThamSoMQuestions: Question[] = [
   {
     "id": 3,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -38,6 +39,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 4,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -72,6 +74,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 35,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -106,6 +109,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 98,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -125,6 +129,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 133,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -159,6 +164,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 183,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -193,6 +199,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 224,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -214,6 +221,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 225,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -248,6 +256,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 226,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -269,6 +278,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 252,
+    "latexVerified": true,
     "type": "fill",
     "topicId": "cuc_tri_tham_so_m",
     "content": "Cho hàm số $y = f(x)$ liên tục trên $\\mathbb{R}$ có bảng xét dấu của đạo hàm $f'(x)$ như sau:\n$\\begin{array}{|c|ccccccccccc|}\n\\hline\nx & -\\infty & & -2 & & 0 & & 3 & & 5 & & +\\infty \\\\\n\\hline\nf'(x) & & + & 0 & - & 0 & + & 0 & - & 0 & - & \\\\\n\\hline\n\\end{array}$\nSố điểm cực trị của hàm số $y = f(x)$ là bao nhiêu?",
@@ -285,6 +295,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 254,
+    "latexVerified": true,
     "type": "mcq",
     "topicId": "cuc_tri_tham_so_m",
     "content": "Cho hàm số bậc ba $y = f(x)$ có bảng biến thiên như sau:\n$\\begin{array}{|c|ccccccc|}\n\\hline\nx & -\\infty & & -1 & & 1 & & +\\infty \\\\\n\\hline\nf'(x) & & + & 0 & - & 0 & + & \\\\\n\\hline\n& & & 4 & & & & +\\infty \\\\\nf(x) & & \\nearrow & & \\searrow & & \\nearrow & \\\\\n& -\\infty & & & & 0 & & \\\\\n\\hline\n\\end{array}$\nGọi $S$ là tập các giá trị nguyên của tham số $m$ để hàm số $y = |f(x) - m|$ có đúng 5 điểm cực trị. Tính tổng các phần tử của $S$?",
@@ -319,6 +330,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 257,
+    "latexVerified": true,
     "type": "mcq",
     "topicId": "cuc_tri_tham_so_m",
     "content": "Cho hàm số $y = x^3 - (2m + 1)x - 3$ có hai điểm cực trị $A, B$. Đường thẳng đi qua hai điểm cực trị $AB$ luôn đi qua điểm cố định nào? Biết rằng $AB$ cắt đường tròn $(C): (x + 1)^2 + (y + 2)^2 = 16$ tại hai điểm $M, N$ sao cho khoảng cách $MN$ lớn nhất. Khoảng cách từ điểm $E(2; 1)$ đến đường thẳng $AB$ là:",
@@ -353,6 +365,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 411,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -384,6 +397,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 412,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -415,6 +429,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 413,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -446,6 +461,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 414,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -477,6 +493,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 415,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -508,6 +525,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 416,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -539,6 +557,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 417,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -570,6 +589,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 418,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -601,6 +621,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 419,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -632,6 +653,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 420,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -663,6 +685,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 421,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -694,6 +717,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 422,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -725,6 +749,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 423,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -756,6 +781,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 424,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -787,6 +813,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 425,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -818,6 +845,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 426,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -849,6 +877,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 427,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -880,6 +909,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 428,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -911,6 +941,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 429,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -942,6 +973,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 430,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -973,6 +1005,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 431,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -1004,6 +1037,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 432,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -1035,6 +1069,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 433,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -1066,6 +1101,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 434,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -1097,6 +1133,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 435,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -1128,6 +1165,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 436,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -1159,6 +1197,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 437,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -1190,6 +1229,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 438,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -1221,6 +1261,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 439,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -1252,6 +1293,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 440,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -1283,6 +1325,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 441,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -1314,6 +1357,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 442,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -1345,6 +1389,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 443,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -1376,6 +1421,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 444,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -1407,6 +1453,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 445,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -1438,6 +1485,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 446,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -1469,6 +1517,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 447,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -1500,6 +1549,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 448,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -1531,6 +1581,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 449,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -1562,6 +1613,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 450,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -1593,6 +1645,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 451,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -1624,6 +1677,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 452,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -1655,6 +1709,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 453,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -1686,6 +1741,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 454,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -1717,6 +1773,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 455,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -1748,6 +1805,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 456,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -1779,6 +1837,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 457,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -1810,6 +1869,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 458,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -1841,6 +1901,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 459,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -1872,6 +1933,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 460,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -1903,6 +1965,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 461,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -1934,6 +1997,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 462,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -1965,6 +2029,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 463,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -1996,6 +2061,7 @@ export const cucTriThamSoMQuestions: Question[] = [
   },
   {
     "id": 464,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",

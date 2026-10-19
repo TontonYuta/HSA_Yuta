@@ -3,6 +3,7 @@ import { Question } from '../../../types/exam';
 export const daoDongLuongGiacThucTeQuestions: Question[] = [
   {
     "id": 101,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_9_luong_giac",
     "chapterName": "Chương 9: Lượng giác & Phương trình lượng giác (Lớp 11)",
@@ -37,6 +38,7 @@ export const daoDongLuongGiacThucTeQuestions: Question[] = [
   },
   {
     "id": 278,
+    "latexVerified": true,
     "type": "fill",
     "topicId": "mo_hinh_dao_dong_luong_giac_thuc_te",
     "content": "Một vật nặng treo bởi lò xo dao động điều hòa lên xuống qua vị trí cân bằng theo phương trình li độ $d = 20\\cos\\left(10t + \\frac{\\pi}{6}\\right)\\text{ cm}$ ($t$ tính bằng giây). Trong 1 giây đầu tiên ($0 \\le t \\le 1$), có bao nhiêu thời điểm vật ở xa vị trí cân bằng nhất?",

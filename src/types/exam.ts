@@ -52,6 +52,7 @@ export interface Question {
   isPracticalMath?: boolean; // Real-world practical application question
   hasParametricM?: boolean;  // Question contains parameter m
   track?: ExamTrack | 'BOTH'; // Which track this question primarily targets
+  latexVerified?: boolean;   // Hidden audit flag: marks question as having 100% verified LaTeX syntax & rendering (no UI display)
 }
 
 export interface ExamSet {

@@ -3,6 +3,7 @@ import { Question } from '../../../types/exam';
 export const chuyenDongTichPhanQuestions: Question[] = [
   {
     "id": 31,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_3_nguyen_ham_tich_phan",
     "chapterName": "Chương 3: Nguyên hàm & Tích phân",
@@ -37,6 +38,7 @@ export const chuyenDongTichPhanQuestions: Question[] = [
   },
   {
     "id": 111,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_3_nguyen_ham_tich_phan",
     "chapterName": "Chương 3: Nguyên hàm & Tích phân",
@@ -71,6 +73,7 @@ export const chuyenDongTichPhanQuestions: Question[] = [
   },
   {
     "id": 141,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_3_nguyen_ham_tich_phan",
     "chapterName": "Chương 3: Nguyên hàm & Tích phân",
@@ -91,6 +94,7 @@ export const chuyenDongTichPhanQuestions: Question[] = [
   },
   {
     "id": 236,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_3_nguyen_ham_tich_phan",
     "chapterName": "Chương 3: Nguyên hàm & Tích phân",
@@ -125,6 +129,7 @@ export const chuyenDongTichPhanQuestions: Question[] = [
   },
   {
     "id": 237,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_3_nguyen_ham_tich_phan",
     "chapterName": "Chương 3: Nguyên hàm & Tích phân",
@@ -159,6 +164,7 @@ export const chuyenDongTichPhanQuestions: Question[] = [
   },
   {
     "id": 238,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_3_nguyen_ham_tich_phan",
     "chapterName": "Chương 3: Nguyên hàm & Tích phân",

@@ -3,6 +3,7 @@ import { Question } from '../../../types/exam';
 export const ungDungMuLogQuestions: Question[] = [
   {
     "id": 80,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_2_mu_logarit",
     "chapterName": "Chương 2: Hàm số mũ & Hàm số Logarit",
@@ -37,6 +38,7 @@ export const ungDungMuLogQuestions: Question[] = [
   },
   {
     "id": 97,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_2_mu_logarit",
     "chapterName": "Chương 2: Hàm số mũ & Hàm số Logarit",
@@ -57,6 +59,7 @@ export const ungDungMuLogQuestions: Question[] = [
   },
   {
     "id": 182,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_2_mu_logarit",
     "chapterName": "Chương 2: Hàm số mũ & Hàm số Logarit",
@@ -91,6 +94,7 @@ export const ungDungMuLogQuestions: Question[] = [
   },
   {
     "id": 283,
+    "latexVerified": true,
     "type": "fill",
     "topicId": "ung_dung_thuc_te_mu_logarit",
     "content": "Tại Việt Nam, lượng khí thải $\\text{CO}_2$ năm 2022 là $344$ triệu tấn. Giả sử lượng khí thải này tăng trưởng trung bình $0{,}3\\%$ mỗi năm. Dự báo đến năm 2030, lượng khí thải $\\text{CO}_2$ tại Việt Nam là bao nhiêu triệu tấn? (Làm tròn kết quả đến hàng đơn vị).",

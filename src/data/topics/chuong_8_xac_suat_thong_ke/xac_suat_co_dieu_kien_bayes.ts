@@ -3,6 +3,7 @@ import { Question } from '../../../types/exam';
 export const xacSuatBayesQuestions: Question[] = [
   {
     "id": 125,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_8_xac_suat_thong_ke",
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
@@ -37,6 +38,7 @@ export const xacSuatBayesQuestions: Question[] = [
   },
   {
     "id": 126,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_8_xac_suat_thong_ke",
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
@@ -71,6 +73,7 @@ export const xacSuatBayesQuestions: Question[] = [
   },
   {
     "id": 127,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_8_xac_suat_thong_ke",
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
@@ -105,6 +108,7 @@ export const xacSuatBayesQuestions: Question[] = [
   },
   {
     "id": 145,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_8_xac_suat_thong_ke",
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
@@ -125,6 +129,7 @@ export const xacSuatBayesQuestions: Question[] = [
   },
   {
     "id": 247,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_8_xac_suat_thong_ke",
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
@@ -159,6 +164,7 @@ export const xacSuatBayesQuestions: Question[] = [
   },
   {
     "id": 248,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_8_xac_suat_thong_ke",
     "chapterName": "Chương 8: Đại số tổ hợp, Xác suất & Thống kê",
@@ -193,6 +199,7 @@ export const xacSuatBayesQuestions: Question[] = [
   },
   {
     "id": 263,
+    "latexVerified": true,
     "type": "mcq",
     "topicId": "xac_suat_co_dieu_kien_bayes",
     "content": "Giả sử tỉ lệ người dân của một tỉnh nghiện thuốc lá là $30\\%$. Tỉ lệ người bị bệnh phổi trong số người nghiện thuốc lá là $80\\%$, trong khi tỉ lệ người bị bệnh phổi trong số người không nghiện thuốc lá là $10\\%$. Gặp ngẫu nhiên một người dân của tỉnh đó, xác suất người đó bị bệnh phổi là:",

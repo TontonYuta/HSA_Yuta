@@ -3,6 +3,7 @@ import { Question } from '../../../types/exam';
 export const khoiTronXoayQuestions: Question[] = [
   {
     "id": 74,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_4_hinh_hoc_khong_gian",
     "chapterName": "Chương 4: Hình học không gian cổ điển",
@@ -37,6 +38,7 @@ export const khoiTronXoayQuestions: Question[] = [
   },
   {
     "id": 196,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_4_hinh_hoc_khong_gian",
     "chapterName": "Chương 4: Hình học không gian cổ điển",

@@ -3,6 +3,7 @@ import { Question } from '../../../types/exam';
 export const tiepTuyenQuestions: Question[] = [
   {
     "id": 103,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -37,6 +38,7 @@ export const tiepTuyenQuestions: Question[] = [
   },
   {
     "id": 136,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -57,6 +59,7 @@ export const tiepTuyenQuestions: Question[] = [
   },
   {
     "id": 139,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -77,6 +80,7 @@ export const tiepTuyenQuestions: Question[] = [
   },
   {
     "id": 154,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -111,6 +115,7 @@ export const tiepTuyenQuestions: Question[] = [
   },
   {
     "id": 212,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -145,6 +150,7 @@ export const tiepTuyenQuestions: Question[] = [
   },
   {
     "id": 261,
+    "latexVerified": true,
     "type": "mcq",
     "topicId": "tiep_tuyen_do_thi",
     "content": "Viết phương trình tiếp tuyến của đồ thị hàm số $(C): y = \\frac{x - 3}{x + 1}$, biết tiếp tuyến đi qua điểm $A(-1; -1)$?",

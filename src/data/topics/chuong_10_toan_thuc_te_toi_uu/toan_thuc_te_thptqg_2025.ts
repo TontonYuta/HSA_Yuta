@@ -3,6 +3,7 @@ import { Question } from '../../../types/exam';
 export const toanThucTeTHPTQGQuestions: Question[] = [
   {
     id: 516,
+    "latexVerified": true,
     type: 'mcq',
     chapterId: 'chuong_10_toan_thuc_te_toi_uu',
     chapterName: 'Chương 10: Toán ứng dụng & Mô hình hóa tối ưu',
@@ -25,6 +26,7 @@ export const toanThucTeTHPTQGQuestions: Question[] = [
   },
   {
     id: 517,
+    "latexVerified": true,
     type: 'fill',
     chapterId: 'chuong_10_toan_thuc_te_toi_uu',
     chapterName: 'Chương 10: Toán ứng dụng & Mô hình hóa tối ưu',
@@ -42,6 +44,7 @@ export const toanThucTeTHPTQGQuestions: Question[] = [
   },
   {
     id: 518,
+    "latexVerified": true,
     type: 'mcq',
     chapterId: 'chuong_10_toan_thuc_te_toi_uu',
     chapterName: 'Chương 10: Toán ứng dụng & Mô hình hóa tối ưu',
@@ -64,6 +67,7 @@ export const toanThucTeTHPTQGQuestions: Question[] = [
   },
   {
     id: 519,
+    "latexVerified": true,
     type: 'fill',
     chapterId: 'chuong_10_toan_thuc_te_toi_uu',
     chapterName: 'Chương 10: Toán ứng dụng & Mô hình hóa tối ưu',
@@ -81,6 +85,7 @@ export const toanThucTeTHPTQGQuestions: Question[] = [
   },
   {
     id: 520,
+    "latexVerified": true,
     type: 'mcq',
     chapterId: 'chuong_3_nguyen_ham_tich_phan',
     chapterName: 'Chương 3: Nguyên hàm & Tích phân',
@@ -103,6 +108,7 @@ export const toanThucTeTHPTQGQuestions: Question[] = [
   },
   {
     id: 521,
+    "latexVerified": true,
     type: 'fill',
     chapterId: 'chuong_3_nguyen_ham_tich_phan',
     chapterName: 'Chương 3: Nguyên hàm & Tích phân',
@@ -120,6 +126,7 @@ export const toanThucTeTHPTQGQuestions: Question[] = [
   },
   {
     id: 522,
+    "latexVerified": true,
     type: 'mcq',
     chapterId: 'chuong_2_mu_logarit',
     chapterName: 'Chương 2: Hàm số mũ & Hàm số Logarit',
@@ -142,6 +149,7 @@ export const toanThucTeTHPTQGQuestions: Question[] = [
   },
   {
     id: 523,
+    "latexVerified": true,
     type: 'fill',
     chapterId: 'chuong_2_mu_logarit',
     chapterName: 'Chương 2: Hàm số mũ & Hàm số Logarit',
@@ -159,6 +167,7 @@ export const toanThucTeTHPTQGQuestions: Question[] = [
   },
   {
     id: 524,
+    "latexVerified": true,
     type: 'mcq',
     chapterId: 'chuong_2_mu_logarit',
     chapterName: 'Chương 2: Hàm số mũ & Hàm số Logarit',
@@ -181,6 +190,7 @@ export const toanThucTeTHPTQGQuestions: Question[] = [
   },
   {
     id: 525,
+    "latexVerified": true,
     type: 'fill',
     chapterId: 'chuong_5_toa_do_oxyz',
     chapterName: 'Chương 5: Phương pháp tọa độ Oxyz trong không gian',
@@ -198,6 +208,7 @@ export const toanThucTeTHPTQGQuestions: Question[] = [
   },
   {
     id: 526,
+    "latexVerified": true,
     type: 'mcq',
     chapterId: 'chuong_5_toa_do_oxyz',
     chapterName: 'Chương 5: Phương pháp tọa độ Oxyz trong không gian',
@@ -220,6 +231,7 @@ export const toanThucTeTHPTQGQuestions: Question[] = [
   },
   {
     id: 527,
+    "latexVerified": true,
     type: 'fill',
     chapterId: 'chuong_8_xac_suat_thong_ke',
     chapterName: 'Chương 8: Tổ hợp & Xác suất hiện đại',
@@ -237,6 +249,7 @@ export const toanThucTeTHPTQGQuestions: Question[] = [
   },
   {
     id: 528,
+    "latexVerified": true,
     type: 'mcq',
     chapterId: 'chuong_8_xac_suat_thong_ke',
     chapterName: 'Chương 8: Tổ hợp & Xác suất hiện đại',
@@ -259,6 +272,7 @@ export const toanThucTeTHPTQGQuestions: Question[] = [
   },
   {
     id: 529,
+    "latexVerified": true,
     type: 'fill',
     chapterId: 'chuong_6_toan_lop_10',
     chapterName: 'Chương 6: Đại số & Hình học lớp 10 nâng cao',
@@ -276,6 +290,7 @@ export const toanThucTeTHPTQGQuestions: Question[] = [
   },
   {
     id: 530,
+    "latexVerified": true,
     type: 'mcq',
     chapterId: 'chuong_10_toan_thuc_te_toi_uu',
     chapterName: 'Chương 10: Toán ứng dụng & Mô hình hóa tối ưu',
@@ -298,6 +313,7 @@ export const toanThucTeTHPTQGQuestions: Question[] = [
   },
   {
     id: 531,
+    "latexVerified": true,
     type: 'fill',
     chapterId: 'chuong_10_toan_thuc_te_toi_uu',
     chapterName: 'Chương 10: Toán ứng dụng & Mô hình hóa tối ưu',
@@ -315,6 +331,7 @@ export const toanThucTeTHPTQGQuestions: Question[] = [
   },
   {
     id: 532,
+    "latexVerified": true,
     type: 'mcq',
     chapterId: 'chuong_4_hinh_hoc_khong_gian',
     chapterName: 'Chương 4: Hình học không gian cổ điển',
@@ -337,6 +354,7 @@ export const toanThucTeTHPTQGQuestions: Question[] = [
   },
   {
     id: 533,
+    "latexVerified": true,
     type: 'fill',
     chapterId: 'chuong_8_xac_suat_thong_ke',
     chapterName: 'Chương 8: Tổ hợp & Xác suất hiện đại',
@@ -354,6 +372,7 @@ export const toanThucTeTHPTQGQuestions: Question[] = [
   },
   {
     id: 534,
+    "latexVerified": true,
     type: 'mcq',
     chapterId: 'chuong_5_toa_do_oxyz',
     chapterName: 'Chương 5: Phương pháp tọa độ Oxyz trong không gian',
@@ -376,6 +395,7 @@ export const toanThucTeTHPTQGQuestions: Question[] = [
   },
   {
     id: 535,
+    "latexVerified": true,
     type: 'fill',
     chapterId: 'chuong_3_nguyen_ham_tich_phan',
     chapterName: 'Chương 3: Nguyên hàm & Tích phân',

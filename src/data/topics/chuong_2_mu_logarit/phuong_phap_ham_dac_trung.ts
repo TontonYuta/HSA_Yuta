@@ -3,6 +3,7 @@ import { Question } from '../../../types/exam';
 export const hamDacTrungQuestions: Question[] = [
   {
     "id": 10,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_2_mu_logarit",
     "chapterName": "Chương 2: Hàm số mũ & Hàm số Logarit",
@@ -37,6 +38,7 @@ export const hamDacTrungQuestions: Question[] = [
   },
   {
     "id": 58,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_2_mu_logarit",
     "chapterName": "Chương 2: Hàm số mũ & Hàm số Logarit",
@@ -71,6 +73,7 @@ export const hamDacTrungQuestions: Question[] = [
   },
   {
     "id": 210,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_2_mu_logarit",
     "chapterName": "Chương 2: Hàm số mũ & Hàm số Logarit",
@@ -92,6 +95,7 @@ export const hamDacTrungQuestions: Question[] = [
   },
   {
     "id": 289,
+    "latexVerified": true,
     "type": "mcq",
     "topicId": "phuong_phap_ham_dac_trung",
     "content": "Tính tổng các nghiệm của phương trình $\\log_2\\left(\\frac{x^2 - 5x + 6}{x^2 - 2x + 3}\\right) = x^2 - 4x - 3$:",

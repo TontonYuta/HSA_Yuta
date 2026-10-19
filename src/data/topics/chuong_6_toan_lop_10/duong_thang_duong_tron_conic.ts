@@ -3,6 +3,7 @@ import { Question } from '../../../types/exam';
 export const duongThangDuongTronConicQuestions: Question[] = [
   {
     "id": 20,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_6_toan_lop_10",
     "chapterName": "Chương 6: Toán Lớp 10 & Hình học Oxy",
@@ -38,6 +39,7 @@ export const duongThangDuongTronConicQuestions: Question[] = [
   },
   {
     "id": 21,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_6_toan_lop_10",
     "chapterName": "Chương 6: Toán Lớp 10 & Hình học Oxy",
@@ -72,6 +74,7 @@ export const duongThangDuongTronConicQuestions: Question[] = [
   },
   {
     "id": 49,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_6_toan_lop_10",
     "chapterName": "Chương 6: Toán Lớp 10 & Hình học Oxy",
@@ -93,6 +96,7 @@ export const duongThangDuongTronConicQuestions: Question[] = [
   },
   {
     "id": 65,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_6_toan_lop_10",
     "chapterName": "Chương 6: Toán Lớp 10 & Hình học Oxy",
@@ -127,6 +131,7 @@ export const duongThangDuongTronConicQuestions: Question[] = [
   },
   {
     "id": 76,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_6_toan_lop_10",
     "chapterName": "Chương 6: Toán Lớp 10 & Hình học Oxy",
@@ -161,6 +166,7 @@ export const duongThangDuongTronConicQuestions: Question[] = [
   },
   {
     "id": 93,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_6_toan_lop_10",
     "chapterName": "Chương 6: Toán Lớp 10 & Hình học Oxy",
@@ -180,6 +186,7 @@ export const duongThangDuongTronConicQuestions: Question[] = [
   },
   {
     "id": 148,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_6_toan_lop_10",
     "chapterName": "Chương 6: Toán Lớp 10 & Hình học Oxy",
@@ -200,6 +207,7 @@ export const duongThangDuongTronConicQuestions: Question[] = [
   },
   {
     "id": 170,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_6_toan_lop_10",
     "chapterName": "Chương 6: Toán Lớp 10 & Hình học Oxy",
@@ -234,6 +242,7 @@ export const duongThangDuongTronConicQuestions: Question[] = [
   },
   {
     "id": 171,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_6_toan_lop_10",
     "chapterName": "Chương 6: Toán Lớp 10 & Hình học Oxy",
@@ -268,6 +277,7 @@ export const duongThangDuongTronConicQuestions: Question[] = [
   },
   {
     "id": 193,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_6_toan_lop_10",
     "chapterName": "Chương 6: Toán Lớp 10 & Hình học Oxy",
@@ -288,6 +298,7 @@ export const duongThangDuongTronConicQuestions: Question[] = [
   },
   {
     "id": 198,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_6_toan_lop_10",
     "chapterName": "Chương 6: Toán Lớp 10 & Hình học Oxy",
@@ -307,6 +318,7 @@ export const duongThangDuongTronConicQuestions: Question[] = [
   },
   {
     "id": 203,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_6_toan_lop_10",
     "chapterName": "Chương 6: Toán Lớp 10 & Hình học Oxy",

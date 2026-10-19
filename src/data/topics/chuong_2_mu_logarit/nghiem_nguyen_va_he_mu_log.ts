@@ -3,6 +3,7 @@ import { Question } from '../../../types/exam';
 export const nghiemNguyenMuLogQuestions: Question[] = [
   {
     "id": 110,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_2_mu_logarit",
     "chapterName": "Chương 2: Hàm số mũ & Hàm số Logarit",
@@ -37,6 +38,7 @@ export const nghiemNguyenMuLogQuestions: Question[] = [
   },
   {
     "id": 138,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_2_mu_logarit",
     "chapterName": "Chương 2: Hàm số mũ & Hàm số Logarit",
@@ -57,6 +59,7 @@ export const nghiemNguyenMuLogQuestions: Question[] = [
   },
   {
     "id": 232,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_2_mu_logarit",
     "chapterName": "Chương 2: Hàm số mũ & Hàm số Logarit",

@@ -3,6 +3,7 @@ import { Question } from '../../../types/exam';
 export const tiSoTheTichQuestions: Question[] = [
   {
     "id": 115,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_4_hinh_hoc_khong_gian",
     "chapterName": "Chương 4: Hình học không gian cổ điển",
@@ -37,6 +38,7 @@ export const tiSoTheTichQuestions: Question[] = [
   },
   {
     "id": 165,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_4_hinh_hoc_khong_gian",
     "chapterName": "Chương 4: Hình học không gian cổ điển",
@@ -71,6 +73,7 @@ export const tiSoTheTichQuestions: Question[] = [
   },
   {
     "id": 239,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_4_hinh_hoc_khong_gian",
     "chapterName": "Chương 4: Hình học không gian cổ điển",
@@ -93,6 +96,7 @@ export const tiSoTheTichQuestions: Question[] = [
   },
   {
     "id": 290,
+    "latexVerified": true,
     "type": "fill",
     "topicId": "ti_so_the_tich_khoi_chop_lang_tru",
     "content": "Cho hình chóp $S.ABCD$ có đáy là hình thang với $AB \\parallel CD$ và $CD = k \\cdot AB$ ($k > 0$). Gọi $M, N$ lần lượt là trung điểm của $AD, BC$ và $G$ là trọng tâm tam giác $SAB$. Xác định hệ số $k$ để thiết diện của mặt phẳng $(GMN)$ với hình chóp $S.ABCD$ là một hình bình hành?",

@@ -3,6 +3,7 @@ import { Question } from '../../../types/exam';
 export const tiemCanQuestions: Question[] = [
   {
     "id": 6,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -38,6 +39,7 @@ export const tiemCanQuestions: Question[] = [
   },
   {
     "id": 7,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -72,6 +74,7 @@ export const tiemCanQuestions: Question[] = [
   },
   {
     "id": 8,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -106,6 +109,7 @@ export const tiemCanQuestions: Question[] = [
   },
   {
     "id": 36,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -126,6 +130,7 @@ export const tiemCanQuestions: Question[] = [
   },
   {
     "id": 55,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -160,6 +165,7 @@ export const tiemCanQuestions: Question[] = [
   },
   {
     "id": 56,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -194,6 +200,7 @@ export const tiemCanQuestions: Question[] = [
   },
   {
     "id": 71,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -228,6 +235,7 @@ export const tiemCanQuestions: Question[] = [
   },
   {
     "id": 88,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -247,6 +255,7 @@ export const tiemCanQuestions: Question[] = [
   },
   {
     "id": 106,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -281,6 +290,7 @@ export const tiemCanQuestions: Question[] = [
   },
   {
     "id": 107,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -315,6 +325,7 @@ export const tiemCanQuestions: Question[] = [
   },
   {
     "id": 108,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -349,6 +360,7 @@ export const tiemCanQuestions: Question[] = [
   },
   {
     "id": 156,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -383,6 +395,7 @@ export const tiemCanQuestions: Question[] = [
   },
   {
     "id": 157,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -417,6 +430,7 @@ export const tiemCanQuestions: Question[] = [
   },
   {
     "id": 158,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -451,6 +465,7 @@ export const tiemCanQuestions: Question[] = [
   },
   {
     "id": 189,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -471,6 +486,7 @@ export const tiemCanQuestions: Question[] = [
   },
   {
     "id": 229,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -505,6 +521,7 @@ export const tiemCanQuestions: Question[] = [
   },
   {
     "id": 251,
+    "latexVerified": true,
     "type": "mcq",
     "topicId": "tiem_can_va_tiem_can_xien",
     "content": "Cho hàm số $y = \\frac{x^2 - 3x + 2}{x - 5}$. Tổng số đường tiệm cận đứng và tiệm cận xiên của đồ thị hàm số đã cho là:",

@@ -3,6 +3,7 @@ import { Question } from '../../../types/exam';
 export const maxMinThamSoMQuestions: Question[] = [
   {
     "id": 5,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -38,6 +39,7 @@ export const maxMinThamSoMQuestions: Question[] = [
   },
   {
     "id": 87,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -57,6 +59,7 @@ export const maxMinThamSoMQuestions: Question[] = [
   },
   {
     "id": 186,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -77,6 +80,7 @@ export const maxMinThamSoMQuestions: Question[] = [
   },
   {
     "id": 227,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -111,6 +115,7 @@ export const maxMinThamSoMQuestions: Question[] = [
   },
   {
     "id": 258,
+    "latexVerified": true,
     "type": "fill",
     "topicId": "max_min_tham_so_m",
     "content": "Cho hàm số $y = f(x) = (1 + \\sin x + \\cos x)^2 + (1 - \\sin x - \\cos x)^2 - (1 - \\sin 2x) + 2m$. Số các giá trị nguyên dương của tham số $m$ để $f(x) \\le 36$ với mọi $x \\in \\mathbb{R}$ là bao nhiêu?",
@@ -127,6 +132,7 @@ export const maxMinThamSoMQuestions: Question[] = [
   },
   {
     "id": 465,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -158,6 +164,7 @@ export const maxMinThamSoMQuestions: Question[] = [
   },
   {
     "id": 466,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -189,6 +196,7 @@ export const maxMinThamSoMQuestions: Question[] = [
   },
   {
     "id": 467,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -220,6 +228,7 @@ export const maxMinThamSoMQuestions: Question[] = [
   },
   {
     "id": 468,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -251,6 +260,7 @@ export const maxMinThamSoMQuestions: Question[] = [
   },
   {
     "id": 469,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -282,6 +292,7 @@ export const maxMinThamSoMQuestions: Question[] = [
   },
   {
     "id": 470,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -313,6 +324,7 @@ export const maxMinThamSoMQuestions: Question[] = [
   },
   {
     "id": 471,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -344,6 +356,7 @@ export const maxMinThamSoMQuestions: Question[] = [
   },
   {
     "id": 472,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -375,6 +388,7 @@ export const maxMinThamSoMQuestions: Question[] = [
   },
   {
     "id": 473,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -406,6 +420,7 @@ export const maxMinThamSoMQuestions: Question[] = [
   },
   {
     "id": 474,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -437,6 +452,7 @@ export const maxMinThamSoMQuestions: Question[] = [
   },
   {
     "id": 475,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -468,6 +484,7 @@ export const maxMinThamSoMQuestions: Question[] = [
   },
   {
     "id": 476,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -499,6 +516,7 @@ export const maxMinThamSoMQuestions: Question[] = [
   },
   {
     "id": 477,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -530,6 +548,7 @@ export const maxMinThamSoMQuestions: Question[] = [
   },
   {
     "id": 478,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -561,6 +580,7 @@ export const maxMinThamSoMQuestions: Question[] = [
   },
   {
     "id": 479,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -592,6 +612,7 @@ export const maxMinThamSoMQuestions: Question[] = [
   },
   {
     "id": 480,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -623,6 +644,7 @@ export const maxMinThamSoMQuestions: Question[] = [
   },
   {
     "id": 481,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",
@@ -654,6 +676,7 @@ export const maxMinThamSoMQuestions: Question[] = [
   },
   {
     "id": 482,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_1_ham_so",
     "chapterName": "Chương 1: Khảo sát hàm số & Ứng dụng đạo hàm",

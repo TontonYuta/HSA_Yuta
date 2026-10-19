@@ -87,6 +87,9 @@ import {
 // Official HSA Exam 558
 import { hsa558ExamQuestions } from './de_thi_hsa_558';
 
+// Selected 2024-2027 questions from Toanmath (GDPT 2018 format)
+import { toanmathSelectedQuestions } from './toanmath_2024_2027_selected';
+
 // Re-export micro-topics for modular consumption
 export {
   // Chuong 1
@@ -147,6 +150,7 @@ export {
   chuong_8_xac_suat_thong_keQuestions,
   chuong_9_luong_giacQuestions,
   chuong_10_toan_thuc_te_toi_uuQuestions,
+  toanmathSelectedQuestions,
 };
 
 // Aggregate all 30 micro-topics into master questions database
@@ -161,6 +165,7 @@ export const HSA_QUESTIONS_DATABASE: Question[] = [
   ...chuong_8_xac_suat_thong_keQuestions,
   ...chuong_9_luong_giacQuestions,
   ...chuong_10_toan_thuc_te_toi_uuQuestions,
+  ...toanmathSelectedQuestions,
   ...hsa558ExamQuestions,
 ].sort((a, b) => a.id - b.id);
 

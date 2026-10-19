@@ -3,6 +3,7 @@ import { Question } from '../../../types/exam';
 export const toiUuKinhTeQuestions: Question[] = [
   {
     "id": 30,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_10_toan_thuc_te_toi_uu",
     "chapterName": "Chương 10: Toán ứng dụng & Mô hình hóa tối ưu",
@@ -38,6 +39,7 @@ export const toiUuKinhTeQuestions: Question[] = [
   },
   {
     "id": 47,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_10_toan_thuc_te_toi_uu",
     "chapterName": "Chương 10: Toán ứng dụng & Mô hình hóa tối ưu",
@@ -58,6 +60,7 @@ export const toiUuKinhTeQuestions: Question[] = [
   },
   {
     "id": 48,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_10_toan_thuc_te_toi_uu",
     "chapterName": "Chương 10: Toán ứng dụng & Mô hình hóa tối ưu",
@@ -78,6 +81,7 @@ export const toiUuKinhTeQuestions: Question[] = [
   },
   {
     "id": 69,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_10_toan_thuc_te_toi_uu",
     "chapterName": "Chương 10: Toán ứng dụng & Mô hình hóa tối ưu",
@@ -112,6 +116,7 @@ export const toiUuKinhTeQuestions: Question[] = [
   },
   {
     "id": 130,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_10_toan_thuc_te_toi_uu",
     "chapterName": "Chương 10: Toán ứng dụng & Mô hình hóa tối ưu",
@@ -146,6 +151,7 @@ export const toiUuKinhTeQuestions: Question[] = [
   },
   {
     "id": 132,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_10_toan_thuc_te_toi_uu",
     "chapterName": "Chương 10: Toán ứng dụng & Mô hình hóa tối ưu",
@@ -180,6 +186,7 @@ export const toiUuKinhTeQuestions: Question[] = [
   },
   {
     "id": 150,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_10_toan_thuc_te_toi_uu",
     "chapterName": "Chương 10: Toán ứng dụng & Mô hình hóa tối ưu",
@@ -200,6 +207,7 @@ export const toiUuKinhTeQuestions: Question[] = [
   },
   {
     "id": 181,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_10_toan_thuc_te_toi_uu",
     "chapterName": "Chương 10: Toán ứng dụng & Mô hình hóa tối ưu",
@@ -234,6 +242,7 @@ export const toiUuKinhTeQuestions: Question[] = [
   },
   {
     "id": 200,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_10_toan_thuc_te_toi_uu",
     "chapterName": "Chương 10: Toán ứng dụng & Mô hình hóa tối ưu",
@@ -254,6 +263,7 @@ export const toiUuKinhTeQuestions: Question[] = [
   },
   {
     "id": 211,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_10_toan_thuc_te_toi_uu",
     "chapterName": "Chương 10: Toán ứng dụng & Mô hình hóa tối ưu",
@@ -288,6 +298,7 @@ export const toiUuKinhTeQuestions: Question[] = [
   },
   {
     "id": 228,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_10_toan_thuc_te_toi_uu",
     "chapterName": "Chương 10: Toán ứng dụng & Mô hình hóa tối ưu",
@@ -322,6 +333,7 @@ export const toiUuKinhTeQuestions: Question[] = [
   },
   {
     "id": 249,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_10_toan_thuc_te_toi_uu",
     "chapterName": "Chương 10: Toán ứng dụng & Mô hình hóa tối ưu",
@@ -356,6 +368,7 @@ export const toiUuKinhTeQuestions: Question[] = [
   },
   {
     "id": 260,
+    "latexVerified": true,
     "type": "mcq",
     "topicId": "toi_uu_kinh_te_va_doanh_thu",
     "content": "Dung dịch muối NaCl có nồng độ $20\\%$ (tức trong $100\\text{ g}$ dung dịch có $20\\text{ g}$ muối NaCl nguyên chất). Nếu ta thêm $x$ gam muối tinh khiết vào $500\\text{ g}$ dung dịch muối có sẵn, ta được dung dịch mới có nồng độ $f(x)\\%$. Công thức xác định hàm số $f(x)$ là:",

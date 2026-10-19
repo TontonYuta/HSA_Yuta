@@ -3,6 +3,7 @@ import { Question } from '../../../types/exam';
 export const toiUuHinhHocQuestions: Question[] = [
   {
     "id": 32,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_10_toan_thuc_te_toi_uu",
     "chapterName": "Chương 10: Toán ứng dụng & Mô hình hóa tối ưu",
@@ -37,6 +38,7 @@ export const toiUuHinhHocQuestions: Question[] = [
   },
   {
     "id": 46,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_10_toan_thuc_te_toi_uu",
     "chapterName": "Chương 10: Toán ứng dụng & Mô hình hóa tối ưu",
@@ -57,6 +59,7 @@ export const toiUuHinhHocQuestions: Question[] = [
   },
   {
     "id": 131,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_10_toan_thuc_te_toi_uu",
     "chapterName": "Chương 10: Toán ứng dụng & Mô hình hóa tối ưu",
@@ -91,6 +94,7 @@ export const toiUuHinhHocQuestions: Question[] = [
   },
   {
     "id": 147,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_10_toan_thuc_te_toi_uu",
     "chapterName": "Chương 10: Toán ứng dụng & Mô hình hóa tối ưu",
@@ -111,6 +115,7 @@ export const toiUuHinhHocQuestions: Question[] = [
   },
   {
     "id": 180,
+    "latexVerified": true,
     "type": "mcq",
     "chapterId": "chuong_10_toan_thuc_te_toi_uu",
     "chapterName": "Chương 10: Toán ứng dụng & Mô hình hóa tối ưu",
@@ -145,6 +150,7 @@ export const toiUuHinhHocQuestions: Question[] = [
   },
   {
     "id": 197,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_10_toan_thuc_te_toi_uu",
     "chapterName": "Chương 10: Toán ứng dụng & Mô hình hóa tối ưu",
@@ -165,6 +171,7 @@ export const toiUuHinhHocQuestions: Question[] = [
   },
   {
     "id": 250,
+    "latexVerified": true,
     "type": "fill",
     "chapterId": "chuong_10_toan_thuc_te_toi_uu",
     "chapterName": "Chương 10: Toán ứng dụng & Mô hình hóa tối ưu",
@@ -187,6 +194,7 @@ export const toiUuHinhHocQuestions: Question[] = [
   },
   {
     "id": 262,
+    "latexVerified": true,
     "type": "fill",
     "topicId": "toi_uu_hinh_hoc_va_vat_lieu",
     "content": "Loài côn trùng A thụ phấn cho thực vật B. Giả sử số cây được thụ phấn thành công sau $t$ tháng (kể từ khi hoa nở) được mô hình hóa bởi hàm số: $f(t) = \\frac{40t}{t^2 + 5}$. Hỏi sau bao nhiêu tháng thì số cây được thụ phấn thành công đạt cực đại? (Làm tròn kết quả đến hàng đơn vị).",
