@@ -68,10 +68,10 @@ export const MathRenderer: React.FC<MathRendererProps> = ({ content, className =
           .replace(/pminfty/g, '\\pm\\infty')
           .replace(/\\pm\s*infty/g, '\\pm\\infty')
           .replace(/(?<!\\)pm\\infty/g, '\\pm\\infty')
-          .replace(/(?<!\\)mathbb\{/g, '\\mathbb{')
+          .replace(/(?<![\\[a-zA-Z])mathbb\{/g, '\\mathbb{')
           .replace(/([0-9a-zA-Z\^]+)sqrt\{/g, '$1\\sqrt{')
-          .replace(/(?<!\\)sqrt\{/g, '\\sqrt{')
-          .replace(/(?<!\\)frac\{/g, '\\frac{')
+          .replace(/(?<![\\[a-zA-Z])sqrt\{/g, '\\sqrt{')
+          .replace(/(?<![\\[a-zA-Z])frac\{/g, '\\frac{')
           .replace(/(?<!\\)%/g, '\\%');
 
         const html = katex.renderToString(sanitizedMath, {
