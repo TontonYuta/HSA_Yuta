@@ -8,5 +8,6 @@ coverage/
 !.env.example
 __pycache__/
 *.pyc
+.vercel/
 
 .vercel
