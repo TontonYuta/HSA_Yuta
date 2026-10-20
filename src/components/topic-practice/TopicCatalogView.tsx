@@ -57,21 +57,21 @@ export const TopicCatalogView: React.FC<TopicCatalogViewProps> = ({
     <div className="h-[calc(100vh-52px)] md:h-screen overflow-y-auto bg-slate-50 dark:bg-[#09090b] text-slate-900 dark:text-zinc-100 p-2.5 sm:p-4 select-none">
       <div className="max-w-6xl mx-auto space-y-3 sm:space-y-4 pb-8">
         {/* Header Hero Banner */}
-        <div className="relative overflow-hidden rounded-2xl bg-white dark:bg-[#121217] border border-slate-200 dark:border-zinc-800 border-l-4 border-l-blue-600 dark:border-l-blue-500 p-3.5 sm:p-4 shadow-xs">
+        <div className="relative overflow-hidden rounded-3xl bg-white dark:bg-[#111319] border border-slate-200/80 dark:border-zinc-800/80 p-4 sm:p-5 shadow-xs">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
             <div className="flex items-center gap-3">
-              <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center shrink-0 shadow-xs ${
+              <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-2xl flex items-center justify-center shrink-0 shadow-xs ${
                 isPT 
-                  ? 'bg-sky-500/10 border border-sky-500/20 text-sky-600 dark:text-sky-400' 
-                  : 'bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400'
+                  ? 'bg-sky-500/10 text-sky-600 dark:text-sky-400' 
+                  : 'bg-amber-500/10 text-amber-600 dark:text-amber-400'
               }`}>
                 <BookOpen className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
               <div>
-                <div className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider mb-1.5 border ${
+                <div className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider mb-1.5 ${
                   isPT 
-                    ? 'bg-sky-100 dark:bg-sky-950/80 text-sky-700 dark:text-sky-300 border-sky-200 dark:border-sky-800'
-                    : 'bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-300 border-amber-200 dark:border-amber-800'
+                    ? 'bg-sky-100 dark:bg-sky-950/80 text-sky-700 dark:text-sky-300'
+                    : 'bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-300'
                 }`}>
                   <Sparkles className="w-3 h-3" />
                   <span>{isPT ? 'Hệ Thống 10 Chương & 25 Chuyên Đề GDPT 2018' : 'Hệ Thống Chuyên Đề Bứt Phá 9+ & HSG'}</span>
@@ -98,22 +98,22 @@ export const TopicCatalogView: React.FC<TopicCatalogViewProps> = ({
           </div>
 
           {/* Quick Stats Strip */}
-          <div className="grid grid-cols-3 gap-2 sm:gap-3 mt-4 pt-4 border-t border-sky-200/40 dark:border-sky-900/40 text-xs">
-            <div className="p-2 rounded-xl bg-white/60 dark:bg-zinc-900/60 border border-slate-200/50 dark:border-zinc-800/50 flex items-center gap-2">
+          <div className="grid grid-cols-3 gap-2 sm:gap-3 mt-4 pt-4 border-t border-slate-100 dark:border-zinc-800 text-xs">
+            <div className="p-2.5 rounded-xl bg-slate-50/80 dark:bg-zinc-900/60 flex items-center gap-2.5">
               <BookOpen className="w-4 h-4 text-sky-500" />
               <div>
                 <div className="font-bold text-slate-900 dark:text-zinc-100">{chapters.length} Chương</div>
                 <div className="text-[10px] text-slate-500 dark:text-zinc-400">Đầy đủ SGK 2018</div>
               </div>
             </div>
-            <div className="p-2 rounded-xl bg-white/60 dark:bg-zinc-900/60 border border-slate-200/50 dark:border-zinc-800/50 flex items-center gap-2">
+            <div className="p-2.5 rounded-xl bg-slate-50/80 dark:bg-zinc-900/60 flex items-center gap-2.5">
               <Layers className="w-4 h-4 text-indigo-500" />
               <div>
                 <div className="font-bold text-slate-900 dark:text-zinc-100">25 Chuyên Đề</div>
                 <div className="text-[10px] text-slate-500 dark:text-zinc-400">{isPT ? 'Chuẩn SGK' : 'Bứt phá 9+'}</div>
               </div>
             </div>
-            <div className="p-2 rounded-xl bg-white/60 dark:bg-zinc-900/60 border border-slate-200/50 dark:border-zinc-800/50 flex items-center gap-2">
+            <div className="p-2.5 rounded-xl bg-slate-50/80 dark:bg-zinc-900/60 flex items-center gap-2.5">
               <CheckCircle2 className="w-4 h-4 text-emerald-500" />
               <div>
                 <div className="font-bold text-slate-900 dark:text-zinc-100">{questions.length} Câu Hỏi</div>
@@ -195,9 +195,9 @@ export const TopicCatalogView: React.FC<TopicCatalogViewProps> = ({
         </div>
 
         {/* Quick Jump 2-Level Options Dropdowns (Khu vực 1) */}
-        <div className="p-3.5 sm:p-4 rounded-2xl bg-white dark:bg-[#121216] border border-sky-200/80 dark:border-sky-900/50 shadow-xs flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
+        <div className="p-3.5 sm:p-4 rounded-3xl bg-white dark:bg-[#111319] border border-slate-200/80 dark:border-zinc-800/80 shadow-xs flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
           <div className="flex items-center gap-2.5 shrink-0">
-            <span className="p-2 rounded-xl bg-sky-100/80 dark:bg-sky-950/80 text-sky-600 dark:text-sky-400 border border-sky-200/60 dark:border-sky-800/60">
+            <span className="p-2.5 rounded-2xl bg-sky-500/10 text-sky-600 dark:text-sky-400">
               <FolderOpen className="w-4 h-4" />
             </span>
             <div>
@@ -282,10 +282,10 @@ export const TopicCatalogView: React.FC<TopicCatalogViewProps> = ({
               return (
                 <div
                   key={ch.id}
-                  className={`rounded-2xl border transition-all duration-150 overflow-hidden ${
+                  className={`rounded-3xl border transition-all duration-200 overflow-hidden ${
                     isExpanded
-                      ? 'p-4 sm:p-5 bg-white dark:bg-[#101014] border-sky-400 dark:border-sky-800 shadow-xs'
-                      : 'p-3.5 sm:p-4 bg-white dark:bg-zinc-900 border-slate-200 dark:border-zinc-800/80 hover:border-slate-300 dark:hover:border-zinc-700'
+                      ? 'p-4 sm:p-5 bg-white dark:bg-[#111319] border-slate-200/90 dark:border-zinc-800 shadow-sm'
+                      : 'p-3.5 sm:p-4 bg-white dark:bg-[#111319] border-slate-200/70 dark:border-zinc-800/70 hover:border-slate-300 dark:hover:border-zinc-700 shadow-2xs'
                   }`}
                 >
                   {/* Chapter Header (Click to toggle) */}
@@ -294,7 +294,7 @@ export const TopicCatalogView: React.FC<TopicCatalogViewProps> = ({
                     className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 cursor-pointer select-none"
                   >
                     <div className="flex-1 flex items-start gap-3">
-                      <span className="w-7 h-7 rounded-lg bg-sky-100 dark:bg-sky-950/80 text-sky-700 dark:text-sky-300 text-xs font-bold font-mono flex items-center justify-center shrink-0 mt-0.5 border border-sky-200/60 dark:border-sky-800/60">
+                      <span className="w-8 h-8 rounded-xl bg-slate-900 text-white dark:bg-zinc-100 dark:text-zinc-900 text-xs font-bold font-mono flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
                         {originalIdx + 1}
                       </span>
                       <div>
@@ -302,7 +302,7 @@ export const TopicCatalogView: React.FC<TopicCatalogViewProps> = ({
                           <h2 className="text-sm sm:text-base font-bold text-slate-900 dark:text-zinc-100">
                             {ch.name}
                           </h2>
-                          <span className="text-[11px] font-mono text-slate-400 dark:text-zinc-500">
+                          <span className="text-[11px] font-mono font-bold text-sky-600 dark:text-sky-400">
                             ({chQuestions.length} câu · {ch.topics.length} chuyên đề)
                           </span>
                         </div>
@@ -331,7 +331,7 @@ export const TopicCatalogView: React.FC<TopicCatalogViewProps> = ({
                         onClick={() => setExpandedChapterId((prev) => (prev === ch.id ? null : ch.id))}
                         className={`p-2 rounded-xl border text-xs font-semibold transition flex items-center gap-1 cursor-pointer ${
                           isExpanded
-                            ? 'bg-sky-50 dark:bg-sky-950/60 border-sky-300 dark:border-sky-800 text-sky-700 dark:text-sky-300'
+                            ? 'bg-slate-100 dark:bg-zinc-800 border-slate-200 dark:border-zinc-700 text-slate-900 dark:text-zinc-100'
                             : 'border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-slate-600 dark:text-zinc-400 hover:bg-slate-50 dark:hover:bg-zinc-800'
                         }`}
                         title={isExpanded ? 'Thu gọn' : 'Xem các chuyên đề'}
@@ -350,41 +350,40 @@ export const TopicCatalogView: React.FC<TopicCatalogViewProps> = ({
                       <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-zinc-500 mb-2.5">
                         Các chuyên đề thuộc Chương {originalIdx + 1}:
                       </div>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                         {ch.topics.map((t, tIdx) => {
                           const tCount = questions.filter((q) => q.topicId === t.id).length;
 
                           return (
                             <div
                               key={t.id}
-                              className="p-3.5 rounded-xl bg-slate-50/70 dark:bg-zinc-900/60 border border-slate-200/60 dark:border-zinc-800/60 hover:border-sky-400 dark:hover:border-sky-700 transition flex flex-col justify-between group"
+                              onClick={() => onSelectTopic(ch.id, t.id)}
+                              className="p-3.5 sm:p-4 rounded-2xl border-0 bg-slate-50/90 dark:bg-zinc-900/80 hover:bg-white dark:hover:bg-zinc-800 shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-pointer flex flex-col justify-between group space-y-2.5"
                             >
-                              <div>
-                                <div className="flex items-center justify-between mb-1.5">
-                                  <span className="text-[10px] font-mono font-bold text-slate-400 dark:text-zinc-500">
-                                    Chuyên đề {tIdx + 1}
+                              <div className="space-y-1.5">
+                                <div className="flex items-center justify-between">
+                                  <span className="text-[10px] font-bold font-mono px-1.5 py-0.5 rounded bg-slate-900 text-white dark:bg-zinc-100 dark:text-zinc-900">
+                                    CĐ {tIdx + 1}
                                   </span>
-                                  <span className="text-[10px] px-1.5 py-0.5 rounded bg-white dark:bg-zinc-800 border border-slate-200/60 dark:border-zinc-700/60 font-mono font-medium text-slate-600 dark:text-zinc-300">
+                                  <span className="text-[11px] font-mono font-bold text-sky-600 dark:text-sky-400">
                                     {tCount} câu
                                   </span>
                                 </div>
-                                <h3 className="text-xs font-bold text-slate-800 dark:text-zinc-200 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition line-clamp-1">
+                                <h3 className="text-xs sm:text-sm font-bold text-slate-800 dark:text-zinc-200 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors line-clamp-2 leading-snug">
                                   {t.name}
                                 </h3>
-                                <p className="text-[11px] text-slate-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">
-                                  {t.description}
-                                </p>
+                                {t.description && (
+                                  <p className="text-[11px] text-slate-500 dark:text-zinc-400 line-clamp-2 leading-relaxed">
+                                    {t.description}
+                                  </p>
+                                )}
                               </div>
 
-                              <div className="mt-3 pt-2.5 border-t border-slate-200/40 dark:border-zinc-800/40 flex items-center justify-end">
-                                <button
-                                  type="button"
-                                  onClick={() => onSelectTopic(ch.id, t.id)}
-                                  className="px-3 py-1.5 rounded-lg bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold transition flex items-center gap-1.5 cursor-pointer shadow-xs"
-                                >
-                                  <span>Luyện ngay</span>
-                                  <ArrowRight className="w-3.5 h-3.5" />
-                                </button>
+                              <div className="flex items-center justify-between text-[11px] text-slate-500 dark:text-zinc-400 pt-2 border-t border-slate-200/50 dark:border-zinc-800/70">
+                                <span className="font-semibold text-slate-600 dark:text-zinc-300 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors">
+                                  Luyện ngay
+                                </span>
+                                <ChevronRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-sky-600 dark:group-hover:text-sky-400 group-hover:translate-x-1 transition-all" />
                               </div>
                             </div>
                           );
