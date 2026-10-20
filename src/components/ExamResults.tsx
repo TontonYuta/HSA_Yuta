@@ -65,7 +65,7 @@ export const ExamResults: React.FC<ExamResultsProps> = ({
     const integrityLabel = report.integrityStatus === 'clean'
       ? '100% Nghiêm túc (0 lần rời tab)'
       : `Ghi nhận ${report.tabSwitchCount || 0} lần rời màn hình`;
-    const summaryText = `[KẾT QUẢ THI HSA - TONTONYUTA]\nThí sinh: ${report.studentName}\nBộ đề: ${report.examSetTitle}\nTổng điểm: ${report.totalScore}/${report.maxScore} (Trắc nghiệm: ${report.mcqScore}/${report.mcqTotal}, Điền số: ${report.fillScore}/${report.fillTotal})\nThời gian làm: ${timeSpentMin} phút\nChuyên đề cần cải thiện: ${report.weakestTopic.topicName} (${report.weakestTopic.percentage}%)\nGiám sát thi: ${integrityLabel} (Checksum: #${report.integrityChecksum || 'N/A'})\nHệ thống Luyện thi HSA cùng TontonYuta.`;
+    const summaryText = `[KẾT QUẢ THI - TOÁN HSA & THPT]\nThí sinh: ${report.studentName}\nBộ đề: ${report.examSetTitle}\nTổng điểm: ${report.totalScore}/${report.maxScore} (Trắc nghiệm: ${report.mcqScore}/${report.mcqTotal}, Điền số: ${report.fillScore}/${report.fillTotal})\nThời gian làm: ${timeSpentMin} phút\nChuyên đề cần cải thiện: ${report.weakestTopic.topicName} (${report.weakestTopic.percentage}%)\nGiám sát thi: ${integrityLabel} (Checksum: #${report.integrityChecksum || 'N/A'})\nHệ thống Luyện thi Toán trực tuyến.`;
     navigator.clipboard.writeText(summaryText);
     setCopiedSummary(true);
     setTimeout(() => setCopiedSummary(false), 2500);

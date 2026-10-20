@@ -242,8 +242,8 @@ export const ExamIntro: React.FC<ExamIntroProps> = ({
                   className={`p-4 rounded-2xl border text-left transition-all duration-200 cursor-pointer flex flex-col justify-between relative group ${
                     isSelected
                       ? isTHPT
-                        ? 'bg-gradient-to-br from-rose-50/80 via-white to-rose-50/30 dark:from-rose-950/30 dark:via-zinc-900 dark:to-zinc-900 border-rose-500 ring-2 ring-rose-500/30 shadow-md'
-                        : 'bg-gradient-to-br from-sky-50/80 via-white to-sky-50/30 dark:from-sky-950/30 dark:via-zinc-900 dark:to-zinc-900 border-sky-500 ring-2 ring-sky-500/30 shadow-md'
+                        ? 'bg-rose-50/60 dark:bg-rose-950/30 border-rose-600 ring-2 ring-rose-500/30 shadow-md'
+                        : 'bg-blue-50/60 dark:bg-blue-950/30 border-blue-600 ring-2 ring-blue-500/30 shadow-md'
                       : 'bg-white dark:bg-zinc-900 border-slate-200 dark:border-zinc-800 text-slate-700 dark:text-zinc-300 hover:border-slate-300 dark:hover:border-zinc-700 hover:shadow-sm'
                   }`}
                 >
@@ -450,8 +450,8 @@ export const ExamIntro: React.FC<ExamIntroProps> = ({
                 onClick={() => onStartExam(currentExamSet.id)}
                 className={`w-full py-4 px-5 rounded-2xl text-white font-black text-sm sm:text-base shadow-lg transition-all active:scale-[0.99] flex items-center justify-center gap-2.5 cursor-pointer ${
                   isTHPT
-                    ? 'bg-gradient-to-r from-rose-600 via-rose-500 to-rose-600 hover:from-rose-500 hover:to-rose-500 shadow-rose-600/30'
-                    : 'bg-gradient-to-r from-sky-600 via-sky-500 to-sky-600 hover:from-sky-500 hover:to-sky-500 shadow-sky-600/30'
+                    ? 'bg-rose-600 hover:bg-rose-500 shadow-rose-600/30'
+                    : 'bg-blue-600 hover:bg-blue-500 shadow-blue-600/30'
                 }`}
               >
                 <Play className="w-5 h-5 fill-current" />

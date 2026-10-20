@@ -47,7 +47,7 @@ function doGet(e) {
       return ContentService.createTextOutput(JSON.stringify({
         status: "success",
         active: true,
-        message: "Webhook Luyện Thi THPTQG & HSA TontonYuta đang hoạt động bình thường!",
+        message: "Webhook Luyện Thi Trực Tuyến đang hoạt động bình thường!",
         spreadsheetName: sheetName,
         availableSheets: activeSheets,
         timestamp: new Date().toISOString()
@@ -60,7 +60,7 @@ function doGet(e) {
       "<head>" +
       "<meta charset='utf-8'/>" +
       "<meta name='viewport' content='width=device-width, initial-scale=1.0'/>" +
-      "<title>Trạng Thái Webhook - HSA TontonYuta</title>" +
+      "<title>Trạng Thái Webhook - Hệ Thống Luyện Thi</title>" +
       "<style>" +
       "  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; color: #f8fafc; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; padding: 20px; }" +
       "  .card { background: #1e293b; border: 1px solid #334155; border-radius: 20px; padding: 36px; max-width: 520px; width: 100%; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); text-align: center; }" +
@@ -91,7 +91,7 @@ function doGet(e) {
       "</body>" +
       "</html>"
     );
-    htmlOutput.setTitle("Webhook Status - HSA & THPTQG TontonYuta");
+    htmlOutput.setTitle("Webhook Status - Hệ Thống Luyện Thi Trực Tuyến");
     return htmlOutput;
   } catch (err) {
     return ContentService.createTextOutput(JSON.stringify({ status: "error", error: err.toString() }))
@@ -161,9 +161,9 @@ function doPost(e) {
       if (teacherEmail && teacherEmail.indexOf("@") !== -1) {
         MailApp.sendEmail({
           to: teacherEmail,
-          subject: "[TontonYuta] 🎉 Học sinh mới đăng ký & khảo sát: " + (data.studentName || "Học sinh mới") + " (" + (data.school || "THPT") + ")",
+          subject: "[Hệ Thống] 🎉 Học sinh mới đăng ký & khảo sát: " + (data.studentName || "Học sinh mới") + " (" + (data.school || "THPT") + ")",
           htmlBody: buildStudentJoinedEmail(data, teacherEmail),
-          name: "Luyện thi Toán TontonYuta"
+          name: "Hệ Thống Luyện Thi Trực Tuyến"
         });
       }
 
@@ -206,14 +206,14 @@ function doPost(e) {
       if (!alreadyNotified && teacherEmail && teacherEmail.indexOf("@") !== -1) {
         cache.put(visitKey, "1", 900); // 15 phút cooldown
 
-        const visitSubject = "[TontonYuta] 🔔 Có học sinh vừa truy cập: " + (data.studentName || "Khách mới") + (data.school && data.school !== "Chưa cung cấp" ? (" (" + data.school + ")") : "");
+        const visitSubject = "[Hệ Thống] 🔔 Có học sinh vừa truy cập: " + (data.studentName || "Khách mới") + (data.school && data.school !== "Chưa cung cấp" ? (" (" + data.school + ")") : "");
         const visitHtml = buildStudentVisitEmail(data, teacherEmail);
 
         MailApp.sendEmail({
           to: teacherEmail,
           subject: visitSubject,
           htmlBody: visitHtml,
-          name: "Luyện thi Toán TontonYuta"
+          name: "Hệ Thống Luyện Thi Trực Tuyến"
         });
       }
 
@@ -338,7 +338,7 @@ function doPost(e) {
         to: teacherEmail,
         subject: emailSubject,
         htmlBody: emailHtmlBody,
-        name: isTHPT ? "Hệ Thống Luyện Thi THPTQG 2027" : "Hệ Thống Luyện Thi HSA TontonYuta"
+        name: isTHPT ? "Hệ Thống Luyện Thi THPTQG 2027" : "Hệ Thống Luyện Thi Trực Tuyến"
       });
       sentCount++;
     }
@@ -353,7 +353,7 @@ function doPost(e) {
         to: data.studentEmail.trim(),
         subject: "[Phiếu Báo Điểm Điện Tử] " + emailSubject,
         htmlBody: emailHtmlBody,
-        name: isTHPT ? "Hệ Thống Luyện Thi THPTQG 2027" : "Hệ Thống Luyện Thi HSA TontonYuta"
+        name: isTHPT ? "Hệ Thống Luyện Thi THPTQG 2027" : "Hệ Thống Luyện Thi Trực Tuyến"
       });
       sentCount++;
     }
@@ -456,7 +456,7 @@ function buildStudentJoinedEmail(data, teacherEmail) {
   return "<div style='font-family: Arial, sans-serif; padding: 24px; border: 1px solid #e2e8f0; border-radius: 14px; max-width: 600px; margin: 0 auto; background: #ffffff;'>" +
     "<div style='background: linear-gradient(135deg, #059669, #047857); padding: 18px 20px; border-radius: 10px; color: #ffffff; text-align: center; margin-bottom: 20px;'>" +
     "<h2 style='margin: 0; font-size: 18px; color: #ffffff;'>🎉 HỌC SINH MỚI THAM GIA & KHẢO SÁT</h2>" +
-    "<p style='margin: 4px 0 0; font-size: 13px; opacity: 0.9; color: #ffffff;'>Nền tảng Luyện Thi Toán THPTQG 2027 & HSA TontonYuta</p>" +
+    "<p style='margin: 4px 0 0; font-size: 13px; opacity: 0.9; color: #ffffff;'>Nền tảng Luyện Thi Toán Chuẩn Hóa GDPT 2018</p>" +
     "</div>" +
     "<table style='width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.8;'>" +
     "<tr><td style='color: #64748b; width: 150px;'>Họ và tên:</td><td style='font-weight: bold; color: #0f172a;'>" + (data.studentName || "Chưa rõ") + "</td></tr>" +
@@ -487,7 +487,7 @@ function buildStudentVisitEmail(data, teacherEmail) {
   return "<div style='font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; line-height: 1.6; color: #1e293b; padding: 24px; border: 1px solid #e2e8f0; border-radius: 16px; background-color: #ffffff;'>" +
     "<div style='background: " + brandGradient + "; padding: 20px; border-radius: 12px; color: #ffffff; margin-bottom: 20px; text-align: center;'>" +
     "<h2 style='margin: 0; font-size: 19px; font-weight: 800; color: #ffffff;'>🔔 THÔNG BÁO HỌC SINH TRUY CẬP WEB</h2>" +
-    "<p style='margin: 4px 0 0; font-size: 13px; opacity: 0.95; color: #ffffff;'>Hệ thống Luyện thi Toán THPTQG 2027 & ĐGNL HSA TontonYuta</p>" +
+    "<p style='margin: 4px 0 0; font-size: 13px; opacity: 0.95; color: #ffffff;'>Hệ thống Luyện thi Toán Chuẩn Hóa GDPT 2018</p>" +
     "</div>" +
     "<p style='font-size: 14.5px;'>Kính gửi Thầy/Cô,</p>" +
     "<p style='font-size: 14px; color: #475569;'>Hệ thống vừa ghi nhận một lượt truy cập mới vào nền tảng ôn luyện:</p>" +
@@ -589,7 +589,7 @@ function buildExamResultEmail(data, isTHPT, rankBadge, rankColor, scorePercent, 
     incorrectListHtml +
 
     "<div style='margin-top: 28px; padding-top: 14px; border-top: 1px solid #f1f5f9; text-align: center; font-size: 12px; color: #94a3b8;'>" +
-    "Dự án Luyện thi Toán THPT Quốc Gia 2027 & ĐGNL HSA cùng TontonYuta · Nền tảng luyện thi chuẩn hóa GDPT 2018." +
+    "Dự án Luyện thi Toán Chuẩn Hóa GDPT 2018 · Nền tảng học tập trực tuyến." +
     "</div>" +
     "</div>";
 }

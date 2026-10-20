@@ -133,9 +133,9 @@ export const StudentNameModal: React.FC<StudentNameModalProps> = ({
               {step === 1 ? <User className="w-5 h-5" /> : <Star className="w-5 h-5 fill-current" />}
             </div>
             <div>
-              <div className="inline-flex items-center gap-1 px-2 py-0.2 rounded-full bg-sky-100 dark:bg-sky-950/80 text-sky-700 dark:text-sky-300 text-[10px] font-bold uppercase tracking-wider mb-0.5 border border-sky-200/80 dark:border-sky-800/80">
-                <Sparkles className="w-3 h-3 text-sky-500" />
-                <span>Hệ Thống Luyện Thi HSA TontonYuta</span>
+              <div className="inline-flex items-center gap-1 px-2 py-0.2 rounded-full bg-blue-100 dark:bg-blue-950/80 text-blue-700 dark:text-blue-300 text-[10px] font-bold uppercase tracking-wider mb-0.5 border border-blue-200/80 dark:border-blue-800/80">
+                <Sparkles className="w-3 h-3 text-blue-500" />
+                <span>Hệ Thống Luyện Thi Trực Tuyến</span>
               </div>
               <h2 className="text-base sm:text-lg font-black text-slate-900 dark:text-zinc-100 tracking-tight">
                 {step === 1 ? 'Thông tin học sinh' : 'Phiếu khảo sát nhanh'}
@@ -246,10 +246,10 @@ export const StudentNameModal: React.FC<StudentNameModalProps> = ({
               </div>
             </div>
 
-            {/* Câu 2: Đánh giá chất lượng kênh TikTok */}
+            {/* Câu 2: Đánh giá chất lượng kênh */}
             <div className="space-y-1.5 pt-1">
               <label className="block text-xs font-bold text-slate-800 dark:text-zinc-200">
-                2. Bạn đánh giá nội dung kênh TikTok Toán TontonYuta thế nào? <span className="text-rose-500">*</span>
+                2. Bạn đánh giá nội dung video & tài liệu ôn tập thế nào? <span className="text-rose-500">*</span>
               </label>
 
               {/* 5-Star interactive selector */}
@@ -319,7 +319,7 @@ export const StudentNameModal: React.FC<StudentNameModalProps> = ({
               {hasFeedback === 'Có' && (
                 <div className="p-3 rounded-xl bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800/50 space-y-2 animate-fade-in">
                   <div className="text-[11.5px] text-amber-900 dark:text-amber-200 leading-relaxed font-medium">
-                    💌 <strong>Nhắn tin trực tiếp:</strong> Bạn cứ thoải mái inbox trực tiếp qua Facebook hoặc TikTok của chủ kênh nhé! Ngoài ra, bạn cũng có thể nhắn nhanh ở đây:
+                    💌 <strong>Nhắn tin trực tiếp:</strong> Bạn cứ thoải mái inbox trực tiếp qua Facebook hoặc TikTok nhé! Ngoài ra, bạn cũng có thể nhắn nhanh ở đây:
                   </div>
                   <textarea
                     rows={2}
@@ -346,7 +346,7 @@ export const StudentNameModal: React.FC<StudentNameModalProps> = ({
               <button
                 type="button"
                 onClick={() => handleFinalSubmit(false)}
-                className="flex-1 py-2.5 px-4 rounded-xl bg-gradient-to-r from-sky-600 to-indigo-600 hover:from-sky-500 hover:to-indigo-500 text-white font-bold text-xs sm:text-sm transition flex items-center justify-center gap-2 cursor-pointer shadow-md hover:shadow-lg active:scale-98"
+                className="flex-1 py-2.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs sm:text-sm transition flex items-center justify-center gap-2 cursor-pointer shadow-md hover:shadow-lg active:scale-98"
               >
                 <span>Hoàn tất & Bắt đầu luyện thi</span>
                 <ArrowRight className="w-4 h-4" />

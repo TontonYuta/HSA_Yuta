@@ -116,13 +116,13 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
         {!isCollapsed ? (
           <div className="h-14 px-3.5 border-b border-slate-200 dark:border-zinc-800/80 flex items-center justify-between shrink-0 bg-slate-50/60 dark:bg-zinc-900/40">
             <div className="flex items-center gap-2.5 overflow-hidden">
-              <div className="w-8 h-8 rounded-full overflow-hidden ring-2 ring-sky-500/30 dark:ring-sky-400/30 shrink-0 bg-sky-50 dark:bg-zinc-800 shadow-xs">
-                <img src="/avt.png" alt="TontonYuta" className="w-full h-full object-cover" />
+              <div className="w-8 h-8 rounded-full overflow-hidden ring-2 ring-blue-500/30 dark:ring-blue-400/30 shrink-0 bg-blue-50 dark:bg-zinc-800 shadow-xs">
+                <img src="/avt.png" alt="Avatar" className="w-full h-full object-cover" />
               </div>
               <div className="flex flex-col truncate">
                 <span className="text-xs font-black tracking-tight text-slate-900 dark:text-zinc-100 flex items-center gap-1 truncate">
-                  <span>HSA TontonYuta</span>
-                  <span className="text-[9px] px-1 py-0.2 rounded bg-sky-100 dark:bg-sky-950 text-sky-600 dark:text-sky-300 font-mono font-bold">{targetYear}</span>
+                  <span>Toán 12 HSA & THPT</span>
+                  <span className="text-[9px] px-1 py-0.2 rounded bg-blue-100 dark:bg-blue-950 text-blue-600 dark:text-blue-300 font-mono font-bold">{targetYear}</span>
                 </span>
                 <span className="text-[10px] text-slate-400 dark:text-zinc-500 truncate">
                   Toán Học & Tư Duy Định Lượng
@@ -161,8 +161,8 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
               className="w-10 h-10 rounded-xl hover:bg-slate-100 dark:hover:bg-zinc-800/80 flex items-center justify-center transition cursor-pointer relative group"
               title="Mở rộng menu (Bấm để xem đầy đủ)"
             >
-              <div className="w-8 h-8 rounded-full overflow-hidden ring-2 ring-sky-500/30 dark:ring-sky-400/30 group-hover:ring-sky-500 transition shadow-xs">
-                <img src="/avt.png" alt="TontonYuta" className="w-full h-full object-cover" />
+              <div className="w-8 h-8 rounded-full overflow-hidden ring-2 ring-blue-500/30 dark:ring-blue-400/30 group-hover:ring-blue-500 transition shadow-xs">
+                <img src="/avt.png" alt="Avatar" className="w-full h-full object-cover" />
               </div>
               {/* Floating Tooltip */}
               <div className="absolute left-full ml-3 top-1/2 -translate-y-1/2 px-2.5 py-1 bg-slate-900 dark:bg-zinc-800 text-white text-[11px] font-semibold rounded-lg shadow-xl whitespace-nowrap opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-150 z-50 flex items-center gap-1.5">
@@ -176,15 +176,15 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
 
         {/* 2. Student Identity Card */}
         {!isCollapsed ? (
-          <div className="p-3 border-b border-slate-100 dark:border-zinc-800/60 bg-gradient-to-r from-sky-50/50 via-indigo-50/30 to-purple-50/40 dark:from-sky-950/20 dark:via-zinc-900/40 dark:to-indigo-950/10 shrink-0">
+          <div className="p-3 border-b border-slate-100 dark:border-zinc-800/60 bg-slate-50 dark:bg-zinc-900/40 shrink-0">
             <div className="flex items-center justify-between gap-2">
               <div className="flex items-center gap-2 truncate">
-                <div className="w-7 h-7 rounded-lg bg-sky-500/10 dark:bg-sky-500/20 text-sky-600 dark:text-sky-400 flex items-center justify-center shrink-0">
+                <div className="w-7 h-7 rounded-lg bg-blue-500/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
                   <User className="w-3.5 h-3.5" />
                 </div>
                 <div className="truncate">
                   <div className="text-xs font-bold text-slate-900 dark:text-zinc-100 truncate">
-                    {studentName || 'Học sinh HSA'}
+                    {studentName || 'Học sinh'}
                   </div>
                   {studentSchool ? (
                     <div className="text-[10px] text-slate-500 dark:text-zinc-400 truncate">
@@ -192,7 +192,7 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
                     </div>
                   ) : (
                     <div className="text-[10px] text-emerald-600 dark:text-emerald-400 font-medium">
-                      Đang ôn luyện HSA
+                      Hệ thống luyện thi trực tuyến
                     </div>
                   )}
                 </div>
@@ -201,7 +201,7 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
               <button
                 type="button"
                 onClick={onEditStudentName}
-                className="p-1 rounded-md text-slate-400 hover:text-sky-600 dark:hover:text-sky-400 hover:bg-white dark:hover:bg-zinc-800 transition cursor-pointer shrink-0"
+                className="p-1 rounded-md text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-white dark:hover:bg-zinc-800 transition cursor-pointer shrink-0"
                 title="Đổi thông tin học sinh"
               >
                 <Edit3 className="w-3.5 h-3.5" />
@@ -214,13 +214,13 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
             <button
               type="button"
               onClick={onEditStudentName}
-              className="w-10 h-10 rounded-xl bg-sky-500/10 hover:bg-sky-500/20 text-sky-600 dark:text-sky-400 flex items-center justify-center transition cursor-pointer relative group"
-              title={`Học sinh: ${studentName || 'Học sinh HSA'}`}
+              className="w-10 h-10 rounded-xl bg-blue-500/10 hover:bg-blue-500/20 text-blue-600 dark:text-blue-400 flex items-center justify-center transition cursor-pointer relative group"
+              title={`Học sinh: ${studentName || 'Học sinh'}`}
             >
               <User className="w-4 h-4" />
               {/* Tooltip */}
               <div className="absolute left-full ml-3 top-1/2 -translate-y-1/2 px-2.5 py-1 bg-slate-900 dark:bg-zinc-800 text-white text-[11px] font-semibold rounded-lg shadow-xl whitespace-nowrap opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-150 z-50">
-                <span>{studentName || 'Học sinh HSA'}</span>
+                <span>{studentName || 'Học sinh'}</span>
                 {studentSchool && <span className="block text-[10px] text-slate-300 font-normal">{studentSchool}</span>}
                 <div className="absolute right-full top-1/2 -translate-y-1/2 border-4 border-transparent border-r-slate-900 dark:border-r-zinc-800" />
               </div>
@@ -245,7 +245,7 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
                 onClick={() => onSelectTrack && onSelectTrack('THPTQG')}
                 className={`py-1.5 px-2 rounded-md text-[11px] font-bold transition flex items-center justify-center gap-1.5 cursor-pointer ${
                   currentTrack === 'THPTQG'
-                    ? 'bg-gradient-to-r from-rose-600 to-amber-600 text-white shadow-xs'
+                    ? 'bg-rose-600 text-white shadow-xs'
                     : 'text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-100'
                 }`}
                 title="Luyện thi Tốt nghiệp THPT Quốc Gia (Không tham số m, nhiều Toán thực tế)"
@@ -257,7 +257,7 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
                 onClick={() => onSelectTrack && onSelectTrack('HSA')}
                 className={`py-1.5 px-2 rounded-md text-[11px] font-bold transition flex items-center justify-center gap-1.5 cursor-pointer ${
                   currentTrack === 'HSA'
-                    ? 'bg-gradient-to-r from-sky-600 to-indigo-600 text-white shadow-xs'
+                    ? 'bg-blue-600 text-white shadow-xs'
                     : 'text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-100'
                 }`}
                 title="Luyện thi Đánh giá năng lực ĐHQGHN (Đầy đủ 50 câu, 75 phút)"

@@ -762,7 +762,7 @@ export default function App() {
               <div className="flex items-center gap-2.5">
                 <GraduationCap className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0" />
                 <span className="font-bold text-slate-800 dark:text-zinc-200">
-                  Luyện thi HSA cùng TontonYuta
+                  Luyện Thi HSA & THPT Quốc Gia
                 </span>
                 <span>·</span>
                 <span>Hệ Thống Luyện Thi ĐGNL ĐHQGHN (Toán Học & Tư Duy Định Lượng)</span>

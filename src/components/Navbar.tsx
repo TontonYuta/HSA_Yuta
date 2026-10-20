@@ -52,6 +52,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   hideQuestionSource = false,
   onToggleHideQuestionSource,
   onToggleMobileSidebar,
+  studentName,
 }) => {
   const isTHPT = currentTrack === 'THPTQG';
   const targetYear = getTargetExamYear();
@@ -127,10 +128,10 @@ export const Navbar: React.FC<NavbarProps> = ({
                 </div>
                 <div className="flex flex-col">
                   <span className="text-xs sm:text-sm font-black tracking-tight text-slate-900 dark:text-zinc-100 whitespace-nowrap">
-                    TontonYuta <span className="font-mono text-[10px] text-sky-600 dark:text-sky-400 font-bold">{targetYear}</span>
+                    Toán 12 <span className="font-mono text-[10px] text-blue-600 dark:text-blue-400 font-bold">{targetYear}</span>
                   </span>
-                  <span className="text-[9px] text-slate-400 dark:text-zinc-500 font-medium">
-                    {isTHPT ? 'GDPT 2018' : 'ĐGNL HSA'}
+                  <span className="text-[9px] text-slate-400 dark:text-zinc-500 font-medium truncate max-w-[120px]">
+                    {studentName ? studentName : (isTHPT ? 'THPTQG 2027' : 'ĐGNL HSA')}
                   </span>
                 </div>
               </button>
@@ -241,7 +242,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                     onClick={() => onSelectTrack('THPTQG')}
                     className={`px-2 py-1 rounded-md text-[10px] font-bold transition flex items-center gap-1 cursor-pointer ${
                       isTHPT
-                        ? 'bg-gradient-to-r from-rose-600 to-amber-600 text-white shadow-xs'
+                        ? 'bg-rose-600 text-white shadow-xs'
                         : 'text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-100'
                     }`}
                     title={`Chế độ THPTQG ${targetYear}`}
@@ -253,7 +254,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                     onClick={() => onSelectTrack('HSA')}
                     className={`px-2 py-1 rounded-md text-[10px] font-bold transition flex items-center gap-1 cursor-pointer ${
                       !isTHPT
-                        ? 'bg-gradient-to-r from-sky-600 to-indigo-600 text-white shadow-xs'
+                        ? 'bg-blue-600 text-white shadow-xs'
                         : 'text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-100'
                     }`}
                     title={`Chế độ HSA ${targetYear}`}

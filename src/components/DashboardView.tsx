@@ -152,16 +152,16 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
       {/* =================================================================== */}
       {/* 1. TOP REALTIME STATUS & TRACK SWITCHER (Responsive & Clean)       */}
       {/* =================================================================== */}
-      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 p-2 sm:p-2.5 sm:px-4 rounded-2xl bg-white dark:bg-[#121217] border border-slate-200/80 dark:border-zinc-800/80 shadow-xs">
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 p-2 sm:p-2.5 sm:px-4 rounded-2xl bg-white dark:bg-[#111319] border border-slate-200 dark:border-zinc-800 shadow-xs">
         {/* Track Switcher: Visible on sm+ (on mobile, top Navbar already has fast 1-tap track switcher) */}
         <div className="hidden sm:flex items-center gap-2">
-          <div className="flex items-center p-0.5 rounded-xl bg-slate-100 dark:bg-zinc-900 border border-slate-200/60 dark:border-zinc-800">
+          <div className="flex items-center p-0.5 rounded-xl bg-slate-100 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800">
             <button
               type="button"
               onClick={() => onSelectTrack && onSelectTrack('THPTQG')}
               className={`px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer ${
                 isTHPT
-                  ? 'bg-gradient-to-r from-rose-600 to-amber-600 text-white shadow-xs'
+                  ? 'bg-rose-600 text-white shadow-xs'
                   : 'text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-100'
               }`}
               title={`Chế độ Tốt Nghiệp THPT Quốc Gia ${targetYear}`}
@@ -173,7 +173,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
               onClick={() => onSelectTrack && onSelectTrack('HSA')}
               className={`px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer ${
                 !isTHPT
-                  ? 'bg-gradient-to-r from-sky-600 to-indigo-600 text-white shadow-xs'
+                  ? 'bg-blue-600 text-white shadow-xs'
                   : 'text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-100'
               }`}
               title={`Chế độ Đánh Giá Năng Lực HSA ${targetYear}`}
@@ -183,19 +183,19 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
           </div>
         </div>
 
-        {/* Live Realtime Clock & Exam Countdown Indicator (Full width on mobile, right-aligned on desktop) */}
+        {/* Live Realtime Clock & Exam Countdown Indicator */}
         <div className="flex items-center justify-between sm:justify-end gap-2 text-xs font-mono w-full sm:w-auto">
-          <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-50 dark:bg-zinc-900/60 border border-slate-200/60 dark:border-zinc-800/60 text-slate-600 dark:text-zinc-300">
-            <Clock className="w-3.5 h-3.5 text-sky-500 shrink-0" />
+          <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 text-slate-600 dark:text-zinc-300">
+            <Clock className="w-3.5 h-3.5 text-blue-500 shrink-0" />
             <span className="hidden md:inline">{formattedDate} • </span>
             <span className="font-bold">{formattedTime}</span>
           </div>
           <div className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg border font-bold ${
             isTHPT 
-              ? 'bg-rose-500/10 border-rose-500/20 text-rose-700 dark:text-rose-300' 
-              : 'bg-amber-500/10 border-amber-500/20 text-amber-700 dark:text-amber-300'
+              ? 'bg-rose-50 dark:bg-rose-950/60 border-rose-200 dark:border-rose-900 text-rose-700 dark:text-rose-300' 
+              : 'bg-blue-50 dark:bg-blue-950/60 border-blue-200 dark:border-blue-900 text-blue-700 dark:text-blue-300'
           }`}>
-            <Zap className={`w-3.5 h-3.5 shrink-0 ${isTHPT ? 'text-rose-500' : 'text-amber-500'}`} />
+            <Zap className={`w-3.5 h-3.5 shrink-0 ${isTHPT ? 'text-rose-500' : 'text-blue-500'}`} />
             <span>Còn <span className="font-black font-mono">{isTHPT ? daysToTHPTQG : daysToHSA}</span> ngày</span>
           </div>
         </div>
@@ -205,50 +205,47 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
       {/* 2. BENTO ROW 1: HERO CTA (2/3) + STATS RADAR (1/3)                  */}
       {/* =================================================================== */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 sm:gap-4">
-        {/* HERO CARD (Spans 2 cols on lg) */}
-        <div className={`lg:col-span-2 relative overflow-hidden rounded-2xl p-4 sm:p-6 flex flex-col justify-between shadow-xs transition-all border ${
-          isTHPT
-            ? 'bg-gradient-to-br from-rose-500/[0.08] via-amber-500/[0.04] to-transparent dark:from-rose-950/40 dark:via-zinc-900/40 dark:to-transparent border-rose-200/70 dark:border-zinc-800/80'
-            : 'bg-gradient-to-br from-sky-500/[0.08] via-indigo-500/[0.04] to-transparent dark:from-sky-950/40 dark:via-zinc-900/40 dark:to-transparent border-sky-200/70 dark:border-zinc-800/80'
-        }`}>
-          {/* Subtle glow decoration */}
-          <div className={`absolute -top-20 -right-20 w-48 h-48 rounded-full blur-3xl pointer-events-none ${
-            isTHPT ? 'bg-rose-500/10 dark:bg-rose-500/15' : 'bg-sky-500/10 dark:bg-sky-500/15'
-          }`} />
-
+        {/* HERO CARD (Spans 2 cols on lg) - High Contrast Dark Console Surface */}
+        <div className="lg:col-span-2 relative overflow-hidden rounded-3xl p-5 sm:p-6 flex flex-col justify-between shadow-xl transition-all border-2 bg-slate-900 text-white dark:bg-[#111319] border-slate-800 dark:border-zinc-800">
           <div className="space-y-3 relative z-10">
-            <div className="flex items-center justify-between flex-wrap gap-2">
-              <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider border shadow-xs ${
-                isTHPT
-                  ? 'bg-rose-100/80 dark:bg-rose-950/80 text-rose-700 dark:text-rose-300 border-rose-200/80 dark:border-rose-800/70'
-                  : 'bg-sky-100/80 dark:bg-sky-950/80 text-sky-700 dark:text-sky-300 border-sky-200/80 dark:border-sky-800/70'
-              }`}>
-                <Sparkles className={`w-3.5 h-3.5 ${isTHPT ? 'text-rose-500' : 'text-sky-500'}`} />
-                <span>{isTHPT ? `Luyện Thi THPT Quốc Gia ${targetYear}` : `Luyện Thi ĐGNL HSA ${targetYear}`}</span>
-              </span>
+            <div className="flex items-center justify-between flex-wrap gap-2.5">
+              <div className="flex items-center gap-2">
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                </span>
+                <span className={`px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider ${
+                  isTHPT
+                    ? 'bg-rose-950/90 text-rose-300 border border-rose-800/80'
+                    : 'bg-blue-950/90 text-blue-300 border border-blue-800/80'
+                }`}>
+                  {isTHPT ? `Luyện Thi THPT Quốc Gia ${targetYear}` : `Luyện Thi ĐGNL HSA ${targetYear}`}
+                </span>
+              </div>
 
               <button
                 type="button"
                 onClick={onEditStudentProfile}
-                className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-200 hover:bg-white/80 dark:hover:bg-zinc-800/80 border border-slate-200/60 dark:border-zinc-800 transition cursor-pointer"
+                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold text-slate-300 hover:text-white bg-slate-800/90 hover:bg-slate-700 border border-slate-700/80 transition cursor-pointer"
+                title="Bấm để cập nhật hồ sơ học sinh"
               >
-                <Edit3 className={`w-3 h-3 ${isTHPT ? 'text-rose-500' : 'text-sky-500'}`} />
-                <span>{studentSchool || studentName || 'Hồ sơ học sinh'}</span>
+                <Edit3 className={`w-3.5 h-3.5 ${isTHPT ? 'text-rose-400' : 'text-blue-400'}`} />
+                <span>{studentSchool ? `${studentName || 'Học sinh'} · ${studentSchool}` : (studentName ? `Học sinh: ${studentName}` : 'Hồ sơ học sinh')}</span>
               </button>
             </div>
 
-            <div>
-              <h1 className="text-xl sm:text-2xl md:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
-                Chào {studentName ? studentName.split(' ').slice(-1)[0] : 'bạn'}, {isTHPT ? `sẵn sàng bứt phá 9+ THPTQG ${targetYear}?` : `sẵn sàng bứt phá 90+ HSA ${targetYear}?`} 👋
+            <div className="space-y-1.5 mt-2">
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-black text-white tracking-tight leading-tight">
+                Chào {studentName ? <span className={isTHPT ? 'text-rose-400 font-extrabold' : 'text-sky-400 font-extrabold'}>{studentName}</span> : 'bạn'}, {isTHPT ? `sẵn sàng bứt phá 9+ THPTQG ${targetYear}?` : `sẵn sàng bứt phá 90+ HSA ${targetYear}?`} 👋
               </h1>
-              <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 mt-2 max-w-xl leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-300 max-w-xl leading-relaxed">
                 {isTHPT ? (
                   <span>
-                    Chương trình ôn thi chuẩn <strong>GDPT 2018</strong>: <em>Lược bỏ hoàn toàn câu hỏi chứa tham số m</em>, tập trung tối đa vào <strong>Toán thực tế</strong>, tối ưu kinh tế, tích phân chuyển động, xác suất Bayes và thống kê ghép nhóm.
+                    Chương trình ôn thi chuẩn <strong>GDPT 2018</strong>: Lược bỏ hoàn toàn câu hỏi chứa tham số m, tập trung tối đa vào <strong>Toán thực tế</strong>, tối ưu kinh tế, tích phân chuyển động, xác suất Bayes và thống kê ghép nhóm.
                   </span>
                 ) : (
                   <span>
-                    Kho luyện thi chuẩn hóa cấu trúc <strong>Đánh Giá Năng Lực ĐHQGHN</strong> với 50 câu (35 trắc nghiệm + 15 điền số) bấm giờ 75 phút thực chiến.
+                    Kho luyện thi chuẩn hóa cấu trúc <strong>Đánh Giá Năng Lực ĐHQGHN</strong> với 50 câu (35 trắc nghiệm + 15 điền số) bấm giờ 75 phút thực chiến chuẩn form đề thi thật.
                   </span>
                 )}
               </p>
@@ -256,20 +253,18 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
           </div>
 
           {/* Hero Action Button & Pill Features */}
-          <div className="pt-4 sm:pt-5 relative z-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 border-t border-slate-200/50 dark:border-zinc-800/50 mt-4 sm:mt-5">
-            <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-[11px] sm:text-xs font-semibold text-slate-600 dark:text-zinc-400">
-              <div className="flex items-center gap-1.5">
-                <Clock className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${isTHPT ? 'text-rose-500' : 'text-sky-500'}`} />
+          <div className="pt-4 sm:pt-5 relative z-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 border-t border-slate-800/80 mt-5">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 text-[11px] sm:text-xs font-semibold text-slate-300">
+              <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-800/80 border border-slate-700/60">
+                <Clock className={`w-3.5 h-3.5 ${isTHPT ? 'text-rose-400' : 'text-sky-400'}`} />
                 <span>{isTHPT ? '90 Phút / Đề' : '75 Phút / Đề'}</span>
               </div>
-              <span className="text-slate-300 dark:text-zinc-700">·</span>
-              <div className="flex items-center gap-1.5">
-                <Layers className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-indigo-500" />
+              <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-800/80 border border-slate-700/60">
+                <Layers className="w-3.5 h-3.5 text-indigo-400" />
                 <span>{activeExamSets.length} Bộ Đề Thi</span>
               </div>
-              <span className="text-slate-300 dark:text-zinc-700">·</span>
-              <div className="flex items-center gap-1.5">
-                <Award className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-500" />
+              <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-800/80 border border-slate-700/60">
+                <Award className="w-3.5 h-3.5 text-emerald-400" />
                 <span>{isTHPT ? `${practicalQuestionsCount} Câu Thực Tế` : 'Chấm tức thì'}</span>
               </div>
             </div>
@@ -277,10 +272,10 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
             <button
               type="button"
               onClick={onStartExamMode}
-              className={`px-5 py-2.5 sm:py-3 rounded-2xl text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg active:scale-98 transition flex items-center justify-center gap-2 cursor-pointer ${
+              className={`px-5 py-2.5 sm:py-3 rounded-2xl font-bold text-xs sm:text-sm shadow-lg transition active:scale-98 flex items-center justify-center gap-2 cursor-pointer ${
                 isTHPT
-                  ? 'bg-rose-600 hover:bg-rose-500 shadow-rose-600/20'
-                  : 'bg-sky-600 hover:bg-sky-500 shadow-sky-600/20'
+                  ? 'bg-rose-600 hover:bg-rose-500 text-white shadow-rose-900/40'
+                  : 'bg-blue-600 hover:bg-blue-500 text-white shadow-blue-900/40'
               }`}
             >
               <span>{isTHPT ? 'Vào phòng thi 90 phút' : 'Vào phòng thi 75 phút'}</span>
@@ -289,9 +284,9 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
           </div>
         </div>
 
-        {/* STATS RADAR CARD (1 col) */}
-        <div className="rounded-2xl bg-white dark:bg-[#121217] border border-slate-200/70 dark:border-zinc-800/80 p-4 sm:p-5 flex flex-col justify-between shadow-xs transition-all">
-          <div className="flex items-center justify-between pb-2.5 border-b border-slate-100 dark:border-zinc-800/80">
+        {/* STATS RADAR CARD (1 col) - Elevated Solid Card */}
+        <div className="rounded-3xl bg-white dark:bg-[#111319] border-2 border-slate-200 dark:border-zinc-800 p-4 sm:p-5 flex flex-col justify-between shadow-sm">
+          <div className="flex items-center justify-between pb-2.5 border-b border-slate-100 dark:border-zinc-800">
             <div className="flex items-center gap-2">
               <div className="w-7 h-7 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center">
                 <Trophy className="w-3.5 h-3.5" />
@@ -303,30 +298,30 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
             </span>
           </div>
 
-          {/* 3 Clean Stat Tiles */}
+          {/* 3 Clean Solid Stat Tiles */}
           <div className="grid grid-cols-2 gap-2 my-2.5">
-            {/* Tile 1: Điểm cao nhất */}
-            <div className="col-span-2 p-3.5 rounded-2xl bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-100 dark:border-zinc-800/60 flex items-center justify-between">
+            {/* Tile 1: Điểm cao nhất - Solid Dark Box */}
+            <div className="col-span-2 p-3.5 rounded-2xl bg-slate-900 text-white dark:bg-zinc-900 border border-slate-800 dark:border-zinc-800 flex items-center justify-between">
               <div>
-                <span className="text-[11px] font-semibold text-slate-500 dark:text-zinc-400 block">
+                <span className="text-[11px] font-semibold text-slate-400 block">
                   Điểm kỷ lục cao nhất
                 </span>
-                <div className={`text-2xl font-black font-mono tracking-tight mt-0.5 tabular-nums ${
-                  isTHPT ? 'text-rose-600 dark:text-rose-400' : 'text-sky-600 dark:text-sky-400'
+                <div className={`text-2xl sm:text-3xl font-black font-mono tracking-tight mt-0.5 tabular-nums ${
+                  isTHPT ? 'text-rose-400' : 'text-sky-400'
                 }`}>
                   {highestScore !== null ? `${highestScore}` : '--'}{' '}
                   <span className="text-xs font-medium text-slate-400">/ 50</span>
                 </div>
               </div>
-              <div className={`w-9 h-9 rounded-xl flex items-center justify-center font-bold text-xs ${
-                isTHPT ? 'bg-rose-500/10 text-rose-600 dark:text-rose-400' : 'bg-sky-500/10 text-sky-600 dark:text-sky-400'
+              <div className={`w-10 h-10 rounded-xl flex items-center justify-center font-bold text-xs ${
+                isTHPT ? 'bg-rose-950 text-rose-300 border border-rose-800' : 'bg-blue-950 text-blue-300 border border-blue-800'
               }`}>
                 {highestScore !== null ? `${Math.round((highestScore / 50) * 100)}%` : '0%'}
               </div>
             </div>
 
             {/* Tile 2: Đề đã hoàn thành */}
-            <div className="p-3 rounded-2xl bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-100 dark:border-zinc-800/60">
+            <div className="p-3 rounded-2xl bg-slate-50 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800/80">
               <span className="text-[10px] font-semibold text-slate-500 dark:text-zinc-400 block">
                 Đề đã luyện
               </span>
@@ -336,7 +331,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
             </div>
 
             {/* Tile 3: Điểm trung bình */}
-            <div className="p-3 rounded-2xl bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-100 dark:border-zinc-800/60">
+            <div className="p-3 rounded-2xl bg-slate-50 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800/80">
               <span className="text-[10px] font-semibold text-slate-500 dark:text-zinc-400 block">
                 Điểm trung bình
               </span>
@@ -347,13 +342,13 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
             </div>
           </div>
 
-          <div className="pt-2 text-[11px] text-slate-500 dark:text-zinc-400 flex items-center justify-between">
+          <div className="pt-2 text-[11px] text-slate-500 dark:text-zinc-400 flex items-center justify-between border-t border-slate-100 dark:border-zinc-800">
             <span className="flex items-center gap-1">
               <Flame className="w-3.5 h-3.5 text-amber-500" />
               <span>Tiến độ thực chiến:</span>
             </span>
             <span className="font-bold text-slate-800 dark:text-zinc-200 font-mono">
-              {Math.round((distinctExamSetsCount / 8) * 100)}% hoàn thành
+              {Math.round((distinctExamSetsCount / (activeExamSets.length || 1)) * 100)}% hoàn thành
             </span>
           </div>
         </div>
@@ -366,15 +361,15 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
         {/* Gateway 1: Luyện 30 Chuyên Đề */}
         <div
           onClick={onPracticeMode}
-          className="group rounded-2xl bg-white dark:bg-[#121217] border border-slate-200/70 dark:border-zinc-800/80 p-4 sm:p-5 shadow-xs hover:border-indigo-400/70 dark:hover:border-indigo-500/50 hover:shadow-md transition-all cursor-pointer flex flex-col justify-between"
+          className="group rounded-2xl bg-white dark:bg-[#111319] border-2 border-slate-200 dark:border-zinc-800 border-l-4 border-l-indigo-600 p-4 sm:p-5 shadow-sm hover:border-indigo-500 hover:shadow-md hover:-translate-y-0.5 transition-all cursor-pointer flex flex-col justify-between"
         >
           <div className="space-y-2.5">
             <div className="flex items-center justify-between">
-              <div className="w-9 h-9 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-600 dark:text-indigo-400 flex items-center justify-center group-hover:scale-105 transition-transform">
+              <div className="w-9 h-9 rounded-xl bg-indigo-600 text-white flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform">
                 <BookOpen className="w-4 h-4" />
               </div>
-              <span className="px-2 py-0.5 rounded-full text-[10px] font-bold font-mono bg-indigo-100/80 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 border border-indigo-200/60 dark:border-indigo-800/60">
-                30 CHUYÊN ĐỀ VI MÔ
+              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold font-mono bg-indigo-50 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800">
+                30 CHUYÊN ĐỀ TRỌNG TÂM
               </span>
             </div>
 
@@ -389,23 +384,23 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
             </div>
           </div>
 
-          <div className="pt-3 mt-2 border-t border-slate-100 dark:border-zinc-800/60 flex items-center justify-between text-xs font-semibold text-indigo-600 dark:text-indigo-400">
+          <div className="pt-3 mt-2 border-t border-slate-100 dark:border-zinc-800 flex items-center justify-between text-xs font-semibold text-indigo-600 dark:text-indigo-400">
             <span>Chọn dạng toán để bắt đầu</span>
             <span className="group-hover:translate-x-0.5 transition-transform">→</span>
           </div>
         </div>
 
-        {/* Gateway 2: Ngân Hàng 515 Câu Hỏi */}
+        {/* Gateway 2: Ngân Hàng Câu Hỏi */}
         <div
           onClick={onQuestionBankMode}
-          className="group rounded-2xl bg-white dark:bg-[#121217] border border-slate-200/70 dark:border-zinc-800/80 p-4 sm:p-5 shadow-xs hover:border-emerald-400/70 dark:hover:border-emerald-500/50 hover:shadow-md transition-all cursor-pointer flex flex-col justify-between"
+          className="group rounded-2xl bg-white dark:bg-[#111319] border-2 border-slate-200 dark:border-zinc-800 border-l-4 border-l-emerald-600 p-4 sm:p-5 shadow-sm hover:border-emerald-500 hover:shadow-md hover:-translate-y-0.5 transition-all cursor-pointer flex flex-col justify-between"
         >
           <div className="space-y-2.5">
             <div className="flex items-center justify-between">
-              <div className="w-9 h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center group-hover:scale-105 transition-transform">
+              <div className="w-9 h-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform">
                 <Search className="w-4 h-4" />
               </div>
-              <span className="px-2 py-0.5 rounded-full text-[10px] font-bold font-mono bg-emerald-100/80 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200/60 dark:border-emerald-800/60">
+              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold font-mono bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
                 {activeQuestions.length} CÂU HỎI
               </span>
             </div>
@@ -421,7 +416,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
             </div>
           </div>
 
-          <div className="pt-3 mt-2 border-t border-slate-100 dark:border-zinc-800/60 flex items-center justify-between text-xs font-semibold text-emerald-600 dark:text-emerald-400">
+          <div className="pt-3 mt-2 border-t border-slate-100 dark:border-zinc-800 flex items-center justify-between text-xs font-semibold text-emerald-600 dark:text-emerald-400">
             <span>Duyệt câu hỏi theo mức độ</span>
             <span className="group-hover:translate-x-0.5 transition-transform">→</span>
           </div>
@@ -431,10 +426,10 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
       {/* =================================================================== */}
       {/* BENTO ROW 3: BẢN ĐỒ 10 CHƯƠNG TOÁN GDPT 2018 (Airy Tiles)           */}
       {/* =================================================================== */}
-      <div className="rounded-2xl bg-white dark:bg-[#121217] border border-slate-200/70 dark:border-zinc-800/80 p-4 sm:p-5 shadow-xs space-y-3 sm:space-y-4 transition-colors">
-        <div className="flex items-center justify-between pb-3.5 border-b border-slate-100 dark:border-zinc-800/80">
+      <div className="rounded-3xl bg-white dark:bg-[#111319] border-2 border-slate-200 dark:border-zinc-800 p-4 sm:p-5 shadow-sm space-y-3 sm:space-y-4 transition-colors">
+        <div className="flex items-center justify-between pb-3.5 border-b border-slate-100 dark:border-zinc-800">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-xl bg-sky-500/10 text-sky-600 dark:text-sky-400 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-xl bg-blue-600 text-white flex items-center justify-center shadow-xs">
               <GraduationCap className="w-4 h-4" />
             </div>
             <div>
@@ -447,7 +442,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
             </div>
           </div>
 
-          <span className="text-xs font-mono text-slate-400 hidden sm:inline">
+          <span className="text-xs font-mono font-bold text-slate-500 dark:text-zinc-400 hidden sm:inline px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-zinc-800">
             10 Chương · GDPT 2018
           </span>
         </div>
@@ -460,25 +455,25 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
               <div
                 key={chapter.id}
                 onClick={() => onSelectChapter(chapter.id)}
-                className="p-3.5 rounded-2xl border border-slate-100 dark:border-zinc-800/60 bg-slate-50/50 dark:bg-zinc-900/40 hover:bg-white dark:hover:bg-zinc-800/80 hover:border-sky-300 dark:hover:border-sky-700/60 hover:shadow-xs transition-all cursor-pointer flex flex-col justify-between group space-y-2.5"
+                className="p-3.5 rounded-2xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 hover:bg-slate-50/80 dark:hover:bg-zinc-800/80 hover:border-blue-500 dark:hover:border-blue-500 hover:shadow-md transition-all cursor-pointer flex flex-col justify-between group space-y-2.5"
               >
                 <div className="space-y-1">
                   <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-bold font-mono px-1.5 py-0.5 rounded bg-slate-200/70 dark:bg-zinc-800 text-slate-700 dark:text-zinc-300">
+                    <span className="text-[10px] font-bold font-mono px-1.5 py-0.5 rounded bg-slate-900 text-white dark:bg-zinc-100 dark:text-zinc-900">
                       Ch.{idx + 1}
                     </span>
-                    <span className="text-[10px] font-mono text-slate-400">
+                    <span className="text-[10px] font-mono font-bold text-blue-600 dark:text-blue-400">
                       {qCount} câu
                     </span>
                   </div>
-                  <h4 className="text-xs font-bold text-slate-800 dark:text-zinc-200 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition line-clamp-2 leading-snug">
+                  <h4 className="text-xs font-bold text-slate-800 dark:text-zinc-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition line-clamp-2 leading-snug">
                     {chapter.name}
                   </h4>
                 </div>
 
-                <div className="flex items-center justify-between text-[11px] text-slate-500 dark:text-zinc-400 pt-1 border-t border-slate-200/40 dark:border-zinc-800/40">
+                <div className="flex items-center justify-between text-[11px] text-slate-500 dark:text-zinc-400 pt-1 border-t border-slate-100 dark:border-zinc-800">
                   <span>{chapter.topics.length} dạng</span>
-                  <ChevronRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-sky-500 group-hover:translate-x-0.5 transition-transform" />
+                  <ChevronRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-blue-500 group-hover:translate-x-0.5 transition-transform" />
                 </div>
               </div>
             );
@@ -489,10 +484,10 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
       {/* =================================================================== */}
       {/* BENTO ROW 4: LỊCH SỬ THI & BÁO CÁO GẦN NHẤT                          */}
       {/* =================================================================== */}
-      <div className="rounded-2xl bg-white dark:bg-[#121217] border border-slate-200/70 dark:border-zinc-800/80 p-4 sm:p-5 shadow-xs space-y-3 sm:space-y-4 transition-colors">
-        <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-zinc-800/80">
+      <div className="rounded-3xl bg-white dark:bg-[#111319] border-2 border-slate-200 dark:border-zinc-800 p-4 sm:p-5 shadow-sm space-y-3 sm:space-y-4 transition-colors">
+        <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-zinc-800">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-xl bg-sky-500/10 text-sky-600 dark:text-sky-400 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-xl bg-blue-600 text-white flex items-center justify-center shadow-xs">
               <BarChart3 className="w-4 h-4" />
             </div>
             <div>
@@ -500,13 +495,13 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                 Lịch Sử Làm Bài Gần Đây
               </h2>
               <p className="text-xs text-slate-500 dark:text-zinc-400">
-                Kết quả các bài thi thử 75 phút được lưu trữ và đồng bộ
+                Kết quả các bài thi thử được lưu trữ và đồng bộ
               </p>
             </div>
           </div>
 
           {examHistory.length > 0 && (
-            <span className="text-xs font-mono text-slate-500 dark:text-zinc-400">
+            <span className="text-xs font-mono font-semibold px-2 py-0.5 rounded-full bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-300">
               {examHistory.length} bài đã lưu
             </span>
           )}
@@ -514,7 +509,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
 
         {examHistory.length === 0 ? (
           <div className="py-10 text-center space-y-3">
-            <div className="w-12 h-12 rounded-2xl bg-sky-50 dark:bg-zinc-900 text-sky-500 dark:text-sky-400 flex items-center justify-center mx-auto">
+            <div className="w-12 h-12 rounded-2xl bg-slate-100 dark:bg-zinc-900 text-blue-600 dark:text-blue-400 flex items-center justify-center mx-auto">
               <FileCheck2 className="w-6 h-6" />
             </div>
             <div className="space-y-1">
@@ -522,13 +517,13 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                 Chưa có lịch sử làm bài thi thử
               </p>
               <p className="text-xs text-slate-500 dark:text-zinc-400 max-w-sm mx-auto">
-                Bấm giờ làm bài thi thử 75 phút để hệ thống ghi nhận điểm số và phân tích chuyên đề cần cải thiện.
+                Bấm giờ làm bài thi thử để hệ thống ghi nhận điểm số và phân tích chuyên đề cần cải thiện.
               </p>
             </div>
             <button
               type="button"
               onClick={onStartExamMode}
-              className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white text-xs font-semibold shadow-xs transition cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold shadow-xs transition cursor-pointer"
             >
               <span>Làm bài thi thử đầu tiên</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -542,7 +537,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
               return (
                 <div
                   key={item.id}
-                  className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 rounded-2xl border border-slate-100 dark:border-zinc-800/60 bg-slate-50/50 dark:bg-zinc-900/40 hover:bg-white dark:hover:bg-zinc-800 hover:shadow-xs transition gap-3"
+                  className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 rounded-2xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 hover:shadow-sm transition gap-3"
                 >
                   <div className="space-y-1">
                     <div className="flex items-center gap-2 flex-wrap">
@@ -554,7 +549,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                           isHighScore
                             ? 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300'
                             : isMediumScore
-                            ? 'bg-sky-100 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300'
+                            ? 'bg-blue-100 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300'
                             : 'bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300'
                         }`}
                       >
@@ -582,10 +577,10 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                   <button
                     type="button"
                     onClick={() => onStartSpecificExam(item.examSetId)}
-                    className="self-end sm:self-center px-3.5 py-1.5 rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:bg-slate-50 dark:hover:bg-zinc-800 text-[11px] font-semibold text-slate-700 dark:text-zinc-300 transition flex items-center gap-1.5 cursor-pointer shrink-0 shadow-xs"
+                    className="self-end sm:self-center px-3.5 py-1.5 rounded-xl border border-slate-200 dark:border-zinc-700 bg-slate-50 dark:bg-zinc-800 hover:bg-slate-100 dark:hover:bg-zinc-700 text-[11px] font-semibold text-slate-700 dark:text-zinc-200 transition flex items-center gap-1.5 cursor-pointer shrink-0 shadow-xs"
                     title="Làm lại bộ đề này"
                   >
-                    <RotateCcw className="w-3.5 h-3.5 text-sky-500" />
+                    <RotateCcw className="w-3.5 h-3.5 text-blue-500" />
                     <span>Làm lại đề này</span>
                   </button>
                 </div>

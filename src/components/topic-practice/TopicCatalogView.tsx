@@ -55,7 +55,7 @@ export const TopicCatalogView: React.FC<TopicCatalogViewProps> = ({
     <div className="h-[calc(100vh-52px)] md:h-screen overflow-y-auto bg-slate-50 dark:bg-[#09090b] text-slate-900 dark:text-zinc-100 p-2.5 sm:p-4 select-none">
       <div className="max-w-6xl mx-auto space-y-3 sm:space-y-4 pb-8">
         {/* Header Hero Banner */}
-        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-sky-500/10 via-indigo-500/5 to-purple-500/10 dark:from-sky-950/40 dark:via-zinc-900/60 dark:to-indigo-950/30 border border-sky-200/60 dark:border-sky-900/40 p-3.5 sm:p-4">
+        <div className="relative overflow-hidden rounded-2xl bg-white dark:bg-[#121217] border border-slate-200 dark:border-zinc-800 border-l-4 border-l-blue-600 dark:border-l-blue-500 p-3.5 sm:p-4 shadow-xs">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
             <div className="flex items-center gap-3">
               <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center shrink-0 shadow-xs ${
