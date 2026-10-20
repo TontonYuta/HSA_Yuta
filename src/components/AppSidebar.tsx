@@ -40,6 +40,7 @@ interface AppSidebarProps {
   currentTrack?: ExamTrack;
   onSelectTrack?: (track: ExamTrack) => void;
   availableQuestionsCount?: number;
+  totalQuestionsCount?: number;
   chapters?: ChapterInfo[];
   examSets?: ExamSet[];
   questions?: Question[];
@@ -62,6 +63,7 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
   currentTrack = 'PHOTHONG',
   onSelectTrack,
   availableQuestionsCount = 25,
+  totalQuestionsCount = 0,
   chapters = TOAN7_CHAPTERS_METADATA,
   examSets = TOAN7_EXAM_SETS,
   questions = [],
@@ -122,7 +124,7 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
       label: 'Ngân Hàng Câu Hỏi',
       desc: isPT ? 'Chuẩn kiến thức GDPT 2018' : 'Tuyển tập bài toán điểm 10 & HSG',
       icon: Search,
-      badge: `${availableQuestionsCount} câu`,
+      badge: `${totalQuestionsCount || availableQuestionsCount} câu`,
       action: () => onSelectMode('bank'),
       isActive: currentMode === 'bank',
     },

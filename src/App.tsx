@@ -624,6 +624,7 @@ export default function App() {
           currentTrack={currentTrack}
           onSelectTrack={handleSelectTrack}
           questions={trackQuestionsDatabase}
+          totalQuestionsCount={MASTER_QUESTIONS_DATABASE.length}
           examSets={availableExamSets}
           chapters={ACTIVE_CHAPTERS_METADATA}
         />
@@ -665,6 +666,7 @@ export default function App() {
         currentTrack={currentTrack}
         onSelectTrack={handleSelectTrack}
         questions={trackQuestionsDatabase}
+        totalQuestionsCount={MASTER_QUESTIONS_DATABASE.length}
         examSets={availableExamSets}
         chapters={ACTIVE_CHAPTERS_METADATA}
       />
@@ -701,6 +703,7 @@ export default function App() {
           currentTrack={currentTrack}
           onSelectTrack={handleSelectTrack}
           availableQuestionsCount={trackQuestionsDatabase.length}
+          totalQuestionsCount={MASTER_QUESTIONS_DATABASE.length}
           chapters={ACTIVE_CHAPTERS_METADATA}
           examSets={availableExamSets}
           questions={trackQuestionsDatabase}

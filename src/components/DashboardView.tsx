@@ -31,6 +31,7 @@ export interface ExamHistoryItem {
   id: string;
   examSetId: string;
   examSetTitle: string;
+  track?: ExamTrack;
   studentName: string;
   completedAt: string;
   score: number;
@@ -58,6 +59,7 @@ interface DashboardViewProps {
   currentTrack?: ExamTrack;
   onSelectTrack?: (track: ExamTrack) => void;
   questions?: Question[];
+  totalQuestionsCount?: number;
   examSets?: ExamSet[];
   chapters?: ChapterInfo[];
 }
@@ -74,6 +76,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
   currentTrack = 'PHOTHONG',
   onSelectTrack,
   questions,
+  totalQuestionsCount,
   examSets,
   chapters = TOAN7_CHAPTERS_METADATA,
 }) => {
@@ -82,7 +85,13 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
   const activeExamSets = examSets || TOAN7_EXAM_SETS.filter((s) => (s.track ? s.track === currentTrack : isPT ? s.id.startsWith('toan7_pt') : s.id.startsWith('toan7_nc')));
   const trackMeta = TRACK_METADATA[(currentTrack as ExamTrack) || 'PHOTHONG'];
   const { targetYear, formattedDate, formattedTime } = useRealtimeClock();
-  // Read exam history from localStorage
+  
+  // Total micro-topics dynamically computed across chapters
+  const totalTopicsCount = useMemo(() => {
+    return chapters.reduce((sum, ch) => sum + ch.topics.length, 0);
+  }, [chapters]);
+
+  // Read exam history from localStorage (filtered by active track for accuracy)
   const examHistory: ExamHistoryItem[] = useMemo(() => {
     if (typeof window === 'undefined') return [];
     try {
@@ -95,23 +104,40 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
     }
   }, []);
 
-  // Compute analytics
-  const completedExamsCount = examHistory.length;
+  // Filter exam history by current track
+  const trackExamHistory = useMemo(() => {
+    const activeExamSetIds = new Set(activeExamSets.map((s) => s.id));
+    return examHistory.filter(
+      (item) => item.track === currentTrack || activeExamSetIds.has(item.examSetId)
+    );
+  }, [examHistory, activeExamSets, currentTrack]);
+
+  // Compute analytics standardized to 10-point scale
+  const completedExamsCount = trackExamHistory.length;
   const distinctExamSetsCount = useMemo(() => {
-    const set = new Set(examHistory.map((item) => item.examSetId));
+    const set = new Set(trackExamHistory.map((item) => item.examSetId));
     return set.size;
-  }, [examHistory]);
+  }, [trackExamHistory]);
+
+  const scaledScores = useMemo(() => {
+    return trackExamHistory.map((item) => {
+      if (item.maxScore && item.maxScore > 0) {
+        return (item.score / item.maxScore) * 10;
+      }
+      return item.score <= 10 ? item.score : (item.score / 20) * 10;
+    });
+  }, [trackExamHistory]);
 
   const highestScore = useMemo(() => {
-    if (examHistory.length === 0) return null;
-    return Math.max(...examHistory.map((item) => item.score));
-  }, [examHistory]);
+    if (scaledScores.length === 0) return null;
+    return Math.round(Math.max(...scaledScores) * 10) / 10;
+  }, [scaledScores]);
 
   const avgScore = useMemo(() => {
-    if (examHistory.length === 0) return null;
-    const total = examHistory.reduce((sum, item) => sum + item.score, 0);
-    return total / examHistory.length;
-  }, [examHistory]);
+    if (scaledScores.length === 0) return null;
+    const total = scaledScores.reduce((sum, s) => sum + s, 0);
+    return Math.round((total / scaledScores.length) * 10) / 10;
+  }, [scaledScores]);
 
   // Questions count map per chapter (track-aware)
   const chapterQuestionCounts = useMemo(() => {
@@ -395,7 +421,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                 <BookOpen className="w-4 h-4" />
               </div>
               <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold font-mono bg-indigo-50 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800">
-                25 DẠNG TOÁN TRỌNG TÂM
+                {totalTopicsCount} DẠNG TOÁN TRỌNG TÂM
               </span>
             </div>
 
@@ -405,7 +431,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                 <ChevronRight className="w-4 h-4 text-slate-400 group-hover:translate-x-1 transition-transform" />
               </h3>
               <p className="text-xs text-slate-600 dark:text-zinc-400 mt-0.5 leading-relaxed">
-                Rèn sâu từng dạng bài có đáp án giải thích chi tiết, gợi ý tư duy Socratic và bộ lọc độ khó.
+                Rèn sâu từng dạng bài có đáp án giải thích chi tiết, gợi ý tư duy Socratic và bộ lọc độ khó ({activeQuestions.length} câu {isPT ? 'chuẩn SGK' : 'bứt phá 9+'}).
               </p>
             </div>
           </div>
@@ -427,7 +453,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                 <Search className="w-4 h-4" />
               </div>
               <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold font-mono bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
-                {activeQuestions.length} CÂU HỎI
+                {totalQuestionsCount ? `${totalQuestionsCount} CÂU TOÀN THƯ VIỆN` : `${activeQuestions.length} CÂU HỎI`}
               </span>
             </div>
 
@@ -437,7 +463,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                 <ChevronRight className="w-4 h-4 text-slate-400 group-hover:translate-x-1 transition-transform" />
               </h3>
               <p className="text-xs text-slate-600 dark:text-zinc-400 mt-0.5 leading-relaxed">
-                Tra cứu kho câu hỏi đầy đủ phân loại 4 cấp độ: Nhận biết, Thông hiểu, Vận dụng và Vận dụng cao.
+                Tra cứu kho câu hỏi đầy đủ phân loại 4 cấp độ ({activeQuestions.length} câu {isPT ? 'chuẩn SGK' : 'bứt phá HSG'}).
               </p>
             </div>
           </div>
