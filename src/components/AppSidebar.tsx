@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { 
   Home, 
   LayoutDashboard,
@@ -18,7 +18,7 @@ import {
   Zap,
 } from 'lucide-react';
 import { AppMode } from './Navbar';
-import { CHAPTERS_METADATA, HSA_EXAM_SETS, THPTQG_EXAM_SETS } from '../data/topics/index';
+import { CHAPTERS_METADATA, HSA_EXAM_SETS, THPTQG_EXAM_SETS, HSA_QUESTIONS_DATABASE } from '../data/topics/index';
 import { ExamTrack, TRACK_METADATA } from '../utils/trackFilter';
 import { useRealtimeClock } from '../utils/timeUtils';
 
@@ -62,6 +62,16 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
   const [isChaptersOpen, setIsChaptersOpen] = useState(true);
   const { targetYear, formattedDate, formattedTime, daysToTHPTQG, daysToHSA } = useRealtimeClock();
   const isTHPT = currentTrack === 'THPTQG';
+
+  const chapterQuestionCounts = useMemo(() => {
+    const counts: Record<string, number> = {};
+    for (const q of HSA_QUESTIONS_DATABASE) {
+      if (q.chapterId) {
+        counts[q.chapterId] = (counts[q.chapterId] || 0) + 1;
+      }
+    }
+    return counts;
+  }, []);
 
   // If in active 75-minute CBT exam, hide sidebar completely
   if (isExamInProgress) {
@@ -347,7 +357,7 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
               {isChaptersOpen && (
                 <div className="space-y-0.5 pl-1 animate-fade-in">
                   {CHAPTERS_METADATA.map((ch, idx) => {
-                    const chCount = ch.topics.reduce((acc, t) => acc + (t.questionCount || 0), 0);
+                    const chCount = chapterQuestionCounts[ch.id] || ch.topics.reduce((acc, t) => acc + (t.questionCount || 0), 0);
 
                     return (
                       <button
