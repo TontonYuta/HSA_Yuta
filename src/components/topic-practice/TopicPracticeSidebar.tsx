@@ -8,8 +8,8 @@ import {
   Target,
   ChevronDown,
 } from 'lucide-react';
-import { Question } from '../../types/exam';
-import { CHAPTERS_METADATA } from '../../data/chaptersMetadata';
+import { Question, ChapterInfo } from '../../types/exam';
+import { TOAN7_CHAPTERS_METADATA } from '../../data/toan7/index';
 import { checkAnswerCorrectness } from '../../utils/scoring';
 
 interface TopicPracticeSidebarProps {
@@ -29,6 +29,7 @@ interface TopicPracticeSidebarProps {
   checkedStatus: Record<number, boolean>;
   answeredCount: number;
   correctCount: number;
+  chapters?: ChapterInfo[];
 }
 
 export const TopicPracticeSidebar: React.FC<TopicPracticeSidebarProps> = ({
@@ -48,9 +49,10 @@ export const TopicPracticeSidebar: React.FC<TopicPracticeSidebarProps> = ({
   checkedStatus,
   answeredCount,
   correctCount,
+  chapters = TOAN7_CHAPTERS_METADATA,
 }) => {
   const currentChapter =
-    CHAPTERS_METADATA.find((ch) => ch.id === selectedChapterId) || CHAPTERS_METADATA[0];
+    chapters.find((ch) => ch.id === selectedChapterId) || chapters[0];
   const chTotalQuestions = questions.filter((q) => q.chapterId === selectedChapterId).length;
 
   return (
@@ -131,7 +133,7 @@ export const TopicPracticeSidebar: React.FC<TopicPracticeSidebarProps> = ({
                   }}
                   className="w-full appearance-none pl-3 pr-8 py-2 rounded-xl border border-slate-200 dark:border-zinc-700 bg-slate-50 dark:bg-zinc-800/90 text-xs font-semibold text-slate-800 dark:text-zinc-200 focus:outline-none focus:ring-2 focus:ring-sky-500 transition cursor-pointer shadow-2xs"
                 >
-                  {CHAPTERS_METADATA.map((ch, idx) => {
+                  {chapters.map((ch, idx) => {
                     const count = questions.filter((q) => q.chapterId === ch.id).length;
                     return (
                       <option key={ch.id} value={ch.id} className="dark:bg-zinc-900 text-slate-900 dark:text-zinc-100">

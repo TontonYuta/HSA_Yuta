@@ -103,6 +103,12 @@ export function isPracticalMathQuestion(q: Question): boolean {
  * - THPTQG: Bỏ hoàn toàn câu hỏi chứa tham số m, ưu tiên và làm giàu toán thực tế
  */
 export function filterQuestionsByTrack(questions: Question[], track: ExamTrack): Question[] {
+  if (track === 'PHOTHONG') {
+    return questions.filter((q) => q.track === 'PHOTHONG' || q.track === 'BOTH' || (!q.track && q.difficulty !== 'Vận dụng cao'));
+  }
+  if (track === 'NANGCAO') {
+    return questions.filter((q) => q.track === 'NANGCAO' || q.track === 'BOTH' || (!q.track && (q.difficulty === 'Vận dụng cao' || q.difficulty === 'Vận dụng')));
+  }
   if (track === 'HSA') {
     return questions.map((q) => ({
       ...q,
@@ -127,6 +133,8 @@ export function filterQuestionsByTrack(questions: Question[], track: ExamTrack):
 export function filterExamSetsByTrack(examSets: ExamSet[], track: ExamTrack): ExamSet[] {
   return examSets.filter((s) => {
     if (s.track) return s.track === track;
+    if (track === 'PHOTHONG') return s.id.startsWith('toan7_pt');
+    if (track === 'NANGCAO') return s.id.startsWith('toan7_nc');
     // Default fallback: sets with id starting with thptqg are for THPTQG, else HSA
     return track === 'THPTQG' ? s.id.startsWith('thptqg') : !s.id.startsWith('thptqg');
   });
@@ -150,6 +158,34 @@ export interface TrackMeta {
 }
 
 export const TRACK_METADATA: Record<ExamTrack, TrackMeta> = {
+  PHOTHONG: {
+    id: 'PHOTHONG',
+    title: 'Toán 7 Phổ Thông (Chuẩn SGK GDPT 2018)',
+    shortTitle: 'Toán 7 Phổ Thông',
+    badge: 'Chuẩn GDPT 2018',
+    subtitle: 'Nắm chắc kiến thức SGK Kết nối tri thức & Cánh diều, bứt phá điểm 8-9 trong các bài thi định kỳ',
+    examDurationMinutes: 60,
+    questionCount: 18,
+    description:
+      'Hệ thống học tập và kiểm tra môn Toán 7 theo chuẩn chương trình GDPT 2018 (Kết nối tri thức, Cánh diều, Chân trời sáng tạo). Bao phủ đầy đủ 10 chương trọng tâm từ Số hữu tỉ, Số thực, Tam giác bằng nhau đến Thống kê & Biến cố.',
+    highlightText: 'Chuẩn SGK 2018 · Phân hóa từ Nhận biết đến Vận dụng vừa sức',
+    badgeColor: 'bg-sky-50 text-sky-700 border-sky-200 dark:bg-sky-950/40 dark:text-sky-300 dark:border-sky-800',
+    activeColor: 'from-sky-600 to-blue-600 text-white shadow-sky-500/25',
+  },
+  NANGCAO: {
+    id: 'NANGCAO',
+    title: 'Toán 7 Nâng Cao (Bứt Phá 9+ & Học Sinh Giỏi)',
+    shortTitle: 'Toán 7 Nâng Cao',
+    badge: 'Bứt Phá 9+ & HSG',
+    subtitle: 'Chinh phục bài toán điểm 10, bồi dưỡng học sinh giỏi cấp trường, quận/huyện và chuyên Toán',
+    examDurationMinutes: 90,
+    questionCount: 20,
+    description:
+      'Hệ thống bài tập và đề thi nâng cao dành cho học sinh target điểm 9+, thi HSG và ôn thi vào trường Chuyên. Tập trung vào dãy phân số quy luật, cực trị đại số, tìm x chứa dấu giá trị tuyệt đối nhiều tầng, nghiệm nguyên và kẻ đường phụ trong hình học.',
+    highlightText: 'Bứt phá điểm 10 · Rèn luyện tư duy toán học logic & giải bài toán chuyên',
+    badgeColor: 'bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-950/40 dark:text-amber-300 dark:border-amber-800',
+    activeColor: 'from-amber-600 to-rose-600 text-white shadow-amber-500/25',
+  },
   THPTQG: {
     id: 'THPTQG',
     title: `Tốt Nghiệp THPT Quốc Gia ${TARGET_YEAR} (GDPT 2018)`,

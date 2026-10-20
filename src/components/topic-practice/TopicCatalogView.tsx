@@ -15,14 +15,14 @@ import {
   Target,
 } from 'lucide-react';
 import { Question, ChapterInfo } from '../../types/exam';
-import { CHAPTERS_METADATA } from '../../data/chaptersMetadata';
+import { TOAN7_CHAPTERS_METADATA } from '../../data/toan7/index';
 import { ExamTrack } from '../../utils/trackFilter';
 
 interface TopicCatalogViewProps {
   catalogSearch: string;
   setCatalogSearch: (search: string) => void;
-  catalogFilter: 'all' | '12' | '11_10' | 'geometry';
-  setCatalogFilter: (filter: 'all' | '12' | '11_10' | 'geometry') => void;
+  catalogFilter: 'all' | 'sohoc' | 'hinhhoc' | 'thongke' | string;
+  setCatalogFilter: (filter: any) => void;
   expandedChapterId: string | null;
   setExpandedChapterId: React.Dispatch<React.SetStateAction<string | null>>;
   catalogChapters: ChapterInfo[];
@@ -30,6 +30,7 @@ interface TopicCatalogViewProps {
   onBackToExam: () => void;
   onSelectTopic: (chId: string, tId: string | null) => void;
   currentTrack?: ExamTrack;
+  chapters?: ChapterInfo[];
 }
 
 export const TopicCatalogView: React.FC<TopicCatalogViewProps> = ({
@@ -43,13 +44,14 @@ export const TopicCatalogView: React.FC<TopicCatalogViewProps> = ({
   questions,
   onBackToExam,
   onSelectTopic,
-  currentTrack = 'THPTQG',
+  currentTrack = 'PHOTHONG',
+  chapters = TOAN7_CHAPTERS_METADATA,
 }) => {
-  const isTHPT = currentTrack === 'THPTQG';
-  const [quickChapterId, setQuickChapterId] = useState<string>(CHAPTERS_METADATA[0].id);
+  const isPT = currentTrack === 'PHOTHONG';
+  const [quickChapterId, setQuickChapterId] = useState<string>(catalogChapters[0]?.id || chapters[0]?.id || 'toan7_c1_so_huu_ti');
   const [quickTopicId, setQuickTopicId] = useState<string>('__all__');
   const currentQuickChapter =
-    CHAPTERS_METADATA.find((c) => c.id === quickChapterId) || CHAPTERS_METADATA[0];
+    chapters.find((c) => c.id === quickChapterId) || chapters[0];
 
   return (
     <div className="h-[calc(100vh-52px)] md:h-screen overflow-y-auto bg-slate-50 dark:bg-[#09090b] text-slate-900 dark:text-zinc-100 p-2.5 sm:p-4 select-none">
@@ -59,28 +61,28 @@ export const TopicCatalogView: React.FC<TopicCatalogViewProps> = ({
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
             <div className="flex items-center gap-3">
               <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center shrink-0 shadow-xs ${
-                isTHPT 
-                  ? 'bg-rose-500/10 border border-rose-500/20 text-rose-600 dark:text-rose-400' 
-                  : 'bg-sky-500/10 border border-sky-500/20 text-sky-600 dark:text-sky-400'
+                isPT 
+                  ? 'bg-sky-500/10 border border-sky-500/20 text-sky-600 dark:text-sky-400' 
+                  : 'bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400'
               }`}>
                 <BookOpen className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
               <div>
                 <div className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider mb-1.5 border ${
-                  isTHPT 
-                    ? 'bg-rose-100 dark:bg-rose-950/80 text-rose-700 dark:text-rose-300 border-rose-200 dark:border-rose-800'
-                    : 'bg-sky-100 dark:bg-sky-950/80 text-sky-700 dark:text-sky-300 border-sky-200 dark:border-sky-800'
+                  isPT 
+                    ? 'bg-sky-100 dark:bg-sky-950/80 text-sky-700 dark:text-sky-300 border-sky-200 dark:border-sky-800'
+                    : 'bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-300 border-amber-200 dark:border-amber-800'
                 }`}>
                   <Sparkles className="w-3 h-3" />
-                  <span>{isTHPT ? 'Hệ Thống 10 Chương & 30 Chuyên Đề GDPT 2018' : 'Hệ Thống 10 Chương & 30 Chuyên Đề HSA'}</span>
+                  <span>{isPT ? 'Hệ Thống 10 Chương & 25 Chuyên Đề GDPT 2018' : 'Hệ Thống Chuyên Đề Bứt Phá 9+ & HSG'}</span>
                 </div>
                 <h1 className="text-lg sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">
-                  {isTHPT ? 'Trung Tâm Luyện Chuyên Đề Tốt Nghiệp THPT' : 'Trung Tâm Luyện Chuyên Đề Toán HSA'}
+                  {isPT ? 'Trung Tâm Luyện Chuyên Đề Toán 7' : 'Trung Tâm Luyện Chuyên Đề Toán 7 Nâng Cao'}
                 </h1>
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 mt-1 max-w-2xl leading-relaxed">
-                  {isTHPT 
-                    ? 'Luyện tập theo chuyên đề chuẩn GDPT 2018 (100% không chứa tham số m). Phân hóa từ Nhận biết đến Vận dụng cao, kiểm tra đáp án tức thì và lời giải chi tiết.'
-                    : 'Chọn chuyên đề bạn muốn ôn luyện. Hệ thống cung cấp câu hỏi phân hóa từ Nhận biết đến Vận dụng cao, kiểm tra đáp án tức thì và lời giải chi tiết từng bước.'}
+                  {isPT 
+                    ? 'Luyện tập theo chuyên đề chuẩn SGK GDPT 2018 (Kết nối tri thức & Cánh diều). Phân hóa từ Nhận biết đến Vận dụng, kiểm tra đáp án tức thì và gợi ý Socratic.'
+                    : 'Bồi dưỡng học sinh giỏi và ôn luyện vào trường Chuyên. Tuyển tập các bài toán điểm 10, phân số quy luật, cực trị và kẻ đường phụ.'}
                 </p>
               </div>
             </div>
@@ -100,22 +102,22 @@ export const TopicCatalogView: React.FC<TopicCatalogViewProps> = ({
             <div className="p-2 rounded-xl bg-white/60 dark:bg-zinc-900/60 border border-slate-200/50 dark:border-zinc-800/50 flex items-center gap-2">
               <BookOpen className="w-4 h-4 text-sky-500" />
               <div>
-                <div className="font-bold text-slate-900 dark:text-zinc-100">10 Chương</div>
-                <div className="text-[10px] text-slate-500 dark:text-zinc-400">Đầy đủ cấu trúc</div>
+                <div className="font-bold text-slate-900 dark:text-zinc-100">{chapters.length} Chương</div>
+                <div className="text-[10px] text-slate-500 dark:text-zinc-400">Đầy đủ SGK 2018</div>
               </div>
             </div>
             <div className="p-2 rounded-xl bg-white/60 dark:bg-zinc-900/60 border border-slate-200/50 dark:border-zinc-800/50 flex items-center gap-2">
               <Layers className="w-4 h-4 text-indigo-500" />
               <div>
-                <div className="font-bold text-slate-900 dark:text-zinc-100">30 Chuyên Đề</div>
-                <div className="text-[10px] text-slate-500 dark:text-zinc-400">{isTHPT ? 'Bám sát GDPT 2018' : 'Trọng tâm thi HSA'}</div>
+                <div className="font-bold text-slate-900 dark:text-zinc-100">25 Chuyên Đề</div>
+                <div className="text-[10px] text-slate-500 dark:text-zinc-400">{isPT ? 'Chuẩn SGK' : 'Bứt phá 9+'}</div>
               </div>
             </div>
             <div className="p-2 rounded-xl bg-white/60 dark:bg-zinc-900/60 border border-slate-200/50 dark:border-zinc-800/50 flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-emerald-500" />
               <div>
                 <div className="font-bold text-slate-900 dark:text-zinc-100">{questions.length} Câu Hỏi</div>
-                <div className="text-[10px] text-slate-500 dark:text-zinc-400">Có đáp án & lời giải</div>
+                <div className="text-[10px] text-slate-500 dark:text-zinc-400">Có đáp án & giải chi tiết</div>
               </div>
             </div>
           </div>
@@ -158,36 +160,36 @@ export const TopicCatalogView: React.FC<TopicCatalogViewProps> = ({
             </button>
             <button
               type="button"
-              onClick={() => setCatalogFilter('12')}
+              onClick={() => setCatalogFilter('sohoc')}
               className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition cursor-pointer ${
-                catalogFilter === '12'
+                catalogFilter === 'sohoc'
                   ? 'bg-sky-600 text-white shadow-xs'
                   : 'bg-white dark:bg-zinc-900 text-slate-600 dark:text-zinc-400 border border-slate-200 dark:border-zinc-800 hover:bg-slate-100 dark:hover:bg-zinc-800'
               }`}
             >
-              Chương trình 12
+              Số học & Đại số
             </button>
             <button
               type="button"
-              onClick={() => setCatalogFilter('11_10')}
+              onClick={() => setCatalogFilter('hinhhoc')}
               className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition cursor-pointer ${
-                catalogFilter === '11_10'
+                catalogFilter === 'hinhhoc'
                   ? 'bg-sky-600 text-white shadow-xs'
                   : 'bg-white dark:bg-zinc-900 text-slate-600 dark:text-zinc-400 border border-slate-200 dark:border-zinc-800 hover:bg-slate-100 dark:hover:bg-zinc-800'
               }`}
             >
-              Lớp 11 & 10
+              Hình học & Khối
             </button>
             <button
               type="button"
-              onClick={() => setCatalogFilter('geometry')}
+              onClick={() => setCatalogFilter('thongke')}
               className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition cursor-pointer ${
-                catalogFilter === 'geometry'
+                catalogFilter === 'thongke'
                   ? 'bg-sky-600 text-white shadow-xs'
                   : 'bg-white dark:bg-zinc-900 text-slate-600 dark:text-zinc-400 border border-slate-200 dark:border-zinc-800 hover:bg-slate-100 dark:hover:bg-zinc-800'
               }`}
             >
-              Hình Học & Oxyz
+              Thống kê & Xác suất
             </button>
           </div>
         </div>
@@ -218,12 +220,12 @@ export const TopicCatalogView: React.FC<TopicCatalogViewProps> = ({
                 value={quickChapterId}
                 onChange={(e) => {
                   setQuickChapterId(e.target.value);
-                  const ch = CHAPTERS_METADATA.find((c) => c.id === e.target.value);
+                  const ch = chapters.find((c) => c.id === e.target.value);
                   setQuickTopicId(ch?.topics[0]?.id || '__all__');
                 }}
                 className="w-full appearance-none pl-3 pr-8 py-2 rounded-xl border border-slate-200 dark:border-zinc-700 bg-slate-50 dark:bg-zinc-900 text-xs font-semibold text-slate-800 dark:text-zinc-200 focus:outline-none focus:ring-2 focus:ring-sky-500 transition cursor-pointer shadow-2xs"
               >
-                {CHAPTERS_METADATA.map((ch, idx) => (
+                {chapters.map((ch, idx) => (
                   <option key={ch.id} value={ch.id} className="dark:bg-zinc-900 text-slate-900 dark:text-zinc-100">
                     Chương {idx + 1}: {ch.shortName}
                   </option>
@@ -274,7 +276,7 @@ export const TopicCatalogView: React.FC<TopicCatalogViewProps> = ({
           ) : (
             catalogChapters.map((ch) => {
               const chQuestions = questions.filter((q) => q.chapterId === ch.id);
-              const originalIdx = CHAPTERS_METADATA.findIndex((c) => c.id === ch.id);
+              const originalIdx = chapters.findIndex((c) => c.id === ch.id);
               const isExpanded = expandedChapterId === ch.id || Boolean(catalogSearch.trim());
 
               return (

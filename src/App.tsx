@@ -10,7 +10,12 @@ import { ExamResults } from './components/ExamResults';
 import { TopicPractice } from './components/TopicPractice';
 import { QuestionBankView } from './components/QuestionBankView';
 import { ExamTimer } from './components/ExamTimer';
-import { HSA_QUESTIONS_DATABASE, HSA_EXAM_SETS, THPTQG_EXAM_SETS, ALL_EXAM_SETS, CHAPTERS_METADATA } from './data/topics/index';
+import { 
+  TOAN7_QUESTIONS_DATABASE as MASTER_QUESTIONS_DATABASE, 
+  TOAN7_EXAM_SETS as ALL_ACTIVE_EXAM_SETS, 
+  TOAN7_CHAPTERS_METADATA as ACTIVE_CHAPTERS_METADATA,
+  TOAN7_MICRO_TOPICS_METADATA as ACTIVE_MICRO_TOPICS_METADATA 
+} from './data/toan7/index';
 import { UserAnswer, ExamReport, TopicId, ExamTrack } from './types/exam';
 import { generateExamReport } from './utils/scoring';
 import { prepareExamQuestions } from './utils/questionRandomizer';
@@ -60,22 +65,24 @@ export default function App() {
     setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
   };
 
-  // Exam Track Mode: THPTQG (GDPT 2018 - Không tham số m, nhiều Toán thực tế) vs HSA (ĐGNL ĐHQGHN)
+  // Exam Track Mode: PHOTHONG (Toán 7 GDPT 2018) vs NANGCAO (Bứt phá 9+ & HSG)
   const [currentTrack, setCurrentTrack] = useState<ExamTrack>(() => {
-    return (localStorage.getItem('hsa_exam_track') as ExamTrack) || 'THPTQG';
+    const saved = localStorage.getItem('toan7_exam_track') as ExamTrack;
+    if (saved === 'PHOTHONG' || saved === 'NANGCAO') return saved;
+    return 'PHOTHONG';
   });
 
   useEffect(() => {
-    localStorage.setItem('hsa_exam_track', currentTrack);
+    localStorage.setItem('toan7_exam_track', currentTrack);
   }, [currentTrack]);
 
   // Filtered Exam Sets & Questions for the selected track
   const availableExamSets = React.useMemo(() => {
-    return filterExamSetsByTrack(ALL_EXAM_SETS, currentTrack);
+    return filterExamSetsByTrack(ALL_ACTIVE_EXAM_SETS, currentTrack);
   }, [currentTrack]);
 
   const trackQuestionsDatabase = React.useMemo(() => {
-    return filterQuestionsByTrack(HSA_QUESTIONS_DATABASE, currentTrack);
+    return filterQuestionsByTrack(MASTER_QUESTIONS_DATABASE, currentTrack);
   }, [currentTrack]);
 
   // Navigation & View state
@@ -84,11 +91,11 @@ export default function App() {
 
   // Exam Selection state
   const [selectedExamSetId, setSelectedExamSetId] = useState<string>(() => {
-    return currentTrack === 'THPTQG' ? 'thptqg_01_chuan' : 'de_01_chuan';
+    return currentTrack === 'PHOTHONG' ? 'toan7_pt_01' : 'toan7_nc_01';
   });
 
   const currentExamSet = React.useMemo(() => {
-    return ALL_EXAM_SETS.find((s) => s.id === selectedExamSetId) || availableExamSets[0];
+    return ALL_ACTIVE_EXAM_SETS.find((s) => s.id === selectedExamSetId) || availableExamSets[0];
   }, [selectedExamSetId, availableExamSets]);
 
   // Switch Track Handler
@@ -103,12 +110,12 @@ export default function App() {
       localStorage.removeItem('hsa_active_exam_state');
     }
     setCurrentTrack(newTrack);
-    const newSets = filterExamSetsByTrack(ALL_EXAM_SETS, newTrack);
+    const newSets = filterExamSetsByTrack(ALL_ACTIVE_EXAM_SETS, newTrack);
     const defaultSet = newSets[0];
     setSelectedExamSetId(defaultSet.id);
 
     const questionIdSet = new Set(defaultSet.questionIds);
-    const questionsForSet = HSA_QUESTIONS_DATABASE.filter((q) => questionIdSet.has(q.id));
+    const questionsForSet = MASTER_QUESTIONS_DATABASE.filter((q) => questionIdSet.has(q.id));
     setActiveQuestions(prepareExamQuestions(questionsForSet));
     setUserAnswers({});
     setCurrentQuestionIndex(0);
@@ -118,7 +125,7 @@ export default function App() {
   // Active questions for the current exam session
   const [activeQuestions, setActiveQuestions] = useState(() => {
     const questionIdSet = new Set(currentExamSet.questionIds);
-    const questionsForSet = HSA_QUESTIONS_DATABASE.filter((q) => questionIdSet.has(q.id));
+    const questionsForSet = MASTER_QUESTIONS_DATABASE.filter((q) => questionIdSet.has(q.id));
     return prepareExamQuestions(questionsForSet);
   });
 
@@ -305,9 +312,9 @@ export default function App() {
   // Handler to start official exam with selected set
   const handleStartExam = (examSetId?: string) => {
     const targetSetId = examSetId || selectedExamSetId;
-    const targetSet = ALL_EXAM_SETS.find((s) => s.id === targetSetId) || availableExamSets[0];
+    const targetSet = ALL_ACTIVE_EXAM_SETS.find((s) => s.id === targetSetId) || availableExamSets[0];
     const targetQuestionIdSet = new Set(targetSet.questionIds);
-    const questionsForSet = HSA_QUESTIONS_DATABASE.filter((q) => targetQuestionIdSet.has(q.id));
+    const questionsForSet = MASTER_QUESTIONS_DATABASE.filter((q) => targetQuestionIdSet.has(q.id));
 
     // Clear any previous saved state
     localStorage.removeItem('hsa_active_exam_state');
@@ -450,7 +457,7 @@ export default function App() {
 
   // Select whole chapter from sidebar
   const handleSelectChapter = (chapterId: string) => {
-    const chapter = CHAPTERS_METADATA.find((c) => c.id === chapterId);
+    const chapter = ACTIVE_CHAPTERS_METADATA.find((c) => c.id === chapterId);
     if (chapter && chapter.topics.length > 0) {
       setPracticeTopic(chapter.topics[0].id);
     } else {
@@ -569,7 +576,7 @@ export default function App() {
     if (currentMode === 'practice') {
       return (
         <TopicPractice
-          questions={HSA_QUESTIONS_DATABASE}
+          questions={MASTER_QUESTIONS_DATABASE}
           initialTopicId={practiceTopic}
           onBackToExam={handleGoHome}
           studentName={studentName}
@@ -579,6 +586,7 @@ export default function App() {
           teacherEmail={teacherEmail}
           webhookUrl={webhookUrl}
           currentTrack={currentTrack}
+          chapters={ACTIVE_CHAPTERS_METADATA}
         />
       );
     }
@@ -586,11 +594,12 @@ export default function App() {
     if (currentMode === 'bank') {
       return (
         <QuestionBankView
-          questions={HSA_QUESTIONS_DATABASE}
+          questions={MASTER_QUESTIONS_DATABASE}
           onStartExam={() => handleStartExam()}
           currentTrack={currentTrack}
           onSelectTrack={handleSelectTrack}
           onSelectTopicPractice={(tId) => handleSelectTopicPractice(tId)}
+          topicsMetadata={ACTIVE_MICRO_TOPICS_METADATA}
         />
       );
     }
@@ -616,6 +625,7 @@ export default function App() {
           onSelectTrack={handleSelectTrack}
           questions={trackQuestionsDatabase}
           examSets={availableExamSets}
+          chapters={ACTIVE_CHAPTERS_METADATA}
         />
       );
     }
@@ -656,6 +666,7 @@ export default function App() {
         onSelectTrack={handleSelectTrack}
         questions={trackQuestionsDatabase}
         examSets={availableExamSets}
+        chapters={ACTIVE_CHAPTERS_METADATA}
       />
     );
   };
@@ -690,6 +701,9 @@ export default function App() {
           currentTrack={currentTrack}
           onSelectTrack={handleSelectTrack}
           availableQuestionsCount={trackQuestionsDatabase.length}
+          chapters={ACTIVE_CHAPTERS_METADATA}
+          examSets={availableExamSets}
+          questions={trackQuestionsDatabase}
         />
       )}
 
@@ -762,16 +776,16 @@ export default function App() {
               <div className="flex items-center gap-2.5">
                 <GraduationCap className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0" />
                 <span className="font-bold text-slate-800 dark:text-zinc-200">
-                  Luyện thi HSA cùng TontonYuta
+                  Toán 7 THCS · TontonYuta
                 </span>
                 <span>·</span>
-                <span>Hệ Thống Luyện Thi ĐGNL ĐHQGHN (Toán Học & Tư Duy Định Lượng)</span>
+                <span>Hệ Thống Luyện Thi & Bứt Phá Điểm 9-10 Môn Toán 7 (GDPT 2018)</span>
               </div>
 
               <div className="flex items-center gap-3 text-[11px] text-slate-400 dark:text-zinc-500">
-                <span>Chuẩn đề thi ĐGNL HSA ĐHQGHN</span>
+                <span>Chuẩn 10 chương SGK Kết nối tri thức & Cánh diều</span>
                 <span>·</span>
-                <span>Cấu trúc 50 câu (35 Trắc nghiệm + 15 Điền số)</span>
+                <span>2 lộ trình: Phổ Thông & Nâng Cao HSG</span>
               </div>
             </div>
           </footer>

@@ -17,7 +17,7 @@ import {
   GraduationCap
 } from 'lucide-react';
 import { TopicId, ExamSet } from '../types/exam';
-import { HSA_EXAM_SETS, THPTQG_EXAM_SETS } from '../data/topics/index';
+import { TOAN7_EXAM_SETS } from '../data/toan7/index';
 import { ExamTrack } from '../utils/trackFilter';
 import { getTargetExamYear } from '../utils/timeUtils';
 
@@ -38,15 +38,15 @@ export const ExamIntro: React.FC<ExamIntroProps> = ({
   setStudentName,
   selectedExamSetId,
   setSelectedExamSetId,
-  currentTrack = 'THPTQG',
+  currentTrack = 'PHOTHONG',
   examSets,
 }) => {
-  const isTHPT = currentTrack === 'THPTQG';
+  const isPT = currentTrack === 'PHOTHONG';
   const targetYear = getTargetExamYear();
-  const targetExamSets = examSets || (isTHPT ? THPTQG_EXAM_SETS : HSA_EXAM_SETS);
+  const targetExamSets = examSets || TOAN7_EXAM_SETS.filter((s) => (s.track ? s.track === currentTrack : isPT ? s.id.startsWith('toan7_pt') : s.id.startsWith('toan7_nc')));
 
   // Category Filter for Exam Sets
-  const [filterCategory, setFilterCategory] = useState<'all' | 'official' | 'so' | 'practical' | 'quick'>('all');
+  const [filterCategory, setFilterCategory] = useState<'all' | 'giuaki' | 'cuoiki' | 'nangcao' | 'quick'>('all');
 
   const filteredSets = useMemo(() => {
     return targetExamSets.filter((set) => {
@@ -55,27 +55,27 @@ export const ExamIntro: React.FC<ExamIntroProps> = ({
       const lowerBadge = set.badge.toLowerCase();
       const lowerTitle = set.title.toLowerCase();
 
-      if (filterCategory === 'official') {
+      if (filterCategory === 'giuaki') {
         return (
-          lowerId.includes('chuan') ||
-          lowerBadge.includes('chuẩn') ||
-          lowerTitle.includes('chuẩn') ||
-          lowerBadge.includes('đhqghn')
+          lowerId.includes('giua_ki') ||
+          lowerBadge.includes('giữa kì') ||
+          lowerTitle.includes('giữa kì')
         );
       }
-      if (filterCategory === 'so') {
+      if (filterCategory === 'cuoiki') {
         return (
-          lowerId.includes('so_') ||
-          lowerBadge.includes('sở') ||
-          lowerTitle.includes('sở gd&đt')
+          lowerId.includes('cuoi_ki') ||
+          lowerBadge.includes('cuối kì') ||
+          lowerTitle.includes('cuối kì')
         );
       }
-      if (filterCategory === 'practical') {
+      if (filterCategory === 'nangcao') {
         return (
-          lowerBadge.includes('thực tế') ||
-          lowerTitle.includes('thực tế') ||
+          lowerBadge.includes('hsg') ||
+          lowerTitle.includes('hsg') ||
           lowerBadge.includes('9+') ||
-          lowerBadge.includes('phân hóa')
+          lowerBadge.includes('nâng cao') ||
+          set.track === 'NANGCAO'
         );
       }
       if (filterCategory === 'quick') {
@@ -83,7 +83,7 @@ export const ExamIntro: React.FC<ExamIntroProps> = ({
           set.timeMinutes <= 45 ||
           lowerBadge.includes('cấp tốc') ||
           lowerTitle.includes('cấp tốc') ||
-          lowerTitle.includes('luyện nhanh')
+          lowerTitle.includes('khảo sát')
         );
       }
       return true;
@@ -120,31 +120,31 @@ export const ExamIntro: React.FC<ExamIntroProps> = ({
       <div className="bg-white dark:bg-[#101014] border border-slate-200 dark:border-zinc-800 rounded-2xl p-4 sm:p-5 shadow-xs flex flex-col lg:flex-row lg:items-center justify-between gap-4 shrink-0">
         <div className="flex items-center gap-3">
           <div className={`w-11 h-11 rounded-2xl flex items-center justify-center shrink-0 shadow-xs ${
-            isTHPT 
-              ? 'bg-rose-500/10 border border-rose-500/20 text-rose-600 dark:text-rose-400' 
-              : 'bg-sky-500/10 border border-sky-500/20 text-sky-600 dark:text-sky-400'
+            isPT 
+              ? 'bg-sky-500/10 border border-sky-500/20 text-sky-600 dark:text-sky-400' 
+              : 'bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400'
           }`}>
             <GraduationCap className="w-6 h-6" />
           </div>
           <div>
             <div className="flex items-center gap-2.5 flex-wrap">
               <h1 className="text-base sm:text-lg xl:text-xl font-black text-slate-900 dark:text-zinc-100 tracking-tight">
-                {isTHPT 
-                  ? `Ngân Hàng Đề Thi Thử Tốt Nghiệp THPT Quốc Gia ${targetYear}` 
-                  : `Hệ Thống Đề Thi Thử Đánh Giá Năng Lực HSA ${targetYear}`}
+                {isPT 
+                  ? 'Ngân Hàng Đề Thi Toán 7 (Chuẩn GDPT 2018)' 
+                  : 'Hệ Thống Đề Thi Toán 7 Nâng Cao (Bứt Phá 9+ & HSG)'}
               </h1>
               <span className={`px-2.5 py-0.5 text-[11px] font-mono font-bold rounded-full border ${
-                isTHPT
-                  ? 'bg-rose-100 dark:bg-rose-950 text-rose-700 dark:text-rose-300 border-rose-200/60'
-                  : 'bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-300 border-sky-200/60'
+                isPT
+                  ? 'bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-300 border-sky-200/60'
+                  : 'bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-300 border-amber-200/60'
               }`}>
-                {targetExamSets.length} BỘ ĐỀ CHÍNH THỨC
+                {targetExamSets.length} BỘ ĐỀ THI
               </span>
             </div>
             <p className="text-xs text-slate-500 dark:text-zinc-400 mt-0.5 leading-relaxed">
-              {isTHPT 
-                ? 'Đề thi chuẩn hóa GDPT 2018: 100% không chứa tham số m, cấu trúc bám sát định dạng Bộ GD&ĐT & các Sở GD&ĐT 2025–2026.' 
-                : 'Đề thi chuẩn hóa 50 câu (35 trắc nghiệm + 15 điền số), bấm giờ 75 phút, chấm điểm tự động và phân tích năng lực tức thì.'}
+              {isPT 
+                ? 'Đề thi bám sát chuẩn kiến thức SGK Kết nối tri thức & Cánh diều: Kiểm tra Giữa kì, Cuối kì có biểu điểm chi tiết.' 
+                : 'Đề thi bồi dưỡng Học sinh giỏi, đề thi thử vào Chuyên và tuyển tập bài toán điểm 10 rèn luyện tư duy sâu.'}
             </p>
           </div>
         </div>
@@ -164,36 +164,36 @@ export const ExamIntro: React.FC<ExamIntroProps> = ({
           </button>
           <button
             type="button"
-            onClick={() => setFilterCategory('official')}
+            onClick={() => setFilterCategory('giuaki')}
             className={`px-2.5 py-1.5 rounded-lg transition cursor-pointer whitespace-nowrap ${
-              filterCategory === 'official'
+              filterCategory === 'giuaki'
                 ? 'bg-white dark:bg-zinc-800 text-slate-900 dark:text-zinc-100 shadow-xs font-bold'
                 : 'text-slate-500 hover:text-slate-900 dark:hover:text-zinc-200'
             }`}
           >
-            Đề Chuẩn
+            Giữa Kì
           </button>
           <button
             type="button"
-            onClick={() => setFilterCategory('so')}
+            onClick={() => setFilterCategory('cuoiki')}
             className={`px-2.5 py-1.5 rounded-lg transition cursor-pointer whitespace-nowrap ${
-              filterCategory === 'so'
+              filterCategory === 'cuoiki'
                 ? 'bg-white dark:bg-zinc-800 text-slate-900 dark:text-zinc-100 shadow-xs font-bold'
                 : 'text-slate-500 hover:text-slate-900 dark:hover:text-zinc-200'
             }`}
           >
-            Đề Các Sở
+            Cuối Kì
           </button>
           <button
             type="button"
-            onClick={() => setFilterCategory('practical')}
+            onClick={() => setFilterCategory('nangcao')}
             className={`px-2.5 py-1.5 rounded-lg transition cursor-pointer whitespace-nowrap ${
-              filterCategory === 'practical'
+              filterCategory === 'nangcao'
                 ? 'bg-white dark:bg-zinc-800 text-slate-900 dark:text-zinc-100 shadow-xs font-bold'
                 : 'text-slate-500 hover:text-slate-900 dark:hover:text-zinc-200'
             }`}
           >
-            Thực Tế / 9+
+            Bứt Phá 9+ / HSG
           </button>
           <button
             type="button"
@@ -204,7 +204,7 @@ export const ExamIntro: React.FC<ExamIntroProps> = ({
                 : 'text-slate-500 hover:text-slate-900 dark:hover:text-zinc-200'
             }`}
           >
-            Cấp Tốc
+            Cấp Tốc / Khảo Sát
           </button>
         </div>
       </div>
@@ -223,7 +223,7 @@ export const ExamIntro: React.FC<ExamIntroProps> = ({
               <span className="text-[10px] text-slate-400 font-normal">Click để chọn đề và xem chi tiết cấu trúc</span>
             </span>
             <span className="text-[11px] font-mono text-slate-500 dark:text-zinc-400">
-              Thời lượng chuẩn: {isTHPT ? '90 Phút' : '75 Phút'}
+              Thời lượng chuẩn: {isPT ? '60 Phút' : '90 Phút'}
             </span>
           </div>
 
@@ -241,9 +241,9 @@ export const ExamIntro: React.FC<ExamIntroProps> = ({
                   onClick={() => setSelectedExamSetId(set.id)}
                   className={`p-4 rounded-2xl border text-left transition-all duration-200 cursor-pointer flex flex-col justify-between relative group ${
                     isSelected
-                      ? isTHPT
-                        ? 'bg-gradient-to-br from-rose-50/80 via-white to-rose-50/30 dark:from-rose-950/30 dark:via-zinc-900 dark:to-zinc-900 border-rose-500 ring-2 ring-rose-500/30 shadow-md'
-                        : 'bg-gradient-to-br from-sky-50/80 via-white to-sky-50/30 dark:from-sky-950/30 dark:via-zinc-900 dark:to-zinc-900 border-sky-500 ring-2 ring-sky-500/30 shadow-md'
+                      ? isPT
+                        ? 'bg-gradient-to-br from-sky-50/80 via-white to-sky-50/30 dark:from-sky-950/30 dark:via-zinc-900 dark:to-zinc-900 border-sky-500 ring-2 ring-sky-500/30 shadow-md'
+                        : 'bg-gradient-to-br from-amber-50/80 via-white to-amber-50/30 dark:from-amber-950/30 dark:via-zinc-900 dark:to-zinc-900 border-amber-500 ring-2 ring-amber-500/30 shadow-md'
                       : 'bg-white dark:bg-zinc-900 border-slate-200 dark:border-zinc-800 text-slate-700 dark:text-zinc-300 hover:border-slate-300 dark:hover:border-zinc-700 hover:shadow-sm'
                   }`}
                 >
@@ -251,9 +251,9 @@ export const ExamIntro: React.FC<ExamIntroProps> = ({
                   <div className="flex items-center justify-between gap-2 mb-2.5">
                     <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded-md uppercase tracking-wider shrink-0 ${
                       isSelected
-                        ? isTHPT
-                          ? 'bg-rose-600 text-white shadow-xs'
-                          : 'bg-sky-600 text-white shadow-xs'
+                        ? isPT
+                          ? 'bg-sky-600 text-white shadow-xs'
+                          : 'bg-amber-600 text-white shadow-xs'
                         : isSo
                         ? 'bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300'
                         : isChuan
@@ -266,7 +266,7 @@ export const ExamIntro: React.FC<ExamIntroProps> = ({
                     </span>
 
                     <span className="text-[11px] font-mono text-slate-400 font-semibold flex items-center gap-1 shrink-0">
-                      <Clock className="w-3 h-3" />
+                      <Clock className="w-3 solid" />
                       <span>{set.timeMinutes}p</span>
                     </span>
                   </div>
@@ -274,7 +274,7 @@ export const ExamIntro: React.FC<ExamIntroProps> = ({
                   {/* Title */}
                   <h3 className={`font-bold text-xs sm:text-sm line-clamp-2 leading-snug mb-1.5 ${
                     isSelected 
-                      ? isTHPT ? 'text-rose-700 dark:text-rose-300' : 'text-sky-700 dark:text-sky-300'
+                      ? isPT ? 'text-sky-700 dark:text-sky-300' : 'text-amber-700 dark:text-amber-300'
                       : 'text-slate-900 dark:text-zinc-100 group-hover:text-slate-950 dark:group-hover:text-white'
                   }`}>
                     {set.title}
@@ -296,7 +296,7 @@ export const ExamIntro: React.FC<ExamIntroProps> = ({
                     <div className="flex items-center gap-1">
                       {isSelected ? (
                         <span className={`text-[10.5px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1 ${
-                          isTHPT ? 'bg-rose-100 dark:bg-rose-950 text-rose-700 dark:text-rose-300' : 'bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-300'
+                          isPT ? 'bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-300' : 'bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-300'
                         }`}>
                           <CheckCircle2 className="w-3.5 h-3.5 fill-current" />
                           <span>Đang chọn</span>
@@ -327,7 +327,7 @@ export const ExamIntro: React.FC<ExamIntroProps> = ({
                   <span>Chi tiết đề thi đang chọn:</span>
                 </span>
                 <span className={`text-[10px] font-mono px-2 py-0.5 rounded-md font-bold uppercase ${
-                  isTHPT ? 'bg-rose-100 dark:bg-rose-950 text-rose-700 dark:text-rose-300' : 'bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-300'
+                  isPT ? 'bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-300' : 'bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-300'
                 }`}>
                   {currentExamSet.badge}
                 </span>
@@ -377,38 +377,38 @@ export const ExamIntro: React.FC<ExamIntroProps> = ({
               <div className="space-y-1.5 text-[11.5px] text-slate-600 dark:text-zinc-400">
                 <div className="flex items-center justify-between">
                   <span className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-rose-500" />
-                    <span>Khảo sát hàm số & Ứng dụng đạo hàm:</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-sky-500" />
+                    <span>Số hữu tỉ & Số thực (Tập Q, R):</span>
                   </span>
                   <span className="font-mono font-bold text-slate-700 dark:text-zinc-300">~25% - 30%</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-sky-500" />
-                    <span>Phương pháp tọa độ Oxyz & Hình không gian:</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
+                    <span>Góc & Hai đường thẳng song song:</span>
                   </span>
-                  <span className="font-mono font-bold text-slate-700 dark:text-zinc-300">~20% - 25%</span>
+                  <span className="font-mono font-bold text-slate-700 dark:text-zinc-300">~15% - 20%</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
-                    <span>Xác suất có điều kiện & Công thức Bayes:</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                    <span>Tam giác bằng nhau & Các đường đồng quy:</span>
                   </span>
-                  <span className="font-mono font-bold text-slate-700 dark:text-zinc-300">~15% - 18%</span>
+                  <span className="font-mono font-bold text-slate-700 dark:text-zinc-300">~20% - 25%</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                    <span>Mẫu số liệu ghép nhóm & Thống kê hiện đại:</span>
+                    <span>Tỉ lệ thức & Biểu thức đại số:</span>
                   </span>
-                  <span className="font-mono font-bold text-slate-700 dark:text-zinc-300">~12% - 15%</span>
+                  <span className="font-mono font-bold text-slate-700 dark:text-zinc-300">~15% - 20%</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-purple-500" />
-                    <span>Toán ứng dụng thực tế & Tối ưu kinh tế:</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+                    <span>Thu thập số liệu, Biểu đồ & Xác suất:</span>
                   </span>
-                  <span className="font-mono font-bold text-slate-700 dark:text-zinc-300">~20% - 25%</span>
+                  <span className="font-mono font-bold text-slate-700 dark:text-zinc-300">~10% - 15%</span>
                 </div>
               </div>
             </div>
@@ -449,9 +449,9 @@ export const ExamIntro: React.FC<ExamIntroProps> = ({
                 type="button"
                 onClick={() => onStartExam(currentExamSet.id)}
                 className={`w-full py-4 px-5 rounded-2xl text-white font-black text-sm sm:text-base shadow-lg transition-all active:scale-[0.99] flex items-center justify-center gap-2.5 cursor-pointer ${
-                  isTHPT
-                    ? 'bg-gradient-to-r from-rose-600 via-rose-500 to-rose-600 hover:from-rose-500 hover:to-rose-500 shadow-rose-600/30'
-                    : 'bg-gradient-to-r from-sky-600 via-sky-500 to-sky-600 hover:from-sky-500 hover:to-sky-500 shadow-sky-600/30'
+                  isPT
+                    ? 'bg-gradient-to-r from-sky-600 via-sky-500 to-sky-600 hover:from-sky-500 hover:to-sky-500 shadow-sky-600/30'
+                    : 'bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 hover:from-amber-500 hover:to-amber-500 shadow-amber-600/30'
                 }`}
               >
                 <Play className="w-5 h-5 fill-current" />

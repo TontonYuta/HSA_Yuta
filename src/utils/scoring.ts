@@ -1,5 +1,6 @@
 import { Question, UserAnswer, ExamReport, TopicId } from '../types/exam';
 import { CHAPTERS_METADATA, MICRO_TOPICS_METADATA } from '../data/topics/index';
+import { TOAN7_CHAPTERS_METADATA, TOAN7_MICRO_TOPICS_METADATA } from '../data/toan7/index';
 import { generateTamperProofHash } from './security';
 
 // Color map per chapter
@@ -14,13 +15,25 @@ const CHAPTER_COLORS: Record<string, string> = {
   chuong_8_xac_suat_thong_ke: '#f43f5e', // rose
   chuong_9_luong_giac: '#ea580c', // orange
   chuong_10_toan_thuc_te_toi_uu: '#0284c7', // light blue
+
+  // Grade 7 (Toán 7) Chapters
+  toan7_c1_so_huu_ti: '#0284c7', // sky
+  toan7_c2_so_thuc: '#0d9488', // teal
+  toan7_c3_goc_song_song: '#8b5cf6', // violet
+  toan7_c4_tam_giac_bang_nhau: '#6366f1', // indigo
+  toan7_c5_thong_ke_bieu_do: '#f59e0b', // amber
+  toan7_c6_ti_le_thuc: '#ea580c', // orange
+  toan7_c7_bieu_thuc_da_thuc: '#10b981', // emerald
+  toan7_c8_bien_co_xac_suat: '#f43f5e', // rose
+  toan7_c9_quan_he_tam_giac: '#3b82f6', // blue
+  toan7_c10_hinh_khoi_thuc_tien: '#059669', // green
 };
 
-// Comprehensive metadata dictionary covering all 30 micro-topics + chapters
+// Comprehensive metadata dictionary covering all micro-topics + chapters
 export const TOPIC_METADATA: Record<string, { name: string; shortName: string; color: string; description: string }> = (() => {
   const map: Record<string, { name: string; shortName: string; color: string; description: string }> = {};
 
-  // Register chapters
+  // Register High School chapters & topics
   for (const ch of CHAPTERS_METADATA) {
     map[ch.id] = {
       name: ch.name,
@@ -30,8 +43,26 @@ export const TOPIC_METADATA: Record<string, { name: string; shortName: string; c
     };
   }
 
-  // Register all 30 micro-topics
   for (const t of MICRO_TOPICS_METADATA) {
+    map[t.id] = {
+      name: t.name,
+      shortName: t.shortName,
+      color: CHAPTER_COLORS[t.chapterId] || '#64748b',
+      description: t.description,
+    };
+  }
+
+  // Register Grade 7 chapters & micro-topics
+  for (const ch of TOAN7_CHAPTERS_METADATA) {
+    map[ch.id] = {
+      name: ch.name,
+      shortName: ch.shortName,
+      color: CHAPTER_COLORS[ch.id] || ch.color || '#64748b',
+      description: ch.description,
+    };
+  }
+
+  for (const t of TOAN7_MICRO_TOPICS_METADATA) {
     map[t.id] = {
       name: t.name,
       shortName: t.shortName,

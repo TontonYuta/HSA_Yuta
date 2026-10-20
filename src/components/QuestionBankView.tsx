@@ -23,9 +23,9 @@ import {
   Compass,
   Check
 } from 'lucide-react';
-import { Question, TopicId } from '../types/exam';
+import { Question, TopicId, MicroTopicInfo } from '../types/exam';
 import { MathRenderer } from './MathRenderer';
-import { MICRO_TOPICS_METADATA } from '../data/topics/index';
+import { TOAN7_MICRO_TOPICS_METADATA } from '../data/toan7/index';
 import { ExamTrack, isParametricMQuestion, isPracticalMathQuestion } from '../utils/trackFilter';
 import { getTargetExamYear } from '../utils/timeUtils';
 import { parseQuestionSource } from '../utils/questionSource';
@@ -38,16 +38,18 @@ interface QuestionBankViewProps {
   currentTrack?: ExamTrack;
   onSelectTrack?: (track: ExamTrack) => void;
   onSelectTopicPractice?: (topicId: TopicId) => void;
+  topicsMetadata?: MicroTopicInfo[];
 }
 
 export const QuestionBankView: React.FC<QuestionBankViewProps> = ({ 
   questions, 
   onStartExam,
-  currentTrack = 'THPTQG',
+  currentTrack = 'PHOTHONG',
   onSelectTrack,
   onSelectTopicPractice,
+  topicsMetadata = TOAN7_MICRO_TOPICS_METADATA,
 }) => {
-  const isTHPT = currentTrack === 'THPTQG';
+  const isPT = currentTrack === 'PHOTHONG';
   const targetYear = getTargetExamYear();
 
   // Search & Filter States
@@ -55,8 +57,8 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
   const [selectedTopic, setSelectedTopic] = useState<string>('all');
   const [selectedType, setSelectedType] = useState<string>('all');
   const [selectedDifficulty, setSelectedDifficulty] = useState<string>('all');
-  const [trackFilter, setTrackFilter] = useState<'all' | 'practical' | 'thptqg' | 'hsa_m'>(() => {
-    return currentTrack === 'THPTQG' ? 'thptqg' : 'all';
+  const [trackFilter, setTrackFilter] = useState<'all' | 'phothong' | 'nangcao'>(() => {
+    return currentTrack === 'NANGCAO' ? 'nangcao' : 'all';
   });
 
   // View Mode: 'focus' (Master-Detail Zero-Scroll) vs 'list' (Traditional compact list)
@@ -88,24 +90,21 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
 
   // Filter count statistics
   const counts = useMemo(() => {
-    let practical = 0;
-    let nonM = 0;
-    let hasM = 0;
+    let phothong = 0;
+    let nangcao = 0;
     for (const q of questions) {
-      if (isPracticalMathQuestion(q)) practical++;
-      if (isParametricMQuestion(q)) hasM++;
-      else nonM++;
+      if (q.track === 'PHOTHONG' || (!q.track && q.difficulty !== 'Vận dụng cao')) phothong++;
+      if (q.track === 'NANGCAO' || (!q.track && q.difficulty === 'Vận dụng cao')) nangcao++;
     }
-    return { practical, nonM, hasM, total: questions.length };
+    return { phothong, nangcao, total: questions.length };
   }, [questions]);
 
   // Filtered Questions List
   const filtered = useMemo(() => {
     return questions.filter((q) => {
       // Track filter
-      if (trackFilter === 'practical' && !isPracticalMathQuestion(q)) return false;
-      if (trackFilter === 'thptqg' && isParametricMQuestion(q)) return false;
-      if (trackFilter === 'hsa_m' && !isParametricMQuestion(q)) return false;
+      if (trackFilter === 'phothong' && q.track === 'NANGCAO') return false;
+      if (trackFilter === 'nangcao' && q.track === 'PHOTHONG') return false;
 
       if (selectedTopic !== 'all' && q.topicId !== selectedTopic) return false;
       if (selectedType !== 'all' && q.type !== selectedType) return false;
@@ -210,7 +209,7 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
             <span className="font-black text-xs sm:text-sm tracking-tight text-slate-900 dark:text-zinc-100 flex items-center gap-1.5 whitespace-nowrap">
               <span>Ngân Hàng Câu Hỏi</span>
               <span className={`text-[10px] font-mono px-2 py-0.5 rounded-full font-bold ${
-                isTHPT ? 'bg-rose-100 dark:bg-rose-950 text-rose-700 dark:text-rose-300' : 'bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-300'
+                isPT ? 'bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-300' : 'bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-300'
               }`}>
                 {filtered.length} / {questions.length}
               </span>
@@ -271,7 +270,7 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
             className="px-2 py-1 bg-slate-50 dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800 rounded-lg text-xs text-slate-800 dark:text-zinc-200 focus:outline-none focus:border-sky-500 font-medium w-32 sm:w-40 truncate shrink-0"
           >
             <option value="all">Tất cả chuyên đề</option>
-            {MICRO_TOPICS_METADATA.map((t) => (
+            {topicsMetadata.map((t) => (
               <option key={t.id} value={t.id}>
                 {t.name}
               </option>
@@ -293,25 +292,25 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
             </button>
             <button
               type="button"
-              onClick={() => handleFilterChange(setTrackFilter as any, 'practical')}
+              onClick={() => handleFilterChange(setTrackFilter as any, 'phothong')}
               className={`px-2 py-1 rounded-md font-semibold transition cursor-pointer flex items-center gap-1 whitespace-nowrap ${
-                trackFilter === 'practical'
-                  ? 'bg-emerald-600 text-white shadow-xs'
-                  : 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/60'
+                trackFilter === 'phothong'
+                  ? 'bg-sky-600 text-white shadow-xs'
+                  : 'bg-sky-50 dark:bg-sky-950/40 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800/60'
               }`}
             >
-              <span>🎯 Thực tế ({counts.practical})</span>
+              <span>📘 Phổ thông ({counts.phothong})</span>
             </button>
             <button
               type="button"
-              onClick={() => handleFilterChange(setTrackFilter as any, 'thptqg')}
+              onClick={() => handleFilterChange(setTrackFilter as any, 'nangcao')}
               className={`px-2 py-1 rounded-md font-semibold transition cursor-pointer flex items-center gap-1 whitespace-nowrap ${
-                trackFilter === 'thptqg'
-                  ? 'bg-rose-600 text-white shadow-xs'
-                  : 'bg-rose-50 dark:bg-rose-950/40 text-rose-700 dark:text-rose-300 border border-rose-200 dark:border-rose-800/60'
+                trackFilter === 'nangcao'
+                  ? 'bg-amber-600 text-white shadow-xs'
+                  : 'bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 border border-amber-200 dark:border-amber-800/60'
               }`}
             >
-              <span>🎓 Bỏ m ({counts.nonM})</span>
+              <span>🚀 Nâng cao ({counts.nangcao})</span>
             </button>
           </div>
 
@@ -320,7 +319,7 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
             type="button"
             onClick={onStartExam}
             className={`px-3 py-1.5 text-white rounded-lg text-xs font-bold transition shrink-0 shadow-xs cursor-pointer whitespace-nowrap ${
-              isTHPT ? 'bg-rose-600 hover:bg-rose-500' : 'bg-sky-600 hover:bg-sky-500'
+              isPT ? 'bg-sky-600 hover:bg-sky-500' : 'bg-amber-600 hover:bg-amber-500'
             }`}
           >
             Vào thi thử
@@ -388,16 +387,16 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
                       }}
                       className={`w-full text-left p-2.5 rounded-xl border transition-all duration-150 cursor-pointer flex flex-col gap-1 ${
                         isActive
-                          ? isTHPT
-                            ? 'bg-rose-50 dark:bg-rose-950/40 border-rose-400 dark:border-rose-700 ring-1 ring-rose-400/40'
-                            : 'bg-sky-50 dark:bg-sky-950/40 border-sky-400 dark:border-sky-700 ring-1 ring-sky-400/40'
+                          ? isPT
+                            ? 'bg-sky-50 dark:bg-sky-950/40 border-sky-400 dark:border-sky-700 ring-1 ring-sky-400/40'
+                            : 'bg-amber-50 dark:bg-amber-950/40 border-amber-400 dark:border-amber-700 ring-1 ring-amber-400/40'
                           : 'bg-white dark:bg-zinc-900 border-slate-200 dark:border-zinc-800/80 hover:border-slate-300 dark:hover:border-zinc-700 hover:bg-slate-50/70'
                       }`}
                     >
                       <div className="flex items-center justify-between text-[11px]">
                         <span className={`font-mono font-bold ${
                           isActive
-                            ? isTHPT ? 'text-rose-600 dark:text-rose-400' : 'text-sky-600 dark:text-sky-400'
+                            ? isPT ? 'text-sky-600 dark:text-sky-400' : 'text-amber-600 dark:text-amber-400'
                             : 'text-slate-700 dark:text-zinc-300'
                         }`}>
                           Câu #{q.id} <span className="text-[10px] text-slate-400 font-normal">({idx + 1}/{filtered.length})</span>
@@ -444,9 +443,9 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
                         title={`Câu #${q.id} (${q.topicName})`}
                         className={`h-9 rounded-lg border font-mono text-xs font-bold transition flex items-center justify-center relative cursor-pointer ${
                           isActive
-                            ? isTHPT
-                              ? 'bg-rose-600 text-white border-rose-700 shadow-xs ring-2 ring-rose-400/50'
-                              : 'bg-sky-600 text-white border-sky-700 shadow-xs ring-2 ring-sky-400/50'
+                            ? isPT
+                              ? 'bg-sky-600 text-white border-sky-700 shadow-xs ring-2 ring-sky-400/50'
+                              : 'bg-amber-600 text-white border-amber-700 shadow-xs ring-2 ring-amber-400/50'
                             : 'bg-white dark:bg-zinc-900 border-slate-200 dark:border-zinc-800 text-slate-700 dark:text-zinc-300 hover:border-slate-300 dark:hover:border-zinc-700'
                         }`}
                       >
@@ -857,7 +856,7 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
                     Mẹo: Dùng phím mũi tên <strong>←</strong> và <strong>→</strong> trên bàn phím để chuyển câu nhanh.
                   </span>
                   <span className="font-mono text-slate-500 dark:text-zinc-400 ml-auto">
-                    {activeQuestion.topicName} · Đề chuẩn {isTHPT ? 'THPTQG' : 'HSA'}
+                    {activeQuestion.topicName} · Toán 7 {isPT ? 'Phổ Thông' : 'Nâng Cao'}
                   </span>
                 </div>
               </>

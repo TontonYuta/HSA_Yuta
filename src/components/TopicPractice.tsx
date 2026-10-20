@@ -16,7 +16,7 @@ import confetti from 'canvas-confetti';
 import { Question, TopicId, ChapterInfo, UserAnswer } from '../types/exam';
 import { checkAnswerCorrectness, generateExamReport } from '../utils/scoring';
 import { prepareTopicPracticeQuestions } from '../utils/questionRandomizer';
-import { CHAPTERS_METADATA } from '../data/chaptersMetadata';
+import { TOAN7_CHAPTERS_METADATA } from '../data/toan7/index';
 import { 
   isAllowedWebhookUrl, 
   checkSubmissionCooldown, 
@@ -42,6 +42,7 @@ interface TopicPracticeProps {
   teacherEmail?: string;
   webhookUrl?: string;
   currentTrack?: ExamTrack;
+  chapters?: ChapterInfo[];
 }
 
 export const TopicPractice: React.FC<TopicPracticeProps> = ({
@@ -54,7 +55,8 @@ export const TopicPractice: React.FC<TopicPracticeProps> = ({
   setStudentEmail,
   teacherEmail = 'huyhoang6altt@gmail.com',
   webhookUrl,
-  currentTrack = 'THPTQG',
+  currentTrack = 'PHOTHONG',
+  chapters = TOAN7_CHAPTERS_METADATA,
 }) => {
   // Filter questions base pool by track
   const trackBaseQuestions = useMemo(() => {
@@ -63,18 +65,18 @@ export const TopicPractice: React.FC<TopicPracticeProps> = ({
   // Find initial chapter
   const defaultChapter = useMemo(() => {
     if (initialTopicId) {
-      const match = CHAPTERS_METADATA.find(
+      const match = chapters.find(
         (c) => c.id === initialTopicId || c.topics.some((t) => t.id === initialTopicId)
       );
       if (match) return match;
     }
-    return CHAPTERS_METADATA[0];
-  }, [initialTopicId]);
+    return chapters[0];
+  }, [initialTopicId, chapters]);
 
   // Catalog browsing state: If initialTopicId is NOT provided, show catalog first!
   const [isBrowsingCatalog, setIsBrowsingCatalog] = useState<boolean>(!initialTopicId);
   const [catalogSearch, setCatalogSearch] = useState<string>('');
-  const [catalogFilter, setCatalogFilter] = useState<'all' | '12' | '11_10' | 'geometry'>('all');
+  const [catalogFilter, setCatalogFilter] = useState<'all' | 'sohoc' | 'hinhhoc' | 'thongke'>('all');
   const [expandedChapterId, setExpandedChapterId] = useState<string | null>(
     initialTopicId ? defaultChapter?.id || null : null
   );
@@ -162,8 +164,8 @@ export const TopicPractice: React.FC<TopicPracticeProps> = ({
 
   // Active chapter
   const currentChapter = useMemo(() => {
-    return CHAPTERS_METADATA.find((c) => c.id === selectedChapterId) || CHAPTERS_METADATA[0];
-  }, [selectedChapterId]);
+    return chapters.find((c) => c.id === selectedChapterId) || chapters[0];
+  }, [selectedChapterId, chapters]);
 
   // Filtered & randomized questions (track-aware)
   const filteredQuestions = useMemo(() => {
@@ -210,7 +212,7 @@ export const TopicPractice: React.FC<TopicPracticeProps> = ({
   // Synchronize initialTopicId changes
   useEffect(() => {
     if (initialTopicId) {
-      const match = CHAPTERS_METADATA.find(
+      const match = chapters.find(
         (c) => c.id === initialTopicId || c.topics.some((t) => t.id === initialTopicId)
       );
       if (match) {
@@ -236,29 +238,27 @@ export const TopicPractice: React.FC<TopicPracticeProps> = ({
 
   // Filtered chapters for catalog view
   const catalogChapters = useMemo(() => {
-    let list = CHAPTERS_METADATA;
+    let list = chapters;
 
-    if (catalogFilter === '12') {
-      const g12Ids = [
-        'chuong_1_ham_so',
-        'chuong_5_toa_do_oxyz',
-        'chuong_thong_ke_ghep_nhom',
-        'chuong_3_nguyen_ham_tich_phan',
-        'chuong_xac_suat_bayes',
+    if (catalogFilter === 'sohoc') {
+      const soHocIds = [
+        'toan7_c1_so_huu_ti',
+        'toan7_c2_so_thuc',
+        'toan7_c6_ti_le_thuc',
+        'toan7_c7_bieu_thuc_da_thuc',
       ];
-      list = list.filter((c) => g12Ids.includes(c.id));
-    } else if (catalogFilter === '11_10') {
-      const g1110Ids = [
-        'chuong_2_mu_logarit',
-        'chuong_7_day_so_cap_so',
-        'chuong_4_hinh_hoc_khong_gian',
-        'chuong_9_luong_giac',
-        'chuong_6_toan_lop_10',
+      list = list.filter((c) => soHocIds.includes(c.id));
+    } else if (catalogFilter === 'hinhhoc') {
+      const geomIds = [
+        'toan7_c3_goc_song_song',
+        'toan7_c4_tam_giac_bang_nhau',
+        'toan7_c9_quan_he_tam_giac',
+        'toan7_c10_hinh_khoi_thuc_tien',
       ];
-      list = list.filter((c) => g1110Ids.includes(c.id));
-    } else if (catalogFilter === 'geometry') {
-      const geomIds = ['chuong_4_hinh_hoc_khong_gian', 'chuong_5_toa_do_oxyz', 'chuong_6_toan_lop_10'];
       list = list.filter((c) => geomIds.includes(c.id));
+    } else if (catalogFilter === 'thongke') {
+      const statIds = ['toan7_c5_thong_ke_bieu_do', 'toan7_c8_bien_co_xac_suat'];
+      list = list.filter((c) => statIds.includes(c.id));
     }
 
     const q = catalogSearch.trim().toLowerCase();
@@ -291,7 +291,7 @@ export const TopicPractice: React.FC<TopicPracticeProps> = ({
 
   const handleSelectChapter = (chId: string) => {
     setSelectedChapterId(chId);
-    const ch = CHAPTERS_METADATA.find((c) => c.id === chId);
+    const ch = chapters.find((c) => c.id === chId);
     setSelectedTopicId(ch?.topics[0]?.id || null);
     setRandomSeed((prev) => prev + 1);
     resetQuestionState();
@@ -433,6 +433,7 @@ export const TopicPractice: React.FC<TopicPracticeProps> = ({
         onBackToExam={onBackToExam}
         onSelectTopic={handleSelectTopicFromCatalog}
         currentTrack={currentTrack}
+        chapters={chapters}
       />
     );
   }
@@ -457,6 +458,7 @@ export const TopicPractice: React.FC<TopicPracticeProps> = ({
         checkedStatus={checkedStatus}
         answeredCount={answeredCount}
         correctCount={correctCount}
+        chapters={chapters}
       />
 
       {/* 2. MAIN WORKSPACE */}
@@ -485,7 +487,7 @@ export const TopicPractice: React.FC<TopicPracticeProps> = ({
                 className="w-full appearance-none pl-2 sm:pl-2.5 pr-5 py-1.5 rounded-lg border border-slate-200 dark:border-zinc-800 bg-slate-100/90 dark:bg-zinc-900 hover:bg-slate-200/60 dark:hover:bg-zinc-800 text-xs font-bold text-slate-800 dark:text-zinc-200 focus:outline-none focus:ring-2 focus:ring-sky-500 transition cursor-pointer truncate shadow-2xs"
                 title="Chọn chương GDPT 2018"
               >
-                {CHAPTERS_METADATA.map((ch, idx) => (
+                {chapters.map((ch, idx) => (
                   <option key={ch.id} value={ch.id} className="dark:bg-zinc-900 text-slate-900 dark:text-zinc-100 font-medium">
                     C.{idx + 1}: {ch.shortName}
                   </option>

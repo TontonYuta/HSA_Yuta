@@ -1,6 +1,6 @@
 export type QuestionType = 'mcq' | 'fill';
 
-export type ExamTrack = 'THPTQG' | 'HSA';
+export type ExamTrack = 'PHOTHONG' | 'NANGCAO' | 'THPTQG' | 'HSA';
 
 export type TopicId = string;
 
