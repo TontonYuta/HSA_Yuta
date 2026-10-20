@@ -115,9 +115,11 @@ Khi người dùng yêu cầu thêm đề mới từ tài liệu / PDF:
 
 ---
 
-## 6. Lệnh Kiểm Tra Thường Dùng (Cheatsheet)
+## 6. Lệnh Kiểm Tra & Triển Khai Thường Dùng (Cheatsheet)
 
 - Kiểm tra cú pháp KaTeX & logic đáp án: `npm run validate:latex`
 - Kiểm tra kiểu dữ liệu TypeScript: `npx tsc --noEmit`
 - Build dự án Vite: `npm run build`
 - Chạy dev server: `npm run dev`
+- Đăng nhập Clasp Google Apps Script: `npm run gas:login`
+- Tự động đồng bộ và deploy Google Apps Script Webhook: `npm run gas:deploy`

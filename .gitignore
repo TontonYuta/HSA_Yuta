@@ -10,4 +10,7 @@ __pycache__/
 *.pyc
 .vercel/
 
-.vercel
+# Google Clasp credentials & local config
+.clasprc.json
+.clasp.json
+

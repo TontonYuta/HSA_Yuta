@@ -58,3 +58,41 @@ Hệ thống Webhook Google Apps Script (GAS) tự động đồng bộ kết qu
 - Mở ứng dụng webtest, bấm nút **Đồng Bộ Google Sheets & Webhook** (hoặc biểu tượng Webhook trên thanh menu).
 - Dán URL vừa sao chép vào ô **Đường link Webhook**.
 - Bấm nút **Kiểm tra kết nối** để kiểm tra đồng bộ, sau đó bấm **Lưu cấu hình**.
+
+---
+
+### 🚀 Tự Động Cập Nhật Lâu Dài (CI/CD với Google Clasp)
+
+Để không bao giờ phải copy-paste mã nguồn hay thao tác thủ công trên Google Sheet, dự án đã tích hợp sẵn công cụ CLI `@google/clasp`:
+
+#### 1. Bật Google Apps Script API (Làm 1 lần)
+- Truy cập: [https://script.google.com/home/usersettings](https://script.google.com/home/usersettings)
+- Bật mục **Google Apps Script API** sang trạng thái **ON** (BẬT).
+
+#### 2. Đăng nhập Clasp trên máy
+Chạy lệnh sau trên terminal để đăng nhập tài khoản Google sở hữu bảng tính:
+```bash
+npm run gas:login
+```
+
+#### 3. Cấu hình Script ID
+- Mở Apps Script trên Google Sheet -> Bấm vào biểu tượng bánh răng **Cài đặt dự án** (Project Settings).
+- Sao chép chuỗi **ID tập lệnh** (Script ID).
+- Tạo file `.clasp.json` tại thư mục gốc của dự án:
+```json
+{
+  "scriptId": "DAN_SCRIPT_ID_CUA_BAN_VAO_DAY",
+  "rootDir": "./google-apps-script"
+}
+```
+
+#### 4. Cập nhật mã nguồn tự động
+Mỗi khi sửa đổi mã nguồn hoặc muốn cập nhật script lên Google Sheets, chỉ cần chạy 1 dòng lệnh:
+```bash
+npm run gas:deploy
+```
+Quy trình sẽ tự động:
+1. Đồng bộ template `gasScriptTemplate.ts` sang `google-apps-script/Code.gs`.
+2. Đẩy code lên Google Drive qua `clasp push`.
+3. Tái triển khai phiên bản mới đè lên Webhook hiện tại, **đảm bảo URL Webhook giữ nguyên 100%**.
+
