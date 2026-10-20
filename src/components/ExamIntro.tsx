@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { 
   Play, 
   Clock, 
@@ -113,7 +114,7 @@ export const ExamIntro: React.FC<ExamIntroProps> = ({
   }, [currentExamSet, onStartExam]);
 
   return (
-    <div className="max-w-[1360px] mx-auto min-h-full flex flex-col space-y-4 animate-fade-in text-slate-900 dark:text-zinc-100 font-sans select-none pb-8">
+    <div className="max-w-[1360px] mx-auto min-h-full flex flex-col space-y-4 animate-fade-in text-slate-900 dark:text-zinc-100 font-sans select-none pb-24 lg:pb-8">
       {/* =================================================================== */}
       {/* 1. TOP HEADER & CATEGORY FILTER BAR                                */}
       {/* =================================================================== */}
@@ -238,7 +239,13 @@ export const ExamIntro: React.FC<ExamIntroProps> = ({
               return (
                 <div
                   key={set.id}
-                  onClick={() => setSelectedExamSetId(set.id)}
+                  onClick={() => {
+                    if (isSelected) {
+                      onStartExam(set.id);
+                    } else {
+                      setSelectedExamSetId(set.id);
+                    }
+                  }}
                   className={`p-4 rounded-2xl border text-left transition-all duration-200 cursor-pointer flex flex-col justify-between relative group ${
                     isSelected
                       ? isTHPT
@@ -295,14 +302,24 @@ export const ExamIntro: React.FC<ExamIntroProps> = ({
 
                     <div className="flex items-center gap-1">
                       {isSelected ? (
-                        <span className={`text-[10.5px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1 ${
-                          isTHPT ? 'bg-rose-100 dark:bg-rose-950 text-rose-700 dark:text-rose-300' : 'bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-300'
-                        }`}>
-                          <CheckCircle2 className="w-3.5 h-3.5 fill-current" />
-                          <span>Đang chọn</span>
-                        </span>
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            onStartExam(set.id);
+                          }}
+                          className={`px-3 py-1.5 rounded-xl font-bold text-xs text-white shadow-md flex items-center gap-1.5 transition active:scale-95 cursor-pointer ${
+                            isTHPT
+                              ? 'bg-rose-600 hover:bg-rose-500 shadow-rose-600/30'
+                              : 'bg-blue-600 hover:bg-blue-500 shadow-blue-600/30'
+                          }`}
+                          title="Bắt đầu làm bài thi ngay"
+                        >
+                          <span>Làm bài ngay</span>
+                          <Play className="w-3 h-3 fill-current" />
+                        </button>
                       ) : (
-                        <span className="text-[10.5px] text-slate-400 group-hover:text-slate-600 dark:group-hover:text-zinc-300 transition">
+                        <span className="text-[11px] font-semibold text-slate-400 group-hover:text-slate-700 dark:group-hover:text-zinc-200 transition">
                           Chọn đề →
                         </span>
                       )}
@@ -464,6 +481,47 @@ export const ExamIntro: React.FC<ExamIntroProps> = ({
           </div>
         </div>
       </div>
+
+      {/* =================================================================== */}
+      {/* 3. MOBILE FIXED STICKY ACTION BAR: 1-TAP START ANYWHERE             */}
+      {/* =================================================================== */}
+      {typeof document !== 'undefined' &&
+        createPortal(
+          <div className="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/95 dark:bg-[#101014]/95 backdrop-blur-md border-t border-slate-200 dark:border-zinc-800 p-2.5 px-3.5 shadow-2xl flex items-center justify-between gap-3 safe-area-pb">
+            <div className="flex flex-col min-w-0 flex-1">
+              <div className="flex items-center gap-1.5">
+                <span className={`text-[10px] font-mono font-bold uppercase px-1.5 py-0.5 rounded ${
+                  isTHPT
+                    ? 'bg-rose-100 dark:bg-rose-950 text-rose-700 dark:text-rose-300'
+                    : 'bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-300'
+                }`}>
+                  {currentExamSet.badge}
+                </span>
+                <span className="text-[11px] font-mono text-slate-500 dark:text-zinc-400 font-semibold">
+                  {currentExamSet.timeMinutes}p • {currentExamSet.questionCount} câu
+                </span>
+              </div>
+              <span className="text-xs font-bold text-slate-900 dark:text-zinc-100 truncate mt-0.5">
+                {currentExamSet.title}
+              </span>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => onStartExam(currentExamSet.id)}
+              className={`px-4 py-2.5 rounded-xl font-black text-xs text-white shadow-lg flex items-center gap-1.5 shrink-0 transition active:scale-95 cursor-pointer ${
+                isTHPT
+                  ? 'bg-rose-600 hover:bg-rose-500 shadow-rose-600/30'
+                  : 'bg-blue-600 hover:bg-blue-500 shadow-blue-600/30'
+              }`}
+              title="Bấm để vào làm bài thi ngay"
+            >
+              <span>VÀO THI NGAY</span>
+              <Play className="w-3.5 h-3.5 fill-current" />
+            </button>
+          </div>,
+          document.body
+        )}
     </div>
   );
 };

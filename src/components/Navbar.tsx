@@ -29,6 +29,7 @@ interface NavbarProps {
   // Global sidebar & student profile
   onToggleMobileSidebar?: () => void;
   studentName?: string;
+  studentSchool?: string;
   onEditStudentName?: () => void;
 }
 
@@ -53,6 +54,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onToggleHideQuestionSource,
   onToggleMobileSidebar,
   studentName,
+  studentSchool,
 }) => {
   const isTHPT = currentTrack === 'THPTQG';
   const targetYear = getTargetExamYear();
@@ -116,22 +118,18 @@ export const Navbar: React.FC<NavbarProps> = ({
                     onSelectMode('intro');
                   }
                 }}
-                className="flex items-center gap-1.5 sm:gap-2 group cursor-pointer text-left"
-                title="Trang chủ Luyện thi"
+                className="flex items-center gap-2 group cursor-pointer text-left"
+                title="Hồ sơ học sinh & Trang chủ"
               >
-                <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 shadow-xs transition ${
-                  isTHPT 
-                    ? 'bg-rose-500/10 border border-rose-500/20 text-rose-600 dark:text-rose-400' 
-                    : 'bg-sky-500/10 border border-sky-500/20 text-sky-600 dark:text-sky-400'
-                }`}>
-                  <GraduationCap className="w-4 h-4" />
+                <div className="w-8 h-8 rounded-full overflow-hidden ring-2 ring-blue-500/30 dark:ring-blue-400/30 shrink-0 bg-blue-50 dark:bg-zinc-800 shadow-xs flex items-center justify-center">
+                  <img src="/avt.png" alt="Avatar" className="w-full h-full object-cover" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-xs sm:text-sm font-black tracking-tight text-slate-900 dark:text-zinc-100 whitespace-nowrap">
-                    Toán 12 <span className="font-mono text-[10px] text-blue-600 dark:text-blue-400 font-bold">{targetYear}</span>
+                  <span className="text-xs sm:text-sm font-black tracking-tight text-slate-900 dark:text-zinc-100 truncate max-w-[130px] sm:max-w-[180px]">
+                    {studentName || 'Học sinh'}
                   </span>
-                  <span className="text-[9px] text-slate-400 dark:text-zinc-500 font-medium truncate max-w-[120px]">
-                    {studentName ? studentName : (isTHPT ? 'THPTQG 2027' : 'ĐGNL HSA')}
+                  <span className="text-[9.5px] text-slate-400 dark:text-zinc-500 font-medium truncate max-w-[130px] sm:max-w-[180px]">
+                    {studentSchool || (isTHPT ? 'Luyện thi THPTQG' : 'Luyện thi HSA')}
                   </span>
                 </div>
               </button>

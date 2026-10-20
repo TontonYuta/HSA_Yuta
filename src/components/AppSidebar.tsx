@@ -61,6 +61,7 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
 }) => {
   const [isChaptersOpen, setIsChaptersOpen] = useState(true);
   const { targetYear, formattedDate, formattedTime, daysToTHPTQG, daysToHSA } = useRealtimeClock();
+  const isTHPT = currentTrack === 'THPTQG';
 
   // If in active 75-minute CBT exam, hide sidebar completely
   if (isExamInProgress) {
@@ -112,7 +113,7 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
   const renderSidebarBody = (isCollapsed: boolean, isMobile: boolean) => {
     return (
       <>
-        {/* 1. Header & Logo */}
+        {/* 1. Header & Student Identity */}
         {!isCollapsed ? (
           <div className="h-14 px-3.5 border-b border-slate-200 dark:border-zinc-800/80 flex items-center justify-between shrink-0 bg-slate-50/60 dark:bg-zinc-900/40">
             <div className="flex items-center gap-2.5 overflow-hidden">
@@ -121,16 +122,23 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
               </div>
               <div className="flex flex-col truncate">
                 <span className="text-xs font-black tracking-tight text-slate-900 dark:text-zinc-100 flex items-center gap-1 truncate">
-                  <span>Toán 12 HSA & THPT</span>
-                  <span className="text-[9px] px-1 py-0.2 rounded bg-blue-100 dark:bg-blue-950 text-blue-600 dark:text-blue-300 font-mono font-bold">{targetYear}</span>
+                  <span>{studentName || 'Học sinh'}</span>
                 </span>
                 <span className="text-[10px] text-slate-400 dark:text-zinc-500 truncate">
-                  Toán Học & Tư Duy Định Lượng
+                  {studentSchool || (isTHPT ? 'Luyện thi THPTQG 2027' : 'Luyện thi HSA 2027')}
                 </span>
               </div>
             </div>
 
             <div className="flex items-center gap-1">
+              <button
+                type="button"
+                onClick={onEditStudentName}
+                className="p-1.5 rounded-lg text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-100 dark:hover:bg-zinc-800/60 cursor-pointer transition"
+                title="Đổi thông tin học sinh"
+              >
+                <Edit3 className="w-3.5 h-3.5" />
+              </button>
               {isMobile ? (
                 <button
                   type="button"
@@ -166,7 +174,7 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
               </div>
               {/* Floating Tooltip */}
               <div className="absolute left-full ml-3 top-1/2 -translate-y-1/2 px-2.5 py-1 bg-slate-900 dark:bg-zinc-800 text-white text-[11px] font-semibold rounded-lg shadow-xl whitespace-nowrap opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-150 z-50 flex items-center gap-1.5">
-                <span>Mở rộng menu</span>
+                <span>{studentName || 'Học sinh'}</span>
                 <ChevronRight className="w-3.5 h-3.5 text-sky-400" />
                 <div className="absolute right-full top-1/2 -translate-y-1/2 border-4 border-transparent border-r-slate-900 dark:border-r-zinc-800" />
               </div>
@@ -174,61 +182,7 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
           </div>
         )}
 
-        {/* 2. Student Identity Card */}
-        {!isCollapsed ? (
-          <div className="p-3 border-b border-slate-100 dark:border-zinc-800/60 bg-slate-50 dark:bg-zinc-900/40 shrink-0">
-            <div className="flex items-center justify-between gap-2">
-              <div className="flex items-center gap-2 truncate">
-                <div className="w-7 h-7 rounded-lg bg-blue-500/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
-                  <User className="w-3.5 h-3.5" />
-                </div>
-                <div className="truncate">
-                  <div className="text-xs font-bold text-slate-900 dark:text-zinc-100 truncate">
-                    {studentName || 'Học sinh'}
-                  </div>
-                  {studentSchool ? (
-                    <div className="text-[10px] text-slate-500 dark:text-zinc-400 truncate">
-                      {studentSchool}
-                    </div>
-                  ) : (
-                    <div className="text-[10px] text-emerald-600 dark:text-emerald-400 font-medium">
-                      Hệ thống luyện thi trực tuyến
-                    </div>
-                  )}
-                </div>
-              </div>
-
-              <button
-                type="button"
-                onClick={onEditStudentName}
-                className="p-1 rounded-md text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-white dark:hover:bg-zinc-800 transition cursor-pointer shrink-0"
-                title="Đổi thông tin học sinh"
-              >
-                <Edit3 className="w-3.5 h-3.5" />
-              </button>
-            </div>
-          </div>
-        ) : (
-          /* Collapsed Student Icon: Exactly w-10 h-10 matching all icon buttons */
-          <div className="h-13 border-b border-slate-100 dark:border-zinc-800/60 flex items-center justify-center shrink-0">
-            <button
-              type="button"
-              onClick={onEditStudentName}
-              className="w-10 h-10 rounded-xl bg-blue-500/10 hover:bg-blue-500/20 text-blue-600 dark:text-blue-400 flex items-center justify-center transition cursor-pointer relative group"
-              title={`Học sinh: ${studentName || 'Học sinh'}`}
-            >
-              <User className="w-4 h-4" />
-              {/* Tooltip */}
-              <div className="absolute left-full ml-3 top-1/2 -translate-y-1/2 px-2.5 py-1 bg-slate-900 dark:bg-zinc-800 text-white text-[11px] font-semibold rounded-lg shadow-xl whitespace-nowrap opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-150 z-50">
-                <span>{studentName || 'Học sinh'}</span>
-                {studentSchool && <span className="block text-[10px] text-slate-300 font-normal">{studentSchool}</span>}
-                <div className="absolute right-full top-1/2 -translate-y-1/2 border-4 border-transparent border-r-slate-900 dark:border-r-zinc-800" />
-              </div>
-            </button>
-          </div>
-        )}
-
-        {/* 2.5. Track Switcher (THPTQG vs HSA) */}
+        {/* 2. Track Switcher (THPTQG vs HSA) */}
         {!isCollapsed ? (
           <div className="p-2 border-b border-slate-100 dark:border-zinc-800/60 bg-slate-100/50 dark:bg-zinc-900/50">
             <div className="flex items-center justify-between mb-1.5 px-1">

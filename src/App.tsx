@@ -738,6 +738,7 @@ export default function App() {
           onToggleHideQuestionSource={toggleHideQuestionSource}
           onToggleMobileSidebar={() => setIsMobileSidebarOpen((prev) => !prev)}
           studentName={studentName}
+          studentSchool={studentSchool}
           onEditStudentName={() => setIsNameModalOpen(true)}
           examTimerSlot={
             isExamActive ? (
