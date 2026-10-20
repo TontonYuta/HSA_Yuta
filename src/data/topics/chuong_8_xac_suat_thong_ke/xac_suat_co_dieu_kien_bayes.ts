@@ -5,8 +5,8 @@ export const xacSuatBayesQuestions: Question[] = [
     "id": 125,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_xac_suat_bayes',
-    "chapterName": 'Chuyên đề 5: Xác suất có điều kiện & Công thức Bayes (Toán 12)',
+    "chapterId": "chuong_xac_suat_bayes",
+    "chapterName": "Chuyên đề 5: Xác suất có điều kiện & Công thức Bayes (Toán 12)",
     "topicId": "xac_suat_co_dieu_kien_bayes",
     "topicName": "Xác suất có điều kiện & Công thức Bayes",
     "content": "Cho hai biến cố $A$ và $B$ có $P(A) = 0.5, P(B) = 0.6$ và $P(A \\cap B) = 0.3$. Xác suất có điều kiện $P(B|A)$ bằng:",
@@ -34,14 +34,15 @@ export const xacSuatBayesQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 126,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_xac_suat_bayes',
-    "chapterName": 'Chuyên đề 5: Xác suất có điều kiện & Công thức Bayes (Toán 12)',
+    "chapterId": "chuong_xac_suat_bayes",
+    "chapterName": "Chuyên đề 5: Xác suất có điều kiện & Công thức Bayes (Toán 12)",
     "topicId": "xac_suat_co_dieu_kien_bayes",
     "topicName": "Xác suất có điều kiện & Công thức Bayes",
     "content": "Tại một địa phương đang có dịch bệnh, tỉ lệ người mắc bệnh trong dân số là $10\\%$. Một xét nghiệm chẩn đoán có độ nhạy $90\\%$ (người có bệnh xét nghiệm dương tính với xác suất $0.90$) và tỉ lệ dương tính giả là $5\\%$ (người không bệnh xét nghiệm dương tính với xác suất $0.05$). Chọn ngẫu nhiên một người và người này có kết quả xét nghiệm dương tính. Xác suất người này thực sự mắc bệnh xấp xỉ bằng:",
@@ -69,14 +70,15 @@ export const xacSuatBayesQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 127,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_xac_suat_bayes',
-    "chapterName": 'Chuyên đề 5: Xác suất có điều kiện & Công thức Bayes (Toán 12)',
+    "chapterId": "chuong_xac_suat_bayes",
+    "chapterName": "Chuyên đề 5: Xác suất có điều kiện & Công thức Bayes (Toán 12)",
     "topicId": "xac_suat_co_dieu_kien_bayes",
     "topicName": "Xác suất có điều kiện & Công thức Bayes",
     "content": "Có hai hộp đựng thẻ: Hộp I chứa 3 thẻ xanh và 2 thẻ đỏ; Hộp II chứa 4 thẻ xanh và 6 thẻ đỏ. Gieo một con xúc xắc cân đối: nếu xuất hiện mặt 1 hoặc mặt 2 thì rút ngẫu nhiên 1 thẻ từ Hộp I; nếu xuất hiện các mặt khác thì rút ngẫu nhiên 1 thẻ từ Hộp II. Xác suất để rút được thẻ màu xanh là:",
@@ -104,14 +106,15 @@ export const xacSuatBayesQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 145,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_xac_suat_bayes',
-    "chapterName": 'Chuyên đề 5: Xác suất có điều kiện & Công thức Bayes (Toán 12)',
+    "chapterId": "chuong_xac_suat_bayes",
+    "chapterName": "Chuyên đề 5: Xác suất có điều kiện & Công thức Bayes (Toán 12)",
     "topicId": "xac_suat_co_dieu_kien_bayes",
     "topicName": "Xác suất có điều kiện & Công thức Bayes",
     "content": "Một hộp kín chứa 4 quả bóng đỏ và 6 quả bóng xanh. Người ta rút ngẫu nhiên lần lượt 2 quả bóng không hoàn lại. Xác suất để cả hai quả bóng rút ra đều có màu xanh bằng $\\frac{a}{b}$ (với $\\frac{a}{b}$ là phân số tối giản). Giá trị của $a + b$ bằng bao nhiêu?",
@@ -125,14 +128,15 @@ export const xacSuatBayesQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 247,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_xac_suat_bayes',
-    "chapterName": 'Chuyên đề 5: Xác suất có điều kiện & Công thức Bayes (Toán 12)',
+    "chapterId": "chuong_xac_suat_bayes",
+    "chapterName": "Chuyên đề 5: Xác suất có điều kiện & Công thức Bayes (Toán 12)",
     "topicId": "xac_suat_co_dieu_kien_bayes",
     "topicName": "Xác suất có điều kiện & Công thức Bayes",
     "content": "Một học sinh làm hai bài tập kế tiếp. Xác suất làm đúng bài thứ nhất là $0{,}6$. Xác suất làm đúng bài thứ hai là $0{,}5$. Nếu làm đúng bài thứ nhất thì khả năng làm đúng bài thứ hai là $0{,}8$. Tính xác suất học sinh đó làm sai bài thứ nhất, biết rằng đã làm đúng bài thứ hai.",
@@ -160,14 +164,15 @@ export const xacSuatBayesQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 248,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_xac_suat_bayes',
-    "chapterName": 'Chuyên đề 5: Xác suất có điều kiện & Công thức Bayes (Toán 12)',
+    "chapterId": "chuong_xac_suat_bayes",
+    "chapterName": "Chuyên đề 5: Xác suất có điều kiện & Công thức Bayes (Toán 12)",
     "topicId": "xac_suat_co_dieu_kien_bayes",
     "topicName": "Xác suất có điều kiện & Công thức Bayes",
     "content": "Một thùng đựng hai loại hộp: hộp loại I và hộp loại II. Có $2$ hộp loại I, mỗi hộp gồm $13$ sản phẩm tốt và $2$ phế phẩm. Có $3$ hộp loại II, mỗi hộp gồm $6$ sản phẩm tốt và $4$ phế phẩm. Chọn ngẫu nhiên trong thùng $1$ hộp rồi từ hộp đó lấy ra $2$ sản phẩm. Biết cả $2$ sản phẩm lấy ra đều là sản phẩm tốt. Tính xác suất để cả $2$ sản phẩm đều thuộc hộp loại I.",
@@ -195,7 +200,8 @@ export const xacSuatBayesQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 263,
@@ -230,6 +236,7 @@ export const xacSuatBayesQuestions: Question[] = [
     "examSets": [
       "de_07_hsa36"
     ],
-    "topicName": "Xác suất có điều kiện & Công thức Bayes"
+    "topicName": "Xác suất có điều kiện & Công thức Bayes",
+    "answerVerified": true
   }
 ];

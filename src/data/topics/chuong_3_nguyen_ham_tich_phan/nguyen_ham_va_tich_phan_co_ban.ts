@@ -5,8 +5,8 @@ export const nguyenHamCoBanQuestions: Question[] = [
     "id": 11,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_3_nguyen_ham_tich_phan',
-    "chapterName": 'Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)',
+    "chapterId": "chuong_3_nguyen_ham_tich_phan",
+    "chapterName": "Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)",
     "topicId": "nguyen_ham_va_tich_phan_co_ban",
     "topicName": "Nguyên hàm & Tính chất tích phân cơ bản",
     "content": "Cho hàm số $f(x)$ thỏa mãn $f'(x) + 2x f(x) = 2x e^{-x^2}$ và $f(0) = 3$. Giá trị của $f(1)$ bằng:",
@@ -34,14 +34,15 @@ export const nguyenHamCoBanQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 34,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_3_nguyen_ham_tich_phan',
-    "chapterName": 'Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)',
+    "chapterId": "chuong_3_nguyen_ham_tich_phan",
+    "chapterName": "Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)",
     "topicId": "nguyen_ham_va_tich_phan_co_ban",
     "topicName": "Nguyên hàm & Tính chất tích phân cơ bản",
     "content": "Cho $\\int_0^1 \\frac{2x + 3}{x + 1} dx = a + b \\ln 2$ ($a, b \\in \\mathbb{Z}$). Giá trị của $S = a + 2b$ là:",
@@ -69,14 +70,15 @@ export const nguyenHamCoBanQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 50,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_3_nguyen_ham_tich_phan',
-    "chapterName": 'Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)',
+    "chapterId": "chuong_3_nguyen_ham_tich_phan",
+    "chapterName": "Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)",
     "topicId": "nguyen_ham_va_tich_phan_co_ban",
     "topicName": "Nguyên hàm & Tính chất tích phân cơ bản",
     "content": "Cho hàm số $f(x)$ liên tục trên $\\mathbb{R}$ và thỏa mãn $f(x) = 6x + \\frac{1}{2} \\int_0^1 f(t) dt$. Tính giá trị của $f(3)$.",
@@ -89,14 +91,15 @@ export const nguyenHamCoBanQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 59,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_3_nguyen_ham_tich_phan',
-    "chapterName": 'Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)',
+    "chapterId": "chuong_3_nguyen_ham_tich_phan",
+    "chapterName": "Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)",
     "topicId": "nguyen_ham_va_tich_phan_co_ban",
     "topicName": "Nguyên hàm & Tính chất tích phân cơ bản",
     "content": "Cho hàm số $f(x)$ liên tục trên $\\mathbb{R}$ và thỏa mãn $f(x) + f(-x) = 2\\cos x$ với mọi $x \\in \\mathbb{R}$. Tích phân $I = \\int_{-\\pi/2}^{\\pi/2} \\frac{f(x)}{1 + e^x} dx$ bằng:",
@@ -124,14 +127,15 @@ export const nguyenHamCoBanQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 73,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_3_nguyen_ham_tich_phan',
-    "chapterName": 'Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)',
+    "chapterId": "chuong_3_nguyen_ham_tich_phan",
+    "chapterName": "Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)",
     "topicId": "nguyen_ham_va_tich_phan_co_ban",
     "topicName": "Nguyên hàm & Tính chất tích phân cơ bản",
     "content": "Cho hàm số $f(x)$ liên tục trên $\\mathbb{R}$ thỏa mãn $f(x) + 2 f(2 - x) = 3x^2 - 4x$ với mọi $x \\in \\mathbb{R}$. Tích phân $I = \\int_0^2 f(x) dx$ bằng:",
@@ -159,14 +163,15 @@ export const nguyenHamCoBanQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 84,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_3_nguyen_ham_tich_phan',
-    "chapterName": 'Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)',
+    "chapterId": "chuong_3_nguyen_ham_tich_phan",
+    "chapterName": "Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)",
     "topicId": "nguyen_ham_va_tich_phan_co_ban",
     "topicName": "Nguyên hàm & Tính chất tích phân cơ bản",
     "content": "Cho hàm số $f(x)$ có đạo hàm liên tục trên đoạn $[0; 1]$ thỏa mãn $f(1) = 4$ và $\\int_0^1 x f'(x) dx = 3$. Tích phân $I = \\int_0^1 f(x) dx$ bằng:",
@@ -194,14 +199,15 @@ export const nguyenHamCoBanQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 90,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_3_nguyen_ham_tich_phan',
-    "chapterName": 'Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)',
+    "chapterId": "chuong_3_nguyen_ham_tich_phan",
+    "chapterName": "Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)",
     "topicId": "nguyen_ham_va_tich_phan_co_ban",
     "topicName": "Nguyên hàm & Tính chất tích phân cơ bản",
     "content": "Cho $\\int_0^1 (2x + 1) e^x dx = a \\cdot e + b$ với $a, b \\in \\mathbb{Z}$. Tính giá trị của biểu thức $P = a + b$.",
@@ -214,14 +220,15 @@ export const nguyenHamCoBanQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 163,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_3_nguyen_ham_tich_phan',
-    "chapterName": 'Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)',
+    "chapterId": "chuong_3_nguyen_ham_tich_phan",
+    "chapterName": "Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)",
     "topicId": "nguyen_ham_va_tich_phan_co_ban",
     "topicName": "Nguyên hàm & Tính chất tích phân cơ bản",
     "content": "Cho hai hàm số $f(x)$ và $g(x)$ liên tục trên đoạn $[1; 3]$ thỏa mãn $\\int_1^3 [2f(x) + 3g(x)] dx = 10$ và $\\int_1^3 [3f(x) - g(x)] dx = 4$. Tích phân $I = \\int_1^3 [f(x) + g(x)] dx$ bằng:",
@@ -249,14 +256,15 @@ export const nguyenHamCoBanQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 233,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_3_nguyen_ham_tich_phan',
-    "chapterName": 'Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)',
+    "chapterId": "chuong_3_nguyen_ham_tich_phan",
+    "chapterName": "Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)",
     "topicId": "nguyen_ham_va_tich_phan_co_ban",
     "topicName": "Nguyên hàm & Tính chất tích phân cơ bản",
     "content": "Cho hàm số $f(x)$ liên tục trên khoảng $(0; +\\infty)$ thỏa mãn $f(x) + x f'(x) = 3x^2 + 2x$ và $f(1) = 3$. Giá trị của $f(2)$ bằng:",
@@ -284,7 +292,8 @@ export const nguyenHamCoBanQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 276,
@@ -319,6 +328,7 @@ export const nguyenHamCoBanQuestions: Question[] = [
     ],
     "topicName": "Nguyên hàm & Tính chất tích phân cơ bản",
     "chapterId": "chuong_3_nguyen_ham_tich_phan",
-    "chapterName": "Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)"
+    "chapterName": "Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)",
+    "answerVerified": true
   }
 ];

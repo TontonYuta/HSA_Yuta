@@ -5,8 +5,8 @@ export const ptBptMuLogaritQuestions: Question[] = [
     "id": 9,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_2_mu_logarit',
-    "chapterName": 'Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)',
+    "chapterId": "chuong_2_mu_logarit",
+    "chapterName": "Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)",
     "topicId": "pt_bpt_mu_logarit",
     "topicName": "Phương trình & BPT mũ, logarit đối xứng",
     "content": "Tập nghiệm của bất phương trình $\\log_{0{,}5}(x - 1) + \\log_{0{,}5}(x + 2) \\ge -2$ là:",
@@ -35,14 +35,15 @@ export const ptBptMuLogaritQuestions: Question[] = [
     "examSets": [
       "de_01_chuan",
       "de_03_cap_toc"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 38,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_2_mu_logarit',
-    "chapterName": 'Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)',
+    "chapterId": "chuong_2_mu_logarit",
+    "chapterName": "Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)",
     "topicId": "pt_bpt_mu_logarit",
     "topicName": "Phương trình & BPT mũ, logarit đối xứng",
     "content": "Có bao nhiêu số nguyên $x$ thỏa mãn bất phương trình $\\log_3(x^2 - 3x) \\le 2$?",
@@ -56,14 +57,15 @@ export const ptBptMuLogaritQuestions: Question[] = [
     "examSets": [
       "de_01_chuan",
       "de_03_cap_toc"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 57,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_2_mu_logarit',
-    "chapterName": 'Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)',
+    "chapterId": "chuong_2_mu_logarit",
+    "chapterName": "Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)",
     "topicId": "pt_bpt_mu_logarit",
     "topicName": "Phương trình & BPT mũ, logarit đối xứng",
     "content": "Cho $x, y$ là các số nguyên dương thỏa mãn $\\log_2\\left(\\frac{x + 2y}{2x + y + 1}\\right) = x - y + 1$ và $x \\le 100$. Có bao nhiêu cặp số nguyên dương $(x; y)$ thỏa mãn đẳng thức trên?",
@@ -91,14 +93,15 @@ export const ptBptMuLogaritQuestions: Question[] = [
     "difficulty": "Vận dụng cao",
     "examSets": [
       "de_02_thuc_chien"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 72,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_2_mu_logarit',
-    "chapterName": 'Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)',
+    "chapterId": "chuong_2_mu_logarit",
+    "chapterName": "Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)",
     "topicId": "pt_bpt_mu_logarit",
     "topicName": "Phương trình & BPT mũ, logarit đối xứng",
     "content": "Có bao nhiêu giá trị nguyên của tham số $m \\in [-10; 10]$ để bất phương trình $\\log_2^2 x - (2m + 1)\\log_2 x + m^2 + m > 0$ nghiệm đúng với mọi $x \\in (2; +\\infty)$?",
@@ -126,14 +129,15 @@ export const ptBptMuLogaritQuestions: Question[] = [
     "difficulty": "Vận dụng cao",
     "examSets": [
       "de_02_thuc_chien"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 83,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_2_mu_logarit',
-    "chapterName": 'Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)',
+    "chapterId": "chuong_2_mu_logarit",
+    "chapterName": "Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)",
     "topicId": "pt_bpt_mu_logarit",
     "topicName": "Phương trình & BPT mũ, logarit đối xứng",
     "content": "Cho hai số thực dương $a, b > 1$ thỏa mãn $\\log_a b = 2$. Giá trị của biểu thức $P = \\log_{a^2\\sqrt{b}}(a\\sqrt[3]{b})$ bằng:",
@@ -161,14 +165,15 @@ export const ptBptMuLogaritQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 89,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_2_mu_logarit',
-    "chapterName": 'Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)',
+    "chapterId": "chuong_2_mu_logarit",
+    "chapterName": "Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)",
     "topicId": "pt_bpt_mu_logarit",
     "topicName": "Phương trình & BPT mũ, logarit đối xứng",
     "content": "Tìm số nghiệm thực của phương trình $4^x - 3 \\cdot 2^{x+1} + 8 = 0$.",
@@ -181,14 +186,15 @@ export const ptBptMuLogaritQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 99,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_2_mu_logarit',
-    "chapterName": 'Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)',
+    "chapterId": "chuong_2_mu_logarit",
+    "chapterName": "Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)",
     "topicId": "pt_bpt_mu_logarit",
     "topicName": "Phương trình & BPT mũ, logarit đối xứng",
     "content": "Cho hai số thực dương $x, y$ thỏa mãn $\\log_2 x + \\log_2 y = 4$ và $\\log_2(x + y) = 3$. Tính giá trị của biểu thức $P = x^2 + y^2$.",
@@ -201,14 +207,15 @@ export const ptBptMuLogaritQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 109,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_2_mu_logarit',
-    "chapterName": 'Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)',
+    "chapterId": "chuong_2_mu_logarit",
+    "chapterName": "Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)",
     "topicId": "pt_bpt_mu_logarit",
     "topicName": "Phương trình & BPT mũ, logarit đối xứng",
     "content": "Tập nghiệm của phương trình $(3 + \\sqrt{5})^x + (3 - \\sqrt{5})^x = 3 \\cdot 2^x$ là:",
@@ -236,14 +243,15 @@ export const ptBptMuLogaritQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 159,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_2_mu_logarit',
-    "chapterName": 'Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)',
+    "chapterId": "chuong_2_mu_logarit",
+    "chapterName": "Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)",
     "topicId": "pt_bpt_mu_logarit",
     "topicName": "Phương trình & BPT mũ, logarit đối xứng",
     "content": "Có bao nhiêu giá trị nguyên của tham số $m$ để phương trình $\\log_3^2 x - 2m\\log_3 x + 2m + 3 = 0$ có hai nghiệm phân biệt $x_1, x_2$ thỏa mãn $x_1 x_2 = 81$?",
@@ -271,14 +279,15 @@ export const ptBptMuLogaritQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 160,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_2_mu_logarit',
-    "chapterName": 'Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)',
+    "chapterId": "chuong_2_mu_logarit",
+    "chapterName": "Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)",
     "topicId": "pt_bpt_mu_logarit",
     "topicName": "Phương trình & BPT mũ, logarit đối xứng",
     "content": "Cho bất phương trình $4^x - (m + 3)2^x + 2m + 2 < 0$. Tìm tất cả các giá trị của tham số $m$ để bất phương trình có tập nghiệm là một khoảng có độ dài bằng $2$.",
@@ -306,14 +315,15 @@ export const ptBptMuLogaritQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 188,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_2_mu_logarit',
-    "chapterName": 'Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)',
+    "chapterId": "chuong_2_mu_logarit",
+    "chapterName": "Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)",
     "topicId": "pt_bpt_mu_logarit",
     "topicName": "Phương trình & BPT mũ, logarit đối xứng",
     "content": "Cho phương trình $\\log_2^2 x - 4\\log_2 x + 3 = 0$. Tích các nghiệm của phương trình bằng bao nhiêu?",
@@ -327,14 +337,15 @@ export const ptBptMuLogaritQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 208,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_2_mu_logarit',
-    "chapterName": 'Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)',
+    "chapterId": "chuong_2_mu_logarit",
+    "chapterName": "Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)",
     "topicId": "pt_bpt_mu_logarit",
     "topicName": "Phương trình & BPT mũ, logarit đối xứng",
     "content": "Có bao nhiêu số nguyên $x$ thỏa mãn bất phương trình $(3^{x^2} - 9^x)[\\log_3(x + 25) - 3] \\le 0$?",
@@ -362,14 +373,15 @@ export const ptBptMuLogaritQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 209,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_2_mu_logarit',
-    "chapterName": 'Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)',
+    "chapterId": "chuong_2_mu_logarit",
+    "chapterName": "Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)",
     "topicId": "pt_bpt_mu_logarit",
     "topicName": "Phương trình & BPT mũ, logarit đối xứng",
     "content": "Tổng tất cả các nghiệm của phương trình $\\log_3(7 - 3^x) = 2 - x$ là:",
@@ -397,7 +409,8 @@ export const ptBptMuLogaritQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 286,
@@ -432,7 +445,8 @@ export const ptBptMuLogaritQuestions: Question[] = [
     ],
     "topicName": "Phương trình & BPT mũ, logarit đối xứng",
     "chapterId": "chuong_2_mu_logarit",
-    "chapterName": "Chương 2: Hàm số mũ & Hàm số Logarit"
+    "chapterName": "Chương 2: Hàm số mũ & Hàm số Logarit",
+    "answerVerified": true
   },
   {
     "id": 288,
@@ -448,8 +462,9 @@ export const ptBptMuLogaritQuestions: Question[] = [
       "de_07_hsa36"
     ],
     "topicName": "Phương trình & BPT mũ, logarit đối xứng",
-    "chapterId": 'chuong_2_mu_logarit',
-    "chapterName": 'Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)'
+    "chapterId": "chuong_2_mu_logarit",
+    "chapterName": "Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)",
+    "answerVerified": true
   },
   {
     "id": 299,
@@ -484,6 +499,7 @@ export const ptBptMuLogaritQuestions: Question[] = [
     ],
     "topicName": "Phương trình & BPT mũ, logarit đối xứng",
     "chapterId": "chuong_2_mu_logarit",
-    "chapterName": "Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)"
+    "chapterName": "Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)",
+    "answerVerified": true
   }
 ];

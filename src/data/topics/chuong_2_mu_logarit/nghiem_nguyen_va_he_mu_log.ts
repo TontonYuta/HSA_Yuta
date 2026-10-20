@@ -5,8 +5,8 @@ export const nghiemNguyenMuLogQuestions: Question[] = [
     "id": 110,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_2_mu_logarit',
-    "chapterName": 'Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)',
+    "chapterId": "chuong_2_mu_logarit",
+    "chapterName": "Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)",
     "topicId": "nghiem_nguyen_va_he_mu_log",
     "topicName": "Nghiệm nguyên & Hệ thức mũ - logarit",
     "content": "Số nghiệm nguyên của bất phương trình $\\log_2(x^2 - 2x) \\le 3$ là:",
@@ -34,14 +34,15 @@ export const nghiemNguyenMuLogQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 138,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_2_mu_logarit',
-    "chapterName": 'Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)',
+    "chapterId": "chuong_2_mu_logarit",
+    "chapterName": "Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)",
     "topicId": "nghiem_nguyen_va_he_mu_log",
     "topicName": "Nghiệm nguyên & Hệ thức mũ - logarit",
     "content": "Số nghiệm nguyên của bất phương trình $(4^x - 17 \\cdot 2^x + 16)\\sqrt{3 - x} \\le 0$ là bao nhiêu?",
@@ -55,14 +56,15 @@ export const nghiemNguyenMuLogQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 232,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_2_mu_logarit',
-    "chapterName": 'Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)',
+    "chapterId": "chuong_2_mu_logarit",
+    "chapterName": "Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)",
     "topicId": "nghiem_nguyen_va_he_mu_log",
     "topicName": "Nghiệm nguyên & Hệ thức mũ - logarit",
     "content": "Số nghiệm thực của phương trình $(e^x - x - 4)^3 - 12(e^x - x) + 40 = 0$ là:",
@@ -77,6 +79,7 @@ export const nghiemNguyenMuLogQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
-    ]
+    ],
+    "answerVerified": true
   }
 ];

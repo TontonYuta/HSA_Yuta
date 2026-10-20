@@ -5,8 +5,8 @@ export const toiUuHinhHocQuestions: Question[] = [
     "id": 32,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_1_ham_so',
-    "chapterName": 'Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)',
+    "chapterId": "chuong_1_ham_so",
+    "chapterName": "Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)",
     "topicId": "toi_uu_hinh_hoc_va_vat_lieu",
     "topicName": "Tối ưu hóa hình học, Vật liệu & Nồng độ",
     "content": "Một mảnh đất hình chữ nhật giáp bờ sông thẳng có lưới rào 3 cạnh dài $120$ m (không rào phía bờ sông). Diện tích rào lớn nhất là:",
@@ -34,14 +34,15 @@ export const toiUuHinhHocQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 46,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_1_ham_so',
-    "chapterName": 'Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)',
+    "chapterId": "chuong_1_ham_so",
+    "chapterName": "Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)",
     "topicId": "toi_uu_hinh_hoc_va_vat_lieu",
     "topicName": "Tối ưu hóa hình học, Vật liệu & Nồng độ",
     "content": "Bể bơi thể tích $108\\text{ m}^3$, đáy chữ nhật dài gấp đôi rộng. Chi phí mua gạch lát đáy và 4 thành bể nhỏ nhất khi chiều sâu bể bằng bao nhiêu mét?",
@@ -55,14 +56,15 @@ export const toiUuHinhHocQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 131,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_1_ham_so',
-    "chapterName": 'Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)',
+    "chapterId": "chuong_1_ham_so",
+    "chapterName": "Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)",
     "topicId": "toi_uu_hinh_hoc_va_vat_lieu",
     "topicName": "Tối ưu hóa hình học, Vật liệu & Nồng độ",
     "content": "Một người thợ nhôm kính muốn uốn một thanh nhôm dài 12 m thành khung cửa sổ hình chữ nhật. Để diện tích của khung cửa sổ lớn nhất nhằm thu được nhiều ánh sáng nhất, độ dài hai cạnh của khung cửa sổ lần lượt là:",
@@ -90,14 +92,15 @@ export const toiUuHinhHocQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 147,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_1_ham_so',
-    "chapterName": 'Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)',
+    "chapterId": "chuong_1_ham_so",
+    "chapterName": "Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)",
     "topicId": "toi_uu_hinh_hoc_va_vat_lieu",
     "topicName": "Tối ưu hóa hình học, Vật liệu & Nồng độ",
     "content": "Từ một tấm tôn hình vuông cạnh 12 cm, người ta cắt bỏ 4 hình vuông bằng nhau cạnh $x\\text{ cm}$ ở bốn góc rồi gập các mép lại để tạo thành một chiếc hộp không nắp. Thể tích lớn nhất của chiếc hộp bằng bao nhiêu $\\text{cm}^3$?",
@@ -111,14 +114,15 @@ export const toiUuHinhHocQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 180,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_1_ham_so',
-    "chapterName": 'Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)',
+    "chapterId": "chuong_1_ham_so",
+    "chapterName": "Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)",
     "topicId": "toi_uu_hinh_hoc_va_vat_lieu",
     "topicName": "Tối ưu hóa hình học, Vật liệu & Nồng độ",
     "content": "Một gia đình muốn xây một bể chứa nước không nắp có dạng hình hộp chữ nhật với thể tích $V = 32\\text{ m}^3$ và đáy là hình vuông cạnh $x\\text{ m}$. Để tiết kiệm chi phí xây dựng (tương đương với diện tích toàn phần của bể nhỏ nhất), độ dài cạnh đáy $x$ phải bằng:",
@@ -146,14 +150,15 @@ export const toiUuHinhHocQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 197,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_1_ham_so',
-    "chapterName": 'Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)',
+    "chapterId": "chuong_1_ham_so",
+    "chapterName": "Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)",
     "topicId": "toi_uu_hinh_hoc_va_vat_lieu",
     "topicName": "Tối ưu hóa hình học, Vật liệu & Nồng độ",
     "content": "Một người nông dân dùng một cuộn lưới thép dài 60 m để rào một mảnh vườn hình chữ nhật tựa vào một bức tường đá thẳng có sẵn (không cần rào phía bờ tường). Diện tích lớn nhất của mảnh vườn bằng bao nhiêu $\\text{m}^2$?",
@@ -167,14 +172,15 @@ export const toiUuHinhHocQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 250,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_1_ham_so',
-    "chapterName": 'Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)',
+    "chapterId": "chuong_1_ham_so",
+    "chapterName": "Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)",
     "topicId": "toi_uu_hinh_hoc_va_vat_lieu",
     "topicName": "Tối ưu hóa hình học, Vật liệu & Nồng độ",
     "content": "Một ô tô có bốn chiếc lốp xe giống nhau. Nếu gắn ở hai bánh trước thì mỗi lốp sử dụng được tối đa $60\\,000\\text{ km}$, còn nếu gắn ở hai bánh sau thì mỗi lốp sử dụng được tối đa $90\\,000\\text{ km}$. Để sử dụng lốp xe được tối ưu, sau khi đi được một quãng đường nhất định, người ta tiến hành hoán đổi vị trí các lốp trước và lốp sau. Quãng đường lớn nhất mà ô tô có thể đi được với bộ lốp trên là bao nhiêu nghìn kilômét?",
@@ -190,7 +196,8 @@ export const toiUuHinhHocQuestions: Question[] = [
     "difficulty": "Vận dụng cao",
     "examSets": [
       "de_06_hsa35"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 262,
@@ -206,7 +213,8 @@ export const toiUuHinhHocQuestions: Question[] = [
       "de_07_hsa36"
     ],
     "topicName": "Tối ưu hóa hình học, Vật liệu & Nồng độ",
-    "chapterId": 'chuong_1_ham_so',
-    "chapterName": 'Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)'
+    "chapterId": "chuong_1_ham_so",
+    "chapterName": "Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)",
+    "answerVerified": true
   }
 ];

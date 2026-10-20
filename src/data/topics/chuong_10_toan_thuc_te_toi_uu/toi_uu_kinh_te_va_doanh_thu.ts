@@ -5,8 +5,8 @@ export const toiUuKinhTeQuestions: Question[] = [
     "id": 30,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_1_ham_so',
-    "chapterName": 'Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)',
+    "chapterId": "chuong_1_ham_so",
+    "chapterName": "Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)",
     "topicId": "toi_uu_kinh_te_va_doanh_thu",
     "topicName": "Tối ưu hóa kinh tế, Chi phí & Doanh thu",
     "content": "Nồng độ oxy trong hồ sau $t$ ngày xử lý là $C(t) = \\frac{10t}{t^2 + 9} + 2$ (mg/l). Nồng độ oxy lớn nhất đạt được sau mấy ngày?",
@@ -35,14 +35,15 @@ export const toiUuKinhTeQuestions: Question[] = [
     "examSets": [
       "de_01_chuan",
       "de_03_cap_toc"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 47,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_1_ham_so',
-    "chapterName": 'Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)',
+    "chapterId": "chuong_1_ham_so",
+    "chapterName": "Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)",
     "topicId": "toi_uu_kinh_te_va_doanh_thu",
     "topicName": "Tối ưu hóa kinh tế, Chi phí & Doanh thu",
     "content": "Chi phí sản xuất $C(x) = x^2 + 20x + 1600$. Chi phí trung bình $\\bar{C}(x) = \\frac{C(x)}{x}$ nhỏ nhất bằng bao nhiêu nghìn đồng?",
@@ -56,14 +57,15 @@ export const toiUuKinhTeQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 48,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_1_ham_so',
-    "chapterName": 'Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)',
+    "chapterId": "chuong_1_ham_so",
+    "chapterName": "Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)",
     "topicId": "toi_uu_kinh_te_va_doanh_thu",
     "topicName": "Tối ưu hóa kinh tế, Chi phí & Doanh thu",
     "content": "Cỏ mọc đều hàng ngày. 30 con cừu ăn hết trong 12 ngày, 20 con cừu ăn hết trong 24 ngày. Hỏi 25 con cừu ăn hết bãi cỏ đó trong bao nhiêu ngày?",
@@ -77,14 +79,15 @@ export const toiUuKinhTeQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 69,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_1_ham_so',
-    "chapterName": 'Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)',
+    "chapterId": "chuong_1_ham_so",
+    "chapterName": "Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)",
     "topicId": "toi_uu_kinh_te_va_doanh_thu",
     "topicName": "Tối ưu hóa kinh tế, Chi phí & Doanh thu",
     "content": "Một công ty sản xuất độc quyền một loại hàng hóa với hàm cầu $p = 120 - 2x$ (trong đó $p$ là giá bán mỗi sản phẩm, $x$ là số lượng sản phẩm sản xuất và bán ra, $0 < x < 60$). Hàm tổng chi phí sản xuất $x$ sản phẩm là $C(x) = x^2 + 30x + 100$. Mức sản lượng $x$ để công ty đạt lợi nhuận lớn nhất là:",
@@ -112,14 +115,15 @@ export const toiUuKinhTeQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 130,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_1_ham_so',
-    "chapterName": 'Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)',
+    "chapterId": "chuong_1_ham_so",
+    "chapterName": "Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)",
     "topicId": "toi_uu_kinh_te_va_doanh_thu",
     "topicName": "Tối ưu hóa kinh tế, Chi phí & Doanh thu",
     "content": "Một doanh nghiệp sản xuất một loại sản phẩm với hàm chi phí $C(x) = x^2 + 20x + 100$ (triệu đồng) và giá bán mỗi sản phẩm là $p(x) = 120 - x$ (triệu đồng), với $x$ là số lượng sản phẩm sản xuất và tiêu thụ ($x > 0$). Lợi nhuận lớn nhất mà doanh nghiệp có thể đạt được là:",
@@ -147,14 +151,15 @@ export const toiUuKinhTeQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 132,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_1_ham_so',
-    "chapterName": 'Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)',
+    "chapterId": "chuong_1_ham_so",
+    "chapterName": "Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)",
     "topicId": "toi_uu_kinh_te_va_doanh_thu",
     "topicName": "Tối ưu hóa kinh tế, Chi phí & Doanh thu",
     "content": "Một người gửi tiết kiệm 200 triệu đồng vào ngân hàng với lãi suất kép $7\\%/\\text{năm}$, tiền lãi hàng năm được nhập vào vốn. Sau ít nhất bao nhiêu năm thì người đó có tổng số tiền (cả gốc lẫn lãi) vượt quá 400 triệu đồng?",
@@ -182,14 +187,15 @@ export const toiUuKinhTeQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 150,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_1_ham_so',
-    "chapterName": 'Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)',
+    "chapterId": "chuong_1_ham_so",
+    "chapterName": "Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)",
     "topicId": "toi_uu_kinh_te_va_doanh_thu",
     "topicName": "Tối ưu hóa kinh tế, Chi phí & Doanh thu",
     "content": "Một chủ trang trại nuôi cá ước tính tổng khối lượng của đàn cá sau $t$ tuần nuôi tuân theo quy luật $m(t) = \\frac{500}{1 + 9e^{-0.2t}}$ (đơn vị: kg). Giới hạn khối lượng tối đa mà đàn cá có thể đạt được khi thời gian nuôi rất lớn ($t \\to +\\infty$) bằng bao nhiêu kg?",
@@ -203,14 +209,15 @@ export const toiUuKinhTeQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 181,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_1_ham_so',
-    "chapterName": 'Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)',
+    "chapterId": "chuong_1_ham_so",
+    "chapterName": "Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)",
     "topicId": "toi_uu_kinh_te_va_doanh_thu",
     "topicName": "Tối ưu hóa kinh tế, Chi phí & Doanh thu",
     "content": "Một xưởng cơ khí gia công hai loại sản phẩm $A$ và $B$. Mỗi sản phẩm $A$ cần 2 giờ trên máy I và 1 giờ trên máy II, lãi 400.000 đồng. Mỗi sản phẩm $B$ cần 1 giờ trên máy I và 1 giờ trên máy II, lãi 300.000 đồng. Mỗi ngày máy I hoạt động tối đa 8 giờ, máy II tối đa 5 giờ. Tiền lãi lớn nhất xưởng có thể đạt được trong một ngày là:",
@@ -238,14 +245,15 @@ export const toiUuKinhTeQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 200,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_1_ham_so',
-    "chapterName": 'Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)',
+    "chapterId": "chuong_1_ham_so",
+    "chapterName": "Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)",
     "topicId": "toi_uu_kinh_te_va_doanh_thu",
     "topicName": "Tối ưu hóa kinh tế, Chi phí & Doanh thu",
     "content": "Dân số của một thành phố vào năm 2020 là 1.000.000 người. Biết rằng tốc độ tăng dân số trung bình hàng năm của thành phố là $1.2\\%$. Dự báo đến năm 2025 dân số của thành phố đó đạt bao nhiêu nghìn người? (Làm tròn đến hàng đơn vị).",
@@ -259,14 +267,15 @@ export const toiUuKinhTeQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 211,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_1_ham_so',
-    "chapterName": 'Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)',
+    "chapterId": "chuong_1_ham_so",
+    "chapterName": "Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)",
     "topicId": "toi_uu_kinh_te_va_doanh_thu",
     "topicName": "Tối ưu hóa kinh tế, Chi phí & Doanh thu",
     "content": "Tại một nhà máy, gọi hàm số $C(x) = 0{,}00024 x^3 - 0{,}03 x^2 + 5x + 30$ (đơn vị: triệu đồng) là tổng chi phí sản xuất $x$ tấn sản phẩm A trong một tháng. Tốc độ tăng của tổng chi phí khi nhà máy sản xuất $100$ tấn sản phẩm A là:",
@@ -294,14 +303,15 @@ export const toiUuKinhTeQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 228,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_1_ham_so',
-    "chapterName": 'Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)',
+    "chapterId": "chuong_1_ham_so",
+    "chapterName": "Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)",
     "topicId": "toi_uu_kinh_te_va_doanh_thu",
     "topicName": "Tối ưu hóa kinh tế, Chi phí & Doanh thu",
     "content": "Cho một mạch điện kín gồm nguồn điện có suất điện động $E\\text{ (V)}$ và điện trở trong $r\\text{ (}\\Omega\\text{)}$ không thay đổi; mạch ngoài có biến trở $R\\text{ (}\\Omega\\text{)}$. Khi đó, công suất tiêu thụ ở mạch ngoài là $P = \\frac{E^2 R}{(R + r)^2}$. Tìm giá trị lớn nhất của công suất tiêu thụ mạch ngoài $P$:",
@@ -329,14 +339,15 @@ export const toiUuKinhTeQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 249,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_1_ham_so',
-    "chapterName": 'Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)',
+    "chapterId": "chuong_1_ham_so",
+    "chapterName": "Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)",
     "topicId": "toi_uu_kinh_te_va_doanh_thu",
     "topicName": "Tối ưu hóa kinh tế, Chi phí & Doanh thu",
     "content": "Trong một buổi tiệc, bốn cặp vợ chồng đã ăn trái cây cùng với nhau. Số quả cam mà các cô vợ $A, B, C, D$ ăn lần lượt là $3, 2, 4, 1$. Số quả cam các anh chồng $M, N, P, Q$ ăn lần lượt bằng, gấp đôi, gấp ba, gấp bốn số quả cam mà các cô vợ của mình đã ăn. Biết tổng số quả cam mà bốn cặp vợ chồng này ăn là $32$. Hỏi ai là vợ của anh $P$?",
@@ -364,7 +375,8 @@ export const toiUuKinhTeQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 260,
@@ -399,6 +411,7 @@ export const toiUuKinhTeQuestions: Question[] = [
     "examSets": [
       "de_07_hsa36"
     ],
-    "topicName": "Tối ưu hóa kinh tế, Chi phí & Doanh thu"
+    "topicName": "Tối ưu hóa kinh tế, Chi phí & Doanh thu",
+    "answerVerified": true
   }
 ];

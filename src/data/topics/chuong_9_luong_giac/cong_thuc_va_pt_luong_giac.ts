@@ -5,8 +5,8 @@ export const congThucPtLuongGiacQuestions: Question[] = [
     "id": 1,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_9_luong_giac',
-    "chapterName": 'Chuyên đề 9: Lượng giác & Phương trình lượng giác (Toán 11)',
+    "chapterId": "chuong_9_luong_giac",
+    "chapterName": "Chuyên đề 9: Lượng giác & Phương trình lượng giác (Toán 11)",
     "topicId": "cong_thuc_va_pt_luong_giac",
     "topicName": "Công thức & Phương trình lượng giác",
     "content": "Số nghiệm thuộc đoạn $[0; 2\\pi]$ của phương trình $\\cos 2x + \\sqrt{3}\\sin 2x = 2\\sin x$ là:",
@@ -35,14 +35,15 @@ export const congThucPtLuongGiacQuestions: Question[] = [
     "examSets": [
       "de_01_chuan",
       "de_03_cap_toc"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 2,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_9_luong_giac',
-    "chapterName": 'Chuyên đề 9: Lượng giác & Phương trình lượng giác (Toán 11)',
+    "chapterId": "chuong_9_luong_giac",
+    "chapterName": "Chuyên đề 9: Lượng giác & Phương trình lượng giác (Toán 11)",
     "topicId": "cong_thuc_va_pt_luong_giac",
     "topicName": "Công thức & Phương trình lượng giác",
     "content": "Số nghiệm của phương trình $\\sin\\left(x + \\frac{\\pi}{4}\\right) = \\frac{\\sqrt{2}}{2}$ trên đoạn $[0; 2\\pi]$ là:",
@@ -70,14 +71,15 @@ export const congThucPtLuongGiacQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 37,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_9_luong_giac',
-    "chapterName": 'Chuyên đề 9: Lượng giác & Phương trình lượng giác (Toán 11)',
+    "chapterId": "chuong_9_luong_giac",
+    "chapterName": "Chuyên đề 9: Lượng giác & Phương trình lượng giác (Toán 11)",
     "topicId": "cong_thuc_va_pt_luong_giac",
     "topicName": "Công thức & Phương trình lượng giác",
     "content": "Cho phương trình $\\cos 2x + 3\\sin x - 2 = 0$. Tìm số nghiệm của phương trình thuộc đoạn $[0; 2\\pi]$.",
@@ -90,14 +92,15 @@ export const congThucPtLuongGiacQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 51,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_9_luong_giac',
-    "chapterName": 'Chuyên đề 9: Lượng giác & Phương trình lượng giác (Toán 11)',
+    "chapterId": "chuong_9_luong_giac",
+    "chapterName": "Chuyên đề 9: Lượng giác & Phương trình lượng giác (Toán 11)",
     "topicId": "cong_thuc_va_pt_luong_giac",
     "topicName": "Công thức & Phương trình lượng giác",
     "content": "Cho hàm số $f(x) = \\sin^4 x + \\cos^4 x + m\\sin 2x$. Tìm tập hợp tất cả các giá trị thực của tham số $m$ để giá trị lớn nhất của hàm số $f(x)$ bằng $2$.",
@@ -125,14 +128,15 @@ export const congThucPtLuongGiacQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 52,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_9_luong_giac',
-    "chapterName": 'Chuyên đề 9: Lượng giác & Phương trình lượng giác (Toán 11)',
+    "chapterId": "chuong_9_luong_giac",
+    "chapterName": "Chuyên đề 9: Lượng giác & Phương trình lượng giác (Toán 11)",
     "topicId": "cong_thuc_va_pt_luong_giac",
     "topicName": "Công thức & Phương trình lượng giác",
     "content": "Số nghiệm thuộc khoảng $(0; 2\\pi)$ của phương trình $\\frac{\\cos 3x - \\cos x + \\sin 2x}{2\\sin x - 1} = 0$ là:",
@@ -160,14 +164,15 @@ export const congThucPtLuongGiacQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 70,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_9_luong_giac',
-    "chapterName": 'Chuyên đề 9: Lượng giác & Phương trình lượng giác (Toán 11)',
+    "chapterId": "chuong_9_luong_giac",
+    "chapterName": "Chuyên đề 9: Lượng giác & Phương trình lượng giác (Toán 11)",
     "topicId": "cong_thuc_va_pt_luong_giac",
     "topicName": "Công thức & Phương trình lượng giác",
     "content": "Số nghiệm thuộc khoảng $(0; 2\\pi)$ của phương trình $\\sin 3x + \\sqrt{3}\\cos 3x = 2\\cos 2x$ là:",
@@ -195,14 +200,15 @@ export const congThucPtLuongGiacQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 81,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_9_luong_giac',
-    "chapterName": 'Chuyên đề 9: Lượng giác & Phương trình lượng giác (Toán 11)',
+    "chapterId": "chuong_9_luong_giac",
+    "chapterName": "Chuyên đề 9: Lượng giác & Phương trình lượng giác (Toán 11)",
     "topicId": "cong_thuc_va_pt_luong_giac",
     "topicName": "Công thức & Phương trình lượng giác",
     "content": "Cho phương trình $\\cos 2x - (2m + 1)\\cos x + m + 1 = 0$. Tìm tất cả các giá trị của tham số $m$ để phương trình có đúng 3 nghiệm phân biệt thuộc đoạn $\\left[-\\frac{\\pi}{2}; \\pi\\right]$.",
@@ -230,14 +236,15 @@ export const congThucPtLuongGiacQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 86,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_9_luong_giac',
-    "chapterName": 'Chuyên đề 9: Lượng giác & Phương trình lượng giác (Toán 11)',
+    "chapterId": "chuong_9_luong_giac",
+    "chapterName": "Chuyên đề 9: Lượng giác & Phương trình lượng giác (Toán 11)",
     "topicId": "cong_thuc_va_pt_luong_giac",
     "topicName": "Công thức & Phương trình lượng giác",
     "content": "Cho phương trình $\\sin x + \\cos x = \\sqrt{2}\\sin 5x$. Tìm số nghiệm của phương trình thuộc đoạn $[0; \\pi]$.",
@@ -250,14 +257,15 @@ export const congThucPtLuongGiacQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 100,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_9_luong_giac',
-    "chapterName": 'Chuyên đề 9: Lượng giác & Phương trình lượng giác (Toán 11)',
+    "chapterId": "chuong_9_luong_giac",
+    "chapterName": "Chuyên đề 9: Lượng giác & Phương trình lượng giác (Toán 11)",
     "topicId": "cong_thuc_va_pt_luong_giac",
     "topicName": "Công thức & Phương trình lượng giác",
     "content": "Tìm số nghiệm thuộc khoảng $(0; 3\\pi)$ của phương trình $\\sin 2x = \\cos x$.",
@@ -270,14 +278,15 @@ export const congThucPtLuongGiacQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 102,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_9_luong_giac',
-    "chapterName": 'Chuyên đề 9: Lượng giác & Phương trình lượng giác (Toán 11)',
+    "chapterId": "chuong_9_luong_giac",
+    "chapterName": "Chuyên đề 9: Lượng giác & Phương trình lượng giác (Toán 11)",
     "topicId": "cong_thuc_va_pt_luong_giac",
     "topicName": "Công thức & Phương trình lượng giác",
     "content": "Tập nghiệm của phương trình $\\sqrt{3}\\sin x + \\cos x = \\sqrt{2}$ là:",
@@ -305,14 +314,15 @@ export const congThucPtLuongGiacQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 151,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_9_luong_giac',
-    "chapterName": 'Chuyên đề 9: Lượng giác & Phương trình lượng giác (Toán 11)',
+    "chapterId": "chuong_9_luong_giac",
+    "chapterName": "Chuyên đề 9: Lượng giác & Phương trình lượng giác (Toán 11)",
     "topicId": "cong_thuc_va_pt_luong_giac",
     "topicName": "Công thức & Phương trình lượng giác",
     "content": "Cho hàm số $f(x) = \\frac{\\sin x + 2\\cos x + 1}{\\sin x + \\cos x + 2}$. Gọi $M$ và $m$ lần lượt là giá trị lớn nhất và giá trị nhỏ nhất của hàm số $f(x)$. Tích $M \\cdot m$ bằng:",
@@ -340,14 +350,15 @@ export const congThucPtLuongGiacQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 187,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_9_luong_giac',
-    "chapterName": 'Chuyên đề 9: Lượng giác & Phương trình lượng giác (Toán 11)',
+    "chapterId": "chuong_9_luong_giac",
+    "chapterName": "Chuyên đề 9: Lượng giác & Phương trình lượng giác (Toán 11)",
     "topicId": "cong_thuc_va_pt_luong_giac",
     "topicName": "Công thức & Phương trình lượng giác",
     "content": "Cho phương trình $\\cos 2x - 3\\cos x + 2 = 0$. Tổng tất cả các nghiệm của phương trình thuộc đoạn $[0; 2\\pi]$ bằng $k\\pi$. Giá trị của $k$ bằng bao nhiêu?",
@@ -361,7 +372,8 @@ export const congThucPtLuongGiacQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 279,
@@ -396,6 +408,7 @@ export const congThucPtLuongGiacQuestions: Question[] = [
     ],
     "topicName": "Công thức & Phương trình lượng giác",
     "chapterId": "chuong_9_luong_giac",
-    "chapterName": "Chuyên đề 9: Lượng giác & Phương trình lượng giác (Toán 11)"
+    "chapterName": "Chuyên đề 9: Lượng giác & Phương trình lượng giác (Toán 11)",
+    "answerVerified": true
   }
 ];

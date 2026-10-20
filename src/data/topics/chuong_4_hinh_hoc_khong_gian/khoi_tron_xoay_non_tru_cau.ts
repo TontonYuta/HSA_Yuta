@@ -5,8 +5,8 @@ export const khoiTronXoayQuestions: Question[] = [
     "id": 74,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_4_hinh_hoc_khong_gian',
-    "chapterName": 'Chuyên đề 8: Hình học không gian cổ điển (Toán 11)',
+    "chapterId": "chuong_4_hinh_hoc_khong_gian",
+    "chapterName": "Chuyên đề 8: Hình học không gian cổ điển (Toán 11)",
     "topicId": "khoi_tron_xoay_non_tru_cau",
     "topicName": "Khối tròn xoay: Khối nón, Khối trụ & Khối cầu",
     "content": "Một chiếc cốc hình trụ có bán kính đáy $R = 4\\text{ cm}$ chứa một lượng nước. Người ta thả chìm hoàn toàn vào cốc một viên bi sắt hình cầu thì mực nước trong cốc dâng lên thêm $2{,}25\\text{ cm}$. Bán kính của viên bi sắt bằng:",
@@ -34,14 +34,15 @@ export const khoiTronXoayQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 196,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_4_hinh_hoc_khong_gian',
-    "chapterName": 'Chuyên đề 8: Hình học không gian cổ điển (Toán 11)',
+    "chapterId": "chuong_4_hinh_hoc_khong_gian",
+    "chapterName": "Chuyên đề 8: Hình học không gian cổ điển (Toán 11)",
     "topicId": "khoi_tron_xoay_non_tru_cau",
     "topicName": "Khối tròn xoay: Khối nón, Khối trụ & Khối cầu",
     "content": "Một hình nón có bán kính đáy $r = 6\\text{ cm}$ và độ dài đường sinh $l = 10\\text{ cm}$. Tính diện tích toàn phần của hình nón đó theo đơn vị $\\pi\\text{ cm}^2$ (chỉ điền hệ số của $\\pi$).",
@@ -54,6 +55,7 @@ export const khoiTronXoayQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
-    ]
+    ],
+    "answerVerified": true
   }
 ];

@@ -5,8 +5,8 @@ export const chuyenDongTichPhanQuestions: Question[] = [
     "id": 31,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_3_nguyen_ham_tich_phan',
-    "chapterName": 'Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)',
+    "chapterId": "chuong_3_nguyen_ham_tich_phan",
+    "chapterName": "Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)",
     "topicId": "bai_toan_chuyen_dong_thuc_te",
     "topicName": "Ứng dụng tích phân trong bài toán chuyển động",
     "content": "Một ô tô tăng tốc với vận tốc $v(t) = 3t$ (m/s) trong 6 giây, sau đó hãm phanh với gia tốc $-2\\text{ m/s}^2$ đến khi dừng hẳn. Tổng quãng đường đi được là:",
@@ -34,14 +34,15 @@ export const chuyenDongTichPhanQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 111,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_3_nguyen_ham_tich_phan',
-    "chapterName": 'Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)',
+    "chapterId": "chuong_3_nguyen_ham_tich_phan",
+    "chapterName": "Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)",
     "topicId": "bai_toan_chuyen_dong_thuc_te",
     "topicName": "Ứng dụng tích phân trong bài toán chuyển động",
     "content": "Một vật chuyển động thẳng với vận tốc $v(t) = 3t^2 - 2t$ (m/s). Quãng đường vật đi được từ thời điểm $t = 1\\text{ s}$ đến thời điểm $t = 3\\text{ s}$ là:",
@@ -69,14 +70,15 @@ export const chuyenDongTichPhanQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 141,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_3_nguyen_ham_tich_phan',
-    "chapterName": 'Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)',
+    "chapterId": "chuong_3_nguyen_ham_tich_phan",
+    "chapterName": "Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)",
     "topicId": "bai_toan_chuyen_dong_thuc_te",
     "topicName": "Ứng dụng tích phân trong bài toán chuyển động",
     "content": "Một canô đang chạy trên sông thì hãm máy, vận tốc giảm dần theo thời gian với hàm $v(t) = 12 - 2t$ (m/s), trong đó $t$ là thời gian tính bằng giây kể từ lúc bắt đầu hãm máy. Quãng đường canô đi được từ lúc hãm máy cho đến khi dừng hẳn bằng bao nhiêu mét?",
@@ -90,14 +92,15 @@ export const chuyenDongTichPhanQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 236,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_3_nguyen_ham_tich_phan',
-    "chapterName": 'Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)',
+    "chapterId": "chuong_3_nguyen_ham_tich_phan",
+    "chapterName": "Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)",
     "topicId": "bai_toan_chuyen_dong_thuc_te",
     "topicName": "Ứng dụng tích phân trong bài toán chuyển động",
     "content": "[Ngữ cảnh xe F1] Một chiếc xe hơi công thức 1 khi tăng tốc có thể đạt tới tốc độ lớn nhất là $360\\text{ km/h}$, chỉ mất $11$ giây kể từ lúc bắt đầu chuyển động. Quỹ đạo chuyển động của xe là một đường thẳng. Xe chuyển động với tốc độ $v(t)\\text{ (m/s)}$ là một hàm số liên tục theo thời gian $t$ (giây). Trong $3$ giây đầu tiên, xe có tốc độ $v(t) = 4t^2$ ($0 \\le t \\le 3$). Từ giây thứ $3$ đến giây thứ $11$ xe chạy với gia tốc không đổi là $a\\text{ (m/s}^2\\text{)}$. Giá trị của $a$ là:",
@@ -125,14 +128,15 @@ export const chuyenDongTichPhanQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 237,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_3_nguyen_ham_tich_phan',
-    "chapterName": 'Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)',
+    "chapterId": "chuong_3_nguyen_ham_tich_phan",
+    "chapterName": "Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)",
     "topicId": "bai_toan_chuyen_dong_thuc_te",
     "topicName": "Ứng dụng tích phân trong bài toán chuyển động",
     "content": "[Ngữ cảnh xe F1] Quãng đường xe đi được kể từ lúc bắt đầu chuyển động cho đến khi đạt tốc độ lớn nhất ($11$ giây đầu) là bao nhiêu mét?",
@@ -160,14 +164,15 @@ export const chuyenDongTichPhanQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 238,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_3_nguyen_ham_tich_phan',
-    "chapterName": 'Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)',
+    "chapterId": "chuong_3_nguyen_ham_tich_phan",
+    "chapterName": "Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)",
     "topicId": "bai_toan_chuyen_dong_thuc_te",
     "topicName": "Ứng dụng tích phân trong bài toán chuyển động",
     "content": "[Ngữ cảnh xe F1] Biết rằng ngay sau khi đạt được tốc độ lớn nhất, xe chuyển động thẳng đều trong $5$ giây rồi hãm phanh với gia tốc hãm là $a_h = 10\\text{ m/s}^2$ để dừng lại. Tốc độ trung bình của xe kể từ lúc bắt đầu chuyển động cho đến lúc dừng hẳn bằng $\\frac{m}{n}\\text{ (m/s)}$. Giá trị của biểu thức $T = m + n$ là:",
@@ -195,6 +200,7 @@ export const chuyenDongTichPhanQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
-    ]
+    ],
+    "answerVerified": true
   }
 ];

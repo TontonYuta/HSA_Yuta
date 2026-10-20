@@ -5,8 +5,8 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "id": 28,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_thong_ke_ghep_nhom',
-    "chapterName": 'Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)',
+    "chapterId": "chuong_thong_ke_ghep_nhom",
+    "chapterName": "Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)",
     "topicId": "thong_ke_mau_so_lieu_ghep_nhom",
     "topicName": "Thống kê & Mẫu số liệu ghép nhóm",
     "content": "Thống kê điểm thi khảo sát của 50 học sinh được cho trong bảng tần số ghép nhóm sau:\n\n$$\\begin{array}{|c|c|c|c|c|}\\hline \\text{Điểm thi} & [0; 4) & [4; 6) & [6; 8) & [8; 10) \\\\ \\hline \\text{Số học sinh} & 5 & 15 & 20 & 10 \\\\ \\hline \\end{array}$$\n\nMốt của mẫu số liệu ghép nhóm này bằng:",
@@ -35,14 +35,15 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "examSets": [
       "de_01_chuan",
       "de_03_cap_toc"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 29,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_thong_ke_ghep_nhom',
-    "chapterName": 'Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)',
+    "chapterId": "chuong_thong_ke_ghep_nhom",
+    "chapterName": "Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)",
     "topicId": "thong_ke_mau_so_lieu_ghep_nhom",
     "topicName": "Thống kê & Mẫu số liệu ghép nhóm",
     "content": "Mẫu số liệu ghép nhóm về thời gian hoàn thành một bài test (đơn vị: phút) của 40 học sinh được cho trong bảng sau:\n\n$$\\begin{array}{|c|c|c|c|c|}\\hline \\text{Thời gian (phút)} & [10; 15) & [15; 20) & [20; 25) & [25; 30) \\\\ \\hline \\text{Số học sinh} & 6 & 14 & 12 & 8 \\\\ \\hline \\end{array}$$\n\nKhoảng biến thiên của mẫu số liệu ghép nhóm này bằng:",
@@ -70,14 +71,15 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 42,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_thong_ke_ghep_nhom',
-    "chapterName": 'Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)',
+    "chapterId": "chuong_thong_ke_ghep_nhom",
+    "chapterName": "Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)",
     "topicId": "thong_ke_mau_so_lieu_ghep_nhom",
     "topicName": "Thống kê & Mẫu số liệu ghép nhóm",
     "content": "Khảo sát thời gian hoàn thành một sản phẩm của 20 công nhân thu được mẫu số liệu ghép nhóm trong bảng sau:\n\n$$\\begin{array}{|c|c|c|c|}\\hline \\text{Thời gian (phút)} & [10; 20) & [20; 30) & [30; 40) \\\\ \\hline \\text{Số công nhân} & 5 & 10 & 5 \\\\ \\hline \\end{array}$$\n\nTính số trung bình của mẫu số liệu ghép nhóm này.",
@@ -90,14 +92,15 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 68,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_thong_ke_ghep_nhom',
-    "chapterName": 'Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)',
+    "chapterId": "chuong_thong_ke_ghep_nhom",
+    "chapterName": "Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)",
     "topicId": "thong_ke_mau_so_lieu_ghep_nhom",
     "topicName": "Thống kê & Mẫu số liệu ghép nhóm",
     "content": "Thống kê thời gian tự học mỗi ngày của 100 học sinh lớp 12 thu được bảng số liệu ghép nhóm sau:\n\n$$\\begin{array}{|c|c|c|c|c|}\\hline \\text{Thời gian (giờ)} & [2; 4) & [4; 6) & [6; 8) & [8; 10) \\\\ \\hline \\text{Số học sinh} & 15 & 35 & 30 & 20 \\\\ \\hline \\end{array}$$\n\nKhoảng tứ phân vị $\\Delta_Q = Q_3 - Q_1$ của mẫu số liệu ghép nhóm này bằng:",
@@ -125,14 +128,15 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 79,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_thong_ke_ghep_nhom',
-    "chapterName": 'Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)',
+    "chapterId": "chuong_thong_ke_ghep_nhom",
+    "chapterName": "Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)",
     "topicId": "thong_ke_mau_so_lieu_ghep_nhom",
     "topicName": "Thống kê & Mẫu số liệu ghép nhóm",
     "content": "Khảo sát thu nhập hàng tháng (đơn vị: triệu đồng) của 50 nhân viên một công ty thu được mẫu số liệu ghép nhóm trong bảng sau:\n\n$$\\begin{array}{|c|c|c|c|c|}\\hline \\text{Thu nhập (triệu đồng)} & [10; 15) & [15; 20) & [20; 25) & [25; 30) \\\\ \\hline \\text{Số nhân viên} & 8 & 18 & 16 & 8 \\\\ \\hline \\end{array}$$\n\nPhương sai $s^2$ của mẫu số liệu ghép nhóm này bằng:",
@@ -160,14 +164,15 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 96,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_thong_ke_ghep_nhom',
-    "chapterName": 'Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)',
+    "chapterId": "chuong_thong_ke_ghep_nhom",
+    "chapterName": "Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)",
     "topicId": "thong_ke_mau_so_lieu_ghep_nhom",
     "topicName": "Thống kê & Mẫu số liệu ghép nhóm",
     "content": "Khảo sát mẫu số liệu ghép nhóm về điểm kiểm tra của 40 học sinh được cho trong bảng sau:\n\n$$\\begin{array}{|c|c|c|c|}\\hline \\text{Điểm kiểm tra} & [4; 6) & [6; 8) & [8; 10) \\\\ \\hline \\text{Số học sinh} & 8 & 20 & 12 \\\\ \\hline \\end{array}$$\n\nTính trung vị $M_e$ của mẫu số liệu ghép nhóm này (làm tròn đến một chữ số thập phân).",
@@ -181,14 +186,15 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 128,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_thong_ke_ghep_nhom',
-    "chapterName": 'Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)',
+    "chapterId": "chuong_thong_ke_ghep_nhom",
+    "chapterName": "Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)",
     "topicId": "thong_ke_mau_so_lieu_ghep_nhom",
     "topicName": "Thống kê & Mẫu số liệu ghép nhóm",
     "content": "Một mẫu số liệu ghép nhóm về thời gian hoàn thành bài tập của 40 học sinh có phân bố trong bảng sau:\n\n$$\\begin{array}{|c|c|c|c|c|}\\hline \\text{Thời gian (phút)} & [0; 5) & [5; 10) & [10; 15) & [15; 20) \\\\ \\hline \\text{Số học sinh} & 4 & 12 & 16 & 8 \\\\ \\hline \\end{array}$$\n\nKhoảng tứ phân vị $\\Delta_Q = Q_3 - Q_1$ của mẫu ghép nhóm bằng:",
@@ -216,14 +222,15 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 129,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_thong_ke_ghep_nhom',
-    "chapterName": 'Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)',
+    "chapterId": "chuong_thong_ke_ghep_nhom",
+    "chapterName": "Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)",
     "topicId": "thong_ke_mau_so_lieu_ghep_nhom",
     "topicName": "Thống kê & Mẫu số liệu ghép nhóm",
     "content": "Cho mẫu số liệu ghép nhóm về điểm thi của 30 học sinh trong bảng sau:\n\n$$\\begin{array}{|c|c|c|c|}\\hline \\text{Điểm thi} & [4; 6) & [6; 8) & [8; 10] \\\\ \\hline \\text{Số học sinh} & 6 & 15 & 9 \\\\ \\hline \\end{array}$$\n\nSố trung bình cộng $\\bar{x}$ của mẫu số liệu ghép nhóm này bằng:",
@@ -251,14 +258,15 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 142,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_thong_ke_ghep_nhom',
-    "chapterName": 'Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)',
+    "chapterId": "chuong_thong_ke_ghep_nhom",
+    "chapterName": "Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)",
     "topicId": "thong_ke_mau_so_lieu_ghep_nhom",
     "topicName": "Thống kê & Mẫu số liệu ghép nhóm",
     "content": "Khảo sát số giờ tự học mỗi tuần của 20 học sinh thu được bảng số liệu ghép nhóm sau:\n\n$$\\begin{array}{|c|c|c|c|c|}\\hline \\text{Thời gian (giờ)} & [0; 2) & [2; 4) & [4; 6) & [6; 8) \\\\ \\hline \\text{Số học sinh} & 2 & 6 & 8 & 4 \\\\ \\hline \\end{array}$$\n\nPhương sai $s^2$ của mẫu số liệu ghép nhóm này bằng bao nhiêu?",
@@ -272,14 +280,15 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 149,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_thong_ke_ghep_nhom',
-    "chapterName": 'Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)',
+    "chapterId": "chuong_thong_ke_ghep_nhom",
+    "chapterName": "Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)",
     "topicId": "thong_ke_mau_so_lieu_ghep_nhom",
     "topicName": "Thống kê & Mẫu số liệu ghép nhóm",
     "content": "Cho bảng tần số ghép nhóm về chiều cao của 40 cây non như sau:\n\n$$\\begin{array}{|c|c|c|c|c|}\\hline \\text{Chiều cao (cm)} & [10; 20) & [20; 30) & [30; 40) & [40; 50) \\\\ \\hline \\text{Số cây} & 6 & 14 & 12 & 8 \\\\ \\hline \\end{array}$$\n\nTrung vị $M_e$ của mẫu ghép nhóm bằng bao nhiêu?",
@@ -293,14 +302,15 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 178,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_thong_ke_ghep_nhom',
-    "chapterName": 'Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)',
+    "chapterId": "chuong_thong_ke_ghep_nhom",
+    "chapterName": "Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)",
     "topicId": "thong_ke_mau_so_lieu_ghep_nhom",
     "topicName": "Thống kê & Mẫu số liệu ghép nhóm",
     "content": "Cho mẫu số liệu ghép nhóm về thời gian hoàn thành một công việc trong bảng sau:\n\n$$\\begin{array}{|c|c|c|c|c|}\\hline \\text{Thời gian (phút)} & [10; 20) & [20; 30) & [30; 40) & [40; 50) \\\\ \\hline \\text{Số người} & 5 & 18 & 12 & 5 \\\\ \\hline \\end{array}$$\n\nNhóm chứa mốt của mẫu số liệu ghép nhóm là:",
@@ -328,14 +338,15 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 179,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_thong_ke_ghep_nhom',
-    "chapterName": 'Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)',
+    "chapterId": "chuong_thong_ke_ghep_nhom",
+    "chapterName": "Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)",
     "topicId": "thong_ke_mau_so_lieu_ghep_nhom",
     "topicName": "Thống kê & Mẫu số liệu ghép nhóm",
     "content": "Cho mẫu số liệu ghép nhóm về năng suất lúa (đơn vị: tạ/ha) của 120 thửa ruộng trong bảng sau:\n\n$$\\begin{array}{|c|c|c|c|c|}\\hline \\text{Năng suất (tạ/ha)} & [40; 45) & [45; 50) & [50; 55) & [55; 60) \\\\ \\hline \\text{Số thửa ruộng} & 15 & 40 & 45 & 20 \\\\ \\hline \\end{array}$$\n\nTứ phân vị thứ hai (trung vị $Q_2$) của mẫu số liệu ghép nhóm này bằng:",
@@ -363,14 +374,15 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 192,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_thong_ke_ghep_nhom',
-    "chapterName": 'Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)',
+    "chapterId": "chuong_thong_ke_ghep_nhom",
+    "chapterName": "Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)",
     "topicId": "thong_ke_mau_so_lieu_ghep_nhom",
     "topicName": "Thống kê & Mẫu số liệu ghép nhóm",
     "content": "Khảo sát chiều cao của 40 học sinh thu được bảng số liệu sau:\n\n$$\\begin{array}{|c|c|c|c|c|}\\hline \\text{Chiều cao (cm)} & [150; 155) & [155; 160) & [160; 165) & [165; 170) \\\\ \\hline \\text{Số học sinh} & 5 & 12 & 15 & 8 \\\\ \\hline \\end{array}$$\n\nSố trung bình cộng của mẫu ghép nhóm bằng bao nhiêu?",
@@ -384,14 +396,15 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 199,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_thong_ke_ghep_nhom',
-    "chapterName": 'Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)',
+    "chapterId": "chuong_thong_ke_ghep_nhom",
+    "chapterName": "Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)",
     "topicId": "thong_ke_mau_so_lieu_ghep_nhom",
     "topicName": "Thống kê & Mẫu số liệu ghép nhóm",
     "content": "Cho bảng số liệu ghép nhóm về điểm kiểm tra của học sinh như sau:\n\n$$\\begin{array}{|c|c|c|c|}\\hline \\text{Khoảng điểm} & [0; 4) & [4; 7) & [7; 10] \\\\ \\hline \\text{Số học sinh} & 2 & 10 & 8 \\\\ \\hline \\end{array}$$\n\nKhoảng biến thiên của mẫu số liệu ghép nhóm này bằng bao nhiêu?",
@@ -405,14 +418,15 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 204,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_thong_ke_ghep_nhom',
-    "chapterName": 'Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)',
+    "chapterId": "chuong_thong_ke_ghep_nhom",
+    "chapterName": "Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)",
     "topicId": "thong_ke_mau_so_lieu_ghep_nhom",
     "topicName": "Thống kê & Mẫu số liệu ghép nhóm",
     "content": "Thống kê điểm thi giữa học kì I môn Toán của các bạn học sinh trong một lớp theo bảng sau:\n\n$$\\begin{array}{|c|c|c|c|c|c|c|}\\hline \\text{Điểm} & 5 & 6 & 7 & 8 & 9 & 10 \\\\ \\hline \\text{Số học sinh} & 1 & 3 & 10 & 15 & 7 & 4 \\\\ \\hline \\end{array}$$\n\nPhương sai của mẫu số liệu trên là (kết quả tính làm tròn đến hàng phần trăm):",
@@ -440,14 +454,15 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 218,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_thong_ke_ghep_nhom',
-    "chapterName": 'Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)',
+    "chapterId": "chuong_thong_ke_ghep_nhom",
+    "chapterName": "Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)",
     "topicId": "thong_ke_mau_so_lieu_ghep_nhom",
     "topicName": "Thống kê & Mẫu số liệu ghép nhóm",
     "content": "Thống kê thời gian (đơn vị: phút) đi từ nhà đến nơi làm việc của các nhân viên một công ty theo bảng sau:\n\n$$\\begin{array}{|c|c|c|c|c|c|c|}\\hline \\text{Thời gian} & [15; 20) & [20; 25) & [25; 30) & [30; 35) & [35; 40) & [40; 45) \\\\ \\hline \\text{Số nhân viên} & 6 & 12 & 20 & 25 & 15 & 2 \\\\ \\hline \\end{array}$$\n\nTính mốt của mẫu số liệu ghép nhóm trên:",
@@ -475,14 +490,15 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 246,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_thong_ke_ghep_nhom',
-    "chapterName": 'Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)',
+    "chapterId": "chuong_thong_ke_ghep_nhom",
+    "chapterName": "Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)",
     "topicId": "thong_ke_mau_so_lieu_ghep_nhom",
     "topicName": "Thống kê & Mẫu số liệu ghép nhóm",
     "content": "Thống kê kết quả điểm số của các kỳ thủ trong một giải thi đấu cờ tướng theo bảng sau:\n\n$$\\begin{array}{|c|c|c|c|c|c|}\\hline \\text{Điểm số} & [0; 2) & [2; 4) & [4; 6) & [6; 8) & [8; 10) \\\\ \\hline \\text{Số kỳ thủ} & 2 & 4 & 8 & 5 & 6 \\\\ \\hline \\end{array}$$\n\nKhoảng tứ phân vị của mẫu số liệu ghép nhóm trên là:",
@@ -510,7 +526,8 @@ export const thongKeGhepNhomQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 285,
@@ -526,7 +543,8 @@ export const thongKeGhepNhomQuestions: Question[] = [
       "de_07_hsa36"
     ],
     "topicName": "Thống kê & Mẫu số liệu ghép nhóm",
-    "chapterId": 'chuong_thong_ke_ghep_nhom',
-    "chapterName": 'Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)'
+    "chapterId": "chuong_thong_ke_ghep_nhom",
+    "chapterName": "Chuyên đề 3: Thống kê mẫu số liệu ghép nhóm (Toán 12)",
+    "answerVerified": true
   }
 ];

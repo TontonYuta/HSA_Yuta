@@ -5,8 +5,8 @@ export const duongThangDuongTronConicQuestions: Question[] = [
     "id": 20,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_6_toan_lop_10',
-    "chapterName": 'Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)',
+    "chapterId": "chuong_6_toan_lop_10",
+    "chapterName": "Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)",
     "topicId": "duong_thang_duong_tron_conic",
     "topicName": "Đường thẳng, Đường tròn & Ba đường Conic",
     "content": "Trong mặt phẳng $Oxy$, cho đường tròn $(C): x^2 + y^2 - 4x + 2y - 4 = 0$ và đường thẳng $d: 3x - 4y + m = 0$. Có bao nhiêu giá trị của tham số $m$ để đường thẳng $d$ tiếp xúc với đường tròn $(C)$?",
@@ -35,14 +35,15 @@ export const duongThangDuongTronConicQuestions: Question[] = [
     "examSets": [
       "de_01_chuan",
       "de_03_cap_toc"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 21,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_6_toan_lop_10',
-    "chapterName": 'Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)',
+    "chapterId": "chuong_6_toan_lop_10",
+    "chapterName": "Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)",
     "topicId": "duong_thang_duong_tron_conic",
     "topicName": "Đường thẳng, Đường tròn & Ba đường Conic",
     "content": "Trong mặt phẳng $Oxy$, cho tam giác $ABC$ có các đỉnh $A(1; 3), B(-1; 1), C(3; 0)$. Độ dài đường cao kẻ từ đỉnh $A$ của tam giác $ABC$ bằng:",
@@ -70,14 +71,15 @@ export const duongThangDuongTronConicQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 49,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_6_toan_lop_10',
-    "chapterName": 'Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)',
+    "chapterId": "chuong_6_toan_lop_10",
+    "chapterName": "Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)",
     "topicId": "duong_thang_duong_tron_conic",
     "topicName": "Đường thẳng, Đường tròn & Ba đường Conic",
     "content": "Trong mặt phẳng $Oxy$, cho tam giác $ABC$ có $A(1; 3), B(-2; 1), C(4; -1)$. Diện tích của tam giác $ABC$ bằng bao nhiêu?",
@@ -92,14 +94,15 @@ export const duongThangDuongTronConicQuestions: Question[] = [
     "examSets": [
       "de_01_chuan",
       "de_03_cap_toc"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 65,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_6_toan_lop_10',
-    "chapterName": 'Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)',
+    "chapterId": "chuong_6_toan_lop_10",
+    "chapterName": "Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)",
     "topicId": "duong_thang_duong_tron_conic",
     "topicName": "Đường thẳng, Đường tròn & Ba đường Conic",
     "content": "Trong mặt phẳng $Oxy$, cho elip $(E): \\frac{x^2}{16} + \\frac{y^2}{9} = 1$ và điểm $M(2; 1)$. Đường thẳng $\\Delta$ đi qua điểm $M$ cắt $(E)$ tại hai điểm phân biệt $A, B$ sao cho $M$ là trung điểm của đoạn thẳng $AB$. Hệ số góc của đường thẳng $\\Delta$ bằng:",
@@ -127,14 +130,15 @@ export const duongThangDuongTronConicQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 76,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_6_toan_lop_10',
-    "chapterName": 'Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)',
+    "chapterId": "chuong_6_toan_lop_10",
+    "chapterName": "Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)",
     "topicId": "duong_thang_duong_tron_conic",
     "topicName": "Đường thẳng, Đường tròn & Ba đường Conic",
     "content": "Trong mặt phẳng $Oxy$, cho tam giác $ABC$ có trực tâm $H(2; 1)$, tâm đường tròn ngoại tiếp $I(1; 0)$ và trung điểm của cạnh $BC$ là $M(3; 2)$. Tọa độ của đỉnh $A$ là:",
@@ -162,14 +166,15 @@ export const duongThangDuongTronConicQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 93,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_6_toan_lop_10',
-    "chapterName": 'Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)',
+    "chapterId": "chuong_6_toan_lop_10",
+    "chapterName": "Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)",
     "topicId": "duong_thang_duong_tron_conic",
     "topicName": "Đường thẳng, Đường tròn & Ba đường Conic",
     "content": "Trong mặt phẳng $Oxy$, cho đường tròn $(C)$ đi qua ba điểm $A(0; 6), B(8; 6), C(8; 0)$. Bán kính của đường tròn $(C)$ bằng bao nhiêu?",
@@ -182,14 +187,15 @@ export const duongThangDuongTronConicQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 148,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_6_toan_lop_10',
-    "chapterName": 'Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)',
+    "chapterId": "chuong_6_toan_lop_10",
+    "chapterName": "Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)",
     "topicId": "duong_thang_duong_tron_conic",
     "topicName": "Đường thẳng, Đường tròn & Ba đường Conic",
     "content": "Một bồn hoa có hình elip với độ dài trục lớn bằng 10 m và độ dài trục nhỏ bằng 6 m. Tiêu cự của bồn hoa hình elip này bằng bao nhiêu mét?",
@@ -203,14 +209,15 @@ export const duongThangDuongTronConicQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 170,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_6_toan_lop_10',
-    "chapterName": 'Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)',
+    "chapterId": "chuong_6_toan_lop_10",
+    "chapterName": "Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)",
     "topicId": "duong_thang_duong_tron_conic",
     "topicName": "Đường thẳng, Đường tròn & Ba đường Conic",
     "content": "Trong mặt phẳng $Oxy$, cho đường tròn $(C): x^2 + y^2 = 9$. Từ điểm $M(5; 0)$ kẻ hai tiếp tuyến $MA, MB$ đến đường tròn $(C)$ với $A, B$ là hai tiếp điểm. Độ dài đoạn thẳng $AB$ bằng:",
@@ -238,14 +245,15 @@ export const duongThangDuongTronConicQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 171,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_6_toan_lop_10',
-    "chapterName": 'Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)',
+    "chapterId": "chuong_6_toan_lop_10",
+    "chapterName": "Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)",
     "topicId": "duong_thang_duong_tron_conic",
     "topicName": "Đường thẳng, Đường tròn & Ba đường Conic",
     "content": "Trong mặt phẳng $Oxy$, cho tam giác $ABC$ có đỉnh $A(1; 2)$ và trọng tâm $G(3; 4)$. Tọa độ trung điểm $M$ của cạnh $BC$ là:",
@@ -273,14 +281,15 @@ export const duongThangDuongTronConicQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 193,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_6_toan_lop_10',
-    "chapterName": 'Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)',
+    "chapterId": "chuong_6_toan_lop_10",
+    "chapterName": "Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)",
     "topicId": "duong_thang_duong_tron_conic",
     "topicName": "Đường thẳng, Đường tròn & Ba đường Conic",
     "content": "Trong mặt phẳng $Oxy$, cho đường thẳng $\\Delta: 3x - 4y + 5 = 0$ và điểm $I(1; -3)$. Bán kính của đường tròn tâm $I$ tiếp xúc với đường thẳng $\\Delta$ bằng bao nhiêu?",
@@ -294,14 +303,15 @@ export const duongThangDuongTronConicQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 198,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_6_toan_lop_10',
-    "chapterName": 'Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)',
+    "chapterId": "chuong_6_toan_lop_10",
+    "chapterName": "Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)",
     "topicId": "duong_thang_duong_tron_conic",
     "topicName": "Đường thẳng, Đường tròn & Ba đường Conic",
     "content": "Trong mặt phẳng $Oxy$, cho tam giác $ABC$ có các đỉnh $A(1; 4), B(3; 0), C(5; 5)$. Tính diện tích tam giác $ABC$.",
@@ -314,14 +324,15 @@ export const duongThangDuongTronConicQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 203,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_6_toan_lop_10',
-    "chapterName": 'Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)',
+    "chapterId": "chuong_6_toan_lop_10",
+    "chapterName": "Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)",
     "topicId": "duong_thang_duong_tron_conic",
     "topicName": "Đường thẳng, Đường tròn & Ba đường Conic",
     "content": "Một mảnh vườn hình elip có độ dài trục lớn bằng $20\\text{ m}$, độ dài trục bé bằng $16\\text{ m}$. Người ta dự định trồng hoa trong hình chữ nhật $MNPQ$ nội tiếp elip. Tính diện tích phần trồng hoa, biết chiều dài của phần trồng hoa là $MN = 16\\text{ m}$ (kết quả tính theo $\\text{m}^2$).",
@@ -337,6 +348,7 @@ export const duongThangDuongTronConicQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
-    ]
+    ],
+    "answerVerified": true
   }
 ];

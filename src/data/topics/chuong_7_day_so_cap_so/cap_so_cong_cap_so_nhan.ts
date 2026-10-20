@@ -5,8 +5,8 @@ export const capSoCongNhanQuestions: Question[] = [
     "id": 23,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_7_day_so_cap_so',
-    "chapterName": 'Chuyên đề 7: Dãy số, Cấp số cộng & Cấp số nhân (Toán 11)',
+    "chapterId": "chuong_7_day_so_cap_so",
+    "chapterName": "Chuyên đề 7: Dãy số, Cấp số cộng & Cấp số nhân (Toán 11)",
     "topicId": "cap_so_cong_cap_so_nhan",
     "topicName": "Cấp số cộng & Cấp số nhân",
     "content": "Cho một cấp số nhân $(u_n)$ có công bội $q > 0$. Biết $u_2 = 6$ và $u_4 = 54$. Tổng của 8 số hạng đầu tiên của cấp số nhân đó bằng:",
@@ -34,14 +34,15 @@ export const capSoCongNhanQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 24,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_7_day_so_cap_so',
-    "chapterName": 'Chuyên đề 7: Dãy số, Cấp số cộng & Cấp số nhân (Toán 11)',
+    "chapterId": "chuong_7_day_so_cap_so",
+    "chapterName": "Chuyên đề 7: Dãy số, Cấp số cộng & Cấp số nhân (Toán 11)",
     "topicId": "cap_so_cong_cap_so_nhan",
     "topicName": "Cấp số cộng & Cấp số nhân",
     "content": "Một quả bóng cao su được thả rơi tự do từ độ cao $18\\text{ m}$ xuống mặt đất. Mỗi lần chạm đất, quả bóng nảy lên được độ cao bằng $\\frac{2}{3}$ độ cao của lần rơi ngay trước đó. Tổng quãng đường mà quả bóng di chuyển được kể từ lúc thả cho đến khi dừng hẳn bằng:",
@@ -69,14 +70,15 @@ export const capSoCongNhanQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 44,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_7_day_so_cap_so',
-    "chapterName": 'Chuyên đề 7: Dãy số, Cấp số cộng & Cấp số nhân (Toán 11)',
+    "chapterId": "chuong_7_day_so_cap_so",
+    "chapterName": "Chuyên đề 7: Dãy số, Cấp số cộng & Cấp số nhân (Toán 11)",
     "topicId": "cap_so_cong_cap_so_nhan",
     "topicName": "Cấp số cộng & Cấp số nhân",
     "content": "Cho cấp số cộng $(u_n)$ có $u_1 = 3$ và công sai $d = 4$. Biết tổng của $n$ số hạng đầu tiên bằng $253$. Tìm giá trị của $n$.",
@@ -89,14 +91,15 @@ export const capSoCongNhanQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 45,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_7_day_so_cap_so',
-    "chapterName": 'Chuyên đề 7: Dãy số, Cấp số cộng & Cấp số nhân (Toán 11)',
+    "chapterId": "chuong_7_day_so_cap_so",
+    "chapterName": "Chuyên đề 7: Dãy số, Cấp số cộng & Cấp số nhân (Toán 11)",
     "topicId": "cap_so_cong_cap_so_nhan",
     "topicName": "Cấp số cộng & Cấp số nhân",
     "content": "Một tam giác vuông có 3 cạnh lập thành cấp số cộng với công sai $d = 3$. Hãy tính chu vi của tam giác vuông đó.",
@@ -110,14 +113,15 @@ export const capSoCongNhanQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 77,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_7_day_so_cap_so',
-    "chapterName": 'Chuyên đề 7: Dãy số, Cấp số cộng & Cấp số nhân (Toán 11)',
+    "chapterId": "chuong_7_day_so_cap_so",
+    "chapterName": "Chuyên đề 7: Dãy số, Cấp số cộng & Cấp số nhân (Toán 11)",
     "topicId": "cap_so_cong_cap_so_nhan",
     "topicName": "Cấp số cộng & Cấp số nhân",
     "content": "Cho cấp số nhân $(u_n)$ có các số hạng đều dương thỏa mãn $u_2 + u_4 = 60$ và $u_3 + u_5 = 180$. Tổng 6 số hạng đầu tiên $S_6$ của cấp số nhân này bằng:",
@@ -145,14 +149,15 @@ export const capSoCongNhanQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 94,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_7_day_so_cap_so',
-    "chapterName": 'Chuyên đề 7: Dãy số, Cấp số cộng & Cấp số nhân (Toán 11)',
+    "chapterId": "chuong_7_day_so_cap_so",
+    "chapterName": "Chuyên đề 7: Dãy số, Cấp số cộng & Cấp số nhân (Toán 11)",
     "topicId": "cap_so_cong_cap_so_nhan",
     "topicName": "Cấp số cộng & Cấp số nhân",
     "content": "Cho cấp số cộng $(u_n)$ thỏa mãn $u_1 + u_5 = 18$ và $u_3 + u_7 = 26$. Tính số hạng $u_{10}$ của cấp số cộng đó.",
@@ -165,14 +170,15 @@ export const capSoCongNhanQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 122,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_7_day_so_cap_so',
-    "chapterName": 'Chuyên đề 7: Dãy số, Cấp số cộng & Cấp số nhân (Toán 11)',
+    "chapterId": "chuong_7_day_so_cap_so",
+    "chapterName": "Chuyên đề 7: Dãy số, Cấp số cộng & Cấp số nhân (Toán 11)",
     "topicId": "cap_so_cong_cap_so_nhan",
     "topicName": "Cấp số cộng & Cấp số nhân",
     "content": "Cho hai cấp số cộng $(u_n): 3, 7, 11, dots$ và $(v_m): 2, 7, 12, dots$. Số hạng chung nhỏ nhất lớn hơn 100 của hai cấp số cộng trên là:",
@@ -200,14 +206,15 @@ export const capSoCongNhanQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 123,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_7_day_so_cap_so',
-    "chapterName": 'Chuyên đề 7: Dãy số, Cấp số cộng & Cấp số nhân (Toán 11)',
+    "chapterId": "chuong_7_day_so_cap_so",
+    "chapterName": "Chuyên đề 7: Dãy số, Cấp số cộng & Cấp số nhân (Toán 11)",
     "topicId": "cap_so_cong_cap_so_nhan",
     "topicName": "Cấp số cộng & Cấp số nhân",
     "content": "Một quả bóng cao su được thả rơi từ độ cao 10 m xuống mặt sàn phẳng. Mỗi lần chạm sàn, quả bóng lại nảy lên được độ cao bằng $\\frac{2}{3}$ độ cao của lần rơi trước đó. Tổng quãng đường quả bóng di chuyển (kể cả rơi xuống và nảy lên) cho đến khi nó dừng lại hẳn bằng:",
@@ -235,14 +242,15 @@ export const capSoCongNhanQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 124,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_7_day_so_cap_so',
-    "chapterName": 'Chuyên đề 7: Dãy số, Cấp số cộng & Cấp số nhân (Toán 11)',
+    "chapterId": "chuong_7_day_so_cap_so",
+    "chapterName": "Chuyên đề 7: Dãy số, Cấp số cộng & Cấp số nhân (Toán 11)",
     "topicId": "cap_so_cong_cap_so_nhan",
     "topicName": "Cấp số cộng & Cấp số nhân",
     "content": "Cho cấp số cộng $(u_n)$ có số hạng đầu $u_1 = 3$ và công sai $d = 4$. Biết tổng $n$ số hạng đầu tiên của cấp số cộng là $S_n = 253$. Giá trị của $n$ là:",
@@ -270,14 +278,15 @@ export const capSoCongNhanQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 144,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_7_day_so_cap_so',
-    "chapterName": 'Chuyên đề 7: Dãy số, Cấp số cộng & Cấp số nhân (Toán 11)',
+    "chapterId": "chuong_7_day_so_cap_so",
+    "chapterName": "Chuyên đề 7: Dãy số, Cấp số cộng & Cấp số nhân (Toán 11)",
     "topicId": "cap_so_cong_cap_so_nhan",
     "topicName": "Cấp số cộng & Cấp số nhân",
     "content": "Cho hai cấp số cộng $(u_n): 3, 7, 11, dots$ ($u_n = 4n - 1$) và $(v_m): 2, 7, 12, dots$ ($v_m = 5m - 3$). Có bao nhiêu số hạng chung của hai dãy số này nhỏ hơn 2025?",
@@ -291,14 +300,15 @@ export const capSoCongNhanQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 172,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_7_day_so_cap_so',
-    "chapterName": 'Chuyên đề 7: Dãy số, Cấp số cộng & Cấp số nhân (Toán 11)',
+    "chapterId": "chuong_7_day_so_cap_so",
+    "chapterName": "Chuyên đề 7: Dãy số, Cấp số cộng & Cấp số nhân (Toán 11)",
     "topicId": "cap_so_cong_cap_so_nhan",
     "topicName": "Cấp số cộng & Cấp số nhân",
     "content": "Cho ba số thực phân biệt $a, b, c$ theo thứ tự lập thành một cấp số nhân với công bội $q$. Biết rằng đồng thời ba số $a, 2b, 3c$ theo thứ tự lập thành một cấp số cộng. Giá trị của công bội $q$ bằng:",
@@ -326,14 +336,15 @@ export const capSoCongNhanQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 174,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_7_day_so_cap_so',
-    "chapterName": 'Chuyên đề 7: Dãy số, Cấp số cộng & Cấp số nhân (Toán 11)',
+    "chapterId": "chuong_7_day_so_cap_so",
+    "chapterName": "Chuyên đề 7: Dãy số, Cấp số cộng & Cấp số nhân (Toán 11)",
     "topicId": "cap_so_cong_cap_so_nhan",
     "topicName": "Cấp số cộng & Cấp số nhân",
     "content": "Cho ba số thực dương $x, 5, y$ theo thứ tự lập thành một cấp số cộng và ba số $x, 4, y$ theo thứ tự lập thành một cấp số nhân. Giá trị của biểu thức $P = x^2 + y^2$ bằng:",
@@ -361,14 +372,15 @@ export const capSoCongNhanQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 194,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_7_day_so_cap_so',
-    "chapterName": 'Chuyên đề 7: Dãy số, Cấp số cộng & Cấp số nhân (Toán 11)',
+    "chapterId": "chuong_7_day_so_cap_so",
+    "chapterName": "Chuyên đề 7: Dãy số, Cấp số cộng & Cấp số nhân (Toán 11)",
     "topicId": "cap_so_cong_cap_so_nhan",
     "topicName": "Cấp số cộng & Cấp số nhân",
     "content": "Cho cấp số cộng $(u_n)$ có $u_5 = 19$ và $u_9 = 35$. Tính tổng 20 số hạng đầu tiên $S_{20}$ của cấp số cộng đó.",
@@ -381,14 +393,15 @@ export const capSoCongNhanQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 206,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_7_day_so_cap_so',
-    "chapterName": 'Chuyên đề 7: Dãy số, Cấp số cộng & Cấp số nhân (Toán 11)',
+    "chapterId": "chuong_7_day_so_cap_so",
+    "chapterName": "Chuyên đề 7: Dãy số, Cấp số cộng & Cấp số nhân (Toán 11)",
     "topicId": "cap_so_cong_cap_so_nhan",
     "topicName": "Cấp số cộng & Cấp số nhân",
     "content": "Người ta trồng $10000$ cây thành nhiều hàng theo cách như sau: hàng thứ nhất trồng $1$ cây, hàng thứ hai trồng $3$ cây, hàng thứ ba trồng $5$ cây, v.v... Hỏi hàng cuối cùng trồng bao nhiêu cây?",
@@ -403,7 +416,8 @@ export const capSoCongNhanQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 284,
@@ -438,7 +452,8 @@ export const capSoCongNhanQuestions: Question[] = [
     ],
     "topicName": "Cấp số cộng & Cấp số nhân",
     "chapterId": "chuong_7_day_so_cap_so",
-    "chapterName": "Chuyên đề 7: Dãy số, Cấp số cộng & Cấp số nhân (Toán 11)"
+    "chapterName": "Chuyên đề 7: Dãy số, Cấp số cộng & Cấp số nhân (Toán 11)",
+    "answerVerified": true
   },
   {
     "id": 297,
@@ -454,7 +469,8 @@ export const capSoCongNhanQuestions: Question[] = [
       "de_07_hsa36"
     ],
     "topicName": "Cấp số cộng & Cấp số nhân",
-    "chapterId": 'chuong_7_day_so_cap_so',
-    "chapterName": 'Chuyên đề 7: Dãy số, Cấp số cộng & Cấp số nhân (Toán 11)'
+    "chapterId": "chuong_7_day_so_cap_so",
+    "chapterName": "Chuyên đề 7: Dãy số, Cấp số cộng & Cấp số nhân (Toán 11)",
+    "answerVerified": true
   }
 ];

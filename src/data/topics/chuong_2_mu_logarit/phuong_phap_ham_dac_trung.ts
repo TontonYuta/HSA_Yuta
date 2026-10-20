@@ -5,8 +5,8 @@ export const hamDacTrungQuestions: Question[] = [
     "id": 10,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_2_mu_logarit',
-    "chapterName": 'Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)',
+    "chapterId": "chuong_2_mu_logarit",
+    "chapterName": "Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)",
     "topicId": "phuong_phap_ham_dac_trung",
     "topicName": "Phương pháp hàm đặc trưng mũ - logarit",
     "content": "Phương trình $4^x - (m + 2)2^x + 2m = 0$ có hai nghiệm phân biệt $x_1, x_2$ thỏa mãn $x_1 + x_2 = 3$. Giá trị của $m$ là:",
@@ -34,14 +34,15 @@ export const hamDacTrungQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 58,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_2_mu_logarit',
-    "chapterName": 'Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)',
+    "chapterId": "chuong_2_mu_logarit",
+    "chapterName": "Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)",
     "topicId": "phuong_phap_ham_dac_trung",
     "topicName": "Phương pháp hàm đặc trưng mũ - logarit",
     "content": "Cho hai số thực $x, y$ thỏa mãn $4^{x^2 + y^2 - 1} + \\log_2(x^2 + y^2 + 1) = 2^{2xy} + \\log_2(2xy + 2)$. Tìm giá trị nhỏ nhất của biểu thức $P = x^2 + 2y^2 - 4x$.",
@@ -69,14 +70,15 @@ export const hamDacTrungQuestions: Question[] = [
     "difficulty": "Vận dụng cao",
     "examSets": [
       "de_02_thuc_chien"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 210,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_2_mu_logarit',
-    "chapterName": 'Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)',
+    "chapterId": "chuong_2_mu_logarit",
+    "chapterName": "Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)",
     "topicId": "phuong_phap_ham_dac_trung",
     "topicName": "Phương pháp hàm đặc trưng mũ - logarit",
     "content": "Có bao nhiêu cặp số nguyên $(x; y)$ thỏa mãn $0 \\le x \\le 2025$ và $\\log_3(162x + 243) + 2x - 1 = 2y + 9^y$?",
@@ -91,7 +93,8 @@ export const hamDacTrungQuestions: Question[] = [
     "difficulty": "Vận dụng cao",
     "examSets": [
       "de_06_hsa35"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 289,
@@ -126,6 +129,7 @@ export const hamDacTrungQuestions: Question[] = [
     ],
     "topicName": "Phương pháp hàm đặc trưng mũ - logarit",
     "chapterId": "chuong_2_mu_logarit",
-    "chapterName": "Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)"
+    "chapterName": "Chuyên đề 6: Hàm số mũ & Hàm số Logarit (Toán 11)",
+    "answerVerified": true
   }
 ];

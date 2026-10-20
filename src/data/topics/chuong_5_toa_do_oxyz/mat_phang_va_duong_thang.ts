@@ -5,8 +5,8 @@ export const matPhangDuongThangQuestions: Question[] = [
     "id": 18,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_5_toa_do_oxyz',
-    "chapterName": 'Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)',
+    "chapterId": "chuong_5_toa_do_oxyz",
+    "chapterName": "Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)",
     "topicId": "mat_phang_va_duong_thang",
     "topicName": "Mặt phẳng & Đường thẳng trong không gian",
     "content": "Côsin của góc giữa hai đường thẳng $d_1: \\frac{x-1}{2} = \\frac{y}{1} = \\frac{z+1}{-2}$ và $d_2: \\frac{x}{1} = \\frac{y-1}{-2} = \\frac{z-2}{2}$ bằng:",
@@ -34,14 +34,15 @@ export const matPhangDuongThangQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 19,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_5_toa_do_oxyz',
-    "chapterName": 'Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)',
+    "chapterId": "chuong_5_toa_do_oxyz",
+    "chapterName": "Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)",
     "topicId": "mat_phang_va_duong_thang",
     "topicName": "Mặt phẳng & Đường thẳng trong không gian",
     "content": "Trong không gian $Oxyz$, cho hai đường thẳng chéo nhau $d_1: \\frac{x - 1}{2} = \\frac{y}{1} = \\frac{z + 1}{-1}$ và $d_2: \\frac{x + 1}{1} = \\frac{y - 2}{2} = \\frac{z}{1}$. Mặt phẳng $(P)$ chứa đường thẳng $d_1$ và song song với đường thẳng $d_2$ có phương trình là:",
@@ -69,14 +70,15 @@ export const matPhangDuongThangQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 33,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_5_toa_do_oxyz',
-    "chapterName": 'Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)',
+    "chapterId": "chuong_5_toa_do_oxyz",
+    "chapterName": "Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)",
     "topicId": "mat_phang_va_duong_thang",
     "topicName": "Mặt phẳng & Đường thẳng trong không gian",
     "content": "Trong không gian $Oxyz$, cho điểm $A(2; 1; 4)$ và đường thẳng $d: \\frac{x - 1}{1} = \\frac{y - 2}{1} = \\frac{z - 1}{2}$. Tọa độ hình chiếu vuông góc của điểm $A$ lên đường thẳng $d$ là:",
@@ -104,14 +106,15 @@ export const matPhangDuongThangQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 64,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_5_toa_do_oxyz',
-    "chapterName": 'Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)',
+    "chapterId": "chuong_5_toa_do_oxyz",
+    "chapterName": "Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)",
     "topicId": "mat_phang_va_duong_thang",
     "topicName": "Mặt phẳng & Đường thẳng trong không gian",
     "content": "Trong không gian $Oxyz$, cho đường thẳng $d: \\frac{x - 1}{2} = \\frac{y + 2}{-1} = \\frac{z - 3}{1}$ và mặt phẳng $(P): x + y + z - 4 = 0$. Gọi $\\Delta$ là đường thẳng nằm trong mặt phẳng $(P)$, đồng thời cắt và vuông góc với đường thẳng $d$. Một vectơ chỉ phương của $\\Delta$ là:",
@@ -139,14 +142,15 @@ export const matPhangDuongThangQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 118,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_5_toa_do_oxyz',
-    "chapterName": 'Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)',
+    "chapterId": "chuong_5_toa_do_oxyz",
+    "chapterName": "Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)",
     "topicId": "mat_phang_va_duong_thang",
     "topicName": "Mặt phẳng & Đường thẳng trong không gian",
     "content": "Trong không gian $Oxyz$, cho mặt cầu $(S): x^2 + y^2 + z^2 - 2x - 4y + 6z - 2 = 0$ và mặt phẳng $(P): 2x - y + 2z + 12 = 0$. Bán kính $r$ của đường tròn giao tuyến giữa $(P)$ và $(S)$ bằng:",
@@ -174,14 +178,15 @@ export const matPhangDuongThangQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 119,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_5_toa_do_oxyz',
-    "chapterName": 'Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)',
+    "chapterId": "chuong_5_toa_do_oxyz",
+    "chapterName": "Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)",
     "topicId": "mat_phang_va_duong_thang",
     "topicName": "Mặt phẳng & Đường thẳng trong không gian",
     "content": "Trong không gian $Oxyz$, mặt phẳng $(\\alpha)$ đi qua điểm $M(1; 2; 3)$ và cắt ba tia $Ox, Oy, Oz$ lần lượt tại $A, B, C$ sao cho $OA = OB = OC > 0$. Phương trình của $(\\alpha)$ là:",
@@ -209,14 +214,15 @@ export const matPhangDuongThangQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 135,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_5_toa_do_oxyz',
-    "chapterName": 'Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)',
+    "chapterId": "chuong_5_toa_do_oxyz",
+    "chapterName": "Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)",
     "topicId": "mat_phang_va_duong_thang",
     "topicName": "Mặt phẳng & Đường thẳng trong không gian",
     "content": "Trong không gian $Oxyz$, cho hai điểm $A(1; 2; -1)$ và $B(3; 0; 3)$. Mặt phẳng trung trực của đoạn thẳng $AB$ có phương trình là:",
@@ -244,14 +250,15 @@ export const matPhangDuongThangQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 167,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_5_toa_do_oxyz',
-    "chapterName": 'Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)',
+    "chapterId": "chuong_5_toa_do_oxyz",
+    "chapterName": "Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)",
     "topicId": "mat_phang_va_duong_thang",
     "topicName": "Mặt phẳng & Đường thẳng trong không gian",
     "content": "Trong không gian $Oxyz$, cho mặt phẳng $(P): 2x - 2y + z + 1 = 0$ và điểm $M(1; -2; 3)$. Mặt phẳng $(Q)$ song song với $(P)$ và cách điểm $M$ một khoảng bằng $3$ có phương trình là:",
@@ -279,14 +286,15 @@ export const matPhangDuongThangQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 168,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_5_toa_do_oxyz',
-    "chapterName": 'Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)',
+    "chapterId": "chuong_5_toa_do_oxyz",
+    "chapterName": "Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)",
     "topicId": "mat_phang_va_duong_thang",
     "topicName": "Mặt phẳng & Đường thẳng trong không gian",
     "content": "Trong không gian $Oxyz$, cho đường thẳng $d: \\frac{x - 1}{2} = \\frac{y + 1}{-1} = \\frac{z - 2}{3}$. Vectơ nào sau đây là một vectơ chỉ phương của $d$?",
@@ -314,14 +322,15 @@ export const matPhangDuongThangQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 185,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_5_toa_do_oxyz',
-    "chapterName": 'Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)',
+    "chapterId": "chuong_5_toa_do_oxyz",
+    "chapterName": "Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)",
     "topicId": "mat_phang_va_duong_thang",
     "topicName": "Mặt phẳng & Đường thẳng trong không gian",
     "content": "Trong không gian $Oxyz$, mặt phẳng đi qua điểm $A(1; 0; -2)$ và vuông góc với đường thẳng $\\Delta: \\frac{x + 1}{2} = \\frac{y - 1}{-3} = \\frac{z}{1}$ có phương trình là:",
@@ -349,14 +358,15 @@ export const matPhangDuongThangQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 241,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_5_toa_do_oxyz',
-    "chapterName": 'Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)',
+    "chapterId": "chuong_5_toa_do_oxyz",
+    "chapterName": "Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)",
     "topicId": "mat_phang_va_duong_thang",
     "topicName": "Mặt phẳng & Đường thẳng trong không gian",
     "content": "Trong không gian $Oxyz$, cho các điểm $M(1; 2; 3)$ và $N(-3; -2; -1)$. Phương trình mặt phẳng $(\\alpha)$ đi qua trung điểm của $MN$ và vuông góc với đường thẳng $MN$ là:",
@@ -384,14 +394,15 @@ export const matPhangDuongThangQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 243,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_5_toa_do_oxyz',
-    "chapterName": 'Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)',
+    "chapterId": "chuong_5_toa_do_oxyz",
+    "chapterName": "Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)",
     "topicId": "mat_phang_va_duong_thang",
     "topicName": "Mặt phẳng & Đường thẳng trong không gian",
     "content": "Trong không gian $Oxyz$, cho các điểm $A(1; -2; 0)$ và $B(3; 2; -8)$. Trong các vectơ dưới đây, vectơ nào là một vectơ chỉ phương của đường thẳng $AB$?",
@@ -419,14 +430,15 @@ export const matPhangDuongThangQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 244,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_5_toa_do_oxyz',
-    "chapterName": 'Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)',
+    "chapterId": "chuong_5_toa_do_oxyz",
+    "chapterName": "Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)",
     "topicId": "mat_phang_va_duong_thang",
     "topicName": "Mặt phẳng & Đường thẳng trong không gian",
     "content": "Trong không gian $Oxyz$, cho hai đường thẳng chéo nhau là $\\Delta_1$ và $\\Delta_2$ lần lượt có phương trình: $\\Delta_1: \\frac{x - 1}{1} = \\frac{y - 3}{-1} = \\frac{z - 2}{2}$ và $\\Delta_2: \\frac{x}{3} = \\frac{y}{-1} = \\frac{z + 1}{3}$. Gọi $\\Delta$ là đường vuông góc chung của $\\Delta_1$ và $\\Delta_2$. Phương trình đường thẳng $\\Delta$ là:",
@@ -454,7 +466,8 @@ export const matPhangDuongThangQuestions: Question[] = [
     "difficulty": "Vận dụng cao",
     "examSets": [
       "de_06_hsa35"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 270,
@@ -470,8 +483,9 @@ export const matPhangDuongThangQuestions: Question[] = [
       "de_07_hsa36"
     ],
     "topicName": "Mặt phẳng & Đường thẳng trong không gian",
-    "chapterId": 'chuong_5_toa_do_oxyz',
-    "chapterName": 'Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)'
+    "chapterId": "chuong_5_toa_do_oxyz",
+    "chapterName": "Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)",
+    "answerVerified": true
   },
   {
     "id": 271,
@@ -506,7 +520,8 @@ export const matPhangDuongThangQuestions: Question[] = [
     ],
     "topicName": "Mặt phẳng & Đường thẳng trong không gian",
     "chapterId": "chuong_5_toa_do_oxyz",
-    "chapterName": "Chương 5: Phương pháp tọa độ trong không gian Oxyz"
+    "chapterName": "Chương 5: Phương pháp tọa độ trong không gian Oxyz",
+    "answerVerified": true
   },
   {
     "id": 273,
@@ -541,6 +556,7 @@ export const matPhangDuongThangQuestions: Question[] = [
     ],
     "topicName": "Mặt phẳng & Đường thẳng trong không gian",
     "chapterId": "chuong_5_toa_do_oxyz",
-    "chapterName": "Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)"
+    "chapterName": "Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)",
+    "answerVerified": true
   }
 ];

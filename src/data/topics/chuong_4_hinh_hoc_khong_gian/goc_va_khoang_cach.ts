@@ -5,8 +5,8 @@ export const gocKhoangCachQuestions: Question[] = [
     "id": 14,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_4_hinh_hoc_khong_gian',
-    "chapterName": 'Chuyên đề 8: Hình học không gian cổ điển (Toán 11)',
+    "chapterId": "chuong_4_hinh_hoc_khong_gian",
+    "chapterName": "Chuyên đề 8: Hình học không gian cổ điển (Toán 11)",
     "topicId": "goc_va_khoang_cach",
     "topicName": "Góc & Khoảng cách trong không gian",
     "content": "Cho hình chóp tam giác đều $S.ABC$ có cạnh đáy bằng $a$, góc giữa cạnh bên và mặt đáy bằng $60^\\circ$. Bán kính mặt cầu ngoại tiếp hình chóp là:",
@@ -34,14 +34,15 @@ export const gocKhoangCachQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 62,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_4_hinh_hoc_khong_gian',
-    "chapterName": 'Chuyên đề 8: Hình học không gian cổ điển (Toán 11)',
+    "chapterId": "chuong_4_hinh_hoc_khong_gian",
+    "chapterName": "Chuyên đề 8: Hình học không gian cổ điển (Toán 11)",
     "topicId": "goc_va_khoang_cach",
     "topicName": "Góc & Khoảng cách trong không gian",
     "content": "Cho hình lăng trụ đứng $ABC.A'B'C'$ có đáy $ABC$ là tam giác đều cạnh $a$, chiều cao $AA' = a\\sqrt{3}$. Khoảng cách giữa hai đường thẳng chéo nhau $A'B$ và $B'C$ bằng:",
@@ -69,14 +70,15 @@ export const gocKhoangCachQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 116,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_4_hinh_hoc_khong_gian',
-    "chapterName": 'Chuyên đề 8: Hình học không gian cổ điển (Toán 11)',
+    "chapterId": "chuong_4_hinh_hoc_khong_gian",
+    "chapterName": "Chuyên đề 8: Hình học không gian cổ điển (Toán 11)",
     "topicId": "goc_va_khoang_cach",
     "topicName": "Góc & Khoảng cách trong không gian",
     "content": "Cho hình lăng trụ đứng $ABC.A'B'C'$ có đáy $ABC$ là tam giác vuông tại $A$ với $AB = a, AC = a\\sqrt{3}$. Chiều cao của lăng trụ là $AA' = a$. Góc giữa đường thẳng $A'C$ và mặt phẳng đáy $(ABC)$ bằng:",
@@ -104,14 +106,15 @@ export const gocKhoangCachQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 134,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_4_hinh_hoc_khong_gian',
-    "chapterName": 'Chuyên đề 8: Hình học không gian cổ điển (Toán 11)',
+    "chapterId": "chuong_4_hinh_hoc_khong_gian",
+    "chapterName": "Chuyên đề 8: Hình học không gian cổ điển (Toán 11)",
     "topicId": "goc_va_khoang_cach",
     "topicName": "Góc & Khoảng cách trong không gian",
     "content": "Cho hình chóp $S.ABC$ có đáy $ABC$ là tam giác vuông cân tại $B$ với $AB = BC = a$. Cạnh bên $SA$ vuông góc với mặt phẳng đáy và $SA = a$. Khoảng cách từ điểm $A$ đến mặt phẳng $(SBC)$ bằng:",
@@ -139,14 +142,15 @@ export const gocKhoangCachQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 164,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_4_hinh_hoc_khong_gian',
-    "chapterName": 'Chuyên đề 8: Hình học không gian cổ điển (Toán 11)',
+    "chapterId": "chuong_4_hinh_hoc_khong_gian",
+    "chapterName": "Chuyên đề 8: Hình học không gian cổ điển (Toán 11)",
     "topicId": "goc_va_khoang_cach",
     "topicName": "Góc & Khoảng cách trong không gian",
     "content": "Cho hình chóp tứ giác đều $S.ABCD$ có đáy là hình vuông cạnh $a$, chiều cao $SO = a$ (với $O$ là tâm của đáy). Khoảng cách từ điểm $O$ đến mặt phẳng $(SCD)$ bằng:",
@@ -174,14 +178,15 @@ export const gocKhoangCachQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 166,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_4_hinh_hoc_khong_gian',
-    "chapterName": 'Chuyên đề 8: Hình học không gian cổ điển (Toán 11)',
+    "chapterId": "chuong_4_hinh_hoc_khong_gian",
+    "chapterName": "Chuyên đề 8: Hình học không gian cổ điển (Toán 11)",
     "topicId": "goc_va_khoang_cach",
     "topicName": "Góc & Khoảng cách trong không gian",
     "content": "Cho hình chóp $S.ABC$ có đáy $ABC$ là tam giác đều cạnh $a$. Cạnh bên $SA \\perp (ABC)$ và $SA = a$. Cosin của góc giữa hai mặt phẳng $(SBC)$ và $(ABC)$ bằng:",
@@ -209,14 +214,15 @@ export const gocKhoangCachQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 213,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_4_hinh_hoc_khong_gian',
-    "chapterName": 'Chuyên đề 8: Hình học không gian cổ điển (Toán 11)',
+    "chapterId": "chuong_4_hinh_hoc_khong_gian",
+    "chapterName": "Chuyên đề 8: Hình học không gian cổ điển (Toán 11)",
     "topicId": "goc_va_khoang_cach",
     "topicName": "Góc & Khoảng cách trong không gian",
     "content": "Cho hình chóp $S.ABCD$ có đáy $ABCD$ là hình vuông cạnh bằng $a\\sqrt{6}$, $SC = a\\sqrt{15}$. Hai mặt phẳng $(SAB)$ và $(SAD)$ cùng vuông góc với mặt phẳng $(ABCD)$. Gọi $\\alpha$ là góc giữa $SB$ và mặt phẳng $(SAC)$. Tính $\\cot^2\\alpha$.",
@@ -231,14 +237,15 @@ export const gocKhoangCachQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 214,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_4_hinh_hoc_khong_gian',
-    "chapterName": 'Chuyên đề 8: Hình học không gian cổ điển (Toán 11)',
+    "chapterId": "chuong_4_hinh_hoc_khong_gian",
+    "chapterName": "Chuyên đề 8: Hình học không gian cổ điển (Toán 11)",
     "topicId": "goc_va_khoang_cach",
     "topicName": "Góc & Khoảng cách trong không gian",
     "content": "Cho hình lăng trụ đứng $ABC.A'B'C'$ có đáy $ABC$ là tam giác vuông tại $B$, $A'B = a\\sqrt{3}$ và $A'B$ tạo với đáy một góc bằng $60^\\circ$. Gọi $M$ là trung điểm của $B'C'$. Khoảng cách từ điểm $M$ đến mặt phẳng $(A'BC)$ là:",
@@ -266,14 +273,15 @@ export const gocKhoangCachQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 215,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_4_hinh_hoc_khong_gian',
-    "chapterName": 'Chuyên đề 8: Hình học không gian cổ điển (Toán 11)',
+    "chapterId": "chuong_4_hinh_hoc_khong_gian",
+    "chapterName": "Chuyên đề 8: Hình học không gian cổ điển (Toán 11)",
     "topicId": "goc_va_khoang_cach",
     "topicName": "Góc & Khoảng cách trong không gian",
     "content": "Cho hình chóp $S.ABCD$ có đáy là hình chữ nhật $ABCD$, $AB = 2a$, $BC = a$. Tam giác $SAB$ là tam giác đều và nằm trong mặt phẳng vuông góc với đáy. Gọi $M$ là trung điểm $CD$. Khoảng cách giữa $AM$ và $SD$ là:",
@@ -301,7 +309,8 @@ export const gocKhoangCachQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 267,
@@ -336,7 +345,8 @@ export const gocKhoangCachQuestions: Question[] = [
     ],
     "topicName": "Góc & Khoảng cách trong không gian",
     "chapterId": "chuong_4_hinh_hoc_khong_gian",
-    "chapterName": "Chương 4: Hình học không gian cổ điển"
+    "chapterName": "Chương 4: Hình học không gian cổ điển",
+    "answerVerified": true
   },
   {
     "id": 268,
@@ -371,7 +381,8 @@ export const gocKhoangCachQuestions: Question[] = [
     ],
     "topicName": "Góc & Khoảng cách trong không gian",
     "chapterId": "chuong_4_hinh_hoc_khong_gian",
-    "chapterName": "Chương 4: Hình học không gian cổ điển"
+    "chapterName": "Chương 4: Hình học không gian cổ điển",
+    "answerVerified": true
   },
   {
     "id": 269,
@@ -406,7 +417,8 @@ export const gocKhoangCachQuestions: Question[] = [
     ],
     "topicName": "Góc & Khoảng cách trong không gian",
     "chapterId": "chuong_4_hinh_hoc_khong_gian",
-    "chapterName": "Chương 4: Hình học không gian cổ điển"
+    "chapterName": "Chương 4: Hình học không gian cổ điển",
+    "answerVerified": true
   },
   {
     "id": 291,
@@ -441,7 +453,8 @@ export const gocKhoangCachQuestions: Question[] = [
     ],
     "topicName": "Góc & Khoảng cách trong không gian",
     "chapterId": "chuong_4_hinh_hoc_khong_gian",
-    "chapterName": "Chương 4: Hình học không gian cổ điển"
+    "chapterName": "Chương 4: Hình học không gian cổ điển",
+    "answerVerified": true
   },
   {
     "id": 292,
@@ -476,6 +489,7 @@ export const gocKhoangCachQuestions: Question[] = [
     ],
     "topicName": "Góc & Khoảng cách trong không gian",
     "chapterId": "chuong_4_hinh_hoc_khong_gian",
-    "chapterName": "Chương 4: Hình học không gian cổ điển"
+    "chapterName": "Chương 4: Hình học không gian cổ điển",
+    "answerVerified": true
   }
 ];

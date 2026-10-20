@@ -5,8 +5,8 @@ export const ungDungDienTichTheTichQuestions: Question[] = [
     "id": 13,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_3_nguyen_ham_tich_phan',
-    "chapterName": 'Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)',
+    "chapterId": "chuong_3_nguyen_ham_tich_phan",
+    "chapterName": "Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)",
     "topicId": "ung_dung_dien_tich_the_tich",
     "topicName": "Ứng dụng tích phân tính diện tích & thể tích",
     "content": "Thể tích khối tròn xoay tạo bởi hình phẳng giới hạn bởi $y = \\sqrt{x}$, $y = 0$, $x = 4$ khi quay quanh trục hoành $Ox$ là:",
@@ -34,14 +34,15 @@ export const ungDungDienTichTheTichQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 60,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_3_nguyen_ham_tich_phan',
-    "chapterName": 'Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)',
+    "chapterId": "chuong_3_nguyen_ham_tich_phan",
+    "chapterName": "Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)",
     "topicId": "ung_dung_dien_tich_the_tich",
     "topicName": "Ứng dụng tích phân tính diện tích & thể tích",
     "content": "Đường thẳng $d: y = kx$ ($0 < k < 4$) chia hình phẳng giới hạn bởi parabol $(P): y = -x^2 + 4x$ và trục hoành thành hai phần có diện tích bằng nhau. Giá trị của tham số $k$ bằng:",
@@ -69,14 +70,15 @@ export const ungDungDienTichTheTichQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 112,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_3_nguyen_ham_tich_phan',
-    "chapterName": 'Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)',
+    "chapterId": "chuong_3_nguyen_ham_tich_phan",
+    "chapterName": "Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)",
     "topicId": "ung_dung_dien_tich_the_tich",
     "topicName": "Ứng dụng tích phân tính diện tích & thể tích",
     "content": "Diện tích hình phẳng giới hạn bởi đồ thị hàm số $y = x^2$ và đường thẳng $y = 2x$ bằng:",
@@ -104,14 +106,15 @@ export const ungDungDienTichTheTichQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 113,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_3_nguyen_ham_tich_phan',
-    "chapterName": 'Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)',
+    "chapterId": "chuong_3_nguyen_ham_tich_phan",
+    "chapterName": "Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)",
     "topicId": "ung_dung_dien_tich_the_tich",
     "topicName": "Ứng dụng tích phân tính diện tích & thể tích",
     "content": "Thể tích khối tròn xoay tạo thành khi quay hình phẳng giới hạn bởi đồ thị $y = \\sqrt{x}$, trục hoành và hai đường thẳng $x = 0, x = 4$ quanh trục $Ox$ bằng:",
@@ -139,14 +142,15 @@ export const ungDungDienTichTheTichQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 162,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_3_nguyen_ham_tich_phan',
-    "chapterName": 'Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)',
+    "chapterId": "chuong_3_nguyen_ham_tich_phan",
+    "chapterName": "Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)",
     "topicId": "ung_dung_dien_tich_the_tich",
     "topicName": "Ứng dụng tích phân tính diện tích & thể tích",
     "content": "Cho hình phẳng $(H)$ giới hạn bởi parabol $(P): y = 4 - x^2$ và đường thẳng $d: y = 2 - x$. Diện tích của hình phẳng $(H)$ bằng:",
@@ -174,7 +178,8 @@ export const ungDungDienTichTheTichQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 264,
@@ -190,8 +195,9 @@ export const ungDungDienTichTheTichQuestions: Question[] = [
       "de_07_hsa36"
     ],
     "topicName": "Ứng dụng tích phân tính diện tích & thể tích",
-    "chapterId": 'chuong_3_nguyen_ham_tich_phan',
-    "chapterName": 'Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)'
+    "chapterId": "chuong_3_nguyen_ham_tich_phan",
+    "chapterName": "Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)",
+    "answerVerified": true
   },
   {
     "id": 265,
@@ -226,6 +232,7 @@ export const ungDungDienTichTheTichQuestions: Question[] = [
     ],
     "topicName": "Ứng dụng tích phân tính diện tích & thể tích",
     "chapterId": "chuong_3_nguyen_ham_tich_phan",
-    "chapterName": "Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)"
+    "chapterName": "Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)",
+    "answerVerified": true
   }
 ];

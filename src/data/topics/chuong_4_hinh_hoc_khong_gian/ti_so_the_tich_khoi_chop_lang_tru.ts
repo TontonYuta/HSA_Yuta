@@ -5,8 +5,8 @@ export const tiSoTheTichQuestions: Question[] = [
     "id": 115,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_4_hinh_hoc_khong_gian',
-    "chapterName": 'Chuyên đề 8: Hình học không gian cổ điển (Toán 11)',
+    "chapterId": "chuong_4_hinh_hoc_khong_gian",
+    "chapterName": "Chuyên đề 8: Hình học không gian cổ điển (Toán 11)",
     "topicId": "ti_so_the_tich_khoi_chop_lang_tru",
     "topicName": "Tỉ số thể tích khối chóp & Lăng trụ",
     "content": "Cho hình chóp $S.ABCD$ có thể tích $V$. Mặt phẳng $(\\alpha)$ đi qua trọng tâm tam giác $SAB$ và song song với mặt phẳng đáy $(ABCD)$ cắt các cạnh $SA, SB, SC, SD$ lần lượt tại $A', B', C', D'$. Thể tích của khối chóp $S.A'B'C'D'$ bằng:",
@@ -34,14 +34,15 @@ export const tiSoTheTichQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 165,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_4_hinh_hoc_khong_gian',
-    "chapterName": 'Chuyên đề 8: Hình học không gian cổ điển (Toán 11)',
+    "chapterId": "chuong_4_hinh_hoc_khong_gian",
+    "chapterName": "Chuyên đề 8: Hình học không gian cổ điển (Toán 11)",
     "topicId": "ti_so_the_tich_khoi_chop_lang_tru",
     "topicName": "Tỉ số thể tích khối chóp & Lăng trụ",
     "content": "Cho hình lăng trụ tam giác $ABC.A'B'C'$ có thể tích bằng $V$. Thể tích của khối chóp $A.A'B'C'$ bằng:",
@@ -69,14 +70,15 @@ export const tiSoTheTichQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 239,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_4_hinh_hoc_khong_gian',
-    "chapterName": 'Chuyên đề 8: Hình học không gian cổ điển (Toán 11)',
+    "chapterId": "chuong_4_hinh_hoc_khong_gian",
+    "chapterName": "Chuyên đề 8: Hình học không gian cổ điển (Toán 11)",
     "topicId": "ti_so_the_tich_khoi_chop_lang_tru",
     "topicName": "Tỉ số thể tích khối chóp & Lăng trụ",
     "content": "Cho hình chóp $S.ABCD$ có đáy là hình bình hành. Gọi $M, N, P$ lần lượt là các điểm nằm trên cạnh bên $SA, SB, SC$ thỏa mãn $\\vec{MS} = -2\\vec{MA}$, $\\vec{SN} = 3\\vec{NB}$, $\\vec{PS} + \\vec{PC} = \\vec{0}$. Gọi $Q$ là giao điểm của $SD$ với mặt phẳng $(MNP)$. Biết $\\vec{SD} = k\\vec{SQ}$. Tìm giá trị của $k$.",
@@ -92,7 +94,8 @@ export const tiSoTheTichQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 290,
@@ -108,7 +111,8 @@ export const tiSoTheTichQuestions: Question[] = [
       "de_07_hsa36"
     ],
     "topicName": "Tỉ số thể tích khối chóp & Lăng trụ",
-    "chapterId": 'chuong_4_hinh_hoc_khong_gian',
-    "chapterName": 'Chuyên đề 8: Hình học không gian cổ điển (Toán 11)'
+    "chapterId": "chuong_4_hinh_hoc_khong_gian",
+    "chapterName": "Chuyên đề 8: Hình học không gian cổ điển (Toán 11)",
+    "answerVerified": true
   }
 ];

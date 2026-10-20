@@ -5,8 +5,8 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
     "id": 25,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_6_toan_lop_10',
-    "chapterName": 'Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)',
+    "chapterId": "chuong_6_toan_lop_10",
+    "chapterName": "Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)",
     "topicId": "to_hop_va_xac_suat_co_dien",
     "topicName": "Đại số tổ hợp & Xác suất cổ điển",
     "content": "Từ các chữ số thuộc tập hợp $A = \\{1, 2, 3, 4, 5, 6, 7\\}$, lập được bao nhiêu số tự nhiên có 4 chữ số đôi một khác nhau và luôn có mặt đồng thời hai chữ số $1$ và $2$?",
@@ -35,14 +35,15 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
     "examSets": [
       "de_01_chuan",
       "de_03_cap_toc"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 26,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_6_toan_lop_10',
-    "chapterName": 'Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)',
+    "chapterId": "chuong_6_toan_lop_10",
+    "chapterName": "Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)",
     "topicId": "to_hop_va_xac_suat_co_dien",
     "topicName": "Đại số tổ hợp & Xác suất cổ điển",
     "content": "Ba khẩu pháo bắn độc lập vào một mục tiêu với xác suất trúng là $0{,}7$; $0{,}8$ và $0{,}5$. Mục tiêu bị hạ nếu trúng ít nhất một phát. Xác suất mục tiêu bị hạ là:",
@@ -70,14 +71,15 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 27,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_6_toan_lop_10',
-    "chapterName": 'Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)',
+    "chapterId": "chuong_6_toan_lop_10",
+    "chapterName": "Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)",
     "topicId": "to_hop_va_xac_suat_co_dien",
     "topicName": "Đại số tổ hợp & Xác suất cổ điển",
     "content": "Một hộp có 5 viên bi đỏ và 7 viên bi xanh. Lấy ngẫu nhiên 4 viên bi. Xác suất để có đúng 2 bi đỏ là:",
@@ -105,14 +107,15 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 43,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_6_toan_lop_10',
-    "chapterName": 'Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)',
+    "chapterId": "chuong_6_toan_lop_10",
+    "chapterName": "Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)",
     "topicId": "to_hop_va_xac_suat_co_dien",
     "topicName": "Đại số tổ hợp & Xác suất cổ điển",
     "content": "Gieo đồng thời hai con xúc xắc cân đối. Tính xác suất để tổng số chấm xuất hiện bằng 7 (nhập dưới dạng phân số tối giản dạng $a/b$).",
@@ -128,14 +131,15 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
     "examSets": [
       "de_01_chuan",
       "de_03_cap_toc"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 67,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_6_toan_lop_10',
-    "chapterName": 'Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)',
+    "chapterId": "chuong_6_toan_lop_10",
+    "chapterName": "Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)",
     "topicId": "to_hop_va_xac_suat_co_dien",
     "topicName": "Đại số tổ hợp & Xác suất cổ điển",
     "content": "Xếp ngẫu nhiên 8 học sinh gồm 4 bạn nam và 4 bạn nữ ngồi quanh một chiếc bàn tròn có 8 ghế. Xác suất để không có hai bạn nữ nào ngồi cạnh nhau bằng:",
@@ -163,14 +167,15 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 78,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_6_toan_lop_10',
-    "chapterName": 'Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)',
+    "chapterId": "chuong_6_toan_lop_10",
+    "chapterName": "Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)",
     "topicId": "to_hop_va_xac_suat_co_dien",
     "topicName": "Đại số tổ hợp & Xác suất cổ điển",
     "content": "Gieo đồng thời ba con xúc xắc cân đối và đồng chất. Xác suất để tổng số chấm xuất hiện trên ba con xúc xắc bằng 10 là:",
@@ -198,14 +203,15 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 95,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_6_toan_lop_10',
-    "chapterName": 'Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)',
+    "chapterId": "chuong_6_toan_lop_10",
+    "chapterName": "Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)",
     "topicId": "to_hop_va_xac_suat_co_dien",
     "topicName": "Đại số tổ hợp & Xác suất cổ điển",
     "content": "Có bao nhiêu số tự nhiên gồm 4 chữ số đôi một khác nhau được lập từ các chữ số thuộc tập $S = \\{0, 1, 2, 3, 4, 5\\}$ sao cho số đó chia hết cho 5?",
@@ -218,14 +224,15 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 175,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_6_toan_lop_10',
-    "chapterName": 'Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)',
+    "chapterId": "chuong_6_toan_lop_10",
+    "chapterName": "Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)",
     "topicId": "to_hop_va_xac_suat_co_dien",
     "topicName": "Đại số tổ hợp & Xác suất cổ điển",
     "content": "Có bao nhiêu số tự nhiên có 4 chữ số đôi một khác nhau được lập từ các chữ số thuộc tập hợp $S = {1, 2, 3, 4, 5, 6, 7}$?",
@@ -253,14 +260,15 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 176,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_6_toan_lop_10',
-    "chapterName": 'Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)',
+    "chapterId": "chuong_6_toan_lop_10",
+    "chapterName": "Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)",
     "topicId": "to_hop_va_xac_suat_co_dien",
     "topicName": "Đại số tổ hợp & Xác suất cổ điển",
     "content": "Hai xạ thủ $A$ và $B$ bắn độc lập mỗi người một phát đạn vào bia. Xác suất bắn trúng bia của $A$ và $B$ lần lượt là $0.7$ và $0.8$. Xác suất để có đúng một xạ thủ bắn trúng bia là:",
@@ -288,14 +296,15 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 177,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_6_toan_lop_10',
-    "chapterName": 'Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)',
+    "chapterId": "chuong_6_toan_lop_10",
+    "chapterName": "Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)",
     "topicId": "to_hop_va_xac_suat_co_dien",
     "topicName": "Đại số tổ hợp & Xác suất cổ điển",
     "content": "Một hộp có 6 quả cầu đỏ và 4 quả cầu xanh. Chọn ngẫu nhiên đồng thời 3 quả cầu. Xác suất để chọn được ít nhất một quả cầu màu xanh là:",
@@ -323,14 +332,15 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 195,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_6_toan_lop_10',
-    "chapterName": 'Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)',
+    "chapterId": "chuong_6_toan_lop_10",
+    "chapterName": "Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)",
     "topicId": "to_hop_va_xac_suat_co_dien",
     "topicName": "Đại số tổ hợp & Xác suất cổ điển",
     "content": "Một hộp chứa 5 viên bi đỏ và 7 viên bi trắng. Lấy ngẫu nhiên đồng thời 3 viên bi. Xác suất để lấy được 3 viên bi cùng màu bằng $\\frac{a}{b}$ với $\\frac{a}{b}$ là phân số tối giản. Tính giá trị của biểu thức $a + b$.",
@@ -344,14 +354,15 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 205,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_6_toan_lop_10',
-    "chapterName": 'Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)',
+    "chapterId": "chuong_6_toan_lop_10",
+    "chapterName": "Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)",
     "topicId": "to_hop_va_xac_suat_co_dien",
     "topicName": "Đại số tổ hợp & Xác suất cổ điển",
     "content": "Một hộp chứa $20$ chiếc thẻ được đánh số tự nhiên từ $1$ đến $20$. Lấy ngẫu nhiên $6$ chiếc thẻ từ hộp. Tính xác suất để trong $6$ chiếc thẻ lấy ra, có ít nhất $1$ thẻ được đánh số chia hết cho $6$.",
@@ -379,14 +390,15 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 219,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_6_toan_lop_10',
-    "chapterName": 'Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)',
+    "chapterId": "chuong_6_toan_lop_10",
+    "chapterName": "Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)",
     "topicId": "to_hop_va_xac_suat_co_dien",
     "topicName": "Đại số tổ hợp & Xác suất cổ điển",
     "content": "Ba cầu thủ sút phạt đền $11\\text{ m}$, mỗi người đá một lần với xác suất ghi bàn tương ứng là $x, y$ và $0{,}6$ (với $x > y$). Biết xác suất để ít nhất một trong ba cầu thủ ghi bàn là $0{,}976$ và xác suất để cả ba cầu thủ đều ghi bàn là $0{,}336$. Xác suất để có đúng hai cầu thủ ghi bàn bằng $\\frac{a}{b}$, trong đó $\\frac{a}{b}$ là một phân số tối giản. Tính giá trị của biểu thức $T = a + b$.",
@@ -401,14 +413,15 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 220,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_6_toan_lop_10',
-    "chapterName": 'Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)',
+    "chapterId": "chuong_6_toan_lop_10",
+    "chapterName": "Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)",
     "topicId": "to_hop_va_xac_suat_co_dien",
     "topicName": "Đại số tổ hợp & Xác suất cổ điển",
     "content": "Khách du lịch khi đến Vịnh Hạ Long thường sẽ tham quan các hang động đẹp nổi tiếng nơi đây. Thống kê cho thấy: tỉ lệ du khách đến tham quan động Thiên Cung là $0{,}7$; tỉ lệ du khách đến tham quan động Kim Quy là $0{,}5$; tỉ lệ du khách không đến tham quan cả hai động trên là $0{,}1$. Chọn ngẫu nhiên một du khách. Xác suất để người này tham quan cả động Thiên Cung lẫn động Kim Quy là:",
@@ -436,7 +449,8 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 294,
@@ -471,7 +485,8 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
     "examSets": [
       "de_07_hsa36"
     ],
-    "topicName": "Đại số tổ hợp & Xác suất cổ điển"
+    "topicName": "Đại số tổ hợp & Xác suất cổ điển",
+    "answerVerified": true
   },
   {
     "id": 295,
@@ -506,7 +521,8 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
     "examSets": [
       "de_07_hsa36"
     ],
-    "topicName": "Đại số tổ hợp & Xác suất cổ điển"
+    "topicName": "Đại số tổ hợp & Xác suất cổ điển",
+    "answerVerified": true
   },
   {
     "id": 296,
@@ -522,8 +538,9 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
       "de_07_hsa36"
     ],
     "topicName": "Đại số tổ hợp & Xác suất cổ điển",
-    "chapterId": 'chuong_6_toan_lop_10',
-    "chapterName": 'Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)'
+    "chapterId": "chuong_6_toan_lop_10",
+    "chapterName": "Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)",
+    "answerVerified": true
   },
   {
     "id": 298,
@@ -558,6 +575,7 @@ export const toHopXacSuatCoDienQuestions: Question[] = [
     ],
     "topicName": "Đại số tổ hợp & Xác suất cổ điển",
     "chapterId": "chuong_6_toan_lop_10",
-    "chapterName": "Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)"
+    "chapterName": "Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)",
+    "answerVerified": true
   }
 ];

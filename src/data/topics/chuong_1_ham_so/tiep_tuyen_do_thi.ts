@@ -5,8 +5,8 @@ export const tiepTuyenQuestions: Question[] = [
     "id": 103,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_1_ham_so',
-    "chapterName": 'Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)',
+    "chapterId": "chuong_1_ham_so",
+    "chapterName": "Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)",
     "topicId": "tiep_tuyen_do_thi",
     "topicName": "Phương trình tiếp tuyến đồ thị hàm số",
     "content": "Tiếp tuyến của đồ thị hàm số $y = \\frac{2x - 1}{x + 1}$ song song với đường thẳng $d: y = 3x - 2$ có phương trình là:",
@@ -34,14 +34,15 @@ export const tiepTuyenQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 136,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_1_ham_so',
-    "chapterName": 'Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)',
+    "chapterId": "chuong_1_ham_so",
+    "chapterName": "Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)",
     "topicId": "tiep_tuyen_do_thi",
     "topicName": "Phương trình tiếp tuyến đồ thị hàm số",
     "content": "Cho hàm số $y = \\frac{x - 3}{x - 1}$. Hệ số góc của tiếp tuyến của đồ thị hàm số tại giao điểm của đồ thị với trục tung $Oy$ bằng bao nhiêu?",
@@ -55,14 +56,15 @@ export const tiepTuyenQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 139,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_1_ham_so',
-    "chapterName": 'Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)',
+    "chapterId": "chuong_1_ham_so",
+    "chapterName": "Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)",
     "topicId": "tiep_tuyen_do_thi",
     "topicName": "Phương trình tiếp tuyến đồ thị hàm số",
     "content": "Tiếp tuyến tại một điểm bất kỳ trên đồ thị hàm số $y = \\frac{2x + 3}{x - 1}$ cắt hai đường tiệm cận tại hai điểm $A$ và $B$. Gọi $I$ là giao điểm của hai đường tiệm cận. Diện tích tam giác $IAB$ bằng bao nhiêu?",
@@ -76,14 +78,15 @@ export const tiepTuyenQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 154,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_1_ham_so',
-    "chapterName": 'Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)',
+    "chapterId": "chuong_1_ham_so",
+    "chapterName": "Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)",
     "topicId": "tiep_tuyen_do_thi",
     "topicName": "Phương trình tiếp tuyến đồ thị hàm số",
     "content": "Cho hàm số $y = \\frac{2x + 1}{x - 1}$ có đồ thị $(C)$. Có bao nhiêu tiếp tuyến của đồ thị $(C)$ tạo với hai trục tọa độ $Ox, Oy$ một tam giác vuông cân?",
@@ -111,14 +114,15 @@ export const tiepTuyenQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 212,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_1_ham_so',
-    "chapterName": 'Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)',
+    "chapterId": "chuong_1_ham_so",
+    "chapterName": "Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)",
     "topicId": "tiep_tuyen_do_thi",
     "topicName": "Phương trình tiếp tuyến đồ thị hàm số",
     "content": "Cho hàm số $y = \\frac{2x - 1}{x - 1}$ có đồ thị $(C)$. Gọi $m$ là tung độ của điểm $A$ thuộc đồ thị $(C)$ sao cho tiếp tuyến của $(C)$ tại $A$ cắt hai đường tiệm cận lần lượt tại $H, K$ và độ dài $HK$ đạt giá trị nhỏ nhất. Tích các giá trị của $m$ thỏa mãn yêu cầu bài toán là:",
@@ -146,7 +150,8 @@ export const tiepTuyenQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 261,
@@ -181,6 +186,7 @@ export const tiepTuyenQuestions: Question[] = [
     ],
     "topicName": "Phương trình tiếp tuyến đồ thị hàm số",
     "chapterId": "chuong_1_ham_so",
-    "chapterName": "Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)"
+    "chapterName": "Chuyên đề 1: Khảo sát hàm số & Ứng dụng đạo hàm (Toán 12)",
+    "answerVerified": true
   }
 ];

@@ -5,8 +5,8 @@ export const daySoGioiHanQuestions: Question[] = [
     "id": 22,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_7_day_so_cap_so',
-    "chapterName": 'Chuyên đề 7: Dãy số, Cấp số cộng & Cấp số nhân (Toán 11)',
+    "chapterId": "chuong_7_day_so_cap_so",
+    "chapterName": "Chuyên đề 7: Dãy số, Cấp số cộng & Cấp số nhân (Toán 11)",
     "topicId": "day_so_va_gioi_han",
     "topicName": "Dãy số & Giới hạn dãy số",
     "content": "Một hội trường có 20 hàng ghế. Hàng đầu tiên có 15 ghế, mỗi hàng tiếp theo nhiều hơn hàng liền trước 4 ghế. Tổng số ghế là:",
@@ -35,14 +35,15 @@ export const daySoGioiHanQuestions: Question[] = [
     "examSets": [
       "de_01_chuan",
       "de_03_cap_toc"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 66,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_7_day_so_cap_so',
-    "chapterName": 'Chuyên đề 7: Dãy số, Cấp số cộng & Cấp số nhân (Toán 11)',
+    "chapterId": "chuong_7_day_so_cap_so",
+    "chapterName": "Chuyên đề 7: Dãy số, Cấp số cộng & Cấp số nhân (Toán 11)",
     "topicId": "day_so_va_gioi_han",
     "topicName": "Dãy số & Giới hạn dãy số",
     "content": "Cho dãy số $(u_n)$ xác định bởi $u_1 = 1$ và $u_{n+1} = \\frac{u_n}{\\sqrt{1 + 3u_n^2}}$ với mọi $n \\ge 1$. Giới hạn $\\lim\\limits_{n \\to +\\infty} (\\sqrt{n} \\cdot u_n)$ bằng:",
@@ -70,14 +71,15 @@ export const daySoGioiHanQuestions: Question[] = [
     "difficulty": "Vận dụng cao",
     "examSets": [
       "de_02_thuc_chien"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 173,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_7_day_so_cap_so',
-    "chapterName": 'Chuyên đề 7: Dãy số, Cấp số cộng & Cấp số nhân (Toán 11)',
+    "chapterId": "chuong_7_day_so_cap_so",
+    "chapterName": "Chuyên đề 7: Dãy số, Cấp số cộng & Cấp số nhân (Toán 11)",
     "topicId": "day_so_va_gioi_han",
     "topicName": "Dãy số & Giới hạn dãy số",
     "content": "Giới hạn $\\lim\\limits_{x \\to 1} \\frac{\\sqrt{2x + 2} - 2}{x^2 - 1}$ bằng:",
@@ -105,14 +107,15 @@ export const daySoGioiHanQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 207,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_7_day_so_cap_so',
-    "chapterName": 'Chuyên đề 7: Dãy số, Cấp số cộng & Cấp số nhân (Toán 11)',
+    "chapterId": "chuong_7_day_so_cap_so",
+    "chapterName": "Chuyên đề 7: Dãy số, Cấp số cộng & Cấp số nhân (Toán 11)",
     "topicId": "day_so_va_gioi_han",
     "topicName": "Dãy số & Giới hạn dãy số",
     "content": "Cho tam giác $ABC$ có diện tích là $12\\text{ cm}^2$. Dựng tam giác $A_1B_1C_1$ sao cho $A_1, B_1, C_1$ lần lượt là trung điểm của các cạnh $BC, CA, AB$. Dựng tam giác $A_2B_2C_2$ sao cho $A_2, B_2, C_2$ lần lượt là trung điểm của các cạnh $B_1C_1, C_1A_1, A_1B_1\\dots$ Tiếp tục quá trình này cho đến khi diện tích tam giác dựng được bằng $0$. Tính tổng diện tích các tam giác đã dựng (nhập đáp án theo đơn vị $\\text{cm}^2$).",
@@ -129,7 +132,8 @@ export const daySoGioiHanQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 280,
@@ -164,7 +168,8 @@ export const daySoGioiHanQuestions: Question[] = [
     ],
     "topicName": "Dãy số & Giới hạn dãy số",
     "chapterId": "chuong_7_day_so_cap_so",
-    "chapterName": "Chương 7: Dãy số, Cấp số cộng & Cấp số nhân"
+    "chapterName": "Chương 7: Dãy số, Cấp số cộng & Cấp số nhân",
+    "answerVerified": true
   },
   {
     "id": 282,
@@ -199,7 +204,8 @@ export const daySoGioiHanQuestions: Question[] = [
     ],
     "topicName": "Dãy số & Giới hạn dãy số",
     "chapterId": "chuong_7_day_so_cap_so",
-    "chapterName": "Chuyên đề 7: Dãy số, Cấp số cộng & Cấp số nhân (Toán 11)"
+    "chapterName": "Chuyên đề 7: Dãy số, Cấp số cộng & Cấp số nhân (Toán 11)",
+    "answerVerified": true
   },
   {
     "id": 287,
@@ -234,6 +240,7 @@ export const daySoGioiHanQuestions: Question[] = [
     ],
     "topicName": "Dãy số & Giới hạn dãy số",
     "chapterId": "chuong_7_day_so_cap_so",
-    "chapterName": "Chương 7: Dãy số, Cấp số cộng & Cấp số nhân"
+    "chapterName": "Chương 7: Dãy số, Cấp số cộng & Cấp số nhân",
+    "answerVerified": true
   }
 ];

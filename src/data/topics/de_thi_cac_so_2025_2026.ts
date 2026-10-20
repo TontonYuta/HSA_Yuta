@@ -12,6 +12,7 @@ export const soHanoi2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Nhận biết",
     "examSets": [
       "thptqg_so_hanoi_2025_2026"
@@ -53,6 +54,7 @@ export const soHanoi2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Nhận biết",
     "examSets": [
       "thptqg_so_hanoi_2025_2026"
@@ -94,6 +96,7 @@ export const soHanoi2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Nhận biết",
     "examSets": [
       "thptqg_so_hanoi_2025_2026"
@@ -135,6 +138,7 @@ export const soHanoi2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Nhận biết",
     "examSets": [
       "thptqg_so_hanoi_2025_2026"
@@ -176,6 +180,7 @@ export const soHanoi2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Thông hiểu",
     "examSets": [
       "thptqg_so_hanoi_2025_2026"
@@ -217,6 +222,7 @@ export const soHanoi2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Nhận biết",
     "examSets": [
       "thptqg_so_hanoi_2025_2026"
@@ -258,6 +264,7 @@ export const soHanoi2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Nhận biết",
     "examSets": [
       "thptqg_so_hanoi_2025_2026"
@@ -299,6 +306,7 @@ export const soHanoi2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Thông hiểu",
     "examSets": [
       "thptqg_so_hanoi_2025_2026"
@@ -340,6 +348,7 @@ export const soHanoi2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Nhận biết",
     "examSets": [
       "thptqg_so_hanoi_2025_2026"
@@ -381,6 +390,7 @@ export const soHanoi2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Nhận biết",
     "examSets": [
       "thptqg_so_hanoi_2025_2026"
@@ -422,6 +432,7 @@ export const soHanoi2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Nhận biết",
     "examSets": [
       "thptqg_so_hanoi_2025_2026"
@@ -463,6 +474,7 @@ export const soHanoi2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Nhận biết",
     "examSets": [
       "thptqg_so_hanoi_2025_2026"
@@ -504,6 +516,7 @@ export const soHanoi2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Vận dụng",
     "examSets": [
       "thptqg_so_hanoi_2025_2026"
@@ -529,6 +542,7 @@ export const soHanoi2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Vận dụng cao",
     "examSets": [
       "thptqg_so_hanoi_2025_2026"
@@ -553,6 +567,7 @@ export const soHanoi2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Vận dụng",
     "examSets": [
       "thptqg_so_hanoi_2025_2026"
@@ -577,6 +592,7 @@ export const soHanoi2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Thông hiểu",
     "examSets": [
       "thptqg_so_hanoi_2025_2026"
@@ -601,6 +617,7 @@ export const soHanoi2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Vận dụng cao",
     "examSets": [
       "thptqg_so_hanoi_2025_2026"
@@ -625,6 +642,7 @@ export const soHanoi2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Thông hiểu",
     "examSets": [
       "thptqg_so_hanoi_2025_2026"
@@ -652,6 +670,7 @@ export const soNamDinh2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Nhận biết",
     "examSets": [
       "thptqg_so_namdinh_2025_2026"
@@ -693,6 +712,7 @@ export const soNamDinh2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Nhận biết",
     "examSets": [
       "thptqg_so_namdinh_2025_2026"
@@ -734,6 +754,7 @@ export const soNamDinh2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Thông hiểu",
     "examSets": [
       "thptqg_so_namdinh_2025_2026"
@@ -775,6 +796,7 @@ export const soNamDinh2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Nhận biết",
     "examSets": [
       "thptqg_so_namdinh_2025_2026"
@@ -816,6 +838,7 @@ export const soNamDinh2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Thông hiểu",
     "examSets": [
       "thptqg_so_namdinh_2025_2026"
@@ -857,6 +880,7 @@ export const soNamDinh2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Thông hiểu",
     "examSets": [
       "thptqg_so_namdinh_2025_2026"
@@ -898,6 +922,7 @@ export const soNamDinh2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Nhận biết",
     "examSets": [
       "thptqg_so_namdinh_2025_2026"
@@ -939,6 +964,7 @@ export const soNamDinh2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Nhận biết",
     "examSets": [
       "thptqg_so_namdinh_2025_2026"
@@ -980,6 +1006,7 @@ export const soNamDinh2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Nhận biết",
     "examSets": [
       "thptqg_so_namdinh_2025_2026"
@@ -1021,6 +1048,7 @@ export const soNamDinh2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Thông hiểu",
     "examSets": [
       "thptqg_so_namdinh_2025_2026"
@@ -1062,6 +1090,7 @@ export const soNamDinh2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Nhận biết",
     "examSets": [
       "thptqg_so_namdinh_2025_2026"
@@ -1103,6 +1132,7 @@ export const soNamDinh2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Thông hiểu",
     "examSets": [
       "thptqg_so_namdinh_2025_2026"
@@ -1144,6 +1174,7 @@ export const soNamDinh2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Vận dụng",
     "examSets": [
       "thptqg_so_namdinh_2025_2026"
@@ -1170,6 +1201,7 @@ export const soNamDinh2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Vận dụng cao",
     "examSets": [
       "thptqg_so_namdinh_2025_2026"
@@ -1193,6 +1225,7 @@ export const soNamDinh2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Vận dụng cao",
     "examSets": [
       "thptqg_so_namdinh_2025_2026"
@@ -1217,6 +1250,7 @@ export const soNamDinh2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Thông hiểu",
     "examSets": [
       "thptqg_so_namdinh_2025_2026"
@@ -1241,6 +1275,7 @@ export const soNamDinh2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Vận dụng",
     "examSets": [
       "thptqg_so_namdinh_2025_2026"
@@ -1265,6 +1300,7 @@ export const soNamDinh2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Vận dụng cao",
     "examSets": [
       "thptqg_so_namdinh_2025_2026"
@@ -1292,6 +1328,7 @@ export const soNgheAn2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Nhận biết",
     "examSets": [
       "thptqg_so_nghean_2025_2026"
@@ -1333,6 +1370,7 @@ export const soNgheAn2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Nhận biết",
     "examSets": [
       "thptqg_so_nghean_2025_2026"
@@ -1374,6 +1412,7 @@ export const soNgheAn2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Thông hiểu",
     "examSets": [
       "thptqg_so_nghean_2025_2026"
@@ -1415,6 +1454,7 @@ export const soNgheAn2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Thông hiểu",
     "examSets": [
       "thptqg_so_nghean_2025_2026"
@@ -1456,6 +1496,7 @@ export const soNgheAn2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Nhận biết",
     "examSets": [
       "thptqg_so_nghean_2025_2026"
@@ -1497,6 +1538,7 @@ export const soNgheAn2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Nhận biết",
     "examSets": [
       "thptqg_so_nghean_2025_2026"
@@ -1538,6 +1580,7 @@ export const soNgheAn2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Nhận biết",
     "examSets": [
       "thptqg_so_nghean_2025_2026"
@@ -1579,6 +1622,7 @@ export const soNgheAn2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Nhận biết",
     "examSets": [
       "thptqg_so_nghean_2025_2026"
@@ -1620,6 +1664,7 @@ export const soNgheAn2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Nhận biết",
     "examSets": [
       "thptqg_so_nghean_2025_2026"
@@ -1661,6 +1706,7 @@ export const soNgheAn2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Nhận biết",
     "examSets": [
       "thptqg_so_nghean_2025_2026"
@@ -1702,6 +1748,7 @@ export const soNgheAn2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Nhận biết",
     "examSets": [
       "thptqg_so_nghean_2025_2026"
@@ -1743,6 +1790,7 @@ export const soNgheAn2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Nhận biết",
     "examSets": [
       "thptqg_so_nghean_2025_2026"
@@ -1784,6 +1832,7 @@ export const soNgheAn2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Thông hiểu",
     "examSets": [
       "thptqg_so_nghean_2025_2026"
@@ -1808,6 +1857,7 @@ export const soNgheAn2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Vận dụng cao",
     "examSets": [
       "thptqg_so_nghean_2025_2026"
@@ -1832,6 +1882,7 @@ export const soNgheAn2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Vận dụng cao",
     "examSets": [
       "thptqg_so_nghean_2025_2026"
@@ -1856,6 +1907,7 @@ export const soNgheAn2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Vận dụng cao",
     "examSets": [
       "thptqg_so_nghean_2025_2026"
@@ -1882,6 +1934,7 @@ export const soNgheAn2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Vận dụng",
     "examSets": [
       "thptqg_so_nghean_2025_2026"
@@ -1906,6 +1959,7 @@ export const soNgheAn2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Vận dụng",
     "examSets": [
       "thptqg_so_nghean_2025_2026"
@@ -1933,6 +1987,7 @@ export const soHaiPhong2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Thông hiểu",
     "examSets": [
       "thptqg_so_haiphong_2025_2026"
@@ -1974,6 +2029,7 @@ export const soHaiPhong2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Thông hiểu",
     "examSets": [
       "thptqg_so_haiphong_2025_2026"
@@ -2015,6 +2071,7 @@ export const soHaiPhong2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Nhận biết",
     "examSets": [
       "thptqg_so_haiphong_2025_2026"
@@ -2056,6 +2113,7 @@ export const soHaiPhong2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Thông hiểu",
     "examSets": [
       "thptqg_so_haiphong_2025_2026"
@@ -2097,6 +2155,7 @@ export const soHaiPhong2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Nhận biết",
     "examSets": [
       "thptqg_so_haiphong_2025_2026"
@@ -2138,6 +2197,7 @@ export const soHaiPhong2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Thông hiểu",
     "examSets": [
       "thptqg_so_haiphong_2025_2026"
@@ -2179,6 +2239,7 @@ export const soHaiPhong2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Thông hiểu",
     "examSets": [
       "thptqg_so_haiphong_2025_2026"
@@ -2220,6 +2281,7 @@ export const soHaiPhong2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Thông hiểu",
     "examSets": [
       "thptqg_so_haiphong_2025_2026"
@@ -2261,6 +2323,7 @@ export const soHaiPhong2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Nhận biết",
     "examSets": [
       "thptqg_so_haiphong_2025_2026"
@@ -2302,6 +2365,7 @@ export const soHaiPhong2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Thông hiểu",
     "examSets": [
       "thptqg_so_haiphong_2025_2026"
@@ -2343,6 +2407,7 @@ export const soHaiPhong2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Nhận biết",
     "examSets": [
       "thptqg_so_haiphong_2025_2026"
@@ -2384,6 +2449,7 @@ export const soHaiPhong2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Nhận biết",
     "examSets": [
       "thptqg_so_haiphong_2025_2026"
@@ -2425,6 +2491,7 @@ export const soHaiPhong2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Vận dụng cao",
     "examSets": [
       "thptqg_so_haiphong_2025_2026"
@@ -2449,6 +2516,7 @@ export const soHaiPhong2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Vận dụng cao",
     "examSets": [
       "thptqg_so_haiphong_2025_2026"
@@ -2473,6 +2541,7 @@ export const soHaiPhong2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Vận dụng",
     "examSets": [
       "thptqg_so_haiphong_2025_2026"
@@ -2497,6 +2566,7 @@ export const soHaiPhong2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Thông hiểu",
     "examSets": [
       "thptqg_so_haiphong_2025_2026"
@@ -2521,6 +2591,7 @@ export const soHaiPhong2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Vận dụng cao",
     "examSets": [
       "thptqg_so_haiphong_2025_2026"
@@ -2545,6 +2616,7 @@ export const soHaiPhong2025Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Vận dụng cao",
     "examSets": [
       "thptqg_so_haiphong_2025_2026"
@@ -2572,6 +2644,7 @@ export const nguyenKhuyenTphcm2026Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Nhận biết",
     "examSets": [
       "thptqg_nguyen_khuyen_tphcm_2026"
@@ -2613,6 +2686,7 @@ export const nguyenKhuyenTphcm2026Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Nhận biết",
     "examSets": [
       "thptqg_nguyen_khuyen_tphcm_2026"
@@ -2654,6 +2728,7 @@ export const nguyenKhuyenTphcm2026Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Thông hiểu",
     "examSets": [
       "thptqg_nguyen_khuyen_tphcm_2026"
@@ -2695,6 +2770,7 @@ export const nguyenKhuyenTphcm2026Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Vận dụng",
     "examSets": [
       "thptqg_nguyen_khuyen_tphcm_2026"
@@ -2736,6 +2812,7 @@ export const nguyenKhuyenTphcm2026Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Nhận biết",
     "examSets": [
       "thptqg_nguyen_khuyen_tphcm_2026"
@@ -2777,6 +2854,7 @@ export const nguyenKhuyenTphcm2026Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Nhận biết",
     "examSets": [
       "thptqg_nguyen_khuyen_tphcm_2026"
@@ -2818,6 +2896,7 @@ export const nguyenKhuyenTphcm2026Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Nhận biết",
     "examSets": [
       "thptqg_nguyen_khuyen_tphcm_2026"
@@ -2859,6 +2938,7 @@ export const nguyenKhuyenTphcm2026Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Nhận biết",
     "examSets": [
       "thptqg_nguyen_khuyen_tphcm_2026"
@@ -2900,6 +2980,7 @@ export const nguyenKhuyenTphcm2026Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Nhận biết",
     "examSets": [
       "thptqg_nguyen_khuyen_tphcm_2026"
@@ -2941,6 +3022,7 @@ export const nguyenKhuyenTphcm2026Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Thông hiểu",
     "examSets": [
       "thptqg_nguyen_khuyen_tphcm_2026"
@@ -2982,6 +3064,7 @@ export const nguyenKhuyenTphcm2026Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Nhận biết",
     "examSets": [
       "thptqg_nguyen_khuyen_tphcm_2026"
@@ -3023,6 +3106,7 @@ export const nguyenKhuyenTphcm2026Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Thông hiểu",
     "examSets": [
       "thptqg_nguyen_khuyen_tphcm_2026"
@@ -3064,6 +3148,7 @@ export const nguyenKhuyenTphcm2026Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Vận dụng cao",
     "examSets": [
       "thptqg_nguyen_khuyen_tphcm_2026"
@@ -3088,6 +3173,7 @@ export const nguyenKhuyenTphcm2026Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Vận dụng cao",
     "examSets": [
       "thptqg_nguyen_khuyen_tphcm_2026"
@@ -3112,6 +3198,7 @@ export const nguyenKhuyenTphcm2026Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Vận dụng cao",
     "examSets": [
       "thptqg_nguyen_khuyen_tphcm_2026"
@@ -3136,6 +3223,7 @@ export const nguyenKhuyenTphcm2026Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Vận dụng cao",
     "examSets": [
       "thptqg_nguyen_khuyen_tphcm_2026"
@@ -3160,6 +3248,7 @@ export const nguyenKhuyenTphcm2026Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Vận dụng cao",
     "examSets": [
       "thptqg_nguyen_khuyen_tphcm_2026"
@@ -3184,6 +3273,7 @@ export const nguyenKhuyenTphcm2026Questions: Question[] = [
     "hasParametricM": false,
     "track": "THPTQG",
     "latexVerified": true,
+    "answerVerified": true,
     "difficulty": "Vận dụng cao",
     "examSets": [
       "thptqg_nguyen_khuyen_tphcm_2026"

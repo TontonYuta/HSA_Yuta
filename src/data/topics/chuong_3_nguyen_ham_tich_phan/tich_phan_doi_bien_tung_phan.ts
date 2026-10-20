@@ -5,8 +5,8 @@ export const doiBienTungPhanQuestions: Question[] = [
     "id": 12,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_3_nguyen_ham_tich_phan',
-    "chapterName": 'Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)',
+    "chapterId": "chuong_3_nguyen_ham_tich_phan",
+    "chapterName": "Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)",
     "topicId": "tich_phan_doi_bien_tung_phan",
     "topicName": "Tích phân đổi biến số & Từng phần",
     "content": "Biết $\\int_1^e x \\ln x \\, dx = \\frac{a e^2 + b}{4}$ với $a, b \\in \\mathbb{Z}$. Tính $P = a^2 + b^2$.",
@@ -34,14 +34,15 @@ export const doiBienTungPhanQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 39,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_3_nguyen_ham_tich_phan',
-    "chapterName": 'Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)',
+    "chapterId": "chuong_3_nguyen_ham_tich_phan",
+    "chapterName": "Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)",
     "topicId": "tich_phan_doi_bien_tung_phan",
     "topicName": "Tích phân đổi biến số & Từng phần",
     "content": "Biết $\\int_0^1 (2x + 1) e^x dx = a \\cdot e + b$ ($a, b \\in \\mathbb{Z}$). Hãy tính tổng $a + b$.",
@@ -55,14 +56,15 @@ export const doiBienTungPhanQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_01_chuan"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 161,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_3_nguyen_ham_tich_phan',
-    "chapterName": 'Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)',
+    "chapterId": "chuong_3_nguyen_ham_tich_phan",
+    "chapterName": "Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)",
     "topicId": "tich_phan_doi_bien_tung_phan",
     "topicName": "Tích phân đổi biến số & Từng phần",
     "content": "Cho hàm số $f(x)$ liên tục trên $\\mathbb{R}$ thỏa mãn $\\int_0^1 x f'(2x) dx = 3$ và $f(2) = 8$. Giá trị của tích phân $I = \\int_0^2 f(x) dx$ bằng:",
@@ -90,14 +92,15 @@ export const doiBienTungPhanQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 191,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_3_nguyen_ham_tich_phan',
-    "chapterName": 'Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)',
+    "chapterId": "chuong_3_nguyen_ham_tich_phan",
+    "chapterName": "Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)",
     "topicId": "tich_phan_doi_bien_tung_phan",
     "topicName": "Tích phân đổi biến số & Từng phần",
     "content": "Cho hàm số $f(x)$ liên tục trên $\\mathbb{R}$ và thỏa mãn $\\int_0^6 f(x) dx = 18$. Tính giá trị của tích phân $J = \\int_0^2 f(3x) dx$.",
@@ -111,14 +114,15 @@ export const doiBienTungPhanQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 234,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_3_nguyen_ham_tich_phan',
-    "chapterName": 'Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)',
+    "chapterId": "chuong_3_nguyen_ham_tich_phan",
+    "chapterName": "Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)",
     "topicId": "tich_phan_doi_bien_tung_phan",
     "topicName": "Tích phân đổi biến số & Từng phần",
     "content": "Cho hàm số $f(x)$ liên tục trên $\\mathbb{R}$ thỏa mãn $f(x) = x^3 + 3\\int_0^1 x^4 f(x) dx, \\forall x \\in \\mathbb{R}$. Tính $f(-1)$.",
@@ -146,14 +150,15 @@ export const doiBienTungPhanQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 235,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_3_nguyen_ham_tich_phan',
-    "chapterName": 'Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)',
+    "chapterId": "chuong_3_nguyen_ham_tich_phan",
+    "chapterName": "Chuyên đề 4: Nguyên hàm, Tích phân & Ứng dụng (Toán 12)",
     "topicId": "tich_phan_doi_bien_tung_phan",
     "topicName": "Tích phân đổi biến số & Từng phần",
     "content": "Cho hàm số $f(x)$ liên tục trên khoảng $(0; +\\infty)$ thỏa mãn $f(x) + 2xf'(x) = 6x^2 \\sqrt{x}, \\forall x \\in (0; +\\infty)$ và $f(4) = 33$. Tính $\\int_1^9 f(x) dx$.",
@@ -181,6 +186,7 @@ export const doiBienTungPhanQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
-    ]
+    ],
+    "answerVerified": true
   }
 ];

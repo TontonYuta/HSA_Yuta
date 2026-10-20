@@ -5,8 +5,8 @@ export const tapHopVennQuestions: Question[] = [
     "id": 120,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_6_toan_lop_10',
-    "chapterName": 'Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)',
+    "chapterId": "chuong_6_toan_lop_10",
+    "chapterName": "Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)",
     "topicId": "tap_hop_bieu_do_venn",
     "topicName": "Tập hợp & Biểu đồ Venn ứng dụng thực tế",
     "content": "Một câu lạc bộ thể thao gồm 30 học sinh, trong đó có 15 bạn chơi bóng đá, 12 bạn chơi cầu lông, 10 bạn chơi bóng chuyền. Có 5 bạn chơi cả bóng đá và cầu lông, 4 bạn chơi cả bóng đá và bóng chuyền, 3 bạn chơi cả cầu lông và bóng chuyền, và 2 bạn chơi cả ba môn. Hỏi có bao nhiêu học sinh không chơi môn nào trong ba môn trên?",
@@ -34,14 +34,15 @@ export const tapHopVennQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 121,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_6_toan_lop_10',
-    "chapterName": 'Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)',
+    "chapterId": "chuong_6_toan_lop_10",
+    "chapterName": "Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)",
     "topicId": "tap_hop_bieu_do_venn",
     "topicName": "Tập hợp & Biểu đồ Venn ứng dụng thực tế",
     "content": "Cho hai tập hợp $A = (m - 1; m + 2)$ và $B = (1; 4)$. Tìm tất cả các giá trị của tham số $m$ để $A \\cap B = \\emptyset$.",
@@ -69,14 +70,15 @@ export const tapHopVennQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 201,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_6_toan_lop_10',
-    "chapterName": 'Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)',
+    "chapterId": "chuong_6_toan_lop_10",
+    "chapterName": "Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)",
     "topicId": "tap_hop_bieu_do_venn",
     "topicName": "Tập hợp & Biểu đồ Venn ứng dụng thực tế",
     "content": "Cho hai tập hợp khác rỗng là $A = (m - 2; 3]$ và $B = (-3; 2m + 6)$. Có bao nhiêu giá trị nguyên của tham số $m$ để $A \\subset B$?",
@@ -91,6 +93,7 @@ export const tapHopVennQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
-    ]
+    ],
+    "answerVerified": true
   }
 ];

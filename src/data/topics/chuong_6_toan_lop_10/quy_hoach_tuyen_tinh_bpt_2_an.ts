@@ -5,8 +5,8 @@ export const quyHoachTuyenTinhQuestions: Question[] = [
     "id": 143,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_6_toan_lop_10',
-    "chapterName": 'Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)',
+    "chapterId": "chuong_6_toan_lop_10",
+    "chapterName": "Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)",
     "topicId": "quy_hoach_tuyen_tinh_bpt_2_an",
     "topicName": "Quy hoạch tuyến tính & BPT bậc nhất hai ẩn",
     "content": "Cho miền nghiệm của hệ bất phương trình bậc nhất hai ẩn: $\\begin{cases} x \\ge 0 \\\\ y \\ge 0 \\\\ x + y \\le 4 \\\\ 2x + y \\le 6 \\end{cases}$. Giá trị lớn nhất của biểu thức $F(x, y) = 3x + 2y$ trên miền nghiệm này bằng bao nhiêu?",
@@ -20,14 +20,15 @@ export const quyHoachTuyenTinhQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 202,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_6_toan_lop_10',
-    "chapterName": 'Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)',
+    "chapterId": "chuong_6_toan_lop_10",
+    "chapterName": "Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)",
     "topicId": "quy_hoach_tuyen_tinh_bpt_2_an",
     "topicName": "Quy hoạch tuyến tính & BPT bậc nhất hai ẩn",
     "content": "Số giá trị nguyên của tham số $m$ để phương trình $(x + 1)(x - 3) + \\sqrt{8 + 2x - x^2} = 2m$ có nghiệm là:",
@@ -55,7 +56,8 @@ export const quyHoachTuyenTinhQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_06_hsa35"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 300,
@@ -90,6 +92,7 @@ export const quyHoachTuyenTinhQuestions: Question[] = [
     ],
     "topicName": "Quy hoạch tuyến tính & BPT bậc nhất hai ẩn",
     "chapterId": "chuong_6_toan_lop_10",
-    "chapterName": "Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)"
+    "chapterName": "Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)",
+    "answerVerified": true
   }
 ];

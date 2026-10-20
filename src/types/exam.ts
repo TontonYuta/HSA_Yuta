@@ -53,6 +53,7 @@ export interface Question {
   hasParametricM?: boolean;  // Question contains parameter m
   track?: ExamTrack | 'BOTH'; // Which track this question primarily targets
   latexVerified?: boolean;   // Hidden audit flag: marks question as having 100% verified LaTeX syntax & rendering (no UI display)
+  answerVerified?: boolean;  // Audit flag: marks question as 100% verified for both mathematical logic and answer rendering
 }
 
 export interface ExamSet {

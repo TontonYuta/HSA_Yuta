@@ -5,8 +5,8 @@ export const toaDoMatCauQuestions: Question[] = [
     "id": 17,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_5_toa_do_oxyz',
-    "chapterName": 'Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)',
+    "chapterId": "chuong_5_toa_do_oxyz",
+    "chapterName": "Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)",
     "topicId": "toa_do_diem_vecto_va_mat_cau",
     "topicName": "Tọa độ điểm, Vectơ & Phương trình mặt cầu",
     "content": "Trong không gian $Oxyz$, cho điểm $A(2; 1; -1)$ và mặt phẳng $(P): x + 2y - 2z + 3 = 0$. Tọa độ điểm $A'$ đối xứng với điểm $A$ qua mặt phẳng $(P)$ là:",
@@ -35,14 +35,15 @@ export const toaDoMatCauQuestions: Question[] = [
     "examSets": [
       "de_01_chuan",
       "de_03_cap_toc"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 40,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_5_toa_do_oxyz',
-    "chapterName": 'Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)',
+    "chapterId": "chuong_5_toa_do_oxyz",
+    "chapterName": "Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)",
     "topicId": "toa_do_diem_vecto_va_mat_cau",
     "topicName": "Tọa độ điểm, Vectơ & Phương trình mặt cầu",
     "content": "Trong không gian $Oxyz$, cho mặt cầu $(S): x^2 + y^2 + z^2 - 4x + 2y - 20 = 0$ và mặt phẳng $(P): 2x - 2y + z + 3 = 0$. Bán kính của đường tròn giao tuyến tạo bởi mặt phẳng $(P)$ và mặt cầu $(S)$ bằng bao nhiêu?",
@@ -56,14 +57,15 @@ export const toaDoMatCauQuestions: Question[] = [
     "examSets": [
       "de_01_chuan",
       "de_03_cap_toc"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 63,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_5_toa_do_oxyz',
-    "chapterName": 'Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)',
+    "chapterId": "chuong_5_toa_do_oxyz",
+    "chapterName": "Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)",
     "topicId": "toa_do_diem_vecto_va_mat_cau",
     "topicName": "Tọa độ điểm, Vectơ & Phương trình mặt cầu",
     "content": "Trong không gian $Oxyz$, cho mặt cầu $(S): (x - 1)^2 + (y - 2)^2 + (z + 1)^2 = 25$ và điểm $M(2; 4; 1)$. Mặt phẳng $(P)$ đi qua $M$ và cắt mặt cầu $(S)$ theo giao tuyến là đường tròn có bán kính nhỏ nhất có phương trình là:",
@@ -91,14 +93,15 @@ export const toaDoMatCauQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 75,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_5_toa_do_oxyz',
-    "chapterName": 'Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)',
+    "chapterId": "chuong_5_toa_do_oxyz",
+    "chapterName": "Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)",
     "topicId": "toa_do_diem_vecto_va_mat_cau",
     "topicName": "Tọa độ điểm, Vectơ & Phương trình mặt cầu",
     "content": "Trong không gian $Oxyz$, cho hai điểm $A(1; 2; -3), B(3; -2; 1)$ và mặt phẳng $(P): 2x - y + 2z - 11 = 0$. Điểm $M(a; b; c)$ thuộc mặt phẳng $(P)$ sao cho biểu thức $MA^2 + MB^2$ đạt giá trị nhỏ nhất. Tổng $a + b + c$ bằng:",
@@ -126,14 +129,15 @@ export const toaDoMatCauQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 92,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_5_toa_do_oxyz',
-    "chapterName": 'Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)',
+    "chapterId": "chuong_5_toa_do_oxyz",
+    "chapterName": "Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)",
     "topicId": "toa_do_diem_vecto_va_mat_cau",
     "topicName": "Tọa độ điểm, Vectơ & Phương trình mặt cầu",
     "content": "Trong không gian $Oxyz$, cho mặt cầu $(S): x^2 + y^2 + z^2 - 2x + 4y - 6z - 11 = 0$. Bán kính của mặt cầu $(S)$ bằng bao nhiêu?",
@@ -146,14 +150,15 @@ export const toaDoMatCauQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_02_thuc_chien"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 169,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_5_toa_do_oxyz',
-    "chapterName": 'Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)',
+    "chapterId": "chuong_5_toa_do_oxyz",
+    "chapterName": "Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)",
     "topicId": "toa_do_diem_vecto_va_mat_cau",
     "topicName": "Tọa độ điểm, Vectơ & Phương trình mặt cầu",
     "content": "Trong không gian $Oxyz$, cho mặt cầu $(S)$ có tâm $I(1; 2; -3)$ và tiếp xúc với mặt phẳng $(P): 2x - 2y + z - 7 = 0$. Phương trình của mặt cầu $(S)$ là:",
@@ -181,14 +186,15 @@ export const toaDoMatCauQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 190,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_5_toa_do_oxyz',
-    "chapterName": 'Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)',
+    "chapterId": "chuong_5_toa_do_oxyz",
+    "chapterName": "Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)",
     "topicId": "toa_do_diem_vecto_va_mat_cau",
     "topicName": "Tọa độ điểm, Vectơ & Phương trình mặt cầu",
     "content": "Trong không gian $Oxyz$, cho hai mặt cầu $(S_1): (x - 1)^2 + (y - 2)^2 + (z - 3)^2 = 16$ và $(S_2): (x - 4)^2 + (y - 6)^2 + (z - 15)^2 = 25$. Khoảng cách giữa hai tâm của hai mặt cầu $(S_1)$ và $(S_2)$ bằng bao nhiêu?",
@@ -201,14 +207,15 @@ export const toaDoMatCauQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 242,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_5_toa_do_oxyz',
-    "chapterName": 'Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)',
+    "chapterId": "chuong_5_toa_do_oxyz",
+    "chapterName": "Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)",
     "topicId": "toa_do_diem_vecto_va_mat_cau",
     "topicName": "Tọa độ điểm, Vectơ & Phương trình mặt cầu",
     "content": "Trong không gian $Oxyz$, cho các điểm $A(1; -3; -4)$ và $B(-2; 1; 2)$. Xét hai điểm $M$ và $N$ thay đổi thuộc mặt phẳng $(Oxy)$ sao cho $MN = 2$. Giá trị lớn nhất của biểu thức $|AM - BN|$ là:",
@@ -236,14 +243,15 @@ export const toaDoMatCauQuestions: Question[] = [
     "difficulty": "Vận dụng cao",
     "examSets": [
       "de_06_hsa35"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 245,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_5_toa_do_oxyz',
-    "chapterName": 'Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)',
+    "chapterId": "chuong_5_toa_do_oxyz",
+    "chapterName": "Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)",
     "topicId": "toa_do_diem_vecto_va_mat_cau",
     "topicName": "Tọa độ điểm, Vectơ & Phương trình mặt cầu",
     "content": "Trong không gian $Oxyz$, cho mặt cầu $(S): (x + 1)^2 + (y - 1)^2 + z^2 = 4$ và các điểm $A(1; 2; 4)$, $B(0; 0; 1)$. Mặt phẳng $(P): ax + by + cz + 3 = 0$ đi qua $A, B$ và cắt mặt cầu $(S)$ theo giao tuyến là một đường tròn có chu vi nhỏ nhất. Tính giá trị của biểu thức $T = a + b + c$.",
@@ -271,7 +279,8 @@ export const toaDoMatCauQuestions: Question[] = [
     "difficulty": "Vận dụng cao",
     "examSets": [
       "de_06_hsa35"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 266,
@@ -306,7 +315,8 @@ export const toaDoMatCauQuestions: Question[] = [
     ],
     "topicName": "Tọa độ điểm, Vectơ & Phương trình mặt cầu",
     "chapterId": "chuong_5_toa_do_oxyz",
-    "chapterName": "Chương 5: Phương pháp tọa độ trong không gian Oxyz"
+    "chapterName": "Chương 5: Phương pháp tọa độ trong không gian Oxyz",
+    "answerVerified": true
   },
   {
     "id": 272,
@@ -341,7 +351,8 @@ export const toaDoMatCauQuestions: Question[] = [
     ],
     "topicName": "Tọa độ điểm, Vectơ & Phương trình mặt cầu",
     "chapterId": "chuong_5_toa_do_oxyz",
-    "chapterName": "Chương 5: Phương pháp tọa độ trong không gian Oxyz"
+    "chapterName": "Chương 5: Phương pháp tọa độ trong không gian Oxyz",
+    "answerVerified": true
   },
   {
     "id": 274,
@@ -357,8 +368,9 @@ export const toaDoMatCauQuestions: Question[] = [
       "de_07_hsa36"
     ],
     "topicName": "Tọa độ điểm, Vectơ & Phương trình mặt cầu",
-    "chapterId": 'chuong_5_toa_do_oxyz',
-    "chapterName": 'Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)'
+    "chapterId": "chuong_5_toa_do_oxyz",
+    "chapterName": "Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)",
+    "answerVerified": true
   },
   {
     "id": 275,
@@ -393,6 +405,7 @@ export const toaDoMatCauQuestions: Question[] = [
     ],
     "topicName": "Tọa độ điểm, Vectơ & Phương trình mặt cầu",
     "chapterId": "chuong_5_toa_do_oxyz",
-    "chapterName": "Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)"
+    "chapterName": "Chuyên đề 2: Phương pháp tọa độ trong không gian Oxyz (Toán 12)",
+    "answerVerified": true
   }
 ];

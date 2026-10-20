@@ -5,8 +5,8 @@ export const heThucLuongTamGiacQuestions: Question[] = [
     "id": 137,
     "latexVerified": true,
     "type": "fill",
-    "chapterId": 'chuong_6_toan_lop_10',
-    "chapterName": 'Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)',
+    "chapterId": "chuong_6_toan_lop_10",
+    "chapterName": "Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)",
     "topicId": "he_thuc_luong_tam_giac_thuc_te",
     "topicName": "Hệ thức lượng trong tam giác & Đo đạc thực tế",
     "content": "Hai tàu thủy $A$ và $B$ cùng xuất phát từ một cảng $O$. Tàu $A$ đi theo hướng Đông với quãng đường 30 hải lý, tàu $B$ đi theo hướng chếch lệch góc $120^\\circ$ so với hướng đi của tàu $A$ với quãng đường 50 hải lý. Khoảng cách giữa hai tàu $A$ và $B$ sau hành trình bằng bao nhiêu hải lý?",
@@ -20,14 +20,15 @@ export const heThucLuongTamGiacQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_03_moi"
-    ]
+    ],
+    "answerVerified": true
   },
   {
     "id": 152,
     "latexVerified": true,
     "type": "mcq",
-    "chapterId": 'chuong_6_toan_lop_10',
-    "chapterName": 'Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)',
+    "chapterId": "chuong_6_toan_lop_10",
+    "chapterName": "Chuyên đề 10: Tổ hợp, Xác suất cổ điển & Quy hoạch tuyến tính (Toán 10)",
     "topicId": "he_thuc_luong_tam_giac_thuc_te",
     "topicName": "Hệ thức lượng trong tam giác & Đo đạc thực tế",
     "content": "Cho tam giác $ABC$ có cạnh $b = 7$, cạnh $c = 5$ và $\\cos A = \\frac{3}{5}$. Bán kính $R$ của đường tròn ngoại tiếp tam giác $ABC$ bằng:",
@@ -55,6 +56,7 @@ export const heThucLuongTamGiacQuestions: Question[] = [
     "difficulty": "Vận dụng",
     "examSets": [
       "de_04_nang_cao"
-    ]
+    ],
+    "answerVerified": true
   }
 ];
