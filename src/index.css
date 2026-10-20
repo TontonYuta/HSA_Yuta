@@ -117,3 +117,45 @@ html.dark ::-webkit-scrollbar-thumb {
 html.dark ::-webkit-scrollbar-thumb:hover {
   background: #3f3f46;
 }
+
+/* Subtle, elegant celestial animations (BorderBeam & Floating Winding Trails) */
+@keyframes beamOrbit {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+
+@keyframes beamOrbitReverse {
+  from {
+    stroke-dashoffset: -100;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-beam-orbit {
+  animation: beamOrbit 12s linear infinite;
+}
+
+.animate-beam-orbit-reverse {
+  animation: beamOrbitReverse 14s linear infinite;
+}
+
+@keyframes celestialFloat {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translateY(-8px) scale(1.2);
+    opacity: 0.85;
+  }
+}
+
+.animate-celestial-float {
+  animation: celestialFloat 4s ease-in-out infinite;
+}
