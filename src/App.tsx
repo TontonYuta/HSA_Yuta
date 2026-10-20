@@ -776,7 +776,7 @@ export default function App() {
               <div className="flex items-center gap-2.5">
                 <GraduationCap className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0" />
                 <span className="font-bold text-slate-800 dark:text-zinc-200">
-                  Toán 7 THCS · TontonYuta
+                  Toán 7 THCS · GDPT 2018
                 </span>
                 <span>·</span>
                 <span>Hệ Thống Luyện Thi & Bứt Phá Điểm 9-10 Môn Toán 7 (GDPT 2018)</span>

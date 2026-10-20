@@ -52,6 +52,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   hideQuestionSource = false,
   onToggleHideQuestionSource,
   onToggleMobileSidebar,
+  studentName,
 }) => {
   const isPT = currentTrack === 'PHOTHONG';
   const targetYear = getTargetExamYear();
@@ -127,10 +128,10 @@ export const Navbar: React.FC<NavbarProps> = ({
                 </div>
                 <div className="flex flex-col">
                   <span className="text-xs sm:text-sm font-black tracking-tight text-slate-900 dark:text-zinc-100 whitespace-nowrap">
-                    TontonYuta <span className="font-mono text-[10px] text-sky-600 dark:text-sky-400 font-bold">Toán 7</span>
+                    Toán 7 <span className="font-mono text-[10px] text-blue-600 dark:text-blue-400 font-bold">GDPT 2018</span>
                   </span>
-                  <span className="text-[9px] text-slate-400 dark:text-zinc-500 font-medium">
-                    {isPT ? 'Chuẩn GDPT 2018' : 'Bứt Phá 9+ & HSG'}
+                  <span className="text-[9px] text-slate-400 dark:text-zinc-500 font-medium truncate max-w-[120px]">
+                    {studentName ? studentName : (isPT ? 'Chuẩn SGK' : 'Bứt Phá 9+')}
                   </span>
                 </div>
               </button>
@@ -241,7 +242,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                     onClick={() => onSelectTrack('PHOTHONG')}
                     className={`px-2 py-1 rounded-md text-[10px] font-bold transition flex items-center gap-1 cursor-pointer ${
                       isPT
-                        ? 'bg-gradient-to-r from-sky-600 to-blue-600 text-white shadow-xs'
+                        ? 'bg-blue-600 text-white shadow-xs'
                         : 'text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-100'
                     }`}
                     title="Chế độ Phổ Thông chuẩn SGK"
@@ -253,7 +254,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                     onClick={() => onSelectTrack('NANGCAO')}
                     className={`px-2 py-1 rounded-md text-[10px] font-bold transition flex items-center gap-1 cursor-pointer ${
                       !isPT
-                        ? 'bg-gradient-to-r from-amber-600 to-rose-600 text-white shadow-xs'
+                        ? 'bg-amber-600 text-white shadow-xs'
                         : 'text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-100'
                     }`}
                     title="Chế độ Nâng Cao & HSG"
