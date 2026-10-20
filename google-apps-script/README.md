@@ -1,5 +1,5 @@
 # Hướng Dẫn Cài Đặt Webhook Google Apps Script & Google Sheets
-## Dự án: Luyện Thi Toán THPT Quốc Gia 2027 & ĐGNL HSA - TontonYuta
+## Dự án: Luyện Thi Toán Chuẩn Hóa GDPT 2018 (HSA & THPTQG)
 
 Hệ thống Webhook Google Apps Script (GAS) tự động đồng bộ kết quả bài thi của học sinh vào Google Sheets và gửi email thông báo chi tiết cho Giáo viên & Thí sinh ngay khi hoàn thành bài thi.
 

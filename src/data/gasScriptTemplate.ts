@@ -9,7 +9,7 @@ export function generateGasScript(teacherEmail: string = ''): string {
   return `/**
  * ========================================================================================
  * HỆ THỐNG WEBHOOK GOOGLE APPS SCRIPT ĐỒNG BỘ GOOGLE SHEETS & EMAIL BÁO CÁO KẾT QUẢ THI
- * DỰ ÁN: LUYỆN THI TOÁN THPT QUỐC GIA 2027 & ĐGNL HSA ĐHQGHN - TONTONYUTA
+ * DỰ ÁN: LUYỆN THI TOÁN CHUẨN HÓA GDPT 2018 (HSA & THPTQG)
  * Phiên bản: v2.2 (Sửa lỗi gửi trùng email & Bổ sung thông báo học sinh truy cập web)
  * ========================================================================================
  * 
