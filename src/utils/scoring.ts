@@ -1,6 +1,7 @@
 import { Question, UserAnswer, ExamReport, TopicId } from '../types/exam';
 import { CHAPTERS_METADATA, MICRO_TOPICS_METADATA } from '../data/topics/index';
 import { TOAN7_CHAPTERS_METADATA, TOAN7_MICRO_TOPICS_METADATA } from '../data/toan7/index';
+import { TEMPLATE_CHAPTERS_METADATA } from '../data/template/index';
 import { generateTamperProofHash } from './security';
 
 // Color map per chapter
@@ -27,6 +28,11 @@ const CHAPTER_COLORS: Record<string, string> = {
   toan7_c8_bien_co_xac_suat: '#f43f5e', // rose
   toan7_c9_quan_he_tam_giac: '#3b82f6', // blue
   toan7_c10_hinh_khoi_thuc_tien: '#059669', // green
+
+  // Template Starter Chapters
+  ch_01_nen_tang: '#0284c7',
+  ch_02_ky_nang: '#6366f1',
+  ch_03_nang_cao: '#f59e0b',
 };
 
 // Comprehensive metadata dictionary covering all micro-topics + chapters
@@ -69,6 +75,24 @@ export const TOPIC_METADATA: Record<string, { name: string; shortName: string; c
       color: CHAPTER_COLORS[t.chapterId] || '#64748b',
       description: t.description,
     };
+  }
+
+  // Register Template chapters & topics
+  for (const ch of TEMPLATE_CHAPTERS_METADATA) {
+    map[ch.id] = {
+      name: ch.name,
+      shortName: ch.shortName,
+      color: CHAPTER_COLORS[ch.id] || '#64748b',
+      description: ch.description,
+    };
+    for (const t of ch.topics) {
+      map[t.id] = {
+        name: t.name,
+        shortName: t.shortName,
+        color: CHAPTER_COLORS[ch.id] || '#64748b',
+        description: t.description,
+      };
+    }
   }
 
   // Legacy topic IDs fallback
@@ -225,7 +249,7 @@ export function generateExamReport(
     const percentage = stats.total > 0 ? Math.round((stats.correct / stats.total) * 100) : 0;
     return {
       topicId,
-      topicName: TOPIC_METADATA[topicId]?.name || topicId,
+      topicName: TOPIC_METADATA[topicId]?.name || questions.find(q => q.topicId === topicId)?.topicName || topicId,
       correctCount: stats.correct,
       totalCount: stats.total,
       percentage,

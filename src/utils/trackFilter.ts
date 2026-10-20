@@ -1,5 +1,6 @@
 import { Question, ExamSet, ExamTrack, ChapterInfo } from '../types/exam';
 import { getTargetExamYear } from './timeUtils';
+import { appConfig } from '../config/appConfig';
 
 const TARGET_YEAR = getTargetExamYear();
 
@@ -68,7 +69,7 @@ export function isPracticalMathQuestion(q: Question): boolean {
     return q.isPracticalMath;
   }
 
-  if (q.chapterId === 'chuong_10_toan_thuc_te_toi_uu') {
+  if (q.chapterId === 'chuong_10_toan_thuc_te_toi_uu' || q.chapterId === 'ch_03_nang_cao') {
     return true;
   }
 
@@ -84,6 +85,7 @@ export function isPracticalMathQuestion(q: Question): boolean {
     'thong_ke_ghep_nhom',
     'xac_suat_bayes_thuc_te',
     'dao_dong_luong_giac_thuc_te',
+    'tp_07_thuc_te',
   ];
 
   if (practicalTopics.includes(q.topicId)) {
@@ -98,16 +100,14 @@ export function isPracticalMathQuestion(q: Question): boolean {
 }
 
 /**
- * Lọc danh sách câu hỏi theo Track
- * - HSA: Lấy toàn bộ (bao gồm cả tư duy logic, tham số m và toán thực tế)
- * - THPTQG: Bỏ hoàn toàn câu hỏi chứa tham số m, ưu tiên và làm giàu toán thực tế
+ * Lọc danh sách câu hỏi theo Track linh hoạt từ appConfig
  */
 export function filterQuestionsByTrack(questions: Question[], track: ExamTrack): Question[] {
-  if (track === 'PHOTHONG') {
-    return questions.filter((q) => q.track === 'PHOTHONG' || q.track === 'BOTH' || (!q.track && q.difficulty !== 'Vận dụng cao'));
+  if (track === 'STANDARD' || track === 'PHOTHONG') {
+    return questions.filter((q) => q.track === track || q.track === 'BOTH' || (!q.track && q.difficulty !== 'Vận dụng cao'));
   }
-  if (track === 'NANGCAO') {
-    return questions.filter((q) => q.track === 'NANGCAO' || q.track === 'BOTH' || (!q.track && (q.difficulty === 'Vận dụng cao' || q.difficulty === 'Vận dụng')));
+  if (track === 'ADVANCED' || track === 'NANGCAO') {
+    return questions.filter((q) => q.track === track || q.track === 'BOTH' || (!q.track && (q.difficulty === 'Vận dụng cao' || q.difficulty === 'Vận dụng')));
   }
   if (track === 'HSA') {
     return questions.map((q) => ({
@@ -116,26 +116,31 @@ export function filterQuestionsByTrack(questions: Question[], track: ExamTrack):
       hasParametricM: isParametricMQuestion(q),
     }));
   }
+  if (track === 'THPTQG') {
+    return questions
+      .filter((q) => !isParametricMQuestion(q))
+      .map((q) => ({
+        ...q,
+        isPracticalMath: isPracticalMathQuestion(q),
+        hasParametricM: false,
+      }));
+  }
 
-  // THPTQG: Loại bỏ toàn bộ câu hỏi chứa tham số m
-  return questions
-    .filter((q) => !isParametricMQuestion(q))
-    .map((q) => ({
-      ...q,
-      isPracticalMath: isPracticalMathQuestion(q),
-      hasParametricM: false,
-    }));
+  // Khớp trực tiếp nếu là mã track tùy biến khác
+  const matched = questions.filter((q) => q.track === track || q.track === 'BOTH');
+  return matched.length > 0 ? matched : questions;
 }
 
 /**
- * Lọc bộ đề thi theo Track
+ * Lọc bộ đề thi theo Track linh hoạt
  */
 export function filterExamSetsByTrack(examSets: ExamSet[], track: ExamTrack): ExamSet[] {
   return examSets.filter((s) => {
     if (s.track) return s.track === track;
+    if (track === 'STANDARD') return s.id.startsWith('exam_template_01') || s.id.startsWith('exam_template_02') || s.id.startsWith('toan7_pt');
+    if (track === 'ADVANCED') return s.id.startsWith('exam_template_03') || s.id.startsWith('exam_template_04') || s.id.startsWith('toan7_nc');
     if (track === 'PHOTHONG') return s.id.startsWith('toan7_pt');
     if (track === 'NANGCAO') return s.id.startsWith('toan7_nc');
-    // Default fallback: sets with id starting with thptqg are for THPTQG, else HSA
     return track === 'THPTQG' ? s.id.startsWith('thptqg') : !s.id.startsWith('thptqg');
   });
 }
@@ -157,7 +162,33 @@ export interface TrackMeta {
   activeColor: string;
 }
 
-export const TRACK_METADATA: Record<ExamTrack, TrackMeta> = {
+export const TRACK_METADATA: Record<string, TrackMeta> = {
+  STANDARD: {
+    id: 'STANDARD',
+    title: 'Khung Cơ Bản / Phổ Thông',
+    shortTitle: 'Phổ Thông',
+    badge: 'Chuẩn Kiến Thức',
+    subtitle: 'Nắm chắc kiến thức cốt lõi, hoàn thành tốt các bài kiểm tra định kỳ',
+    examDurationMinutes: 60,
+    questionCount: 15,
+    description: 'Hệ thống học tập và kiểm tra theo chuẩn chương trình, bám sát kiến thức nền tảng.',
+    highlightText: 'Chuẩn kiến thức · Phân hóa từ Nhận biết đến Vận dụng vừa sức',
+    badgeColor: 'bg-sky-50 text-sky-700 border-sky-200 dark:bg-sky-950/40 dark:text-sky-300 dark:border-sky-800',
+    activeColor: 'from-sky-600 to-blue-600 text-white shadow-sky-500/25',
+  },
+  ADVANCED: {
+    id: 'ADVANCED',
+    title: 'Khung Nâng Cao / Bứt Phá Điểm 10',
+    shortTitle: 'Nâng Cao',
+    badge: 'Bứt Phá 9+ & HSG',
+    subtitle: 'Chinh phục bài toán điểm 10, bồi dưỡng học sinh giỏi và thử thách tư duy sâu',
+    examDurationMinutes: 90,
+    questionCount: 20,
+    description: 'Hệ thống bài tập và đề thi nâng cao dành cho học sinh target điểm 9+ và thi HSG.',
+    highlightText: 'Bứt phá điểm 10 · Rèn luyện tư duy logic & giải bài toán chuyên',
+    badgeColor: 'bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-950/40 dark:text-amber-300 dark:border-amber-800',
+    activeColor: 'from-amber-600 to-rose-600 text-white shadow-amber-500/25',
+  },
   PHOTHONG: {
     id: 'PHOTHONG',
     title: 'Toán 7 Phổ Thông (Chuẩn SGK GDPT 2018)',
@@ -167,7 +198,7 @@ export const TRACK_METADATA: Record<ExamTrack, TrackMeta> = {
     examDurationMinutes: 60,
     questionCount: 18,
     description:
-      'Hệ thống học tập và kiểm tra môn Toán 7 theo chuẩn chương trình GDPT 2018 (Kết nối tri thức, Cánh diều, Chân trời sáng tạo). Bao phủ đầy đủ 10 chương trọng tâm từ Số hữu tỉ, Số thực, Tam giác bằng nhau đến Thống kê & Biến cố.',
+      'Hệ thống học tập và kiểm tra môn Toán 7 theo chuẩn chương trình GDPT 2018. Bao phủ đầy đủ 10 chương trọng tâm.',
     highlightText: 'Chuẩn SGK 2018 · Phân hóa từ Nhận biết đến Vận dụng vừa sức',
     badgeColor: 'bg-sky-50 text-sky-700 border-sky-200 dark:bg-sky-950/40 dark:text-sky-300 dark:border-sky-800',
     activeColor: 'from-sky-600 to-blue-600 text-white shadow-sky-500/25',
@@ -181,7 +212,7 @@ export const TRACK_METADATA: Record<ExamTrack, TrackMeta> = {
     examDurationMinutes: 90,
     questionCount: 20,
     description:
-      'Hệ thống bài tập và đề thi nâng cao dành cho học sinh target điểm 9+, thi HSG và ôn thi vào trường Chuyên. Tập trung vào dãy phân số quy luật, cực trị đại số, tìm x chứa dấu giá trị tuyệt đối nhiều tầng, nghiệm nguyên và kẻ đường phụ trong hình học.',
+      'Hệ thống bài tập và đề thi nâng cao dành cho học sinh target điểm 9+, thi HSG và ôn thi vào trường Chuyên.',
     highlightText: 'Bứt phá điểm 10 · Rèn luyện tư duy toán học logic & giải bài toán chuyên',
     badgeColor: 'bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-950/40 dark:text-amber-300 dark:border-amber-800',
     activeColor: 'from-amber-600 to-rose-600 text-white shadow-amber-500/25',
@@ -195,7 +226,7 @@ export const TRACK_METADATA: Record<ExamTrack, TrackMeta> = {
     examDurationMinutes: 90,
     questionCount: 50,
     description:
-      `Hệ thống luyện thi Tốt nghiệp THPT Quốc gia ${TARGET_YEAR} theo chương trình mới GDPT 2018. Lược bỏ hoàn toàn các bài toán tìm tham số m trừu tượng; tập trung chuyên sâu vào Toán thực tế, mô hình hóa đời sống, tối ưu kinh tế, tích phân chuyển động, xác suất Bayes và thống kê ghép nhóm.`,
+      `Hệ thống luyện thi Tốt nghiệp THPT Quốc gia ${TARGET_YEAR} theo chương trình mới GDPT 2018.`,
     highlightText: 'Đã loại bỏ tham số m · Tăng cường 100+ bài toán thực tế đời sống',
     badgeColor: 'bg-rose-50 text-rose-700 border-rose-200 dark:bg-rose-950/40 dark:text-rose-300 dark:border-rose-800',
     activeColor: 'from-rose-600 to-amber-600 text-white shadow-rose-500/25',
@@ -205,13 +236,37 @@ export const TRACK_METADATA: Record<ExamTrack, TrackMeta> = {
     title: `Đánh Giá Năng Lực ĐHQGHN (HSA ${TARGET_YEAR})`,
     shortTitle: `ĐGNL HSA ${TARGET_YEAR}`,
     badge: `Chuẩn HSA ${TARGET_YEAR}`,
-    subtitle: `Toán học & Tư duy định lượng HSA ${TARGET_YEAR}: 50 câu (35 Trắc nghiệm + 15 Điền số) trong 75 phút`,
+    subtitle: `Toán học & Tư duy định lượng HSA ${TARGET_YEAR}: 50 câu trong 75 phút`,
     examDurationMinutes: 75,
     questionCount: 50,
     description:
-      `Hệ thống luyện thi Đánh giá năng lực ĐHQGHN (HSA ${TARGET_YEAR}) môn Toán & Tư duy định lượng. Cấu trúc chuẩn 50 câu phân tầng nhận biết đến vận dụng cao, bao quát toàn diện giải tích, hình học, xác suất và tư duy số học.`,
-    highlightText: `Đầy đủ 50 câu (35 TN + 15 Điền số) · 20 bộ đề thực chiến HSA ${TARGET_YEAR}`,
+      `Hệ thống luyện thi Đánh giá năng lực ĐHQGHN (HSA ${TARGET_YEAR}) môn Toán & Tư duy định lượng.`,
+    highlightText: `Đầy đủ 50 câu · 20 bộ đề thực chiến HSA ${TARGET_YEAR}`,
     badgeColor: 'bg-sky-50 text-sky-700 border-sky-200 dark:bg-sky-950/40 dark:text-sky-300 dark:border-sky-800',
     activeColor: 'from-sky-600 to-indigo-600 text-white shadow-sky-500/25',
   },
 };
+
+/**
+ * Lấy metadata của track, ưu tiên đọc từ appConfig.tracks
+ */
+export function getTrackMeta(trackId: string): TrackMeta {
+  const custom = appConfig.tracks.find((t) => t.id === trackId);
+  if (custom) {
+    return {
+      id: custom.id,
+      title: custom.name,
+      shortTitle: custom.shortName,
+      badge: custom.badge,
+      subtitle: custom.subtitle,
+      examDurationMinutes: custom.examDurationMinutes,
+      questionCount: 15,
+      description: custom.description,
+      highlightText: custom.highlightText,
+      badgeColor: custom.badgeColor,
+      activeColor: custom.activeGradient,
+    };
+  }
+  return TRACK_METADATA[trackId] || TRACK_METADATA['STANDARD'];
+}
+

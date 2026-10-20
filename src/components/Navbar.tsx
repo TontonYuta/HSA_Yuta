@@ -1,7 +1,7 @@
 import React from 'react';
 import { Sun, Moon, GraduationCap, LayoutGrid, Menu, LogOut, Eye, EyeOff } from 'lucide-react';
 import { ExamTrack } from '../utils/trackFilter';
-import { getTargetExamYear } from '../utils/timeUtils';
+import { appConfig, getTrackConfig } from '../config/appConfig';
 
 export type AppMode = 'intro' | 'exam' | 'practice' | 'bank';
 
@@ -53,8 +53,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onToggleHideQuestionSource,
   onToggleMobileSidebar,
 }) => {
-  const isPT = currentTrack === 'PHOTHONG';
-  const targetYear = getTargetExamYear();
+  const currentTrackMeta = getTrackConfig(currentTrack);
 
   return (
     <header className={`sticky top-0 z-40 h-[52px] bg-white dark:bg-[#09090b] border-b border-slate-200 dark:border-zinc-800 transition-colors select-none ${
@@ -79,12 +78,8 @@ export const Navbar: React.FC<NavbarProps> = ({
 
               {examTitle && (
                 <div className="hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-zinc-800/80 text-xs font-medium text-slate-700 dark:text-zinc-300 max-w-[260px] lg:max-w-[340px] truncate border border-slate-200 dark:border-zinc-700/60">
-                  <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded shrink-0 ${
-                    isPT 
-                      ? 'bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800/60'
-                      : 'bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-300 border border-amber-200 dark:border-amber-800/60'
-                  }`}>
-                    {isPT ? 'Phổ Thông' : 'Nâng Cao'}
+                  <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded shrink-0 ${currentTrackMeta.badgeColor}`}>
+                    {currentTrackMeta.shortName}
                   </span>
                   <span className="truncate" title={examTitle}>
                     {examTitle}
@@ -118,19 +113,15 @@ export const Navbar: React.FC<NavbarProps> = ({
                 className="flex items-center gap-1.5 sm:gap-2 group cursor-pointer text-left"
                 title="Trang chủ Luyện thi"
               >
-                <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 shadow-xs transition ${
-                  isPT 
-                    ? 'bg-sky-500/10 border border-sky-500/20 text-sky-600 dark:text-sky-400' 
-                    : 'bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400'
-                }`}>
+                <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 shadow-xs transition bg-sky-500/10 border border-sky-500/20 text-sky-600 dark:text-sky-400">
                   <GraduationCap className="w-4 h-4" />
                 </div>
                 <div className="flex flex-col">
                   <span className="text-xs sm:text-sm font-black tracking-tight text-slate-900 dark:text-zinc-100 whitespace-nowrap">
-                    TontonYuta <span className="font-mono text-[10px] text-sky-600 dark:text-sky-400 font-bold">Toán 7</span>
+                    {appConfig.appName} <span className="font-mono text-[10px] text-sky-600 dark:text-sky-400 font-bold">{appConfig.subject} {appConfig.grade}</span>
                   </span>
                   <span className="text-[9px] text-slate-400 dark:text-zinc-500 font-medium">
-                    {isPT ? 'Chuẩn GDPT 2018' : 'Bứt Phá 9+ & HSG'}
+                    {currentTrackMeta.badge}
                   </span>
                 </div>
               </button>
@@ -147,14 +138,14 @@ export const Navbar: React.FC<NavbarProps> = ({
         ) : (
           /* Clean Section Breadcrumb Indicator (Desktop only) */
           <div className="hidden sm:flex items-center gap-2 text-xs text-slate-500 dark:text-zinc-400">
-            <span className="text-slate-400 dark:text-zinc-500">{isPT ? 'Toán 7 Phổ Thông' : 'Toán 7 Nâng Cao'}</span>
+            <span className="text-slate-400 dark:text-zinc-500">{currentTrackMeta.shortName}</span>
             <span className="text-slate-300 dark:text-zinc-700">/</span>
             <span className="font-semibold text-slate-800 dark:text-zinc-200">
               {currentMode === 'practice'
-                ? '25 Chuyên Đề Trọng Tâm'
+                ? 'Chuyên Đề Trọng Tâm'
                 : currentMode === 'bank'
                 ? 'Ngân Hàng Câu Hỏi'
-                : `Thi Thử ${isPT ? '60 Phút' : '90 Phút'}`}
+                : `Thi Thử ${currentTrackMeta.examDurationMinutes} Phút`}
             </span>
           </div>
         )}
@@ -234,32 +225,26 @@ export const Navbar: React.FC<NavbarProps> = ({
           ) : (
             <>
               {/* Mobile Fast Track Switcher Pill */}
-              {onSelectTrack && (
+              {onSelectTrack && appConfig.tracks.length > 1 && (
                 <div className="flex items-center p-0.5 rounded-lg bg-slate-100 dark:bg-zinc-800/80 border border-slate-200/80 dark:border-zinc-700/80">
-                  <button
-                    type="button"
-                    onClick={() => onSelectTrack('PHOTHONG')}
-                    className={`px-2 py-1 rounded-md text-[10px] font-bold transition flex items-center gap-1 cursor-pointer ${
-                      isPT
-                        ? 'bg-gradient-to-r from-sky-600 to-blue-600 text-white shadow-xs'
-                        : 'text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-100'
-                    }`}
-                    title="Chế độ Phổ Thông chuẩn SGK"
-                  >
-                    <span>📘 Phổ Thông</span>
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => onSelectTrack('NANGCAO')}
-                    className={`px-2 py-1 rounded-md text-[10px] font-bold transition flex items-center gap-1 cursor-pointer ${
-                      !isPT
-                        ? 'bg-gradient-to-r from-amber-600 to-rose-600 text-white shadow-xs'
-                        : 'text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-100'
-                    }`}
-                    title="Chế độ Nâng Cao & HSG"
-                  >
-                    <span>🚀 Nâng Cao</span>
-                  </button>
+                  {appConfig.tracks.map((track) => {
+                    const isSelected = currentTrack === track.id;
+                    return (
+                      <button
+                        key={track.id}
+                        type="button"
+                        onClick={() => onSelectTrack(track.id)}
+                        className={`px-2 py-1 rounded-md text-[10px] font-bold transition flex items-center gap-1 cursor-pointer ${
+                          isSelected
+                            ? `bg-gradient-to-r ${track.activeGradient} shadow-xs`
+                            : 'text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-100'
+                        }`}
+                        title={track.name}
+                      >
+                        <span>{track.icon} {track.shortName}</span>
+                      </button>
+                    );
+                  })}
                 </div>
               )}
 

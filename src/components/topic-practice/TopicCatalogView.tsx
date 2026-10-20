@@ -15,8 +15,8 @@ import {
   Target,
 } from 'lucide-react';
 import { Question, ChapterInfo } from '../../types/exam';
-import { TOAN7_CHAPTERS_METADATA } from '../../data/toan7/index';
 import { ExamTrack } from '../../utils/trackFilter';
+import { appConfig, getTrackConfig } from '../../config/appConfig';
 
 interface TopicCatalogViewProps {
   catalogSearch: string;
@@ -44,10 +44,11 @@ export const TopicCatalogView: React.FC<TopicCatalogViewProps> = ({
   questions,
   onBackToExam,
   onSelectTopic,
-  currentTrack = 'PHOTHONG',
-  chapters = TOAN7_CHAPTERS_METADATA,
+  currentTrack = appConfig.defaultTrackId,
+  chapters = [],
 }) => {
-  const isPT = currentTrack === 'PHOTHONG';
+  const currentTrackMeta = getTrackConfig(currentTrack);
+  const isPT = currentTrack === 'STANDARD' || currentTrack === 'PHOTHONG' || currentTrack === appConfig.tracks[0]?.id;
   const [quickChapterId, setQuickChapterId] = useState<string>(catalogChapters[0]?.id || chapters[0]?.id || 'toan7_c1_so_huu_ti');
   const [quickTopicId, setQuickTopicId] = useState<string>('__all__');
   const currentQuickChapter =
@@ -68,21 +69,15 @@ export const TopicCatalogView: React.FC<TopicCatalogViewProps> = ({
                 <BookOpen className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
               <div>
-                <div className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider mb-1.5 border ${
-                  isPT 
-                    ? 'bg-sky-100 dark:bg-sky-950/80 text-sky-700 dark:text-sky-300 border-sky-200 dark:border-sky-800'
-                    : 'bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-300 border-amber-200 dark:border-amber-800'
-                }`}>
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider mb-1.5 border bg-sky-100 dark:bg-sky-950/80 text-sky-700 dark:text-sky-300 border-sky-200 dark:border-sky-800">
                   <Sparkles className="w-3 h-3" />
-                  <span>{isPT ? 'Hệ Thống 10 Chương & 25 Chuyên Đề GDPT 2018' : 'Hệ Thống Chuyên Đề Bứt Phá 9+ & HSG'}</span>
+                  <span>{appConfig.subject} {appConfig.grade} · {currentTrackMeta.badge}</span>
                 </div>
                 <h1 className="text-lg sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">
-                  {isPT ? 'Trung Tâm Luyện Chuyên Đề Toán 7' : 'Trung Tâm Luyện Chuyên Đề Toán 7 Nâng Cao'}
+                  Trung Tâm Luyện Chuyên Đề {appConfig.subject} {appConfig.grade}
                 </h1>
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 mt-1 max-w-2xl leading-relaxed">
-                  {isPT 
-                    ? 'Luyện tập theo chuyên đề chuẩn SGK GDPT 2018 (Kết nối tri thức & Cánh diều). Phân hóa từ Nhận biết đến Vận dụng, kiểm tra đáp án tức thì và gợi ý Socratic.'
-                    : 'Bồi dưỡng học sinh giỏi và ôn luyện vào trường Chuyên. Tuyển tập các bài toán điểm 10, phân số quy luật, cực trị và kẻ đường phụ.'}
+                  {currentTrackMeta.description}
                 </p>
               </div>
             </div>

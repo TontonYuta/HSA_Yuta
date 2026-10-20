@@ -25,12 +25,12 @@ import {
 } from 'lucide-react';
 import { Question, TopicId, MicroTopicInfo } from '../types/exam';
 import { MathRenderer } from './MathRenderer';
-import { TOAN7_MICRO_TOPICS_METADATA } from '../data/toan7/index';
 import { ExamTrack, isParametricMQuestion, isPracticalMathQuestion } from '../utils/trackFilter';
 import { getTargetExamYear } from '../utils/timeUtils';
 import { parseQuestionSource } from '../utils/questionSource';
 import { QuestionSourceBadge } from './QuestionSourceBadge';
 import { formatMathSnippet } from '../utils/mathSnippet';
+import { appConfig, getTrackConfig } from '../config/appConfig';
 
 interface QuestionBankViewProps {
   questions: Question[];
@@ -44,12 +44,13 @@ interface QuestionBankViewProps {
 export const QuestionBankView: React.FC<QuestionBankViewProps> = ({ 
   questions, 
   onStartExam,
-  currentTrack = 'PHOTHONG',
+  currentTrack = appConfig.defaultTrackId,
   onSelectTrack,
   onSelectTopicPractice,
-  topicsMetadata = TOAN7_MICRO_TOPICS_METADATA,
+  topicsMetadata = [],
 }) => {
-  const isPT = currentTrack === 'PHOTHONG';
+  const currentTrackMeta = getTrackConfig(currentTrack);
+  const isPT = currentTrack === 'STANDARD' || currentTrack === 'PHOTHONG' || currentTrack === appConfig.tracks[0]?.id;
   const targetYear = getTargetExamYear();
 
   // Search & Filter States
@@ -57,9 +58,7 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
   const [selectedTopic, setSelectedTopic] = useState<string>('all');
   const [selectedType, setSelectedType] = useState<string>('all');
   const [selectedDifficulty, setSelectedDifficulty] = useState<string>('all');
-  const [trackFilter, setTrackFilter] = useState<'all' | 'phothong' | 'nangcao'>(() => {
-    return currentTrack === 'NANGCAO' ? 'nangcao' : 'all';
-  });
+  const [trackFilter, setTrackFilter] = useState<string>('all');
 
   // View Mode: 'focus' (Master-Detail Zero-Scroll) vs 'list' (Traditional compact list)
   const [viewMode, setViewMode] = useState<'focus' | 'list'>('focus');
@@ -89,22 +88,19 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
   const stageScrollRef = useRef<HTMLDivElement>(null);
 
   // Filter count statistics
-  const counts = useMemo(() => {
-    let phothong = 0;
-    let nangcao = 0;
-    for (const q of questions) {
-      if (q.track === 'PHOTHONG' || (!q.track && q.difficulty !== 'Vận dụng cao')) phothong++;
-      if (q.track === 'NANGCAO' || (!q.track && q.difficulty === 'Vận dụng cao')) nangcao++;
+  const counts: Record<string, number> = useMemo(() => {
+    const trackCounts: Record<string, number> = {};
+    for (const t of appConfig.tracks) {
+      trackCounts[t.id] = questions.filter((q) => q.track === t.id || q.track === 'BOTH' || (!q.track && t.id === appConfig.defaultTrackId)).length;
     }
-    return { phothong, nangcao, total: questions.length };
+    return { ...trackCounts, total: questions.length };
   }, [questions]);
 
   // Filtered Questions List
   const filtered = useMemo(() => {
     return questions.filter((q) => {
       // Track filter
-      if (trackFilter === 'phothong' && q.track === 'NANGCAO') return false;
-      if (trackFilter === 'nangcao' && q.track === 'PHOTHONG') return false;
+      if (trackFilter !== 'all' && q.track && q.track !== trackFilter && q.track !== 'BOTH') return false;
 
       if (selectedTopic !== 'all' && q.topicId !== selectedTopic) return false;
       if (selectedType !== 'all' && q.type !== selectedType) return false;
@@ -278,49 +274,45 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
           </select>
 
           {/* Track Filter Pills */}
-          <div className="hidden xl:flex items-center gap-1 text-[11px] shrink-0">
-            <button
-              type="button"
-              onClick={() => handleFilterChange(setTrackFilter as any, 'all')}
-              className={`px-2 py-1 rounded-md font-semibold transition cursor-pointer whitespace-nowrap ${
-                trackFilter === 'all'
-                  ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-xs'
-                  : 'bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 hover:bg-slate-200'
-              }`}
-            >
-              Tất cả
-            </button>
-            <button
-              type="button"
-              onClick={() => handleFilterChange(setTrackFilter as any, 'phothong')}
-              className={`px-2 py-1 rounded-md font-semibold transition cursor-pointer flex items-center gap-1 whitespace-nowrap ${
-                trackFilter === 'phothong'
-                  ? 'bg-sky-600 text-white shadow-xs'
-                  : 'bg-sky-50 dark:bg-sky-950/40 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800/60'
-              }`}
-            >
-              <span>📘 Phổ thông ({counts.phothong})</span>
-            </button>
-            <button
-              type="button"
-              onClick={() => handleFilterChange(setTrackFilter as any, 'nangcao')}
-              className={`px-2 py-1 rounded-md font-semibold transition cursor-pointer flex items-center gap-1 whitespace-nowrap ${
-                trackFilter === 'nangcao'
-                  ? 'bg-amber-600 text-white shadow-xs'
-                  : 'bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 border border-amber-200 dark:border-amber-800/60'
-              }`}
-            >
-              <span>🚀 Nâng cao ({counts.nangcao})</span>
-            </button>
-          </div>
+          {appConfig.tracks.length > 1 && (
+            <div className="hidden xl:flex items-center gap-1 text-[11px] shrink-0">
+              <button
+                type="button"
+                onClick={() => handleFilterChange(setTrackFilter as any, 'all')}
+                className={`px-2 py-1 rounded-md font-semibold transition cursor-pointer whitespace-nowrap ${
+                  trackFilter === 'all'
+                    ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-xs'
+                    : 'bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 hover:bg-slate-200'
+                }`}
+              >
+                Tất cả ({questions.length})
+              </button>
+              {appConfig.tracks.map((track) => {
+                const isSelected = trackFilter === track.id;
+                const c = counts[track.id] || 0;
+                return (
+                  <button
+                    key={track.id}
+                    type="button"
+                    onClick={() => handleFilterChange(setTrackFilter as any, track.id)}
+                    className={`px-2 py-1 rounded-md font-semibold transition cursor-pointer flex items-center gap-1 whitespace-nowrap ${
+                      isSelected
+                        ? `bg-gradient-to-r ${track.activeGradient} shadow-xs`
+                        : 'bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 hover:bg-slate-200'
+                    }`}
+                  >
+                    <span>{track.icon} {track.shortName} ({c})</span>
+                  </button>
+                );
+              })}
+            </div>
+          )}
 
           {/* Quick CTA Vào thi */}
           <button
             type="button"
             onClick={onStartExam}
-            className={`px-3 py-1.5 text-white rounded-lg text-xs font-bold transition shrink-0 shadow-xs cursor-pointer whitespace-nowrap ${
-              isPT ? 'bg-sky-600 hover:bg-sky-500' : 'bg-amber-600 hover:bg-amber-500'
-            }`}
+            className="px-3 py-1.5 text-white bg-sky-600 hover:bg-sky-500 rounded-lg text-xs font-bold transition shrink-0 shadow-xs cursor-pointer whitespace-nowrap"
           >
             Vào thi thử
           </button>
@@ -856,7 +848,7 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
                     Mẹo: Dùng phím mũi tên <strong>←</strong> và <strong>→</strong> trên bàn phím để chuyển câu nhanh.
                   </span>
                   <span className="font-mono text-slate-500 dark:text-zinc-400 ml-auto">
-                    {activeQuestion.topicName} · Toán 7 {isPT ? 'Phổ Thông' : 'Nâng Cao'}
+                    {activeQuestion.topicName} · {appConfig.subject} {appConfig.grade} ({currentTrackMeta.shortName})
                   </span>
                 </div>
               </>

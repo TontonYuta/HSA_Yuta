@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { validateStudentName, sanitizeInput } from '../utils/security';
+import { appConfig } from '../config/appConfig';
 
 export interface StudentSurveyData {
   source: string;
@@ -38,7 +39,7 @@ export const StudentNameModal: React.FC<StudentNameModalProps> = ({
   initialName = '',
   initialSchool = '',
   initialEmail = '',
-  teacherEmail = 'huyhoang6altt@gmail.com',
+  teacherEmail = appConfig.author.email,
   isFirstVisit = false,
 }) => {
   // Wizard Step: 1 = Nhập Tên & Trường, 2 = Khảo sát ngắn 3 câu

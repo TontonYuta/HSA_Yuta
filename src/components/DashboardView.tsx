@@ -20,10 +20,10 @@ import {
   CheckCircle2,
   Flame,
 } from 'lucide-react';
-import { TOAN7_CHAPTERS_METADATA, TOAN7_EXAM_SETS, TOAN7_QUESTIONS_DATABASE } from '../data/toan7/index';
 import { Question, ExamSet, ChapterInfo } from '../types/exam';
-import { ExamTrack, TRACK_METADATA, isPracticalMathQuestion } from '../utils/trackFilter';
+import { ExamTrack, isPracticalMathQuestion } from '../utils/trackFilter';
 import { useRealtimeClock } from '../utils/timeUtils';
+import { appConfig, getTrackConfig } from '../config/appConfig';
 
 export interface ExamHistoryItem {
   id: string;
@@ -69,16 +69,16 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
   onPracticeMode,
   onSelectChapter,
   onQuestionBankMode,
-  currentTrack = 'PHOTHONG',
+  currentTrack = appConfig.defaultTrackId,
   onSelectTrack,
   questions,
-  examSets,
-  chapters = TOAN7_CHAPTERS_METADATA,
+  examSets = [],
+  chapters = [],
 }) => {
-  const isPT = currentTrack === 'PHOTHONG';
-  const activeQuestions = questions || TOAN7_QUESTIONS_DATABASE;
-  const activeExamSets = examSets || TOAN7_EXAM_SETS.filter((s) => (s.track ? s.track === currentTrack : isPT ? s.id.startsWith('toan7_pt') : s.id.startsWith('toan7_nc')));
-  const trackMeta = TRACK_METADATA[(currentTrack as ExamTrack) || 'PHOTHONG'];
+  const currentTrackMeta = getTrackConfig(currentTrack);
+  const isPT = currentTrack === 'STANDARD' || currentTrack === 'PHOTHONG' || currentTrack === appConfig.tracks[0]?.id;
+  const activeQuestions = questions || [];
+  const activeExamSets = examSets.filter((s) => (s.track ? s.track === currentTrack : true));
   const { targetYear, formattedDate, formattedTime } = useRealtimeClock();
   // Read exam history from localStorage
   const examHistory: ExamHistoryItem[] = useMemo(() => {
@@ -156,34 +156,30 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
       {/* =================================================================== */}
       <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 p-2 sm:p-2.5 sm:px-4 rounded-2xl bg-white dark:bg-[#121217] border border-slate-200/80 dark:border-zinc-800/80 shadow-xs">
         {/* Track Switcher: Visible on sm+ (on mobile, top Navbar already has fast 1-tap track switcher) */}
-        <div className="hidden sm:flex items-center gap-2">
-          <div className="flex items-center p-0.5 rounded-xl bg-slate-100 dark:bg-zinc-900 border border-slate-200/60 dark:border-zinc-800">
-            <button
-              type="button"
-              onClick={() => onSelectTrack && onSelectTrack('PHOTHONG')}
-              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer ${
-                isPT
-                  ? 'bg-gradient-to-r from-sky-600 to-blue-600 text-white shadow-xs'
-                  : 'text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-100'
-              }`}
-              title="Toán 7 Phổ Thông (Chuẩn SGK Kết nối tri thức & Cánh diều)"
-            >
-              <span>📘 Phổ Thông (SGK)</span>
-            </button>
-            <button
-              type="button"
-              onClick={() => onSelectTrack && onSelectTrack('NANGCAO')}
-              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer ${
-                !isPT
-                  ? 'bg-gradient-to-r from-amber-600 to-rose-600 text-white shadow-xs'
-                  : 'text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-100'
-              }`}
-              title="Toán 7 Nâng Cao (Bứt phá điểm 10 & Học sinh giỏi)"
-            >
-              <span>🚀 Nâng Cao (HSG 9+)</span>
-            </button>
+        {appConfig.tracks.length > 1 && (
+          <div className="hidden sm:flex items-center gap-2">
+            <div className="flex items-center p-0.5 rounded-xl bg-slate-100 dark:bg-zinc-900 border border-slate-200/60 dark:border-zinc-800">
+              {appConfig.tracks.map((track) => {
+                const isSelected = currentTrack === track.id;
+                return (
+                  <button
+                    key={track.id}
+                    type="button"
+                    onClick={() => onSelectTrack && onSelectTrack(track.id)}
+                    className={`px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer ${
+                      isSelected
+                        ? `bg-gradient-to-r ${track.activeGradient} shadow-xs`
+                        : 'text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-100'
+                    }`}
+                    title={track.name}
+                  >
+                    <span>{track.icon} {track.name}</span>
+                  </button>
+                );
+              })}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Live Realtime Clock & Status Indicator */}
         <div className="flex items-center justify-between sm:justify-end gap-2 text-xs font-mono w-full sm:w-auto">
@@ -192,13 +188,9 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
             <span className="hidden md:inline">{formattedDate} • </span>
             <span className="font-bold">{formattedTime}</span>
           </div>
-          <div className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg border font-bold ${
-            isPT 
-              ? 'bg-sky-500/10 border-sky-500/20 text-sky-700 dark:text-sky-300' 
-              : 'bg-amber-500/10 border-amber-500/20 text-amber-700 dark:text-amber-300'
-          }`}>
-            <Zap className={`w-3.5 h-3.5 shrink-0 ${isPT ? 'text-sky-500' : 'text-amber-500'}`} />
-            <span>Lộ trình: <span className="font-black font-mono">{isPT ? 'Chuẩn SGK' : 'Bứt Phá 9+'}</span></span>
+          <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg border font-bold bg-sky-500/10 border-sky-500/20 text-sky-700 dark:text-sky-300">
+            <Zap className="w-3.5 h-3.5 shrink-0 text-sky-500" />
+            <span>Lộ trình: <span className="font-black font-mono">{currentTrackMeta.badge}</span></span>
           </div>
         </div>
       </div>
@@ -208,25 +200,15 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
       {/* =================================================================== */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 sm:gap-4">
         {/* HERO CARD (Spans 2 cols on lg) */}
-        <div className={`lg:col-span-2 relative overflow-hidden rounded-2xl p-4 sm:p-6 flex flex-col justify-between shadow-xs transition-all border ${
-          isPT
-            ? 'bg-gradient-to-br from-sky-500/[0.08] via-indigo-500/[0.04] to-transparent dark:from-sky-950/40 dark:via-zinc-900/40 dark:to-transparent border-sky-200/70 dark:border-zinc-800/80'
-            : 'bg-gradient-to-br from-amber-500/[0.08] via-rose-500/[0.04] to-transparent dark:from-amber-950/40 dark:via-zinc-900/40 dark:to-transparent border-amber-200/70 dark:border-zinc-800/80'
-        }`}>
+        <div className="lg:col-span-2 relative overflow-hidden rounded-2xl p-4 sm:p-6 flex flex-col justify-between shadow-xs transition-all border bg-gradient-to-br from-sky-500/[0.08] via-indigo-500/[0.04] to-transparent dark:from-sky-950/40 dark:via-zinc-900/40 dark:to-transparent border-sky-200/70 dark:border-zinc-800/80">
           {/* Subtle glow decoration */}
-          <div className={`absolute -top-20 -right-20 w-48 h-48 rounded-full blur-3xl pointer-events-none ${
-            isPT ? 'bg-sky-500/10 dark:bg-sky-500/15' : 'bg-amber-500/10 dark:bg-amber-500/15'
-          }`} />
+          <div className="absolute -top-20 -right-20 w-48 h-48 rounded-full blur-3xl pointer-events-none bg-sky-500/10 dark:bg-sky-500/15" />
 
           <div className="space-y-3 relative z-10">
             <div className="flex items-center justify-between flex-wrap gap-2">
-              <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider border shadow-xs ${
-                isPT
-                  ? 'bg-sky-100/80 dark:bg-sky-950/80 text-sky-700 dark:text-sky-300 border-sky-200/80 dark:border-sky-800/70'
-                  : 'bg-amber-100/80 dark:bg-amber-950/80 text-amber-700 dark:text-amber-300 border-amber-200/80 dark:border-amber-800/70'
-              }`}>
-                <Sparkles className={`w-3.5 h-3.5 ${isPT ? 'text-sky-500' : 'text-amber-500'}`} />
-                <span>{isPT ? 'Toán 7 GDPT 2018 (SGK Mới)' : 'Toán 7 Nâng Cao (Bứt Phá 9+ & HSG)'}</span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider border shadow-xs bg-sky-100/80 dark:bg-sky-950/80 text-sky-700 dark:text-sky-300 border-sky-200/80 dark:border-sky-800/70">
+                <Sparkles className="w-3.5 h-3.5 text-sky-500" />
+                <span>{appConfig.subject} {appConfig.grade} · {currentTrackMeta.badge}</span>
               </span>
 
               <button
@@ -234,25 +216,17 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                 onClick={onEditStudentProfile}
                 className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-200 hover:bg-white/80 dark:hover:bg-zinc-800/80 border border-slate-200/60 dark:border-zinc-800 transition cursor-pointer"
               >
-                <Edit3 className={`w-3 h-3 ${isPT ? 'text-sky-500' : 'text-amber-500'}`} />
+                <Edit3 className="w-3 h-3 text-sky-500" />
                 <span>{studentSchool || studentName || 'Hồ sơ học sinh'}</span>
               </button>
             </div>
 
             <div>
               <h1 className="text-xl sm:text-2xl md:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
-                Chào {studentName ? studentName.split(' ').slice(-1)[0] : 'bạn'}, {isPT ? 'sẵn sàng chinh phục điểm 9-10 môn Toán 7?' : 'sẵn sàng bứt phá học sinh giỏi Toán 7?'} 👋
+                Chào {studentName ? studentName.split(' ').slice(-1)[0] : 'bạn'}, sẵn sàng chinh phục điểm cao môn {appConfig.subject}? 👋
               </h1>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 mt-2 max-w-xl leading-relaxed">
-                {isPT ? (
-                  <span>
-                    Chương trình ôn tập chuẩn hóa <strong>GDPT 2018</strong> (Kết nối tri thức, Cánh diều): Nắm chắc nền tảng Số hữu tỉ, Số thực, Tam giác bằng nhau, Tỉ lệ thức và Thống kê biểu đồ. Bứt phá mọi bài kiểm tra Giữa kì & Cuối kì.
-                  </span>
-                ) : (
-                  <span>
-                    Chuyên đề phân hóa bồi dưỡng <strong>Học sinh giỏi & Chuyên Toán</strong>: Chinh phục dãy phân số quy luật, BĐT giá trị tuyệt đối nhiều tầng, cực trị đại số, và kẻ đường phụ hình học.
-                  </span>
-                )}
+                {currentTrackMeta.description}
               </p>
             </div>
           </div>
@@ -441,7 +415,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
             </div>
             <div>
               <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-zinc-100">
-                Lộ Trình 10 Chương Trọng Tâm {isPT ? 'Toán 7 Phổ Thông' : 'Toán 7 Nâng Cao'}
+                Lộ Trình {chapters.length} Chương Trọng Tâm {currentTrackMeta.name}
               </h2>
               <p className="text-xs text-slate-500 dark:text-zinc-400">
                 Chọn một chương để mở danh sách chuyên đề và bắt đầu làm bài
@@ -450,7 +424,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
           </div>
 
           <span className="text-xs font-mono text-slate-400 hidden sm:inline">
-            10 Chương · GDPT 2018
+            {chapters.length} Chương · {appConfig.curriculum}
           </span>
         </div>
 

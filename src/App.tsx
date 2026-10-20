@@ -11,11 +11,11 @@ import { TopicPractice } from './components/TopicPractice';
 import { QuestionBankView } from './components/QuestionBankView';
 import { ExamTimer } from './components/ExamTimer';
 import { 
-  TOAN7_QUESTIONS_DATABASE as MASTER_QUESTIONS_DATABASE, 
-  TOAN7_EXAM_SETS as ALL_ACTIVE_EXAM_SETS, 
-  TOAN7_CHAPTERS_METADATA as ACTIVE_CHAPTERS_METADATA,
-  TOAN7_MICRO_TOPICS_METADATA as ACTIVE_MICRO_TOPICS_METADATA 
-} from './data/toan7/index';
+  ACTIVE_QUESTIONS_DATABASE as MASTER_QUESTIONS_DATABASE, 
+  ACTIVE_EXAM_SETS as ALL_ACTIVE_EXAM_SETS, 
+  ACTIVE_CHAPTERS_METADATA 
+} from './config/activeData';
+import { appConfig, getTrackConfig, getFullAppTitle } from './config/appConfig';
 import { UserAnswer, ExamReport, TopicId, ExamTrack } from './types/exam';
 import { generateExamReport } from './utils/scoring';
 import { prepareExamQuestions } from './utils/questionRandomizer';
@@ -65,16 +65,20 @@ export default function App() {
     setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
   };
 
-  // Exam Track Mode: PHOTHONG (Toán 7 GDPT 2018) vs NANGCAO (Bứt phá 9+ & HSG)
+  // Exam Track Mode
   const [currentTrack, setCurrentTrack] = useState<ExamTrack>(() => {
-    const saved = localStorage.getItem('toan7_exam_track') as ExamTrack;
-    if (saved === 'PHOTHONG' || saved === 'NANGCAO') return saved;
-    return 'PHOTHONG';
+    const saved = localStorage.getItem(`${appConfig.appId}_exam_track`) as ExamTrack;
+    if (saved && appConfig.tracks.some((t) => t.id === saved)) return saved;
+    return appConfig.defaultTrackId;
   });
 
   useEffect(() => {
-    localStorage.setItem('toan7_exam_track', currentTrack);
+    localStorage.setItem(`${appConfig.appId}_exam_track`, currentTrack);
   }, [currentTrack]);
+
+  useEffect(() => {
+    document.title = getFullAppTitle();
+  }, []);
 
   // Filtered Exam Sets & Questions for the selected track
   const availableExamSets = React.useMemo(() => {
@@ -85,17 +89,21 @@ export default function App() {
     return filterQuestionsByTrack(MASTER_QUESTIONS_DATABASE, currentTrack);
   }, [currentTrack]);
 
+  const allTopics = React.useMemo(() => {
+    return ACTIVE_CHAPTERS_METADATA.flatMap((c) => c.topics);
+  }, []);
+
   // Navigation & View state
   const [currentMode, setCurrentMode] = useState<AppMode | 'intro' | 'results'>('intro');
   const [practiceTopic, setPracticeTopic] = useState<TopicId | undefined>(undefined);
 
   // Exam Selection state
   const [selectedExamSetId, setSelectedExamSetId] = useState<string>(() => {
-    return currentTrack === 'PHOTHONG' ? 'toan7_pt_01' : 'toan7_nc_01';
+    return availableExamSets[0]?.id || 'exam_template_01';
   });
 
   const currentExamSet = React.useMemo(() => {
-    return ALL_ACTIVE_EXAM_SETS.find((s) => s.id === selectedExamSetId) || availableExamSets[0];
+    return ALL_ACTIVE_EXAM_SETS.find((s) => s.id === selectedExamSetId) || availableExamSets[0] || ALL_ACTIVE_EXAM_SETS[0];
   }, [selectedExamSetId, availableExamSets]);
 
   // Switch Track Handler
@@ -111,12 +119,13 @@ export default function App() {
     }
     setCurrentTrack(newTrack);
     const newSets = filterExamSetsByTrack(ALL_ACTIVE_EXAM_SETS, newTrack);
-    const defaultSet = newSets[0];
-    setSelectedExamSetId(defaultSet.id);
-
-    const questionIdSet = new Set(defaultSet.questionIds);
-    const questionsForSet = MASTER_QUESTIONS_DATABASE.filter((q) => questionIdSet.has(q.id));
-    setActiveQuestions(prepareExamQuestions(questionsForSet));
+    const defaultSet = newSets[0] || ALL_ACTIVE_EXAM_SETS[0];
+    if (defaultSet) {
+      setSelectedExamSetId(defaultSet.id);
+      const questionIdSet = new Set(defaultSet.questionIds);
+      const questionsForSet = MASTER_QUESTIONS_DATABASE.filter((q) => questionIdSet.has(q.id));
+      setActiveQuestions(prepareExamQuestions(questionsForSet));
+    }
     setUserAnswers({});
     setCurrentQuestionIndex(0);
     setExamReport(null);
@@ -124,7 +133,7 @@ export default function App() {
 
   // Active questions for the current exam session
   const [activeQuestions, setActiveQuestions] = useState(() => {
-    const questionIdSet = new Set(currentExamSet.questionIds);
+    const questionIdSet = new Set(currentExamSet ? currentExamSet.questionIds : []);
     const questionsForSet = MASTER_QUESTIONS_DATABASE.filter((q) => questionIdSet.has(q.id));
     return prepareExamQuestions(questionsForSet);
   });
@@ -180,7 +189,9 @@ export default function App() {
   // Saved exam state persistence & recovery
   const [savedExamState, setSavedExamState] = useState<SavedExamState | null>(null);
   const [isResumeModalOpen, setIsResumeModalOpen] = useState<boolean>(false);
-  const [timerInitialSeconds, setTimerInitialSeconds] = useState<number>(() => currentExamSet.timeMinutes * 60);
+  const [timerInitialSeconds, setTimerInitialSeconds] = useState<number>(() => {
+    return ((currentExamSet as any)?.durationMinutes || (currentExamSet as any)?.timeMinutes || 60) * 60;
+  });
   const [tabSwitchCount, setTabSwitchCount] = useState<number>(0);
 
   // Check and restore ongoing exam on mount
@@ -599,7 +610,7 @@ export default function App() {
           currentTrack={currentTrack}
           onSelectTrack={handleSelectTrack}
           onSelectTopicPractice={(tId) => handleSelectTopicPractice(tId)}
-          topicsMetadata={ACTIVE_MICRO_TOPICS_METADATA}
+          topicsMetadata={allTopics}
         />
       );
     }

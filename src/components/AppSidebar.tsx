@@ -18,10 +18,10 @@ import {
   Zap,
 } from 'lucide-react';
 import { AppMode } from './Navbar';
-import { TOAN7_CHAPTERS_METADATA, TOAN7_EXAM_SETS } from '../data/toan7/index';
 import { ChapterInfo, ExamSet, Question } from '../types/exam';
-import { ExamTrack, TRACK_METADATA } from '../utils/trackFilter';
+import { ExamTrack } from '../utils/trackFilter';
 import { useRealtimeClock } from '../utils/timeUtils';
+import { appConfig, getTrackConfig } from '../config/appConfig';
 
 interface AppSidebarProps {
   currentMode: AppMode | 'intro' | 'results';
@@ -59,15 +59,18 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
   onToggleCollapseDesktop,
   theme,
   onToggleTheme,
-  currentTrack = 'PHOTHONG',
+  currentTrack = appConfig.defaultTrackId,
   onSelectTrack,
   availableQuestionsCount = 25,
-  chapters = TOAN7_CHAPTERS_METADATA,
-  examSets = TOAN7_EXAM_SETS,
+  chapters = [],
+  examSets = [],
   questions = [],
 }) => {
   const [isChaptersOpen, setIsChaptersOpen] = useState(true);
   const { targetYear, formattedDate, formattedTime } = useRealtimeClock();
+
+  // Current track config
+  const currentTrackMeta = getTrackConfig(currentTrack);
 
   // Questions count map per chapter
   const chapterQuestionCounts = useMemo(() => {
@@ -85,24 +88,23 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
     return null;
   }
 
-  const isPT = currentTrack === 'PHOTHONG';
-  const trackExamSetsCount = examSets.filter((s) => (s.track ? s.track === currentTrack : isPT ? s.id.startsWith('toan7_pt') : s.id.startsWith('toan7_nc'))).length || examSets.length;
-  const trackExamTime = isPT ? '60 Phút' : '90 Phút';
+  const trackExamSetsCount = examSets.filter((s) => (s.track ? s.track === currentTrack : true)).length || examSets.length;
+  const trackExamTime = `${currentTrackMeta.examDurationMinutes} Phút`;
 
   const navItems = [
     {
       id: 'intro',
       label: 'Trang Chủ',
-      desc: isPT ? 'Bảng điều khiển Toán 7 GDPT 2018' : 'Bảng điều khiển Toán 7 Nâng Cao & HSG',
+      desc: `Bảng điều khiển ${currentTrackMeta.shortName}`,
       icon: LayoutDashboard,
-      badge: isPT ? 'Phổ Thông' : 'Nâng Cao',
+      badge: currentTrackMeta.shortName,
       action: () => onSelectMode('intro'),
       isActive: currentMode === 'intro',
     },
     {
       id: 'practice',
-      label: isPT ? '25 Chuyên Đề SGK' : 'Chuyên Đề Nâng Cao',
-      desc: isPT ? '10 chương · 25 dạng toán chuẩn SGK' : 'Bứt phá điểm 10 & bồi dưỡng HSG',
+      label: 'Chuyên Đề Trọng Tâm',
+      desc: `${chapters.length} chương · ${availableQuestionsCount} câu hỏi chuẩn`,
       icon: BookOpen,
       badge: `${availableQuestionsCount} câu`,
       action: () => onSelectMode('practice'),
@@ -111,7 +113,7 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
     {
       id: 'exam',
       label: `Thi Thử ${trackExamTime}`,
-      desc: `${trackExamSetsCount} bộ đề thi ${isPT ? 'Giữa kì & Cuối kì' : 'Bứt phá 9+ & HSG'}`,
+      desc: `${trackExamSetsCount} bộ đề thi ${currentTrackMeta.shortName}`,
       icon: CheckSquare,
       badge: `${trackExamSetsCount} Đề`,
       action: () => onSelectMode('exam'),
@@ -120,7 +122,7 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
     {
       id: 'bank',
       label: 'Ngân Hàng Câu Hỏi',
-      desc: isPT ? 'Chuẩn kiến thức GDPT 2018' : 'Tuyển tập bài toán điểm 10 & HSG',
+      desc: currentTrackMeta.subtitle,
       icon: Search,
       badge: `${availableQuestionsCount} câu`,
       action: () => onSelectMode('bank'),
@@ -136,15 +138,17 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
           <div className="h-14 px-3.5 border-b border-slate-200 dark:border-zinc-800/80 flex items-center justify-between shrink-0 bg-slate-50/60 dark:bg-zinc-900/40">
             <div className="flex items-center gap-2.5 overflow-hidden">
               <div className="w-8 h-8 rounded-full overflow-hidden ring-2 ring-sky-500/30 dark:ring-sky-400/30 shrink-0 bg-sky-50 dark:bg-zinc-800 shadow-xs">
-                <img src="/avt.png" alt="TontonYuta" className="w-full h-full object-cover" />
+                <img src={appConfig.author.avatarUrl} alt={appConfig.author.name} className="w-full h-full object-cover" />
               </div>
               <div className="flex flex-col truncate">
                 <span className="text-xs font-black tracking-tight text-slate-900 dark:text-zinc-100 flex items-center gap-1 truncate">
-                  <span>Toán 7 TontonYuta</span>
-                  <span className="text-[9px] px-1 py-0.2 rounded bg-sky-100 dark:bg-sky-950 text-sky-600 dark:text-sky-300 font-mono font-bold">Lớp 7</span>
+                  <span>{appConfig.appName}</span>
+                  <span className="text-[9px] px-1 py-0.2 rounded bg-sky-100 dark:bg-sky-950 text-sky-600 dark:text-sky-300 font-mono font-bold">
+                    {appConfig.subject} {appConfig.grade}
+                  </span>
                 </span>
                 <span className="text-[10px] text-slate-400 dark:text-zinc-500 truncate">
-                  Chương trình GDPT 2018
+                  Chương trình {appConfig.curriculum}
                 </span>
               </div>
             </div>
@@ -203,7 +207,7 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
                 </div>
                 <div className="truncate">
                   <div className="text-xs font-bold text-slate-900 dark:text-zinc-100 truncate">
-                    {studentName || 'Học sinh Toán 7'}
+                    {studentName || `Học sinh ${appConfig.subject}`}
                   </div>
                   {studentSchool ? (
                     <div className="text-[10px] text-slate-500 dark:text-zinc-400 truncate">
@@ -211,7 +215,7 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
                     </div>
                   ) : (
                     <div className="text-[10px] text-emerald-600 dark:text-emerald-400 font-medium">
-                      Học sinh lớp 7 THCS
+                      {appConfig.grade} · {appConfig.curriculum}
                     </div>
                   )}
                 </div>
@@ -234,12 +238,12 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
               type="button"
               onClick={onEditStudentName}
               className="w-10 h-10 rounded-xl bg-sky-500/10 hover:bg-sky-500/20 text-sky-600 dark:text-sky-400 flex items-center justify-center transition cursor-pointer relative group"
-              title={`Học sinh: ${studentName || 'Học sinh Toán 7'}`}
+              title={`Học sinh: ${studentName || 'Học sinh ' + appConfig.subject}`}
             >
               <User className="w-4 h-4" />
               {/* Tooltip */}
               <div className="absolute left-full ml-3 top-1/2 -translate-y-1/2 px-2.5 py-1 bg-slate-900 dark:bg-zinc-800 text-white text-[11px] font-semibold rounded-lg shadow-xl whitespace-nowrap opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-150 z-50">
-                <span>{studentName || 'Học sinh Toán 7'}</span>
+                <span>{studentName || 'Học sinh ' + appConfig.subject}</span>
                 {studentSchool && <span className="block text-[10px] text-slate-300 font-normal">{studentSchool}</span>}
                 <div className="absolute right-full top-1/2 -translate-y-1/2 border-4 border-transparent border-r-slate-900 dark:border-r-zinc-800" />
               </div>
@@ -247,66 +251,62 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
           </div>
         )}
 
-        {/* 2.5. Track Switcher (Phổ Thông vs Nâng Cao) */}
-        {!isCollapsed ? (
+        {/* 2.5. Track Switcher */}
+        {appConfig.tracks.length > 1 && (!isCollapsed ? (
           <div className="p-2 border-b border-slate-100 dark:border-zinc-800/60 bg-slate-100/50 dark:bg-zinc-900/50">
             <div className="flex items-center justify-between mb-1.5 px-1">
               <span className="text-[10px] font-black uppercase tracking-wider text-slate-500 dark:text-zinc-400">
                 Lộ trình học
               </span>
               <span className="text-[9px] font-mono px-1.5 py-0.2 rounded font-semibold bg-white dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-slate-600 dark:text-zinc-300">
-                {isPT ? 'SGK 2018' : 'HSG 9+'}
+                {currentTrackMeta.badge}
               </span>
             </div>
-            <div className="grid grid-cols-2 gap-1 p-0.5 rounded-lg bg-slate-200/70 dark:bg-zinc-800/80 border border-slate-200/60 dark:border-zinc-700/60">
-              <button
-                type="button"
-                onClick={() => onSelectTrack && onSelectTrack('PHOTHONG')}
-                className={`py-1.5 px-2 rounded-md text-[11px] font-bold transition flex items-center justify-center gap-1.5 cursor-pointer ${
-                  isPT
-                    ? 'bg-gradient-to-r from-sky-600 to-blue-600 text-white shadow-xs'
-                    : 'text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-100'
-                }`}
-                title="Toán 7 Phổ Thông (Chuẩn SGK Kết nối tri thức & Cánh diều)"
-              >
-                <span>📘 Phổ Thông</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => onSelectTrack && onSelectTrack('NANGCAO')}
-                className={`py-1.5 px-2 rounded-md text-[11px] font-bold transition flex items-center justify-center gap-1.5 cursor-pointer ${
-                  !isPT
-                    ? 'bg-gradient-to-r from-amber-600 to-rose-600 text-white shadow-xs'
-                    : 'text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-100'
-                }`}
-                title="Toán 7 Nâng Cao (Bứt phá điểm 10 & Ôn thi Học sinh giỏi)"
-              >
-                <span>🚀 Nâng Cao</span>
-              </button>
+            <div className={`grid grid-cols-${Math.min(appConfig.tracks.length, 2)} gap-1 p-0.5 rounded-lg bg-slate-200/70 dark:bg-zinc-800/80 border border-slate-200/60 dark:border-zinc-700/60`}>
+              {appConfig.tracks.map((track) => {
+                const isSelected = currentTrack === track.id;
+                return (
+                  <button
+                    key={track.id}
+                    type="button"
+                    onClick={() => onSelectTrack && onSelectTrack(track.id)}
+                    className={`py-1.5 px-2 rounded-md text-[11px] font-bold transition flex items-center justify-center gap-1.5 cursor-pointer ${
+                      isSelected
+                        ? `bg-gradient-to-r ${track.activeGradient} shadow-xs`
+                        : 'text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-100'
+                    }`}
+                    title={track.name}
+                  >
+                    <span>{track.icon} {track.shortName}</span>
+                  </button>
+                );
+              })}
             </div>
           </div>
         ) : (
           /* Collapsed Track Toggle Button */
           <div className="py-2 border-b border-slate-100 dark:border-zinc-800/60 flex items-center justify-center shrink-0">
-            <button
-              type="button"
-              onClick={() => onSelectTrack && onSelectTrack(isPT ? 'NANGCAO' : 'PHOTHONG')}
-              className={`w-10 h-10 rounded-xl flex items-center justify-center transition cursor-pointer relative group text-sm font-bold ${
-                isPT
-                  ? 'bg-sky-500/15 text-sky-600 dark:text-sky-400 border border-sky-500/30'
-                  : 'bg-amber-500/15 text-amber-600 dark:text-amber-400 border border-amber-500/30'
-              }`}
-              title={`Lộ trình: ${isPT ? 'Toán 7 Phổ Thông' : 'Toán 7 Nâng Cao'} (Bấm để đổi)`}
-            >
-              <span>{isPT ? '📘' : '🚀'}</span>
-              <div className="absolute left-full ml-3 top-1/2 -translate-y-1/2 px-2.5 py-1 bg-slate-900 dark:bg-zinc-800 text-white text-[11px] font-semibold rounded-lg shadow-xl whitespace-nowrap opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-150 z-50">
-                <span>{isPT ? 'Toán 7 Phổ Thông' : 'Toán 7 Nâng Cao'}</span>
-                <span className="block text-[10px] text-slate-300 font-normal">Bấm để chuyển lộ trình</span>
-                <div className="absolute right-full top-1/2 -translate-y-1/2 border-4 border-transparent border-r-slate-900 dark:border-r-zinc-800" />
-              </div>
-            </button>
+            {(() => {
+              const currentIdx = appConfig.tracks.findIndex((t) => t.id === currentTrack);
+              const nextTrack = appConfig.tracks[(currentIdx + 1) % appConfig.tracks.length];
+              return (
+                <button
+                  type="button"
+                  onClick={() => onSelectTrack && onSelectTrack(nextTrack.id)}
+                  className="w-10 h-10 rounded-xl flex items-center justify-center transition cursor-pointer relative group text-sm font-bold bg-sky-500/15 text-sky-600 dark:text-sky-400 border border-sky-500/30"
+                  title={`Lộ trình: ${currentTrackMeta.name} (Bấm để đổi)`}
+                >
+                  <span>{currentTrackMeta.icon}</span>
+                  <div className="absolute left-full ml-3 top-1/2 -translate-y-1/2 px-2.5 py-1 bg-slate-900 dark:bg-zinc-800 text-white text-[11px] font-semibold rounded-lg shadow-xl whitespace-nowrap opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-150 z-50">
+                    <span>{currentTrackMeta.name}</span>
+                    <span className="block text-[10px] text-slate-300 font-normal">Bấm để chuyển lộ trình</span>
+                    <div className="absolute right-full top-1/2 -translate-y-1/2 border-4 border-transparent border-r-slate-900 dark:border-r-zinc-800" />
+                  </div>
+                </button>
+              );
+            })()}
           </div>
-        )}
+        ))}
 
         {/* 3. Navigation Links List - No horizontal scrollbar */}
         <div className={`flex-1 overflow-x-hidden overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden ${isCollapsed ? 'py-3 flex flex-col items-center space-y-2' : 'px-2 py-3 space-y-4'}`}>
@@ -400,7 +400,7 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
               >
                 <div className="flex items-center gap-1.5">
                   <Layers className="w-3.5 h-3.5 text-sky-500" />
-                  <span>10 Chương GDPT 2018</span>
+                  <span>{chapters.length} Chương {appConfig.curriculum}</span>
                 </div>
                 <ChevronDown
                   className={`w-3.5 h-3.5 transition-transform duration-200 ${
@@ -453,12 +453,12 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
                   onToggleCollapseDesktop();
                 }}
                 className="w-10 h-10 rounded-xl flex items-center justify-center text-slate-500 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-800/60 hover:text-sky-600 transition cursor-pointer relative group"
-                title="10 Chương GDPT (Bấm để mở danh mục)"
+                title={`${chapters.length} Chương (Bấm để mở danh mục)`}
               >
                 <Layers className="w-4 h-4 text-sky-500" />
                 {/* Tooltip */}
                 <div className="absolute left-full ml-3 top-1/2 -translate-y-1/2 px-2.5 py-1 bg-slate-900 dark:bg-zinc-800 text-white text-[11px] font-semibold rounded-lg shadow-xl whitespace-nowrap opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-150 z-50 flex items-center gap-1">
-                  <span>10 Chương Toán 7 (25 chuyên đề)</span>
+                  <span>{chapters.length} Chương {appConfig.subject} {appConfig.grade}</span>
                   <ChevronRight className="w-3 h-3 text-sky-400" />
                   <div className="absolute right-full top-1/2 -translate-y-1/2 border-4 border-transparent border-r-slate-900 dark:border-r-zinc-800" />
                 </div>
@@ -480,12 +480,12 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
                 <span>{formattedDate.split(', ')[1]}</span>
               </div>
               <div className="pt-0.5 flex items-center justify-between font-bold">
-                <span className={isPT ? 'text-sky-600 dark:text-sky-400' : 'text-amber-600 dark:text-amber-400'}>
-                  {isPT ? 'Toán 7 GDPT 2018:' : 'Toán 7 Nâng Cao:'}
+                <span className="text-sky-600 dark:text-sky-400 truncate mr-1">
+                  {appConfig.subject} {appConfig.grade}:
                 </span>
-                <span className="font-mono text-[11px] text-slate-800 dark:text-zinc-200">
-                  <span className={isPT ? 'text-sky-600 dark:text-sky-400 font-bold' : 'text-amber-600 dark:text-amber-400 font-bold'}>
-                    {isPT ? 'Chuẩn SGK' : 'Bứt Phá 9+'}
+                <span className="font-mono text-[11px] text-slate-800 dark:text-zinc-200 shrink-0">
+                  <span className="text-sky-600 dark:text-sky-400 font-bold">
+                    {currentTrackMeta.badge}
                   </span>
                 </span>
               </div>
@@ -515,16 +515,12 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
           <div className="py-2.5 border-t border-slate-200 dark:border-zinc-800/80 bg-slate-50/50 dark:bg-zinc-900/40 shrink-0 flex flex-col items-center gap-1.5">
             {/* Collapsed Status Pill with Tooltip */}
             <div
-              className={`w-10 h-10 rounded-xl flex items-center justify-center font-mono text-[10px] font-black cursor-default relative group ${
-                isPT
-                  ? 'bg-sky-500/10 text-sky-600 dark:text-sky-400 border border-sky-500/20'
-                  : 'bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20'
-              }`}
-              title={`Lớp 7: ${isPT ? 'Chuẩn SGK GDPT 2018' : 'Bứt phá 9+ & HSG'}`}
+              className="w-10 h-10 rounded-xl flex items-center justify-center font-mono text-[12px] font-black cursor-default relative group bg-sky-500/10 text-sky-600 dark:text-sky-400 border border-sky-500/20"
+              title={`${appConfig.subject} ${appConfig.grade}: ${currentTrackMeta.name}`}
             >
-              <span>{isPT ? 'SGK' : '9+'}</span>
+              <span>{currentTrackMeta.icon}</span>
               <div className="absolute left-full ml-3 top-1/2 -translate-y-1/2 px-2.5 py-1 bg-slate-900 dark:bg-zinc-800 text-white text-[11px] font-semibold rounded-lg shadow-xl whitespace-nowrap opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-150 z-50">
-                <span>{isPT ? 'Toán 7: Chuẩn SGK GDPT 2018' : 'Toán 7: Bứt Phá 9+ & HSG'}</span>
+                <span>{appConfig.subject} {appConfig.grade}: {currentTrackMeta.name}</span>
                 <div className="absolute right-full top-1/2 -translate-y-1/2 border-4 border-transparent border-r-slate-900 dark:border-r-zinc-800" />
               </div>
             </div>

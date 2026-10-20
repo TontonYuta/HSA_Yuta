@@ -17,9 +17,8 @@ import {
   GraduationCap
 } from 'lucide-react';
 import { TopicId, ExamSet } from '../types/exam';
-import { TOAN7_EXAM_SETS } from '../data/toan7/index';
 import { ExamTrack } from '../utils/trackFilter';
-import { getTargetExamYear } from '../utils/timeUtils';
+import { appConfig, getTrackConfig } from '../config/appConfig';
 
 interface ExamIntroProps {
   onStartExam: (examSetId: string) => void;
@@ -38,12 +37,12 @@ export const ExamIntro: React.FC<ExamIntroProps> = ({
   setStudentName,
   selectedExamSetId,
   setSelectedExamSetId,
-  currentTrack = 'PHOTHONG',
-  examSets,
+  currentTrack = appConfig.defaultTrackId,
+  examSets = [],
 }) => {
-  const isPT = currentTrack === 'PHOTHONG';
-  const targetYear = getTargetExamYear();
-  const targetExamSets = examSets || TOAN7_EXAM_SETS.filter((s) => (s.track ? s.track === currentTrack : isPT ? s.id.startsWith('toan7_pt') : s.id.startsWith('toan7_nc')));
+  const currentTrackMeta = getTrackConfig(currentTrack);
+  const isPT = currentTrack === 'STANDARD' || currentTrack === 'PHOTHONG' || currentTrack === appConfig.tracks[0]?.id;
+  const targetExamSets = examSets.filter((s) => (s.track ? s.track === currentTrack : true));
 
   // Category Filter for Exam Sets
   const [filterCategory, setFilterCategory] = useState<'all' | 'giuaki' | 'cuoiki' | 'nangcao' | 'quick'>('all');
@@ -119,32 +118,20 @@ export const ExamIntro: React.FC<ExamIntroProps> = ({
       {/* =================================================================== */}
       <div className="bg-white dark:bg-[#101014] border border-slate-200 dark:border-zinc-800 rounded-2xl p-4 sm:p-5 shadow-xs flex flex-col lg:flex-row lg:items-center justify-between gap-4 shrink-0">
         <div className="flex items-center gap-3">
-          <div className={`w-11 h-11 rounded-2xl flex items-center justify-center shrink-0 shadow-xs ${
-            isPT 
-              ? 'bg-sky-500/10 border border-sky-500/20 text-sky-600 dark:text-sky-400' 
-              : 'bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400'
-          }`}>
+          <div className="w-11 h-11 rounded-2xl flex items-center justify-center shrink-0 shadow-xs bg-sky-500/10 border border-sky-500/20 text-sky-600 dark:text-sky-400">
             <GraduationCap className="w-6 h-6" />
           </div>
           <div>
             <div className="flex items-center gap-2.5 flex-wrap">
               <h1 className="text-base sm:text-lg xl:text-xl font-black text-slate-900 dark:text-zinc-100 tracking-tight">
-                {isPT 
-                  ? 'Ngân Hàng Đề Thi Toán 7 (Chuẩn GDPT 2018)' 
-                  : 'Hệ Thống Đề Thi Toán 7 Nâng Cao (Bứt Phá 9+ & HSG)'}
+                Hệ Thống Đề Thi {currentTrackMeta.name}
               </h1>
-              <span className={`px-2.5 py-0.5 text-[11px] font-mono font-bold rounded-full border ${
-                isPT
-                  ? 'bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-300 border-sky-200/60'
-                  : 'bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-300 border-amber-200/60'
-              }`}>
+              <span className="px-2.5 py-0.5 text-[11px] font-mono font-bold rounded-full border bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-300 border-sky-200/60">
                 {targetExamSets.length} BỘ ĐỀ THI
               </span>
             </div>
             <p className="text-xs text-slate-500 dark:text-zinc-400 mt-0.5 leading-relaxed">
-              {isPT 
-                ? 'Đề thi bám sát chuẩn kiến thức SGK Kết nối tri thức & Cánh diều: Kiểm tra Giữa kì, Cuối kì có biểu điểm chi tiết.' 
-                : 'Đề thi bồi dưỡng Học sinh giỏi, đề thi thử vào Chuyên và tuyển tập bài toán điểm 10 rèn luyện tư duy sâu.'}
+              {currentTrackMeta.description}
             </p>
           </div>
         </div>
