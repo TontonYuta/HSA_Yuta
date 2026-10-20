@@ -1,8 +1,10 @@
 import { HSA_QUESTIONS_DATABASE } from './data/topics/index';
+import { TOAN7_QUESTIONS_DATABASE } from './data/toan7/questionsToan7';
 import katex from 'katex';
 
 interface LatexIssue {
   qId: number;
+  db: string;
   field: string;
   formula: string;
   error: string;
@@ -10,7 +12,7 @@ interface LatexIssue {
 
 const issues: LatexIssue[] = [];
 
-function checkMathText(text: string, context: string, qId: number) {
+function checkMathText(text: string, context: string, qId: number, db: string) {
   if (!text) return;
 
   // 1. Check dollar delimiter balance
@@ -23,6 +25,7 @@ function checkMathText(text: string, context: string, qId: number) {
   if (dollarCount % 2 !== 0) {
     issues.push({
       qId,
+      db,
       field: context,
       formula: `[Text contains unclosed $ delimiter (count: ${dollarCount})]`,
       error: 'Unclosed dollar delimiter'
@@ -51,7 +54,7 @@ function checkMathText(text: string, context: string, qId: number) {
     try {
       katex.renderToString(mathCode.trim(), {
         displayMode: isDisplay,
-        throwOnError: true, // Strict mode to catch invalid syntax
+        throwOnError: true,
         output: 'html',
         trust: true,
         strict: 'warn'
@@ -59,6 +62,7 @@ function checkMathText(text: string, context: string, qId: number) {
     } catch (e: any) {
       issues.push({
         qId,
+        db,
         field: context,
         formula: raw,
         error: e.message
@@ -68,45 +72,41 @@ function checkMathText(text: string, context: string, qId: number) {
 }
 
 console.log('='.repeat(65));
-console.log('   HSA / THPTQG KA-TEX & LATEX SYNTAX VALIDATOR');
+console.log('   TOAN 7 & HSA KA-TEX SYNTAX VALIDATOR');
 console.log('='.repeat(65));
-console.log(`Total questions in database: ${HSA_QUESTIONS_DATABASE.length}\n`);
 
-// Separate questions by hidden audit flag: latexVerified
-const alreadyVerifiedQuestions = HSA_QUESTIONS_DATABASE.filter(q => q.latexVerified === true);
-const pendingQuestions = HSA_QUESTIONS_DATABASE.filter(q => !q.latexVerified);
+const allDatabases = [
+  { name: 'TOAN7_QUESTIONS_DATABASE', list: TOAN7_QUESTIONS_DATABASE },
+  { name: 'HSA_QUESTIONS_DATABASE', list: HSA_QUESTIONS_DATABASE },
+];
 
-console.log(`[STATUS] Already verified perfect (latexVerified: true): ${alreadyVerifiedQuestions.length} questions`);
-console.log(`[STATUS] Pending verification (need checking):          ${pendingQuestions.length} questions\n`);
+let totalAllQuestions = 0;
 
-if (pendingQuestions.length > 0) {
-  console.log(`Checking ${pendingQuestions.length} pending questions for LaTeX syntax...`);
-  for (const q of pendingQuestions) {
-    checkMathText(q.content, 'content', q.id);
+for (const db of allDatabases) {
+  console.log(`\nValidating database: ${db.name} (${db.list.length} questions)...`);
+  totalAllQuestions += db.list.length;
+  for (const q of db.list) {
+    checkMathText(q.content, 'content', q.id, db.name);
     if (q.options) {
       q.options.forEach((opt) => {
-        checkMathText(opt.content, `option ${opt.key}`, q.id);
+        checkMathText(opt.content, `option ${opt.key}`, q.id, db.name);
       });
     }
-    checkMathText(q.detailedSolution, 'detailedSolution', q.id);
-    checkMathText(q.socraticHint, 'socraticHint', q.id);
+    checkMathText(q.detailedSolution, 'detailedSolution', q.id, db.name);
+    checkMathText(q.socraticHint, 'socraticHint', q.id, db.name);
   }
-} else {
-  console.log('All questions are marked as latexVerified: true! (No check needed).');
 }
 
 console.log('\n' + '-'.repeat(65));
 console.log('VALIDATION RESULT SUMMARY:');
-console.log(`- Total Questions:     ${HSA_QUESTIONS_DATABASE.length}`);
-console.log(`- Verified (Skipped):  ${alreadyVerifiedQuestions.length}`);
-console.log(`- Checked (Pending):   ${pendingQuestions.length}`);
-console.log(`- Issues Found:        ${issues.length}`);
+console.log(`- Total Questions Checked: ${totalAllQuestions}`);
+console.log(`- Total Issues Found:      ${issues.length}`);
 console.log('-'.repeat(65));
 
 if (issues.length > 0) {
   console.log('\n[LATEX ISSUES FOUND]:');
   issues.forEach((iss, idx) => {
-    console.log(`${idx + 1}. Question #${iss.qId} in [${iss.field}]:`);
+    console.log(`${idx + 1}. [${iss.db}] Question #${iss.qId} in [${iss.field}]:`);
     console.log(`   Formula: "${iss.formula}"`);
     console.log(`   Error:   ${iss.error}\n`);
   });

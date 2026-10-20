@@ -111,10 +111,10 @@ export const toanmathSelectedQuestions: Question[] = [
     difficulty: 'Vận dụng',
     content: '[Team CERAL – Toanmath 2026] Tỉ lệ người mắc bệnh truyền nhiễm $X$ trong một cộng đồng dân cư là $1\\%$. Một xét nghiệm chẩn đoán y tế có độ nhạy (xác suất người có bệnh nhận kết quả dương tính) là $95\\%$, và độ đặc hiệu (xác suất người không có bệnh nhận kết quả âm tính) là $90\\%$. Một người được chọn ngẫu nhiên từ cộng đồng đi làm xét nghiệm và nhận kết quả dương tính. Xác suất người này thực sự mắc bệnh $X$ gần nhất với giá trị nào sau đây?',
     options: [
-      { key: 'A', content: '$8{,}8\\%' },
-      { key: 'B', content: '$95{,}0\\%' },
-      { key: 'C', content: '$9{,}5\\%' },
-      { key: 'D', content: '$50{,}0\\%' }
+      { key: 'A', content: '$8{,}8\\%$' },
+      { key: 'B', content: '$95{,}0\\%$' },
+      { key: 'C', content: '$9{,}5\\%$' },
+      { key: 'D', content: '$50{,}0\\%$' }
     ],
     correctAnswer: 'A',
     acceptableAnswers: ['A'],
