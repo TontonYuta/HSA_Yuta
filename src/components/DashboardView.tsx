@@ -24,6 +24,8 @@ import { CHAPTERS_METADATA, HSA_EXAM_SETS, THPTQG_EXAM_SETS, HSA_QUESTIONS_DATAB
 import { Question, ExamSet } from '../types/exam';
 import { ExamTrack, TRACK_METADATA, isPracticalMathQuestion } from '../utils/trackFilter';
 import { useRealtimeClock } from '../utils/timeUtils';
+import { BorderBeam } from './effects/BorderBeam';
+import { WindingDragonTrails } from './effects/WindingDragonTrails';
 
 export interface ExamHistoryItem {
   id: string;
@@ -204,152 +206,174 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
       {/* =================================================================== */}
       {/* 2. BENTO ROW 1: HERO CTA (2/3) + STATS RADAR (1/3)                  */}
       {/* =================================================================== */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 sm:gap-4">
-        {/* HERO CARD (Spans 2 cols on lg) - High Contrast Dark Console Surface */}
-        <div className="lg:col-span-2 relative overflow-hidden rounded-3xl p-5 sm:p-6 flex flex-col justify-between shadow-xl transition-all border-2 bg-slate-900 text-white dark:bg-[#111319] border-slate-800 dark:border-zinc-800">
-          <div className="space-y-3 relative z-10">
-            <div className="flex items-center justify-between flex-wrap gap-2.5">
-              <div className="flex items-center gap-2">
-                <span className="relative flex h-2.5 w-2.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-                </span>
-                <span className={`px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider ${
-                  isTHPT
-                    ? 'bg-rose-950/90 text-rose-300 border border-rose-800/80'
-                    : 'bg-blue-950/90 text-blue-300 border border-blue-800/80'
-                }`}>
-                  {isTHPT ? `Luyện Thi THPT Quốc Gia ${targetYear}` : `Luyện Thi ĐGNL HSA ${targetYear}`}
-                </span>
+      <div className="relative">
+        {/* Dragon & Phoenix delicate ethereal trails winding gracefully around Row 1 cards */}
+        <WindingDragonTrails />
+
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-3 sm:gap-4">
+          {/* HERO CARD (Spans 2 cols on lg) - Clean Natural Surface with Perimeter Border Beam */}
+          <div className="lg:col-span-2 relative overflow-hidden rounded-3xl p-5 sm:p-6 flex flex-col justify-between shadow-xs transition-all border border-slate-200/90 dark:border-zinc-800 bg-white dark:bg-[#121217]">
+            {/* Delicate border beam winding gently around Hero Card */}
+            <BorderBeam
+              beamSizePercent={14}
+              duration={13}
+              color={isTHPT ? '#f43f5e' : '#38bdf8'}
+              glowColor={isTHPT ? '#fb7185' : '#818cf8'}
+              rx={24}
+            />
+
+            <div className="space-y-3 relative z-10">
+              <div className="flex items-center justify-between flex-wrap gap-2.5">
+                <div className="flex items-center gap-2">
+                  <span className="relative flex h-2.5 w-2.5">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                  </span>
+                  <span className={`px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider ${
+                    isTHPT
+                      ? 'bg-rose-50 dark:bg-rose-950/70 text-rose-700 dark:text-rose-300 border border-rose-200 dark:border-rose-900/60'
+                      : 'bg-blue-50 dark:bg-blue-950/70 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-900/60'
+                  }`}>
+                    {isTHPT ? `Luyện Thi THPT Quốc Gia ${targetYear}` : `Luyện Thi ĐGNL HSA ${targetYear}`}
+                  </span>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={onEditStudentProfile}
+                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold text-slate-600 dark:text-zinc-300 hover:text-slate-900 dark:hover:text-white bg-slate-100 dark:bg-zinc-800/80 hover:bg-slate-200 dark:hover:bg-zinc-700 border border-slate-200 dark:border-zinc-700/80 transition cursor-pointer"
+                  title="Bấm để cập nhật hồ sơ học sinh"
+                >
+                  <Edit3 className={`w-3.5 h-3.5 ${isTHPT ? 'text-rose-500' : 'text-blue-500'}`} />
+                  <span>{studentSchool ? `${studentName || 'Học sinh'} · ${studentSchool}` : (studentName ? `Học sinh: ${studentName}` : 'Hồ sơ học sinh')}</span>
+                </button>
+              </div>
+
+              <div className="space-y-1.5 mt-2">
+                <h1 className="text-xl sm:text-2xl md:text-3xl font-black text-slate-900 dark:text-zinc-50 tracking-tight leading-tight">
+                  Chào {studentName ? <span className={isTHPT ? 'text-rose-600 dark:text-rose-400 font-extrabold' : 'text-sky-600 dark:text-sky-400 font-extrabold'}>{studentName}</span> : 'bạn'}, {isTHPT ? `sẵn sàng bứt phá 9+ THPTQG ${targetYear}?` : `sẵn sàng bứt phá 90+ HSA ${targetYear}?`} 👋
+                </h1>
+                <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 max-w-xl leading-relaxed">
+                  {isTHPT ? (
+                    <span>
+                      Chương trình ôn thi chuẩn <strong>GDPT 2018</strong>: Lược bỏ hoàn toàn câu hỏi chứa tham số m, tập trung tối đa vào <strong>Toán thực tế</strong>, tối ưu kinh tế, tích phân chuyển động, xác suất Bayes và thống kê ghép nhóm.
+                    </span>
+                  ) : (
+                    <span>
+                      Kho luyện thi chuẩn hóa cấu trúc <strong>Đánh Giá Năng Lực ĐHQGHN</strong> với 50 câu (35 trắc nghiệm + 15 điền số) bấm giờ 75 phút thực chiến chuẩn form đề thi thật.
+                    </span>
+                  )}
+                </p>
+              </div>
+            </div>
+
+            {/* Hero Action Button & Pill Features */}
+            <div className="pt-4 sm:pt-5 relative z-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 border-t border-slate-100 dark:border-zinc-800/80 mt-5">
+              <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 text-[11px] sm:text-xs font-semibold text-slate-600 dark:text-zinc-400">
+                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-50 dark:bg-zinc-900/80 border border-slate-200/80 dark:border-zinc-800/80">
+                  <Clock className={`w-3.5 h-3.5 ${isTHPT ? 'text-rose-500' : 'text-sky-500'}`} />
+                  <span>{isTHPT ? '90 Phút / Đề' : '75 Phút / Đề'}</span>
+                </div>
+                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-50 dark:bg-zinc-900/80 border border-slate-200/80 dark:border-zinc-800/80">
+                  <Layers className="w-3.5 h-3.5 text-indigo-500" />
+                  <span>{activeExamSets.length} Bộ Đề Thi</span>
+                </div>
+                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-50 dark:bg-zinc-900/80 border border-slate-200/80 dark:border-zinc-800/80">
+                  <Award className="w-3.5 h-3.5 text-emerald-500" />
+                  <span>{isTHPT ? `${practicalQuestionsCount} Câu Thực Tế` : 'Chấm tức thì'}</span>
+                </div>
               </div>
 
               <button
                 type="button"
-                onClick={onEditStudentProfile}
-                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold text-slate-300 hover:text-white bg-slate-800/90 hover:bg-slate-700 border border-slate-700/80 transition cursor-pointer"
-                title="Bấm để cập nhật hồ sơ học sinh"
+                onClick={onStartExamMode}
+                className={`px-5 py-2.5 sm:py-3 rounded-2xl font-bold text-xs sm:text-sm shadow-md transition active:scale-98 flex items-center justify-center gap-2 cursor-pointer ${
+                  isTHPT
+                    ? 'bg-rose-600 hover:bg-rose-500 text-white shadow-rose-600/25'
+                    : 'bg-blue-600 hover:bg-blue-500 text-white shadow-blue-600/25'
+                }`}
               >
-                <Edit3 className={`w-3.5 h-3.5 ${isTHPT ? 'text-rose-400' : 'text-blue-400'}`} />
-                <span>{studentSchool ? `${studentName || 'Học sinh'} · ${studentSchool}` : (studentName ? `Học sinh: ${studentName}` : 'Hồ sơ học sinh')}</span>
+                <span>{isTHPT ? 'Vào phòng thi 90 phút' : 'Vào phòng thi 75 phút'}</span>
+                <ArrowRight className="w-4 h-4" />
               </button>
             </div>
+          </div>
 
-            <div className="space-y-1.5 mt-2">
-              <h1 className="text-xl sm:text-2xl md:text-3xl font-black text-white tracking-tight leading-tight">
-                Chào {studentName ? <span className={isTHPT ? 'text-rose-400 font-extrabold' : 'text-sky-400 font-extrabold'}>{studentName}</span> : 'bạn'}, {isTHPT ? `sẵn sàng bứt phá 9+ THPTQG ${targetYear}?` : `sẵn sàng bứt phá 90+ HSA ${targetYear}?`} 👋
-              </h1>
-              <p className="text-xs sm:text-sm text-slate-300 max-w-xl leading-relaxed">
-                {isTHPT ? (
-                  <span>
-                    Chương trình ôn thi chuẩn <strong>GDPT 2018</strong>: Lược bỏ hoàn toàn câu hỏi chứa tham số m, tập trung tối đa vào <strong>Toán thực tế</strong>, tối ưu kinh tế, tích phân chuyển động, xác suất Bayes và thống kê ghép nhóm.
+          {/* STATS RADAR CARD (1 col) - Clean Natural Surface with Subtle Counter-Border Beam */}
+          <div className="relative overflow-hidden rounded-3xl bg-white dark:bg-[#121217] border border-slate-200/90 dark:border-zinc-800 p-4 sm:p-5 flex flex-col justify-between shadow-xs">
+            {/* Delicate border beam winding gently around Stats Card */}
+            <BorderBeam
+              beamSizePercent={12}
+              duration={16}
+              color="#f59e0b"
+              glowColor="#fbbf24"
+              rx={24}
+              reverse
+            />
+
+            <div className="relative z-10 flex items-center justify-between pb-2.5 border-b border-slate-100 dark:border-zinc-800">
+              <div className="flex items-center gap-2">
+                <div className="w-7 h-7 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center">
+                  <Trophy className="w-3.5 h-3.5" />
+                </div>
+                <span className="text-xs font-bold text-slate-900 dark:text-zinc-100">Chỉ Số Năng Lực</span>
+              </div>
+              <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 font-semibold">
+                {completedExamsCount} bài nộp
+              </span>
+            </div>
+
+            {/* 3 Clean Natural Stat Tiles */}
+            <div className="relative z-10 grid grid-cols-2 gap-2 my-2.5">
+              {/* Tile 1: Điểm cao nhất - Clean Surface */}
+              <div className="col-span-2 p-3.5 rounded-2xl bg-slate-50 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800/80 flex items-center justify-between">
+                <div>
+                  <span className="text-[11px] font-semibold text-slate-500 dark:text-zinc-400 block">
+                    Điểm kỷ lục cao nhất
                   </span>
-                ) : (
-                  <span>
-                    Kho luyện thi chuẩn hóa cấu trúc <strong>Đánh Giá Năng Lực ĐHQGHN</strong> với 50 câu (35 trắc nghiệm + 15 điền số) bấm giờ 75 phút thực chiến chuẩn form đề thi thật.
-                  </span>
-                )}
-              </p>
-            </div>
-          </div>
-
-          {/* Hero Action Button & Pill Features */}
-          <div className="pt-4 sm:pt-5 relative z-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 border-t border-slate-800/80 mt-5">
-            <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 text-[11px] sm:text-xs font-semibold text-slate-300">
-              <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-800/80 border border-slate-700/60">
-                <Clock className={`w-3.5 h-3.5 ${isTHPT ? 'text-rose-400' : 'text-sky-400'}`} />
-                <span>{isTHPT ? '90 Phút / Đề' : '75 Phút / Đề'}</span>
-              </div>
-              <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-800/80 border border-slate-700/60">
-                <Layers className="w-3.5 h-3.5 text-indigo-400" />
-                <span>{activeExamSets.length} Bộ Đề Thi</span>
-              </div>
-              <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-800/80 border border-slate-700/60">
-                <Award className="w-3.5 h-3.5 text-emerald-400" />
-                <span>{isTHPT ? `${practicalQuestionsCount} Câu Thực Tế` : 'Chấm tức thì'}</span>
-              </div>
-            </div>
-
-            <button
-              type="button"
-              onClick={onStartExamMode}
-              className={`px-5 py-2.5 sm:py-3 rounded-2xl font-bold text-xs sm:text-sm shadow-lg transition active:scale-98 flex items-center justify-center gap-2 cursor-pointer ${
-                isTHPT
-                  ? 'bg-rose-600 hover:bg-rose-500 text-white shadow-rose-900/40'
-                  : 'bg-blue-600 hover:bg-blue-500 text-white shadow-blue-900/40'
-              }`}
-            >
-              <span>{isTHPT ? 'Vào phòng thi 90 phút' : 'Vào phòng thi 75 phút'}</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
-          </div>
-        </div>
-
-        {/* STATS RADAR CARD (1 col) - Elevated Solid Card */}
-        <div className="rounded-3xl bg-white dark:bg-[#111319] border-2 border-slate-200 dark:border-zinc-800 p-4 sm:p-5 flex flex-col justify-between shadow-sm">
-          <div className="flex items-center justify-between pb-2.5 border-b border-slate-100 dark:border-zinc-800">
-            <div className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center">
-                <Trophy className="w-3.5 h-3.5" />
-              </div>
-              <span className="text-xs font-bold text-slate-900 dark:text-zinc-100">Chỉ Số Năng Lực</span>
-            </div>
-            <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 font-semibold">
-              {completedExamsCount} bài nộp
-            </span>
-          </div>
-
-          {/* 3 Clean Solid Stat Tiles */}
-          <div className="grid grid-cols-2 gap-2 my-2.5">
-            {/* Tile 1: Điểm cao nhất - Solid Dark Box */}
-            <div className="col-span-2 p-3.5 rounded-2xl bg-slate-900 text-white dark:bg-zinc-900 border border-slate-800 dark:border-zinc-800 flex items-center justify-between">
-              <div>
-                <span className="text-[11px] font-semibold text-slate-400 block">
-                  Điểm kỷ lục cao nhất
-                </span>
-                <div className={`text-2xl sm:text-3xl font-black font-mono tracking-tight mt-0.5 tabular-nums ${
-                  isTHPT ? 'text-rose-400' : 'text-sky-400'
-                }`}>
-                  {highestScore !== null ? `${highestScore}` : '--'}{' '}
-                  <span className="text-xs font-medium text-slate-400">/ 50</span>
+                  <div className={`text-2xl sm:text-3xl font-black font-mono tracking-tight mt-0.5 tabular-nums ${
+                    isTHPT ? 'text-rose-600 dark:text-rose-400' : 'text-sky-600 dark:text-sky-400'
+                  }`}>
+                    {highestScore !== null ? `${highestScore}` : '--'}{' '}
+                    <span className="text-xs font-medium text-slate-400">/ 50</span>
+                  </div>
+                </div>
+                <div className="w-10 h-10 rounded-xl bg-slate-200/60 dark:bg-zinc-800 border border-slate-300/80 dark:border-zinc-700 flex items-center justify-center font-bold text-xs text-slate-700 dark:text-zinc-200 font-mono">
+                  {highestScore !== null ? `${Math.round((highestScore / 50) * 100)}%` : '0%'}
                 </div>
               </div>
-              <div className={`w-10 h-10 rounded-xl flex items-center justify-center font-bold text-xs ${
-                isTHPT ? 'bg-rose-950 text-rose-300 border border-rose-800' : 'bg-blue-950 text-blue-300 border border-blue-800'
-              }`}>
-                {highestScore !== null ? `${Math.round((highestScore / 50) * 100)}%` : '0%'}
+
+              {/* Tile 2: Đề đã hoàn thành */}
+              <div className="p-3 rounded-2xl bg-slate-50 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800/80">
+                <span className="text-[10px] font-semibold text-slate-500 dark:text-zinc-400 block">
+                  Đề đã luyện
+                </span>
+                <div className="text-lg font-black text-slate-900 dark:text-zinc-100 font-mono mt-0.5 tabular-nums">
+                  {distinctExamSetsCount} <span className="text-[10px] font-normal text-slate-400">/ {activeExamSets.length}</span>
+                </div>
+              </div>
+
+              {/* Tile 3: Điểm trung bình */}
+              <div className="p-3 rounded-2xl bg-slate-50 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800/80">
+                <span className="text-[10px] font-semibold text-slate-500 dark:text-zinc-400 block">
+                  Điểm trung bình
+                </span>
+                <div className="text-lg font-black text-slate-900 dark:text-zinc-100 font-mono mt-0.5 tabular-nums">
+                  {avgScore !== null ? avgScore.toFixed(1) : '--'}{' '}
+                  <span className="text-[10px] font-normal text-slate-400">/ 50</span>
+                </div>
               </div>
             </div>
 
-            {/* Tile 2: Đề đã hoàn thành */}
-            <div className="p-3 rounded-2xl bg-slate-50 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800/80">
-              <span className="text-[10px] font-semibold text-slate-500 dark:text-zinc-400 block">
-                Đề đã luyện
+            <div className="relative z-10 pt-2 text-[11px] text-slate-500 dark:text-zinc-400 flex items-center justify-between border-t border-slate-100 dark:border-zinc-800">
+              <span className="flex items-center gap-1">
+                <Flame className="w-3.5 h-3.5 text-amber-500" />
+                <span>Tiến độ thực chiến:</span>
               </span>
-              <div className="text-lg font-black text-slate-900 dark:text-zinc-100 font-mono mt-0.5 tabular-nums">
-                {distinctExamSetsCount} <span className="text-[10px] font-normal text-slate-400">/ {activeExamSets.length}</span>
-              </div>
-            </div>
-
-            {/* Tile 3: Điểm trung bình */}
-            <div className="p-3 rounded-2xl bg-slate-50 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800/80">
-              <span className="text-[10px] font-semibold text-slate-500 dark:text-zinc-400 block">
-                Điểm trung bình
+              <span className="font-bold text-slate-800 dark:text-zinc-200 font-mono">
+                {Math.round((distinctExamSetsCount / (activeExamSets.length || 1)) * 100)}% hoàn thành
               </span>
-              <div className="text-lg font-black text-slate-900 dark:text-zinc-100 font-mono mt-0.5 tabular-nums">
-                {avgScore !== null ? avgScore.toFixed(1) : '--'}{' '}
-                <span className="text-[10px] font-normal text-slate-400">/ 50</span>
-              </div>
             </div>
-          </div>
-
-          <div className="pt-2 text-[11px] text-slate-500 dark:text-zinc-400 flex items-center justify-between border-t border-slate-100 dark:border-zinc-800">
-            <span className="flex items-center gap-1">
-              <Flame className="w-3.5 h-3.5 text-amber-500" />
-              <span>Tiến độ thực chiến:</span>
-            </span>
-            <span className="font-bold text-slate-800 dark:text-zinc-200 font-mono">
-              {Math.round((distinctExamSetsCount / (activeExamSets.length || 1)) * 100)}% hoàn thành
-            </span>
           </div>
         </div>
       </div>
@@ -361,7 +385,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
         {/* Gateway 1: Luyện 30 Chuyên Đề */}
         <div
           onClick={onPracticeMode}
-          className="group rounded-2xl bg-white dark:bg-[#111319] border-2 border-slate-200 dark:border-zinc-800 border-l-4 border-l-indigo-600 p-4 sm:p-5 shadow-sm hover:border-indigo-500 hover:shadow-md hover:-translate-y-0.5 transition-all cursor-pointer flex flex-col justify-between"
+          className="group rounded-2xl bg-white dark:bg-[#121217] border border-slate-200/90 dark:border-zinc-800 p-4 sm:p-5 shadow-xs hover:border-indigo-400/80 hover:shadow-md hover:-translate-y-0.5 transition-all cursor-pointer flex flex-col justify-between"
         >
           <div className="space-y-2.5">
             <div className="flex items-center justify-between">
@@ -393,7 +417,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
         {/* Gateway 2: Ngân Hàng Câu Hỏi */}
         <div
           onClick={onQuestionBankMode}
-          className="group rounded-2xl bg-white dark:bg-[#111319] border-2 border-slate-200 dark:border-zinc-800 border-l-4 border-l-emerald-600 p-4 sm:p-5 shadow-sm hover:border-emerald-500 hover:shadow-md hover:-translate-y-0.5 transition-all cursor-pointer flex flex-col justify-between"
+          className="group rounded-2xl bg-white dark:bg-[#121217] border border-slate-200/90 dark:border-zinc-800 p-4 sm:p-5 shadow-xs hover:border-emerald-400/80 hover:shadow-md hover:-translate-y-0.5 transition-all cursor-pointer flex flex-col justify-between"
         >
           <div className="space-y-2.5">
             <div className="flex items-center justify-between">
